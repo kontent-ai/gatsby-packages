@@ -1,2 +1,2 @@
-# gatsby-source-plugin-kentico-cloud
+# gatsby-source-kentico-cloud
 A source plugin for Gatsby
