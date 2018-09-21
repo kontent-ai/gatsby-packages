@@ -1,0 +1,6 @@
+# Project dependencies
+node_modules
+
+# Output files
+/gatsby-node.js
+/normalize.js

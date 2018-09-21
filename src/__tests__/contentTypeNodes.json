@@ -1,0 +1,44 @@
+[
+    {
+        "system": {
+            "id": "9ea98d20-a477-455c-b30f-0e3b9d055795",
+            "name": "Project reference",
+            "codename": "project_reference",
+            "last_modified": "2018-05-30T12:39:13.115595Z"
+        },
+        "elements": {
+            "url": {
+                "type": "text",
+                "name": "URL"
+            },
+            "name___teaser_image__teaser_image": {
+                "type": "asset",
+                "name": "Teaser image"
+            },
+            "started_at": {
+                "type": "date_time",
+                "name": "Started at"
+            },
+            "name___teaser_image__name": {
+                "type": "text",
+                "name": "Name"
+            },
+            "finished_at": {
+                "type": "date_time",
+                "name": "Finished at"
+            },
+            "url_slug": {
+                "type": "url_slug",
+                "name": "URL slug"
+            }
+        },
+        "internal": {
+            "content": "{\"system\":{\"id\":\"9ea98d20-a477-455c-b30f-0e3b9d055795\",\"name\":\"Project reference\",\"codename\":\"project_reference\",\"last_modified\":\"2018-05-30T12:39:13.115595Z\"},\"elements\":{\"url\":{\"type\":\"text\",\"name\":\"URL\"},\"name___teaser_image__teaser_image\":{\"type\":\"asset\",\"name\":\"Teaser image\"},\"started_at\":{\"type\":\"date_time\",\"name\":\"Started at\"},\"name___teaser_image__name\":{\"type\":\"text\",\"name\":\"Name\"},\"finished_at\":{\"type\":\"date_time\",\"name\":\"Finished at\"},\"url_slug\":{\"type\":\"url_slug\",\"name\":\"URL slug\"}}}",
+            "contentDigest": "b9f5d773962088bb97a6cde3e4f803ce",
+            "type": "KenticoCloudType"
+        },
+        "children": [],
+        "id": "aea6da0c-4130-593c-8b6e-006e6bace1de",
+        "parent": null
+    }
+]

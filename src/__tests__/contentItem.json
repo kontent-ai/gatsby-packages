@@ -1,0 +1,51 @@
+{
+    "system": {
+        "id": "7e70cb89-9281-4db9-8130-36076ee1e698",
+        "name": "Project reference 1",
+        "codename": "project_reference_1",
+        "language": "default",
+        "type": "project_reference",
+        "sitemap_locations": [],
+        "last_modified": "2018-05-29T13:40:17.3224207Z"
+    },
+    "elements": {
+        "name___teaser_image__name": {
+            "type": "text",
+            "name": "Name",
+            "value": "Project reference 1"
+        },
+        "name___teaser_image__teaser_image": {
+            "type": "asset",
+            "name": "Teaser image",
+            "value": [
+                {
+                    "name": "freeimage-6729104-web.jpg",
+                    "type": "image/jpeg",
+                    "size": 360791,
+                    "description": null,
+                    "url": "https://assets.kenticocloud.com:443/5ac93d1e-567d-01e6-e3b7-ac435f77b907/3c08c558-53fd-4b45-a9e5-a6822c4ebf00/freeimage-6729104-web.jpg"
+                }
+            ]
+        },
+        "url": {
+            "type": "text",
+            "name": "URL",
+            "value": "https://example.com"
+        },
+        "started_at": {
+            "type": "date_time",
+            "name": "Started at",
+            "value": null
+        },
+        "finished_at": {
+            "type": "date_time",
+            "name": "Finished at",
+            "value": null
+        },
+        "url_slug": {
+            "type": "url_slug",
+            "name": "URL slug",
+            "value": "project-reference-1"
+        }
+    }
+}
