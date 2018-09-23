@@ -1,5 +1,5 @@
 {
-  "name": "gatsby-source-plugin-kentico-cloud",
+  "name": "gatsby-source-kentico-cloud",
   "description": "Gatsby source plugin for Kentico Cloud",
   "version": "1.0.0",
   "author": "Jan Lenoch <janl@kentico.com>",
@@ -17,12 +17,14 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "babel src --out-dir . --ignore **/__tests__",
-    "develop": "gatsby develop",
     "test": "jest"
   },
   "devDependencies": {
-    "jest": "^23.6.0"
+    "@babel/core": "^7.1.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^23.6.0",
+    "jest": "^23.6.0",
+    "regenerator-runtime": "^0.12.1"
   },
   "repository": {
     "type": "git",

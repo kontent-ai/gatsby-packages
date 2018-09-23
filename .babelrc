@@ -1,15 +1,3 @@
 {
-  "presets": [
-    [
-      "@babel/preset-env",
-      {
-        "useBuiltIns": "entry",
-        "shippedProposals": true,
-        "modules": "commonjs",
-        "targets": {
-          "node": 4
-        }
-      }
-    ]
-  ]
+  "presets": ["env"]
 }
