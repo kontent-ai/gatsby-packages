@@ -110,7 +110,7 @@ exports.decorateItemNodesWithRichTextModularLinks = (itemNode, allNodesOfSameLan
     })
 }
 
-createKcArtifactNode = (nodeId, kcArtifact, artifactKind, typeName = ``, additionalNodeData = null) => {
+const createKcArtifactNode = (nodeId, kcArtifact, artifactKind, typeName = ``, additionalNodeData = null) => {
   const nodeContent = JSON.stringify(kcArtifact)
 
   const nodeContentDigest = crypto
@@ -136,7 +136,7 @@ createKcArtifactNode = (nodeId, kcArtifact, artifactKind, typeName = ``, additio
   }
 }
 
-addModularItemLinks = (itemNode, linkedNodes, linkPropertyName) => {
+const addModularItemLinks = (itemNode, linkedNodes, linkPropertyName) => {
   linkedNodes
     .forEach(linkedNode => {
       if (!linkedNode.usedByContentItems___NODE.includes(itemNode.id)) {
