@@ -1,3 +1,6 @@
 {
-    "extends": [ "plugin:node/recommended", "google" ]
+    "extends": [ "plugin:node/recommended", "google" ],
+    "rules": {
+        "linebreak-style": 0
+    }
 }
