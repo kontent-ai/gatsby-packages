@@ -1,3 +1,4 @@
+
 const normalize = require('../normalize');
 const contentType = require('./contentType.json');
 const contentTypeNodes = require('./contentTypeNodes.json');

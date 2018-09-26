@@ -1,7 +1,17 @@
+const _isEmpty = require(`lodash.isempty`);
+const _get = require(`lodash.get`);
 const crypto = require(`crypto`);
 const changeCase = require(`change-case`);
 
-exports.createContentTypeNode = (createNodeId, contentType) => {
+/**
+ * Creates a Gatsby object out of a Kentico Cloud content type object.
+ * @param {function} createNodeId - Gatsby function to create a node ID.
+ * @param {object} contentType - Kentico Cloud content type object.
+ * @return {object} Gatsby content type node.
+ */
+const createContentTypeNode = (createNodeId, contentType) => {
+  console.info(`The 'normalize.createContentTypeNode' method starts.
+contentType.system.codename: ${contentType.system.codename}`);
   const codenameParamCase = changeCase.paramCase(contentType.system.codename);
   const nodeId = createNodeId(`kentico-cloud-type-${codenameParamCase}`);
 
@@ -9,13 +19,24 @@ exports.createContentTypeNode = (createNodeId, contentType) => {
     contentItems___NODE: [],
   };
 
+  console.info(`The 'normalize.createContentTypeNode' method exits.`);
+
   return createKcArtifactNode(
       nodeId, contentType, `type`, contentType.system.codename, nodeData
   );
 };
 
-exports.createContentItemNode =
+/**
+ * Creates a Gatsby object out of a Kentico Cloud content item object.
+ * @param {function} createNodeId - Gatsby function to create a node ID.
+ * @param {object} contentItem - Kentico Cloud content item object.
+ * @param {array} contentTypeNodes - All Gatsby content type nodes.
+ * @return {object} Gatsby content item node.
+ */
+const createContentItemNode =
   (createNodeId, contentItem, contentTypeNodes) => {
+    console.info(`The 'normalize.createContentItemNode' method starts.
+contentItem.system.codename: ${contentItem.system.codename}`);
     const codenameParamCase = changeCase.paramCase(contentItem.system.codename);
     const languageParamCase = changeCase.paramCase(contentItem.system.language);
 
@@ -32,29 +53,54 @@ exports.createContentItemNode =
       contentType___NODE: parentContentTypeNode.id,
     };
 
+    console.info(`The 'normalize.createContentItemNode' method exits.`);
     return createKcArtifactNode(
         nodeId, contentItem, `item`, contentItem.system.type, nodeData
     );
   };
 
-exports.decorateTypeNodesWithItemLinks =
+/**
+ * Adds links between a content type node and item nodes of that content type.
+ * @param {array} contentItemNodes - Gatsby content item nodes.
+ * @param {array} contentTypeNodes - Gatsby content type nodes.
+ */
+const decorateTypeNodesWithItemLinks =
   (contentItemNodes, contentTypeNodes) => {
+    console.info(
+        `The 'normalize.decorateTypeNodesWithItemLinks' method starts.`
+    );
+
     contentTypeNodes.forEach((contentTypeNode) => {
       const itemNodesPerType = contentItemNodes.filter((contentItemNode) => {
         contentItemNode.system.type === contentTypeNode.system.codename;
       });
 
-      if (itemNodesPerType && Array.isArray(itemNodesPerType)
-        && itemNodesPerType.length > 0) {
+      if (!_isEmpty.isEmpty(itemNodesPerType)) {
         let flatList =
           itemNodesPerType.map((itemNodePerType) => itemNodePerType.id);
         contentTypeNode.contentItems___NODE.push(...flatList);
       }
     });
+
+    console.info(
+        `The 'normalize.decorateTypeNodesWithItemLinks' method exits.`
+    );
   };
 
-exports.decorateItemNodeWithLanguageVariantLink =
+/**
+ * Adds links between a Gatsby content item node and its
+ *    language variant nodes (translations).
+ * @param {object} itemNode - Gatsby content item node.
+ * @param {array} allNodesOfAnotherLanguage - The whole set of Gatsby item nodes
+ *    of another language.
+ */
+const decorateItemNodeWithLanguageVariantLink =
   (itemNode, allNodesOfAnotherLanguage) => {
+    console.info(
+        `The 'normalize.decorateItemNodeWithLanguageVariantLink' method starts.
+itemNode.id: ${itemNode.id}`
+    );
+
     const languageVariantNode = allNodesOfAnotherLanguage.find(
         (nodeOfSpecificLanguage) => {
           itemNode.system.codename === nodeOfSpecificLanguage.system.codename;
@@ -65,14 +111,29 @@ exports.decorateItemNodeWithLanguageVariantLink =
           (otherLanguageId) => otherLanguageId === languageVariantNode.id
       );
 
-    if (otherLanguageLink === undefined) {
+    if (!otherLanguageLink) {
       itemNode.otherLanguages___NODE.push(languageVariantNode.id);
     }
+
+    console.info(
+        `The 'normalize.decorateItemNodeWithLanguageVariantLink' method exits.`
+    );
   };
 
-exports.refillRichTextModularCodenames = (sdkItems, debugItems) => {
-  if (sdkItems && debugItems && Array.isArray(sdkItems)
-    && Array.isArray(debugItems)) {
+/**
+ * Adds back codenames of modular content items
+ *    that have been stripped off by the Kentico Cloud Delivery JS SDK.
+ * @param {array} sdkItems - Content items returned (transformed)
+ *    by the Kentico Cloud Delivery JS SDK.
+ * @param {array} debugItems - Raw response provided by the 'debug' property
+ *    of the SDK's response.
+ */
+const refillRichTextModularCodenames = (sdkItems, debugItems) => {
+  console.info(
+      `The 'normalize.refillRichTextModularCodenames' method starts.`
+  );
+
+  if (!_isEmpty.isEmpty(sdkItems) && !_isEmpty.isEmpty(debugItems)) {
     sdkItems
         .forEach((sdkItem) => {
           const counterpart = debugItems.find((debugItem) => {
@@ -80,76 +141,119 @@ exports.refillRichTextModularCodenames = (sdkItems, debugItems) => {
               && sdkItem.system.codename === debugItem.system.codename;
           });
 
-          Object
-              .keys(sdkItem)
-              .forEach((propertyName) => {
-                const property = sdkItem[propertyName];
+          for (let propertyName of sdkItem) {
+            const property = _get.get(sdkItem[propertyName]);
 
-                if (property && property.type
-                    && property.type === `rich_text`) {
-                  property[`modular_content`] =
-                    counterpart.elements[propertyName].modular_content;
-                }
-              });
+            if (_get.get(property, 'type') === `rich_text`) {
+              property[`modular_content`] =
+                counterpart.elements[propertyName].modular_content;
+            }
+          }
+
+          // Object
+          //     .keys(sdkItem)
+          //     .forEach((propertyName) => {
+          //     });
         });
   }
+
+  console.info(
+      `The 'normalize.refillRichTextModularCodenames' method exits.`
+  );
 };
 
-exports.decorateItemNodesWithModularElementLinks =
+/**
+ * Adds links to modular content items (stored in modular content elements)
+ *    via a sibling '_nodes' property.
+ * @param {object} itemNode - Gatsby content item node.
+ * @param {array} allNodesOfSameLanguage - The whole set of nodes
+ *    of that same language.
+ */
+const decorateItemNodeWithModularElementLinks =
   (itemNode, allNodesOfSameLanguage) => {
-    Object
-        .keys(itemNode)
-        .forEach((propertyName) => {
-          const property = itemNode[propertyName];
+    console.info(
+        `The 'normalize.decorateItemNodeWithModularElementLinks' method starts.`
+    );
 
-          if (Array.isArray(property) && property.length > 0
-            && property[0].system !== undefined) {
-            const linkPropertyName = `${propertyName}_nodes___NODE`;
+    for (let propertyName of itemNode) {
+      const property = itemNode[propertyName];
 
-            const linkedNodes = allNodesOfSameLanguage
-                .filter((node) => {
-                  const match = property.find((propertyNode) => {
-                    propertyNode.system.type === node.system.type
-                      && propertyNode.system.codename === node.system.codename;
-                  });
+      if (!_isEmpty.isEmpty(property) && property[0].system !== undefined) {
+        const linkPropertyName = `${propertyName}_nodes___NODE`;
 
-                  return match !== undefined && match !== null;
-                });
+        const linkedNodes = allNodesOfSameLanguage
+            .filter((node) => {
+              const match = property.find((propertyNode) => {
+                propertyNode.system.type === node.system.type
+                  && propertyNode.system.codename === node.system.codename;
+              });
 
-            addModularItemLinks(itemNode, linkedNodes, linkPropertyName);
-          }
-        });
+              return match !== undefined && match !== null;
+            });
+
+        addModularItemLinks(itemNode, linkedNodes, linkPropertyName);
+      }
+    }
+
+    // Object
+    //     .keys(itemNode)
+    //     .forEach((propertyName) => {
+    //     });
+
+    console.info(
+        `The 'normalize.decorateItemNodeWithModularElementLinks' method exits.`
+    );
   };
 
-exports.decorateItemNodesWithRichTextModularLinks =
+/**
+ * Adds links to modular content items (stored in rich text elements)
+ *    via a sibling '_nodes' property.
+ * @param {object} itemNode - Gatsby content item node.
+ * @param {array} allNodesOfSameLanguage - The whole set of nodes
+ *    of that same language.
+ */
+const decorateItemNodeWithRichTextModularLinks =
   (itemNode, allNodesOfSameLanguage) => {
-    Object
-        .keys(itemNode)
-        .forEach((propertyName) => {
-          const property = itemNode[propertyName];
+    console.info(
+        `The 'normalize.decorateItemNodeWithRichTextModularLinks' 
+method starts.`
+    );
 
-          if (property !== undefined
-            && property !== null
-            && property.type !== undefined
-            && property.type === `rich_text` ) {
-            const linkPropertyName = `${propertyName}_nodes___NODE`;
+    for (let propertyName of itemNode) {
+      const property = itemNode[propertyName];
 
-            const linkedNodes = allNodesOfSameLanguage
-                .filter((node) => {
-                  const match =
-                    property.modular_content.includes(node.system.codename);
+      if (_get.get(property, 'type') === `rich_text` ) {
+        const linkPropertyName = `${propertyName}_nodes___NODE`;
 
-                  return match !== undefined && match === true;
-                });
+        const linkedNodes = allNodesOfSameLanguage
+            .filter((node) => {
+              const match =
+                property.modular_content.includes(node.system.codename);
 
-            addModularItemLinks(itemNode, linkedNodes, linkPropertyName);
-          }
-        });
+              return match !== undefined && match === true;
+            });
+
+        addModularItemLinks(itemNode, linkedNodes, linkPropertyName);
+      }
+    }
+
+    // Object
+    //     .keys(itemNode)
+    //     .forEach((propertyName) => {
+    //     });
+
+    console.info(
+        `The 'normalize.decorateItemNodeWithRichTextModularLinks' method exits.`
+    );
   };
 
 const createKcArtifactNode =
   (nodeId, kcArtifact, artifactKind, typeName = ``,
       additionalNodeData = null) => {
+    console.info(
+        `The 'normalize.createKcArtifactNode' method starts.`
+    );
+
     const nodeContent = JSON.stringify(kcArtifact);
 
     const nodeContentDigest = crypto
@@ -159,6 +263,10 @@ const createKcArtifactNode =
 
     const codenamePascalCase = changeCase.pascalCase(typeName);
     const artifactKindPascalCase = changeCase.pascalCase(artifactKind);
+
+    console.info(
+        `The 'normalize.createKcArtifactNode' method exits.`
+    );
 
     return {
       ...kcArtifact,
@@ -176,6 +284,10 @@ const createKcArtifactNode =
   };
 
 const addModularItemLinks = (itemNode, linkedNodes, linkPropertyName) => {
+  console.info(
+      `The 'normalize.addModularItemLinks' method starts.`
+  );
+
   linkedNodes
       .forEach((linkedNode) => {
         if (!linkedNode.usedByContentItems___NODE.includes(itemNode.id)) {
@@ -185,7 +297,7 @@ const addModularItemLinks = (itemNode, linkedNodes, linkPropertyName) => {
 
   const idsOfLinkedNodes = linkedNodes.map((node) => node.id);
 
-  if (itemNode[linkPropertyName] === undefined) {
+  if (itemNode[linkPropertyName]) {
     itemNode[linkPropertyName] = idsOfLinkedNodes;
   } else {
     idsOfLinkedNodes.forEach((id) => {
@@ -194,4 +306,22 @@ const addModularItemLinks = (itemNode, linkedNodes, linkPropertyName) => {
       }
     });
   }
+
+  console.info(
+      `The 'normalize.addModularItemLinks' method exits.`
+  );
 };
+
+exports.createContentTypeNode = createContentTypeNode;
+exports.createContentItemNode = createContentItemNode;
+exports.decorateTypeNodesWithItemLinks = decorateTypeNodesWithItemLinks;
+
+exports.decorateItemNodeWithLanguageVariantLink
+    = decorateItemNodeWithLanguageVariantLink;
+
+exports.refillRichTextModularCodenames = refillRichTextModularCodenames;
+exports.decorateItemNodeWithModularElementLinks
+    = decorateItemNodeWithModularElementLinks;
+
+exports.decorateItemNodeWithRichTextModularLinks
+    = decorateItemNodeWithRichTextModularLinks;

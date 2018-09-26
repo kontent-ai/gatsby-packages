@@ -1,9 +1,12 @@
+const _has = require(`lodash.has`);
+const _isString = require(`lodash.isstring`);
 const deliveryClient = require(`kentico-cloud-delivery`);
 const normalize = require(`./normalize`);
 
 exports.sourceNodes =
   async ({actions, createNodeId}, {kcProjectId, kcLanguageCodenames}) => {
-    console.info(`The 'sourceNodes' API call started.`);
+    console.info(`The 'sourceNodes' API implementation starts.
+kcProjectId: ${kcProjectId}, kcLanguageCodenames: ${kcLanguageCodenames}.`);
     const {createNode} = actions;
 
     const client = new deliveryClient.DeliveryClient({
@@ -25,9 +28,8 @@ exports.sourceNodes =
 
     let defaultLanguageCodename = `default`;
 
-    if (contentItemsResponse.items &&
-      Array.isArray(contentItemsResponse) &&
-      contentItemsResponse.items.length > 0) {
+    if (_has.has(contentItemsResponse, `items[0].system.language`)
+        && _isString.isString(contentItemsResponse.items[0].system.language)) {
       defaultLanguageCodename = contentItemsResponse.items[0].system.language;
     }
 
@@ -61,7 +63,7 @@ exports.sourceNodes =
         const languageVariantItem = languageItems.find((variant) =>
           contentItemNode.system.codename === variant.system.codename);
 
-        if (languageVariantItem !== undefined && languageVariantItem !== null) {
+        if (_isString.isString(languageVariantItem.system.language)) {
           languageCodename = languageVariantItem.system.language;
 
           const languageVariantNode =
@@ -77,7 +79,7 @@ exports.sourceNodes =
         }
       });
 
-      if (languageCodename !== null) {
+      if (_isString.isString(languageCodename)) {
         nonDefaultLanguageItemNodes.set(
             languageCodename, allNodesOfCurrentLanguage
         );
@@ -107,37 +109,37 @@ exports.sourceNodes =
         }
       }
 
-      normalize.decorateTypeNodesWithItemLinks(
+      normalize.decorateTypeNodeWithItemLinks(
           currentLanguageNodes, contentTypeNodes
       );
     }
 
-    normalize.decorateTypeNodesWithItemLinks(
+    normalize.decorateTypeNodeWithItemLinks(
         contentItemNodes, contentTypeNodes
     );
 
     contentItemNodes.forEach((itemNode) => {
-      normalize.decorateItemNodesWithModularElementLinks(
+      normalize.decorateItemNodeWithModularElementLinks(
           itemNode, contentItemNodes
       );
     });
 
     nonDefaultLanguageItemNodes.forEach((languageNodes) => {
       languageNodes.forEach((itemNode) => {
-        normalize.decorateItemNodesWithModularElementLinks(
+        normalize.decorateItemNodeWithModularElementLinks(
             itemNode, languageNodes
         );
       });
     });
 
     contentItemNodes.forEach((itemNode) => {
-      normalize.decorateItemNodesWithRichTextModularLinks(
+      normalize.decorateItemNodeWithRichTextModularLinks(
           itemNode, contentItemNodes);
     });
 
     nonDefaultLanguageItemNodes.forEach((languageNodes) => {
       languageNodes.forEach((itemNode) => {
-        normalize.decorateItemNodesWithRichTextModularLinks(
+        normalize.decorateItemNodeWithRichTextModularLinks(
             itemNode, languageNodes
         );
       });
@@ -145,32 +147,56 @@ exports.sourceNodes =
 
     try {
       contentTypeNodes.forEach(
-          (contentTypeNode) => createNode(contentTypeNode)
+          (contentTypeNode) => {
+            console.info(
+                `The 'createNode' API is called.
+contentTypeNode.id: ${contentTypeNode.id}`
+            );
+
+            createNode(contentTypeNode);
+          }
       );
     } catch (error) {
-      console.log(`Error when creating content type nodes. Details: ${error}`);
+      console.error(
+          `Error when creating content type nodes. Details: ${error}`
+      );
     }
 
+    console.info(`The 'createNode' API is called for content item nodes.`);
     try {
       contentItemNodes.forEach(
-          (contentItemNode) => createNode(contentItemNode)
+          (contentItemNode) => {
+            console.info(
+                `The 'createNode' API is called.
+contentItemNode.id: ${contentItemNode.id}`
+            );
+
+            createNode(contentItemNode);
+          }
       );
     } catch (error) {
-      console.log(`Error when creating content item nodes. Details: ${error}`);
+      console.error(
+          `Error when creating content item nodes. Details: ${error}`
+      );
     }
 
     nonDefaultLanguageItemNodes.forEach((languageNodes) => {
-      languageNodes.forEach((itemNode) => {
+      languageNodes.forEach((languageVariantNode) => {
         try {
-          createNode(itemNode);
+          createNode(languageVariantNode);
+
+          console.info(
+              `The 'createNode' API is called.
+languageVariantNode.id: ${languageVariantNode.id}`
+          );
         } catch (error) {
-          console.log(
+          console.error(
               `Error when creating language variant nodes. Details: ${error}`
           );
         }
       });
     });
 
-    console.info(`The 'sourceNodes' API call finished.`);
+    console.info(`The 'sourceNodes' API implementation exits.`);
     return;
   };
