@@ -9,7 +9,12 @@
         "request": "launch",
         "name": "Jest All",
         "program": "${workspaceFolder}/node_modules/.bin/jest",
-        "args": ["--runInBand"],
+        "args": [
+          "test",
+          "--runInBand",
+          "--no-cache"
+        ],
+        "sourceMaps": false,
         "console": "integratedTerminal",
         "internalConsoleOptions": "neverOpen",
         "windows": {

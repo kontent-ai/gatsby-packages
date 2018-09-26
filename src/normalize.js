@@ -18,14 +18,14 @@ exports.createContentItemNode =
   (createNodeId, contentItem, contentTypeNodes) => {
     const codenameParamCase = changeCase.paramCase(contentItem.system.codename);
     const languageParamCase = changeCase.paramCase(contentItem.system.language);
+
     const nodeId = createNodeId(
         `kentico-cloud-item-${codenameParamCase}-${languageParamCase}`
     );
 
     const parentContentTypeNode = contentTypeNodes.find(
-        (contentType) => {
-          contentType.system.codename === contentItem.system.type;
-        });
+        (contentType) => contentType.system.codename
+            === contentItem.system.type);
 
     const nodeData = {
       otherLanguages___NODE: [],
