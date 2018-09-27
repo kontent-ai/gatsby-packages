@@ -1,5 +1,5 @@
-const _has = require(`lodash.has`);
-const _isString = require(`lodash.isstring`);
+require(`babel-polyfill`);
+const _ = require(`lodash`);
 const deliveryClient = require(`kentico-cloud-delivery`);
 const normalize = require(`./normalize`);
 
@@ -28,8 +28,8 @@ kcProjectId: ${kcProjectId}, kcLanguageCodenames: ${kcLanguageCodenames}.`);
 
     let defaultLanguageCodename = `default`;
 
-    if (_has.has(contentItemsResponse, `items[0].system.language`)
-        && _isString.isString(contentItemsResponse.items[0].system.language)) {
+    if (_.has(contentItemsResponse, `items[0].system.language`)
+        && _.isString(contentItemsResponse.items[0].system.language)) {
       defaultLanguageCodename = contentItemsResponse.items[0].system.language;
     }
 
@@ -63,7 +63,7 @@ kcProjectId: ${kcProjectId}, kcLanguageCodenames: ${kcLanguageCodenames}.`);
         const languageVariantItem = languageItems.find((variant) =>
           contentItemNode.system.codename === variant.system.codename);
 
-        if (_isString.isString(languageVariantItem.system.language)) {
+        if (_.isString(languageVariantItem.system.language)) {
           languageCodename = languageVariantItem.system.language;
 
           const languageVariantNode =
@@ -79,7 +79,7 @@ kcProjectId: ${kcProjectId}, kcLanguageCodenames: ${kcLanguageCodenames}.`);
         }
       });
 
-      if (_isString.isString(languageCodename)) {
+      if (_.isString(languageCodename)) {
         nonDefaultLanguageItemNodes.set(
             languageCodename, allNodesOfCurrentLanguage
         );

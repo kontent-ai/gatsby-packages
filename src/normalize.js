@@ -1,5 +1,4 @@
-const _isEmpty = require(`lodash.isempty`);
-const _get = require(`lodash.get`);
+const _ = require(`lodash`);
 const crypto = require(`crypto`);
 const changeCase = require(`change-case`);
 
@@ -75,7 +74,7 @@ const decorateTypeNodesWithItemLinks =
         contentItemNode.system.type === contentTypeNode.system.codename;
       });
 
-      if (!_isEmpty.isEmpty(itemNodesPerType)) {
+      if (!_.isEmpty(itemNodesPerType)) {
         let flatList =
           itemNodesPerType.map((itemNodePerType) => itemNodePerType.id);
         contentTypeNode.contentItems___NODE.push(...flatList);
@@ -133,7 +132,7 @@ const refillRichTextModularCodenames = (sdkItems, debugItems) => {
       `The 'normalize.refillRichTextModularCodenames' method starts.`
   );
 
-  if (!_isEmpty.isEmpty(sdkItems) && !_isEmpty.isEmpty(debugItems)) {
+  if (!_.isEmpty(sdkItems) && !_.isEmpty(debugItems)) {
     sdkItems
         .forEach((sdkItem) => {
           const counterpart = debugItems.find((debugItem) => {
@@ -142,9 +141,9 @@ const refillRichTextModularCodenames = (sdkItems, debugItems) => {
           });
 
           for (let propertyName of sdkItem) {
-            const property = _get.get(sdkItem[propertyName]);
+            const property = _.get(sdkItem[propertyName]);
 
-            if (_get.get(property, 'type') === `rich_text`) {
+            if (_.get(property, 'type') === `rich_text`) {
               property[`modular_content`] =
                 counterpart.elements[propertyName].modular_content;
             }
@@ -178,7 +177,7 @@ const decorateItemNodeWithModularElementLinks =
     for (let propertyName of itemNode) {
       const property = itemNode[propertyName];
 
-      if (!_isEmpty.isEmpty(property) && property[0].system !== undefined) {
+      if (!_.isEmpty(property) && property[0].system !== undefined) {
         const linkPropertyName = `${propertyName}_nodes___NODE`;
 
         const linkedNodes = allNodesOfSameLanguage
@@ -222,7 +221,7 @@ method starts.`
     for (let propertyName of itemNode) {
       const property = itemNode[propertyName];
 
-      if (_get.get(property, 'type') === `rich_text` ) {
+      if (_.get(property, 'type') === `rich_text` ) {
         const linkPropertyName = `${propertyName}_nodes___NODE`;
 
         const linkedNodes = allNodesOfSameLanguage

@@ -29,11 +29,15 @@
   },
   "dependencies": {
     "change-case": "^3.0.2",
+    "gatsby": "^2.0.11",
     "kentico-cloud-delivery": "^4.3.0",
     "lodash.get": "^4.4.2",
     "lodash.has": "^4.5.2",
     "lodash.isempty": "^4.4.0",
-    "lodash.isstring": "^4.0.1"
+    "lodash.isstring": "^4.0.1",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "rxjs": "^6.3.3"
   },
   "peerDependencies": {
     "gatsby": ">=2"
@@ -41,6 +45,7 @@
   "devDependencies": {
     "@babel/cli": "^7.1.0",
     "@babel/core": "^7.1.0",
+    "@babel/polyfill": "^7.0.0",
     "@babel/preset-env": "^7.1.0",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^9.0.0",
