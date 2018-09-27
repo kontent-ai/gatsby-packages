@@ -140,19 +140,19 @@ const refillRichTextModularCodenames = (sdkItems, debugItems) => {
               && sdkItem.system.codename === debugItem.system.codename;
           });
 
-          for (let propertyName of sdkItem) {
-            const property = _.get(sdkItem[propertyName]);
+          // for (let propertyName of sdkItem) {
+          // }
 
-            if (_.get(property, 'type') === `rich_text`) {
-              property[`modular_content`] =
-                counterpart.elements[propertyName].modular_content;
-            }
-          }
+          Object
+              .keys(sdkItem)
+              .forEach((propertyName) => {
+                const property = _.get(sdkItem[propertyName]);
 
-          // Object
-          //     .keys(sdkItem)
-          //     .forEach((propertyName) => {
-          //     });
+                if (_.get(property, 'type') === `rich_text`) {
+                  property[`modular_content`] =
+                    counterpart.elements[propertyName].modular_content;
+                }
+              });
         });
   }
 
@@ -174,30 +174,30 @@ const decorateItemNodeWithModularElementLinks =
         `The 'normalize.decorateItemNodeWithModularElementLinks' method starts.`
     );
 
-    for (let propertyName of itemNode) {
-      const property = itemNode[propertyName];
+    // for (let propertyName of itemNode) {
+    // }
 
-      if (!_.isEmpty(property) && property[0].system !== undefined) {
-        const linkPropertyName = `${propertyName}_nodes___NODE`;
+    Object
+        .keys(itemNode)
+        .forEach((propertyName) => {
+          const property = itemNode[propertyName];
 
-        const linkedNodes = allNodesOfSameLanguage
-            .filter((node) => {
-              const match = property.find((propertyNode) => {
-                propertyNode.system.type === node.system.type
-                  && propertyNode.system.codename === node.system.codename;
-              });
+          if (!_.isEmpty(property) && property[0].system !== undefined) {
+            const linkPropertyName = `${propertyName}_nodes___NODE`;
 
-              return match !== undefined && match !== null;
-            });
+            const linkedNodes = allNodesOfSameLanguage
+                .filter((node) => {
+                  const match = property.find((propertyNode) => {
+                    propertyNode.system.type === node.system.type
+                      && propertyNode.system.codename === node.system.codename;
+                  });
 
-        addModularItemLinks(itemNode, linkedNodes, linkPropertyName);
-      }
-    }
+                  return match !== undefined && match !== null;
+                });
 
-    // Object
-    //     .keys(itemNode)
-    //     .forEach((propertyName) => {
-    //     });
+            addModularItemLinks(itemNode, linkedNodes, linkPropertyName);
+          }
+        });
 
     console.info(
         `The 'normalize.decorateItemNodeWithModularElementLinks' method exits.`
@@ -218,28 +218,28 @@ const decorateItemNodeWithRichTextModularLinks =
 method starts.`
     );
 
-    for (let propertyName of itemNode) {
-      const property = itemNode[propertyName];
+    // for (let propertyName of itemNode) {
+    // }
 
-      if (_.get(property, 'type') === `rich_text` ) {
-        const linkPropertyName = `${propertyName}_nodes___NODE`;
+    Object
+        .keys(itemNode)
+        .forEach((propertyName) => {
+          const property = itemNode[propertyName];
 
-        const linkedNodes = allNodesOfSameLanguage
-            .filter((node) => {
-              const match =
-                property.modular_content.includes(node.system.codename);
+          if (_.get(property, 'type') === `rich_text` ) {
+            const linkPropertyName = `${propertyName}_nodes___NODE`;
 
-              return match !== undefined && match === true;
-            });
+            const linkedNodes = allNodesOfSameLanguage
+                .filter((node) => {
+                  const match =
+                    property.modular_content.includes(node.system.codename);
 
-        addModularItemLinks(itemNode, linkedNodes, linkPropertyName);
-      }
-    }
+                  return match !== undefined && match === true;
+                });
 
-    // Object
-    //     .keys(itemNode)
-    //     .forEach((propertyName) => {
-    //     });
+            addModularItemLinks(itemNode, linkedNodes, linkPropertyName);
+          }
+        });
 
     console.info(
         `The 'normalize.decorateItemNodeWithRichTextModularLinks' method exits.`
