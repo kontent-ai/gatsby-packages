@@ -22,7 +22,7 @@
     "test": "jest",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
-    "build": "babel src --out-dir public --ignore **/__tests__"
+    "build": "babel src --out-dir ./ --ignore **/__tests__"
   },
   "dependencies": {
     "change-case": "^3.0.2",
