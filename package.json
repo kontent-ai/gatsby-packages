@@ -1,8 +1,29 @@
 {
   "name": "gatsby-source-kentico-cloud",
   "description": "Gatsby source plugin for Kentico Cloud",
-  "version": "1.0.0",
+  "version": "1.0.0-beta",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Kentico/gatsby-source-kentico-cloud"
+  },
   "author": "Jan Lenoch <janl@kentico.com>",
+  "private": false,
+  "license": "MIT",
+  "keywords": [
+    "gatsby",
+    "kentico-cloud",
+    "gatsby-source-plugin"
+  ],
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "main": "./gatsby-node.js",
+  "scripts": {
+    "test": "jest",
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix",
+    "build": "babel src --out-dir public --ignore **/__tests__"
+  },
   "dependencies": {
     "change-case": "^3.0.2",
     "kentico-cloud-delivery": "^4.3.0",
@@ -13,18 +34,6 @@
   },
   "peerDependencies": {
     "gatsby": ">=2"
-  },
-  "keywords": [
-    "gatsby",
-    "kentico-cloud",
-    "gatsby-source-plugin"
-  ],
-  "license": "MIT",
-  "scripts": {
-    "test": "jest",
-    "lint": "eslint src",
-    "lint:fix": "eslint src --fix",
-    "build": "babel src --out-dir public --ignore **/__tests__"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.0",
@@ -39,14 +48,7 @@
     "jest": "^23.6.0",
     "regenerator-runtime": "^0.12.1"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Kentico/gatsby-source-kentico-cloud"
-  },
   "jest": {
     "testEnvironment": "node"
-  },
-  "engines": {
-    "node": ">=10.0.0"
   }
 }
