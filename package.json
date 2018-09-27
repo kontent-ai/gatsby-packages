@@ -22,10 +22,12 @@
   "license": "MIT",
   "scripts": {
     "test": "jest",
-    "lint": "./node_modules/.bin/eslint src/",
-    "lint:fix": "./node_modules/.bin/eslint src/ --fix"
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix",
+    "build": "babel src --out-dir ./ --ignore **/__tests__"
   },
   "devDependencies": {
+    "@babel/cli": "^7.1.0",
     "@babel/core": "^7.1.0",
     "@babel/preset-env": "^7.1.0",
     "babel-core": "^7.0.0-bridge.0",

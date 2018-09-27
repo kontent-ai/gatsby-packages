@@ -1,4 +1,9 @@
 {
+    "parser": "babel-eslint",
+    "env": {
+        "browser": false,
+        "node": true
+    },
     "extends": [ "plugin:node/recommended", "google" ],
     "rules": {
         "linebreak-style": 0
