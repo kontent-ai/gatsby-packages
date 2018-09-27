@@ -24,7 +24,7 @@
     "test": "jest",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
-    "build": "babel src --out-dir ./ --ignore **/__tests__"
+    "build": "babel src --out-dir public --ignore **/__tests__"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.0",
