@@ -1,0 +1,14 @@
+dist: trusty
+language: node_js
+node_js:
+- "stable"
+before_script:
+- npm install
+script:
+- npm run build
+#deploy:
+#  provider: npm
+#  email: $NPM_EMAIL
+#  api_key: $NPM_API_KEY
+#  on:
+#    branch: master
