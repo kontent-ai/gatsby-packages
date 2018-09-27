@@ -109,12 +109,12 @@ kcProjectId: ${kcProjectId}, kcLanguageCodenames: ${kcLanguageCodenames}.`);
         }
       }
 
-      normalize.decorateTypeNodeWithItemLinks(
+      normalize.decorateTypeNodesWithItemLinks(
           currentLanguageNodes, contentTypeNodes
       );
     }
 
-    normalize.decorateTypeNodeWithItemLinks(
+    normalize.decorateTypeNodesWithItemLinks(
         contentItemNodes, contentTypeNodes
     );
 
