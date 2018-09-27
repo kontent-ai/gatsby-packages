@@ -140,9 +140,6 @@ const refillRichTextModularCodenames = (sdkItems, debugItems) => {
               && sdkItem.system.codename === debugItem.system.codename;
           });
 
-          // for (let propertyName of sdkItem) {
-          // }
-
           Object
               .keys(sdkItem)
               .forEach((propertyName) => {
@@ -173,9 +170,6 @@ const decorateItemNodeWithModularElementLinks =
     console.info(
         `The 'normalize.decorateItemNodeWithModularElementLinks' method starts.`
     );
-
-    // for (let propertyName of itemNode) {
-    // }
 
     Object
         .keys(itemNode)
@@ -217,9 +211,6 @@ const decorateItemNodeWithRichTextModularLinks =
         `The 'normalize.decorateItemNodeWithRichTextModularLinks' 
 method starts.`
     );
-
-    // for (let propertyName of itemNode) {
-    // }
 
     Object
         .keys(itemNode)
