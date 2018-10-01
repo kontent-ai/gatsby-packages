@@ -1,7 +1,7 @@
 {
   "name": "gatsby-source-kentico-cloud",
   "description": "Gatsby source plugin for Kentico Cloud",
-  "version": "1.0.1-beta",
+  "version": "1.0.2-beta",
   "repository": {
     "type": "git",
     "url": "https://github.com/Kentico/gatsby-source-kentico-cloud"
