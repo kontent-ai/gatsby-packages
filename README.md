@@ -9,7 +9,7 @@ This repo contains the [source plugin](https://www.gatsbyjs.org/docs/recipes/#so
 You can use the plugin in any of the following ways:
 
 * Install the [gatsby-source-kentico-cloud](https://www.npmjs.com/package/gatsby-source-kentico-cloud) NPM package into your Gatsby site via `npm install --save gatsby-source-kentico-cloud`.
-* Use the [gatsby-starter-kentico-cloud](https://github.com/Kentico/gatsby-starter-kentico-cloud) starter site, which has the NPM package installed.
+* (Comming soon) Use the [gatsby-starter-kentico-cloud](https://github.com/Kentico/gatsby-starter-kentico-cloud) starter site, which has the NPM package installed.
 
 ### Features
 
