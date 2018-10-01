@@ -1,6 +1,7 @@
 # Gatsby source plugin for Kentico Cloud
 
 [![Build Status](https://api.travis-ci.org/Kentico/gatsby-source-kentico-cloud.svg?branch=master)](https://travis-ci.org/Kentico/gatsby-source-kentico-cloud)
+[![Forums](https://img.shields.io/badge/chat-on%20forums-orange.svg)](https://forums.kenticocloud.com)
 
 This repo contains the [source plugin](https://www.gatsbyjs.org/docs/recipes/#sourcing-data) that gets data off of [Kentico Cloud](https://kenticocloud.com) Delivery API.
 
@@ -128,3 +129,5 @@ For more developer resources, visit the Kentico Cloud Developer Hub at https://d
 ## Feedback & Contributing
 
 Check out the [contributing](https://github.com/Kentico/gatsby-source-kentico-cloud/blob/master/CONTRIBUTING.md) contributing page to see the best places to file issues, start discussions, and begin contributing.
+
+![Analytics](https://kentico-ga-beacon.azurewebsites.net/api/UA-69014260-4/Kentico/gatsby-source-kentico-cloud?pixel)
