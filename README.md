@@ -1,6 +1,8 @@
 # Gatsby source plugin for Kentico Cloud
 
-This repo contains the source plugin that gets data off of [Kentico Cloud](https://kenticocloud.com) Delivery API.
+[![Build Status](https://api.travis-ci.org/Kentico/gatsby-source-kentico-cloud.svg?branch=master)](https://travis-ci.org/Kentico/gatsby-source-kentico-cloud)
+
+This repo contains the [source plugin](https://www.gatsbyjs.org/docs/recipes/#sourcing-data) that gets data off of [Kentico Cloud](https://kenticocloud.com) Delivery API.
 
 ## How to run the code
 
@@ -9,9 +11,9 @@ You can use the plugin in any of the following ways:
 * Install the [gatsby-source-kentico-cloud](https://www.npmjs.com/package/gatsby-source-kentico-cloud) NPM package into your Gatsby site via `npm install --save gatsby-source-kentico-cloud`.
 * Use the [gatsby-starter-kentico-cloud](https://github.com/Kentico/gatsby-starter-kentico-cloud) starter site, which has the NPM package installed.
 
-Once installed, the plugin creates GraphQL nodes of all Kentico Cloud content types, content items and their language variants.
-
 ### Features
+
+The plugin creates GraphQL nodes of all Kentico Cloud content types, content items and their language variants.
 
 Names of nodes are prefixed with `KenticoCloud`. More specifically, the content type nodes are prefixed with `KenticoCloudType`, whereas the content items and their language variants have the `KenticoCloudItem` prefix.
 
