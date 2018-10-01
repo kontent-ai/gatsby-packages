@@ -1,4 +1,4 @@
-require(`babel-polyfill`);
+require(`@babel/polyfill`);
 const _ = require(`lodash`);
 const deliveryClient = require(`kentico-cloud-delivery`);
 const normalize = require(`./normalize`);

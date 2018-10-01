@@ -176,7 +176,9 @@ const decorateItemNodeWithModularElementLinks =
         .forEach((propertyName) => {
           const property = itemNode[propertyName];
 
-          if (!_.isEmpty(property) && property[0].system !== undefined) {
+          if (_.isArray(property)
+            && !_.isEmpty(property)
+            && property[0].system !== undefined) {
             const linkPropertyName = `${propertyName}_nodes___NODE`;
 
             const linkedNodes = allNodesOfSameLanguage
@@ -222,10 +224,15 @@ method starts.`
 
             const linkedNodes = allNodesOfSameLanguage
                 .filter((node) => {
-                  const match =
-                    property.modular_content.includes(node.system.codename);
+                  let match = false;
 
-                  return match !== undefined && match === true;
+                  if (_.has(property, 'modular_content'
+                    && _.isArray(property.modular_content))) {
+                    match =
+                      property.modular_content.includes(node.system.codename);
+                  }
+
+                  return match === true;
                 });
 
             addModularItemLinks(itemNode, linkedNodes, linkPropertyName);
