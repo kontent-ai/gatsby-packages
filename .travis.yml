@@ -6,10 +6,10 @@ before_script:
 - npm install
 script:
 - npm run build
-#deploy:
-#  provider: npm
-#  email: $NPM_EMAIL
-#  api_key: $NPM_API_KEY
-#  tag: beta
-#  on:
-#    tags: true
+deploy:
+ provider: npm
+ email: $NPM_EMAIL
+ api_key: $NPM_API_KEY
+ tag: beta
+ on:
+   tags: true
