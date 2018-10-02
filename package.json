@@ -1,7 +1,7 @@
 {
   "name": "gatsby-source-kentico-cloud",
   "description": "Gatsby source plugin for Kentico Cloud",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "repository": {
     "type": "git",
     "url": "https://github.com/Kentico/gatsby-source-kentico-cloud"
@@ -10,12 +10,13 @@
   "private": false,
   "license": "MIT",
   "keywords": [
-    "Gatsby",
     "kentico-cloud",
     "gatsby-source-plugin",
     "Kentico",
     "Kentico Cloud",
-    "GatsbyJS"
+    "GatsbyJS",
+    "gatsby",
+    "gatsby-plugin"
   ],
   "engines": {
     "node": ">=10.0.0"
