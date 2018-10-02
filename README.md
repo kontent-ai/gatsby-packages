@@ -24,23 +24,19 @@ The plugin creates the following relationships among the Kentico Cloud nodes. Yo
 
 This relationship is captured in the `contentItems` navigation property of all *content type* nodes. For all *content item* nodes, it can be found in the `contentType` navigation property.
 
-You can use the GraphiQL interface to experiment with the data structures produced by the source plugin. For instance, you can fetch content items of the *Project reference* type (by querying `allKenticoCloudItemProjectReference`) and use the `contentType` navigation property to get a full list of all of the elements in the underlying content type. Like so:
+You can use the GraphiQL interface to experiment with the data structures produced by the source plugin. For instance, you can fetch a content item of the *Project reference* type (by querying `kenticoCloudItemProjectReference`) and use the `contentType` navigation property to get a full list of all of the elements in the underlying content type. Like so:
 
     {
-      allKenticoCloudItemProjectReference {
-        edges {
-          node {
+        kenticoCloudItemProjectReference {
             name___teaser_image__name {
               value
             }
-            contentType {
-              elements {
-                codename
-              }
+  	        contentType {
+                elements {
+                    codename
+                }
             }
-          }
-        }
-      }
+        } 
     }
 
 #### Language variant relationships
