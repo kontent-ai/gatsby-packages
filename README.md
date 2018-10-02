@@ -122,6 +122,16 @@ All nodes have a `usedByContentItems` property that reflects in which this node 
 
 * [Node.js](https://nodejs.org/) with NPM installed
 
+### Troubleshooting
+
+In case you encounter the following error:
+
+`GraphQL Error Unknown field 'system' on type '...'`
+
+just rebuild the site using `npm run develop` or `gatsby develop` (should you have Gatsby CLI installed).
+
+This [error](https://github.com/gatsbyjs/gatsby/issues/8053) occurs rather randomly; mostly due to issues with building of the internal schema. If it cannot be solved by rebuilding with `npm run develop` or raising the `version` field in the [package.json](https://github.com/Kentico/gatsby-source-kentico-cloud/blob/master/package.json) of the source plugin, then you should look for other root causes (not related to [building of the schema](https://github.com/gatsbyjs/gatsby/issues/2674#issuecomment-340510736)).
+
 ## Further information
 
 For more developer resources, visit the Kentico Cloud Developer Hub at https://developer.kenticocloud.com.
