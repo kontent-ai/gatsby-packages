@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`creates a content item node 1`] = `
+exports[`createContentItemNode with correct arguments should creates a content item node 1`] = `
 Object {
   "children": Array [],
   "contentType___NODE": "aea6da0c-4130-593c-8b6e-006e6bace1de",
@@ -65,7 +65,7 @@ Object {
 }
 `;
 
-exports[`creates a content type node 1`] = `
+exports[`createContentTypeNode with correct arguments should creates a content type node 1`] = `
 Object {
   "children": Array [],
   "contentItems___NODE": Array [],
