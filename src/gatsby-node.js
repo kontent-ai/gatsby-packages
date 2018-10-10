@@ -4,13 +4,13 @@ const deliveryClient = require(`kentico-cloud-delivery`);
 const normalize = require(`./normalize`);
 
 exports.sourceNodes =
-  async ({actions, createNodeId}, {kcProjectId, kcLanguageCodenames}) => {
+  async ({actions, createNodeId}, {config, kcLanguageCodenames}) => {
     console.info(`The 'sourceNodes' API implementation starts.
-kcProjectId: ${kcProjectId}, kcLanguageCodenames: ${kcLanguageCodenames}.`);
+kcProjectId: ${config.projectId}, kcLanguageCodenames: ${kcLanguageCodenames}.`);
     const {createNode} = actions;
 
     const client = new deliveryClient.DeliveryClient({
-      projectId: kcProjectId,
+      ...config,
     });
 
     const contentTypesResponse = await client.types().getPromise();
