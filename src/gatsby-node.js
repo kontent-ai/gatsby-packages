@@ -6,7 +6,8 @@ const normalize = require(`./normalize`);
 exports.sourceNodes =
   async ({actions, createNodeId}, {config, kcLanguageCodenames}) => {
     console.info(`The 'sourceNodes' API implementation starts.
-kcProjectId: ${config.projectId}, kcLanguageCodenames: ${kcLanguageCodenames}.`);
+    kcProjectId: ${config.projectId}, \
+    kcLanguageCodenames: ${kcLanguageCodenames}.`);
     const {createNode} = actions;
 
     const client = new deliveryClient.DeliveryClient({
