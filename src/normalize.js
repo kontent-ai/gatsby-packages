@@ -309,6 +309,29 @@ const addModularItemLinks = (itemNode, linkedNodes, linkPropertyName) => {
   );
 };
 
+const isObject = (val) => {
+  if (val === null) {
+    return false;
+  }
+
+  return ((typeof val === `function`) || (typeof val === `object`));
+};
+
+const toJson = (entity) => {
+  if (isObject(entity)) {
+    let jsoned = {};
+
+    Object.keys(entity).forEach((key) => {
+      const val = entity[key];
+      jsoned[key] = toJson(val);
+    });
+
+    return jsoned;
+  } else {
+    return entity;
+  }
+};
+
 exports.createContentTypeNode = createContentTypeNode;
 exports.createContentItemNode = createContentItemNode;
 exports.decorateTypeNodesWithItemLinks = decorateTypeNodesWithItemLinks;
@@ -322,3 +345,5 @@ exports.decorateItemNodeWithModularElementLinks
 
 exports.decorateItemNodeWithRichTextModularLinks
     = decorateItemNodeWithRichTextModularLinks;
+
+exports.toJson = toJson;

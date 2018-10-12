@@ -1,5 +1,6 @@
 require(`@babel/polyfill`);
 const _ = require(`lodash`);
+// const classToPlain = require(`class-transformer`);
 const deliveryClient = require(`kentico-cloud-delivery`);
 const normalize = require(`./normalize`);
 
@@ -14,13 +15,22 @@ kcProjectId: ${kcProjectId}, kcLanguageCodenames: ${kcLanguageCodenames}.`);
     });
 
     const contentTypesResponse = await client.types().getPromise();
+    // let contentTypes = classToPlain(contentTypesResponse.types);
 
-    let contentTypeNodes = contentTypesResponse.types.map((contentType) =>
+    let contentTypes = contentTypesResponse.types.map((contentType) =>
+      normalize.toJson(contentType)
+    );
+
+    let contentTypeNodes = contentTypes.map((contentType) =>
       normalize.createContentTypeNode(createNodeId, contentType)
     );
 
     const contentItemsResponse = await client.items().getPromise();
-    const contentItems = contentItemsResponse.items;
+    // let contentItems = classToPlain(contentItemsResponse.items);
+
+    let contentItems = contentItemsResponse.items.map((contentItem) =>
+      normalize.toJson(contentItem)
+    );
 
     normalize.refillRichTextModularCodenames(
         contentItems, contentItemsResponse.debug.response.data.items

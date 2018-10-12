@@ -14,7 +14,7 @@
           "--runInBand",
           "--no-cache"
         ],
-        "sourceMaps": false,
+        "sourceMaps": true,
         "console": "integratedTerminal",
         "internalConsoleOptions": "neverOpen",
         "windows": {

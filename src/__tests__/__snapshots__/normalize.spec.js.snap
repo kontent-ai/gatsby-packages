@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`createContentItemNode with correct arguments should creates a content item node 1`] = `
+exports[`createContentItemNode with correct arguments creates a content item node 1`] = `
 Object {
   "children": Array [],
   "contentType___NODE": "aea6da0c-4130-593c-8b6e-006e6bace1de",
@@ -65,7 +65,7 @@ Object {
 }
 `;
 
-exports[`createContentTypeNode with correct arguments should creates a content type node 1`] = `
+exports[`createContentTypeNode with correct arguments creates a content type node 1`] = `
 Object {
   "children": Array [],
   "contentItems___NODE": Array [],
@@ -109,5 +109,14 @@ Object {
     "name": "Project reference",
   },
   "usedByContentItems___NODE": Array [],
+}
+`;
+
+exports[`toJson with correct arguments converts class instances to plain objects recursively 1`] = `
+Object {
+  "number": 20,
+  "property": Object {
+    "text": "Test 01",
+  },
 }
 `;

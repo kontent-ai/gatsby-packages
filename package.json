@@ -30,11 +30,13 @@
   },
   "dependencies": {
     "change-case": "^3.0.2",
+    "class-transformer": "^0.1.9",
     "gatsby": "^2.0.11",
     "kentico-cloud-delivery": "^4.3.0",
     "lodash": "^4.17.11",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
+    "reflect-metadata": "^0.1.12",
     "rxjs": "^6.3.3"
   },
   "peerDependencies": {
