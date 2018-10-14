@@ -49,7 +49,7 @@ You can use the GraphiQL interface to experiment with the data structures produc
       }
     }
 
-This kind of relationship comes handy when no content item has a particular element populated with data. In that case Gatsby won't recognize that element and won't include it in its internal schema. Neither the (null) value nor the name of the element will be visible through the `kenticoCloudItem` GraphQL nodes. Tapping into the *type* GraphQL node might be a proper fallback mechanism.
+This kind of relationship comes handy when no content item has a particular element populated with data. In that case Gatsby won't recognize that element and won't include it in its internal schema. Neither the (null) value nor the name of the element will be visible through the `kenticoCloudItem` GraphQL nodes. Tapping into the related `kenticoCloudType` GraphQL node might be a proper fallback mechanism.
 
 #### Language variant relationships
 
