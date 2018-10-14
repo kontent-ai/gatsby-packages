@@ -31,7 +31,7 @@
   "dependencies": {
     "change-case": "^3.0.2",
     "class-transformer": "^0.1.9",
-    "gatsby": "^2.0.11",
+    "gatsby": "^2.0.22",
     "kentico-cloud-delivery": "^4.3.0",
     "lodash": "^4.17.11",
     "react": "^16.5.2",
@@ -50,7 +50,7 @@
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^9.0.0",
     "babel-jest": "^23.6.0",
-    "eslint": "^5.6.0",
+    "eslint": "^5.7.0",
     "eslint-config-google": "^0.10.0",
     "eslint-plugin-node": "^7.0.1",
     "jest": "^23.6.0",

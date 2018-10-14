@@ -1,6 +1,5 @@
 require(`@babel/polyfill`);
 const _ = require(`lodash`);
-// const classToPlain = require(`class-transformer`);
 const deliveryClient = require(`kentico-cloud-delivery`);
 const normalize = require(`./normalize`);
 
@@ -15,26 +14,13 @@ kcProjectId: ${kcProjectId}, kcLanguageCodenames: ${kcLanguageCodenames}.`);
     });
 
     const contentTypesResponse = await client.types().getPromise();
-    // let contentTypes = classToPlain(contentTypesResponse.types);
 
-    let contentTypes = contentTypesResponse.types.map((contentType) =>
-      normalize.toJson(contentType)
-    );
-
-    let contentTypeNodes = contentTypes.map((contentType) =>
-      normalize.createContentTypeNode(createNodeId, contentType)
+    let contentTypeNodes = contentTypesResponse.debug.response.data.types.map(
+        (contentType) =>
+          normalize.createContentTypeNode(createNodeId, contentType)
     );
 
     const contentItemsResponse = await client.items().getPromise();
-    // let contentItems = classToPlain(contentItemsResponse.items);
-
-    let contentItems = contentItemsResponse.items.map((contentItem) =>
-      normalize.toJson(contentItem)
-    );
-
-    normalize.refillRichTextModularCodenames(
-        contentItems, contentItemsResponse.debug.response.data.items
-    );
 
     let defaultLanguageCodename = `default`;
 
@@ -43,28 +29,26 @@ kcProjectId: ${kcProjectId}, kcLanguageCodenames: ${kcLanguageCodenames}.`);
       defaultLanguageCodename = contentItemsResponse.items[0].system.language;
     }
 
-    let contentItemNodes = contentItemsResponse.items.map((contentItem) =>
-      normalize.createContentItemNode(
-          createNodeId, contentItem, contentTypeNodes
-      )
+    let contentItemNodes = contentItemsResponse.debug.response.data.items.map(
+        (contentItem) =>
+          normalize.createContentItemNode(
+              createNodeId, contentItem, contentTypeNodes
+          )
     );
 
     let nonDefaultLanguagePromises = kcLanguageCodenames
-        .filter((languageCodename) => {
-          languageCodename !== defaultLanguageCodename;
-        })
+        .filter((languageCodename) =>
+          languageCodename !== defaultLanguageCodename
+        )
         .map((languageCodename) =>
-          client.items().languageParameter(languageCodename).getPromise());
+          client.items().languageParameter(languageCodename).getPromise()
+        );
 
     const languageResponses = await Promise.all(nonDefaultLanguagePromises);
     let nonDefaultLanguageItemNodes = new Map();
 
     languageResponses.forEach((languageResponse) => {
-      const languageItems = languageResponse.items;
-
-      normalize.refillRichTextModularCodenames(
-          languageItems, languageResponse.debug.response.data.items
-      );
+      const languageItems = languageResponse.debug.response.data.items;
 
       let allNodesOfCurrentLanguage = [];
       let languageCodename = null;

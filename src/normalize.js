@@ -70,9 +70,9 @@ const decorateTypeNodesWithItemLinks =
     );
 
     contentTypeNodes.forEach((contentTypeNode) => {
-      const itemNodesPerType = contentItemNodes.filter((contentItemNode) => {
-        contentItemNode.system.type === contentTypeNode.system.codename;
-      });
+      const itemNodesPerType = contentItemNodes.filter((contentItemNode) =>
+        contentItemNode.system.type === contentTypeNode.system.codename
+      );
 
       if (!_.isEmpty(itemNodesPerType)) {
         let flatList =
@@ -101,9 +101,9 @@ itemNode.id: ${itemNode.id}`
     );
 
     const languageVariantNode = allNodesOfAnotherLanguage.find(
-        (nodeOfSpecificLanguage) => {
-          itemNode.system.codename === nodeOfSpecificLanguage.system.codename;
-        });
+        (nodeOfSpecificLanguage) =>
+          itemNode.system.codename === nodeOfSpecificLanguage.system.codename
+    );
 
     const otherLanguageLink =
       itemNode.otherLanguages___NODE.find(
@@ -120,45 +120,6 @@ itemNode.id: ${itemNode.id}`
   };
 
 /**
- * Adds back codenames of modular content items
- *    that have been stripped off by the Kentico Cloud Delivery JS SDK.
- * @param {array} sdkItems - Content items returned (transformed)
- *    by the Kentico Cloud Delivery JS SDK.
- * @param {array} debugItems - Raw response provided by the 'debug' property
- *    of the SDK's response.
- */
-const refillRichTextModularCodenames = (sdkItems, debugItems) => {
-  console.info(
-      `The 'normalize.refillRichTextModularCodenames' method starts.`
-  );
-
-  if (!_.isEmpty(sdkItems) && !_.isEmpty(debugItems)) {
-    sdkItems
-        .forEach((sdkItem) => {
-          const counterpart = debugItems.find((debugItem) => {
-            sdkItem.system.type === debugItem.system.type
-              && sdkItem.system.codename === debugItem.system.codename;
-          });
-
-          Object
-              .keys(sdkItem)
-              .forEach((propertyName) => {
-                const property = _.get(sdkItem[propertyName]);
-
-                if (_.get(property, 'type') === `rich_text`) {
-                  property[`modular_content`] =
-                    counterpart.elements[propertyName].modular_content;
-                }
-              });
-        });
-  }
-
-  console.info(
-      `The 'normalize.refillRichTextModularCodenames' method exits.`
-  );
-};
-
-/**
  * Adds links to modular content items (stored in modular content elements)
  *    via a sibling '_nodes' property.
  * @param {object} itemNode - Gatsby content item node.
@@ -172,26 +133,27 @@ const decorateItemNodeWithModularElementLinks =
     );
 
     Object
-        .keys(itemNode)
+        .keys(itemNode.elements)
         .forEach((propertyName) => {
-          const property = itemNode[propertyName];
+          const property = itemNode.elements[propertyName];
 
-          if (_.isArray(property)
-            && !_.isEmpty(property)
-            && property[0].system !== undefined) {
+          if (_.get(property, `type`) === `modular_content`
+            && _.isArray(property.value)) {
             const linkPropertyName = `${propertyName}_nodes___NODE`;
+            itemNode.elements[linkPropertyName] = [];
 
-            const linkedNodes = allNodesOfSameLanguage
-                .filter((node) => {
-                  const match = property.find((propertyNode) => {
-                    propertyNode.system.type === node.system.type
-                      && propertyNode.system.codename === node.system.codename;
+            if (!_.isEmpty(property.value)) {
+              const linkedNodes = allNodesOfSameLanguage
+                  .filter((node) => {
+                    const match = property.value.find((propertyValue) =>
+                      propertyValue === node.system.codename
+                    );
+
+                    return match !== undefined && match !== null;
                   });
 
-                  return match !== undefined && match !== null;
-                });
-
-            addModularItemLinks(itemNode, linkedNodes, linkPropertyName);
+              addModularItemLinks(itemNode, linkedNodes, linkPropertyName);
+            }
           }
         });
 
@@ -215,26 +177,21 @@ method starts.`
     );
 
     Object
-        .keys(itemNode)
+        .keys(itemNode.elements)
         .forEach((propertyName) => {
-          const property = itemNode[propertyName];
+          const property = itemNode.elements[propertyName];
 
-          if (_.get(property, 'type') === `rich_text` ) {
+          if (_.get(property, `type`) === `rich_text`
+            && _.has(property, `modular_content`)
+            && _.isArray(property.modular_content)) {
             const linkPropertyName = `${propertyName}_nodes___NODE`;
 
             const linkedNodes = allNodesOfSameLanguage
-                .filter((node) => {
-                  let match = false;
+                .filter((node) =>
+                  property.modular_content.includes(node.system.codename)
+                );
 
-                  if (_.has(property, 'modular_content'
-                    && _.isArray(property.modular_content))) {
-                    match =
-                      property.modular_content.includes(node.system.codename);
-                  }
-
-                  return match === true;
-                });
-
+            itemNode.elements[linkPropertyName] = [];
             addModularItemLinks(itemNode, linkedNodes, linkPropertyName);
           }
         });
@@ -282,7 +239,9 @@ const createKcArtifactNode =
 
 const addModularItemLinks = (itemNode, linkedNodes, linkPropertyName) => {
   console.info(
-      `The 'normalize.addModularItemLinks' method starts.`
+      `The 'normalize.addModularItemLinks' method starts.
+      itemNode.system.codename: ${itemNode.system.codename}, 
+      linkPropertyName: ${linkPropertyName}.`
   );
 
   linkedNodes
@@ -294,12 +253,12 @@ const addModularItemLinks = (itemNode, linkedNodes, linkPropertyName) => {
 
   const idsOfLinkedNodes = linkedNodes.map((node) => node.id);
 
-  if (itemNode[linkPropertyName]) {
-    itemNode[linkPropertyName] = idsOfLinkedNodes;
+  if (!itemNode.elements[linkPropertyName]) {
+    itemNode.elements[linkPropertyName] = idsOfLinkedNodes;
   } else {
     idsOfLinkedNodes.forEach((id) => {
-      if (!itemNode[linkPropertyName].includes(id)) {
-        itemNode[linkPropertyName].push(id);
+      if (!itemNode.elements[linkPropertyName].includes(id)) {
+        itemNode.elements[linkPropertyName].push(id);
       }
     });
   }
@@ -309,29 +268,6 @@ const addModularItemLinks = (itemNode, linkedNodes, linkPropertyName) => {
   );
 };
 
-const isObject = (val) => {
-  if (val === null) {
-    return false;
-  }
-
-  return ((typeof val === `function`) || (typeof val === `object`));
-};
-
-const toJson = (entity) => {
-  if (isObject(entity)) {
-    let jsoned = {};
-
-    Object.keys(entity).forEach((key) => {
-      const val = entity[key];
-      jsoned[key] = toJson(val);
-    });
-
-    return jsoned;
-  } else {
-    return entity;
-  }
-};
-
 exports.createContentTypeNode = createContentTypeNode;
 exports.createContentItemNode = createContentItemNode;
 exports.decorateTypeNodesWithItemLinks = decorateTypeNodesWithItemLinks;
@@ -339,11 +275,8 @@ exports.decorateTypeNodesWithItemLinks = decorateTypeNodesWithItemLinks;
 exports.decorateItemNodeWithLanguageVariantLink
     = decorateItemNodeWithLanguageVariantLink;
 
-exports.refillRichTextModularCodenames = refillRichTextModularCodenames;
 exports.decorateItemNodeWithModularElementLinks
     = decorateItemNodeWithModularElementLinks;
 
 exports.decorateItemNodeWithRichTextModularLinks
     = decorateItemNodeWithRichTextModularLinks;
-
-exports.toJson = toJson;

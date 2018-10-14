@@ -28,28 +28,3 @@ describe('createContentItemNode with correct arguments', () => {
     ).toMatchSnapshot();
   });
 });
-
-
-describe('toJson with correct arguments', () => {
-  it(`converts class instances to plain objects recursively`, () => {
-    let PropertyClass = class {
-      constructor(text) {
-        this.text = text;
-      }
-    };
-
-    let ParentClass = class {
-      constructor(property, number) {
-        this.property = property;
-        this.number = number;
-      }
-    };
-
-    let property = new PropertyClass(`Test 01`);
-    let parent = new ParentClass(property, 20);
-
-    expect(
-        normalize.toJson(parent)
-    ).toMatchSnapshot();
-  });
-});
