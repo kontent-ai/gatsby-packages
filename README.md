@@ -10,9 +10,11 @@ This repo contains a [Gatsby v2 source plugin](https://www.gatsbyjs.org/docs/rec
 You can use the plugin in any of the following ways:
 
 * Install the [gatsby-source-kentico-cloud](https://www.npmjs.com/package/gatsby-source-kentico-cloud) NPM package in your Gatsby site via `npm install --save gatsby-source-kentico-cloud`.
-* (Coming soon) Use the [gatsby-starter-kentico-cloud](https://github.com/Kentico/gatsby-starter-kentico-cloud) starter site, which uses the NPM package.
+* Use the [gatsby-starter-kentico-cloud](https://github.com/Kentico/gatsby-starter-kentico-cloud) starter site, which uses the NPM package.
 
 ### Features
+
+**Breaking change: All Kentico Cloud content element values now reside inside of the `elements` property of `kenticoCloudItem` nodes.**
 
 The plugin creates GraphQL nodes for all Kentico Cloud content types, content items, and language variants.
 
@@ -22,22 +24,32 @@ The plugin creates the following relationships among the Kentico Cloud nodes. Yo
 
 #### Content item <-> content type relationships
 
-This relationship is captured in the `contentItems` navigation property of all *content type* nodes. For all *content item* nodes, it can be found in the `contentType` navigation property.
+This relationship is captured in the `contentItems` navigation property of all `kenticoCloudType` nodes. In the opposite direction, in all `kenticoCloudItem` nodes, it can be found in the `contentType` navigation property.
 
-You can use the GraphiQL interface to experiment with the data structures produced by the source plugin. For instance, you can fetch a content item of the *Project reference* type (by querying `kenticoCloudItemProjectReference`) and use the `contentType` navigation property to get a full list of all of the elements in the underlying content type. Like so:
+You can use the GraphiQL interface to experiment with the data structures produced by the source plugin. For instance, you can fetch a content item of the *Project reference* type (by querying `allKenticoCloudItemProjectReference`) and use the `contentType` navigation property to get a full list of all of the elements in the underlying content type. Like so:
 
     {
-        kenticoCloudItemProjectReference {
-            name___teaser_image__name {
-              value
+      allKenticoCloudItemProjectReference {
+        edges {
+          node {
+            elements {
+              name___teaser_image__name {
+                value
+              }
             }
-  	        contentType {
-                elements {
-                    codename
+            contentType {
+              elements {
+                name___teaser_image__name {
+                  name
                 }
+              }
             }
-        } 
+          }
+        }
+      }
     }
+
+This kind of relationship comes handy when no content item has a particular element populated with data. In that case Gatsby won't recognize that element and won't include it in its internal schema. Neither the (null) value nor the name of the element will be visible through the `kenticoCloudItem` GraphQL nodes. Tapping into the related `kenticoCloudType` GraphQL node might be a proper fallback mechanism.
 
 #### Language variant relationships
 
@@ -47,12 +59,16 @@ This relationship is captured by the `otherLanguages` navigation property of all
       allKenticoCloudItemSpeakingEngagement {
         edges {
           node {
-            name {
-              value
-            }
-            otherLanguages {
+            elements {
               name {
                 value
+              }
+            }
+            otherLanguages {
+              elements {
+                name {
+                  value
+                }
               }
             }
           }
@@ -68,13 +84,8 @@ Each modular content property is accompanied by a sibling property suffixed with
       allKenticoCloudItemProjectReference {
         edges {
           node {
-            related_project_references {
-              name___teaser_image__name {
-                value
-              }
-            }
-            related_project_references_nodes {
-              name___teaser_image__name {
+            elements {
+              related_project_references {
                 value
               }
               related_project_references_nodes {
@@ -94,15 +105,17 @@ As with the previous example, all rich text properties with modular content also
       allKenticoCloudItemBlogpostReference {
         edges {
           node {
-            name___teaser_image__name {
-              value
-            }
-            summary {
-              value
-            }
-            summary_nodes {
-              system {
-                codename
+            elements {
+              name___teaser_image__name {
+                value
+              }
+              summary {
+                value
+              }
+              summary_nodes {
+                system {
+                  codename
+                }
               }
             }
           }
@@ -117,16 +130,6 @@ All nodes have a `usedByContentItems` property that reflects the other nodes in 
 ## Development prerequisites
 
 * [Node.js](https://nodejs.org/) with NPM installed
-
-### Troubleshooting
-
-In case you encounter the following error:
-
-`GraphQL Error Unknown field 'system' on type '...'`
-
-just rebuild the site using `npm run develop` or (if you have the Gatsby CLI installed) `gatsby develop`.
-
-This [error](https://github.com/gatsbyjs/gatsby/issues/8053) occurs mostly due to issues with building of the internal schema. If it cannot be solved by rebuilding with `npm run develop` or raising the `version` field in the [package.json](https://github.com/Kentico/gatsby-source-kentico-cloud/blob/master/package.json) of the source plugin, then you should look for other root causes (not related to [building of the schema](https://github.com/gatsbyjs/gatsby/issues/2674#issuecomment-340510736)).
 
 ## Further information
 
