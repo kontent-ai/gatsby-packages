@@ -131,6 +131,10 @@ All nodes have a `usedByContentItems` property that reflects the other nodes in 
 
 * [Node.js](https://nodejs.org/) with NPM installed
 
+## Troubleshooting
+
+Currently, the plugin exhibits an [issue with nodes of multiple types](https://github.com/gatsbyjs/gatsby/issues/9154) in foreign key relationships (`___NODE`). In practice, only content items of one content type can be put into a particular modular content element or rich text element (as a modular content item). We're in touch with Gatsby Inc. and work towards resolving that issue soon.
+
 ## Further information
 
 For more developer resources, visit the Kentico Cloud Developer Hub at https://developer.kenticocloud.com.
