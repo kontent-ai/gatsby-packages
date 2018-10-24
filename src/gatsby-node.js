@@ -4,16 +4,13 @@ const deliveryClient = require(`kentico-cloud-delivery`);
 const normalize = require(`./normalize`);
 
 exports.sourceNodes =
-  async ({actions, createNodeId}, {config, kcLanguageCodenames}) => {
+  async ({actions, createNodeId},
+    {deliveryClientConfig, languageCodenames}) => {
     console.info(`The 'sourceNodes' API implementation starts.
-    kcProjectId: ${config.projectId}, \
-    kcLanguageCodenames: ${kcLanguageCodenames}.`);
+projectId: ${deliveryClientConfig.projectId}, languageCodenames: ${languageCodenames}.`);
+
     const {createNode} = actions;
-
-    const client = new deliveryClient.DeliveryClient({
-      ...config,
-    });
-
+    const client = new deliveryClient.DeliveryClient(deliveryClientConfig);
     const contentTypesResponse = await client.types().getPromise();
 
     let contentTypeNodes = contentTypesResponse.debug.response.data.types.map(
@@ -37,7 +34,7 @@ exports.sourceNodes =
           )
     );
 
-    let nonDefaultLanguagePromises = kcLanguageCodenames
+    let nonDefaultLanguagePromises = languageCodenames
         .filter((languageCodename) =>
           languageCodename !== defaultLanguageCodename
         )
