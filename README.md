@@ -77,9 +77,9 @@ This relationship is captured by the `otherLanguages` navigation property of all
       }
     }
     
-#### Modular content elements relationships
+#### Linked items elements relationships
 
-Each modular content property is accompanied by a sibling property suffixed with `_nodes` that can be used to traverse to the nodes linked through the use of modular content.
+Each Linked items property is accompanied by a sibling property suffixed with `_nodes` that can be used to traverse to the nodes linked through the use of the *Linked items* element.
 
     {
       allKenticoCloudItemProjectReference {
@@ -98,9 +98,9 @@ Each modular content property is accompanied by a sibling property suffixed with
       }
     }
 
-#### Modular content relationships in rich text
+#### Content items in Rich text elements relationships
 
-As with the previous example, all rich text properties with modular content also have an accompanying `_nodes` property.
+As with the previous example, all rich text properties with inline content items also have an accompanying `_nodes` property.
 
     {
       allKenticoCloudItemBlogpostReference {
@@ -126,7 +126,7 @@ As with the previous example, all rich text properties with modular content also
 
 #### Reverse link relationships
 
-All nodes have a `usedByContentItems` property that reflects the other nodes in which the given node is used as modular content.
+All nodes have a `usedByContentItems` property that reflects the other nodes in which the given node is used as linked content in *Linked items* or *Rich text* elements.
 
 ## Development prerequisites
 
@@ -134,7 +134,7 @@ All nodes have a `usedByContentItems` property that reflects the other nodes in 
 
 ## Troubleshooting
 
-Currently, the plugin exhibits an [issue with nodes of multiple types](https://github.com/gatsbyjs/gatsby/issues/9154) in foreign key relationships (`___NODE`). In practice, only content items of one content type can be put into a particular modular content element or rich text element (as a modular content item). We're in touch with Gatsby Inc. and work towards resolving that issue soon.
+Currently, the plugin exhibits an [issue with nodes of multiple types](https://github.com/gatsbyjs/gatsby/issues/9154) in foreign key relationships (`___NODE`). In practice, only content items of one content type can be put into a particular *Linked items* element or *Rich text* element. We're in touch with Gatsby Inc. and work towards resolving that issue soon.
 
 ## Further information
 
