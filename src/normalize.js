@@ -9,20 +9,22 @@ const changeCase = require(`change-case`);
  * @return {object} Gatsby content type node.
  */
 const createContentTypeNode = (createNodeId, contentType) => {
-  console.info(`The 'normalize.createContentTypeNode' method starts.
-contentType.system.codename: ${contentType.system.codename}`);
-  const codenameParamCase = changeCase.paramCase(contentType.system.codename);
-  const nodeId = createNodeId(`kentico-cloud-type-${codenameParamCase}`);
+  if (typeof createNodeId !== `function`) {
+    throw new Error(`createNodeId is not a function.`);
+  } else if (!contentType || !_.has(contentType, `system.codename`)) {
+    throw new Error(`contentType is not a valid content type object.`);
+  } else {
+    const codenameParamCase = changeCase.paramCase(contentType.system.codename);
+    const nodeId = createNodeId(`kentico-cloud-type-${codenameParamCase}`);
 
-  const nodeData = {
-    contentItems___NODE: [],
-  };
+    const additionalData = {
+      contentItems___NODE: [],
+    };
 
-  console.info(`The 'normalize.createContentTypeNode' method exits.`);
-
-  return createKcArtifactNode(
-      nodeId, contentType, `type`, contentType.system.codename, nodeData
-  );
+    return createKcArtifactNode(
+        nodeId, contentType, `type`, contentType.system.codename, additionalData
+    );
+  }
 };
 
 /**
@@ -34,28 +36,57 @@ contentType.system.codename: ${contentType.system.codename}`);
  */
 const createContentItemNode =
   (createNodeId, contentItem, contentTypeNodes) => {
-    console.info(`The 'normalize.createContentItemNode' method starts.
-contentItem.system.codename: ${contentItem.system.codename}`);
-    const codenameParamCase = changeCase.paramCase(contentItem.system.codename);
-    const languageParamCase = changeCase.paramCase(contentItem.system.language);
+    if (typeof createNodeId !== `function`) {
+      throw new Error(`createNodeId is not a function.`);
+    } else if (!contentItem || !_.has(contentItem, `system.codename`)) {
+      throw new Error(`contentItem is not a valid content item object.`);
+    } else if (!contentTypeNodes
+      || !_.isArray(contentTypeNodes)
+      || (!_.isEmpty(contentTypeNodes)
+      && !_.has(contentTypeNodes, `[0].system.codename`))) {
+      throw new Error(`contentTypeNodes is not an array of valid objects.`);
+    } else {
+      const codenameParamCase =
+        changeCase.paramCase(contentItem.system.codename);
 
-    const nodeId = createNodeId(
-        `kentico-cloud-item-${codenameParamCase}-${languageParamCase}`
-    );
+      const languageParamCase =
+        changeCase.paramCase(contentItem.system.language);
 
-    const parentContentTypeNode = contentTypeNodes.find(
-        (contentType) => contentType.system.codename
-            === contentItem.system.type);
+      const nodeId = createNodeId(
+          `kentico-cloud-item-${codenameParamCase}-${languageParamCase}`
+      );
 
-    const nodeData = {
-      otherLanguages___NODE: [],
-      contentType___NODE: parentContentTypeNode.id,
-    };
+      const parentContentTypeNode = contentTypeNodes.find(
+          (contentType) => contentType.system.codename
+              === contentItem.system.type);
 
-    console.info(`The 'normalize.createContentItemNode' method exits.`);
-    return createKcArtifactNode(
-        nodeId, contentItem, `item`, contentItem.system.type, nodeData
-    );
+      const elements = {};
+
+      Object
+          .keys(contentItem)
+          .filter((key) => key !== `system`)
+          .forEach((key) => {
+            elements[key] = contentItem[key];
+          });
+
+      const itemWithElements = {
+        system: contentItem.system,
+        elements: elements,
+      };
+
+      const additionalData = {
+        otherLanguages___NODE: [],
+        contentType___NODE: parentContentTypeNode.id,
+      };
+
+      return createKcArtifactNode(
+          nodeId,
+          itemWithElements,
+          `item`,
+          contentItem.system.type,
+          additionalData
+      );
+    }
   };
 
 /**
@@ -65,25 +96,29 @@ contentItem.system.codename: ${contentItem.system.codename}`);
  */
 const decorateTypeNodesWithItemLinks =
   (contentItemNodes, contentTypeNodes) => {
-    console.info(
-        `The 'normalize.decorateTypeNodesWithItemLinks' method starts.`
-    );
+    if (!contentItemNodes
+      || !_.isArray(contentItemNodes)
+      || (!_.isEmpty(contentItemNodes)
+      && !_.has(contentItemNodes, `[0].system.type`))) {
+      throw new Error(`contentItemNodes is not an array of valid objects.`);
+    } else if (!contentTypeNodes
+      || !_.isArray(contentTypeNodes)
+      || (!_.isEmpty(contentTypeNodes)
+      && !_.has(contentTypeNodes, `[0].system.codename`))) {
+      throw new Error(`contentTypeNodes is not an array of valid objects.`);
+    } else {
+      contentTypeNodes.forEach((contentTypeNode) => {
+        const itemNodesPerType = contentItemNodes.filter((contentItemNode) =>
+          contentItemNode.system.type === contentTypeNode.system.codename
+        );
 
-    contentTypeNodes.forEach((contentTypeNode) => {
-      const itemNodesPerType = contentItemNodes.filter((contentItemNode) =>
-        contentItemNode.system.type === contentTypeNode.system.codename
-      );
-
-      if (!_.isEmpty(itemNodesPerType)) {
-        let flatList =
-          itemNodesPerType.map((itemNodePerType) => itemNodePerType.id);
-        contentTypeNode.contentItems___NODE.push(...flatList);
-      }
-    });
-
-    console.info(
-        `The 'normalize.decorateTypeNodesWithItemLinks' method exits.`
-    );
+        if (!_.isEmpty(itemNodesPerType)) {
+          let flatList =
+            itemNodesPerType.map((itemNodePerType) => itemNodePerType.id);
+          contentTypeNode.contentItems___NODE.push(...flatList);
+        }
+      });
+    }
   };
 
 /**
@@ -95,119 +130,114 @@ const decorateTypeNodesWithItemLinks =
  */
 const decorateItemNodeWithLanguageVariantLink =
   (itemNode, allNodesOfAnotherLanguage) => {
-    console.info(
-        `The 'normalize.decorateItemNodeWithLanguageVariantLink' method starts.
-itemNode.id: ${itemNode.id}`
-    );
-
-    const languageVariantNode = allNodesOfAnotherLanguage.find(
-        (nodeOfSpecificLanguage) =>
-          itemNode.system.codename === nodeOfSpecificLanguage.system.codename
-    );
-
-    const otherLanguageLink =
-      itemNode.otherLanguages___NODE.find(
-          (otherLanguageId) => otherLanguageId === languageVariantNode.id
+    if (!itemNode || !_.has(itemNode, `system.codename`)) {
+      throw new Error(`itemNode is not a valid object.`);
+    } else if (!allNodesOfAnotherLanguage
+      || !_.isArray(allNodesOfAnotherLanguage)
+      || (!_.isEmpty(allNodesOfAnotherLanguage)
+      && !_.has(allNodesOfAnotherLanguage, `[0].system.codename`))) {
+      throw new Error(`allNodesOfAnotherLanguage is not an array
+of valid objects.`);
+    } else {
+      const languageVariantNode = allNodesOfAnotherLanguage.find(
+          (nodeOfSpecificLanguage) =>
+            itemNode.system.codename === nodeOfSpecificLanguage.system.codename
       );
 
-    if (!otherLanguageLink) {
-      itemNode.otherLanguages___NODE.push(languageVariantNode.id);
-    }
+      const otherLanguageLink =
+        itemNode.otherLanguages___NODE.find(
+            (otherLanguageId) => otherLanguageId === languageVariantNode.id
+        );
 
-    console.info(
-        `The 'normalize.decorateItemNodeWithLanguageVariantLink' method exits.`
-    );
+      if (!otherLanguageLink) {
+        itemNode.otherLanguages___NODE.push(languageVariantNode.id);
+      }
+    }
   };
 
 /**
- * Adds links to modular content items (stored in modular content elements)
+ * Adds links to content items (stored in 'linked items' elements)
  *    via a sibling '_nodes' property.
  * @param {object} itemNode - Gatsby content item node.
  * @param {array} allNodesOfSameLanguage - The whole set of nodes
  *    of that same language.
  */
-const decorateItemNodeWithModularElementLinks =
+const decorateItemNodeWithLinkedItemsLinks =
   (itemNode, allNodesOfSameLanguage) => {
-    console.info(
-        `The 'normalize.decorateItemNodeWithModularElementLinks' method starts.`
-    );
+    if (!itemNode || !_.has(itemNode, `system.codename`)) {
+      throw new Error(`itemNode is not a valid object.`);
+    } else if (!allNodesOfSameLanguage
+      || !_.isArray(allNodesOfSameLanguage)
+      || (!_.isEmpty(allNodesOfSameLanguage)
+      && !_.has(allNodesOfSameLanguage, `[0].system.codename`))) {
+      throw new Error(`allNodesOfSameLanguage is not an array
+of valid objects.`);
+    } else {
+      Object
+          .keys(itemNode.elements)
+          .forEach((propertyName) => {
+            const property = itemNode.elements[propertyName];
 
-    Object
-        .keys(itemNode.elements)
-        .forEach((propertyName) => {
-          const property = itemNode.elements[propertyName];
+            if (_.isArray(property) && _.has(property, `[0].system.codename`)) {
+              const linkPropertyName = `${propertyName}_nodes___NODE`;
+              itemNode.elements[linkPropertyName] = [];
 
-          if (_.get(property, `type`) === `modular_content`
-            && _.isArray(property.value)) {
-            const linkPropertyName = `${propertyName}_nodes___NODE`;
-            itemNode.elements[linkPropertyName] = [];
-
-            if (!_.isEmpty(property.value)) {
               const linkedNodes = allNodesOfSameLanguage
                   .filter((node) => {
-                    const match = property.value.find((propertyValue) =>
-                      propertyValue === node.system.codename
+                    const match = property.find((propertyValue) =>
+                      propertyValue.system.codename === node.system.codename
                     );
 
                     return match !== undefined && match !== null;
                   });
 
-              addModularItemLinks(itemNode, linkedNodes, linkPropertyName);
+              addLinkedItemsLinks(itemNode, linkedNodes, linkPropertyName);
             }
-          }
-        });
-
-    console.info(
-        `The 'normalize.decorateItemNodeWithModularElementLinks' method exits.`
-    );
+          });
+    }
   };
 
 /**
- * Adds links to modular content items (stored in rich text elements)
+ * Adds links to content items (stored in 'rich text' elements)
  *    via a sibling '_nodes' property.
  * @param {object} itemNode - Gatsby content item node.
  * @param {array} allNodesOfSameLanguage - The whole set of nodes
  *    of that same language.
  */
-const decorateItemNodeWithRichTextModularLinks =
+const decorateItemNodeWithRichTextLinkedItemsLinks =
   (itemNode, allNodesOfSameLanguage) => {
-    console.info(
-        `The 'normalize.decorateItemNodeWithRichTextModularLinks' 
-method starts.`
-    );
+    if (!itemNode || !_.has(itemNode, `system.codename`)) {
+      throw new Error(`itemNode is not a valid object.`);
+    } else if (!allNodesOfSameLanguage
+      || !_.isArray(allNodesOfSameLanguage)
+      || (!_.isEmpty(allNodesOfSameLanguage)
+      && !_.has(allNodesOfSameLanguage, `[0].system.codename`))) {
+      throw new Error(`allNodesOfSameLanguage is not an array
+of valid objects.`);
+    } else {
+      Object
+          .keys(itemNode.elements)
+          .forEach((propertyName) => {
+            const property = itemNode.elements[propertyName];
 
-    Object
-        .keys(itemNode.elements)
-        .forEach((propertyName) => {
-          const property = itemNode.elements[propertyName];
+            if (_.get(property, `type`) === `rich_text`) {
+              const linkPropertyName = `${propertyName}_nodes___NODE`;
 
-          if (_.get(property, `type`) === `rich_text`
-            && _.has(property, `modular_content`)
-            && _.isArray(property.modular_content)) {
-            const linkPropertyName = `${propertyName}_nodes___NODE`;
+              const linkedNodes = allNodesOfSameLanguage
+                  .filter((node) =>
+                    property.linkedItemCodenames.includes(node.system.codename)
+                  );
 
-            const linkedNodes = allNodesOfSameLanguage
-                .filter((node) =>
-                  property.modular_content.includes(node.system.codename)
-                );
-
-            itemNode.elements[linkPropertyName] = [];
-            addModularItemLinks(itemNode, linkedNodes, linkPropertyName);
-          }
-        });
-
-    console.info(
-        `The 'normalize.decorateItemNodeWithRichTextModularLinks' method exits.`
-    );
+              itemNode.elements[linkPropertyName] = [];
+              addLinkedItemsLinks(itemNode, linkedNodes, linkPropertyName);
+            }
+          });
+    }
   };
 
 const createKcArtifactNode =
   (nodeId, kcArtifact, artifactKind, typeName = ``,
       additionalNodeData = null) => {
-    console.info(
-        `The 'normalize.createKcArtifactNode' method starts.`
-    );
-
     const nodeContent = JSON.stringify(kcArtifact);
 
     const nodeContentDigest = crypto
@@ -217,10 +247,6 @@ const createKcArtifactNode =
 
     const codenamePascalCase = changeCase.pascalCase(typeName);
     const artifactKindPascalCase = changeCase.pascalCase(artifactKind);
-
-    console.info(
-        `The 'normalize.createKcArtifactNode' method exits.`
-    );
 
     return {
       ...kcArtifact,
@@ -237,13 +263,7 @@ const createKcArtifactNode =
     };
   };
 
-const addModularItemLinks = (itemNode, linkedNodes, linkPropertyName) => {
-  console.info(
-      `The 'normalize.addModularItemLinks' method starts.
-      itemNode.system.codename: ${itemNode.system.codename}, 
-      linkPropertyName: ${linkPropertyName}.`
-  );
-
+const addLinkedItemsLinks = (itemNode, linkedNodes, linkPropertyName) => {
   linkedNodes
       .forEach((linkedNode) => {
         if (!linkedNode.usedByContentItems___NODE.includes(itemNode.id)) {
@@ -262,10 +282,6 @@ const addModularItemLinks = (itemNode, linkedNodes, linkPropertyName) => {
       }
     });
   }
-
-  console.info(
-      `The 'normalize.addModularItemLinks' method exits.`
-  );
 };
 
 exports.createContentTypeNode = createContentTypeNode;
@@ -275,8 +291,8 @@ exports.decorateTypeNodesWithItemLinks = decorateTypeNodesWithItemLinks;
 exports.decorateItemNodeWithLanguageVariantLink
     = decorateItemNodeWithLanguageVariantLink;
 
-exports.decorateItemNodeWithModularElementLinks
-    = decorateItemNodeWithModularElementLinks;
+exports.decorateItemNodeWithLinkedItemsLinks
+    = decorateItemNodeWithLinkedItemsLinks;
 
-exports.decorateItemNodeWithRichTextModularLinks
-    = decorateItemNodeWithRichTextModularLinks;
+exports.decorateItemNodeWithRichTextLinkedItemsLinks
+    = decorateItemNodeWithRichTextLinkedItemsLinks;
