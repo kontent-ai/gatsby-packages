@@ -1,7 +1,7 @@
 {
   "name": "gatsby-source-kentico-cloud",
   "description": "Gatsby source plugin for Kentico Cloud",
-  "version": "2.0.0-beta",
+  "version": "2.0.0-beta1",
   "repository": {
     "type": "git",
     "url": "https://github.com/Kentico/gatsby-source-kentico-cloud"
@@ -30,8 +30,9 @@
   },
   "dependencies": {
     "change-case": "^3.0.2",
+    "flatted": "^2.0.0",
     "gatsby": "^2.0.22",
-    "kentico-cloud-delivery": "^4.3.0",
+    "kentico-cloud-delivery": "^5.1.0",
     "lodash": "^4.17.11",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",

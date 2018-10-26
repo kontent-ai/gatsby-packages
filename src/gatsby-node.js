@@ -2,36 +2,50 @@ require(`@babel/polyfill`);
 const _ = require(`lodash`);
 const deliveryClient = require(`kentico-cloud-delivery`);
 const normalize = require(`./normalize`);
+const {parse, stringify} = require(`flatted/cjs`);
+const defaultLanguageLiteral = `default`;
 
 exports.sourceNodes =
   async ({actions, createNodeId},
     {deliveryClientConfig, languageCodenames}) => {
     console.info(`The 'sourceNodes' API implementation starts.
-projectId: ${deliveryClientConfig.projectId}, languageCodenames: ${languageCodenames}.`);
+projectId: ${deliveryClientConfig.projectId},
+languageCodenames: ${languageCodenames}.`);
 
     const {createNode} = actions;
     const client = new deliveryClient.DeliveryClient(deliveryClientConfig);
     const contentTypesResponse = await client.types().getPromise();
+    const typesFlatted = parse(stringify(contentTypesResponse.types));
 
-    let contentTypeNodes = contentTypesResponse.debug.response.data.types.map(
-        (contentType) =>
-          normalize.createContentTypeNode(createNodeId, contentType)
+    const contentTypeNodes = typesFlatted.map(
+        (contentType) => {
+          try {
+            return normalize.createContentTypeNode(createNodeId, contentType);
+          } catch (error) {
+            console.error(error);
+          }
+        }
     );
 
     const contentItemsResponse = await client.items().getPromise();
-
-    let defaultLanguageCodename = `default`;
+    const itemsFlatted = parse(stringify(contentItemsResponse.items));
+    let defaultLanguageCodename = defaultLanguageLiteral;
 
     if (_.has(contentItemsResponse, `items[0].system.language`)
         && _.isString(contentItemsResponse.items[0].system.language)) {
       defaultLanguageCodename = contentItemsResponse.items[0].system.language;
     }
 
-    let contentItemNodes = contentItemsResponse.debug.response.data.items.map(
-        (contentItem) =>
-          normalize.createContentItemNode(
-              createNodeId, contentItem, contentTypeNodes
-          )
+    let contentItemNodes = itemsFlatted.map(
+        (contentItem) => {
+          try {
+            return normalize.createContentItemNode(
+                createNodeId, contentItem, contentTypeNodes
+            );
+          } catch (error) {
+            console.error(error);
+          }
+        }
     );
 
     let nonDefaultLanguagePromises = languageCodenames
@@ -46,32 +60,46 @@ projectId: ${deliveryClientConfig.projectId}, languageCodenames: ${languageCoden
     let nonDefaultLanguageItemNodes = new Map();
 
     languageResponses.forEach((languageResponse) => {
-      const languageItems = languageResponse.debug.response.data.items;
-
+      const languageItemsFlatted = parse(stringify(languageResponse.items));
       let allNodesOfCurrentLanguage = [];
-      let languageCodename = null;
+      let languageCodename;
 
       contentItemNodes.forEach((contentItemNode) => {
-        const languageVariantItem = languageItems.find((variant) =>
-          contentItemNode.system.codename === variant.system.codename);
+        const languageVariantItem = languageItemsFlatted.find((variant) => {
+          return contentItemNode.system.codename === variant.system.codename
+            && contentItemNode.system.type === variant.system.type;
+        });
 
-        if (_.isString(languageVariantItem.system.language)) {
+        if (languageVariantItem
+          && _.has(languageVariantItem, `system.language`)
+          && _.isString(languageVariantItem.system.language)) {
           languageCodename = languageVariantItem.system.language;
+          let languageVariantNode;
 
-          const languageVariantNode =
+          try {
+            languageVariantNode =
               normalize.createContentItemNode(
                   createNodeId, languageVariantItem, contentTypeNodes
               );
+          } catch (error) {
+            console.error(error);
+          }
 
-          normalize.decorateItemNodeWithLanguageVariantLink(
-              languageVariantNode, contentItemNodes
-          );
+          if (languageVariantNode) {
+            try {
+              normalize.decorateItemNodeWithLanguageVariantLink(
+                  languageVariantNode, contentItemNodes
+              );
+            } catch (error) {
+              console.error(error);
+            }
 
-          allNodesOfCurrentLanguage.push(languageVariantNode);
+            allNodesOfCurrentLanguage.push(languageVariantNode);
+          }
         }
       });
 
-      if (_.isString(languageCodename)) {
+      if (languageCodename && _.isString(languageCodename)) {
         nonDefaultLanguageItemNodes.set(
             languageCodename, allNodesOfCurrentLanguage
         );
@@ -81,59 +109,91 @@ projectId: ${deliveryClientConfig.projectId}, languageCodenames: ${languageCoden
     for (let [languageCodename, currentLanguageNodes]
       of nonDefaultLanguageItemNodes) {
       contentItemNodes.forEach((contentItemNode) => {
-        normalize.decorateItemNodeWithLanguageVariantLink(
-            contentItemNode, currentLanguageNodes
-        );
+        try {
+          normalize.decorateItemNodeWithLanguageVariantLink(
+              contentItemNode, currentLanguageNodes
+          );
+        } catch (error) {
+          console.error(error);
+        }
       });
 
       for (let [otherLanguageCodename, otherLanguageNodes]
         of nonDefaultLanguageItemNodes) {
         if (otherLanguageCodename !== languageCodename) {
           currentLanguageNodes.forEach((contentItemNode) => {
-            normalize.decorateItemNodeWithLanguageVariantLink(
-                contentItemNode, otherLanguageNodes
-            );
+            try {
+              normalize.decorateItemNodeWithLanguageVariantLink(
+                  contentItemNode, otherLanguageNodes
+              );
 
-            normalize.decorateItemNodeWithLanguageVariantLink(
-                contentItemNode, contentItemNodes
-            );
+              normalize.decorateItemNodeWithLanguageVariantLink(
+                  contentItemNode, contentItemNodes
+              );
+            } catch (error) {
+              console.error(error);
+            }
           });
         }
       }
 
-      normalize.decorateTypeNodesWithItemLinks(
-          currentLanguageNodes, contentTypeNodes
-      );
+      try {
+        normalize.decorateTypeNodesWithItemLinks(
+            currentLanguageNodes, contentTypeNodes
+        );
+      } catch (error) {
+        console.error(error);
+      }
     }
 
-    normalize.decorateTypeNodesWithItemLinks(
-        contentItemNodes, contentTypeNodes
-    );
+    try {
+      normalize.decorateTypeNodesWithItemLinks(
+          contentItemNodes, contentTypeNodes
+      );
+    } catch (error) {
+      console.error(error);
+    }
 
     contentItemNodes.forEach((itemNode) => {
-      normalize.decorateItemNodeWithModularElementLinks(
-          itemNode, contentItemNodes
-      );
+      try {
+        normalize.decorateItemNodeWithLinkedItemsLinks(
+            itemNode, contentItemNodes
+        );
+      } catch (error) {
+        console.error(error);
+      }
     });
 
     nonDefaultLanguageItemNodes.forEach((languageNodes) => {
       languageNodes.forEach((itemNode) => {
-        normalize.decorateItemNodeWithModularElementLinks(
-            itemNode, languageNodes
-        );
+        try {
+          normalize.decorateItemNodeWithLinkedItemsLinks(
+              itemNode, languageNodes
+          );
+        } catch (error) {
+          console.error(error);
+        }
       });
     });
 
     contentItemNodes.forEach((itemNode) => {
-      normalize.decorateItemNodeWithRichTextModularLinks(
-          itemNode, contentItemNodes);
+      try {
+        normalize.decorateItemNodeWithRichTextLinkedItemsLinks(
+            itemNode, contentItemNodes);
+      } catch (error) {
+        console.error(error);
+      }
     });
 
     nonDefaultLanguageItemNodes.forEach((languageNodes) => {
       languageNodes.forEach((itemNode) => {
-        normalize.decorateItemNodeWithRichTextModularLinks(
-            itemNode, languageNodes
-        );
+        try {
+          normalize.decorateItemNodeWithRichTextLinkedItemsLinks(
+              itemNode, languageNodes
+          );
+        } catch (error) {
+          console.error(error);
+        }
       });
     });
 
