@@ -4,52 +4,11 @@ exports[`createContentItemNode with correct arguments creates a content item nod
 Object {
   "children": Array [],
   "contentType___NODE": "aea6da0c-4130-593c-8b6e-006e6bace1de",
-  "elements": Object {
-    "elements": Object {
-      "finished_at": Object {
-        "name": "Finished at",
-        "type": "date_time",
-        "value": null,
-      },
-      "name___teaser_image__name": Object {
-        "name": "Name",
-        "type": "text",
-        "value": "Project reference 1",
-      },
-      "name___teaser_image__teaser_image": Object {
-        "name": "Teaser image",
-        "type": "asset",
-        "value": Array [
-          Object {
-            "description": null,
-            "name": "freeimage-6729104-web.jpg",
-            "size": 360791,
-            "type": "image/jpeg",
-            "url": "https://assets.kenticocloud.com:443/5ac93d1e-567d-01e6-e3b7-ac435f77b907/3c08c558-53fd-4b45-a9e5-a6822c4ebf00/freeimage-6729104-web.jpg",
-          },
-        ],
-      },
-      "started_at": Object {
-        "name": "Started at",
-        "type": "date_time",
-        "value": null,
-      },
-      "url": Object {
-        "name": "URL",
-        "type": "text",
-        "value": "https://example.com",
-      },
-      "url_slug": Object {
-        "name": "URL slug",
-        "type": "url_slug",
-        "value": "project-reference-1",
-      },
-    },
-  },
+  "elements": Object {},
   "id": "362bd0da-5b1a-533b-9575-107c2e3c6931",
   "internal": Object {
-    "content": "{\\"system\\":{\\"id\\":\\"7e70cb89-9281-4db9-8130-36076ee1e698\\",\\"name\\":\\"Project reference 1\\",\\"codename\\":\\"project_reference_1\\",\\"language\\":\\"default\\",\\"type\\":\\"project_reference\\",\\"sitemap_locations\\":[],\\"last_modified\\":\\"2018-05-29T13:40:17.3224207Z\\"},\\"elements\\":{\\"elements\\":{\\"name___teaser_image__name\\":{\\"type\\":\\"text\\",\\"name\\":\\"Name\\",\\"value\\":\\"Project reference 1\\"},\\"name___teaser_image__teaser_image\\":{\\"type\\":\\"asset\\",\\"name\\":\\"Teaser image\\",\\"value\\":[{\\"name\\":\\"freeimage-6729104-web.jpg\\",\\"type\\":\\"image/jpeg\\",\\"size\\":360791,\\"description\\":null,\\"url\\":\\"https://assets.kenticocloud.com:443/5ac93d1e-567d-01e6-e3b7-ac435f77b907/3c08c558-53fd-4b45-a9e5-a6822c4ebf00/freeimage-6729104-web.jpg\\"}]},\\"url\\":{\\"type\\":\\"text\\",\\"name\\":\\"URL\\",\\"value\\":\\"https://example.com\\"},\\"started_at\\":{\\"type\\":\\"date_time\\",\\"name\\":\\"Started at\\",\\"value\\":null},\\"finished_at\\":{\\"type\\":\\"date_time\\",\\"name\\":\\"Finished at\\",\\"value\\":null},\\"url_slug\\":{\\"type\\":\\"url_slug\\",\\"name\\":\\"URL slug\\",\\"value\\":\\"project-reference-1\\"}}}}",
-    "contentDigest": "c45a0db24311cf73267250ec09453273",
+    "content": "{\\"system\\":{\\"id\\":\\"7e70cb89-9281-4db9-8130-36076ee1e698\\",\\"name\\":\\"Project reference 1\\",\\"codename\\":\\"project_reference_1\\",\\"language\\":\\"default\\",\\"type\\":\\"project_reference\\",\\"sitemap_locations\\":[],\\"last_modified\\":\\"2018-05-29T13:40:17.3224207Z\\"},\\"elements\\":{}}",
+    "contentDigest": "bf808dfcd7f72d75b3f2dc427d0587dd",
     "type": "KenticoCloudItemProjectReference",
   },
   "otherLanguages___NODE": Array [],

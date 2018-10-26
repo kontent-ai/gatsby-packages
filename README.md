@@ -40,9 +40,9 @@ You can use the GraphiQL interface to experiment with the data structures produc
             }
             contentType {
               elements {
-                name___teaser_image__name {
-                  name
-                }
+              	name
+                codename
+                type
               }
             }
           }
@@ -87,16 +87,36 @@ Each Linked items property is accompanied by a sibling property suffixed with `_
           node {
             elements {
               related_project_references {
-                value
+                system {
+                  codename
+                }
               }
               related_project_references_nodes {
-                ...
+                __typename
+                ... on KenticoCloudItemBlogpostReference {
+                  elements {
+                    name___teaser_image__name {
+                      value
+                    }
+                  }
+                }
+                ... on KenticoCloudItemProjectReference {
+                  elements {
+                    name___teaser_image__name {
+                      value
+                    }
+                  }
+                }
               }
             }
           }
         }
       }
     }
+
+Under the `related_project_references` you'd find just the original data served by our [JS SDK](https://github.com/Enngage/kentico-cloud-js). Conversely, the `related_project_refereces_nodes` will give you the full-fledged Gatsby GraphQL nodes with all additional properties and links.
+
+Should a *Linked items* element in KC contain items of only *one* type, you'll be able to specify elements and other properties of that type directly (directly under the `related_project_references_nodes` in the above example). However, once you add linked items of multiple types, you'll have to specify their properties using the `... on [type name]` syntax (so called "inline fragments" in the GraphQL terminology).
 
 #### Content items in Rich text elements relationships
 

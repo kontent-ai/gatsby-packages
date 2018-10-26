@@ -64,7 +64,7 @@ const createContentItemNode =
 
       Object
           .keys(contentItem)
-          .filter((key) => key !== `system`)
+          .filter((key) => key !== `system` && key !== `elements`)
           .forEach((key) => {
             elements[key] = contentItem[key];
           });
@@ -156,7 +156,7 @@ of valid objects.`);
   };
 
 /**
- * Adds links to content items (stored in 'linked items' elements)
+ * Adds links to content items (stored in Linked items elements)
  *    via a sibling '_nodes' property.
  * @param {object} itemNode - Gatsby content item node.
  * @param {array} allNodesOfSameLanguage - The whole set of nodes
@@ -178,27 +178,31 @@ of valid objects.`);
           .forEach((propertyName) => {
             const property = itemNode.elements[propertyName];
 
-            if (_.isArray(property) && _.has(property, `[0].system.codename`)) {
+            if (_.isArray(property)) {
               const linkPropertyName = `${propertyName}_nodes___NODE`;
               itemNode.elements[linkPropertyName] = [];
 
-              const linkedNodes = allNodesOfSameLanguage
-                  .filter((node) => {
-                    const match = property.find((propertyValue) =>
-                      propertyValue.system.codename === node.system.codename
-                    );
+              if (_.has(property, `[0].system.codename`)) {
+                const linkedNodes = allNodesOfSameLanguage
+                    .filter((node) => {
+                      const match = property.find((propertyValue) => {
+                        return propertyValue.system.codename ===
+                          node.system.codename
+                          && propertyValue.system.type === node.system.type;
+                      });
 
-                    return match !== undefined && match !== null;
-                  });
+                      return match !== undefined && match !== null;
+                    });
 
-              addLinkedItemsLinks(itemNode, linkedNodes, linkPropertyName);
+                addLinkedItemsLinks(itemNode, linkedNodes, linkPropertyName);
+              }
             }
           });
     }
   };
 
 /**
- * Adds links to content items (stored in 'rich text' elements)
+ * Adds links to content items (stored in Rich text elements)
  *    via a sibling '_nodes' property.
  * @param {object} itemNode - Gatsby content item node.
  * @param {array} allNodesOfSameLanguage - The whole set of nodes
