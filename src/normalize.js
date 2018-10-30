@@ -242,7 +242,24 @@ of valid objects.`);
 const createKcArtifactNode =
   (nodeId, kcArtifact, artifactKind, typeName = ``,
       additionalNodeData = null) => {
-    const nodeContent = JSON.stringify(kcArtifact);
+    let processedProperties = [];
+
+    // Handle circular references when serializing.
+    const nodeContent = JSON.stringify(kcArtifact, (key, value) =>{
+      if (typeof value === `object` && value !== null) {
+        if (processedProperties.indexOf(value) !== -1) {
+          try {
+            return JSON.parse(JSON.stringify(value));
+          } catch (error) {
+            return;
+          }
+        }
+        processedProperties.push(value);
+      }
+      return value;
+    });
+
+    processedProperties = null;
 
     const nodeContentDigest = crypto
         .createHash(`md5`)
