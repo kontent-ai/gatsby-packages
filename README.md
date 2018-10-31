@@ -120,7 +120,7 @@ Should a *Linked items* element in KC contain items of only *one* type, you'll b
 
 #### Content items in Rich text elements relationships
 
-As with the previous example, all rich text properties with inline content items also have an accompanying `_nodes` property.
+As with the previous example, all rich text properties with content items linked in the element also have an accompanying `_nodes` property.
 
     {
       allKenticoCloudItemBlogpostReference {
