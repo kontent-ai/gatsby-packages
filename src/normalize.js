@@ -66,7 +66,18 @@ const createContentItemNode =
           .keys(contentItem)
           .filter((key) => key !== `system` && key !== `elements`)
           .forEach((key) => {
-            elements[key] = contentItem[key];
+            let propertyValue;
+
+            if (_.has(contentItem[key], `type`)
+              && contentItem[key].type === `rich_text`
+              && _.has(contentItem.elements[key], `images`)
+              && !_.isEmpty(contentItem.elements[key].images)) {
+              propertyValue = prefixImagesInRichText(contentItem.elements[key]);
+            } else {
+              propertyValue = contentItem[key];
+            }
+
+            elements[key] = propertyValue;
           });
 
       const itemWithElements = {
@@ -228,8 +239,9 @@ of valid objects.`);
               const linkPropertyName = `${propertyName}_nodes___NODE`;
 
               const linkedNodes = allNodesOfSameLanguage
-                  .filter((node) =>
-                    property.linkedItemCodenames.includes(node.system.codename)
+                  .filter((node) => _.has(property, `linkedItemCodenames`)
+                    && _.isArray(property.linkedItemCodenames)
+                    && property.linkedItemCodenames.includes(node.system.codename)
                   );
 
               itemNode.elements[linkPropertyName] = [];
@@ -303,6 +315,34 @@ const addLinkedItemsLinks = (itemNode, linkedNodes, linkPropertyName) => {
       }
     });
   }
+};
+
+
+const prefixImagesInRichText = (richTextPropertyValue) => {
+  const imagesIdentifier = `images`;
+  const prefixLiteral = `image-`;
+  let transformedPropertyValue = {};
+
+  Object
+      .keys(richTextPropertyValue)
+      .filter((key) => key !== imagesIdentifier)
+      .forEach((key) => {
+        transformedPropertyValue[key] = richTextPropertyValue[key];
+      });
+
+  let transformedImagesProperty = {};
+
+  Object
+      .keys(richTextPropertyValue[imagesIdentifier])
+      .forEach((key) => {
+        const prefixedKey = prefixLiteral + key;
+        transformedImagesProperty[prefixedKey] =
+          richTextPropertyValue[imagesIdentifier][key];
+      });
+
+  transformedPropertyValue[imagesIdentifier] = transformedImagesProperty;
+
+  return transformedPropertyValue;
 };
 
 exports.createContentTypeNode = createContentTypeNode;
