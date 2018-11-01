@@ -156,6 +156,22 @@ All nodes have a `usedByContentItems` property that reflects the other nodes in 
 
 Currently, the plugin exhibits an [issue with nodes of multiple types](https://github.com/gatsbyjs/gatsby/issues/9154) in foreign key relationships (`___NODE`). In practice, only content items of one content type can be put into a particular *Linked items* element or *Rich text* element. We're in touch with Gatsby Inc. and work towards resolving that issue soon.
 
+Gatsby's GraphQL libraries won't accept object properties with names starting with numbers. This conflicts with the way image assets are named in the Delivery API response (in the JS SDK output, respectively). Therefore, the names of assets are prefixed by the source plugin with `image-`.
+
+    "images": {
+      "image-79bd9e11-f643-4cd6-9ea5-d1be17cf7de2": {
+        "image_id": "79bd9e11-f643-4cd6-9ea5-d1be17cf7de2",
+        "description": null,
+        "url": "https://assets-eu-01.kc-usercontent.com:443/5ac93d1e-567d-01e6-e3b7-ac435f77b907/f7a357f7-643a-4d2d-8078-0fc371914d25/clearing-cache-with-webhooks---blog-post-image@2x_t.png"
+      },
+      "image-d2b4bdb2-a586-45d8-9920-bc1dd6846498": {
+        "image_id": "d2b4bdb2-a586-45d8-9920-bc1dd6846498",
+        "description": null,
+        "url": "https://assets-eu-01.kc-usercontent.com:443/5ac93d1e-567d-01e6-e3b7-ac435f77b907/36cb3d1b-1aa7-4809-9606-82c3c0f00b7f/fcyTulxr.jpg"
+      }
+
+Should you need to refer to the properties, just bear in mind the addition of the `image-` suffix. The GUID in the child `image_id` property is never prefixed or otherwise transformed.
+
 ## Further information
 
 For more developer resources, visit the Kentico Cloud Developer Hub at https://developer.kenticocloud.com.
