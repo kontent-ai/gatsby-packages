@@ -154,8 +154,6 @@ All nodes have a `usedByContentItems` property that reflects the other nodes in 
 
 ## Troubleshooting
 
-Currently, the plugin exhibits an [issue with nodes of multiple types](https://github.com/gatsbyjs/gatsby/issues/9154) in foreign key relationships (`___NODE`). In practice, only content items of one content type can be put into a particular *Linked items* element or *Rich text* element. We're in touch with Gatsby Inc. and work towards resolving that issue soon.
-
 Gatsby's GraphQL libraries won't accept object properties with names starting with numbers. This conflicts with the way image assets are named in the Delivery API response (in the JS SDK output, respectively). Therefore, the names of assets are prefixed by the source plugin with `image-`.
 
     "images": {
