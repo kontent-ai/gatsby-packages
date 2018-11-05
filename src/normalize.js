@@ -60,30 +60,7 @@ const createContentItemNode =
           (contentType) => contentType.system.codename
               === contentItem.system.type);
 
-      const elements = {};
-
-      Object
-          .keys(contentItem)
-          .filter((key) => key !== `system` && key !== `elements`)
-          .forEach((key) => {
-            let propertyValue;
-
-            if (_.has(contentItem[key], `type`)
-              && contentItem[key].type === `rich_text`
-              && _.has(contentItem.elements[key], `images`)
-              && !_.isEmpty(contentItem.elements[key].images)) {
-              propertyValue = prefixImagesInRichText(contentItem.elements[key]);
-            } else {
-              propertyValue = contentItem[key];
-            }
-
-            elements[key] = propertyValue;
-          });
-
-      const itemWithElements = {
-        system: contentItem.system,
-        elements: elements,
-      };
+      const itemWithElements = parseContentItemContents(contentItem);
 
       const additionalData = {
         otherLanguages___NODE: [],
@@ -197,7 +174,9 @@ of valid objects.`);
                 const linkedNodes = allNodesOfSameLanguage
                     .filter((node) => {
                       const match = property.find((propertyValue) => {
-                        return propertyValue.system.codename ===
+                        return propertyValue !== null
+                          && node !== null
+                          && propertyValue.system.codename ===
                           node.system.codename
                           && propertyValue.system.type === node.system.type;
                       });
@@ -241,7 +220,8 @@ of valid objects.`);
               const linkedNodes = allNodesOfSameLanguage
                   .filter((node) => _.has(property, `linkedItemCodenames`)
                     && _.isArray(property.linkedItemCodenames)
-                    && property.linkedItemCodenames.includes(node.system.codename)
+                    && property.linkedItemCodenames.includes(
+                        node.system.codename)
                   );
 
               itemNode.elements[linkPropertyName] = [];
@@ -256,16 +236,17 @@ const createKcArtifactNode =
       additionalNodeData = null) => {
     let processedProperties = [];
 
-    // Handle circular references when serializing.
-    const nodeContent = JSON.stringify(kcArtifact, (key, value) =>{
+    // Handle eventual circular references when serializing.
+    const nodeContent = JSON.stringify(kcArtifact, (key, value) => {
       if (typeof value === `object` && value !== null) {
         if (processedProperties.indexOf(value) !== -1) {
           try {
             return JSON.parse(JSON.stringify(value));
           } catch (error) {
-            return;
+            return null;
           }
         }
+
         processedProperties.push(value);
       }
       return value;
@@ -317,32 +298,88 @@ const addLinkedItemsLinks = (itemNode, linkedNodes, linkPropertyName) => {
   }
 };
 
-
-const prefixImagesInRichText = (richTextPropertyValue) => {
+const prefixGuidNamedProperties = (propertyValue) => {
   const imagesIdentifier = `images`;
-  const prefixLiteral = `image-`;
+  const imagePrefixLiteral = `image-`;
+  const linksIdentifier = `links`;
+  const linkPrefixLiteral = `link-`;
   let transformedPropertyValue = {};
 
   Object
-      .keys(richTextPropertyValue)
-      .filter((key) => key !== imagesIdentifier)
+      .keys(propertyValue)
+      .filter((key) => key !== imagesIdentifier && key !== linksIdentifier)
       .forEach((key) => {
-        transformedPropertyValue[key] = richTextPropertyValue[key];
+        transformedPropertyValue[key] = propertyValue[key];
       });
 
-  let transformedImagesProperty = {};
-
-  Object
-      .keys(richTextPropertyValue[imagesIdentifier])
-      .forEach((key) => {
-        const prefixedKey = prefixLiteral + key;
-        transformedImagesProperty[prefixedKey] =
-          richTextPropertyValue[imagesIdentifier][key];
-      });
-
-  transformedPropertyValue[imagesIdentifier] = transformedImagesProperty;
+  transformedPropertyValue[imagesIdentifier] =
+    prefixProperty(propertyValue, imagesIdentifier, imagePrefixLiteral);
+  transformedPropertyValue[linksIdentifier] =
+    prefixProperty(propertyValue, linksIdentifier, linkPrefixLiteral);
 
   return transformedPropertyValue;
+};
+
+const prefixProperty = (propertyValue, identifier, prefixLiteral) => {
+  let transformedProperty = {};
+
+  Object
+      .keys(propertyValue[identifier])
+      .forEach((key) => {
+        const prefixedKey = prefixLiteral + key;
+        transformedProperty[prefixedKey] =
+          propertyValue[identifier][key];
+      });
+
+  return transformedProperty;
+};
+
+const parseContentItemContents = (contentItem, processedContents = []) => {
+  if (processedContents.indexOf(contentItem.system) !== -1) {
+    return null;
+  } else {
+    processedContents.push(contentItem.system);
+    const elements = {};
+
+    Object
+        .keys(contentItem)
+        .filter((key) => key !== `system` && key !== `elements`)
+        .forEach((key) => {
+          let propertyValue;
+
+          if (_.has(contentItem[key], `type`)
+            && contentItem[key].type === `rich_text`) {
+            if ((_.has(contentItem.elements[key], `images`)
+            && !_.isEmpty(contentItem.elements[key].images))
+            || (_.has(contentItem.elements[key], `links`)
+            && !_.isEmpty(contentItem.elements[key].links))) {
+              propertyValue =
+                prefixGuidNamedProperties(contentItem.elements[key]);
+            }
+          } else if (contentItem.elements[key].type === `modular_content`
+            && !_.isEmpty(contentItem[key])) {
+            let linkedItems = [];
+
+            contentItem[key].forEach((linkedItem) => {
+              linkedItems.push(
+                  parseContentItemContents(linkedItem, processedContents));
+            });
+
+            propertyValue = linkedItems;
+          } else {
+            propertyValue = contentItem[key];
+          }
+
+          elements[key] = propertyValue;
+        });
+
+    const itemWithElements = {
+      system: contentItem.system,
+      elements: elements,
+    };
+
+    return itemWithElements;
+  }
 };
 
 exports.createContentTypeNode = createContentTypeNode;

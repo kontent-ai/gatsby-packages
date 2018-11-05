@@ -154,7 +154,7 @@ All nodes have a `usedByContentItems` property that reflects the other nodes in 
 
 ## Troubleshooting
 
-Gatsby's GraphQL libraries won't accept object properties with names starting with numbers. This conflicts with the way image assets are named in the Delivery API response (in the JS SDK output, respectively). Therefore, the names of assets are prefixed by the source plugin with `image-`.
+Gatsby's GraphQL libraries won't accept object properties with names starting with numbers. This conflicts with the way image assets and links are named in the Delivery API response (in the JS SDK output, respectively). Therefore, the names of properties with assets and links in Rich text are prefixed by the source plugin with `image-` and `link-` respectively.
 
     "images": {
       "image-79bd9e11-f643-4cd6-9ea5-d1be17cf7de2": {
@@ -168,7 +168,7 @@ Gatsby's GraphQL libraries won't accept object properties with names starting wi
         "url": "https://assets-eu-01.kc-usercontent.com:443/5ac93d1e-567d-01e6-e3b7-ac435f77b907/36cb3d1b-1aa7-4809-9606-82c3c0f00b7f/fcyTulxr.jpg"
       }
 
-Should you need to refer to the properties, just bear in mind the addition of the `image-` suffix. The GUID in the child `image_id` property is never prefixed or otherwise transformed.
+Should you need to refer to the properties, just bear in mind the addition of the `image-` and `link-` prefix. In case of images, the GUID in the child `image_id` property is never prefixed or otherwise transformed.
 
 ## Further information
 
