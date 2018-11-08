@@ -152,6 +152,10 @@ All nodes have a `usedByContentItems` property that reflects the other nodes in 
 
 * [Node.js](https://nodejs.org/) with NPM installed
 
+## Debugging
+
+To get a smooth debugging experience, you can temporarily copy the `gatsby-source-kentico-cloud` [directory](https://github.com/Kentico/gatsby-source-kentico-cloud) of the source plugin to the `/plugins` directory of your site. Then, move the `gatsby-node.js` and `normalize.js` files from `/plugins/gatsby-source-kentico-cloud/src` to `/plugins/gatsby-source-kentico-cloud` (up one level).
+
 ## Troubleshooting
 
 Gatsby's GraphQL libraries won't accept object properties with names starting with numbers. This conflicts with the way image assets and links are named in the Delivery API response (in the JS SDK output, respectively). Therefore, the names of properties with assets and links in Rich text are prefixed by the source plugin with `image-` and `link-` respectively.
