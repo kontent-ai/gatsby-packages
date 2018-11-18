@@ -355,6 +355,8 @@ const parseContentItemContents = (contentItem, processedContents = []) => {
             && !_.isEmpty(contentItem.elements[key].links))) {
               propertyValue =
                 prefixGuidNamedProperties(contentItem.elements[key]);
+            } else {
+              propertyValue = contentItem[key];
             }
           } else if (contentItem.elements[key].type === `modular_content`
             && !_.isEmpty(contentItem[key])) {

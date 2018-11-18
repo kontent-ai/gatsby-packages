@@ -31,25 +31,25 @@
   "dependencies": {
     "change-case": "^3.0.2",
     "flatted": "^2.0.0",
-    "gatsby": "^2.0.22",
-    "kentico-cloud-delivery": "^5.1.0",
+    "gatsby": "^2.0.50",
+    "kentico-cloud-delivery": "^5.1.1",
     "lodash": "^4.17.11",
-    "react": "^16.5.2",
-    "react-dom": "^16.5.2",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
     "rxjs": "^6.3.3"
   },
   "peerDependencies": {
     "gatsby": ">=2"
   },
   "devDependencies": {
-    "@babel/cli": "^7.1.0",
-    "@babel/core": "^7.1.0",
+    "@babel/cli": "^7.1.5",
+    "@babel/core": "^7.1.6",
     "@babel/polyfill": "^7.0.0",
-    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-env": "^7.1.6",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^9.0.0",
     "babel-jest": "^23.6.0",
-    "eslint": "^5.7.0",
+    "eslint": "^5.9.0",
     "eslint-config-google": "^0.10.0",
     "eslint-plugin-node": "^7.0.1",
     "jest": "^23.6.0",
