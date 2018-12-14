@@ -43,7 +43,7 @@ const createContentItemNode =
     } else if (!contentTypeNodes
       || !_.isArray(contentTypeNodes)
       || (!_.isEmpty(contentTypeNodes)
-      && !_.has(contentTypeNodes, `[0].system.codename`))) {
+        && !_.has(contentTypeNodes, `[0].system.codename`))) {
       throw new Error(`contentTypeNodes is not an array of valid objects.`);
     } else {
       const codenameParamCase =
@@ -58,7 +58,7 @@ const createContentItemNode =
 
       const parentContentTypeNode = contentTypeNodes.find(
           (contentType) => contentType.system.codename
-              === contentItem.system.type);
+          === contentItem.system.type);
 
       const itemWithElements = parseContentItemContents(contentItem);
 
@@ -87,12 +87,12 @@ const decorateTypeNodesWithItemLinks =
     if (!contentItemNodes
       || !_.isArray(contentItemNodes)
       || (!_.isEmpty(contentItemNodes)
-      && !_.has(contentItemNodes, `[0].system.type`))) {
+        && !_.has(contentItemNodes, `[0].system.type`))) {
       throw new Error(`contentItemNodes is not an array of valid objects.`);
     } else if (!contentTypeNodes
       || !_.isArray(contentTypeNodes)
       || (!_.isEmpty(contentTypeNodes)
-      && !_.has(contentTypeNodes, `[0].system.codename`))) {
+        && !_.has(contentTypeNodes, `[0].system.codename`))) {
       throw new Error(`contentTypeNodes is not an array of valid objects.`);
     } else {
       contentTypeNodes.forEach((contentTypeNode) => {
@@ -123,7 +123,7 @@ const decorateItemNodeWithLanguageVariantLink =
     } else if (!allNodesOfAnotherLanguage
       || !_.isArray(allNodesOfAnotherLanguage)
       || (!_.isEmpty(allNodesOfAnotherLanguage)
-      && !_.has(allNodesOfAnotherLanguage, `[0].system.codename`))) {
+        && !_.has(allNodesOfAnotherLanguage, `[0].system.codename`))) {
       throw new Error(`allNodesOfAnotherLanguage is not an array
 of valid objects.`);
     } else {
@@ -157,7 +157,7 @@ const decorateItemNodeWithLinkedItemsLinks =
     } else if (!allNodesOfSameLanguage
       || !_.isArray(allNodesOfSameLanguage)
       || (!_.isEmpty(allNodesOfSameLanguage)
-      && !_.has(allNodesOfSameLanguage, `[0].system.codename`))) {
+        && !_.has(allNodesOfSameLanguage, `[0].system.codename`))) {
       throw new Error(`allNodesOfSameLanguage is not an array
 of valid objects.`);
     } else {
@@ -175,10 +175,10 @@ of valid objects.`);
                     .filter((node) => {
                       const match = property.find((propertyValue) => {
                         return propertyValue !== null
-                          && node !== null
-                          && propertyValue.system.codename ===
-                          node.system.codename
-                          && propertyValue.system.type === node.system.type;
+                      && node !== null
+                      && propertyValue.system.codename ===
+                      node.system.codename
+                      && propertyValue.system.type === node.system.type;
                       });
 
                       return match !== undefined && match !== null;
@@ -205,7 +205,7 @@ const decorateItemNodeWithRichTextLinkedItemsLinks =
     } else if (!allNodesOfSameLanguage
       || !_.isArray(allNodesOfSameLanguage)
       || (!_.isEmpty(allNodesOfSameLanguage)
-      && !_.has(allNodesOfSameLanguage, `[0].system.codename`))) {
+        && !_.has(allNodesOfSameLanguage, `[0].system.codename`))) {
       throw new Error(`allNodesOfSameLanguage is not an array
 of valid objects.`);
     } else {
@@ -219,9 +219,9 @@ of valid objects.`);
 
               const linkedNodes = allNodesOfSameLanguage
                   .filter((node) => _.has(property, `linkedItemCodenames`)
-                    && _.isArray(property.linkedItemCodenames)
-                    && property.linkedItemCodenames.includes(
-                        node.system.codename)
+                && _.isArray(property.linkedItemCodenames)
+                && property.linkedItemCodenames.includes(
+                    node.system.codename)
                   );
 
               itemNode.elements[linkPropertyName] = [];
@@ -328,17 +328,27 @@ const prefixProperty = (propertyValue, identifier, prefixLiteral) => {
       .forEach((key) => {
         const prefixedKey = prefixLiteral + key;
         transformedProperty[prefixedKey] =
-          propertyValue[identifier][key];
+        propertyValue[identifier][key];
       });
 
   return transformedProperty;
 };
 
-const parseContentItemContents = (contentItem, processedContents = []) => {
-  if (processedContents.indexOf(contentItem.system) !== -1) {
-    return null;
-  } else {
-    processedContents.push(contentItem.system);
+const parseContentItemContents =
+  (contentItem, processedContents = [], originalItem) => {
+    for (let path of processedContents) {
+      const items = path.split(';');
+      if (items.includes(contentItem.codename)) {
+        throw Error(`Cycle detected in linked items' path: ${path}`);
+      };
+    }
+
+    const lastPath = processedContents[processedContents.length - 1];
+    const currentItemPath = originalItem
+    ? lastPath + ';' + contentItem.system.codename
+    : contentItem.system.codename;
+
+    processedContents.push(currentItemPath);
     const elements = {};
 
     Object
@@ -348,23 +358,26 @@ const parseContentItemContents = (contentItem, processedContents = []) => {
           let propertyValue;
 
           if (_.has(contentItem[key], `type`)
-            && contentItem[key].type === `rich_text`) {
+        && contentItem[key].type === `rich_text`) {
             if ((_.has(contentItem.elements[key], `images`)
-            && !_.isEmpty(contentItem.elements[key].images))
-            || (_.has(contentItem.elements[key], `links`)
+          && !_.isEmpty(contentItem.elements[key].images))
+          || (_.has(contentItem.elements[key], `links`)
             && !_.isEmpty(contentItem.elements[key].links))) {
               propertyValue =
-                prefixGuidNamedProperties(contentItem.elements[key]);
+            prefixGuidNamedProperties(contentItem.elements[key]);
             } else {
               propertyValue = contentItem[key];
             }
           } else if (contentItem.elements[key].type === `modular_content`
-            && !_.isEmpty(contentItem[key])) {
+        && !_.isEmpty(contentItem[key])) {
             let linkedItems = [];
 
             contentItem[key].forEach((linkedItem) => {
               linkedItems.push(
-                  parseContentItemContents(linkedItem, processedContents));
+                  parseContentItemContents(
+                      linkedItem, processedContents, contentItem
+                  )
+              );
             });
 
             propertyValue = linkedItems;
@@ -381,18 +394,17 @@ const parseContentItemContents = (contentItem, processedContents = []) => {
     };
 
     return itemWithElements;
-  }
-};
+  };
 
 exports.createContentTypeNode = createContentTypeNode;
 exports.createContentItemNode = createContentItemNode;
 exports.decorateTypeNodesWithItemLinks = decorateTypeNodesWithItemLinks;
 
 exports.decorateItemNodeWithLanguageVariantLink
-    = decorateItemNodeWithLanguageVariantLink;
+  = decorateItemNodeWithLanguageVariantLink;
 
 exports.decorateItemNodeWithLinkedItemsLinks
-    = decorateItemNodeWithLinkedItemsLinks;
+  = decorateItemNodeWithLinkedItemsLinks;
 
 exports.decorateItemNodeWithRichTextLinkedItemsLinks
-    = decorateItemNodeWithRichTextLinkedItemsLinks;
+  = decorateItemNodeWithRichTextLinkedItemsLinks;
