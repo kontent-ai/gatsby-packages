@@ -7,6 +7,7 @@ const changeCase = require(`change-case`);
  * @param {function} createNodeId - Gatsby function to create a node ID.
  * @param {object} contentType - Kentico Cloud content type object.
  * @return {object} Gatsby content type node.
+ * @throws {Error}
  */
 const createContentTypeNode = (createNodeId, contentType) => {
   if (typeof createNodeId !== `function`) {
@@ -33,6 +34,7 @@ const createContentTypeNode = (createNodeId, contentType) => {
  * @param {object} contentItem - Kentico Cloud content item object.
  * @param {array} contentTypeNodes - All Gatsby content type nodes.
  * @return {object} Gatsby content item node.
+ * @throws {Error}
  */
 const createContentItemNode =
   (createNodeId, contentItem, contentTypeNodes) => {
@@ -81,6 +83,7 @@ const createContentItemNode =
  * Adds links between a content type node and item nodes of that content type.
  * @param {array} contentItemNodes - Gatsby content item nodes.
  * @param {array} contentTypeNodes - Gatsby content type nodes.
+ * @throws {Error}
  */
 const decorateTypeNodesWithItemLinks =
   (contentItemNodes, contentTypeNodes) => {
@@ -115,6 +118,7 @@ const decorateTypeNodesWithItemLinks =
  * @param {object} itemNode - Gatsby content item node.
  * @param {array} allNodesOfAnotherLanguage - The whole set of Gatsby item nodes
  *    of another language.
+ * @throws {Error}
  */
 const decorateItemNodeWithLanguageVariantLink =
   (itemNode, allNodesOfAnotherLanguage) => {
@@ -130,6 +134,7 @@ of valid objects.`);
       const languageVariantNode = allNodesOfAnotherLanguage.find(
           (nodeOfSpecificLanguage) =>
             itemNode.system.codename === nodeOfSpecificLanguage.system.codename
+            && itemNode.system.type === nodeOfSpecificLanguage.system.type
       );
 
       const otherLanguageLink =
@@ -149,6 +154,7 @@ of valid objects.`);
  * @param {object} itemNode - Gatsby content item node.
  * @param {array} allNodesOfSameLanguage - The whole set of nodes
  *    of that same language.
+ * @throws {Error}
  */
 const decorateItemNodeWithLinkedItemsLinks =
   (itemNode, allNodesOfSameLanguage) => {
@@ -175,21 +181,27 @@ of valid objects.`);
                     .filter((node) => {
                       const match = property.find((propertyValue) => {
                         return propertyValue !== null
-                          && node !== null
-                          && propertyValue.system.codename ===
-                          node.system.codename
-                          && propertyValue.system.type === node.system.type;
+                        && node !== null
+                        && propertyValue.system.codename ===
+                        node.system.codename
+                        && propertyValue.system.type === node.system.type;
                       });
 
                       return match !== undefined && match !== null;
                     });
 
-                addLinkedItemsLinks(itemNode, linkedNodes, linkPropertyName);
+                addLinkedItemsLinks(
+                    itemNode,
+                    linkedNodes,
+                    linkPropertyName,
+                    allNodesOfSameLanguage
+                );
               }
             }
           });
     }
   };
+
 
 /**
  * Adds links to content items (stored in Rich text elements)
@@ -197,6 +209,7 @@ of valid objects.`);
  * @param {object} itemNode - Gatsby content item node.
  * @param {array} allNodesOfSameLanguage - The whole set of nodes
  *    of that same language.
+ * @throws {Error}
  */
 const decorateItemNodeWithRichTextLinkedItemsLinks =
   (itemNode, allNodesOfSameLanguage) => {
@@ -225,7 +238,13 @@ of valid objects.`);
                   );
 
               itemNode.elements[linkPropertyName] = [];
-              addLinkedItemsLinks(itemNode, linkedNodes, linkPropertyName);
+
+              addLinkedItemsLinks(
+                  itemNode,
+                  linkedNodes,
+                  linkPropertyName,
+                  allNodesOfSameLanguage
+              );
             }
           });
     }
@@ -277,26 +296,33 @@ const createKcArtifactNode =
     };
   };
 
-const addLinkedItemsLinks = (itemNode, linkedNodes, linkPropertyName) => {
-  linkedNodes
-      .forEach((linkedNode) => {
-        if (!linkedNode.usedByContentItems___NODE.includes(itemNode.id)) {
-          linkedNode.usedByContentItems___NODE.push(itemNode.id);
+const addLinkedItemsLinks =
+  (itemNode, linkedNodes, linkPropertyName, originalNodeCollection) => {
+    linkedNodes
+        .forEach((linkedNode) => {
+          if (!linkedNode.usedByContentItems___NODE.includes(itemNode.id)) {
+            linkedNode.usedByContentItems___NODE.push(itemNode.id);
+          }
+        });
+
+    const idsOfLinkedNodes = linkedNodes.map((node) => node.id);
+    const idsOfOriginalNodes = originalNodeCollection.map((node) => node.id);
+
+    if (!itemNode.elements[linkPropertyName]) {
+      itemNode.elements[linkPropertyName] = idsOfLinkedNodes;
+    } else {
+      idsOfLinkedNodes.forEach((id) => {
+        if (!itemNode.elements[linkPropertyName].includes(id)) {
+          itemNode.elements[linkPropertyName].push(id);
         }
       });
+    }
 
-  const idsOfLinkedNodes = linkedNodes.map((node) => node.id);
-
-  if (!itemNode.elements[linkPropertyName]) {
-    itemNode.elements[linkPropertyName] = idsOfLinkedNodes;
-  } else {
-    idsOfLinkedNodes.forEach((id) => {
-      if (!itemNode.elements[linkPropertyName].includes(id)) {
-        itemNode.elements[linkPropertyName].push(id);
-      }
+    itemNode.elements[linkPropertyName].sort((a, b) => {
+      return idsOfOriginalNodes.indexOf(a)
+        - idsOfOriginalNodes.indexOf(b);
     });
-  }
-};
+  };
 
 const prefixGuidNamedProperties = (propertyValue) => {
   const imagesIdentifier = `images`;
@@ -334,63 +360,68 @@ const prefixProperty = (propertyValue, identifier, prefixLiteral) => {
   return transformedProperty;
 };
 
-const parseContentItemContents = (contentItem, processedContents = []) => {
-  if (processedContents.indexOf(contentItem.system) !== -1) {
-    return null;
-  } else {
-    processedContents.push(contentItem.system);
-    const elements = {};
+const parseContentItemContents =
+    (contentItem, processedContents = [], originalItem) => {
+      if (processedContents.includes(contentItem.system.codename)) {
+        const flatted = processedContents.join(` -> `);
 
-    Object
-        .keys(contentItem)
-        .filter((key) => key !== `system` && key !== `elements`)
-        .forEach((key) => {
-          let propertyValue;
+        throw new Error(`Cycle detected in linked items' path: ${flatted}`);
+      }
 
-          if (_.has(contentItem[key], `type`)
-            && contentItem[key].type === `rich_text`) {
-            if ((_.has(contentItem.elements[key], `images`)
-            && !_.isEmpty(contentItem.elements[key].images))
-            || (_.has(contentItem.elements[key], `links`)
-            && !_.isEmpty(contentItem.elements[key].links))) {
-              propertyValue =
-                prefixGuidNamedProperties(contentItem.elements[key]);
+      if (originalItem) {
+        processedContents.push(contentItem.system.codename);
+      } else {
+        processedContents = [contentItem.system.codename];
+      }
+
+      const elements = {};
+
+      Object
+          .keys(contentItem)
+          .filter((key) => key !== `system` && key !== `elements`)
+          .forEach((key) => {
+            let propertyValue;
+
+            if (_.has(contentItem[key], `type`)
+              && contentItem[key].type === `rich_text`) {
+              if ((_.has(contentItem.elements[key], `images`)
+              && !_.isEmpty(contentItem.elements[key].images))
+              || (_.has(contentItem.elements[key], `links`)
+              && !_.isEmpty(contentItem.elements[key].links))) {
+                propertyValue =
+                  prefixGuidNamedProperties(contentItem.elements[key]);
+              } else {
+                propertyValue = contentItem[key];
+              }
+            } else if (contentItem.elements[key].type === `modular_content`
+              && !_.isEmpty(contentItem[key])) {
+              let linkedItems = [];
+
+              contentItem[key].forEach((linkedItem) => {
+                linkedItems.push(
+                    parseContentItemContents(
+                        linkedItem, processedContents, contentItem
+                    )
+                );
+              });
+
+              propertyValue = linkedItems;
+            } else {
+              propertyValue = contentItem[key];
             }
-          } else if (contentItem.elements[key].type === `modular_content`
-            && !_.isEmpty(contentItem[key])) {
-            let linkedItems = [];
 
-            contentItem[key].forEach((linkedItem) => {
-              linkedItems.push(
-                  parseContentItemContents(linkedItem, processedContents));
-            });
+            elements[key] = propertyValue;
+          });
 
-            propertyValue = linkedItems;
-          } else {
-            propertyValue = contentItem[key];
-          }
+      const itemWithElements = {
+        system: contentItem.system,
+        elements: elements,
+      };
 
-          elements[key] = propertyValue;
-        });
-
-    const itemWithElements = {
-      system: contentItem.system,
-      elements: elements,
+      return itemWithElements;
     };
 
-    return itemWithElements;
-  }
-};
-
-exports.createContentTypeNode = createContentTypeNode;
-exports.createContentItemNode = createContentItemNode;
-exports.decorateTypeNodesWithItemLinks = decorateTypeNodesWithItemLinks;
-
-exports.decorateItemNodeWithLanguageVariantLink
-    = decorateItemNodeWithLanguageVariantLink;
-
-exports.decorateItemNodeWithLinkedItemsLinks
-    = decorateItemNodeWithLinkedItemsLinks;
-
-exports.decorateItemNodeWithRichTextLinkedItemsLinks
-    = decorateItemNodeWithRichTextLinkedItemsLinks;
+module.exports = {createContentTypeNode, createContentItemNode,
+  decorateTypeNodesWithItemLinks, decorateItemNodeWithLanguageVariantLink,
+  decorateItemNodeWithLinkedItemsLinks,
+  decorateItemNodeWithRichTextLinkedItemsLinks};
