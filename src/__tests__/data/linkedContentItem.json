@@ -1,0 +1,94 @@
+{
+  "system": {
+    "name": "Main project",
+    "codename": "main_project",
+    "id": "1a3aa6bd-7b4b-486f-86ab-7bfe359ad614",
+    "lastModified": "2018-12-28T12:53:59.0753983Z",
+    "language": "default",
+    "type": "project",
+    "sitemapLocations": []
+  },
+  "content": {
+    "name": "Content",
+    "value": "Main project content",
+    "type": "text",
+    "text": "Main project content"
+  },
+  "related_projects": [
+    {
+      "system": {
+        "name": "Sub project 1",
+        "codename": "sub_project_1",
+        "id": "8a7f275d-0e1c-4b30-af3e-f02c91259faf",
+        "lastModified": "2018-12-28T12:29:34.2243616Z",
+        "language": "default",
+        "type": "project",
+        "sitemapLocations": []
+      },
+      "content": {
+        "name": "Content",
+        "value": "Sub project 1 content",
+        "type": "text",
+        "text": "Sub project 1 content"
+      },
+      "related_projects": [],
+      "elements": {
+        "content": {
+          "type": "text",
+          "name": "Content",
+          "value": "Sub project 1 content"
+        },
+        "related_projects": {
+          "type": "modular_content",
+          "name": "Related projects",
+          "value": []
+        }
+      }
+    },
+    {
+      "system": {
+        "name": "Sub project 2",
+        "codename": "sub_project_2",
+        "id": "91703600-4d43-410e-ba48-93c6c8b0a754",
+        "lastModified": "2018-12-28T12:30:21.6646176Z",
+        "language": "default",
+        "type": "project",
+        "sitemapLocations": []
+      },
+      "content": {
+        "name": "Content",
+        "value": "Sub project 2 content",
+        "type": "text",
+        "text": "Sub project 2 content"
+      },
+      "related_projects": [],
+      "elements": {
+        "content": {
+          "type": "text",
+          "name": "Content",
+          "value": "Sub project 2 content"
+        },
+        "related_projects": {
+          "type": "modular_content",
+          "name": "Related projects",
+          "value": []
+        }
+      }
+    }
+  ],
+  "elements": {
+    "content": {
+      "type": "text",
+      "name": "Content",
+      "value": "Main project content"
+    },
+    "related_projects": {
+      "type": "modular_content",
+      "name": "Related projects",
+      "value": [
+        "sub_project_1",
+        "sub_project_2"
+      ]
+    }
+  }
+}

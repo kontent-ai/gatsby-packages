@@ -338,7 +338,7 @@ const parseContentItemContents =
   (contentItem, processedContents = [], originalItem) => {
     for (let path of processedContents) {
       const items = path.split(';');
-      if (items.includes(contentItem.codename)) {
+      if (items.includes(contentItem.system.codename)) {
         throw Error(`Cycle detected in linked items' path: ${path}`);
       };
     }

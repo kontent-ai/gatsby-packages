@@ -1,0 +1,31 @@
+[
+  {
+    "system": {
+      "id": "7e70cb89-9281-4db9-8130-36076ee1e698",
+      "name": "Project",
+      "codename": "project",
+      "language": "default",
+      "type": "project",
+      "sitemap_locations": [],
+      "last_modified": "2018-05-29T13:40:17.3224207Z"
+    },
+    "elements": {
+      "content": {
+        "type": "text",
+        "name": "Content"
+      },
+      "related_projects": {
+        "type": "modular_content",
+        "name": "Related projects"
+      }
+    },
+    "internal": {
+      "content": "dummy",
+      "contentDigest": "dummy",
+      "type": "KenticoCloudType"
+    },
+    "children": [],
+    "id": "aea6da0c-4130-593c-8b6e-006e6bace1de",
+    "parent": null
+  }
+]
