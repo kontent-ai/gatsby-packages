@@ -335,20 +335,18 @@ const prefixProperty = (propertyValue, identifier, prefixLiteral) => {
 };
 
 const parseContentItemContents =
-  (contentItem, processedContents = [], originalItem) => {
+  (contentItem, processedContents = [[]]) => {
     for (let path of processedContents) {
-      const items = path.split(';');
-      if (items.includes(contentItem.codename)) {
+      if (path.includes(contentItem.system.codename)) {
         throw Error(`Cycle detected in linked items' path: ${path}`);
-      };
+      }
     }
 
     const lastPath = processedContents[processedContents.length - 1];
-    const currentItemPath = originalItem
-    ? lastPath + ';' + contentItem.system.codename
-    : contentItem.system.codename;
+    const currentItemPathClone = lastPath.slice();
+    currentItemPathClone.push(contentItem.system.codename);
 
-    processedContents.push(currentItemPath);
+    processedContents.push(currentItemPathClone);
     const elements = {};
 
     Object
@@ -374,9 +372,7 @@ const parseContentItemContents =
 
             contentItem[key].forEach((linkedItem) => {
               linkedItems.push(
-                  parseContentItemContents(
-                      linkedItem, processedContents, contentItem
-                  )
+                  parseContentItemContents(linkedItem, processedContents)
               );
             });
 
