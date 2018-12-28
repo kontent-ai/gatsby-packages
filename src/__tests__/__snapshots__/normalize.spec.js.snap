@@ -72,3 +72,12 @@ Object {
   "usedByContentItems___NODE": Array [],
 }
 `;
+
+exports[`sortArrayByAnotherOne with correct arguments sorts arrayToSort according to arrayToSortBy 1`] = `
+Array [
+  "2",
+  "4",
+  "9",
+  "8",
+]
+`;

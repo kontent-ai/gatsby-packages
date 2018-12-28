@@ -318,11 +318,27 @@ const addLinkedItemsLinks =
       });
     }
 
-    itemNode.elements[linkPropertyName].sort((a, b) => {
-      return idsOfOriginalNodes.indexOf(a)
-        - idsOfOriginalNodes.indexOf(b);
-    });
+    itemNode.element[linkPropertyName] = sortArrayByAnotherOne(
+        itemNode.elements[linkPropertyName],
+        idsOfOriginalNodes
+    );
   };
+
+const sortArrayByAnotherOne = (arrayToSort, arrayToSortBy) => {
+  if (!Array.isArray(arrayToSort) || !Array.isArray(arrayToSortBy)) {
+    throw Error(`Cannot sort a non-array object.`);
+  } else if (!arrayToSort.every((element) => arrayToSortBy.includes(element))) {
+    throw Error(`There are elements of arrayToSort 
+that are not present in arrayToSortBy.`);
+  } else {
+    arrayToSort.sort((a, b) => {
+      return arrayToSortBy.indexOf(a)
+        - arrayToSortBy.indexOf(b);
+    });
+
+    return arrayToSort;
+  }
+};
 
 const prefixGuidNamedProperties = (propertyValue) => {
   const imagesIdentifier = `images`;
@@ -424,4 +440,5 @@ const parseContentItemContents =
 module.exports = {createContentTypeNode, createContentItemNode,
   decorateTypeNodesWithItemLinks, decorateItemNodeWithLanguageVariantLink,
   decorateItemNodeWithLinkedItemsLinks,
-  decorateItemNodeWithRichTextLinkedItemsLinks};
+  decorateItemNodeWithRichTextLinkedItemsLinks,
+  sortArrayByAnotherOne};
