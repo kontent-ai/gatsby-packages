@@ -18,13 +18,13 @@ languageCodenames: ${languageCodenames}.`);
     const typesFlatted = parse(stringify(contentTypesResponse.types));
 
     const contentTypeNodes = typesFlatted.map(
-        (contentType) => {
-          try {
-            return normalize.createContentTypeNode(createNodeId, contentType);
-          } catch (error) {
-            console.error(error);
-          }
+      (contentType) => {
+        try {
+          return normalize.createContentTypeNode(createNodeId, contentType);
+        } catch (error) {
+          console.error(error);
         }
+      }
     );
 
     const contentItemsResponse = await client.items().getPromise();
@@ -37,24 +37,24 @@ languageCodenames: ${languageCodenames}.`);
     }
 
     let contentItemNodes = itemsFlatted.map(
-        (contentItem) => {
-          try {
-            return normalize.createContentItemNode(
-                createNodeId, contentItem, contentTypeNodes
-            );
-          } catch (error) {
-            console.error(error);
-          }
+      (contentItem) => {
+        try {
+          return normalize.createContentItemNode(
+            createNodeId, contentItem, contentTypeNodes
+          );
+        } catch (error) {
+          console.error(error);
         }
+      }
     );
 
     let nonDefaultLanguagePromises = languageCodenames
-        .filter((languageCodename) =>
-          languageCodename !== defaultLanguageCodename
-        )
-        .map((languageCodename) =>
-          client.items().languageParameter(languageCodename).getPromise()
-        );
+      .filter((languageCodename) =>
+        languageCodename !== defaultLanguageCodename
+      )
+      .map((languageCodename) =>
+        client.items().languageParameter(languageCodename).getPromise()
+      );
 
     const languageResponses = await Promise.all(nonDefaultLanguagePromises);
     let nonDefaultLanguageItemNodes = new Map();
@@ -79,7 +79,7 @@ languageCodenames: ${languageCodenames}.`);
           try {
             languageVariantNode =
               normalize.createContentItemNode(
-                  createNodeId, languageVariantItem, contentTypeNodes
+                createNodeId, languageVariantItem, contentTypeNodes
               );
           } catch (error) {
             console.error(error);
@@ -88,7 +88,7 @@ languageCodenames: ${languageCodenames}.`);
           if (languageVariantNode) {
             try {
               normalize.decorateItemNodeWithLanguageVariantLink(
-                  languageVariantNode, contentItemNodes
+                languageVariantNode, contentItemNodes
               );
             } catch (error) {
               console.error(error);
@@ -101,7 +101,7 @@ languageCodenames: ${languageCodenames}.`);
 
       if (languageCodename && _.isString(languageCodename)) {
         nonDefaultLanguageItemNodes.set(
-            languageCodename, allNodesOfCurrentLanguage
+          languageCodename, allNodesOfCurrentLanguage
         );
       }
     });
@@ -111,7 +111,7 @@ languageCodenames: ${languageCodenames}.`);
       contentItemNodes.forEach((contentItemNode) => {
         try {
           normalize.decorateItemNodeWithLanguageVariantLink(
-              contentItemNode, currentLanguageNodes
+            contentItemNode, currentLanguageNodes
           );
         } catch (error) {
           console.error(error);
@@ -124,11 +124,11 @@ languageCodenames: ${languageCodenames}.`);
           currentLanguageNodes.forEach((contentItemNode) => {
             try {
               normalize.decorateItemNodeWithLanguageVariantLink(
-                  contentItemNode, otherLanguageNodes
+                contentItemNode, otherLanguageNodes
               );
 
               normalize.decorateItemNodeWithLanguageVariantLink(
-                  contentItemNode, contentItemNodes
+                contentItemNode, contentItemNodes
               );
             } catch (error) {
               console.error(error);
@@ -139,7 +139,7 @@ languageCodenames: ${languageCodenames}.`);
 
       try {
         normalize.decorateTypeNodesWithItemLinks(
-            currentLanguageNodes, contentTypeNodes
+          currentLanguageNodes, contentTypeNodes
         );
       } catch (error) {
         console.error(error);
@@ -148,7 +148,7 @@ languageCodenames: ${languageCodenames}.`);
 
     try {
       normalize.decorateTypeNodesWithItemLinks(
-          contentItemNodes, contentTypeNodes
+        contentItemNodes, contentTypeNodes
       );
     } catch (error) {
       console.error(error);
@@ -157,7 +157,7 @@ languageCodenames: ${languageCodenames}.`);
     contentItemNodes.forEach((itemNode) => {
       try {
         normalize.decorateItemNodeWithLinkedItemsLinks(
-            itemNode, contentItemNodes
+          itemNode, contentItemNodes
         );
       } catch (error) {
         console.error(error);
@@ -168,7 +168,7 @@ languageCodenames: ${languageCodenames}.`);
       languageNodes.forEach((itemNode) => {
         try {
           normalize.decorateItemNodeWithLinkedItemsLinks(
-              itemNode, languageNodes
+            itemNode, languageNodes
           );
         } catch (error) {
           console.error(error);
@@ -179,7 +179,7 @@ languageCodenames: ${languageCodenames}.`);
     contentItemNodes.forEach((itemNode) => {
       try {
         normalize.decorateItemNodeWithRichTextLinkedItemsLinks(
-            itemNode, contentItemNodes);
+          itemNode, contentItemNodes);
       } catch (error) {
         console.error(error);
       }
@@ -189,7 +189,7 @@ languageCodenames: ${languageCodenames}.`);
       languageNodes.forEach((itemNode) => {
         try {
           normalize.decorateItemNodeWithRichTextLinkedItemsLinks(
-              itemNode, languageNodes
+            itemNode, languageNodes
           );
         } catch (error) {
           console.error(error);
@@ -199,36 +199,36 @@ languageCodenames: ${languageCodenames}.`);
 
     try {
       contentTypeNodes.forEach(
-          (contentTypeNode) => {
-            console.info(
-                `The 'createNode' API is called.
+        (contentTypeNode) => {
+          console.info(
+            `The 'createNode' API is called.
 contentTypeNode.id: ${contentTypeNode.id}`
-            );
+          );
 
-            createNode(contentTypeNode);
-          }
+          createNode(contentTypeNode);
+        }
       );
     } catch (error) {
       console.error(
-          `Error when creating content type nodes. Details: ${error}`
+        `Error when creating content type nodes. Details: ${error}`
       );
     }
 
     console.info(`The 'createNode' API is called for content item nodes.`);
     try {
       contentItemNodes.forEach(
-          (contentItemNode) => {
-            console.info(
-                `The 'createNode' API is called.
+        (contentItemNode) => {
+          console.info(
+            `The 'createNode' API is called.
 contentItemNode.id: ${contentItemNode.id}`
-            );
+          );
 
-            createNode(contentItemNode);
-          }
+          createNode(contentItemNode);
+        }
       );
     } catch (error) {
       console.error(
-          `Error when creating content item nodes. Details: ${error}`
+        `Error when creating content item nodes. Details: ${error}`
       );
     }
 
@@ -238,12 +238,12 @@ contentItemNode.id: ${contentItemNode.id}`
           createNode(languageVariantNode);
 
           console.info(
-              `The 'createNode' API is called.
+            `The 'createNode' API is called.
 languageVariantNode.id: ${languageVariantNode.id}`
           );
         } catch (error) {
           console.error(
-              `Error when creating language variant nodes. Details: ${error}`
+            `Error when creating language variant nodes. Details: ${error}`
           );
         }
       });

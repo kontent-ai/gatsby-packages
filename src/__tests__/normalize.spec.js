@@ -11,7 +11,7 @@ describe('createContentTypeNode with correct arguments', () => {
     createNodeId.mockReturnValue(`aea6da0c-4130-593c-8b6e-006e6bace1de`);
 
     expect(
-        normalize.createContentTypeNode(createNodeId, contentType)
+      normalize.createContentTypeNode(createNodeId, contentType)
     ).toMatchSnapshot();
   });
 });
@@ -22,9 +22,9 @@ describe('createContentItemNode with correct arguments', () => {
     createNodeId.mockReturnValue(`362bd0da-5b1a-533b-9575-107c2e3c6931`);
 
     expect(
-        normalize.createContentItemNode(
-            createNodeId, contentItem, contentTypeNodes
-        )
+      normalize.createContentItemNode(
+        createNodeId, contentItem, contentTypeNodes
+      )
     ).toMatchSnapshot();
   });
 });
