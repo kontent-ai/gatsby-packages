@@ -6,7 +6,8 @@ const contentItem = require('./contentItem.json');
 // const contentItemNodes = require('./contentItemNodes');
 const arrayToSort = require('./arrayToSort.json');
 const arrayToSortBy = require('./arrayToSortBy.json');
-const arrayToSortWithRedundantElements = require('./arrayToSortWithRedundantElements.json');
+const arrayToSortWithRedundantElements =
+  require('./arrayToSortWithRedundantElements.json');
 
 describe(`createContentTypeNode with correct arguments`, () => {
   it(`creates a content type node`, () => {
@@ -32,7 +33,8 @@ describe(`createContentItemNode with correct arguments`, () => {
   });
 });
 
-describe(`sortArrayByAnotherOne with a non-array object as the arraytoSort argument`, () => {
+describe(`sortArrayByAnotherOne with a non-array object 
+as the arraytoSort argument`, () => {
   it(`throws if arrayToSort is not an array`, () => {
     expect(() => {
       normalize.sortArrayByAnotherOne(
@@ -42,7 +44,8 @@ describe(`sortArrayByAnotherOne with a non-array object as the arraytoSort argum
   });
 });
 
-describe(`sortArrayByAnotherOne with a non-array object as the arraytoSortBy argument`, () => {
+describe(`sortArrayByAnotherOne with a non-array object 
+as the arraytoSortBy argument`, () => {
   it(`throws if arrayToSortBy is not an array`, () => {
     expect(() => {
       normalize.sortArrayByAnotherOne(
@@ -52,7 +55,8 @@ describe(`sortArrayByAnotherOne with a non-array object as the arraytoSortBy arg
   });
 });
 
-describe(`sortArrayByAnotherOne with the arrayToSort argument containing elements that are not present in arrayToSortBy`, () => {
+describe(`sortArrayByAnotherOne with the arrayToSort argument 
+containing elements that are not present in arrayToSortBy`, () => {
   it(`throws`, () => {
     expect(() => {
       normalize.sortArrayByAnotherOne(

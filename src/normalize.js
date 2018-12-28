@@ -250,6 +250,29 @@ of valid objects.`);
     }
   };
 
+/**
+ * Sorts one array according to another one.
+ * @param {Array} arrayToSort - The array to be sorted.
+ * @param {Array} arrayToSortBy - The array to sort by.
+ * @return {Array}
+ * @throws {Error}
+ */
+const sortArrayByAnotherOne = (arrayToSort, arrayToSortBy) => {
+  if (!Array.isArray(arrayToSort) || !Array.isArray(arrayToSortBy)) {
+    throw new Error(`Cannot sort a non-array object.`);
+  } else if (!arrayToSort.every((element) => arrayToSortBy.includes(element))) {
+    throw new Error(`There are elements of arrayToSort 
+that are not present in arrayToSortBy.`);
+  } else {
+    arrayToSort.sort((a, b) => {
+      return arrayToSortBy.indexOf(a)
+        - arrayToSortBy.indexOf(b);
+    });
+
+    return arrayToSort;
+  }
+};
+
 const createKcArtifactNode =
   (nodeId, kcArtifact, artifactKind, typeName = ``,
       additionalNodeData = null) => {
@@ -324,21 +347,6 @@ const addLinkedItemsLinks =
     );
   };
 
-const sortArrayByAnotherOne = (arrayToSort, arrayToSortBy) => {
-  if (!Array.isArray(arrayToSort) || !Array.isArray(arrayToSortBy)) {
-    throw Error(`Cannot sort a non-array object.`);
-  } else if (!arrayToSort.every((element) => arrayToSortBy.includes(element))) {
-    throw Error(`There are elements of arrayToSort 
-that are not present in arrayToSortBy.`);
-  } else {
-    arrayToSort.sort((a, b) => {
-      return arrayToSortBy.indexOf(a)
-        - arrayToSortBy.indexOf(b);
-    });
-
-    return arrayToSort;
-  }
-};
 
 const prefixGuidNamedProperties = (propertyValue) => {
   const imagesIdentifier = `images`;
