@@ -335,18 +335,12 @@ const prefixProperty = (propertyValue, identifier, prefixLiteral) => {
 };
 
 const parseContentItemContents =
-  (contentItem, processedContents = [[]]) => {
-    for (let path of processedContents) {
-      if (path.includes(contentItem.system.codename)) {
-        throw Error(`Cycle detected in linked items' path: ${path}`);
-      }
+  (contentItem, processedContents = []) => {
+    if (processedContents.includes(contentItem.system.codename)) {
+      throw Error(`Cycle detected in linked items' path: ${path}`);
     }
+    processedContents.push(contentItem.system.codename);
 
-    const lastPath = processedContents[processedContents.length - 1];
-    const currentItemPathClone = lastPath.slice();
-    currentItemPathClone.push(contentItem.system.codename);
-
-    processedContents.push(currentItemPathClone);
     const elements = {};
 
     Object
