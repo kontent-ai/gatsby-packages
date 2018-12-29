@@ -45,7 +45,7 @@ const createContentItemNode =
     } else if (!contentTypeNodes
       || !_.isArray(contentTypeNodes)
       || (!_.isEmpty(contentTypeNodes)
-      && !_.has(contentTypeNodes, `[0].system.codename`))) {
+        && !_.has(contentTypeNodes, `[0].system.codename`))) {
       throw new Error(`contentTypeNodes is not an array of valid objects.`);
     } else {
       const codenameParamCase =
@@ -60,7 +60,7 @@ const createContentItemNode =
 
       const parentContentTypeNode = contentTypeNodes.find(
           (contentType) => contentType.system.codename
-              === contentItem.system.type);
+          === contentItem.system.type);
 
       const itemWithElements = parseContentItemContents(contentItem);
 
@@ -90,12 +90,12 @@ const decorateTypeNodesWithItemLinks =
     if (!contentItemNodes
       || !_.isArray(contentItemNodes)
       || (!_.isEmpty(contentItemNodes)
-      && !_.has(contentItemNodes, `[0].system.type`))) {
+        && !_.has(contentItemNodes, `[0].system.type`))) {
       throw new Error(`contentItemNodes is not an array of valid objects.`);
     } else if (!contentTypeNodes
       || !_.isArray(contentTypeNodes)
       || (!_.isEmpty(contentTypeNodes)
-      && !_.has(contentTypeNodes, `[0].system.codename`))) {
+        && !_.has(contentTypeNodes, `[0].system.codename`))) {
       throw new Error(`contentTypeNodes is not an array of valid objects.`);
     } else {
       contentTypeNodes.forEach((contentTypeNode) => {
@@ -127,7 +127,7 @@ const decorateItemNodeWithLanguageVariantLink =
     } else if (!allNodesOfAnotherLanguage
       || !_.isArray(allNodesOfAnotherLanguage)
       || (!_.isEmpty(allNodesOfAnotherLanguage)
-      && !_.has(allNodesOfAnotherLanguage, `[0].system.codename`))) {
+        && !_.has(allNodesOfAnotherLanguage, `[0].system.codename`))) {
       throw new Error(`allNodesOfAnotherLanguage is not an array
 of valid objects.`);
     } else {
@@ -163,7 +163,7 @@ const decorateItemNodeWithLinkedItemsLinks =
     } else if (!allNodesOfSameLanguage
       || !_.isArray(allNodesOfSameLanguage)
       || (!_.isEmpty(allNodesOfSameLanguage)
-      && !_.has(allNodesOfSameLanguage, `[0].system.codename`))) {
+        && !_.has(allNodesOfSameLanguage, `[0].system.codename`))) {
       throw new Error(`allNodesOfSameLanguage is not an array
 of valid objects.`);
     } else {
@@ -218,7 +218,7 @@ const decorateItemNodeWithRichTextLinkedItemsLinks =
     } else if (!allNodesOfSameLanguage
       || !_.isArray(allNodesOfSameLanguage)
       || (!_.isEmpty(allNodesOfSameLanguage)
-      && !_.has(allNodesOfSameLanguage, `[0].system.codename`))) {
+        && !_.has(allNodesOfSameLanguage, `[0].system.codename`))) {
       throw new Error(`allNodesOfSameLanguage is not an array
 of valid objects.`);
     } else {
@@ -232,9 +232,9 @@ of valid objects.`);
 
               const linkedNodes = allNodesOfSameLanguage
                   .filter((node) => _.has(property, `linkedItemCodenames`)
-                    && _.isArray(property.linkedItemCodenames)
-                    && property.linkedItemCodenames.includes(
-                        node.system.codename)
+                && _.isArray(property.linkedItemCodenames)
+                && property.linkedItemCodenames.includes(
+                    node.system.codename)
                   );
 
               itemNode.elements[linkPropertyName] = [];
@@ -378,7 +378,7 @@ const prefixProperty = (propertyValue, identifier, prefixLiteral) => {
       .forEach((key) => {
         const prefixedKey = prefixLiteral + key;
         transformedProperty[prefixedKey] =
-          propertyValue[identifier][key];
+        propertyValue[identifier][key];
       });
 
   return transformedProperty;

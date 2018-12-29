@@ -124,6 +124,8 @@ Under the `related_project_references` you'd find just the original data served 
 
 Should a *Linked items* element in KC contain items of only *one* type, you'll be able to specify elements and other properties of that type directly (directly under the `related_project_references_nodes` in the above example). However, once you add linked items of multiple types, you'll have to specify their properties using the `... on [type name]` syntax (so called "inline fragments" in the GraphQL terminology).
 
+_Please note that it's not possible to model circular dependency in Gatsby. Modeled circular dependency would lead to an error while generating a GraphQL model._
+
 #### Content items in Rich text elements relationships
 
 As with the previous example, all rich text properties with content items linked in the element also have an accompanying `_nodes` property.
