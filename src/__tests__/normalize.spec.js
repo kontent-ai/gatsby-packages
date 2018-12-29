@@ -1,13 +1,14 @@
 
-const normalize = require('../normalize');
+const normalize = require('../normalize.js');
 const contentType = require('./contentType.json');
 const contentTypeNodes = require('./contentTypeNodes.json');
-const contentItem = require('./contentItem.json');
 // const contentItemNodes = require('./contentItemNodes');
 const arrayToSort = require('./arrayToSort.json');
 const arrayToSortBy = require('./arrayToSortBy.json');
 const arrayToSortWithRedundantElements =
   require('./arrayToSortWithRedundantElements.json');
+const contentItemWithCycle = require('./contentItemWithCycle.json');
+const contentItemWithoutCycle = require('./contentItemWithoutCycle.json');
 
 describe(`createContentTypeNode with correct arguments`, () => {
   it(`creates a content type node`, () => {
@@ -27,7 +28,7 @@ describe(`createContentItemNode with correct arguments`, () => {
 
     expect(
         normalize.createContentItemNode(
-            createNodeId, contentItem, contentTypeNodes
+            createNodeId, contentItemWithoutCycle, contentTypeNodes
         )
     ).toMatchSnapshot();
   });
@@ -77,3 +78,18 @@ describe(`sortArrayByAnotherOne with correct arguments`, () => {
   });
 });
 
+describe(`parseContentItemContents with a contentItem with a cycle`, () => {
+  it(`throws`, () => {
+    expect(() => {
+      normalize.parseContentItemContents(contentItemWithCycle);
+    }).toThrow(`Cycle detected in linked items' path:`);
+  });
+});
+
+describe(`parseContentItemContents with a contentItem without a cycle`, () => {
+  it(`returns a proper item object`, () => {
+    expect(
+        normalize.parseContentItemContents(contentItemWithoutCycle)
+    ).toMatchSnapshot();
+  });
+});

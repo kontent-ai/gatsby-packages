@@ -387,6 +387,7 @@ const prefixProperty = (propertyValue, identifier, prefixLiteral) => {
 const parseContentItemContents =
     (contentItem, processedContents = [], originalItem) => {
       if (processedContents.includes(contentItem.system.codename)) {
+        processedContents.push(contentItem.system.codename);
         const flatted = processedContents.join(` -> `);
 
         throw new Error(`Cycle detected in linked items' path: ${flatted}`);
@@ -424,7 +425,7 @@ const parseContentItemContents =
               contentItem[key].forEach((linkedItem) => {
                 linkedItems.push(
                     parseContentItemContents(
-                        linkedItem, processedContents, contentItem
+                        linkedItem, Array.from(processedContents), contentItem
                     )
                 );
               });
@@ -449,4 +450,4 @@ module.exports = {createContentTypeNode, createContentItemNode,
   decorateTypeNodesWithItemLinks, decorateItemNodeWithLanguageVariantLink,
   decorateItemNodeWithLinkedItemsLinks,
   decorateItemNodeWithRichTextLinkedItemsLinks,
-  sortArrayByAnotherOne};
+  sortArrayByAnotherOne, parseContentItemContents};

@@ -4,23 +4,88 @@ exports[`createContentItemNode with correct arguments creates a content item nod
 Object {
   "children": Array [],
   "contentType___NODE": "aea6da0c-4130-593c-8b6e-006e6bace1de",
-  "elements": Object {},
+  "elements": Object {
+    "asset_1": Object {
+      "name": "Asset 1",
+      "type": "asset",
+      "value": Array [
+        Object {
+          "description": null,
+          "name": "asset-1.jpg",
+          "size": 360791,
+          "type": "image/jpeg",
+          "url": "https://example.com/asset-1.jpg",
+        },
+      ],
+    },
+    "date_time_1": Object {
+      "name": "Date time 1",
+      "type": "date_time",
+      "value": null,
+    },
+    "linked_items_1": Array [
+      Object {
+        "elements": Object {
+          "linked_items_1": Array [
+            Object {
+              "elements": Object {},
+              "system": Object {
+                "codename": "content_item_3",
+                "id": "7e70cb89-9281-4db9-8130-36076ee1e698",
+                "language": "default",
+                "last_modified": "2018-12-28T00:00:00.3224207Z",
+                "name": "Content item 3",
+                "sitemap_locations": Array [],
+                "type": "content_type",
+              },
+            },
+          ],
+        },
+        "system": Object {
+          "codename": "content_item_2",
+          "id": "7e70cb89-9281-4db9-8130-36076ee1e698",
+          "language": "default",
+          "last_modified": "2018-12-28T00:00:00.3224207Z",
+          "name": "Content item 2",
+          "sitemap_locations": Array [],
+          "type": "content_type",
+        },
+      },
+      Object {
+        "elements": Object {},
+        "system": Object {
+          "codename": "content_item_3",
+          "id": "7e70cb89-9281-4db9-8130-36076ee1e698",
+          "language": "default",
+          "last_modified": "2018-12-28T00:00:00.3224207Z",
+          "name": "Content item 3",
+          "sitemap_locations": Array [],
+          "type": "content_type",
+        },
+      },
+    ],
+    "text_1": Object {
+      "name": "Text 1",
+      "type": "text",
+      "value": "Text 1 value",
+    },
+  },
   "id": "362bd0da-5b1a-533b-9575-107c2e3c6931",
   "internal": Object {
-    "content": "{\\"system\\":{\\"id\\":\\"7e70cb89-9281-4db9-8130-36076ee1e698\\",\\"name\\":\\"Project reference 1\\",\\"codename\\":\\"project_reference_1\\",\\"language\\":\\"default\\",\\"type\\":\\"project_reference\\",\\"sitemap_locations\\":[],\\"last_modified\\":\\"2018-05-29T13:40:17.3224207Z\\"},\\"elements\\":{}}",
-    "contentDigest": "bf808dfcd7f72d75b3f2dc427d0587dd",
-    "type": "KenticoCloudItemProjectReference",
+    "content": "{\\"system\\":{\\"id\\":\\"7e70cb89-9281-4db9-8130-36076ee1e698\\",\\"name\\":\\"Content item 1\\",\\"codename\\":\\"content_item_1\\",\\"language\\":\\"default\\",\\"type\\":\\"content_type\\",\\"sitemap_locations\\":[],\\"last_modified\\":\\"2018-12-28T00:00:00.3224207Z\\"},\\"elements\\":{\\"text_1\\":{\\"type\\":\\"text\\",\\"name\\":\\"Text 1\\",\\"value\\":\\"Text 1 value\\"},\\"asset_1\\":{\\"type\\":\\"asset\\",\\"name\\":\\"Asset 1\\",\\"value\\":[{\\"name\\":\\"asset-1.jpg\\",\\"type\\":\\"image/jpeg\\",\\"size\\":360791,\\"description\\":null,\\"url\\":\\"https://example.com/asset-1.jpg\\"}]},\\"date_time_1\\":{\\"type\\":\\"date_time\\",\\"name\\":\\"Date time 1\\",\\"value\\":null},\\"linked_items_1\\":[{\\"system\\":{\\"id\\":\\"7e70cb89-9281-4db9-8130-36076ee1e698\\",\\"name\\":\\"Content item 2\\",\\"codename\\":\\"content_item_2\\",\\"language\\":\\"default\\",\\"type\\":\\"content_type\\",\\"sitemap_locations\\":[],\\"last_modified\\":\\"2018-12-28T00:00:00.3224207Z\\"},\\"elements\\":{\\"linked_items_1\\":[{\\"system\\":{\\"id\\":\\"7e70cb89-9281-4db9-8130-36076ee1e698\\",\\"name\\":\\"Content item 3\\",\\"codename\\":\\"content_item_3\\",\\"language\\":\\"default\\",\\"type\\":\\"content_type\\",\\"sitemap_locations\\":[],\\"last_modified\\":\\"2018-12-28T00:00:00.3224207Z\\"},\\"elements\\":{}}]}},{\\"system\\":{\\"id\\":\\"7e70cb89-9281-4db9-8130-36076ee1e698\\",\\"name\\":\\"Content item 3\\",\\"codename\\":\\"content_item_3\\",\\"language\\":\\"default\\",\\"type\\":\\"content_type\\",\\"sitemap_locations\\":[],\\"last_modified\\":\\"2018-12-28T00:00:00.3224207Z\\"},\\"elements\\":{}}]}}",
+    "contentDigest": "aaf8b76e15f76f0acfc5699a1850a241",
+    "type": "KenticoCloudItemContentType",
   },
   "otherLanguages___NODE": Array [],
   "parent": null,
   "system": Object {
-    "codename": "project_reference_1",
+    "codename": "content_item_1",
     "id": "7e70cb89-9281-4db9-8130-36076ee1e698",
     "language": "default",
-    "last_modified": "2018-05-29T13:40:17.3224207Z",
-    "name": "Project reference 1",
+    "last_modified": "2018-12-28T00:00:00.3224207Z",
+    "name": "Content item 1",
     "sitemap_locations": Array [],
-    "type": "project_reference",
+    "type": "content_type",
   },
   "usedByContentItems___NODE": Array [],
 }
@@ -31,45 +96,117 @@ Object {
   "children": Array [],
   "contentItems___NODE": Array [],
   "elements": Object {
-    "finished_at": Object {
-      "name": "Finished at",
-      "type": "date_time",
-    },
-    "name___teaser_image__name": Object {
-      "name": "Name",
-      "type": "text",
-    },
-    "name___teaser_image__teaser_image": Object {
-      "name": "Teaser image",
+    "asset_1": Object {
+      "name": "Asset 1",
       "type": "asset",
     },
-    "started_at": Object {
-      "name": "Started at",
+    "date_time_1": Object {
+      "name": "Date time 1",
       "type": "date_time",
     },
-    "url": Object {
-      "name": "URL",
-      "type": "text",
+    "linked_items_1": Object {
+      "name": "Linked items 1",
+      "type": "modular_content",
     },
-    "url_slug": Object {
-      "name": "URL slug",
-      "type": "url_slug",
+    "text_1": Object {
+      "name": "Text 1",
+      "type": "text",
     },
   },
   "id": "aea6da0c-4130-593c-8b6e-006e6bace1de",
   "internal": Object {
-    "content": "{\\"system\\":{\\"id\\":\\"9ea98d20-a477-455c-b30f-0e3b9d055795\\",\\"name\\":\\"Project reference\\",\\"codename\\":\\"project_reference\\",\\"last_modified\\":\\"2018-05-30T12:39:13.115595Z\\"},\\"elements\\":{\\"url\\":{\\"type\\":\\"text\\",\\"name\\":\\"URL\\"},\\"name___teaser_image__teaser_image\\":{\\"type\\":\\"asset\\",\\"name\\":\\"Teaser image\\"},\\"started_at\\":{\\"type\\":\\"date_time\\",\\"name\\":\\"Started at\\"},\\"name___teaser_image__name\\":{\\"type\\":\\"text\\",\\"name\\":\\"Name\\"},\\"finished_at\\":{\\"type\\":\\"date_time\\",\\"name\\":\\"Finished at\\"},\\"url_slug\\":{\\"type\\":\\"url_slug\\",\\"name\\":\\"URL slug\\"}}}",
-    "contentDigest": "b9f5d773962088bb97a6cde3e4f803ce",
-    "type": "KenticoCloudTypeProjectReference",
+    "content": "{\\"system\\":{\\"id\\":\\"9ea98d20-a477-455c-b30f-0e3b9d055795\\",\\"name\\":\\"Content type\\",\\"codename\\":\\"content_type\\",\\"last_modified\\":\\"2018-12-28T00:00:00.115595Z\\"},\\"elements\\":{\\"text_1\\":{\\"type\\":\\"text\\",\\"name\\":\\"Text 1\\"},\\"asset_1\\":{\\"type\\":\\"asset\\",\\"name\\":\\"Asset 1\\"},\\"date_time_1\\":{\\"type\\":\\"date_time\\",\\"name\\":\\"Date time 1\\"},\\"linked_items_1\\":{\\"type\\":\\"modular_content\\",\\"name\\":\\"Linked items 1\\"}}}",
+    "contentDigest": "cb900aa0651691da8b80c8ac6af4b1bd",
+    "type": "KenticoCloudTypeContentType",
   },
   "parent": null,
   "system": Object {
-    "codename": "project_reference",
+    "codename": "content_type",
     "id": "9ea98d20-a477-455c-b30f-0e3b9d055795",
-    "last_modified": "2018-05-30T12:39:13.115595Z",
-    "name": "Project reference",
+    "last_modified": "2018-12-28T00:00:00.115595Z",
+    "name": "Content type",
   },
   "usedByContentItems___NODE": Array [],
+}
+`;
+
+exports[`parseContentItemContents with a contentItem without a cycle returns a proper item object 1`] = `
+Object {
+  "elements": Object {
+    "asset_1": Object {
+      "name": "Asset 1",
+      "type": "asset",
+      "value": Array [
+        Object {
+          "description": null,
+          "name": "asset-1.jpg",
+          "size": 360791,
+          "type": "image/jpeg",
+          "url": "https://example.com/asset-1.jpg",
+        },
+      ],
+    },
+    "date_time_1": Object {
+      "name": "Date time 1",
+      "type": "date_time",
+      "value": null,
+    },
+    "linked_items_1": Array [
+      Object {
+        "elements": Object {
+          "linked_items_1": Array [
+            Object {
+              "elements": Object {},
+              "system": Object {
+                "codename": "content_item_3",
+                "id": "7e70cb89-9281-4db9-8130-36076ee1e698",
+                "language": "default",
+                "last_modified": "2018-12-28T00:00:00.3224207Z",
+                "name": "Content item 3",
+                "sitemap_locations": Array [],
+                "type": "content_type",
+              },
+            },
+          ],
+        },
+        "system": Object {
+          "codename": "content_item_2",
+          "id": "7e70cb89-9281-4db9-8130-36076ee1e698",
+          "language": "default",
+          "last_modified": "2018-12-28T00:00:00.3224207Z",
+          "name": "Content item 2",
+          "sitemap_locations": Array [],
+          "type": "content_type",
+        },
+      },
+      Object {
+        "elements": Object {},
+        "system": Object {
+          "codename": "content_item_3",
+          "id": "7e70cb89-9281-4db9-8130-36076ee1e698",
+          "language": "default",
+          "last_modified": "2018-12-28T00:00:00.3224207Z",
+          "name": "Content item 3",
+          "sitemap_locations": Array [],
+          "type": "content_type",
+        },
+      },
+    ],
+    "text_1": Object {
+      "name": "Text 1",
+      "type": "text",
+      "value": "Text 1 value",
+    },
+  },
+  "system": Object {
+    "codename": "content_item_1",
+    "id": "7e70cb89-9281-4db9-8130-36076ee1e698",
+    "language": "default",
+    "last_modified": "2018-12-28T00:00:00.3224207Z",
+    "name": "Content item 1",
+    "sitemap_locations": Array [],
+    "type": "content_type",
+  },
 }
 `;
 
