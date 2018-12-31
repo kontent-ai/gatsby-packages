@@ -392,7 +392,7 @@ const parseContentItemContents =
 
         throw new Error(`Cycle detected in linked items' path: ${flatted}`);
       }
-      
+
       processedContents.push(contentItem.system.codename);
       const elements = {};
 
