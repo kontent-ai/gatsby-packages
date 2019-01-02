@@ -4,8 +4,15 @@
         "browser": false,
         "node": true
     },
-    "extends": [ "plugin:node/recommended", "google" ],
+    "extends": [
+        "plugin:node/recommended",
+        "google"
+    ],
     "rules": {
-        "linebreak-style": 0
+        "linebreak-style": 0,
+        "indent": [
+            "error",
+            2
+        ]
     }
 }
