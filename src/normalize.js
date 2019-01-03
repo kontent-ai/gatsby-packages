@@ -277,6 +277,8 @@ that are not present in arrayToSortBy.`);
  * Parses a content item to rebuild the 'elements' property.
  * @param {object} contentItem - The content item to be parsed.
  * @param {array} processedContents - The array with the recursion traversal history.
+ * @return {object} Parsed Content item.
+ * @throws {Error}
  */
 const parseContentItemContents =
   (contentItem, processedContents = []) => {
