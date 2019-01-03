@@ -6,13 +6,12 @@ const {parse, stringify} = require(`flatted/cjs`);
 const defaultLanguageLiteral = `default`;
 
 exports.sourceNodes =
-  async ({actions, createNodeId},
+  async ({actions: {createNode}, createNodeId},
     {deliveryClientConfig, languageCodenames}) => {
     console.info(`The 'sourceNodes' API implementation starts.
 projectId: ${deliveryClientConfig.projectId},
 languageCodenames: ${languageCodenames}.`);
 
-    const {createNode} = actions;
     const client = new deliveryClient.DeliveryClient(deliveryClientConfig);
     const contentTypesResponse = await client.types().getPromise();
     const typesFlatted = parse(stringify(contentTypesResponse.types));
@@ -106,7 +105,7 @@ languageCodenames: ${languageCodenames}.`);
       }
     });
 
-    for (let [languageCodename, currentLanguageNodes]
+    for (const [languageCodename, currentLanguageNodes]
       of nonDefaultLanguageItemNodes) {
       contentItemNodes.forEach((contentItemNode) => {
         try {

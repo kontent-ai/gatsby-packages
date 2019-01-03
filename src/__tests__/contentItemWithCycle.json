@@ -1,0 +1,137 @@
+{
+    "system": {
+        "id": "7e70cb89-9281-4db9-8130-36076ee1e698",
+        "name": "Content item 1",
+        "codename": "content_item_1",
+        "language": "default",
+        "type": "content_item",
+        "sitemap_locations": [],
+        "last_modified": "2018-12-28T00:00:00.3224207Z"
+    },
+    "elements": {
+        "text_1": {
+            "type": "text",
+            "name": "Text 1",
+            "value": "Text 1 value"
+        },
+        "asset_1": {
+            "type": "asset",
+            "name": "Asset 1",
+            "value": [
+                {
+                    "name": "asset-1.jpg",
+                    "type": "image/jpeg",
+                    "size": 360791,
+                    "description": null,
+                    "url": "https://example.com/asset-1.jpg"
+                }
+            ]
+        },
+        "date_time_1": {
+            "type": "date_time",
+            "name": "Date time 1",
+            "value": null
+        },
+        "linked_items_1": {
+            "type": "modular_content",
+            "name": "Linked items 1",
+            "value": [
+                "content_item_2",
+                "content_item_3"
+            ]
+        }
+    },
+    "text_1": {
+        "type": "text",
+        "name": "Text 1",
+        "value": "Text 1 value"
+    },
+    "asset_1": {
+        "type": "asset",
+        "name": "Asset 1",
+        "value": [
+            {
+                "name": "asset-1.jpg",
+                "type": "image/jpeg",
+                "size": 360791,
+                "description": null,
+                "url": "https://example.com/asset-1.jpg"
+            }
+        ]
+    },
+    "date_time_1": {
+        "type": "date_time",
+        "name": "Date time 1",
+        "value": null
+    },
+    "linked_items_1": [
+        {
+            "system": {
+                "id": "7e70cb89-9281-4db9-8130-36076ee1e698",
+                "name": "Content item 2",
+                "codename": "content_item_2",
+                "language": "default",
+                "type": "content_item",
+                "sitemap_locations": [],
+                "last_modified": "2018-12-28T00:00:00.3224207Z"
+            },
+            "elements": {
+                "linked_items_1": {
+                    "type": "modular_content",
+                    "name": "Linked items 1",
+                    "value": [
+                        "content_item_1",
+                        "content_item_3"
+                    ]
+                }
+            },
+            "linked_items_1": [
+                {
+                    "system": {
+                        "id": "7e70cb89-9281-4db9-8130-36076ee1e698",
+                        "name": "Content item 1",
+                        "codename": "content_item_1",
+                        "language": "default",
+                        "type": "content_item",
+                        "sitemap_locations": [],
+                        "last_modified": "2018-12-28T00:00:00.3224207Z"
+                    },
+                    "elements": {
+                        "linked_items_1": {
+                            "type": "modular_content",
+                            "name": "Linked items 1",
+                            "value": [
+                                "content_item_2",
+                                "content_item_3"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "system": {
+                        "id": "7e70cb89-9281-4db9-8130-36076ee1e698",
+                        "name": "Content item 3",
+                        "codename": "content_item_3",
+                        "language": "default",
+                        "type": "content_item",
+                        "sitemap_locations": [],
+                        "last_modified": "2018-12-28T00:00:00.3224207Z"
+                    },
+                    "elements": {}
+                }
+            ]
+        },
+        {
+            "system": {
+                "id": "7e70cb89-9281-4db9-8130-36076ee1e698",
+                "name": "Content item 3",
+                "codename": "content_item_3",
+                "language": "default",
+                "type": "content_item",
+                "sitemap_locations": [],
+                "last_modified": "2018-12-28T00:00:00.3224207Z"
+            },
+            "elements": {}
+        }
+    ]
+}

@@ -1,34 +1,26 @@
 {
     "system": {
         "id": "9ea98d20-a477-455c-b30f-0e3b9d055795",
-        "name": "Project reference",
-        "codename": "project_reference",
-        "last_modified": "2018-05-30T12:39:13.115595Z"
+        "name": "Content type",
+        "codename": "content_type",
+        "last_modified": "2018-12-28T00:00:00.115595Z"
     },
     "elements": {
-        "url": {
+        "text_1": {
             "type": "text",
-            "name": "URL"
+            "name": "Text 1"
         },
-        "name___teaser_image__teaser_image": {
+        "asset_1": {
             "type": "asset",
-            "name": "Teaser image"
+            "name": "Asset 1"
         },
-        "started_at": {
+        "date_time_1": {
             "type": "date_time",
-            "name": "Started at"
+            "name": "Date time 1"
         },
-        "name___teaser_image__name": {
-            "type": "text",
-            "name": "Name"
-        },
-        "finished_at": {
-            "type": "date_time",
-            "name": "Finished at"
-        },
-        "url_slug": {
-            "type": "url_slug",
-            "name": "URL slug"
+        "linked_items_1": {
+            "type": "modular_content",
+            "name": "Linked items 1"
         }
     }
 }

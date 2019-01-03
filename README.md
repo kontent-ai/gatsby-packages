@@ -13,6 +13,10 @@ You can use the plugin in any of the following ways:
 * Install the [gatsby-source-kentico-cloud](https://www.npmjs.com/package/gatsby-source-kentico-cloud) NPM package in your Gatsby site via `npm install --save gatsby-source-kentico-cloud`.
 * Use the [gatsby-starter-kentico-cloud](https://github.com/Kentico/gatsby-starter-kentico-cloud) starter site, which uses the NPM package.
 
+### Using the Kentico Cloud JavaScript SDK configuration object
+
+The source plugin uses the [JavaScript SDK](https://github.com/Enngage/kentico-cloud-js) in the background. You can put the [configuration object](https://github.com/Enngage/kentico-cloud-js/blob/master/doc/delivery.md#client-configuration) of the JS SDK into the `deliveryClientConfig` property of the [gatsby-config.js](https://github.com/Kentico/gatsby-starter-kentico-cloud/blob/master/gatsby-config.js) file.
+
 ### Features
 
 **Breaking change: All Kentico Cloud content element values now reside inside of the `elements` property of `kenticoCloudItem` nodes.**
@@ -20,6 +24,8 @@ You can use the plugin in any of the following ways:
 The plugin creates GraphQL nodes for all Kentico Cloud content types, content items, and language variants.
 
 The node names are prefixed with `kenticoCloud`. More specifically, content type nodes are prefixed with `kenticoCloudType` and content items and their language variants are prefixed with `kenticoCloudItem`.
+
+GraphQL nodes of content items contain the ordinary `system` and `elements` properties. However, the properties inside `elements` always have an internal structure that the aforementioned [JavaScript SDK](https://github.com/Enngage/kentico-cloud-js/blob/master/packages/delivery/lib/models/item/content-item.class.ts) produces.
 
 The plugin creates the following relationships among the Kentico Cloud nodes. You can test them in the GraphiQL environment of your Gatsby app (by going to `http://localhost:8000/___graphql` after starting your site's development server).
 
