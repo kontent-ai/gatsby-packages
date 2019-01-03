@@ -405,7 +405,7 @@ const addLinkedItemsLinks =
       });
     }
 
-    itemNode.element[linkPropertyName] = sortArrayByAnotherOne(
+    itemNode.elements[linkPropertyName] = sortArrayByAnotherOne(
       itemNode.elements[linkPropertyName],
       idsOfOriginalNodes
     );
