@@ -194,7 +194,7 @@ of valid objects.`);
                 itemNode,
                 linkedNodes,
                 linkPropertyName,
-                allNodesOfSameLanguage
+                itemNode.elements[propertyName]
               );
             }
           }
@@ -242,8 +242,7 @@ of valid objects.`);
             addLinkedItemsLinks(
               itemNode,
               linkedNodes,
-              linkPropertyName,
-              allNodesOfSameLanguage
+              linkPropertyName
             );
           }
         });
@@ -251,32 +250,10 @@ of valid objects.`);
   };
 
 /**
- * Sorts one array according to another one.
- * @param {Array} arrayToSort - The array to be sorted.
- * @param {Array} arrayToSortBy - The array to sort by.
- * @return {Array}
- * @throws {Error}
- */
-const sortArrayByAnotherOne = (arrayToSort, arrayToSortBy) => {
-  if (!Array.isArray(arrayToSort) || !Array.isArray(arrayToSortBy)) {
-    throw new Error(`Cannot sort a non-array object.`);
-  } else if (!arrayToSort.every((element) => arrayToSortBy.includes(element))) {
-    throw new Error(`There are elements of arrayToSort 
-that are not present in arrayToSortBy.`);
-  } else {
-    arrayToSort.sort((a, b) => {
-      return arrayToSortBy.indexOf(a)
-        - arrayToSortBy.indexOf(b);
-    });
-
-    return arrayToSort;
-  }
-};
-
-/**
  * Parses a content item to rebuild the 'elements' property.
  * @param {object} contentItem - The content item to be parsed.
- * @param {array} processedContents - The array with the recursion traversal history.
+ * @param {array} processedContents - The array with the recursion
+ * traversal history.
  * @return {object} Parsed content item.
  * @throws {Error}
  */
@@ -384,7 +361,7 @@ const createKcArtifactNode =
   };
 
 const addLinkedItemsLinks =
-  (itemNode, linkedNodes, linkPropertyName, originalNodeCollection) => {
+  (itemNode, linkedNodes, linkPropertyName, originalNodeCollection = []) => {
     linkedNodes
       .forEach((linkedNode) => {
         if (!linkedNode.usedByContentItems___NODE.includes(itemNode.id)) {
@@ -393,8 +370,6 @@ const addLinkedItemsLinks =
       });
 
     const idsOfLinkedNodes = linkedNodes.map((node) => node.id);
-    const idsOfOriginalNodes = originalNodeCollection.map((node) => node.id);
-
     if (!itemNode.elements[linkPropertyName]) {
       itemNode.elements[linkPropertyName] = idsOfLinkedNodes;
     } else {
@@ -405,10 +380,14 @@ const addLinkedItemsLinks =
       });
     }
 
-    itemNode.elements[linkPropertyName] = sortArrayByAnotherOne(
-      itemNode.elements[linkPropertyName],
-      idsOfOriginalNodes
-    );
+    const sortPattern = originalNodeCollection
+      .map((item) => item.system.id);
+
+    itemNode.elements[linkPropertyName] = linkedNodes
+      .sort((a, b) =>
+        sortPattern.indexOf(a.system.id) - sortPattern.indexOf(b.system.id)
+      )
+      .map((item) => item.id);
   };
 
 
@@ -453,5 +432,5 @@ module.exports = {
   decorateTypeNodesWithItemLinks, decorateItemNodeWithLanguageVariantLink,
   decorateItemNodeWithLinkedItemsLinks,
   decorateItemNodeWithRichTextLinkedItemsLinks,
-  sortArrayByAnotherOne, parseContentItemContents
+  parseContentItemContents,
 };
