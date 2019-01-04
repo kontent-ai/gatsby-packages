@@ -252,7 +252,8 @@ of valid objects.`);
 /**
  * Parses a content item to rebuild the 'elements' property.
  * @param {object} contentItem - The content item to be parsed.
- * @param {array} processedContents - The array with the recursion traversal history.
+ * @param {array} processedContents - The array with the recursion
+ * traversal history.
  * @return {object} Parsed content item.
  * @throws {Error}
  */
@@ -379,12 +380,14 @@ const addLinkedItemsLinks =
       });
     }
 
-    const kenticoIdsOriginalOrderingPattern = originalNodeCollection.map(item => item.system.id);
-    itemNode.elements[linkPropertyName] =  linkedNodes
-      .sort((a, b) => {
-      return kenticoIdsOriginalOrderingPattern.indexOf(a.system.id) - kenticoIdsOriginalOrderingPattern.indexOf(b.system.id)
-    })
-      .map(item => item.id);
+    const sortPattern = originalNodeCollection
+      .map((item) => item.system.id);
+
+    itemNode.elements[linkPropertyName] = linkedNodes
+      .sort((a, b) =>
+        sortPattern.indexOf(a.system.id) - sortPattern.indexOf(b.system.id)
+      )
+      .map((item) => item.id);
   };
 
 
