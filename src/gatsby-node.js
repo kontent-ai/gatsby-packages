@@ -5,6 +5,11 @@ const normalize = require(`./normalize`);
 const { parse, stringify } = require(`flatted/cjs`);
 const defaultLanguageLiteral = `default`;
 
+const customTrackingHeader = {
+  header: 'X-KC-SOURCE',
+  value: 'gatsby-source-kentico-cloud;2.1.4',
+};
+
 exports.sourceNodes =
   async ({ actions: { createNode }, createNodeId },
     { deliveryClientConfig, languageCodenames }) => {
@@ -12,6 +17,20 @@ exports.sourceNodes =
 projectId: ${deliveryClientConfig.projectId},
 languageCodenames: ${languageCodenames}.`);
 
+    const trackingHeaderExists = deliveryClientConfig
+      .customHeaders
+      .some((header) => header.name === customTrackingHeader.name);
+    if (trackingHeaderExists) {
+      console.warn(`Custom HTTP header value with name
+      ${customTrackingHeader.name} 
+      will be replaced by the source plugin.
+      Use different header name if you want to avoid this behavior;`);
+    }
+
+    deliveryClientConfig.customHeaders.push({
+      header: trackingHeaderName,
+      value: trackingHeaderValue,
+    });
     const client = new deliveryClient.DeliveryClient(deliveryClientConfig);
     const contentTypesResponse = await client.types().getPromise();
     const typesFlatted = parse(stringify(contentTypesResponse.types));
