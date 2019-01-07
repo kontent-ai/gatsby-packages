@@ -1,6 +1,6 @@
 require(`@babel/polyfill`);
 const _ = require(`lodash`);
-const deliveryClient = require(`kentico-cloud-delivery`);
+const { DeliveryClient } = require(`kentico-cloud-delivery`);
 const normalize = require(`./normalize`);
 const { parse, stringify } = require(`flatted/cjs`);
 const defaultLanguageLiteral = `default`;
@@ -17,9 +17,9 @@ exports.sourceNodes =
 projectId: ${deliveryClientConfig.projectId},
 languageCodenames: ${languageCodenames}.`);
 
-    addTrackingHeader(deliveryClientConfig);
+    addHeader(deliveryClientConfig, customTrackingHeader);
 
-    const client = new deliveryClient.DeliveryClient(deliveryClientConfig);
+    const client = new DeliveryClient(deliveryClientConfig);
     const contentTypesResponse = await client.types().getPromise();
     const typesFlatted = parse(stringify(contentTypesResponse.types));
 
@@ -259,15 +259,24 @@ languageVariantNode.id: ${languageVariantNode.id}`
     return;
   };
 
-const addTrackingHeader = (deliveryClientConfig) => {
+/**
+ *
+ * @param {DeliveryClientConfig} deliveryClientConfig
+ *  Kentico Cloud JS configuration object
+ * @param {IHeader} trackingHeader tracking header name
+ */
+const addHeader = (deliveryClientConfig, trackingHeader) => {
   const trackingHeaderExists = deliveryClientConfig
     .customHeaders
-    .some((header) => header.name === customTrackingHeader.name);
+    .some((header) => header.name === trackingHeader.name);
   if (trackingHeaderExists) {
     console.warn(`Custom HTTP header value with name
-      ${customTrackingHeader.name} 
+      ${trackingHeader.name} 
       will be replaced by the source plugin.
       Use different header name if you want to avoid this behavior;`);
+    deliveryClientConfig.customHeaders = deliveryClientConfig
+      .customHeaders
+      .filter((header) => header.name === trackingHeader.name);
   }
   deliveryClientConfig.customHeaders.push({
     header: trackingHeaderName,
