@@ -5,9 +5,9 @@ const normalize = require(`./normalize`);
 const { parse, stringify } = require(`flatted/cjs`);
 const defaultLanguageLiteral = `default`;
 
-const customTrackingHeader = {
+exports.customTrackingHeader = {
   header: 'X-KC-SOURCE',
-  value: 'gatsby-source-kentico-cloud;2.1.4',
+  value: 'gatsby-source-kentico-cloud;2.1.5',
 };
 
 exports.sourceNodes =
