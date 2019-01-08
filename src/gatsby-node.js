@@ -267,22 +267,22 @@ languageVariantNode.id: ${languageVariantNode.id}`
  * @param {IHeader} trackingHeader tracking header name
  */
 const addHeader = (deliveryClientConfig, trackingHeader) => {
-  deliveryClientConfig.customHeaders = deliveryClientConfig.customHeaders || [];
-  const trackingHeaderExists = deliveryClientConfig
-    .customHeaders
-    .some((header) => header.name === trackingHeader.name);
-  if (trackingHeaderExists) {
-    console.warn(`Custom HTTP header value with name
-      ${trackingHeader.name} 
+  let headers = deliveryClientConfig.customHeaders
+    ? deliveryClientConfig.customHeaders.slice()
+    : [];
+
+  if (headers.some((header) => header.header === trackingHeader.header)) {
+    console.warn(`Custom HTTP header value with name ${trackingHeader.header}
       will be replaced by the source plugin.
       Use different header name if you want to avoid this behavior;`);
-    deliveryClientConfig.customHeaders = deliveryClientConfig
-      .customHeaders
-      .filter((header) => header.name === trackingHeader.name);
+    headers = headers.filter((header) => {
+      return header.header !== trackingHeader.header;
+    });
   }
-  deliveryClientConfig.customHeaders.push({
+  headers.push({
     header: trackingHeader.header,
     value: trackingHeader.value,
   });
+  deliveryClientConfig.customHeaders = headers;
 };
 

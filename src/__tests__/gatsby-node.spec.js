@@ -15,20 +15,23 @@ describe('customTrackingHeader', () => {
 });
 
 describe('sourceNodes', () => {
+  const fakeEmptyResponse = {
+    types: [],
+    items: [],
+    pagination: {
+      continuation_token: null,
+      next_page: null,
+    },
+  };
+  const fakeTestService = new TestHttpService({
+    fakeResponseJson: fakeEmptyResponse,
+    throwCloudError: false,
+  });
+
   it('does add tracking header', async () => {
     const deliveryClientConfig = {
       projectId: 'dummyEmptyProject',
-      httpService: new TestHttpService({
-        fakeResponseJson: {
-          types: [],
-          items: [],
-          pagination: {
-            continuation_token: null,
-            next_page: null,
-          },
-        },
-        throwCloudError: false,
-      }),
+      httpService: fakeTestService,
     };
 
     await sourceNodes(
@@ -46,6 +49,71 @@ describe('sourceNodes', () => {
 
     expect(deliveryClientConfig.customHeaders)
       .toContainEqual(customTrackingHeader);
+  });
+
+  it('does update tracking header value', async () => {
+    const deliveryClientConfig = {
+      projectId: 'dummyEmptyProject',
+      httpService: fakeTestService,
+      customHeaders: [
+        {
+          header: customTrackingHeader.header,
+          value: 'dummyValue',
+        },
+      ],
+    };
+
+    await sourceNodes(
+      {
+        actions: {
+          createNode: jest.fn(),
+        },
+        createNodeId: jest.fn(),
+      },
+      {
+        deliveryClientConfig,
+        languageCodenames: ['default'],
+      }
+    );
+
+    expect(deliveryClientConfig.customHeaders)
+      .toContainEqual(customTrackingHeader);
+    expect(deliveryClientConfig.customHeaders.length)
+      .toEqual(1);
+  });
+
+  it('does not influence other tracking header value', async () => {
+    const anotherHeader = {
+      header: 'another-header-name',
+      value: 'dummyValue',
+    };
+    const deliveryClientConfig = {
+      projectId: 'dummyEmptyProject',
+      httpService: fakeTestService,
+      customHeaders: [
+        anotherHeader,
+      ],
+    };
+
+    await sourceNodes(
+      {
+        actions: {
+          createNode: jest.fn(),
+        },
+        createNodeId: jest.fn(),
+      },
+      {
+        deliveryClientConfig,
+        languageCodenames: ['default'],
+      }
+    );
+
+    expect(deliveryClientConfig.customHeaders)
+      .toContainEqual(customTrackingHeader);
+    expect(deliveryClientConfig.customHeaders)
+      .toContainEqual(anotherHeader);
+    expect(deliveryClientConfig.customHeaders.length)
+      .toEqual(2);
   });
 });
 
