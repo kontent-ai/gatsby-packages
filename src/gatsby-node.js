@@ -5,10 +5,11 @@ const normalize = require(`./normalize`);
 const { parse, stringify } = require(`flatted/cjs`);
 const defaultLanguageLiteral = `default`;
 
-exports.customTrackingHeader = {
+const customTrackingHeader = {
   header: 'X-KC-SOURCE',
-  value: 'gatsby-source-kentico-cloud;2.1.5',
+  value: 'gatsby-source-kentico-cloud;2.2.0',
 };
+exports.customTrackingHeader = customTrackingHeader;
 
 exports.sourceNodes =
   async ({ actions: { createNode }, createNodeId },
@@ -266,6 +267,7 @@ languageVariantNode.id: ${languageVariantNode.id}`
  * @param {IHeader} trackingHeader tracking header name
  */
 const addHeader = (deliveryClientConfig, trackingHeader) => {
+  deliveryClientConfig.customHeaders = deliveryClientConfig.customHeaders || [];
   const trackingHeaderExists = deliveryClientConfig
     .customHeaders
     .some((header) => header.name === trackingHeader.name);
@@ -279,8 +281,8 @@ const addHeader = (deliveryClientConfig, trackingHeader) => {
       .filter((header) => header.name === trackingHeader.name);
   }
   deliveryClientConfig.customHeaders.push({
-    header: trackingHeaderName,
-    value: trackingHeaderValue,
+    header: trackingHeader.header,
+    value: trackingHeader.value,
   });
 };
 
