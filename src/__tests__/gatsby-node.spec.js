@@ -1,6 +1,7 @@
 const { TestHttpService } = require('kentico-cloud-core');
 
-const { customTrackingHeader, sourceNodes } = require('../gatsby-node');
+const { sourceNodes } = require('../gatsby-node');
+const { customTrackingHeader } = require('../config');
 const { name, version } = require('../../package.json');
 
 describe('customTrackingHeader', () => {
