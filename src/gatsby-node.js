@@ -1,9 +1,15 @@
 require(`@babel/polyfill`);
 const _ = require(`lodash`);
-const deliveryClient = require(`kentico-cloud-delivery`);
+const { DeliveryClient } = require(`kentico-cloud-delivery`);
 const normalize = require(`./normalize`);
 const { parse, stringify } = require(`flatted/cjs`);
 const defaultLanguageLiteral = `default`;
+
+const customTrackingHeader = {
+  header: 'X-KC-SOURCE',
+  value: 'gatsby-source-kentico-cloud;2.2.0',
+};
+exports.customTrackingHeader = customTrackingHeader;
 
 exports.sourceNodes =
   async ({ actions: { createNode }, createNodeId },
@@ -12,7 +18,9 @@ exports.sourceNodes =
 projectId: ${deliveryClientConfig.projectId},
 languageCodenames: ${languageCodenames}.`);
 
-    const client = new deliveryClient.DeliveryClient(deliveryClientConfig);
+    addHeader(deliveryClientConfig, customTrackingHeader);
+
+    const client = new DeliveryClient(deliveryClientConfig);
     const contentTypesResponse = await client.types().getPromise();
     const typesFlatted = parse(stringify(contentTypesResponse.types));
 
@@ -251,3 +259,30 @@ languageVariantNode.id: ${languageVariantNode.id}`
     console.info(`The 'sourceNodes' API implementation exits.`);
     return;
   };
+
+/**
+ *
+ * @param {DeliveryClientConfig} deliveryClientConfig
+ *  Kentico Cloud JS configuration object
+ * @param {IHeader} trackingHeader tracking header name
+ */
+const addHeader = (deliveryClientConfig, trackingHeader) => {
+  let headers = deliveryClientConfig.customHeaders
+    ? deliveryClientConfig.customHeaders.slice()
+    : [];
+
+  if (headers.some((header) => header.header === trackingHeader.header)) {
+    console.warn(`Custom HTTP header value with name ${trackingHeader.header}
+      will be replaced by the source plugin.
+      Use different header name if you want to avoid this behavior;`);
+    headers = headers.filter((header) => {
+      return header.header !== trackingHeader.header;
+    });
+  }
+  headers.push({
+    header: trackingHeader.header,
+    value: trackingHeader.value,
+  });
+  deliveryClientConfig.customHeaders = headers;
+};
+
