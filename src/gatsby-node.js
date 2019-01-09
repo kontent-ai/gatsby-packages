@@ -3,13 +3,10 @@ const _ = require(`lodash`);
 const { DeliveryClient } = require(`kentico-cloud-delivery`);
 const normalize = require(`./normalize`);
 const { parse, stringify } = require(`flatted/cjs`);
+const { customTrackingHeader } = require('./config')
+
 const defaultLanguageLiteral = `default`;
 
-const customTrackingHeader = {
-  header: 'X-KC-SOURCE',
-  value: 'gatsby-source-kentico-cloud;2.2.0',
-};
-exports.customTrackingHeader = customTrackingHeader;
 
 exports.sourceNodes =
   async ({ actions: { createNode }, createNodeId },

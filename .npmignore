@@ -6,6 +6,7 @@
 # Recursively allow files under subtree¨
 !gatsby-node.js
 !normalize.js
+!config.js
 !package.json
 !.npmignore
 !README.md
