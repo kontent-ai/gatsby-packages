@@ -32,6 +32,17 @@ languageCodenames: ${languageCodenames}.`);
     );
 
     const contentItemsResponse = await client.items().getPromise();
+
+    contentItemsResponse.items.forEach((item) => {
+      Object
+        .keys(item)
+        .filter((key) =>
+          _.has(item[key], `type`) && item[key].type === `rich_text`)
+        .forEach((key) => {
+          item.elements[key]._html = item[key].getHtml();
+        });
+    });
+
     const itemsFlatted = parse(stringify(contentItemsResponse.items));
     let defaultLanguageCodename = defaultLanguageLiteral;
 
