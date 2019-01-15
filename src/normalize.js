@@ -286,7 +286,8 @@ const parseContentItemContents =
           } else {
             propertyValue = contentItem[key];
           }
-        } else if (contentItem.elements[key].type === `modular_content`
+        } else if (contentItem.elements[key]
+          && contentItem.elements[key].type === `modular_content`
           && !_.isEmpty(contentItem[key])) {
           let linkedItems = [];
 

@@ -57,6 +57,7 @@
     "regenerator-runtime": "^0.12.1"
   },
   "jest": {
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+    "testRegex": "(/__tests__/.+\\.(test|spec))\\.js?$"
   }
 }

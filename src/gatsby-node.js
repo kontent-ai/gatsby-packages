@@ -3,7 +3,7 @@ const _ = require(`lodash`);
 const { DeliveryClient } = require(`kentico-cloud-delivery`);
 const normalize = require(`./normalize`);
 const { parse, stringify } = require(`flatted/cjs`);
-const { customTrackingHeader } = require('./config')
+const { customTrackingHeader } = require('./config');
 
 const defaultLanguageLiteral = `default`;
 
