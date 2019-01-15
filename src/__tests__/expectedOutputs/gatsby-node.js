@@ -14,4 +14,7 @@ Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis condimentum augue
 </ul>
 <p>Aliquam ante. Nam quis nulla. Sed ac dolor sit amet purus malesuada congue. Curabitur vitae diam non enim vestibulum interdum. Phasellus et lorem id felis nonummy placerat. Etiam posuere lacus quis dolor. Nunc tincidunt ante vitae massa. Sed vel lectus. Donec odio tempus molestie, porttitor ut, iaculis quis, sem. Mauris dolor felis, sagittis at, luctus sed, aliquam non, tellus. Etiam sapien elit, consequat eget, tristique non, venenatis quis, ante.</p>`;
 
-exports.expectedResolvedRichTextComponent = expectedResolvedRichTextComponent;
+module.exports = {
+  expectedResolvedRichTextComponent,
+};
+
