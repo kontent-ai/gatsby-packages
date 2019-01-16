@@ -1,8 +1,14 @@
 const { TestHttpService } = require('kentico-cloud-core');
+const { ContentItem, TypeResolver } = require('kentico-cloud-delivery');
 
 const { sourceNodes } = require('../gatsby-node');
 const { customTrackingHeader } = require('../config');
 const { name, version } = require('../../package.json');
+const fakeResponseWithRichTextElement =
+  require('./fakeResponseWithRichTextElement.json');
+const { expectedResolvedRichTextComponent } =
+  require('./expectedOutputs/gatsby-node');
+
 
 describe('customTrackingHeader', () => {
   it('has correct name', () => {
@@ -24,7 +30,7 @@ describe('sourceNodes', () => {
       next_page: null,
     },
   };
-  const fakeTestService = new TestHttpService({
+  const fakeEmptyTestService = new TestHttpService({
     fakeResponseJson: fakeEmptyResponse,
     throwCloudError: false,
   });
@@ -32,7 +38,7 @@ describe('sourceNodes', () => {
   it('does add tracking header', async () => {
     const deliveryClientConfig = {
       projectId: 'dummyEmptyProject',
-      httpService: fakeTestService,
+      httpService: fakeEmptyTestService,
     };
 
     await sourceNodes(
@@ -55,7 +61,7 @@ describe('sourceNodes', () => {
   it('does update tracking header value', async () => {
     const deliveryClientConfig = {
       projectId: 'dummyEmptyProject',
-      httpService: fakeTestService,
+      httpService: fakeEmptyTestService,
       customHeaders: [
         {
           header: customTrackingHeader.header,
@@ -90,7 +96,7 @@ describe('sourceNodes', () => {
     };
     const deliveryClientConfig = {
       projectId: 'dummyEmptyProject',
-      httpService: fakeTestService,
+      httpService: fakeEmptyTestService,
       customHeaders: [
         anotherHeader,
       ],
@@ -115,6 +121,79 @@ describe('sourceNodes', () => {
       .toContainEqual(anotherHeader);
     expect(deliveryClientConfig.customHeaders.length)
       .toEqual(2);
+  });
+
+  class LandingPageImageSection extends ContentItem {
+    constructor() {
+      super({
+        richTextResolver: (_contentItem, _context) =>
+          '###landing_page_image_section###',
+      });
+    }
+  }
+
+  class Project extends ContentItem {
+    constructor() {
+      super({
+        linkResolver: (_link, _context) => '###projectlink###',
+      });
+    }
+  }
+
+
+  it('does resolve rich text element', async () => {
+    const deliveryClientConfig = {
+      projectId: 'dumyProject',
+      typeResolvers: [
+        new TypeResolver('landing_page_image_section', () =>
+          new LandingPageImageSection()
+        ),
+        new TypeResolver('project', () =>
+          new Project()),
+      ],
+      httpService: new TestHttpService({
+        fakeResponseJson: fakeResponseWithRichTextElement,
+        throwCloudError: false,
+      }),
+    };
+    const expectedRichTextValue = fakeResponseWithRichTextElement
+      .items
+      .filter((item) => item.system.codename === 'simple_landing_page')[0]
+      .elements
+      .content
+      .value;
+
+    const createNodeMock = jest.fn();
+    const actions = {
+      actions: {
+        createNode: createNodeMock,
+      },
+      createNodeId: jest.fn(),
+    };
+    const pluginConfiguration = {
+      deliveryClientConfig,
+      languageCodenames: ['default'],
+    };
+
+    await sourceNodes(actions, pluginConfiguration);
+
+    const landingPageCallNodeSelection = createNodeMock
+      .mock
+      .calls
+      .filter((call) => {
+        const firstArgument = call[0];
+        return firstArgument.internal.type.startsWith('KenticoCloudItem')
+          && firstArgument.system.codename === 'simple_landing_page';
+      });
+    expect(landingPageCallNodeSelection).toHaveLength(1);
+    expect(landingPageCallNodeSelection[0]).toHaveLength(1);
+    const landingPageNode = landingPageCallNodeSelection[0][0];
+
+    const expectedResolvedHtml = expectedResolvedRichTextComponent;
+    expect(landingPageNode)
+      .toHaveProperty('elements.content.value', expectedRichTextValue);
+    expect(landingPageNode)
+      .toHaveProperty('elements.content._html', expectedResolvedHtml);
   });
 });
 

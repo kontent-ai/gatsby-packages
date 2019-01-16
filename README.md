@@ -126,6 +126,28 @@ Should a *Linked items* element in KC contain items of only *one* type, you'll b
 
 _Please note that it's not possible to model circular dependency in Gatsby. Modeled circular dependency would lead to an error while generating a GraphQL model._
 
+### Rich text resolution 
+
+* _available from v2.3.0-beta_
+
+Since [JS SDK](https://github.com/Enngage/kentico-cloud-js) could resolve [links](https://github.com/Kentico/kentico-cloud-js/blob/master/doc/delivery.md#url-slugs-links) and also [linked items and components](https://github.com/Kentico/kentico-cloud-js/blob/master/doc/delivery.md#resolving-content-items-and-components-in-rich-text-fields) in rich text elements by implementing the resolvers, Kentico Cloud Gatsby source plugin is enriching the [internal SDK structure](https://github.com/Kentico/kentico-cloud-js/blob/master/packages/delivery/lib/models/item/content-item.class.ts) in GraphQL model by `_html` property containing the resolved value.
+
+`summary` rich text element example
+```
+{
+  ...
+    node {
+      elements {
+        summary {
+          value // NORMAL value
+          _html // resolved output
+        }
+      }
+    }
+  ...
+}
+```
+
 #### Content items in Rich text elements relationships
 
 As with the previous example, all rich text properties with content items linked in the element also have an accompanying `_nodes` property.

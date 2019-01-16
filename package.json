@@ -1,6 +1,6 @@
 {
   "name": "gatsby-source-kentico-cloud",
-  "version": "2.2.1",
+  "version": "2.3.0-beta",
   "description": "Gatsby source plugin for Kentico Cloud",
   "main": "./gatsby-node.js",
   "scripts": {
@@ -57,6 +57,7 @@
     "regenerator-runtime": "^0.12.1"
   },
   "jest": {
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+    "testRegex": "(/__tests__/.+\\.(test|spec))\\.js?$"
   }
 }

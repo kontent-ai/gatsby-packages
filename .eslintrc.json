@@ -14,6 +14,7 @@
       "error",
       2
     ],
-    "object-curly-spacing": "off"
+    "object-curly-spacing": "off",
+    "require-jsdoc": "off"
   }
 }
