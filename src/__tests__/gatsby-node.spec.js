@@ -7,7 +7,7 @@ const { name, version } = require('../../package.json');
 const fakeResponseWithRichTextElement =
   require('./fakeResponseWithRichTextElement.json');
 const { expectedResolvedRichTextComponent } =
-  require('./expectedOutputs/gatsby-node');
+  require('./expectedOutputs/gatsby-node.output');
 
 
 describe('customTrackingHeader', () => {
@@ -143,7 +143,7 @@ describe('sourceNodes', () => {
 
   it('does resolve rich text element', async () => {
     const deliveryClientConfig = {
-      projectId: 'dumyProject',
+      projectId: 'dummyProject',
       typeResolvers: [
         new TypeResolver('landing_page_image_section', () =>
           new LandingPageImageSection()
@@ -193,7 +193,7 @@ describe('sourceNodes', () => {
     expect(landingPageNode)
       .toHaveProperty('elements.content.value', expectedRichTextValue);
     expect(landingPageNode)
-      .toHaveProperty('elements.content._html', expectedResolvedHtml);
+      .toHaveProperty('elements.content.resolvedHtml', expectedResolvedHtml);
   });
 });
 

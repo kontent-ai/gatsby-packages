@@ -39,7 +39,7 @@ languageCodenames: ${languageCodenames}.`);
         .filter((key) =>
           _.has(item[key], `type`) && item[key].type === `rich_text`)
         .forEach((key) => {
-          item.elements[key]._html = item[key].getHtml();
+          item.elements[key].resolvedHtml = item[key].getHtml().toString();
         });
     });
 
