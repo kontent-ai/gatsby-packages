@@ -10,7 +10,6 @@ before_script:
 - ./cc-test-reporter before-build
 - npm install
 script:
-- npm run build
 - npm run coverage
 after_script:
 - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
