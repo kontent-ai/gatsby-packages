@@ -12,7 +12,7 @@ before_script:
 script:
 - npm run coverage
 after_script:
-- ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+- ./cc-test-reporter after-build -t lcov -o coverage/codeclimate.json coverage/lcov.info --exit-code $TRAVIS_TEST_RESULT
 notifications:
   email: false
 deploy:
