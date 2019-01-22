@@ -1,7 +1,3 @@
 {
-  "presets": [ "@babel/preset-env" ],
-  "plugins": [
-    "@babel/plugin-transform-regenerator"
-  ],
-  "sourceMaps": "both"
+  "presets": ["babel-preset-gatsby-package"]
 }
