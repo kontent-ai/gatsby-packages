@@ -35,6 +35,13 @@ describe('sourceNodes', () => {
     throwCloudError: false,
   });
 
+  const dummyCreation = {
+    actions: {
+      createNode: jest.fn(),
+    },
+    createNodeId: jest.fn(),
+  };
+
   it('does add tracking header', async () => {
     const deliveryClientConfig = {
       projectId: 'dummyEmptyProject',
@@ -42,12 +49,7 @@ describe('sourceNodes', () => {
     };
 
     await sourceNodes(
-      {
-        actions: {
-          createNode: jest.fn(),
-        },
-        createNodeId: jest.fn(),
-      },
+      dummyCreation,
       {
         deliveryClientConfig,
         languageCodenames: ['default'],
@@ -71,12 +73,7 @@ describe('sourceNodes', () => {
     };
 
     await sourceNodes(
-      {
-        actions: {
-          createNode: jest.fn(),
-        },
-        createNodeId: jest.fn(),
-      },
+      dummyCreation,
       {
         deliveryClientConfig,
         languageCodenames: ['default'],
@@ -103,12 +100,7 @@ describe('sourceNodes', () => {
     };
 
     await sourceNodes(
-      {
-        actions: {
-          createNode: jest.fn(),
-        },
-        createNodeId: jest.fn(),
-      },
+      dummyCreation,
       {
         deliveryClientConfig,
         languageCodenames: ['default'],
@@ -168,7 +160,7 @@ describe('sourceNodes', () => {
       actions: {
         createNode: createNodeMock,
       },
-      createNodeId: jest.fn(),
+      createNodeId: dummyCreation.createNodeId,
     };
     const pluginConfiguration = {
       deliveryClientConfig,
