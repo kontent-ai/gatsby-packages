@@ -12,7 +12,8 @@ before_script:
 script:
 - npm run coverage
 after_script:
-- ./cc-test-reporter after-build -t lcov -o coverage/codeclimate.json coverage/lcov.info --exit-code $TRAVIS_TEST_RESULT
+- ./cc-test-reporter format-coverage -t lcov -o coverage/codeclimate.json coverage/lcov.info
+- if [[ "$TRAVIS_TEST_RESULT" == 0 ]]; then ./cc-test-reporter upload-coverage; fi  # Upload coverage/codeclimate.json
 notifications:
   email: false
 deploy:
