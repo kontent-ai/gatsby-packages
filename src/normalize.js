@@ -263,7 +263,12 @@ const parseContentItemContents =
       processedContents.push(contentItem.system.codename);
       const flatted = processedContents.join(` -> `);
 
-      throw new Error(`Cycle detected in linked items' path: ${flatted}`);
+      console.error(`Cycle detected in linked items' path: ${flatted}`);
+      return {
+        system: contentItem.system,
+        elements: null,
+        cycleDetected: true,
+      };
     }
 
     processedContents.push(contentItem.system.codename);

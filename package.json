@@ -1,6 +1,6 @@
 {
   "name": "gatsby-source-kentico-cloud",
-  "version": "3.0.0.beta1",
+  "version": "3.0.0-beta1",
   "description": "Gatsby source plugin for Kentico Cloud",
   "main": "./gatsby-node.js",
   "scripts": {
@@ -29,10 +29,10 @@
     "node": ">=10.0.0"
   },
   "dependencies": {
-    "change-case": "^3.0.2",
+    "change-case": "^3.1.0",
     "flatted": "^2.0.0",
-    "gatsby": "^2.0.50",
-    "kentico-cloud-delivery": "^5.2.2",
+    "gatsby": "^2.0.91",
+    "kentico-cloud-delivery": "^5.3.1",
     "lodash": "^4.17.11",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
@@ -45,15 +45,15 @@
     "@babel/cli": "^7.1.5",
     "@babel/core": "^7.1.6",
     "@babel/polyfill": "^7.0.0",
-    "@babel/preset-env": "^7.1.6",
+    "@babel/preset-env": "^7.3.1",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^9.0.0",
     "babel-jest": "^23.6.0",
-    "eslint": "^5.9.0",
+    "eslint": "^5.12.1",
     "eslint-config-google": "^0.10.0",
     "eslint-plugin-node": "^7.0.1",
     "jest": "^23.6.0",
-    "kentico-cloud-core": "^1.3.0",
+    "kentico-cloud-core": "^1.3.1",
     "regenerator-runtime": "^0.12.1"
   },
   "jest": {

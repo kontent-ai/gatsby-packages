@@ -1,6 +1,9 @@
 # Project dependencies
 node_modules
 
+# Gatsby source generated filed
+/public
+
 # Output files
 /gatsby-node.js
 /normalize.js

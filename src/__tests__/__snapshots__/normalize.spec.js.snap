@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`createContentItemNode with correct arguments creates a content item node 1`] = `
+exports[`normalize.spec.js createContentItemNode with correct arguments creates a content item node 1`] = `
 Object {
   "children": Array [],
   "contentType___NODE": "aea6da0c-4130-593c-8b6e-006e6bace1de",
@@ -91,7 +91,7 @@ Object {
 }
 `;
 
-exports[`createContentTypeNode with correct arguments creates a content type node 1`] = `
+exports[`normalize.spec.js createContentTypeNode with correct arguments creates a content type node 1`] = `
 Object {
   "children": Array [],
   "contentItems___NODE": Array [],
@@ -130,7 +130,100 @@ Object {
 }
 `;
 
-exports[`parseContentItemContents with a contentItem without a cycle returns a proper item object 1`] = `
+exports[`normalize.spec.js parseContentItemContents with a contentItem with a cycle set cycleDetectedProperty and log proper error 1`] = `
+Object {
+  "elements": Object {
+    "asset_1": Object {
+      "name": "Asset 1",
+      "type": "asset",
+      "value": Array [
+        Object {
+          "description": null,
+          "name": "asset-1.jpg",
+          "size": 360791,
+          "type": "image/jpeg",
+          "url": "https://example.com/asset-1.jpg",
+        },
+      ],
+    },
+    "date_time_1": Object {
+      "name": "Date time 1",
+      "type": "date_time",
+      "value": null,
+    },
+    "linked_items_1": Array [
+      Object {
+        "elements": Object {
+          "linked_items_1": Array [
+            Object {
+              "cycleDetected": true,
+              "elements": null,
+              "system": Object {
+                "codename": "content_item_1",
+                "id": "7e70cb89-9281-4db9-8130-36076ee1e698",
+                "language": "default",
+                "last_modified": "2018-12-28T00:00:00.3224207Z",
+                "name": "Content item 1",
+                "sitemap_locations": Array [],
+                "type": "content_item",
+              },
+            },
+            Object {
+              "elements": Object {},
+              "system": Object {
+                "codename": "content_item_3",
+                "id": "7e70cb89-9281-4db9-8130-36076ee1e698",
+                "language": "default",
+                "last_modified": "2018-12-28T00:00:00.3224207Z",
+                "name": "Content item 3",
+                "sitemap_locations": Array [],
+                "type": "content_item",
+              },
+            },
+          ],
+        },
+        "system": Object {
+          "codename": "content_item_2",
+          "id": "7e70cb89-9281-4db9-8130-36076ee1e698",
+          "language": "default",
+          "last_modified": "2018-12-28T00:00:00.3224207Z",
+          "name": "Content item 2",
+          "sitemap_locations": Array [],
+          "type": "content_item",
+        },
+      },
+      Object {
+        "elements": Object {},
+        "system": Object {
+          "codename": "content_item_3",
+          "id": "7e70cb89-9281-4db9-8130-36076ee1e698",
+          "language": "default",
+          "last_modified": "2018-12-28T00:00:00.3224207Z",
+          "name": "Content item 3",
+          "sitemap_locations": Array [],
+          "type": "content_item",
+        },
+      },
+    ],
+    "text_1": Object {
+      "name": "Text 1",
+      "type": "text",
+      "value": "Text 1 value",
+    },
+  },
+  "system": Object {
+    "codename": "content_item_1",
+    "id": "7e70cb89-9281-4db9-8130-36076ee1e698",
+    "language": "default",
+    "last_modified": "2018-12-28T00:00:00.3224207Z",
+    "name": "Content item 1",
+    "sitemap_locations": Array [],
+    "type": "content_item",
+  },
+}
+`;
+
+exports[`normalize.spec.js parseContentItemContents with a contentItem without a cycle returns a proper item object 1`] = `
 Object {
   "elements": Object {
     "asset_1": Object {
