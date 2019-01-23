@@ -149,8 +149,7 @@ of valid objects.`);
   };
 
 /**
- * Adds links to content items (stored in Linked items elements)
- *    via a sibling '_nodes' property.
+ * Replace links in linked items element by GraphQl references.
  * @param {object} itemNode - Gatsby content item node.
  * @param {array} allNodesOfSameLanguage - The whole set of nodes
  *    of that same language.
@@ -173,7 +172,8 @@ of valid objects.`);
           const property = itemNode.elements[propertyName];
 
           if (_.isArray(property)) {
-            const linkPropertyName = `${propertyName}_nodes___NODE`;
+            // https://www.gatsbyjs.org/docs/create-source-plugin/#creating-the-relationship
+            const linkPropertyName = `${propertyName}___NODE`;
             itemNode.elements[linkPropertyName] = [];
 
             if (_.has(property, `[0].system.codename`)) {
@@ -386,6 +386,7 @@ const addLinkedItemsLinks =
       });
     }
 
+    // important to have the same order as it is Kentico Cloud
     const sortPattern = originalNodeCollection
       .map((item) => item.system.id);
 

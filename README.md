@@ -12,107 +12,153 @@ This repo contains a [Gatsby v2 source plugin](https://www.gatsbyjs.org/docs/rec
 
 You can use the plugin in any of the following ways:
 
-* Install the [gatsby-source-kentico-cloud](https://www.npmjs.com/package/gatsby-source-kentico-cloud) NPM package in your Gatsby site via `npm install --save gatsby-source-kentico-cloud`.
-* Use the [gatsby-starter-kentico-cloud](https://github.com/Kentico/gatsby-starter-kentico-cloud) starter site, which uses the NPM package.
+### Install to you existing Gatsby project 
+1. Install the [gatsby-source-kentico-cloud](https://www.npmjs.com/package/gatsby-source-kentico-cloud) NPM package,
+```
+npm install --save gatsby-source-kentico-cloud
+```
+2. Configure the plugin in `gatsby-config.js` file
 
-### Using the Kentico Cloud JavaScript SDK configuration object
+The source plugin uses the [JavaScript SDK](https://github.com/Enngage/kentico-cloud-js) in the background. Put the [configuration object](https://github.com/Enngage/kentico-cloud-js/blob/master/doc/delivery.md#client-configuration) of the JS SDK into the `deliveryClientConfig` property of the [gatsby-config.js](https://github.com/Kentico/gatsby-starter-kentico-cloud/blob/master/gatsby-config.js) file.
+```
+module.exports = {
+  ...
+  plugins: [
+    ...
+    {
+      resolve: `gatsby-source-kentico-cloud`,
+      options: {
+        deliveryClientConfig: { // Configuration object
+          projectId: `XXX`,
+          typeResolvers: []
+        },
+        languageCodenames: [ // example configuration
+          `en-US`,
+          `es-ES`,
+        ]
+      }
+    }
+    ...
+  ]
+  ...
+}
+```
+3. Run `gatsby develop` and data from Kentico Cloud are provided in Gatsby GraphQL model.
+All Kentico Cloud content element values  reside inside of the `elements` property of `kenticoCloudItem` nodes.
 
-The source plugin uses the [JavaScript SDK](https://github.com/Enngage/kentico-cloud-js) in the background. You can put the [configuration object](https://github.com/Enngage/kentico-cloud-js/blob/master/doc/delivery.md#client-configuration) of the JS SDK into the `deliveryClientConfig` property of the [gatsby-config.js](https://github.com/Kentico/gatsby-starter-kentico-cloud/blob/master/gatsby-config.js) file.
+### Scaffold your project using Gatsby Kentico Cloud starter site
 
-### Features
+Use the [gatsby-starter-kentico-cloud](https://github.com/Kentico/gatsby-starter-kentico-cloud) starter site that includes this source plugin,
+* [Gatsby gallery](https://www.gatsbyjs.org/starters/Kentico/gatsby-starter-kentico-cloud)
 
-**Breaking change: All Kentico Cloud content element values now reside inside of the `elements` property of `kenticoCloudItem` nodes.**
+## Features
 
-The plugin creates GraphQL nodes for all Kentico Cloud content types, content items, and language variants.
+The plugin creates GraphQL nodes for all Kentico Cloud content types, content items, and its language variants.
 
 The node names are prefixed with `kenticoCloud`. More specifically, content type nodes are prefixed with `kenticoCloudType` and content items and their language variants are prefixed with `kenticoCloudItem`.
 
-GraphQL nodes of content items contain the ordinary `system` and `elements` properties. However, the properties inside `elements` always have an internal structure that the aforementioned [JavaScript SDK](https://github.com/Enngage/kentico-cloud-js/blob/master/packages/delivery/lib/models/item/content-item.class.ts) produces.
+GraphQL nodes of content items contain the ordinary `system` and `elements` properties. However, the properties inside `elements` always have an internal structure that the aforementioned [JavaScript SDK](https://github.com/Enngage/kentico-cloud-js/blob/master/packages/delivery/lib/models/item/content-item.class.ts) produces with [some modifications](#js-sdk-vs-graphql-model-differences).
 
-The plugin creates the following relationships among the Kentico Cloud nodes. You can test them in the GraphiQL environment of your Gatsby app (by going to `http://localhost:8000/___graphql` after starting your site's development server).
+## JS SDK vs GraphQL model differences
 
 #### Content item <-> content type relationships
 
 This relationship is captured in the `contentItems` navigation property of all `kenticoCloudType` nodes. In the opposite direction, in all `kenticoCloudItem` nodes, it can be found in the `contentType` navigation property.
 
-You can use the GraphiQL interface to experiment with the data structures produced by the source plugin. For instance, you can fetch a content item of the *Project reference* type (by querying `allKenticoCloudItemProjectReference`) and use the `contentType` navigation property to get a full list of all of the elements in the underlying content type. Like so:
+<details><summary>Example</summary>
 
-    {
-      allKenticoCloudItemProjectReference {
-        edges {
-          node {
-            elements {
-              name___teaser_image__name {
-                value
-              }
-            }
-            contentType {
-              elements {
-              	name
-                codename
-                type
-              }
-            }
+You can use the [GraphiQL](https://github.com/graphql/graphiql) interface to experiment with the data structures produced by the source plugin. For instance, you can fetch a content item of the *Project reference* type (by querying `allKenticoCloudItemProjectReference`) and use the `contentType` navigation property to get a full list of all of the elements in the underlying content type. Like so:
+
+```
+{
+  allKenticoCloudItemProjectReference {
+    edges {
+      node {
+        elements {
+          name___teaser_image__name {
+            value
+          }
+        }
+        contentType {
+          elements {
+            name
+            codename
+            type
           }
         }
       }
     }
+  }
+}
+```
 
-This kind of relationship comes handy when no content item has a particular element populated with data. In that case Gatsby won't recognize that element and won't include it in its internal schema. Neither the (null) value nor the name of the element will be visible through the `kenticoCloudItem` GraphQL nodes. Tapping into the related `kenticoCloudType` GraphQL node might be a proper fallback mechanism.
+</details>
 
 #### Language variant relationships
 
-This relationship is captured by the `otherLanguages` navigation property of all content item nodes. For instance, you can get the names of all content items of the *Speaking engagement* type (by querying `kenticoCloudItemSpeakingEngagement`) in their default language as well as other languages all at once:
+This relationship is captured by the `otherLanguages` navigation property of all content item nodes. 
 
-    {
-      allKenticoCloudItemSpeakingEngagement {
-        edges {
-          node {
-            elements {
-              name {
-                value
-              }
-            }
-            otherLanguages {
-              elements {
-                name {
-                  value
-                }
-              }
+<details><summary>Example</summary>
+
+For instance, you can get the names of all content items of the *Speaking engagement* type (by querying `kenticoCloudItemSpeakingEngagement`) in their default language as well as other languages all at once:
+
+```
+{
+  allKenticoCloudItemSpeakingEngagement {
+    edges {
+      node {
+        elements {
+          name {
+            value
+          }
+        }
+        otherLanguages {
+          elements {
+            name {
+              value
             }
           }
         }
       }
     }
+  }
+}
+```
+
+</details>
     
 #### Linked items elements relationships
 
-Each Linked items property is accompanied by a sibling property suffixed with `_nodes` that can be used to traverse to the nodes linked through the use of the *Linked items* element.
+Each Linked items element does differ from classic JS SDK structure. They are replaced by [Gatsby GraphQL node references](https://www.gatsbyjs.org/docs/create-source-plugin/#creating-the-relationship) that can be used to traverse to the nodes linked through the use of the *Linked items* element.
 
-    {
-      allKenticoCloudItemProjectReference {
-        edges {
-          node {
-            elements {
-              related_project_references {
-                system {
-                  codename
-                }
-              }
-              related_project_references_nodes {
-                __typename
-                ... on KenticoCloudItemBlogpostReference {
-                  elements {
-                    name___teaser_image__name {
-                      value
-                    }
+<details><summary>Example</summary>
+
+Should a *Linked items* element in KC contain items of only *one* type, you'll be able to specify elements and other properties of that type directly (directly under the `related_project_references` in the following example). However, once you add linked items of multiple types, you'll have to specify their properties using the `... on [type name]` syntax (so called "inline fragments" in the GraphQL terminology).
+
+The `related_project_refereces_nodes` will give you the full-fledged Gatsby GraphQL nodes with all additional properties and links.
+
+> :bulb: Notice the encapsulation into the `... on Node` [GraphQL inline fragment](https://graphql.org/learn/queries/#inline-fragments). This prevent failing creating GraphQL model when this field does not contain i.e. Blog post (`KenticoCloudItemBlogpostReference`) linked item.
+
+```
+{
+  allKenticoCloudItemProjectReference {
+    edges {
+      node {
+        elements {
+          related_project_references {
+            ... on Node {
+              __typename
+              ... on KenticoCloudItemBlogpostReference {
+                elements {
+                  name___teaser_image__name {
+                    value
                   }
                 }
-                ... on KenticoCloudItemProjectReference {
-                  elements {
-                    name___teaser_image__name {
-                      value
-                    }
+              }
+              ... on KenticoCloudItemProjectReference {
+                elements {
+                  name___teaser_image__name {
+                    value
                   }
                 }
               }
@@ -121,16 +167,18 @@ Each Linked items property is accompanied by a sibling property suffixed with `_
         }
       }
     }
+  }
+}
+```
 
-Under the `related_project_references` you'd find just the original data served by our [JS SDK](https://github.com/Enngage/kentico-cloud-js). Conversely, the `related_project_refereces_nodes` will give you the full-fledged Gatsby GraphQL nodes with all additional properties and links.
+</details>
 
-Should a *Linked items* element in KC contain items of only *one* type, you'll be able to specify elements and other properties of that type directly (directly under the `related_project_references_nodes` in the above example). However, once you add linked items of multiple types, you'll have to specify their properties using the `... on [type name]` syntax (so called "inline fragments" in the GraphQL terminology).
 
-_Please note that it's not possible to model circular dependency in Gatsby. Modeled circular dependency would lead to an error while generating a GraphQL model._
+> Since v 3.0.0 it is possible to model circular dependency in Kentico Cloud and use this plugin at one time. When the circular dependency is detected during the GraphQL generation, warning is logged to the console and a flag `cycleDetected` is placed next to the `elements` and `system` property.
+
+**NOTE: REWRITTEN UNTIL HERE**
 
 ### Rich text resolution 
-
-* _available from v2.3.0-beta_
 
 Since [JS SDK](https://github.com/Enngage/kentico-cloud-js) could resolve [links](https://github.com/Kentico/kentico-cloud-js/blob/master/doc/delivery.md#url-slugs-links) and also [linked items and components](https://github.com/Kentico/kentico-cloud-js/blob/master/doc/delivery.md#resolving-content-items-and-components-in-rich-text-fields) in rich text elements by implementing the resolvers, Kentico Cloud Gatsby source plugin is enriching the [internal SDK structure](https://github.com/Kentico/kentico-cloud-js/blob/master/packages/delivery/lib/models/item/content-item.class.ts) in GraphQL model by `resolvedHtml` property containing the resolved value.
 
