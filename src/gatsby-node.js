@@ -33,6 +33,7 @@ languageCodenames: ${languageCodenames}.`);
 
     const contentItemsResponse = await client.items().getPromise();
 
+    // TODO extract to method
     contentItemsResponse.items.forEach((item) => {
       Object
         .keys(item)
@@ -40,6 +41,7 @@ languageCodenames: ${languageCodenames}.`);
           _.has(item[key], `type`) && item[key].type === `rich_text`)
         .forEach((key) => {
           item.elements[key].resolvedHtml = item[key].getHtml().toString();
+          item[key].images = Object.values(item.elements[key].images);
         });
     });
 
@@ -75,6 +77,17 @@ languageCodenames: ${languageCodenames}.`);
     let nonDefaultLanguageItemNodes = new Map();
 
     languageResponses.forEach((languageResponse) => {
+      // TODO extract to method
+      languageResponse.items.forEach((item) => {
+        Object
+          .keys(item)
+          .filter((key) =>
+            _.has(item[key], `type`) && item[key].type === `rich_text`)
+          .forEach((key) => {
+            item.elements[key].resolvedHtml = item[key].getHtml().toString();
+            item[key].images = Object.values(item.elements[key].images);
+          });
+      });
       const languageItemsFlatted = parse(stringify(languageResponse.items));
       let allNodesOfCurrentLanguage = [];
       let languageCodename;

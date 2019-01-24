@@ -57,11 +57,9 @@ The plugin creates GraphQL nodes for all Kentico Cloud content types, content it
 
 The node names are prefixed with `kenticoCloud`. More specifically, content type nodes are prefixed with `kenticoCloudType` and content items and their language variants are prefixed with `kenticoCloudItem`.
 
-GraphQL nodes of content items contain the ordinary `system` and `elements` properties. However, the properties inside `elements` always have an internal structure that the aforementioned [JavaScript SDK](https://github.com/Enngage/kentico-cloud-js/blob/master/packages/delivery/lib/models/item/content-item.class.ts) produces with [some modifications](#js-sdk-vs-graphql-model-differences).
+GraphQL nodes of content items contain the ordinary `system` and `elements` properties. However, the properties inside `elements` always have an internal structure that the aforementioned [JavaScript SDK](https://github.com/Enngage/kentico-cloud-js/blob/master/packages/delivery/lib/models/item/content-item.class.ts) produces with modifications described in following section.
 
-## JS SDK vs GraphQL model differences
-
-#### Content item <-> content type relationships
+### Content item <-> content type relationships
 
 This relationship is captured in the `contentItems` navigation property of all `kenticoCloudType` nodes. In the opposite direction, in all `kenticoCloudItem` nodes, it can be found in the `contentType` navigation property.
 
@@ -94,7 +92,7 @@ You can use the [GraphiQL](https://github.com/graphql/graphiql) interface to exp
 
 </details>
 
-#### Language variant relationships
+### Language variant relationships
 
 This relationship is captured by the `otherLanguages` navigation property of all content item nodes. 
 
@@ -127,7 +125,7 @@ For instance, you can get the names of all content items of the *Speaking engage
 
 </details>
     
-#### Linked items elements relationships
+### Linked items elements relationships
 
 Each Linked items element does differ from classic JS SDK structure. They are replaced by [Gatsby GraphQL node references](https://www.gatsbyjs.org/docs/create-source-plugin/#creating-the-relationship) that can be used to traverse to the nodes linked through the use of the *Linked items* element.
 
@@ -174,15 +172,29 @@ The `related_project_refereces_nodes` will give you the full-fledged Gatsby Grap
 </details>
 
 
-> Since v 3.0.0 it is possible to model circular dependency in Kentico Cloud and use this plugin at one time. When the circular dependency is detected during the GraphQL generation, warning is logged to the console and a flag `cycleDetected` is placed next to the `elements` and `system` property.
+> :bulb: When you are modelling linked items, make sure you have no element with the same codename of different type. In case you had some, they would be omitted from the model and the warning is logged during model generation.
+```
+KenticoCloudItemArticle.elements.related_articles[].elements.manufacturer.value:
+ - type: array<object> # THIS IS CHECK BOX ELEMENT
+   value: [ { name: 'Aerobie', codename: 'aerobie' } ]
+ - type: string # THIS IS TEXT ELEMENT
+   value: 'Hario'
+```
 
-**NOTE: REWRITTEN UNTIL HERE**
+
+
+> Since v 3.0.0 it is possible to model circular dependency in Kentico Cloud and use this plugin at one time. When the circular dependency is detected during the GraphQL generation, warning is logged to the console and a flag `cycleDetected` is placed next to the `elements` and `system` property.
 
 ### Rich text resolution 
 
+With following features, it is possible to resolve rich text [into the HTML string](#embedded-JS-SDK-resolution), that could be injected to the site. For more complex scenarios, it is possible to use the raw `value` property in combination with [`linked_items`](#content-items-in-rich-text-elements-relationships), [`links`](#links-in-rich-text-elements), and [`images`](#images-in-rich-text-elements) property
+
+#### Embedded JS SDK resolution
+
 Since [JS SDK](https://github.com/Enngage/kentico-cloud-js) could resolve [links](https://github.com/Kentico/kentico-cloud-js/blob/master/doc/delivery.md#url-slugs-links) and also [linked items and components](https://github.com/Kentico/kentico-cloud-js/blob/master/doc/delivery.md#resolving-content-items-and-components-in-rich-text-fields) in rich text elements by implementing the resolvers, Kentico Cloud Gatsby source plugin is enriching the [internal SDK structure](https://github.com/Kentico/kentico-cloud-js/blob/master/packages/delivery/lib/models/item/content-item.class.ts) in GraphQL model by `resolvedHtml` property containing the resolved value.
 
-`summary` rich text element example
+<details><summary>`summary` rich text element example</summary>
+
 ```
 {
   ...
@@ -198,24 +210,30 @@ Since [JS SDK](https://github.com/Enngage/kentico-cloud-js) could resolve [links
 }
 ```
 
-#### Content items in Rich text elements relationships
+</details>
 
-As with the previous example, all rich text properties with content items linked in the element also have an accompanying `_nodes` property.
+#### Content items in Rich text elements
 
-    {
-      allKenticoCloudItemBlogpostReference {
-        edges {
-          node {
-            elements {
-              name___teaser_image__name {
-                value
-              }
-              summary {
-                value
-              }
-              summary_nodes {
-                system {
-                  codename
+As with the previous example, all rich text properties with inline content items linked in the element also have an accompanying `linked_items` property.
+
+<details><summary>Example</summary>
+
+```
+{
+  allKenticoCloudItemBlogpostReference {
+    edges {
+      node {
+        elements {
+          summary {
+            value
+            linked_items {
+              ... on Node {
+              __typename
+              ... on KenticoCloudItemBlogpostReference {
+                elements {
+                  name___teaser_image__name {
+                    value
+                  }
                 }
               }
             }
@@ -223,8 +241,71 @@ As with the previous example, all rich text properties with content items linked
         }
       }
     }
+  }
+}
+```
 
-#### Reverse link relationships
+</details>
+
+#### Links in Rich text elements
+
+All rich text properties with content items linked in the element also have an accompanying `links` property. 
+<details><summary>Example</summary>
+
+```
+{
+  allKenticoCloudItemBlogpostReference {
+    edges {
+      node {
+        elements {
+          summary {
+            value
+            links {
+              codename
+              itemId
+              type
+              urlSlug
+            }
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+</details>
+
+#### Images in Rich text elements
+
+All rich text properties with content items linked in the element also have an accompanying `images` property. 
+
+<details><summary>Example</summary>
+
+```
+{
+  allKenticoCloudItemBlogpostReference {
+    edges {
+      node {
+        elements {
+          summary {
+            value
+            images {
+              image_id
+              description
+              url
+            }
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+</details>
+
+### Reverse link relationships
 
 All nodes have a `usedByContentItems` property that reflects the other nodes in which the given node is used as linked content in *Linked items* or *Rich text* elements.
 
@@ -234,25 +315,7 @@ All nodes have a `usedByContentItems` property that reflects the other nodes in 
 
 ## Debugging
 
-To get a smooth debugging experience, you can temporarily copy the `gatsby-source-kentico-cloud` [directory](https://github.com/Kentico/gatsby-source-kentico-cloud) of the source plugin to the `/plugins` directory of your site. Then, move the `gatsby-node.js` and `normalize.js` files from `/plugins/gatsby-source-kentico-cloud/src` to `/plugins/gatsby-source-kentico-cloud` (up one level).
-
-## Troubleshooting
-
-Gatsby's GraphQL libraries won't accept object properties with names starting with numbers. This conflicts with the way image assets and links are named in the Delivery API response (in the JS SDK output, respectively). Therefore, the names of properties with assets and links in Rich text are prefixed by the source plugin with `image-` and `link-` respectively.
-
-    "images": {
-      "image-79bd9e11-f643-4cd6-9ea5-d1be17cf7de2": {
-        "image_id": "79bd9e11-f643-4cd6-9ea5-d1be17cf7de2",
-        "description": null,
-        "url": "https://assets-eu-01.kc-usercontent.com:443/5ac93d1e-567d-01e6-e3b7-ac435f77b907/f7a357f7-643a-4d2d-8078-0fc371914d25/clearing-cache-with-webhooks---blog-post-image@2x_t.png"
-      },
-      "image-d2b4bdb2-a586-45d8-9920-bc1dd6846498": {
-        "image_id": "d2b4bdb2-a586-45d8-9920-bc1dd6846498",
-        "description": null,
-        "url": "https://assets-eu-01.kc-usercontent.com:443/5ac93d1e-567d-01e6-e3b7-ac435f77b907/36cb3d1b-1aa7-4809-9606-82c3c0f00b7f/fcyTulxr.jpg"
-      }
-
-Should you need to refer to the properties, just bear in mind the addition of the `image-` and `link-` prefix. In case of images, the GUID in the child `image_id` property is never prefixed or otherwise transformed.
+To get a smooth debugging experience, you can temporarily copy the `gatsby-source-kentico-cloud` [directory](https://github.com/Kentico/gatsby-source-kentico-cloud) of the source plugin to the `/plugins` directory of your project and run `npm install` then your project would use this local source plugin.
 
 ## Further information
 

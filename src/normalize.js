@@ -228,7 +228,7 @@ of valid objects.`);
           const property = itemNode.elements[propertyName];
 
           if (_.get(property, `type`) === `rich_text`) {
-            const linkPropertyName = `${propertyName}_nodes___NODE`;
+            const linkPropertyName = `${propertyName}.linked_items___NODE`;
 
             const linkedNodes = allNodesOfSameLanguage
               .filter((node) => _.has(property, `linkedItemCodenames`)
@@ -237,8 +237,9 @@ of valid objects.`);
                   node.system.codename)
               );
 
-            itemNode.elements[linkPropertyName] = [];
-
+            // TODO use element as a part of the propertyPath
+            _.set(itemNode.elements, linkPropertyName, []);
+            // TODO use element as a part of the propertyPath
             addLinkedItemsLinks(
               itemNode,
               linkedNodes,
@@ -282,15 +283,7 @@ const parseContentItemContents =
 
         if (_.has(contentItem[key], `type`)
           && contentItem[key].type === `rich_text`) {
-          if ((_.has(contentItem.elements[key], `images`)
-            && !_.isEmpty(contentItem.elements[key].images))
-            || (_.has(contentItem.elements[key], `links`)
-              && !_.isEmpty(contentItem.elements[key].links))) {
-            propertyValue =
-              prefixGuidNamedProperties(contentItem.elements[key]);
-          } else {
-            propertyValue = contentItem[key];
-          }
+          propertyValue = contentItem[key];
         } else if (contentItem.elements[key]
           && contentItem.elements[key].type === `modular_content`
           && !_.isEmpty(contentItem[key])) {
@@ -375,26 +368,17 @@ const addLinkedItemsLinks =
         }
       });
 
-    const idsOfLinkedNodes = linkedNodes.map((node) => node.id);
-    if (!itemNode.elements[linkPropertyName]) {
-      itemNode.elements[linkPropertyName] = idsOfLinkedNodes;
-    } else {
-      idsOfLinkedNodes.forEach((id) => {
-        if (!itemNode.elements[linkPropertyName].includes(id)) {
-          itemNode.elements[linkPropertyName].push(id);
-        }
-      });
-    }
-
     // important to have the same order as it is Kentico Cloud
     const sortPattern = originalNodeCollection
       .map((item) => item.system.id);
 
-    itemNode.elements[linkPropertyName] = linkedNodes
+    const sortedLinkedNodes = linkedNodes
       .sort((a, b) =>
         sortPattern.indexOf(a.system.id) - sortPattern.indexOf(b.system.id)
       )
       .map((item) => item.id);
+
+    _.set(itemNode.elements, linkPropertyName, sortedLinkedNodes);
   };
 
 
