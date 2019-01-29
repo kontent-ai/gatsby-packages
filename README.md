@@ -94,7 +94,7 @@ You can use the [GraphiQL](https://github.com/graphql/graphiql) interface to exp
 
 ### Language variant relationships
 
-This relationship is captured by the `otherLanguages` navigation property of all content item nodes. 
+This relationship is captured by the `otherLanguages` navigation property of all content item nodes in other language. 
 
 <details><summary>Example</summary>
 
@@ -122,6 +122,32 @@ For instance, you can get the names of all content items of the *Speaking engage
   }
 }
 ```
+returns in case of two languages 
+```
+{
+  "data": {
+    "allKenticoCloudItemSpeakingEngagement": {
+      "edges": [
+        {
+          "node": {
+            "elements": {
+              "name": "Speaking engagement"
+            }
+            "otherLanguages": [
+              {
+                "elements": {
+                  "name": "Hablando de compromiso"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
+```
+
 
 </details>
     

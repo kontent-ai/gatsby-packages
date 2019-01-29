@@ -135,6 +135,7 @@ of valid objects.`);
         (nodeOfSpecificLanguage) =>
           itemNode.system.codename === nodeOfSpecificLanguage.system.codename
           && itemNode.system.type === nodeOfSpecificLanguage.system.type
+          && itemNode.system.language !== nodeOfSpecificLanguage.system.language
       );
 
       const otherLanguageLink =
