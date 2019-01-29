@@ -8,6 +8,7 @@ node_modules
 /gatsby-node.js
 /normalize.js
 /config.js
+/validation.js
 
 # Test coverage
 /coverage

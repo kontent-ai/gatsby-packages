@@ -2,23 +2,27 @@ require(`@babel/polyfill`);
 const _ = require(`lodash`);
 const { DeliveryClient } = require(`kentico-cloud-delivery`);
 const normalize = require(`./normalize`);
+const validation = require(`./validation`);
 const { parse, stringify } = require(`flatted/cjs`);
 const { customTrackingHeader } = require('./config');
-
-const defaultLanguageLiteral = `default`;
 
 
 exports.sourceNodes =
   async ({ actions: { createNode }, createNodeId },
     { deliveryClientConfig, languageCodenames }) => {
-    console.info(`The 'sourceNodes' API implementation starts.
-projectId: ${deliveryClientConfig.projectId},
-languageCodenames: ${languageCodenames}.`);
+    console.info(`The 'sourceNodes' API implementation starts.`);
+    console.info(`projectId: ${_.get(deliveryClientConfig, 'projectId')}`);
+    console.info(`languageCodenames: ${languageCodenames}.`);
+
+    validation.validateLanguageCodenames(languageCodenames);
+    let defaultLanguageCodename = languageCodenames[0];
 
     addHeader(deliveryClientConfig, customTrackingHeader);
 
     const client = new DeliveryClient(deliveryClientConfig);
-    const contentTypesResponse = await client.types().getPromise();
+    const contentTypesResponse = await client
+      .types()
+      .getPromise();
     const typesFlatted = parse(stringify(contentTypesResponse.types));
 
     const contentTypeNodes = typesFlatted.map(
@@ -31,7 +35,10 @@ languageCodenames: ${languageCodenames}.`);
       }
     );
 
-    const contentItemsResponse = await client.items().getPromise();
+    const contentItemsResponse = await client
+      .items()
+      .languageParameter(defaultLanguageCodename)
+      .getPromise();
 
     // TODO extract to method
     contentItemsResponse.items.forEach((item) => {
@@ -46,13 +53,6 @@ languageCodenames: ${languageCodenames}.`);
     });
 
     const itemsFlatted = parse(stringify(contentItemsResponse.items));
-    let defaultLanguageCodename = defaultLanguageLiteral;
-
-    if (_.has(contentItemsResponse, `items[0].system.language`)
-      && _.isString(contentItemsResponse.items[0].system.language)) {
-      defaultLanguageCodename = contentItemsResponse.items[0].system.language;
-    }
-
     let contentItemNodes = itemsFlatted.map(
       (contentItem) => {
         try {

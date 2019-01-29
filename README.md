@@ -8,6 +8,11 @@
 
 This repo contains a [Gatsby v2 source plugin](https://www.gatsbyjs.org/docs/recipes/#sourcing-data) that retrieves data from the [Kentico Cloud](https://kenticocloud.com) Delivery API.
 
+# WARNING
+This is this is the readme for v3 beta development. It works well according to our tests, but the API may change.
+
+For version 2.3.0 use [this snapshot](https://github.com/Kentico/gatsby-source-kentico-cloud/tree/f87156b08779d968b89801878ec5edd69f177047).
+
 ## How to run the code
 
 You can use the plugin in any of the following ways:
@@ -19,7 +24,7 @@ npm install --save gatsby-source-kentico-cloud
 ```
 2. Configure the plugin in `gatsby-config.js` file
 
-The source plugin uses the [JavaScript SDK](https://github.com/Enngage/kentico-cloud-js) in the background. Put the [configuration object](https://github.com/Enngage/kentico-cloud-js/blob/master/doc/delivery.md#client-configuration) of the JS SDK into the `deliveryClientConfig` property of the [gatsby-config.js](https://github.com/Kentico/gatsby-starter-kentico-cloud/blob/master/gatsby-config.js) file.
+The source plugin uses the [JavaScript SDK](https://github.com/Enngage/kentico-cloud-js) in the background. Put the [configuration object](https://github.com/Enngage/kentico-cloud-js/blob/master/doc/delivery.md#client-configuration) of the JS SDK into the `deliveryClientConfig` property of the [gatsby-config.js](https://github.com/Kentico/gatsby-starter-kentico-cloud/blob/master/gatsby-config.js) file. There is also `languageCodenames` property that describes the [what languages a configured for the project](https://developer.kenticocloud.com/docs/localization#section-project-languages) - the first one is considered as the **default one**. 
 ```
 module.exports = {
   ...
@@ -33,7 +38,7 @@ module.exports = {
           typeResolvers: []
         },
         languageCodenames: [ // example configuration
-          `en-US`,
+          `en-US`, // default language
           `es-ES`,
         ]
       }
@@ -57,7 +62,7 @@ The plugin creates GraphQL nodes for all Kentico Cloud content types, content it
 
 The node names are prefixed with `kenticoCloud`. More specifically, content type nodes are prefixed with `kenticoCloudType` and content items and their language variants are prefixed with `kenticoCloudItem`.
 
-GraphQL nodes of content items contain the ordinary `system` and `elements` properties. However, the properties inside `elements` always have an internal structure that the aforementioned [JavaScript SDK](https://github.com/Enngage/kentico-cloud-js/blob/master/packages/delivery/lib/models/item/content-item.class.ts) produces with modifications described in following section.
+GraphQL nodes of content items contain the ordinary `system` and `elements` properties. However, the properties inside `elements` always have an internal structure that the aforementioned [JavaScript SDK](https://github.com/Enngage/kentico-cloud-js/blob/master/packages/delivery/lib/models/item/content-item.class.ts) produces with **modifications** described in following section.
 
 ### Content item <-> content type relationships
 
