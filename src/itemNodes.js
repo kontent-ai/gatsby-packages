@@ -14,7 +14,8 @@ const getFromDefaultLanguage = async (
   client,
   defaultLanguageCodename,
   createNodeId,
-  contentTypeNodes) => {
+  contentTypeNodes
+) => {
   const contentItemsResponse = await client
     .items()
     .languageParameter(defaultLanguageCodename)
@@ -43,6 +44,85 @@ const getFromDefaultLanguage = async (
   return contentItemNodes;
 };
 
+/**
+ * 
+ * @param {Array} nonDefaultLanguageCodenames Project non default languages codenames.
+ * @param {Object} client Kentico Cloud Dlivery client.
+ * @param {Array} defaultCultureContentItemNodes Array of content item nodes in default language.
+ * @param {Function} createNodeId Gatsby method for generation ID.
+ * @param {Array} contentTypeNodes Array of content type nodes.
+ */
+const getFromNonDefaultLanguage = async (
+  nonDefaultLanguageCodenames,
+  client,
+  defaultCultureContentItemNodes,
+  createNodeId,
+  contentTypeNodes
+) => {
+  const nonDefaultLanguagePromises = nonDefaultLanguageCodenames
+    .map((languageCodename) => client
+      .items()
+      .languageParameter(languageCodename)
+      .getPromise());
+  const languageResponses = await Promise.all(nonDefaultLanguagePromises);
+  const nonDefaultLanguageItemNodes = new Map();
+  languageResponses.forEach((languageResponse) => {
+    // TODO extract to method
+    languageResponse.items.forEach((item) => {
+      Object
+        .keys(item)
+        .filter((key) =>
+          _.has(item[key], `type`) && item[key].type === `rich_text`)
+        .forEach((key) => {
+          item.elements[key].resolvedHtml = item[key].getHtml().toString();
+          item[key].images = Object.values(item.elements[key].images);
+        });
+    });
+    const languageItemsFlatted = parse(stringify(languageResponse.items));
+    let allNodesOfCurrentLanguage = [];
+    let languageCodename;
+    defaultCultureContentItemNodes.forEach((contentItemNode) => {
+      const languageVariantItem = languageItemsFlatted.find((variant) => {
+        return contentItemNode.system.codename === variant.system.codename
+          && contentItemNode.system.type === variant.system.type;
+      });
+      if (languageVariantItem
+        && _.has(languageVariantItem, `system.language`)
+        && _.isString(languageVariantItem.system.language)) {
+        languageCodename = languageVariantItem.system.language;
+        let languageVariantNode;
+        try {
+          languageVariantNode =
+            normalize.createContentItemNode(
+              createNodeId,
+              languageVariantItem,
+              contentTypeNodes
+            );
+        } catch (error) {
+          console.error(error);
+        }
+        if (languageVariantNode) {
+          try {
+            normalize.decorateItemNodeWithLanguageVariantLink(
+              languageVariantNode,
+              defaultCultureContentItemNodes
+            );
+          } catch (error) {
+            console.error(error);
+          }
+          allNodesOfCurrentLanguage.push(languageVariantNode);
+        }
+      }
+    });
+    if (languageCodename && _.isString(languageCodename)) {
+      nonDefaultLanguageItemNodes
+        .set(languageCodename, allNodesOfCurrentLanguage);
+    }
+  });
+  return nonDefaultLanguageItemNodes;
+};
+
 module.exports = {
   getFromDefaultLanguage,
+  getFromNonDefaultLanguage,
 };

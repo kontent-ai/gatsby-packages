@@ -17,7 +17,8 @@ exports.sourceNodes =
     console.info(`languageCodenames: ${languageCodenames}.`);
 
     validation.validateLanguageCodenames(languageCodenames);
-    let defaultLanguageCodename = languageCodenames[0];
+    const defaultLanguageCodename = languageCodenames[0];
+    const nonDefaultLanguageCodenames = languageCodenames.slice(1);
 
     addHeader(deliveryClientConfig, customTrackingHeader);
 
@@ -37,84 +38,26 @@ exports.sourceNodes =
       }
     );
 
-    const contentItemNodes = await itemNodes.getFromDefaultLanguage(
-      client,
-      defaultLanguageCodename,
-      createNodeId,
-      contentTypeNodes);
-
-    const nonDefaultLanguagePromises = languageCodenames
-      .filter((languageCodename) =>
-        languageCodename !== defaultLanguageCodename
-      )
-      .map((languageCodename) =>
-        client.items().languageParameter(languageCodename).getPromise()
+    const defaultCultureContentItemNodes = await itemNodes.
+      getFromDefaultLanguage(
+        client,
+        defaultLanguageCodename,
+        createNodeId,
+        contentTypeNodes
       );
 
-    const languageResponses = await Promise.all(nonDefaultLanguagePromises);
-    let nonDefaultLanguageItemNodes = new Map();
-
-    languageResponses.forEach((languageResponse) => {
-      // TODO extract to method
-      languageResponse.items.forEach((item) => {
-        Object
-          .keys(item)
-          .filter((key) =>
-            _.has(item[key], `type`) && item[key].type === `rich_text`)
-          .forEach((key) => {
-            item.elements[key].resolvedHtml = item[key].getHtml().toString();
-            item[key].images = Object.values(item.elements[key].images);
-          });
-      });
-      const languageItemsFlatted = parse(stringify(languageResponse.items));
-      let allNodesOfCurrentLanguage = [];
-      let languageCodename;
-
-      contentItemNodes.forEach((contentItemNode) => {
-        const languageVariantItem = languageItemsFlatted.find((variant) => {
-          return contentItemNode.system.codename === variant.system.codename
-            && contentItemNode.system.type === variant.system.type;
-        });
-
-        if (languageVariantItem
-          && _.has(languageVariantItem, `system.language`)
-          && _.isString(languageVariantItem.system.language)) {
-          languageCodename = languageVariantItem.system.language;
-          let languageVariantNode;
-
-          try {
-            languageVariantNode =
-              normalize.createContentItemNode(
-                createNodeId, languageVariantItem, contentTypeNodes
-              );
-          } catch (error) {
-            console.error(error);
-          }
-
-          if (languageVariantNode) {
-            try {
-              normalize.decorateItemNodeWithLanguageVariantLink(
-                languageVariantNode, contentItemNodes
-              );
-            } catch (error) {
-              console.error(error);
-            }
-
-            allNodesOfCurrentLanguage.push(languageVariantNode);
-          }
-        }
-      });
-
-      if (languageCodename && _.isString(languageCodename)) {
-        nonDefaultLanguageItemNodes.set(
-          languageCodename, allNodesOfCurrentLanguage
-        );
-      }
-    });
+    const nonDefaultLanguageItemNodes = await itemNodes
+      .getFromNonDefaultLanguage(
+        nonDefaultLanguageCodenames,
+        client,
+        defaultCultureContentItemNodes,
+        createNodeId,
+        contentTypeNodes
+      );
 
     for (const [languageCodename, currentLanguageNodes]
       of nonDefaultLanguageItemNodes) {
-      contentItemNodes.forEach((contentItemNode) => {
+      defaultCultureContentItemNodes.forEach((contentItemNode) => {
         try {
           normalize.decorateItemNodeWithLanguageVariantLink(
             contentItemNode, currentLanguageNodes
@@ -134,7 +77,7 @@ exports.sourceNodes =
               );
 
               normalize.decorateItemNodeWithLanguageVariantLink(
-                contentItemNode, contentItemNodes
+                contentItemNode, defaultCultureContentItemNodes
               );
             } catch (error) {
               console.error(error);
@@ -154,16 +97,16 @@ exports.sourceNodes =
 
     try {
       normalize.decorateTypeNodesWithItemLinks(
-        contentItemNodes, contentTypeNodes
+        defaultCultureContentItemNodes, contentTypeNodes
       );
     } catch (error) {
       console.error(error);
     }
 
-    contentItemNodes.forEach((itemNode) => {
+    defaultCultureContentItemNodes.forEach((itemNode) => {
       try {
         normalize.decorateItemNodeWithLinkedItemsLinks(
-          itemNode, contentItemNodes
+          itemNode, defaultCultureContentItemNodes
         );
       } catch (error) {
         console.error(error);
@@ -182,10 +125,10 @@ exports.sourceNodes =
       });
     });
 
-    contentItemNodes.forEach((itemNode) => {
+    defaultCultureContentItemNodes.forEach((itemNode) => {
       try {
         normalize.decorateItemNodeWithRichTextLinkedItemsLinks(
-          itemNode, contentItemNodes);
+          itemNode, defaultCultureContentItemNodes);
       } catch (error) {
         console.error(error);
       }
@@ -222,7 +165,7 @@ contentTypeNode.id: ${contentTypeNode.id}`
 
     console.info(`The 'createNode' API is called for content item nodes.`);
     try {
-      contentItemNodes.forEach(
+      defaultCultureContentItemNodes.forEach(
         (contentItemNode) => {
           console.info(
             `The 'createNode' API is called.
