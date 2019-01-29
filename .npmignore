@@ -8,6 +8,8 @@
 !normalize.js
 !config.js
 !validation.js
+!itemNodes.js
+
 !package.json
 !.npmignore
 !README.md

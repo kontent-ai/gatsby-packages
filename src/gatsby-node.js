@@ -1,8 +1,10 @@
 require(`@babel/polyfill`);
 const _ = require(`lodash`);
 const { DeliveryClient } = require(`kentico-cloud-delivery`);
-const normalize = require(`./normalize`);
+
 const validation = require(`./validation`);
+const itemNodes = require('./itemNodes');
+const normalize = require(`./normalize`);
 const { parse, stringify } = require(`flatted/cjs`);
 const { customTrackingHeader } = require('./config');
 
@@ -35,37 +37,13 @@ exports.sourceNodes =
       }
     );
 
-    const contentItemsResponse = await client
-      .items()
-      .languageParameter(defaultLanguageCodename)
-      .getPromise();
+    const contentItemNodes = await itemNodes.getFromDefaultLanguage(
+      client,
+      defaultLanguageCodename,
+      createNodeId,
+      contentTypeNodes);
 
-    // TODO extract to method
-    contentItemsResponse.items.forEach((item) => {
-      Object
-        .keys(item)
-        .filter((key) =>
-          _.has(item[key], `type`) && item[key].type === `rich_text`)
-        .forEach((key) => {
-          item.elements[key].resolvedHtml = item[key].getHtml().toString();
-          item[key].images = Object.values(item.elements[key].images);
-        });
-    });
-
-    const itemsFlatted = parse(stringify(contentItemsResponse.items));
-    let contentItemNodes = itemsFlatted.map(
-      (contentItem) => {
-        try {
-          return normalize.createContentItemNode(
-            createNodeId, contentItem, contentTypeNodes
-          );
-        } catch (error) {
-          console.error(error);
-        }
-      }
-    );
-
-    let nonDefaultLanguagePromises = languageCodenames
+    const nonDefaultLanguagePromises = languageCodenames
       .filter((languageCodename) =>
         languageCodename !== defaultLanguageCodename
       )

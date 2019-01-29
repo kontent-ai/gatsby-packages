@@ -9,6 +9,7 @@ node_modules
 /normalize.js
 /config.js
 /validation.js
+/itemNodes.js
 
 # Test coverage
 /coverage
