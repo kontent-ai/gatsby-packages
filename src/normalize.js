@@ -143,7 +143,7 @@ of valid objects.`);
           (otherLanguageId) => otherLanguageId === languageVariantNode.id
         );
 
-      if (!otherLanguageLink) {
+      if (!otherLanguageLink && _.get(languageVariantNode, 'id')) {
         itemNode.otherLanguages___NODE.push(languageVariantNode.id);
       }
     }
