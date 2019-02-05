@@ -72,7 +72,10 @@ exports.sourceNodes =
           });
         }
       }
+    }
 
+    for (const [currentLanguageNodes]
+      of nonDefaultLanguageItemNodes) {
       try {
         normalize.decorateTypeNodesWithItemLinks(
           currentLanguageNodes, contentTypeNodes
