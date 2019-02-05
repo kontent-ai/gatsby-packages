@@ -382,43 +382,6 @@ const addLinkedItemsLinks =
     _.set(itemNode.elements, linkPropertyName, sortedLinkedNodes);
   };
 
-
-const prefixGuidNamedProperties = (propertyValue) => {
-  const imagesIdentifier = `images`;
-  const imagePrefixLiteral = `image-`;
-  const linksIdentifier = `links`;
-  const linkPrefixLiteral = `link-`;
-  let transformedPropertyValue = {};
-
-  Object
-    .keys(propertyValue)
-    .filter((key) => key !== imagesIdentifier && key !== linksIdentifier)
-    .forEach((key) => {
-      transformedPropertyValue[key] = propertyValue[key];
-    });
-
-  transformedPropertyValue[imagesIdentifier] =
-    prefixProperty(propertyValue, imagesIdentifier, imagePrefixLiteral);
-  transformedPropertyValue[linksIdentifier] =
-    prefixProperty(propertyValue, linksIdentifier, linkPrefixLiteral);
-
-  return transformedPropertyValue;
-};
-
-const prefixProperty = (propertyValue, identifier, prefixLiteral) => {
-  let transformedProperty = {};
-
-  Object
-    .keys(propertyValue[identifier])
-    .forEach((key) => {
-      const prefixedKey = prefixLiteral + key;
-      transformedProperty[prefixedKey] =
-        propertyValue[identifier][key];
-    });
-
-  return transformedProperty;
-};
-
 module.exports = {
   createContentTypeNode, createContentItemNode,
   decorateTypeNodesWithItemLinks, decorateItemNodeWithLanguageVariantLink,

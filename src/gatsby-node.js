@@ -21,8 +21,8 @@ exports.sourceNodes =
     const nonDefaultLanguageCodenames = languageCodenames.slice(1);
 
     addHeader(deliveryClientConfig, customTrackingHeader);
-
     const client = new DeliveryClient(deliveryClientConfig);
+
     const contentTypeNodes = await typeNodes.get(client, createNodeId);
 
     const defaultCultureContentItemNodes = await itemNodes.

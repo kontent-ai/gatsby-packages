@@ -4,7 +4,8 @@ const _ = require(`lodash`);
 const normalize = require(`./normalize`);
 
 /**
- * Creates an array of content item nodes ready to be imported to Gatsby model.
+ * Creates an array of content item nodes in default culture
+ *  ready to be imported to Gatsby model.
  * @param {Object} client Delivery client
  * @param {String} defaultLanguageCodename Project default language codename
  * @param {Function} createNodeId Gatsby method for generating ID
@@ -45,10 +46,13 @@ const getFromDefaultLanguage = async (
 };
 
 /**
- * 
- * @param {Array} nonDefaultLanguageCodenames Project non default languages codenames.
+ * Creates an array of content item nodes from other than default language
+ * ready to be imported to Gatsby model.
+ * @param {Array} nonDefaultLanguageCodenames
+ *  Project non default languages codenames.
  * @param {Object} client Kentico Cloud Dlivery client.
- * @param {Array} defaultCultureContentItemNodes Array of content item nodes in default language.
+ * @param {Array} defaultCultureContentItemNodes
+ *  Array of content item nodes in default language.
  * @param {Function} createNodeId Gatsby method for generation ID.
  * @param {Array} contentTypeNodes Array of content type nodes.
  */
