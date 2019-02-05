@@ -9,6 +9,7 @@
 !config.js
 !validation.js
 !itemNodes.js
+!typeNodes.js
 
 !package.json
 !.npmignore

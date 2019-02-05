@@ -4,8 +4,8 @@ const { DeliveryClient } = require(`kentico-cloud-delivery`);
 
 const validation = require(`./validation`);
 const itemNodes = require('./itemNodes');
+const typeNodes = require('./typeNodes');
 const normalize = require(`./normalize`);
-const { parse, stringify } = require(`flatted/cjs`);
 const { customTrackingHeader } = require('./config');
 
 
@@ -23,20 +23,7 @@ exports.sourceNodes =
     addHeader(deliveryClientConfig, customTrackingHeader);
 
     const client = new DeliveryClient(deliveryClientConfig);
-    const contentTypesResponse = await client
-      .types()
-      .getPromise();
-    const typesFlatted = parse(stringify(contentTypesResponse.types));
-
-    const contentTypeNodes = typesFlatted.map(
-      (contentType) => {
-        try {
-          return normalize.createContentTypeNode(createNodeId, contentType);
-        } catch (error) {
-          console.error(error);
-        }
-      }
-    );
+    const contentTypeNodes = await typeNodes.get(client, createNodeId);
 
     const defaultCultureContentItemNodes = await itemNodes.
       getFromDefaultLanguage(

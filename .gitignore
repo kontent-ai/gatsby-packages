@@ -10,6 +10,7 @@ node_modules
 /config.js
 /validation.js
 /itemNodes.js
+/typeNodes.js
 
 # Test coverage
 /coverage
