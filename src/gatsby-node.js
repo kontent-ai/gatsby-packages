@@ -209,8 +209,8 @@ languageVariantNode.id: ${languageVariantNode.id}`
  * @param {IHeader} trackingHeader tracking header name
  */
 const addHeader = (deliveryClientConfig, trackingHeader) => {
-  let headers = deliveryClientConfig.customHeaders
-    ? deliveryClientConfig.customHeaders.slice()
+  let headers = deliveryClientConfig.globalHeaders
+    ? deliveryClientConfig.globalHeaders.slice()
     : [];
 
   if (headers.some((header) => header.header === trackingHeader.header)) {
@@ -225,6 +225,6 @@ const addHeader = (deliveryClientConfig, trackingHeader) => {
     header: trackingHeader.header,
     value: trackingHeader.value,
   });
-  deliveryClientConfig.customHeaders = headers;
+  deliveryClientConfig.globalHeaders = headers;
 };
 
