@@ -210,7 +210,7 @@ languageVariantNode.id: ${languageVariantNode.id}`
  */
 const addHeader = (deliveryClientConfig, trackingHeader) => {
   let headers = deliveryClientConfig.globalHeaders
-    ? deliveryClientConfig.globalHeaders.slice()
+    ? _.cloneDeep(deliveryClientConfig.globalHeaders)
     : [];
 
   if (headers.some((header) => header.header === trackingHeader.header)) {
