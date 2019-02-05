@@ -54,7 +54,7 @@ describe('sourceNodes', () => {
       }
     );
 
-    expect(deliveryClientConfig.customHeaders)
+    expect(deliveryClientConfig.globalHeaders)
       .toContainEqual(customTrackingHeader);
   });
 
@@ -62,7 +62,7 @@ describe('sourceNodes', () => {
     const deliveryClientConfig = {
       projectId: 'dummyEmptyProject',
       httpService: fakeEmptyTestService,
-      customHeaders: [
+      globalHeaders: [
         {
           header: customTrackingHeader.header,
           value: 'dummyValue',
@@ -83,9 +83,9 @@ describe('sourceNodes', () => {
       }
     );
 
-    expect(deliveryClientConfig.customHeaders)
+    expect(deliveryClientConfig.globalHeaders)
       .toContainEqual(customTrackingHeader);
-    expect(deliveryClientConfig.customHeaders.length)
+    expect(deliveryClientConfig.globalHeaders.length)
       .toEqual(1);
   });
 
@@ -97,7 +97,7 @@ describe('sourceNodes', () => {
     const deliveryClientConfig = {
       projectId: 'dummyEmptyProject',
       httpService: fakeEmptyTestService,
-      customHeaders: [
+      globalHeaders: [
         anotherHeader,
       ],
     };
@@ -115,11 +115,11 @@ describe('sourceNodes', () => {
       }
     );
 
-    expect(deliveryClientConfig.customHeaders)
+    expect(deliveryClientConfig.globalHeaders)
       .toContainEqual(customTrackingHeader);
-    expect(deliveryClientConfig.customHeaders)
+    expect(deliveryClientConfig.globalHeaders)
       .toContainEqual(anotherHeader);
-    expect(deliveryClientConfig.customHeaders.length)
+    expect(deliveryClientConfig.globalHeaders.length)
       .toEqual(2);
   });
 
