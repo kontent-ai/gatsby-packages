@@ -10,8 +10,8 @@
 !validation.js
 !itemNodes.js
 !typeNodes.js
-!languageVariantsDecorator.js
-!typeItemDecorator.js
+!decorators/languageVariantsDecorator.js
+!decorators/typeItemDecorator.js
 
 !package.json
 !.npmignore
