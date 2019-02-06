@@ -2,6 +2,8 @@ const _ = require(`lodash`);
 const crypto = require(`crypto`);
 const changeCase = require(`change-case`);
 
+// TODO - extract all logic to validate and to decorators + modules
+
 /**
  * Creates a Gatsby object out of a Kentico Cloud content type object.
  * @param {function} createNodeId - Gatsby function to create a node ID.

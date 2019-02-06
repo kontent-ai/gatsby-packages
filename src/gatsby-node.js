@@ -5,7 +5,9 @@ const { DeliveryClient } = require(`kentico-cloud-delivery`);
 const validation = require(`./validation`);
 const itemNodes = require('./itemNodes');
 const typeNodes = require('./typeNodes');
-const decorators = require('./decorators');
+const languageVariantsDecorator =
+  require('./decorators/languageVariantsDecorator');
+const typeItemDecorator = require('./decorators/typeItemDecorator');
 const normalize = require(`./normalize`);
 const { customTrackingHeader } = require('./config');
 
@@ -42,19 +44,19 @@ exports.sourceNodes =
         createNodeId,
       );
 
-    decorators.decorateItemsWithLanguageVariants(
+    languageVariantsDecorator.decorateItemsWithLanguageVariants(
       defaultCultureContentItemNodes,
       nonDefaultLanguageItemNodes
     );
 
     const allItemNodes = defaultCultureContentItemNodes
       .concat(_.flatten(nonDefaultLanguageItemNodes.values()));
-
-    decorators.decorateTypeNodesWithItemLinks(
+    typeItemDecorator.decorateTypeNodesWithItemLinks(
       allItemNodes,
       contentTypeNodes
     );
 
+    // TODO: extract link items resolution to separate module
     defaultCultureContentItemNodes.forEach((itemNode) => {
       try {
         normalize.decorateItemNodeWithLinkedItemsLinks(
@@ -86,6 +88,7 @@ exports.sourceNodes =
       }
     });
 
+    // TODO: extract rich text resolution to separate module
     nonDefaultLanguageItemNodes.forEach((languageNodes) => {
       languageNodes.forEach((itemNode) => {
         try {
