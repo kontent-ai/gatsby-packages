@@ -11,6 +11,7 @@ node_modules
 /validation.js
 /itemNodes.js
 /typeNodes.js
+/decorators.js
 
 # Test coverage
 /coverage

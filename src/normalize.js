@@ -138,7 +138,7 @@ of valid objects.`);
           && itemNode.system.language !== nodeOfSpecificLanguage.system.language
       );
 
-      const otherLanguageLink =
+      const otherLanguageLink = languageVariantNode &&
         itemNode.otherLanguages___NODE.find(
           (otherLanguageId) => otherLanguageId === languageVariantNode.id
         );

@@ -5,6 +5,7 @@ const { DeliveryClient } = require(`kentico-cloud-delivery`);
 const validation = require(`./validation`);
 const itemNodes = require('./itemNodes');
 const typeNodes = require('./typeNodes');
+const decorators = require('./decorators');
 const normalize = require(`./normalize`);
 const { customTrackingHeader } = require('./config');
 
@@ -29,66 +30,30 @@ exports.sourceNodes =
       getFromDefaultLanguage(
         client,
         defaultLanguageCodename,
+        contentTypeNodes,
         createNodeId,
-        contentTypeNodes
       );
 
     const nonDefaultLanguageItemNodes = await itemNodes
       .getFromNonDefaultLanguage(
-        nonDefaultLanguageCodenames,
         client,
-        defaultCultureContentItemNodes,
+        nonDefaultLanguageCodenames,
+        contentTypeNodes,
         createNodeId,
-        contentTypeNodes
       );
 
-    for (const [languageCodename, currentLanguageNodes]
-      of nonDefaultLanguageItemNodes) {
-      defaultCultureContentItemNodes.forEach((contentItemNode) => {
-        try {
-          normalize.decorateItemNodeWithLanguageVariantLink(
-            contentItemNode, currentLanguageNodes
-          );
-        } catch (error) {
-          console.error(error);
-        }
-      });
+    decorators.decorateItemsWithLanguageVariants(
+      defaultCultureContentItemNodes,
+      nonDefaultLanguageItemNodes
+    );
 
-      for (let [otherLanguageCodename, otherLanguageNodes]
-        of nonDefaultLanguageItemNodes) {
-        if (otherLanguageCodename !== languageCodename) {
-          currentLanguageNodes.forEach((contentItemNode) => {
-            try {
-              normalize.decorateItemNodeWithLanguageVariantLink(
-                contentItemNode, otherLanguageNodes
-              );
+    const allItemNodes = defaultCultureContentItemNodes
+      .concat(_.flatten(nonDefaultLanguageItemNodes.values()));
 
-              normalize.decorateItemNodeWithLanguageVariantLink(
-                contentItemNode, defaultCultureContentItemNodes
-              );
-            } catch (error) {
-              console.error(error);
-            }
-          });
-        }
-      }
-
-      try {
-        normalize.decorateTypeNodesWithItemLinks(
-          currentLanguageNodes, contentTypeNodes
-        );
-      } catch (error) {
-        console.error(error);
-      }
-    }
-
-    try {
-      normalize.decorateTypeNodesWithItemLinks(
-        defaultCultureContentItemNodes, contentTypeNodes
-      );
-    } catch (error) {
-      console.error(error);
-    }
+    decorators.decorateTypeNodesWithItemLinks(
+      allItemNodes,
+      contentTypeNodes
+    );
 
     defaultCultureContentItemNodes.forEach((itemNode) => {
       try {
