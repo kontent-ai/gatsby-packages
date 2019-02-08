@@ -1,11 +1,14 @@
-const { TestHttpService } = require('kentico-cloud-core');
+const { KenticoCloudJsSdkTestHttpService }
+  = require('kentico-cloud-js-sdk-test-http-service');
 const { ContentItem, TypeResolver } = require('kentico-cloud-delivery');
 
 const { sourceNodes } = require('../gatsby-node');
 const { customTrackingHeader } = require('../config');
 const { name, version } = require('../../package.json');
-const fakeResponseWithRichTextElement =
-  require('./fakeResponseWithRichTextElement.json');
+const fakeItemsResponseWithRichTextElement =
+  require('./fakeItemsResponseWithRichTextElement.json');
+const fakeTypesResponseWithRichTextElement =
+  require('./fakeTypesResponseWithRichTextElement.json');
 const { expectedResolvedRichTextComponent } =
   require('./expectedOutputs/gatsby-node.output');
 
@@ -22,18 +25,34 @@ describe('customTrackingHeader', () => {
 });
 
 describe('sourceNodes', () => {
-  const fakeEmptyResponse = {
-    types: [],
-    items: [],
-    pagination: {
-      continuation_token: null,
-      next_page: null,
-    },
-  };
-  const fakeEmptyTestService = new TestHttpService({
-    fakeResponseJson: fakeEmptyResponse,
-    throwCloudError: false,
-  });
+  const fakeEmptyResponseConfig = new Map();
+  fakeEmptyResponseConfig.set(
+    /https:\/\/deliver.kenticocloud.com\/.*\/items/,
+    {
+      fakeResponseJson: {
+        items: [],
+        pagination: {
+          continuation_token: null,
+          next_page: null,
+        },
+      },
+      throwCloudError: false,
+    });
+  fakeEmptyResponseConfig.set(
+    /https:\/\/deliver.kenticocloud.com\/.*\/types/,
+    {
+      fakeResponseJson: {
+        types: [],
+        pagination: {
+          continuation_token: null,
+          next_page: null,
+        },
+      },
+      throwCloudError: false,
+    });
+
+  const fakeEmptyTestService =
+    new KenticoCloudJsSdkTestHttpService(fakeEmptyResponseConfig);
 
   const dummyCreation = {
     actions: {
@@ -134,6 +153,19 @@ describe('sourceNodes', () => {
 
 
   it('does resolve rich text element', async () => {
+    const fakeRichTextResponseConfig = new Map();
+    fakeRichTextResponseConfig.set(
+      /https:\/\/deliver.kenticocloud.com\/.*\/items/,
+      {
+        fakeResponseJson: fakeItemsResponseWithRichTextElement,
+        throwCloudError: false,
+      });
+    fakeRichTextResponseConfig.set(
+      /https:\/\/deliver.kenticocloud.com\/.*\/types/,
+      {
+        fakeResponseJson: fakeTypesResponseWithRichTextElement,
+        throwCloudError: false,
+      });
     const deliveryClientConfig = {
       projectId: 'dummyProject',
       typeResolvers: [
@@ -143,12 +175,11 @@ describe('sourceNodes', () => {
         new TypeResolver('project', () =>
           new Project()),
       ],
-      httpService: new TestHttpService({
-        fakeResponseJson: fakeResponseWithRichTextElement,
-        throwCloudError: false,
-      }),
+      httpService: new KenticoCloudJsSdkTestHttpService(
+        fakeRichTextResponseConfig
+      ),
     };
-    const expectedRichTextValue = fakeResponseWithRichTextElement
+    const expectedRichTextValue = fakeItemsResponseWithRichTextElement
       .items
       .filter((item) => item.system.codename === 'simple_landing_page')[0]
       .elements
