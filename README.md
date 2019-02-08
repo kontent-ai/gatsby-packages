@@ -4,7 +4,6 @@
 [![npm](https://img.shields.io/npm/dt/gatsby-source-kentico-cloud.svg)](https://www.npmjs.com/package/gatsby-source-kentico-cloud)
 [![Maintainability](https://api.codeclimate.com/v1/badges/e247b74d31eaa41c3bda/maintainability)](https://codeclimate.com/github/Kentico/gatsby-source-kentico-cloud/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/e247b74d31eaa41c3bda/test_coverage)](https://codeclimate.com/github/Kentico/gatsby-source-kentico-cloud/test_coverage)
-[![Forums](https://img.shields.io/badge/chat-on%20forums-orange.svg)](https://forums.kenticocloud.com)
 
 This repo contains a [Gatsby v2 source plugin](https://www.gatsbyjs.org/docs/recipes/#sourcing-data) that retrieves data from the [Kentico Cloud](https://kenticocloud.com) Delivery API.
 
