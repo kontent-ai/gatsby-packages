@@ -3,7 +3,7 @@ const normalize = require(`../normalize`);
 /**
  * Add Gatsby relations from item nodes to it other language variants.
  * @param {Array} defaultCultureContentItemNodes
- *  Gatsby content item nodes in default culture - always contain all items
+ *  Gatsby content item nodes in default culture
  * @param {Map<String, Array>} nonDefaultLanguageItemNodes
  *  Non-default gatsby content item nodes stored under the culture key.
  */

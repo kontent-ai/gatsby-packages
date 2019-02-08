@@ -7,8 +7,12 @@ const itemNodes = require('./itemNodes');
 const typeNodes = require('./typeNodes');
 const languageVariantsDecorator =
   require('./decorators/languageVariantsDecorator');
-const typeItemDecorator = require('./decorators/typeItemDecorator');
-const normalize = require(`./normalize`);
+const typeItemDecorator =
+  require('./decorators/typeItemDecorator');
+const linkedItemGenerator =
+  require('./decorators/linkedItemsDecorator');
+const inlineLinkedItemGenerator =
+  require('./decorators/inlineLinkedItemsDecorator');
 const { customTrackingHeader } = require('./config');
 
 
@@ -56,50 +60,15 @@ exports.sourceNodes =
       contentTypeNodes
     );
 
-    // TODO: extract link items resolution to separate module
-    defaultCultureContentItemNodes.forEach((itemNode) => {
-      try {
-        normalize.decorateItemNodeWithLinkedItemsLinks(
-          itemNode, defaultCultureContentItemNodes
-        );
-      } catch (error) {
-        console.error(error);
-      }
-    });
+    linkedItemGenerator.decorateItemNodesWithLinkedItemsLinks(
+      defaultCultureContentItemNodes,
+      nonDefaultLanguageItemNodes
+    );
 
-    nonDefaultLanguageItemNodes.forEach((languageNodes) => {
-      languageNodes.forEach((itemNode) => {
-        try {
-          normalize.decorateItemNodeWithLinkedItemsLinks(
-            itemNode, languageNodes
-          );
-        } catch (error) {
-          console.error(error);
-        }
-      });
-    });
-
-    defaultCultureContentItemNodes.forEach((itemNode) => {
-      try {
-        normalize.decorateItemNodeWithRichTextLinkedItemsLinks(
-          itemNode, defaultCultureContentItemNodes);
-      } catch (error) {
-        console.error(error);
-      }
-    });
-
-    // TODO: extract rich text resolution to separate module
-    nonDefaultLanguageItemNodes.forEach((languageNodes) => {
-      languageNodes.forEach((itemNode) => {
-        try {
-          normalize.decorateItemNodeWithRichTextLinkedItemsLinks(
-            itemNode, languageNodes
-          );
-        } catch (error) {
-          console.error(error);
-        }
-      });
-    });
+    inlineLinkedItemGenerator.decorateItemNodesWithRichTextLinkedItemsLinks(
+      defaultCultureContentItemNodes,
+      nonDefaultLanguageItemNodes
+    );
 
     try {
       contentTypeNodes.forEach(
@@ -182,4 +151,5 @@ const addHeader = (deliveryClientConfig, trackingHeader) => {
   });
   deliveryClientConfig.globalHeaders = headers;
 };
+
 

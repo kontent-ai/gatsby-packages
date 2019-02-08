@@ -242,7 +242,6 @@ of valid objects.`);
 
             // TODO use element as a part of the propertyPath
             _.set(itemNode.elements, linkPropertyName, []);
-            // TODO use element as a part of the propertyPath
             addLinkedItemsLinks(
               itemNode,
               linkedNodes,
