@@ -1,4 +1,6 @@
-const normalize = require(`../normalize`);
+const _ = require('lodash');
+
+const validation = require(`../validation`);
 
 /**
  * Add Gatsby relations from type nodes to items based on this type.
@@ -9,15 +11,26 @@ const normalize = require(`../normalize`);
  */
 const decorateTypeNodesWithItemLinks = (
   contentItemNodes,
-  contentTypeNodes) => {
+  contentTypeNodes
+) => {
   try {
-    normalize.decorateTypeNodesWithItemLinks(
-      contentItemNodes,
-      contentTypeNodes
-    );
+    validation.checkItemsObjectStructure(contentItemNodes);
+    validation.checkTypesObjectStructure(contentTypeNodes);
   } catch (error) {
     console.error(error);
   }
+
+  contentTypeNodes.forEach((contentTypeNode) => {
+    const itemNodesPerType = contentItemNodes.filter((contentItemNode) =>
+      contentItemNode.system.type === contentTypeNode.system.codename
+    );
+
+    if (!_.isEmpty(itemNodesPerType)) {
+      let flatList =
+        itemNodesPerType.map((itemNodePerType) => itemNodePerType.id);
+      contentTypeNode.contentItems___NODE.push(...flatList);
+    }
+  });
 };
 
 module.exports = {

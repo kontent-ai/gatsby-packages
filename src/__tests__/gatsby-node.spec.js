@@ -54,12 +54,16 @@ describe('sourceNodes', () => {
   const fakeEmptyTestService =
     new KenticoCloudJsSdkTestHttpService(fakeEmptyResponseConfig);
 
+  const dummyCreateNodeID = jest.fn();
+  dummyCreateNodeID.mockReturnValue('dummyId');
+
   const dummyCreation = {
     actions: {
       createNode: jest.fn(),
     },
-    createNodeId: jest.fn(),
+    createNodeId: dummyCreateNodeID,
   };
+
 
   it('does add tracking header', async () => {
     const deliveryClientConfig = {

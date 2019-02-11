@@ -5,39 +5,6 @@ const changeCase = require(`change-case`);
 // TODO - extract all logic to validate and to decorators + modules
 
 /**
- * Adds links between a content type node and item nodes of that content type.
- * @param {array} contentItemNodes - Gatsby content item nodes.
- * @param {array} contentTypeNodes - Gatsby content type nodes.
- * @throws {Error}
- */
-const decorateTypeNodesWithItemLinks =
-  (contentItemNodes, contentTypeNodes) => {
-    if (!contentItemNodes
-      || !_.isArray(contentItemNodes)
-      || (!_.isEmpty(contentItemNodes)
-        && !_.has(contentItemNodes, `[0].system.type`))) {
-      throw new Error(`contentItemNodes is not an array of valid objects.`);
-    } else if (!contentTypeNodes
-      || !_.isArray(contentTypeNodes)
-      || (!_.isEmpty(contentTypeNodes)
-        && !_.has(contentTypeNodes, `[0].system.codename`))) {
-      throw new Error(`contentTypeNodes is not an array of valid objects.`);
-    } else {
-      contentTypeNodes.forEach((contentTypeNode) => {
-        const itemNodesPerType = contentItemNodes.filter((contentItemNode) =>
-          contentItemNode.system.type === contentTypeNode.system.codename
-        );
-
-        if (!_.isEmpty(itemNodesPerType)) {
-          let flatList =
-            itemNodesPerType.map((itemNodePerType) => itemNodePerType.id);
-          contentTypeNode.contentItems___NODE.push(...flatList);
-        }
-      });
-    }
-  };
-
-/**
  * Adds links between a Gatsby content item node and its
  *    language variant nodes (translations).
  * @param {object} itemNode - Gatsby content item node.
@@ -317,7 +284,6 @@ const addLinkedItemsLinks =
 
 module.exports = {
   createKcArtifactNode,
-  decorateTypeNodesWithItemLinks,
   decorateItemNodeWithLanguageVariantLink,
   decorateItemNodeWithLinkedItemsLinks,
   decorateItemNodeWithRichTextLinkedItemsLinks,
