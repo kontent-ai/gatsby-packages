@@ -3,6 +3,8 @@ const _ = require('lodash');
 const changeCase = require('change-case');
 
 const normalize = require('./normalize');
+const validation = require('./validation');
+
 const richTextElementDecorator =
   require('./decorators/richTextElementDecorator');
 
@@ -91,16 +93,12 @@ const getFromNonDefaultLanguage = async (
  */
 const createContentItemNode =
   (createNodeId, contentItem, contentTypeNodes) => {
-    if (typeof createNodeId !== `function`) {
+    if (!_.isFunction(createNodeId)) {
       throw new Error(`createNodeId is not a function.`);
-    } else if (!contentItem || !_.has(contentItem, `system.codename`)) {
-      throw new Error(`contentItem is not a valid content item object.`);
-    } else if (!contentTypeNodes
-      || !_.isArray(contentTypeNodes)
-      || (!_.isEmpty(contentTypeNodes)
-        && !_.has(contentTypeNodes, `[0].system.codename`))) {
-      throw new Error(`contentTypeNodes is not an array of valid objects.`);
     }
+    validation.checkItemsObjectStructure([contentItem]);
+    validation.checkTypesObjectStructure(contentTypeNodes);
+
     const codenameParamCase =
       changeCase.paramCase(contentItem.system.codename);
 

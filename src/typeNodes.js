@@ -3,6 +3,7 @@ const _ = require('lodash');
 const changeCase = require('change-case');
 
 const normalize = require('./normalize');
+const validation = require('./validation');
 
 /**
  * Creates an array of content type nodes ready to be imported to Gatsby model.
@@ -34,9 +35,8 @@ const get = async (client, createNodeId) => {
 const createContentTypeNode = (createNodeId, contentType) => {
   if (!_.isFunction(createNodeId)) {
     throw new Error(`createNodeId is not a function.`);
-  } else if (!_.has(contentType, `system.codename`)) {
-    throw new Error(`contentType is not a valid content type object.`);
   }
+  validation.checkTypesObjectStructure([contentType]);
 
   const codenameParamCase = changeCase.paramCase(contentType.system.codename);
   const nodeId = createNodeId(`kentico-cloud-type-${codenameParamCase}`);
