@@ -1,3 +1,5 @@
+const _ = require(`lodash`);
+
 const normalize = require(`../normalize`);
 
 /**
@@ -26,7 +28,9 @@ const decorateItemNodesWithRichTextLinkedItemsLinks = (
   nonDefaultLanguageItemNodes.forEach((languageNodes) => {
     languageNodes.forEach((itemNode) => {
       try {
-        normalize.decorateItemNodeWithRichTextLinkedItemsLinks(itemNode, languageNodes);
+        normalize.decorateItemNodeWithRichTextLinkedItemsLinks(
+          itemNode,
+          languageNodes);
       } catch (error) {
         console.error(error);
       }
@@ -34,6 +38,26 @@ const decorateItemNodesWithRichTextLinkedItemsLinks = (
   });
 };
 
+/**
+ * Create a new property with resolved Html
+ *  and propagate images property.
+ * @param {Array} items Items response from JS SDK
+ */
+const resolveHtmlAndIncludeImages = (items) => {
+  items.forEach((item) => {
+    Object
+      .keys(item)
+      .filter((key) =>
+        _.has(item[key], `type`)
+        && item[key].type === `rich_text`)
+      .forEach((key) => {
+        item.elements[key].resolvedHtml = item[key].getHtml().toString();
+        item[key].images = Object.values(item.elements[key].images);
+      });
+  });
+};
+
 module.exports = {
   decorateItemNodesWithRichTextLinkedItemsLinks,
+  resolveHtmlAndIncludeImages,
 };

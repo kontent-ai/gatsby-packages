@@ -9,10 +9,10 @@ const languageVariantsDecorator =
   require('./decorators/languageVariantsDecorator');
 const typeItemDecorator =
   require('./decorators/typeItemDecorator');
-const linkedItemGenerator =
-  require('./decorators/linkedItemsDecorator');
-const inlineLinkedItemGenerator =
-  require('./decorators/inlineLinkedItemsDecorator');
+const linkedItemsElementDecorator =
+  require('./decorators/linkedItemsElementDecorator');
+const richTextElementDecorator =
+  require('./decorators/richTextElementDecorator');
 const { customTrackingHeader } = require('./config');
 
 
@@ -60,12 +60,12 @@ exports.sourceNodes =
       contentTypeNodes
     );
 
-    linkedItemGenerator.decorateItemNodesWithLinkedItemsLinks(
+    linkedItemsElementDecorator.decorateItemNodesWithLinkedItemsLinks(
       defaultCultureContentItemNodes,
       nonDefaultLanguageItemNodes
     );
 
-    inlineLinkedItemGenerator.decorateItemNodesWithRichTextLinkedItemsLinks(
+    richTextElementDecorator.decorateItemNodesWithRichTextLinkedItemsLinks(
       defaultCultureContentItemNodes,
       nonDefaultLanguageItemNodes
     );

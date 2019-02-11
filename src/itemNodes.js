@@ -1,7 +1,9 @@
 const { parse, stringify } = require(`flatted/cjs`);
-const _ = require(`lodash`);
 
+const richTextElementDecorator =
+  require('./decorators/richTextElementDecorator');
 const normalize = require(`./normalize`);
+
 
 /**
  * Creates an array of content item nodes in default culture
@@ -22,17 +24,9 @@ const getFromDefaultLanguage = async (
     .languageParameter(defaultLanguageCodename)
     .getPromise();
 
-  // TODO extract to method
-  contentItemsResponse.items.forEach((item) => {
-    Object
-      .keys(item)
-      .filter((key) =>
-        _.has(item[key], `type`) && item[key].type === `rich_text`)
-      .forEach((key) => {
-        item.elements[key].resolvedHtml = item[key].getHtml().toString();
-        item[key].images = Object.values(item.elements[key].images);
-      });
-  });
+  richTextElementDecorator
+    .resolveHtmlAndIncludeImages(contentItemsResponse.items);
+
   const itemsFlatted = parse(stringify(contentItemsResponse.items));
   const contentItemNodes = itemsFlatted.map((contentItem) => {
     try {
@@ -67,17 +61,8 @@ const getFromNonDefaultLanguage = async (
       .languageParameter(languageCodename)
       .getPromise();
 
-    // TODO extract to method
-    languageResponse.items.forEach((item) => {
-      Object
-        .keys(item)
-        .filter((key) =>
-          _.has(item[key], `type`) && item[key].type === `rich_text`)
-        .forEach((key) => {
-          item.elements[key].resolvedHtml = item[key].getHtml().toString();
-          item[key].images = Object.values(item.elements[key].images);
-        });
-    });
+    richTextElementDecorator
+      .resolveHtmlAndIncludeImages(languageResponse.items);
 
     const languageItemsFlatted = parse(stringify(languageResponse.items));
     const contentItemsNodes = languageItemsFlatted.map((languageItem) =>
