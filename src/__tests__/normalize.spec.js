@@ -6,14 +6,18 @@ const contentTypeNodes = require('./contentTypeNodes.json');
 const contentItemWithCycle = require('./contentItemWithCycle.json');
 const contentItemWithoutCycle = require('./contentItemWithoutCycle.json');
 describe('normalize.spec.js', () => {
-  describe(`createContentTypeNode with correct arguments`, () => {
-    it(`creates a content type node`, () => {
-      const createNodeId = jest.fn();
-      createNodeId.mockReturnValue(`aea6da0c-4130-593c-8b6e-006e6bace1de`);
-
+  describe(`createKcArtifactNode with correct arguments`, () => {
+    it(`creates correct structure for the type node`, () => {
       expect(
-        normalize.createContentTypeNode(createNodeId, contentType)
-      ).toMatchSnapshot();
+        normalize.createKcArtifactNode(
+          'dummyId',
+          contentType,
+          'type',
+          contentType.system.codename,
+          {
+            contentItems___NODE: [],
+          }
+        )).toMatchSnapshot();
     });
   });
 

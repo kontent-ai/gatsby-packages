@@ -5,32 +5,6 @@ const changeCase = require(`change-case`);
 // TODO - extract all logic to validate and to decorators + modules
 
 /**
- * Creates a Gatsby object out of a Kentico Cloud content type object.
- * @param {function} createNodeId - Gatsby function to create a node ID.
- * @param {object} contentType - Kentico Cloud content type object.
- * @return {object} Gatsby content type node.
- * @throws {Error}
- */
-const createContentTypeNode = (createNodeId, contentType) => {
-  if (typeof createNodeId !== `function`) {
-    throw new Error(`createNodeId is not a function.`);
-  } else if (!contentType || !_.has(contentType, `system.codename`)) {
-    throw new Error(`contentType is not a valid content type object.`);
-  } else {
-    const codenameParamCase = changeCase.paramCase(contentType.system.codename);
-    const nodeId = createNodeId(`kentico-cloud-type-${codenameParamCase}`);
-
-    const additionalData = {
-      contentItems___NODE: [],
-    };
-
-    return createKcArtifactNode(
-      nodeId, contentType, `type`, contentType.system.codename, additionalData
-    );
-  }
-};
-
-/**
  * Creates a Gatsby object out of a Kentico Cloud content item object.
  * @param {function} createNodeId - Gatsby function to create a node ID.
  * @param {object} contentItem - Kentico Cloud content item object.
@@ -315,13 +289,22 @@ const parseContentItemContents =
     return itemWithElements;
   };
 
+/**
+ * Create Gatsby Node structure.
+ * @param {Number} nodeId Gebnerated Gatsby node ID.
+ * @param {Object} kcArtifact Node's Kentico Cloud data.
+ * @param {String} artifactKind Type of the artifact ('item/type')
+ * @param {String} codeName Item code name
+ * @param {Object} additionalNodeData Additional data
+ * @return {Object} Gatsby node object
+ */
 const createKcArtifactNode =
-  (nodeId, kcArtifact, artifactKind, typeName = ``,
+  (nodeId, kcArtifact, artifactKind, codeName = ``,
     additionalNodeData = null) => {
     let processedProperties = [];
 
     // Handle eventual circular references when serializing.
-    const nodeContent = JSON.stringify(kcArtifact, (key, value) => {
+    const nodeContent = JSON.stringify(kcArtifact, (_key, value) => {
       if (typeof value === `object` && value !== null) {
         if (processedProperties.indexOf(value) !== -1) {
           try {
@@ -343,7 +326,7 @@ const createKcArtifactNode =
       .update(nodeContent)
       .digest(`hex`);
 
-    const codenamePascalCase = changeCase.pascalCase(typeName);
+    const codenamePascalCase = changeCase.pascalCase(codeName);
     const artifactKindPascalCase = changeCase.pascalCase(artifactKind);
 
     return {
@@ -384,8 +367,10 @@ const addLinkedItemsLinks =
   };
 
 module.exports = {
-  createContentTypeNode, createContentItemNode,
-  decorateTypeNodesWithItemLinks, decorateItemNodeWithLanguageVariantLink,
+  createKcArtifactNode,
+  createContentItemNode,
+  decorateTypeNodesWithItemLinks,
+  decorateItemNodeWithLanguageVariantLink,
   decorateItemNodeWithLinkedItemsLinks,
   decorateItemNodeWithRichTextLinkedItemsLinks,
   parseContentItemContents,
