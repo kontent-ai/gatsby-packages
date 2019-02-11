@@ -12,6 +12,8 @@
 !typeNodes.js
 !decorators/languageVariantsDecorator.js
 !decorators/typeItemDecorator.js
+!decorators/inlineLinkedItemsDecorator.js
+!decorators/linkedItemsDecorator.js
 
 !package.json
 !.npmignore

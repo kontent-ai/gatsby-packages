@@ -13,6 +13,8 @@ node_modules
 /typeNodes.js
 /decorators/languageVariantsDecorator.js
 /decorators/typeItemDecorator.js
+/decorators/inlineLinkedItemsDecorator.js
+/decorators/linkedItemsDecorator.js
 
 # Test coverage
 /coverage
