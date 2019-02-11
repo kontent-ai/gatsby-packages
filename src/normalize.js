@@ -4,60 +4,6 @@ const changeCase = require(`change-case`);
 
 // TODO - extract all logic to validate and to decorators + modules
 
-/**
- * Replace links in linked items element by GraphQl references.
- * @param {object} itemNode - Gatsby content item node.
- * @param {array} allNodesOfSameLanguage - The whole set of nodes
- *    of that same language.
- * @throws {Error}
- */
-const decorateItemNodeWithLinkedItemsLinks =
-  (itemNode, allNodesOfSameLanguage) => {
-    if (!itemNode || !_.has(itemNode, `system.codename`)) {
-      throw new Error(`itemNode is not a valid object.`);
-    } else if (!allNodesOfSameLanguage
-      || !_.isArray(allNodesOfSameLanguage)
-      || (!_.isEmpty(allNodesOfSameLanguage)
-        && !_.has(allNodesOfSameLanguage, `[0].system.codename`))) {
-      throw new Error(`allNodesOfSameLanguage is not an array
-of valid objects.`);
-    } else {
-      Object
-        .keys(itemNode.elements)
-        .forEach((propertyName) => {
-          const property = itemNode.elements[propertyName];
-
-          if (_.isArray(property)) {
-            // https://www.gatsbyjs.org/docs/create-source-plugin/#creating-the-relationship
-            const linkPropertyName = `${propertyName}___NODE`;
-            itemNode.elements[linkPropertyName] = [];
-
-            if (_.has(property, `[0].system.codename`)) {
-              const linkedNodes = allNodesOfSameLanguage
-                .filter((node) => {
-                  const match = property.find((propertyValue) => {
-                    return propertyValue !== null
-                      && node !== null
-                      && propertyValue.system.codename ===
-                      node.system.codename
-                      && propertyValue.system.type === node.system.type;
-                  });
-
-                  return match !== undefined && match !== null;
-                });
-
-              addLinkedItemsLinks(
-                itemNode,
-                linkedNodes,
-                linkPropertyName,
-                itemNode.elements[propertyName]
-              );
-            }
-          }
-        });
-    }
-  };
-
 
 /**
  * Adds links to content items (stored in Rich text elements)
@@ -247,7 +193,7 @@ const addLinkedItemsLinks =
 
 module.exports = {
   createKcArtifactNode,
-  decorateItemNodeWithLinkedItemsLinks,
+  addLinkedItemsLinks,
   decorateItemNodeWithRichTextLinkedItemsLinks,
   parseContentItemContents,
 };
