@@ -1,7 +1,7 @@
 
 const normalize = require('../normalize.js');
 const contentType = require('./contentType.json');
-const contentTypeNodes = require('./contentTypeNodes.json');
+
 
 const contentItemWithCycle = require('./contentItemWithCycle.json');
 const contentItemWithoutCycle = require('./contentItemWithoutCycle.json');
@@ -19,18 +19,19 @@ describe('normalize.spec.js', () => {
           }
         )).toMatchSnapshot();
     });
-  });
 
-  describe(`createContentItemNode with correct arguments`, () => {
-    it(`creates a content item node`, () => {
-      const createNodeId = jest.fn();
-      createNodeId.mockReturnValue(`362bd0da-5b1a-533b-9575-107c2e3c6931`);
-
+    it(`creates correct structure for the item node`, () => {
       expect(
-        normalize.createContentItemNode(
-          createNodeId, contentItemWithoutCycle, contentTypeNodes
-        )
-      ).toMatchSnapshot();
+        normalize.createKcArtifactNode(
+          'dummyId',
+          contentItemWithoutCycle,
+          'item',
+          contentItemWithoutCycle.system.codename,
+          {
+            otherLanguages___NODE: [],
+            contentType___NODE: 'dummyContentTypeId',
+          }
+        )).toMatchSnapshot();
     });
   });
 

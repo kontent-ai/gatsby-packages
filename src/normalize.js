@@ -5,57 +5,6 @@ const changeCase = require(`change-case`);
 // TODO - extract all logic to validate and to decorators + modules
 
 /**
- * Creates a Gatsby object out of a Kentico Cloud content item object.
- * @param {function} createNodeId - Gatsby function to create a node ID.
- * @param {object} contentItem - Kentico Cloud content item object.
- * @param {array} contentTypeNodes - All Gatsby content type nodes.
- * @return {object} Gatsby content item node.
- * @throws {Error}
- */
-const createContentItemNode =
-  (createNodeId, contentItem, contentTypeNodes) => {
-    if (typeof createNodeId !== `function`) {
-      throw new Error(`createNodeId is not a function.`);
-    } else if (!contentItem || !_.has(contentItem, `system.codename`)) {
-      throw new Error(`contentItem is not a valid content item object.`);
-    } else if (!contentTypeNodes
-      || !_.isArray(contentTypeNodes)
-      || (!_.isEmpty(contentTypeNodes)
-        && !_.has(contentTypeNodes, `[0].system.codename`))) {
-      throw new Error(`contentTypeNodes is not an array of valid objects.`);
-    } else {
-      const codenameParamCase =
-        changeCase.paramCase(contentItem.system.codename);
-
-      const languageParamCase =
-        changeCase.paramCase(contentItem.system.language);
-
-      const nodeId = createNodeId(
-        `kentico-cloud-item-${codenameParamCase}-${languageParamCase}`
-      );
-
-      const parentContentTypeNode = contentTypeNodes.find(
-        (contentType) => contentType.system.codename
-          === contentItem.system.type);
-
-      const itemWithElements = parseContentItemContents(contentItem);
-
-      const additionalData = {
-        otherLanguages___NODE: [],
-        contentType___NODE: parentContentTypeNode.id,
-      };
-
-      return createKcArtifactNode(
-        nodeId,
-        itemWithElements,
-        `item`,
-        contentItem.system.type,
-        additionalData
-      );
-    }
-  };
-
-/**
  * Adds links between a content type node and item nodes of that content type.
  * @param {array} contentItemNodes - Gatsby content item nodes.
  * @param {array} contentTypeNodes - Gatsby content type nodes.
@@ -368,7 +317,6 @@ const addLinkedItemsLinks =
 
 module.exports = {
   createKcArtifactNode,
-  createContentItemNode,
   decorateTypeNodesWithItemLinks,
   decorateItemNodeWithLanguageVariantLink,
   decorateItemNodeWithLinkedItemsLinks,
