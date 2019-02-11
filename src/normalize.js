@@ -2,8 +2,6 @@ const _ = require(`lodash`);
 const crypto = require(`crypto`);
 const changeCase = require(`change-case`);
 
-// TODO - extract all logic to validate and to decorators + modules
-
 /**
  * Parses a content item to rebuild the 'elements' property.
  * @param {object} contentItem - The content item to be parsed.
@@ -79,25 +77,7 @@ const parseContentItemContents =
 const createKcArtifactNode =
   (nodeId, kcArtifact, artifactKind, codeName = ``,
     additionalNodeData = null) => {
-    let processedProperties = [];
-
-    // Handle eventual circular references when serializing.
-    const nodeContent = JSON.stringify(kcArtifact, (_key, value) => {
-      if (typeof value === `object` && value !== null) {
-        if (processedProperties.indexOf(value) !== -1) {
-          try {
-            return JSON.parse(JSON.stringify(value));
-          } catch (error) {
-            return null;
-          }
-        }
-
-        processedProperties.push(value);
-      }
-      return value;
-    });
-
-    processedProperties = null;
+    const nodeContent = JSON.stringify(kcArtifact);
 
     const nodeContentDigest = crypto
       .createHash(`md5`)

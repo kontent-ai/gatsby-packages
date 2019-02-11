@@ -86,7 +86,6 @@ const decorateItemNodeWithRichTextLinkedItemsLinks =
                 node.system.codename)
             );
 
-          // TODO use element as a part of the propertyPath
           _.set(itemNode.elements, linkPropertyName, []);
           normalize.addLinkedItemsLinks(
             itemNode,

@@ -1,10 +1,12 @@
 require(`@babel/polyfill`);
+
 const _ = require(`lodash`);
 const { DeliveryClient } = require(`kentico-cloud-delivery`);
 
 const validation = require(`./validation`);
 const itemNodes = require('./itemNodes');
 const typeNodes = require('./typeNodes');
+
 const languageVariantsDecorator =
   require('./decorators/languageVariantsDecorator');
 const typeItemDecorator =
