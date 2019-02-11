@@ -5,43 +5,6 @@ const changeCase = require(`change-case`);
 // TODO - extract all logic to validate and to decorators + modules
 
 /**
- * Adds links between a Gatsby content item node and its
- *    language variant nodes (translations).
- * @param {object} itemNode - Gatsby content item node.
- * @param {array} allNodesOfAnotherLanguage - The whole set of Gatsby item nodes
- *    of another language.
- * @throws {Error}
- */
-const decorateItemNodeWithLanguageVariantLink =
-  (itemNode, allNodesOfAnotherLanguage) => {
-    if (!itemNode || !_.has(itemNode, `system.codename`)) {
-      throw new Error(`itemNode is not a valid object.`);
-    } else if (!allNodesOfAnotherLanguage
-      || !_.isArray(allNodesOfAnotherLanguage)
-      || (!_.isEmpty(allNodesOfAnotherLanguage)
-        && !_.has(allNodesOfAnotherLanguage, `[0].system.codename`))) {
-      throw new Error(`allNodesOfAnotherLanguage is not an array
-of valid objects.`);
-    } else {
-      const languageVariantNode = allNodesOfAnotherLanguage.find(
-        (nodeOfSpecificLanguage) =>
-          itemNode.system.codename === nodeOfSpecificLanguage.system.codename
-          && itemNode.system.type === nodeOfSpecificLanguage.system.type
-          && itemNode.system.language !== nodeOfSpecificLanguage.system.language
-      );
-
-      const otherLanguageLink = languageVariantNode &&
-        itemNode.otherLanguages___NODE.find(
-          (otherLanguageId) => otherLanguageId === languageVariantNode.id
-        );
-
-      if (!otherLanguageLink && _.get(languageVariantNode, 'id')) {
-        itemNode.otherLanguages___NODE.push(languageVariantNode.id);
-      }
-    }
-  };
-
-/**
  * Replace links in linked items element by GraphQl references.
  * @param {object} itemNode - Gatsby content item node.
  * @param {array} allNodesOfSameLanguage - The whole set of nodes
@@ -284,7 +247,6 @@ const addLinkedItemsLinks =
 
 module.exports = {
   createKcArtifactNode,
-  decorateItemNodeWithLanguageVariantLink,
   decorateItemNodeWithLinkedItemsLinks,
   decorateItemNodeWithRichTextLinkedItemsLinks,
   parseContentItemContents,

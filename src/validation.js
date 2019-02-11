@@ -21,6 +21,7 @@ neither the default language`);
 /**
  * Validates wether the content types are in correct format
  * @param {Array} contentTypeNodes Kentico Cloud content type nodes
+ * @throws {Error}
  */
 const checkTypesObjectStructure = (contentTypeNodes) => {
   if (!hasBasicValidStructure(contentTypeNodes)) {
@@ -31,6 +32,7 @@ const checkTypesObjectStructure = (contentTypeNodes) => {
 /**
  * Validates wether the content items are in correct format
  * @param {Array} contentItemNodes Kentico Cloud content item nodes
+ * @throws {Error}
  */
 const checkItemsObjectStructure = (contentItemNodes) => {
   if (!hasBasicValidStructure(contentItemNodes)
@@ -42,12 +44,13 @@ const checkItemsObjectStructure = (contentItemNodes) => {
   }
 };
 
-const hasBasicValidStructure = (contentTypeNodes) => {
-  return _.every(contentTypeNodes, ((item) =>
-    _.has(item, 'system.id')
-    && _.has(item, 'system.name')
-    && _.has(item, 'system.codename')
-    && _.has(item, 'elements')));
+const hasBasicValidStructure = (contentNodes) => {
+  return _.isArray(contentNodes)
+    && _.every(contentNodes, ((item) =>
+      _.has(item, 'system.id')
+      && _.has(item, 'system.name')
+      && _.has(item, 'system.codename')
+      && _.has(item, 'elements')));
 };
 
 module.exports = {
