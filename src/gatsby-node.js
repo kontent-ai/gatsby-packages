@@ -19,17 +19,17 @@ const { customTrackingHeader } = require('./config');
 exports.sourceNodes =
   async ({ actions: { createNode }, createNodeId },
     { deliveryClientConfig, languageCodenames }) => {
-    console.info(`The 'sourceNodes' API implementation starts.`);
-    console.info(`projectId: ${_.get(deliveryClientConfig, 'projectId')}`);
-    console.info(`languageCodenames: ${languageCodenames}.`);
+    console.info(`Generating Kentico Cloud nodes for projectId:\
+ ${_.get(deliveryClientConfig, 'projectId')}`);
+    console.info(`Provided language codenames: ${languageCodenames}.`);
 
     validation.validateLanguageCodenames(languageCodenames);
     const defaultLanguageCodename = languageCodenames[0];
     const nonDefaultLanguageCodenames = languageCodenames.slice(1);
 
     addHeader(deliveryClientConfig, customTrackingHeader);
-    const client = new DeliveryClient(deliveryClientConfig);
 
+    const client = new DeliveryClient(deliveryClientConfig);
     const contentTypeNodes = await typeNodes.get(client, createNodeId);
 
     const defaultCultureContentItemNodes = await itemNodes.
@@ -70,59 +70,18 @@ exports.sourceNodes =
       nonDefaultLanguageItemNodes
     );
 
-    try {
-      contentTypeNodes.forEach(
-        (contentTypeNode) => {
-          console.info(
-            `The 'createNode' API is called.
-contentTypeNode.id: ${contentTypeNode.id}`
-          );
+    console.info(`Creating content type nodes.`);
+    createNodes(contentTypeNodes, createNode);
 
-          createNode(contentTypeNode);
-        }
-      );
-    } catch (error) {
-      console.error(
-        `Error when creating content type nodes. Details: ${error}`
-      );
-    }
+    console.info(`Creating content item nodes for default language.`);
+    createNodes(defaultCultureContentItemNodes, createNode);
 
-    console.info(`The 'createNode' API is called for content item nodes.`);
-    try {
-      defaultCultureContentItemNodes.forEach(
-        (contentItemNode) => {
-          console.info(
-            `The 'createNode' API is called.
-contentItemNode.id: ${contentItemNode.id}`
-          );
-
-          createNode(contentItemNode);
-        }
-      );
-    } catch (error) {
-      console.error(
-        `Error when creating content item nodes. Details: ${error}`
-      );
-    }
-
+    console.info(`Creating content item nodes for non-default languages.`);
     nonDefaultLanguageItemNodes.forEach((languageNodes) => {
-      languageNodes.forEach((languageVariantNode) => {
-        try {
-          createNode(languageVariantNode);
-
-          console.info(
-            `The 'createNode' API is called.
-languageVariantNode.id: ${languageVariantNode.id}`
-          );
-        } catch (error) {
-          console.error(
-            `Error when creating language variant nodes. Details: ${error}`
-          );
-        }
-      });
+      createNodes(languageNodes, createNode);
     });
 
-    console.info(`The 'sourceNodes' API implementation exits.`);
+    console.info(`Kentico Cloud nodes generation finished.`);
     return;
   };
 
@@ -152,4 +111,20 @@ const addHeader = (deliveryClientConfig, trackingHeader) => {
   deliveryClientConfig.globalHeaders = headers;
 };
 
-
+/**
+ * Call @see createNode function  for all items in @see nodes.
+ * @param {Array} nodes Gatsby nodes to create
+ * @param {Function} createNode Gatsby API method for Node creation.
+ */
+const createNodes = (nodes, createNode) => {
+  try {
+    nodes.forEach((contentTypeNode) => {
+      const nodeId = contentTypeNode.id;
+      const nodeCodeName = contentTypeNode.system.codename;
+      console.info(`Creating node: ${nodeId}(${nodeCodeName})`);
+      createNode(contentTypeNode);
+    });
+  } catch (error) {
+    console.error(`Error when creating nodes. Details: ${error}`);
+  }
+};
