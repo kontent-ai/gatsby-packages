@@ -4,53 +4,6 @@ const changeCase = require(`change-case`);
 
 // TODO - extract all logic to validate and to decorators + modules
 
-
-/**
- * Adds links to content items (stored in Rich text elements)
- *    via a sibling '_nodes' property.
- * @param {object} itemNode - Gatsby content item node.
- * @param {array} allNodesOfSameLanguage - The whole set of nodes
- *    of that same language.
- * @throws {Error}
- */
-const decorateItemNodeWithRichTextLinkedItemsLinks =
-  (itemNode, allNodesOfSameLanguage) => {
-    if (!itemNode || !_.has(itemNode, `system.codename`)) {
-      throw new Error(`itemNode is not a valid object.`);
-    } else if (!allNodesOfSameLanguage
-      || !_.isArray(allNodesOfSameLanguage)
-      || (!_.isEmpty(allNodesOfSameLanguage)
-        && !_.has(allNodesOfSameLanguage, `[0].system.codename`))) {
-      throw new Error(`allNodesOfSameLanguage is not an array
-of valid objects.`);
-    } else {
-      Object
-        .keys(itemNode.elements)
-        .forEach((propertyName) => {
-          const property = itemNode.elements[propertyName];
-
-          if (_.get(property, `type`) === `rich_text`) {
-            const linkPropertyName = `${propertyName}.linked_items___NODE`;
-
-            const linkedNodes = allNodesOfSameLanguage
-              .filter((node) => _.has(property, `linkedItemCodenames`)
-                && _.isArray(property.linkedItemCodenames)
-                && property.linkedItemCodenames.includes(
-                  node.system.codename)
-              );
-
-            // TODO use element as a part of the propertyPath
-            _.set(itemNode.elements, linkPropertyName, []);
-            addLinkedItemsLinks(
-              itemNode,
-              linkedNodes,
-              linkPropertyName
-            );
-          }
-        });
-    }
-  };
-
 /**
  * Parses a content item to rebuild the 'elements' property.
  * @param {object} contentItem - The content item to be parsed.
@@ -194,6 +147,5 @@ const addLinkedItemsLinks =
 module.exports = {
   createKcArtifactNode,
   addLinkedItemsLinks,
-  decorateItemNodeWithRichTextLinkedItemsLinks,
   parseContentItemContents,
 };

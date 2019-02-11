@@ -1,6 +1,7 @@
 const _ = require(`lodash`);
 
-const normalize = require(`../normalize`);
+const normalize = require('../normalize');
+const validation = require('../validation');
 
 /**
  * Add Gatsby relations from rich text elements'
@@ -16,7 +17,7 @@ const decorateItemNodesWithRichTextLinkedItemsLinks = (
 ) => {
   defaultCultureContentItemNodes.forEach((itemNode) => {
     try {
-      normalize.decorateItemNodeWithRichTextLinkedItemsLinks(
+      decorateItemNodeWithRichTextLinkedItemsLinks(
         itemNode,
         defaultCultureContentItemNodes
       );
@@ -28,7 +29,7 @@ const decorateItemNodesWithRichTextLinkedItemsLinks = (
   nonDefaultLanguageItemNodes.forEach((languageNodes) => {
     languageNodes.forEach((itemNode) => {
       try {
-        normalize.decorateItemNodeWithRichTextLinkedItemsLinks(
+        decorateItemNodeWithRichTextLinkedItemsLinks(
           itemNode,
           languageNodes);
       } catch (error) {
@@ -56,6 +57,45 @@ const resolveHtmlAndIncludeImages = (items) => {
       });
   });
 };
+
+/**
+ * Adds links to content items (stored in Rich text elements)
+ *    via a sibling '_nodes' property.
+ * @param {object} itemNode - Gatsby content item node.
+ * @param {array} allNodesOfSameLanguage - The whole set of nodes
+ *    of that same language.
+ * @throws {Error}
+ */
+const decorateItemNodeWithRichTextLinkedItemsLinks =
+  (itemNode, allNodesOfSameLanguage) => {
+    validation.checkItemsObjectStructure([itemNode]);
+    validation.checkItemsObjectStructure(allNodesOfSameLanguage);
+
+    Object
+      .keys(itemNode.elements)
+      .forEach((propertyName) => {
+        const property = itemNode.elements[propertyName];
+
+        if (_.get(property, `type`) === `rich_text`) {
+          const linkPropertyName = `${propertyName}.linked_items___NODE`;
+
+          const linkedNodes = allNodesOfSameLanguage
+            .filter((node) => _.has(property, `linkedItemCodenames`)
+              && _.isArray(property.linkedItemCodenames)
+              && property.linkedItemCodenames.includes(
+                node.system.codename)
+            );
+
+          // TODO use element as a part of the propertyPath
+          _.set(itemNode.elements, linkPropertyName, []);
+          normalize.addLinkedItemsLinks(
+            itemNode,
+            linkedNodes,
+            linkPropertyName
+          );
+        }
+      });
+  };
 
 module.exports = {
   decorateItemNodesWithRichTextLinkedItemsLinks,
