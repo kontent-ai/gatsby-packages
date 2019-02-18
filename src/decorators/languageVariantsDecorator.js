@@ -3,7 +3,7 @@ const _ = require('lodash');
 const validation = require('../validation');
 
 /**
- * Add Gatsby relations from item nodes to it other language variants.
+ * Add Gatsby relations from item nodes to its other language variants.
  * @param {Array} defaultCultureContentItemNodes
  *  Gatsby content item nodes in default culture
  * @param {Map<String, Array>} nonDefaultLanguageItemNodes
