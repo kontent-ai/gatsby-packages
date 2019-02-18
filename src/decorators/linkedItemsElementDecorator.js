@@ -36,7 +36,7 @@ const decorateItemNodesWithLinkedItemsLinks = (defaultCultureContentItemNodes,
 };
 
 /**
- * Replace links in linked items element by GraphQl references.
+ * Replace links in linked items element by GraphQL references.
  * @param {object} itemNode - Gatsby content item node.
  * @param {array} allNodesOfSameLanguage - The whole set of nodes
  *    of that same language.
