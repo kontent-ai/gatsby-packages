@@ -5,7 +5,7 @@ const validation = require('../validation');
 /**
  * Add Gatsby relations from item nodes to its other language variants.
  * @param {Array} defaultCultureContentItemNodes
- *  Gatsby content item nodes in default culture
+ *  Gatsby content item nodes in default culture.
  * @param {Map<String, Array>} nonDefaultLanguageItemNodes
  *  Non-default gatsby content item nodes stored under the culture key.
  */
