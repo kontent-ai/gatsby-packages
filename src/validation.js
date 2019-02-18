@@ -19,7 +19,7 @@ neither the default language`);
 };
 
 /**
- * Validates wether the content types are in correct format
+ * Validates whether the content types are in correct format
  * @param {Array} contentTypeNodes Kentico Cloud content type nodes
  * @throws {Error}
  */
