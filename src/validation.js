@@ -1,7 +1,7 @@
 const _ = require(`lodash`);
 
 /**
- * Validates wether the project language codenames configuration
+ * Validates whether the project language codenames configuration
  * is in correct form.
  * @param {Array} languageCodenames language codenames configuration
  * @throws {Error}
