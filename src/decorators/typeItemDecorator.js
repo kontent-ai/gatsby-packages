@@ -5,7 +5,7 @@ const validation = require(`../validation`);
 /**
  * Add Gatsby relations from type nodes to items based on this type.
  * @param {Array} contentItemNodes
- *  Gatsby content item nodes to make a link in
+ *  Gatsby content item nodes to make a link in.
  * @param {Array} contentTypeNodes
  *  Gatsby content type nodes
  */
