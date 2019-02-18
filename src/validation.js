@@ -30,7 +30,7 @@ const checkTypesObjectStructure = (contentTypeNodes) => {
 };
 
 /**
- * Validates wether the content items are in correct format
+ * Validates whether the content items are in correct format
  * @param {Array} contentItemNodes Kentico Cloud content item nodes
  * @throws {Error}
  */
