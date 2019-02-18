@@ -16,7 +16,7 @@ For version 2.3.0 use [this snapshot](https://github.com/Kentico/gatsby-source-k
 
 You can use the plugin in any of the following ways:
 
-### Install to you existing Gatsby project 
+### Install to your existing Gatsby project 
 1. Install the [gatsby-source-kentico-cloud](https://www.npmjs.com/package/gatsby-source-kentico-cloud) NPM package,
 ```
 npm install --save gatsby-source-kentico-cloud
