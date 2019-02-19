@@ -247,7 +247,7 @@ Since [Kentico Cloud Delivery SDK](https://github.com/Kentico/kentico-cloud-js/t
 
 As with the previous example, all rich text properties with inline content items linked in the element also have an accompanying `linked_items` property.
 
-> Content components are not presented in `linked_items` property. 
+> Content components are not present in `linked_items` property. 
 
 <details><summary>Example</summary>
 
@@ -352,7 +352,7 @@ To get a smooth debugging experience, you can temporarily copy the `gatsby-sourc
 
 ## Troubleshoot
 
-When you change the structure of the data, or the data itself and then `gatsby develop`, or `gatsby build` command raise an error about the Gatsby presumes the old data structure. Try to remove `.cache` folder and run the command again, it is quite usual that Gatsby is caching the information about the content structure.
+When you change the structure of the data, or the data itself and then `gatsby develop`, or `gatsby build` command raise an error about the Gatsby presumes the old data structure. Try to remove `.cache` folder and run the command again, it is quite usual that Gatsby is caching the information about the content structure and does not clear it.
 
 ## Further information
 
