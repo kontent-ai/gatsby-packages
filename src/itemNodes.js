@@ -28,7 +28,7 @@ const getFromDefaultLanguage = async (
     .getPromise();
 
   richTextElementDecorator
-    .resolveHtmlAndIncludeImages(contentItemsResponse.items);
+    .resolveHtml(contentItemsResponse.items);
 
   const itemsFlatted = parse(stringify(contentItemsResponse.items));
   const contentItemNodes = itemsFlatted.map((contentItem) => {

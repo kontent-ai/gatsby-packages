@@ -9,8 +9,10 @@ const fakeItemsResponseWithRichTextElement =
   require('./fakeItemsResponseWithRichTextElement.json');
 const fakeTypesResponseWithRichTextElement =
   require('./fakeTypesResponseWithRichTextElement.json');
-const { expectedResolvedRichTextComponent } =
-  require('./expectedOutputs/gatsby-node.output');
+const {
+  expectedResolvedRichTextComponent,
+  expectedResolvedRichTextImages,
+} = require('./expectedOutputs/gatsby-node.output');
 
 
 describe('customTrackingHeader', () => {
@@ -151,6 +153,8 @@ describe('sourceNodes', () => {
     constructor() {
       super({
         linkResolver: (_link, _context) => '###projectlink###',
+        richTextResolver: (_contentItem, _context) =>
+          '###project###',
       });
     }
   }
@@ -212,15 +216,31 @@ describe('sourceNodes', () => {
         return firstArgument.internal.type.startsWith('KenticoCloudItem')
           && firstArgument.system.codename === 'simple_landing_page';
       });
+
     expect(landingPageCallNodeSelection).toHaveLength(1);
     expect(landingPageCallNodeSelection[0]).toHaveLength(1);
     const landingPageNode = landingPageCallNodeSelection[0][0];
 
-    const expectedResolvedHtml = expectedResolvedRichTextComponent;
     expect(landingPageNode)
-      .toHaveProperty('elements.content.value', expectedRichTextValue);
+      .toHaveProperty(
+        'elements.content.value',
+        expectedRichTextValue
+      );
     expect(landingPageNode)
-      .toHaveProperty('elements.content.resolvedHtml', expectedResolvedHtml);
+      .toHaveProperty(
+        'elements.content.images',
+        expectedResolvedRichTextImages
+      );
+    expect(landingPageNode)
+      .toHaveProperty(
+        'elements.content.resolvedHtml',
+        expectedResolvedRichTextComponent
+      );
+    expect(landingPageNode)
+      .toHaveProperty('elements.content.linked_items___NODE');
+    // TODO should have length 2 after it is fixed - https://github.com/Kentico/kentico-cloud-js/issues/114
+    expect(landingPageNode.elements.content.linked_items___NODE)
+      .toHaveLength(1);
   });
 });
 

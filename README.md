@@ -322,7 +322,7 @@ All rich text properties with content items linked in the element also have an a
           summary {
             value
             images {
-              image_id
+              imageId
               description
               url
             }

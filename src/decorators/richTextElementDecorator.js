@@ -44,7 +44,7 @@ const decorateItemNodesWithRichTextLinkedItemsLinks = (
  *  and propagate images property.
  * @param {Array} items Items response from JS SDK.
  */
-const resolveHtmlAndIncludeImages = (items) => {
+const resolveHtml = (items) => {
   items.forEach((item) => {
     Object
       .keys(item)
@@ -53,7 +53,6 @@ const resolveHtmlAndIncludeImages = (items) => {
         && item[key].type === `rich_text`)
       .forEach((key) => {
         item.elements[key].resolvedHtml = item[key].getHtml().toString();
-        item[key].images = Object.values(item.elements[key].images);
       });
   });
 };
@@ -98,5 +97,5 @@ const decorateItemNodeWithRichTextLinkedItemsLinks =
 
 module.exports = {
   decorateItemNodesWithRichTextLinkedItemsLinks,
-  resolveHtmlAndIncludeImages,
+  resolveHtml,
 };

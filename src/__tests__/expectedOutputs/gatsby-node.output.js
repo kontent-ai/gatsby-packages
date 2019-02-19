@@ -12,9 +12,24 @@ Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis condimentum augue
   <li><a data-item-id="8a7f275d-0e1c-4b30-af3e-f02c91259faf" href="###projectlink###">Sub Broject 1</a></li>
   <li><a data-item-id="91703600-4d43-410e-ba48-93c6c8b0a754" href="###projectlink###">Sub project 2</a></li>
 </ul>
-<p>Aliquam ante. Nam quis nulla. Sed ac dolor sit amet purus malesuada congue. Curabitur vitae diam non enim vestibulum interdum. Phasellus et lorem id felis nonummy placerat. Etiam posuere lacus quis dolor. Nunc tincidunt ante vitae massa. Sed vel lectus. Donec odio tempus molestie, porttitor ut, iaculis quis, sem. Mauris dolor felis, sagittis at, luctus sed, aliquam non, tellus. Etiam sapien elit, consequat eget, tristique non, venenatis quis, ante.</p>`;
+<p>Aliquam ante. Nam quis nulla. Sed ac dolor sit amet purus malesuada congue. Curabitur vitae diam non enim vestibulum interdum. Phasellus et lorem id felis nonummy placerat. Etiam posuere lacus quis dolor.&nbsp;</p>
+<p><strong>Project</strong></p>
+<p type="application/kenticocloud" data-type="item" data-rel="link" data-codename="main_project" class="kc-linked-item-wrapper">###project###</p>
+<p>Nunc tincidunt ante vitae massa. Sed vel lectus. Donec odio tempus molestie, porttitor ut, iaculis quis, sem. Mauris dolor felis, sagittis at, luctus sed, aliquam non, tellus. Etiam sapien elit, consequat eget, tristique non, venenatis quis, ante.</p>`;
+
+const expectedResolvedRichTextImages = [{
+  imageId: 'a58bf56b-962e-44dd-9fae-b562e3322119',
+  description: 'Hand Coffee Grinder',
+  url: 'https://assets-us-01.kc-usercontent.com:443/e5d9fb27-0227-00b1-1daf-05eb8ff5cb6e/a58bf56b-962e-44dd-9fae-b562e3322119/porlex-tall-ceramic-burr-grinder.jpg',
+},
+{
+  imageId: '542ea709-63a8-4413-ae03-dd9c681efbf2',
+  description: 'Hario Vacuum Pot',
+  url: 'https://assets-us-01.kc-usercontent.com:443/e5d9fb27-0227-00b1-1daf-05eb8ff5cb6e/542ea709-63a8-4413-ae03-dd9c681efbf2/hario-vacuum-pot.jpg',
+}];
 
 module.exports = {
   expectedResolvedRichTextComponent,
+  expectedResolvedRichTextImages,
 };
 
