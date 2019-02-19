@@ -27,35 +27,29 @@ const parseContentItemContents =
     processedContents.push(contentItem.system.codename);
     const elements = {};
 
-    Object
+    const elementPropertyKeys = Object
       .keys(contentItem)
-      .filter((key) => key !== `system` && key !== `elements`)
-      .forEach((key) => {
-        let propertyValue;
+      .filter((key) => key !== `system` && key !== `elements`);
 
-        if (_.has(contentItem[key], `type`)
-          && contentItem[key].type === `rich_text`) {
-          propertyValue = contentItem[key];
-        } else if (contentItem.elements[key]
-          && contentItem.elements[key].type === `modular_content`
-          && !_.isEmpty(contentItem[key])) {
-          let linkedItems = [];
+    for (const key of elementPropertyKeys) {
+      let propertyValue;
 
-          contentItem[key].forEach((linkedItem) => {
-            linkedItems.push(
-              parseContentItemContents(
-                linkedItem, Array.from(processedContents), contentItem
-              )
-            );
-          });
+      if (_.get(contentItem, `elements[${key}].type`) === 'modular_content') {
+        let linkedItems = [];
+        contentItem[key].forEach((linkedItem) => {
+          linkedItems.push(
+            parseContentItemContents(
+              linkedItem, Array.from(processedContents), contentItem
+            )
+          );
+        });
+        propertyValue = linkedItems;
+      } else {
+        propertyValue = contentItem[key];
+      }
 
-          propertyValue = linkedItems;
-        } else {
-          propertyValue = contentItem[key];
-        }
-
-        elements[key] = propertyValue;
-      });
+      elements[key] = propertyValue;
+    }
 
     const itemWithElements = {
       system: contentItem.system,
