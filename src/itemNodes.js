@@ -68,7 +68,7 @@ const getFromNonDefaultLanguage = async (
       .getPromise();
 
     richTextElementDecorator
-      .resolveHtmlAndIncludeImages(languageResponse.items);
+      .resolveHtml(languageResponse.items);
 
     const languageItemsFlatted = parse(stringify(languageResponse.items));
     const contentItemsNodes = languageItemsFlatted.map((languageItem) =>
