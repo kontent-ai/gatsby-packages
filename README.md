@@ -23,7 +23,14 @@ npm install --save gatsby-source-kentico-cloud
 ```
 2. Configure the plugin in `gatsby-config.js` file
 
-The source plugin uses the [Kentico Cloud SDK](https://github.com/Kentico/kentico-cloud-js/tree/master/packages/delivery#kentico-cloud-delivery-sdk) in the background. You can put the [configuration object](https://github.com/Kentico/kentico-cloud-js/blob/master/packages/delivery/DOCS.md#client-configuration) of the JS SDK into the `deliveryClientConfig` property of the [gatsby-config.js](https://github.com/Kentico/gatsby-starter-kentico-cloud/blob/master/gatsby-config.js) file. There is also `languageCodenames` property that describes the [what languages a configured for the project](https://developer.kenticocloud.com/docs/localization#section-project-languages) - the first one is considered as the **default one**. 
+> The source plugin uses the [Kentico Cloud SDK](https://github.com/Kentico/kentico-cloud-js/tree/master/packages/delivery#kentico-cloud-delivery-sdk) in the background.
+
+Configuration object([example](https://github.com/Kentico/gatsby-starter-kentico-cloud/blob/master/gatsby-config.js))
+
+   * `deliveryClientConfig`* - [Kentico Cloud client configuration object](https://github.com/Kentico/kentico-cloud-js/blob/master/packages/delivery/DOCS.md#client-configuration) of the JS SDK.
+  * `languageCodenames`* - array of language codenames that defines [what languages a configured for the project](https://developer.kenticocloud.com/docs/localization#section-project-languages) - the first one is considered as the **default one**.
+
+\* required property
 ```
 module.exports = {
   ...
