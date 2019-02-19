@@ -222,7 +222,7 @@ With following features, it is possible to resolve rich text [into the HTML stri
 
 #### Embedded JS SDK resolution
 
-Since [Kentico Cloud Delivery SDK](https://github.com/Kentico/kentico-cloud-js/tree/master/packages/delivery#kentico-cloud-delivery-sdk) could resolve [links](https://github.com/Kentico/kentico-cloud-js/blob/master/doc/delivery.md#url-slugs-links) and also [linked items and components](https://github.com/Kentico/kentico-cloud-js/blob/master/doc/delivery.md#resolving-content-items-and-components-in-rich-text-fields) in rich text elements by implementing the resolvers, Kentico Cloud Gatsby source plugin is enriching the [internal SDK structure](https://github.com/Kentico/kentico-cloud-js/blob/master/packages/delivery/lib/models/item/content-item.class.ts) in GraphQL model by `resolvedHtml` property containing the resolved value.
+Since [Kentico Cloud Delivery SDK](https://github.com/Kentico/kentico-cloud-js/tree/master/packages/delivery#kentico-cloud-delivery-sdk) could resolve [links](https://github.com/Kentico/kentico-cloud-js/blob/master/packages/delivery/DOCS.md#url-slugs-links) and also [linked items and components](https://github.com/Kentico/kentico-cloud-js/blob/master/packages/delivery/DOCS.md#resolving-content-items-and-components-in-rich-text-fields) in rich text elements by implementing the resolvers, Kentico Cloud Gatsby source plugin is enriching the [internal SDK structure](https://github.com/Kentico/kentico-cloud-js/blob/master/packages/delivery/lib/models/item/content-item.class.ts) in GraphQL model by `resolvedHtml` property containing the resolved value.
 
 <details><summary>`summary` rich text element example</summary>
 
@@ -246,6 +246,8 @@ Since [Kentico Cloud Delivery SDK](https://github.com/Kentico/kentico-cloud-js/t
 #### Content items in Rich text elements
 
 As with the previous example, all rich text properties with inline content items linked in the element also have an accompanying `linked_items` property.
+
+> Content components are not presented in `linked_items` property. 
 
 <details><summary>Example</summary>
 
