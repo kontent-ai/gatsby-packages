@@ -1,7 +1,20 @@
 # Project dependencies
 node_modules
 
+# Gatsby source generated filed
+/public
+
 # Output files
 /gatsby-node.js
 /normalize.js
 /config.js
+/validation.js
+/itemNodes.js
+/typeNodes.js
+/decorators/languageVariantsDecorator.js
+/decorators/typeItemDecorator.js
+/decorators/richTextElementDecorator.js
+/decorators/linkedItemsElementDecorator.js
+
+# Test coverage
+/coverage

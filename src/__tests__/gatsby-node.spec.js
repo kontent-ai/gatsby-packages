@@ -1,13 +1,18 @@
-const { TestHttpService } = require('kentico-cloud-core');
+const { KenticoCloudJsSdkTestHttpService }
+  = require('kentico-cloud-js-sdk-test-http-service');
 const { ContentItem, TypeResolver } = require('kentico-cloud-delivery');
 
 const { sourceNodes } = require('../gatsby-node');
 const { customTrackingHeader } = require('../config');
 const { name, version } = require('../../package.json');
-const fakeResponseWithRichTextElement =
-  require('./fakeResponseWithRichTextElement.json');
-const { expectedResolvedRichTextComponent } =
-  require('./expectedOutputs/gatsby-node.output');
+const fakeItemsResponseWithRichTextElement =
+  require('./fakeItemsResponseWithRichTextElement.json');
+const fakeTypesResponseWithRichTextElement =
+  require('./fakeTypesResponseWithRichTextElement.json');
+const {
+  expectedResolvedRichTextComponent,
+  expectedResolvedRichTextImages,
+} = require('./expectedOutputs/gatsby-node.output');
 
 
 describe('customTrackingHeader', () => {
@@ -22,18 +27,45 @@ describe('customTrackingHeader', () => {
 });
 
 describe('sourceNodes', () => {
-  const fakeEmptyResponse = {
-    types: [],
-    items: [],
-    pagination: {
-      continuation_token: null,
-      next_page: null,
+  const fakeEmptyResponseConfig = new Map();
+  fakeEmptyResponseConfig.set(
+    /https:\/\/deliver.kenticocloud.com\/.*\/items/,
+    {
+      fakeResponseJson: {
+        items: [],
+        pagination: {
+          continuation_token: null,
+          next_page: null,
+        },
+      },
+      throwCloudError: false,
+    });
+  fakeEmptyResponseConfig.set(
+    /https:\/\/deliver.kenticocloud.com\/.*\/types/,
+    {
+      fakeResponseJson: {
+        types: [],
+        pagination: {
+          continuation_token: null,
+          next_page: null,
+        },
+      },
+      throwCloudError: false,
+    });
+
+  const fakeEmptyTestService =
+    new KenticoCloudJsSdkTestHttpService(fakeEmptyResponseConfig);
+
+  const dummyCreateNodeID = jest.fn();
+  dummyCreateNodeID.mockReturnValue('dummyId');
+
+  const dummyCreation = {
+    actions: {
+      createNode: jest.fn(),
     },
+    createNodeId: dummyCreateNodeID,
   };
-  const fakeEmptyTestService = new TestHttpService({
-    fakeResponseJson: fakeEmptyResponse,
-    throwCloudError: false,
-  });
+
 
   it('does add tracking header', async () => {
     const deliveryClientConfig = {
@@ -42,12 +74,7 @@ describe('sourceNodes', () => {
     };
 
     await sourceNodes(
-      {
-        actions: {
-          createNode: jest.fn(),
-        },
-        createNodeId: jest.fn(),
-      },
+      dummyCreation,
       {
         deliveryClientConfig,
         languageCodenames: ['default'],
@@ -71,12 +98,7 @@ describe('sourceNodes', () => {
     };
 
     await sourceNodes(
-      {
-        actions: {
-          createNode: jest.fn(),
-        },
-        createNodeId: jest.fn(),
-      },
+      dummyCreation,
       {
         deliveryClientConfig,
         languageCodenames: ['default'],
@@ -103,12 +125,7 @@ describe('sourceNodes', () => {
     };
 
     await sourceNodes(
-      {
-        actions: {
-          createNode: jest.fn(),
-        },
-        createNodeId: jest.fn(),
-      },
+      dummyCreation,
       {
         deliveryClientConfig,
         languageCodenames: ['default'],
@@ -136,12 +153,27 @@ describe('sourceNodes', () => {
     constructor() {
       super({
         linkResolver: (_link, _context) => '###projectlink###',
+        richTextResolver: (_contentItem, _context) =>
+          '###project###',
       });
     }
   }
 
 
   it('does resolve rich text element', async () => {
+    const fakeRichTextResponseConfig = new Map();
+    fakeRichTextResponseConfig.set(
+      /https:\/\/deliver.kenticocloud.com\/.*\/items/,
+      {
+        fakeResponseJson: fakeItemsResponseWithRichTextElement,
+        throwCloudError: false,
+      });
+    fakeRichTextResponseConfig.set(
+      /https:\/\/deliver.kenticocloud.com\/.*\/types/,
+      {
+        fakeResponseJson: fakeTypesResponseWithRichTextElement,
+        throwCloudError: false,
+      });
     const deliveryClientConfig = {
       projectId: 'dummyProject',
       typeResolvers: [
@@ -151,12 +183,11 @@ describe('sourceNodes', () => {
         new TypeResolver('project', () =>
           new Project()),
       ],
-      httpService: new TestHttpService({
-        fakeResponseJson: fakeResponseWithRichTextElement,
-        throwCloudError: false,
-      }),
+      httpService: new KenticoCloudJsSdkTestHttpService(
+        fakeRichTextResponseConfig
+      ),
     };
-    const expectedRichTextValue = fakeResponseWithRichTextElement
+    const expectedRichTextValue = fakeItemsResponseWithRichTextElement
       .items
       .filter((item) => item.system.codename === 'simple_landing_page')[0]
       .elements
@@ -168,7 +199,7 @@ describe('sourceNodes', () => {
       actions: {
         createNode: createNodeMock,
       },
-      createNodeId: jest.fn(),
+      createNodeId: dummyCreation.createNodeId,
     };
     const pluginConfiguration = {
       deliveryClientConfig,
@@ -185,15 +216,31 @@ describe('sourceNodes', () => {
         return firstArgument.internal.type.startsWith('KenticoCloudItem')
           && firstArgument.system.codename === 'simple_landing_page';
       });
+
     expect(landingPageCallNodeSelection).toHaveLength(1);
     expect(landingPageCallNodeSelection[0]).toHaveLength(1);
     const landingPageNode = landingPageCallNodeSelection[0][0];
 
-    const expectedResolvedHtml = expectedResolvedRichTextComponent;
     expect(landingPageNode)
-      .toHaveProperty('elements.content.value', expectedRichTextValue);
+      .toHaveProperty(
+        'elements.content.value',
+        expectedRichTextValue
+      );
     expect(landingPageNode)
-      .toHaveProperty('elements.content.resolvedHtml', expectedResolvedHtml);
+      .toHaveProperty(
+        'elements.content.images',
+        expectedResolvedRichTextImages
+      );
+    expect(landingPageNode)
+      .toHaveProperty(
+        'elements.content.resolvedHtml',
+        expectedResolvedRichTextComponent
+      );
+    expect(landingPageNode)
+      .toHaveProperty('elements.content.linked_items___NODE');
+    // TODO should have length 2 after it is fixed - https://github.com/Kentico/kentico-cloud-js/issues/114
+    expect(landingPageNode.elements.content.linked_items___NODE)
+      .toHaveLength(1);
   });
 });
 
