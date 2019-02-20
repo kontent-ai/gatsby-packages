@@ -5,12 +5,7 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/e247b74d31eaa41c3bda/maintainability)](https://codeclimate.com/github/Kentico/gatsby-source-kentico-cloud/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/e247b74d31eaa41c3bda/test_coverage)](https://codeclimate.com/github/Kentico/gatsby-source-kentico-cloud/test_coverage)
 
-This repo contains a [Gatsby v2 source plugin](https://www.gatsbyjs.org/docs/recipes/#sourcing-data) that retrieves data from the [Kentico Cloud](https://kenticocloud.com) Delivery API.
-
-# WARNING
-This is this is the readme for v3 beta development. It works well according to our tests, but the API may change.
-
-For version 2.3.0 use [this snapshot](https://github.com/Kentico/gatsby-source-kentico-cloud/tree/f87156b08779d968b89801878ec5edd69f177047).
+This repo contains a [Gatsby (v2) source plugin](https://www.gatsbyjs.org/docs/recipes/#sourcing-data) that retrieves data from the [Kentico Cloud](https://kenticocloud.com) Delivery API.
 
 ## How to run the code
 
@@ -52,7 +47,7 @@ All Kentico Cloud content element values  reside inside of the `elements` proper
 
 ### Scaffold your project using Gatsby Kentico Cloud starter site
 
-Use the [gatsby-starter-kentico-cloud](https://github.com/Kentico/gatsby-starter-kentico-cloud) starter site that includes this source plugin,
+Use the [gatsby-starter-kentico-cloud](https://github.com/Kentico/gatsby-starter-kentico-cloud) starter site that includes this source plugin
 * [Gatsby gallery](https://www.gatsbyjs.org/starters/Kentico/gatsby-starter-kentico-cloud)
 
 ## Features
@@ -62,7 +57,6 @@ The plugin creates GraphQL nodes for all Kentico Cloud content types, content it
 The node names are prefixed with `kenticoCloud`. More specifically, content type nodes are prefixed by `kenticoCloudType` and content items and their language variants are prefixed with `kenticoCloudItem`.
 
 GraphQL nodes of content items contain the ordinary `system` and `elements` properties. However, the properties inside `elements` always have an internal structure that the aforementioned [Delivery SDK](https://github.com/Kentico/kentico-cloud-js/blob/master/packages/delivery/lib/models/item/content-item.class.ts) produces with **modifications** described in following section.
-
 
 ### Content item <-> content type relationships
 
@@ -203,7 +197,7 @@ The `related_project_refereces_nodes` will give you the full-fledged Gatsby Grap
 </details>
 
 
-> :bulb: When you are modelling linked items, make sure you have no element with the same codename of different type. In case you had some, they would be omitted from the model and the warning is logged during model generation.
+> :bulb: When you are modelling linked items, make sure you have no element with the same codename of different type. In case you had some, they would be omitted from the model and the following warning is logged during model generation.
 ```
 KenticoCloudItemArticle.elements.related_articles[].elements.manufacturer.value:
  - type: array<object> # THIS IS CHECK BOX ELEMENT
@@ -211,8 +205,6 @@ KenticoCloudItemArticle.elements.related_articles[].elements.manufacturer.value:
  - type: string # THIS IS TEXT ELEMENT
    value: 'Hario'
 ```
-
-
 
 > Since v 3.0.0 it is possible to model circular dependency in Kentico Cloud and use this plugin at one time. When the circular dependency is detected during the GraphQL generation, warning is logged to the console and a flag `cycleDetected` is placed next to the `elements` and `system` property.
 
@@ -295,7 +287,7 @@ All rich text properties with content items linked in the element also have an a
             value
             links {
               codename
-              itemId
+              linkId
               type
               urlSlug
             }
@@ -357,6 +349,10 @@ When you change the structure of the data, or the data itself and then `gatsby d
 ## Further information
 
 For more developer resources, visit the Kentico Cloud Developer Hub at https://developer.kenticocloud.com.
+
+### Previous version
+
+For version 2 use [this branch](https://github.com/Kentico/gatsby-source-kentico-cloud/tree/v2).
 
 ## Feedback & Contributing
 
