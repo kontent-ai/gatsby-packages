@@ -357,7 +357,16 @@ When you change the structure of the data, or the data itself and then `gatsby d
 
 For more developer resources, visit the Kentico Cloud Developer Hub at https://developer.kenticocloud.com.
 
-### Previous version
+## Running projects
+* [Kentico Developer Community Site](http://kentico.github.io) [[source code](https://github.com/Kentico/kentico.github.io/tree/source)]
+* [Kentico Advantage](https://advantage.kentico.com/) [[source code](https://github.com/Kentico/kentico-advantage/tree/source)]
+* [Richard Shackleton's Personal portfolio and blog website](https://rshackleton.co.uk/) [[source code](https://github.com/rshackleton/rshackleton.co.uk)]
+
+### Guides and blog posts
+* [Sourcing from Kentico Cloud](https://www.gatsbyjs.org/docs/sourcing-from-kentico-cloud/)
+* [Rendering Kentico Cloud linked content items with React components in Gatsby](https://rshackleton.co.uk/articles/rendering-kentico-cloud-linked-content-items-with-react-components-in-gatsby) by [@rshackleton](https://github.com/rshackleton)
+
+### Previous versions
 
 For version 2 use [this branch](https://github.com/Kentico/gatsby-source-kentico-cloud/tree/v2).
 
@@ -366,3 +375,5 @@ For version 2 use [this branch](https://github.com/Kentico/gatsby-source-kentico
 Check out the [contributing](https://github.com/Kentico/gatsby-source-kentico-cloud/blob/master/CONTRIBUTING.md) contributing page to see the best places to file issues, start discussions, and begin contributing.
 
 ![Analytics](https://kentico-ga-beacon.azurewebsites.net/api/UA-69014260-4/Kentico/gatsby-source-kentico-cloud?pixel)
+
+
