@@ -34,31 +34,31 @@
   "dependencies": {
     "change-case": "^3.1.0",
     "flatted": "^2.0.0",
-    "kentico-cloud-delivery": "^5.4.0",
+    "kentico-cloud-delivery": "^5.5.0",
     "lodash": "^4.17.11",
-    "react": "^16.6.3",
-    "react-dom": "^16.6.3",
-    "rxjs": "^6.3.3"
+    "react": "^16.8.3",
+    "react-dom": "^16.8.3",
+    "rxjs": "^6.4.0"
   },
   "peerDependencies": {
-    "gatsby": ">=2"
+    "gatsby": ">=2.1.18"
   },
   "devDependencies": {
-    "@babel/cli": "^7.1.5",
-    "@babel/core": "^7.1.6",
-    "@babel/polyfill": "^7.0.0",
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.3.3",
+    "@babel/polyfill": "^7.2.5",
     "@babel/preset-env": "^7.3.1",
-    "babel-core": "^7.0.0-bridge.0",
-    "babel-eslint": "^9.0.0",
-    "babel-jest": "^23.6.0",
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^24.1.0",
     "babel-preset-gatsby-package": "^0.1.3",
     "cross-env": "^5.2.0",
-    "eslint": "^5.12.1",
-    "eslint-config-google": "^0.10.0",
-    "eslint-plugin-node": "^7.0.1",
-    "gatsby": "^2.0.91",
-    "jest": "^23.6.0",
+    "eslint": "^5.14.1",
+    "eslint-config-google": "^0.12.0",
+    "eslint-plugin-node": "^8.0.1",
+    "gatsby": "^2.1.18",
+    "jest": "^24.1.0",
     "kentico-cloud-js-sdk-test-http-service": "0.0.1",
-    "regenerator-runtime": "^0.12.1"
+    "regenerator-runtime": "^0.13.1"
   }
 }
