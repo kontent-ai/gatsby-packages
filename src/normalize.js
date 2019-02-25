@@ -35,7 +35,7 @@ const parseContentItemContents =
       let propertyValue;
 
       if (_.get(contentItem, `elements[${key}].type`) === 'modular_content') {
-        let linkedItems = [];
+        const linkedItems = [];
         contentItem[key].forEach((linkedItem) => {
           linkedItems.push(
             parseContentItemContents(

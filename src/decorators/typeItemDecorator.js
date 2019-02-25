@@ -26,7 +26,7 @@ const decorateTypeNodesWithItemLinks = (
     );
 
     if (!_.isEmpty(itemNodesPerType)) {
-      let flatList =
+      const flatList =
         itemNodesPerType.map((itemNodePerType) => itemNodePerType.id);
       contentTypeNode.contentItems___NODE.push(...flatList);
     }
