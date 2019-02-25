@@ -347,7 +347,7 @@ All nodes have a `usedByContentItems` property that reflects the other nodes in 
 
 ## Debugging
 
-To get a smooth debugging experience, you can temporarily copy the `gatsby-source-kentico-cloud` [directory](https://github.com/Kentico/gatsby-source-kentico-cloud) of the source plugin to the `/plugins` directory of your project and run `npm install` then your project would use this local source plugin.
+To get a smooth debugging experience, you can temporarily copy the `gatsby-source-kentico-cloud` [directory](https://github.com/Kentico/gatsby-source-kentico-cloud) of the source plugin to the `/plugins` directory of your project and run `npm install` and `npm run build` there. Then your project would use this local source plugin.
 
 ## Troubleshoot
 
