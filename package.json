@@ -26,6 +26,9 @@
     "gatsby-plugin"
   ],
   "author": "Jan Lenoch <janl@kentico.com>",
+  "contributors": [
+    "Ondřej Chrastina <ondrej.chrastina@gmail.com> (https://github.com/Simply007)"
+  ],
   "license": "MIT",
   "private": false,
   "engines": {
