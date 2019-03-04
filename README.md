@@ -358,7 +358,7 @@ When you change the structure of the data, or the data itself and then `gatsby d
 For more developer resources, visit the Kentico Cloud Developer Hub at https://developer.kenticocloud.com.
 
 ### Running projects
-* [Kentico Developer Community Site](http://kentico.github.io) [[source code](https://github.com/Kentico/kentico.github.io/tree/source)]
+* [Kentico Developer Community Site](https://kentico.github.io) [[source code](https://github.com/Kentico/kentico.github.io/tree/source)]
 * [Kentico Advantage](https://advantage.kentico.com/) [[source code](https://github.com/Kentico/kentico-advantage/tree/source)]
 * [Richard Shackleton's Personal portfolio and blog website](https://rshackleton.co.uk/) [[source code](https://github.com/rshackleton/rshackleton.co.uk)]
 * [Aaron Collier's Czech Theather site](https://czechtheater.cz/) [[source code](https://github.com/CollierCZ/czechtheater)]
