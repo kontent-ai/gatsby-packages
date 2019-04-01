@@ -25,7 +25,7 @@ const decorateItemsWithLanguageVariants = (
       }
     });
 
-    for (let [otherLanguageCodename, otherLanguageNodes]
+    for (const [otherLanguageCodename, otherLanguageNodes]
       of nonDefaultLanguageItemNodes) {
       if (otherLanguageCodename !== languageCodename) {
         currentLanguageNodes.forEach((contentItemNode) => {
