@@ -352,6 +352,8 @@ All nodes have a `usedByContentItems` property that reflects the other nodes in 
 
 To get a smooth debugging experience, you can temporarily copy the `gatsby-source-kentico-cloud` [directory](https://github.com/Kentico/gatsby-source-kentico-cloud) of the source plugin to the `/plugins` directory of your project and run `npm install` and `npm run build` there. Then your project would use this local source plugin.
 
+*Note:* It might be necessary to remove */.cache*, */node_modules*, */package-lock.json* and *run npm* install again.
+
 ## Troubleshoot
 
 When you change the structure of the data, or the data itself and then `gatsby develop`, or `gatsby build` command raise an error about the Gatsby presumes the old data structure. Try to remove `.cache` folder and run the command again, it is quite usual that Gatsby is caching the information about the content structure and does not clear it.
