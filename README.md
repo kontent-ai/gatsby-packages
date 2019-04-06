@@ -380,7 +380,7 @@ For version 2 use [this branch](https://github.com/Kentico/gatsby-source-kentico
 
 ## Feedback & Contributing
 
-Check out the [contributing](https://github.com/Kentico/gatsby-source-kentico-cloud/blob/master/CONTRIBUTING.md) contributing page to see the best places to file issues, start discussions, and begin contributing.
+Check out the [contributing](https://github.com/Kentico/gatsby-source-kentico-cloud/blob/master/CONTRIBUTING.md) page to see the best places for file issues, to start discussions, and begin contributing.
 
 ![Analytics](https://kentico-ga-beacon.azurewebsites.net/api/UA-69014260-4/Kentico/gatsby-source-kentico-cloud?pixel)
 
