@@ -27,10 +27,15 @@ const getFromDefaultLanguage = async (
     .languageParameter(defaultLanguageCodename)
     .getPromise();
 
-  richTextElementDecorator
-    .resolveHtml(contentItemsResponse.items);
+  const allItems = _.unionBy(
+    contentItemsResponse.items,
+    contentItemsResponse.linkedItems,
+    'system.codename');
 
-  const itemsFlatted = parse(stringify(contentItemsResponse.items));
+  richTextElementDecorator
+    .resolveHtml(allItems);
+
+  const itemsFlatted = parse(stringify(allItems));
   const contentItemNodes = itemsFlatted.map((contentItem) => {
     try {
       return createContentItemNode(
@@ -67,10 +72,15 @@ const getFromNonDefaultLanguage = async (
       .languageParameter(languageCodename)
       .getPromise();
 
-    richTextElementDecorator
-      .resolveHtml(languageResponse.items);
+    const allItems = _.unionBy(
+      languageResponse.items,
+      languageResponse.linkedItems,
+      'system.codename');
 
-    const languageItemsFlatted = parse(stringify(languageResponse.items));
+    richTextElementDecorator
+      .resolveHtml(allItems);
+
+    const languageItemsFlatted = parse(stringify(allItems));
     const contentItemsNodes = languageItemsFlatted.map((languageItem) =>
       createContentItemNode(
         createNodeId,

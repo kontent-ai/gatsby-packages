@@ -238,9 +238,8 @@ describe('sourceNodes', () => {
       );
     expect(landingPageNode)
       .toHaveProperty('elements.content.linked_items___NODE');
-    // TODO should have length 2 after it is fixed - https://github.com/Kentico/kentico-cloud-js/issues/114
     expect(landingPageNode.elements.content.linked_items___NODE)
-      .toHaveLength(1);
+      .toHaveLength(2);
   });
 });
 
