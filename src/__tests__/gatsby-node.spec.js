@@ -9,6 +9,13 @@ const fakeItemsResponseWithRichTextElement =
   require('./fakeItemsResponseWithRichTextElement.json');
 const fakeTypesResponseWithRichTextElement =
   require('./fakeTypesResponseWithRichTextElement.json');
+const complexContentItemsFirstLanguageFakeReponse =
+  require('./complexContentItemsFirstLanguageFakeReponse.json');
+const complexContentItemsSecondtLanguageFakeReponse =
+  require('./complexContentItemsSecondLanguageFakeReponse.json');
+const complexTypesFakeResponse =
+  require('./complexTypesFakeResponse.json');
+
 const {
   expectedResolvedRichTextComponent,
   expectedResolvedRichTextImages,
@@ -243,6 +250,56 @@ describe('sourceNodes', () => {
         .toHaveProperty('elements.content.linked_items___NODE');
       expect(landingPageNode.elements.content.linked_items___NODE)
         .toHaveLength(2);
+    });
+  });
+
+  describe('complex multilingual data section', () => {
+    const fakeComplexConfig = new Map();
+    fakeComplexConfig.set(
+      /https:\/\/deliver.kenticocloud.com\/.*\/items.*Another_language.*/,
+      {
+        fakeResponseJson: complexContentItemsSecondtLanguageFakeReponse,
+        throwCloudError: false,
+      });
+    fakeComplexConfig.set(
+      /https:\/\/deliver.kenticocloud.com\/.*\/items/,
+      {
+        fakeResponseJson: complexContentItemsFirstLanguageFakeReponse,
+        throwCloudError: false,
+      });
+    fakeComplexConfig.set(
+      /https:\/\/deliver.kenticocloud.com\/.*\/types/,
+      {
+        fakeResponseJson: complexTypesFakeResponse,
+        throwCloudError: false,
+      });
+
+    const createNodeMock = jest.fn();
+    const actions = {
+      actions: {
+        createNode: createNodeMock,
+      },
+      createNodeId: dummyCreation.createNodeId,
+    };
+
+    const deliveryClientConfig = {
+      projectId: 'dummyProject',
+      typeResolvers: [],
+      httpService: new KenticoCloudJsSdkTestHttpService(
+        fakeComplexConfig
+      ),
+    };
+
+    const pluginConfiguration = {
+      deliveryClientConfig,
+      languageCodenames: ['default', 'Another_language'],
+    };
+
+    it('resolve all element types in two languages', async () => {
+      await sourceNodes(actions, pluginConfiguration);
+
+      const calls = createNodeMock.mock.calls;
+      expect(calls).toMatchSnapshot();
     });
   });
 });
