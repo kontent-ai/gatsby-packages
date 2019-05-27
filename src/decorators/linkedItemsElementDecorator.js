@@ -78,6 +78,8 @@ const decorateItemNodeWithLinkedItemsLinks =
               itemNode.elements[propertyName]
             );
           }
+
+          delete itemNode.elements[propertyName];
         }
       });
   };
