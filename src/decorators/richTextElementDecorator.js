@@ -40,8 +40,7 @@ const decorateItemNodesWithRichTextLinkedItemsLinks = (
 };
 
 /**
- * Create a new property with resolved Html
- *  and propagate images property.
+ * Create a new property with resolved Html.
  * @param {Array} items Items response from JS SDK.
  */
 const resolveHtml = (items) => {
