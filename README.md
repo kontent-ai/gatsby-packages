@@ -25,7 +25,7 @@ npm install --save gatsby-source-kentico-cloud
 
 #### Configuration object ([example](https://github.com/Kentico/gatsby-starter-kentico-cloud/blob/master/gatsby-config.js))
 
-   * `deliveryClientConfig`* - [Kentico Cloud client configuration object](https://github.com/Kentico/kentico-cloud-js/blob/master/packages/delivery/DOCS.md#client-configuration) of the JS SDK.
+   * `deliveryClientConfig`* - [Kentico Cloud client configuration object](https://github.com/Kentico/kentico-cloud-js/blob/master/packages/delivery/DOCS.md#client-configuration) of the JS SDK (like Preview API, Secure API, etc.).
   * `languageCodenames`* - array of language codenames that defines [what languages a configured for the project](https://developer.kenticocloud.com/docs/localization#section-project-languages) - the first one is considered as the **default one**.
 
 \* required property
