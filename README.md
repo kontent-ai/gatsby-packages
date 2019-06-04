@@ -23,9 +23,9 @@ npm install --save gatsby-source-kentico-cloud
 
 > The source plugin uses the [Kentico Cloud SDK](https://github.com/Kentico/kentico-cloud-js/tree/master/packages/delivery#kentico-cloud-delivery-sdk) in the background.
 
-Configuration object([example](https://github.com/Kentico/gatsby-starter-kentico-cloud/blob/master/gatsby-config.js))
+#### Configuration object ([example](https://github.com/Kentico/gatsby-starter-kentico-cloud/blob/master/gatsby-config.js))
 
-   * `deliveryClientConfig`* - [Kentico Cloud client configuration object](https://github.com/Kentico/kentico-cloud-js/blob/master/packages/delivery/DOCS.md#client-configuration) of the JS SDK.
+   * `deliveryClientConfig`* - [Kentico Cloud client configuration object](https://github.com/Kentico/kentico-cloud-js/blob/master/packages/delivery/DOCS.md#client-configuration) of the JS SDK (like Preview API, Secure API, etc.).
   * `languageCodenames`* - array of language codenames that defines [what languages a configured for the project](https://developer.kenticocloud.com/docs/localization#section-project-languages) - the first one is considered as the **default one**.
 
 \* required property
@@ -218,7 +218,7 @@ KenticoCloudItemArticle.elements.related_articles[].elements.manufacturer.value:
 
 > Since v 3.0.0 it is possible to model circular dependency in Kentico Cloud and use this plugin at one time. When the circular dependency is detected during the GraphQL generation, warning is logged to the console and a flag `cycleDetected` is placed next to the `elements` and `system` property.
 
-### Rich text resolution 
+### Rich text resolution
 
 With following features, it is possible to resolve rich text [into the HTML string](#embedded-JS-SDK-resolution), that could be injected to the site. For more complex scenarios, it is possible to use the raw `value` property in combination with [`linked_items`](#content-items-in-rich-text-elements-relationships), [`links`](#links-in-rich-text-elements), and [`images`](#images-in-rich-text-elements) property
 
@@ -245,11 +245,9 @@ Since [Kentico Cloud Delivery SDK](https://github.com/Kentico/kentico-cloud-js/t
 
 </details>
 
-#### Content items in Rich text elements
+#### Content items and components in Rich text elements
 
-As with the previous example, all rich text properties with inline content items linked in the element also have an accompanying `linked_items` property.
-
-> Content components are not present in `linked_items` property. 
+As with the previous example, all rich text element containing [inline content items](https://docs.kenticocloud.com/tutorials/compose-and-link-content/components/structuring-editorial-articles-with-components#a-using-content-items-in-the-rich-text-element) or [components](https://docs.kenticocloud.com/tutorials/compose-and-link-content/components/structuring-editorial-articles-with-components#a-using-components-in-the-rich-text-element) have an accompanying `linked_items` property which is referencing them.
 
 <details><summary>Example</summary>
 

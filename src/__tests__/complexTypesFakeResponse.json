@@ -1,0 +1,214 @@
+{
+  "types": [
+    {
+      "system": {
+        "id": "081a7b99-575d-473c-9cd0-67094803da73",
+        "name": "Person",
+        "codename": "person",
+        "last_modified": "2019-04-01T18:07:57.2978661Z"
+      },
+      "elements": {
+        "profile_photo": {
+          "type": "asset",
+          "name": "Profile Photo"
+        },
+        "bio": {
+          "type": "rich_text",
+          "name": "Bio"
+        },
+        "name_and_surname": {
+          "type": "text",
+          "name": "Name and Surname"
+        },
+        "gender": {
+          "type": "multiple_choice",
+          "name": "Gender",
+          "options": [
+            {
+              "name": "Man",
+              "codename": "man"
+            },
+            {
+              "name": "Woman",
+              "codename": "woman"
+            },
+            {
+              "name": "Other",
+              "codename": "other"
+            }
+          ]
+        },
+        "favorite_number": {
+          "type": "number",
+          "name": "Favorite Number"
+        },
+        "url_slug": {
+          "type": "url_slug",
+          "name": "URL slug"
+        },
+        "date_of_birth": {
+          "type": "date_time",
+          "name": "Date of Birth"
+        }
+      }
+    },
+    {
+      "system": {
+        "id": "c88be77c-83a6-4839-855f-66c28f624d1d",
+        "name": "Repository",
+        "codename": "repository",
+        "last_modified": "2019-04-01T18:29:04.7184530Z"
+      },
+      "elements": {
+        "description": {
+          "type": "custom",
+          "name": "Description"
+        },
+        "name": {
+          "type": "text",
+          "name": "Name"
+        },
+        "url": {
+          "type": "text",
+          "name": "URL"
+        }
+      }
+    },
+    {
+      "system": {
+        "id": "9dfcd879-0d06-45ca-9b2c-67fd9c6e3b34",
+        "name": "Session",
+        "codename": "session",
+        "last_modified": "2019-04-01T18:40:04.7086396Z"
+      },
+      "elements": {
+        "summary": {
+          "type": "rich_text",
+          "name": "Summary"
+        },
+        "name": {
+          "type": "text",
+          "name": "Name"
+        },
+        "assets": {
+          "type": "asset",
+          "name": "Assets"
+        },
+        "excercise": {
+          "type": "rich_text",
+          "name": "Excercise"
+        },
+        "agenda": {
+          "type": "modular_content",
+          "name": "Agenda"
+        },
+        "checklist": {
+          "type": "multiple_choice",
+          "name": "Checklist",
+          "options": [
+            {
+              "name": "Training sessions scheduled",
+              "codename": "training_sessions_scheduled"
+            },
+            {
+              "name": "Training rooms reserved",
+              "codename": "training_rooms_reserved"
+            },
+            {
+              "name": "Presentations and files proofread",
+              "codename": "presentations_and_files_proofread"
+            },
+            {
+              "name": "Introduction and supporting files uploaded",
+              "codename": "introduction_and_supporting_files_uploaded"
+            },
+            {
+              "name": "START code files and FINAL code files uploaded",
+              "codename": "start_code_files_and_final_code_files_uploaded"
+            },
+            {
+              "name": "Exercise step-by-step instructions added",
+              "codename": "exercise_step_by_step_instructions_added"
+            },
+            {
+              "name": "Training session tagged in Confluence",
+              "codename": "training_session_tagged_in_confluence"
+            }
+          ]
+        },
+        "presenter": {
+          "type": "modular_content",
+          "name": "Presenter"
+        }
+      }
+    },
+    {
+      "system": {
+        "id": "c4b8e601-77f5-4535-b522-8b38db55873e",
+        "name": "Step",
+        "codename": "step",
+        "last_modified": "2019-04-01T18:40:11.1952697Z"
+      },
+      "elements": {
+        "text": {
+          "type": "rich_text",
+          "name": "Text"
+        }
+      }
+    },
+    {
+      "system": {
+        "id": "d4cf750f-61d3-4782-bf9c-b7184b7b2fc3",
+        "name": "Training",
+        "codename": "training",
+        "last_modified": "2019-04-01T18:44:00.4246990Z"
+      },
+      "elements": {
+        "author": {
+          "type": "modular_content",
+          "name": "Author"
+        },
+        "name": {
+          "type": "text",
+          "name": "Name"
+        },
+        "sessions": {
+          "type": "modular_content",
+          "name": "Sessions"
+        },
+        "description": {
+          "type": "rich_text",
+          "name": "Description"
+        }
+      }
+    },
+    {
+      "system": {
+        "id": "aeabe925-9221-4fb2-bc3a-2a91abc904fd",
+        "name": "Website",
+        "codename": "website",
+        "last_modified": "2019-04-01T18:33:45.0353591Z"
+      },
+      "elements": {
+        "url": {
+          "type": "text",
+          "name": "URL"
+        },
+        "name": {
+          "type": "text",
+          "name": "Name"
+        },
+        "description": {
+          "type": "rich_text",
+          "name": "Description"
+        }
+      }
+    }
+  ],
+  "pagination": {
+    "skip": 0,
+    "limit": 0,
+    "count": 6,
+    "next_page": ""
+  }
+}

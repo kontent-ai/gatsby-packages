@@ -9,6 +9,13 @@ const fakeItemsResponseWithRichTextElement =
   require('./fakeItemsResponseWithRichTextElement.json');
 const fakeTypesResponseWithRichTextElement =
   require('./fakeTypesResponseWithRichTextElement.json');
+const complexContentItemsFirstLanguageFakeReponse =
+  require('./complexContentItemsFirstLanguageFakeReponse.json');
+const complexContentItemsSecondtLanguageFakeReponse =
+  require('./complexContentItemsSecondLanguageFakeReponse.json');
+const complexTypesFakeResponse =
+  require('./complexTypesFakeResponse.json');
+
 const {
   expectedResolvedRichTextComponent,
   expectedResolvedRichTextImages,
@@ -27,35 +34,6 @@ describe('customTrackingHeader', () => {
 });
 
 describe('sourceNodes', () => {
-  const fakeEmptyResponseConfig = new Map();
-  fakeEmptyResponseConfig.set(
-    /https:\/\/deliver.kenticocloud.com\/.*\/items/,
-    {
-      fakeResponseJson: {
-        items: [],
-        pagination: {
-          continuation_token: null,
-          next_page: null,
-        },
-      },
-      throwCloudError: false,
-    });
-  fakeEmptyResponseConfig.set(
-    /https:\/\/deliver.kenticocloud.com\/.*\/types/,
-    {
-      fakeResponseJson: {
-        types: [],
-        pagination: {
-          continuation_token: null,
-          next_page: null,
-        },
-      },
-      throwCloudError: false,
-    });
-
-  const fakeEmptyTestService =
-    new KenticoCloudJsSdkTestHttpService(fakeEmptyResponseConfig);
-
   const dummyCreateNodeID = jest.fn();
   dummyCreateNodeID.mockReturnValue('dummyId');
 
@@ -66,133 +44,235 @@ describe('sourceNodes', () => {
     createNodeId: dummyCreateNodeID,
   };
 
-
-  it('does add tracking header', async () => {
-    const deliveryClientConfig = {
-      projectId: 'dummyEmptyProject',
-      httpService: fakeEmptyTestService,
-    };
-
-    await sourceNodes(
-      dummyCreation,
-      {
-        deliveryClientConfig,
-        languageCodenames: ['default'],
-      }
-    );
-
-    expect(deliveryClientConfig.globalHeaders)
-      .toContainEqual(customTrackingHeader);
-  });
-
-  it('does update tracking header value', async () => {
-    const deliveryClientConfig = {
-      projectId: 'dummyEmptyProject',
-      httpService: fakeEmptyTestService,
-      globalHeaders: [
-        {
-          header: customTrackingHeader.header,
-          value: 'dummyValue',
-        },
-      ],
-    };
-
-    await sourceNodes(
-      dummyCreation,
-      {
-        deliveryClientConfig,
-        languageCodenames: ['default'],
-      }
-    );
-
-    expect(deliveryClientConfig.globalHeaders)
-      .toContainEqual(customTrackingHeader);
-    expect(deliveryClientConfig.globalHeaders.length)
-      .toEqual(1);
-  });
-
-  it('does not influence other tracking header value', async () => {
-    const anotherHeader = {
-      header: 'another-header-name',
-      value: 'dummyValue',
-    };
-    const deliveryClientConfig = {
-      projectId: 'dummyEmptyProject',
-      httpService: fakeEmptyTestService,
-      globalHeaders: [
-        anotherHeader,
-      ],
-    };
-
-    await sourceNodes(
-      dummyCreation,
-      {
-        deliveryClientConfig,
-        languageCodenames: ['default'],
-      }
-    );
-
-    expect(deliveryClientConfig.globalHeaders)
-      .toContainEqual(customTrackingHeader);
-    expect(deliveryClientConfig.globalHeaders)
-      .toContainEqual(anotherHeader);
-    expect(deliveryClientConfig.globalHeaders.length)
-      .toEqual(2);
-  });
-
-  class LandingPageImageSection extends ContentItem {
-    constructor() {
-      super({
-        richTextResolver: (_contentItem, _context) =>
-          '###landing_page_image_section###',
-      });
-    }
-  }
-
-  class Project extends ContentItem {
-    constructor() {
-      super({
-        linkResolver: (_link, _context) => '###projectlink###',
-        richTextResolver: (_contentItem, _context) =>
-          '###project###',
-      });
-    }
-  }
-
-
-  it('does resolve rich text element', async () => {
-    const fakeRichTextResponseConfig = new Map();
-    fakeRichTextResponseConfig.set(
+  describe('tracking header tests', () => {
+    const fakeEmptyResponseConfig = new Map();
+    fakeEmptyResponseConfig.set(
       /https:\/\/deliver.kenticocloud.com\/.*\/items/,
       {
-        fakeResponseJson: fakeItemsResponseWithRichTextElement,
+        fakeResponseJson: {
+          items: [],
+          pagination: {
+            continuation_token: null,
+            next_page: null,
+          },
+        },
         throwCloudError: false,
       });
-    fakeRichTextResponseConfig.set(
+    fakeEmptyResponseConfig.set(
       /https:\/\/deliver.kenticocloud.com\/.*\/types/,
       {
-        fakeResponseJson: fakeTypesResponseWithRichTextElement,
+        fakeResponseJson: {
+          types: [],
+          pagination: {
+            continuation_token: null,
+            next_page: null,
+          },
+        },
         throwCloudError: false,
       });
-    const deliveryClientConfig = {
-      projectId: 'dummyProject',
-      typeResolvers: [
-        new TypeResolver('landing_page_image_section', () =>
-          new LandingPageImageSection()
+
+    const fakeEmptyTestService =
+      new KenticoCloudJsSdkTestHttpService(fakeEmptyResponseConfig);
+
+
+    it('does add tracking header', async () => {
+      const deliveryClientConfig = {
+        projectId: 'dummyEmptyProject',
+        httpService: fakeEmptyTestService,
+      };
+
+      await sourceNodes(
+        dummyCreation,
+        {
+          deliveryClientConfig,
+          languageCodenames: ['default'],
+        }
+      );
+
+      expect(deliveryClientConfig.globalHeaders)
+        .toContainEqual(customTrackingHeader);
+    });
+
+    it('does update tracking header value', async () => {
+      const deliveryClientConfig = {
+        projectId: 'dummyEmptyProject',
+        httpService: fakeEmptyTestService,
+        globalHeaders: [
+          {
+            header: customTrackingHeader.header,
+            value: 'dummyValue',
+          },
+        ],
+      };
+
+      await sourceNodes(
+        dummyCreation,
+        {
+          deliveryClientConfig,
+          languageCodenames: ['default'],
+        }
+      );
+
+      expect(deliveryClientConfig.globalHeaders)
+        .toContainEqual(customTrackingHeader);
+      expect(deliveryClientConfig.globalHeaders.length)
+        .toEqual(1);
+    });
+
+    it('does not influence other tracking header value', async () => {
+      const anotherHeader = {
+        header: 'another-header-name',
+        value: 'dummyValue',
+      };
+      const deliveryClientConfig = {
+        projectId: 'dummyEmptyProject',
+        httpService: fakeEmptyTestService,
+        globalHeaders: [
+          anotherHeader,
+        ],
+      };
+
+      await sourceNodes(
+        dummyCreation,
+        {
+          deliveryClientConfig,
+          languageCodenames: ['default'],
+        }
+      );
+
+      expect(deliveryClientConfig.globalHeaders)
+        .toContainEqual(customTrackingHeader);
+      expect(deliveryClientConfig.globalHeaders)
+        .toContainEqual(anotherHeader);
+      expect(deliveryClientConfig.globalHeaders.length)
+        .toEqual(2);
+    });
+  });
+
+  describe('rich text section', () => {
+    class LandingPageImageSection extends ContentItem {
+      constructor() {
+        super({
+          richTextResolver: (_contentItem, _context) =>
+            '###landing_page_image_section###',
+        });
+      }
+    }
+
+    class Project extends ContentItem {
+      constructor() {
+        super({
+          linkResolver: (_link, _context) => '###projectlink###',
+          richTextResolver: (_contentItem, _context) =>
+            '###project###',
+        });
+      }
+    }
+
+
+    it('does resolve rich text element', async () => {
+      const fakeRichTextResponseConfig = new Map();
+      fakeRichTextResponseConfig.set(
+        /https:\/\/deliver.kenticocloud.com\/.*\/items/,
+        {
+          fakeResponseJson: fakeItemsResponseWithRichTextElement,
+          throwCloudError: false,
+        });
+      fakeRichTextResponseConfig.set(
+        /https:\/\/deliver.kenticocloud.com\/.*\/types/,
+        {
+          fakeResponseJson: fakeTypesResponseWithRichTextElement,
+          throwCloudError: false,
+        });
+      const deliveryClientConfig = {
+        projectId: 'dummyProject',
+        typeResolvers: [
+          new TypeResolver('landing_page_image_section', () =>
+            new LandingPageImageSection()
+          ),
+          new TypeResolver('project', () =>
+            new Project()),
+        ],
+        httpService: new KenticoCloudJsSdkTestHttpService(
+          fakeRichTextResponseConfig
         ),
-        new TypeResolver('project', () =>
-          new Project()),
-      ],
-      httpService: new KenticoCloudJsSdkTestHttpService(
-        fakeRichTextResponseConfig
-      ),
-    };
-    const expectedRichTextValue = fakeItemsResponseWithRichTextElement
-      .items
-      .filter((item) => item.system.codename === 'simple_landing_page')[0]
-      .elements
-      .content
-      .value;
+      };
+      const expectedRichTextValue = fakeItemsResponseWithRichTextElement
+        .items
+        .filter((item) => item.system.codename === 'simple_landing_page')[0]
+        .elements
+        .content
+        .value;
+
+      const createNodeMock = jest.fn();
+      const actions = {
+        actions: {
+          createNode: createNodeMock,
+        },
+        createNodeId: dummyCreation.createNodeId,
+      };
+      const pluginConfiguration = {
+        deliveryClientConfig,
+        languageCodenames: ['default'],
+      };
+
+      await sourceNodes(actions, pluginConfiguration);
+
+      const landingPageCallNodeSelection = createNodeMock
+        .mock
+        .calls
+        .filter((call) => {
+          const firstArgument = call[0];
+          return firstArgument.internal.type.startsWith('KenticoCloudItem')
+            && firstArgument.system.codename === 'simple_landing_page';
+        });
+
+      expect(landingPageCallNodeSelection).toHaveLength(1);
+      expect(landingPageCallNodeSelection[0]).toHaveLength(1);
+      const landingPageNode = landingPageCallNodeSelection[0][0];
+
+      expect(landingPageNode)
+        .toHaveProperty(
+          'elements.content.value',
+          expectedRichTextValue
+        );
+      expect(landingPageNode)
+        .toHaveProperty(
+          'elements.content.images',
+          expectedResolvedRichTextImages
+        );
+      expect(landingPageNode)
+        .toHaveProperty(
+          'elements.content.resolvedHtml',
+          expectedResolvedRichTextComponent
+        );
+      expect(landingPageNode)
+        .toHaveProperty('elements.content.linked_items___NODE');
+      expect(landingPageNode.elements.content.linked_items___NODE)
+        .toHaveLength(2);
+    });
+  });
+
+  describe('complex multilingual data section', () => {
+    const fakeComplexConfig = new Map();
+    fakeComplexConfig.set(
+      /https:\/\/deliver.kenticocloud.com\/.*\/items.*Another_language.*/,
+      {
+        fakeResponseJson: complexContentItemsSecondtLanguageFakeReponse,
+        throwCloudError: false,
+      });
+    fakeComplexConfig.set(
+      /https:\/\/deliver.kenticocloud.com\/.*\/items/,
+      {
+        fakeResponseJson: complexContentItemsFirstLanguageFakeReponse,
+        throwCloudError: false,
+      });
+    fakeComplexConfig.set(
+      /https:\/\/deliver.kenticocloud.com\/.*\/types/,
+      {
+        fakeResponseJson: complexTypesFakeResponse,
+        throwCloudError: false,
+      });
 
     const createNodeMock = jest.fn();
     const actions = {
@@ -201,46 +281,27 @@ describe('sourceNodes', () => {
       },
       createNodeId: dummyCreation.createNodeId,
     };
-    const pluginConfiguration = {
-      deliveryClientConfig,
-      languageCodenames: ['default'],
+
+    const deliveryClientConfig = {
+      projectId: 'dummyProject',
+      typeResolvers: [],
+      httpService: new KenticoCloudJsSdkTestHttpService(
+        fakeComplexConfig
+      ),
     };
 
-    await sourceNodes(actions, pluginConfiguration);
+    const pluginConfiguration = {
+      deliveryClientConfig,
+      languageCodenames: ['default', 'Another_language'],
+    };
 
-    const landingPageCallNodeSelection = createNodeMock
-      .mock
-      .calls
-      .filter((call) => {
-        const firstArgument = call[0];
-        return firstArgument.internal.type.startsWith('KenticoCloudItem')
-          && firstArgument.system.codename === 'simple_landing_page';
-      });
+    it('resolve all element types in two languages', async () => {
+      await sourceNodes(actions, pluginConfiguration);
 
-    expect(landingPageCallNodeSelection).toHaveLength(1);
-    expect(landingPageCallNodeSelection[0]).toHaveLength(1);
-    const landingPageNode = landingPageCallNodeSelection[0][0];
-
-    expect(landingPageNode)
-      .toHaveProperty(
-        'elements.content.value',
-        expectedRichTextValue
-      );
-    expect(landingPageNode)
-      .toHaveProperty(
-        'elements.content.images',
-        expectedResolvedRichTextImages
-      );
-    expect(landingPageNode)
-      .toHaveProperty(
-        'elements.content.resolvedHtml',
-        expectedResolvedRichTextComponent
-      );
-    expect(landingPageNode)
-      .toHaveProperty('elements.content.linked_items___NODE');
-    // TODO should have length 2 after it is fixed - https://github.com/Kentico/kentico-cloud-js/issues/114
-    expect(landingPageNode.elements.content.linked_items___NODE)
-      .toHaveLength(1);
+      const calls = createNodeMock.mock.calls;
+      expect(calls).toMatchSnapshot();
+    });
   });
 });
+
 
