@@ -366,6 +366,7 @@ For more developer resources, visit the Kentico Cloud Developer Hub at https://d
 * [Richard Shackleton's Personal portfolio and blog website](https://rshackleton.co.uk/) [[source code](https://github.com/rshackleton/rshackleton.co.uk)]
 * [Aaron Collier's Czech Theather site](https://czechtheater.cz/) [[source code](https://github.com/CollierCZ/czechtheater)]
 * [Ilesh Mistry's personal blog site](https://www.ileshmistry.com/)
+* [Matt Nield's personal blog site](https://www.mattnield.co.uk) [[Source code](https://github.com/mattnield/mattnield-gatsby)]
 
 ### Guides and blog posts
 * [Sourcing from Kentico Cloud](https://www.gatsbyjs.org/docs/sourcing-from-kentico-cloud/)
