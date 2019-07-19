@@ -10,11 +10,15 @@
 
 This repo contains a [Gatsby (v2) source plugin](https://www.gatsbyjs.org/docs/recipes/#sourcing-data) that retrieves data from the [Kentico Cloud](https://kenticocloud.com) Delivery API.
 
-## How to run the code
+## Get started
 
 You can use the plugin in any of the following ways:
 
-### Install to your existing Gatsby project 
+### A) Use the Kentico Cloud sourcing guide
+
+If you are new to the Gatsby ecosystem. The best way to start with using Gatsby & Kentico Cloud is to follow the official [Sourcing guide for Kentico Cloud](https://www.gatsbyjs.org/docs/sourcing-from-kentico-cloud/). To learn more about from sourcing from headless CMSs see the [Gatsby docs overview page](https://www.gatsbyjs.org/docs/headless-cms/).
+
+### B) Install plugin to your existing Gatsby project 
 1. Install the [gatsby-source-kentico-cloud](https://www.npmjs.com/package/gatsby-source-kentico-cloud) NPM package,
 ```
 npm install --save gatsby-source-kentico-cloud
@@ -55,7 +59,7 @@ module.exports = {
 3. Run `gatsby develop` and data from Kentico Cloud are provided in Gatsby GraphQL model.
 All Kentico Cloud content element values  reside inside of the `elements` property of `kenticoCloudItem` nodes.
 
-### Scaffold your project using Gatsby Kentico Cloud starter site
+### C) Scaffold your project using Gatsby Kentico Cloud starter site
 
 Use the [gatsby-starter-kentico-cloud](https://github.com/Kentico/gatsby-starter-kentico-cloud) starter site that includes this source plugin
 * [Gatsby gallery](https://www.gatsbyjs.org/starters/Kentico/gatsby-starter-kentico-cloud)
