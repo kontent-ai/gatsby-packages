@@ -27,6 +27,7 @@ const parseContentItemContents =
     processedContents.push(contentItem.system.codename);
     const elements = {};
 
+    // TODO Needs to be changed - elements ar in rawDebug
     const elementPropertyKeys = Object
       .keys(contentItem)
       .filter((key) => key !== `system` && key !== `elements`);
