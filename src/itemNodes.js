@@ -25,7 +25,7 @@ const getFromDefaultLanguage = async (
   const contentItemsResponse = await client
     .items()
     .languageParameter(defaultLanguageCodename)
-    .getPromise();
+    .toPromise();
 
   const allItems = _.unionBy(
     contentItemsResponse.items,

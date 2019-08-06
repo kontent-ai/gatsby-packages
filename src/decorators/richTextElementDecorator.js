@@ -51,7 +51,8 @@ const resolveHtml = (items) => {
         _.has(item[key], `type`)
         && item[key].type === `rich_text`)
       .forEach((key) => {
-        item.elements[key].resolvedHtml = item[key].getHtml().toString();
+        // TODO: item.debug.rawElements = item[key].resolveHtml().toString() and then use this value when parsing
+        item.elements[key].resolvedHtml = item[key].resolveHtml().toString();
       });
   });
 };

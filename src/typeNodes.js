@@ -13,7 +13,7 @@ const validation = require('./validation');
 const get = async (client, createNodeId) => {
   const contentTypesResponse = await client
     .types()
-    .getPromise();
+    .toPromise();
   const typesFlatted = parse(stringify(contentTypesResponse.types));
   const contentTypeNodes = typesFlatted.map((contentType) => {
     try {
