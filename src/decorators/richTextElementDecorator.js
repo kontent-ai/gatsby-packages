@@ -52,6 +52,7 @@ const resolveHtml = (items) => {
         && item[key].type === `rich_text`)
       .forEach((key) => {
         // TODO: item.debug.rawElements = item[key].resolveHtml().toString() and then use this value when parsing
+        // Try to remove to string
         item.elements[key].resolvedHtml = item[key].resolveHtml().toString();
       });
   });
@@ -73,8 +74,10 @@ const decorateItemNodeWithRichTextLinkedItemsLinks =
     Object
       .keys(itemNode.elements)
       .forEach((propertyName) => {
+        //TODO use const property = itemNode.debug.rawElements[propertyName];
         const property = itemNode.elements[propertyName];
 
+        // ElementType.RichText from "kentico-cloud-delivery"
         if (_.get(property, `type`) === `rich_text`) {
           const linkPropertyName = `${propertyName}.linked_items___NODE`;
 

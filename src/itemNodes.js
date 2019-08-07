@@ -29,6 +29,7 @@ const getFromDefaultLanguage = async (
 
   const allItems = _.unionBy(
     contentItemsResponse.items,
+    // TODO not array anymore - it is an object - use probably contentItemsResponse.linkedItems.values()
     contentItemsResponse.linkedItems,
     'system.codename');
 
