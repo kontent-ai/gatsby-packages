@@ -15,7 +15,7 @@ const linkedItemsElementDecorator =
   require('./decorators/linkedItemsElementDecorator');
 const richTextElementDecorator =
   require('./decorators/richTextElementDecorator');
-// const { customTrackingHeader } = require('./config');
+const { customTrackingHeader } = require('./config');
 
 
 exports.sourceNodes =
@@ -29,8 +29,7 @@ exports.sourceNodes =
     const defaultLanguageCodename = languageCodenames[0];
     const nonDefaultLanguageCodenames = languageCodenames.slice(1);
 
-    // TODO: uncomment
-    // addHeader(deliveryClientConfig, customTrackingHeader);
+    addHeader(deliveryClientConfig, customTrackingHeader);
 
     const client = new DeliveryClient(deliveryClientConfig);
     const contentTypeNodes = await typeNodes.get(client, createNodeId);
@@ -95,29 +94,28 @@ exports.sourceNodes =
  * @param {IHeader} trackingHeader tracking header name
  */
 const addHeader = (deliveryClientConfig, trackingHeader) => {
-  deliveryClientConfig.globalHeaders = ((xQueryConfig) => {
-    // TODO: Is it necessary ro clone
-    let headers = xQueryConfig
-      ? _.cloneDeep(xQueryConfig)
-      : [];
-    // How to check is header already exists
+  if (!deliveryClientConfig.globalHeaders) {
+    deliveryClientConfig.globalHeaders = (_) => [trackingHeader];
+    return;
+  }
+
+  const originalConfig = _.cloneDeep(deliveryClientConfig);
+
+  deliveryClientConfig.globalHeaders = (queryConfig) => {
+    let headers = originalConfig.globalHeaders(queryConfig);
+
     if (headers.some((header) => header.header === trackingHeader.header)) {
       console.warn(`Custom HTTP header value with name ${trackingHeader.header}
-          will be replaced by the source plugin.
-          Use different header name if you want to avoid this behavior;`);
-      // TODO: How to perform the update
+      will be replaced by the source plugin.
+      Use different header name if you want to avoid this behavior;`);
       headers = headers.filter((header) => {
         return header.header !== trackingHeader.header;
       });
     }
-    // TODO: How to perform only header addition
-    headers.push({
-      header: trackingHeader.header,
-      value: trackingHeader.value,
-    });
 
+    headers.push(trackingHeader);
     return headers;
-  });
+  };
 };
 
 /**
