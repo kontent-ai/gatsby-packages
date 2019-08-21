@@ -37,7 +37,7 @@
   "dependencies": {
     "change-case": "^3.1.0",
     "flatted": "^2.0.0",
-    "kentico-cloud-delivery": "^6.0.0-rc.2",
+    "kentico-cloud-delivery": "^6.2.0",
     "lodash": "^4.17.11",
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
