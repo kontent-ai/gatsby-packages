@@ -29,8 +29,7 @@ const getFromDefaultLanguage = async (
 
   const allItems = _.unionBy(
     contentItemsResponse.items,
-    // TODO not array anymore - it is an object - use probably contentItemsResponse.linkedItems.values()
-    contentItemsResponse.linkedItems,
+    Object.values(contentItemsResponse.linkedItems),
     'system.codename');
 
   richTextElementDecorator
@@ -71,11 +70,11 @@ const getFromNonDefaultLanguage = async (
     const languageResponse = await client
       .items()
       .languageParameter(languageCodename)
-      .getPromise();
+      .toPromise();
 
     const allItems = _.unionBy(
       languageResponse.items,
-      languageResponse.linkedItems,
+      Object.values(languageResponse.linkedItems),
       'system.codename');
 
     richTextElementDecorator
@@ -107,9 +106,6 @@ const createContentItemNode =
     if (!_.isFunction(createNodeId)) {
       throw new Error(`createNodeId is not a function.`);
     }
-    validation.checkItemsObjectStructure([contentItem]);
-    validation.checkTypesObjectStructure(contentTypeNodes);
-
     const codenameParamCase =
       changeCase.paramCase(contentItem.system.codename);
 
@@ -125,6 +121,8 @@ const createContentItemNode =
         === contentItem.system.type);
 
     const itemWithElements = normalize.parseContentItemContents(contentItem);
+    validation.checkItemsObjectStructure([itemWithElements]);
+    validation.checkTypesObjectStructure(contentTypeNodes);
 
     const additionalData = {
       otherLanguages___NODE: [],

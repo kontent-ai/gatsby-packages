@@ -44,7 +44,6 @@ const checkItemsObjectStructure = (contentItemNodes) => {
   }
 };
 
-// TODO - make check for _debug.rawElements
 const hasBasicValidStructure = (contentNodes) => {
   return _.isArray(contentNodes)
     && _.every(contentNodes, ((item) =>

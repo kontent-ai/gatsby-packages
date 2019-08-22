@@ -162,7 +162,7 @@ describe('sourceNodes', () => {
     class Project extends ContentItem {
       constructor() {
         super({
-          linkResolver: (_link, _context) => '###projectlink###',
+          urlSlugResolver: (_link, _context) => ({ url: '###projectlink###' }),
           richTextResolver: (_contentItem, _context) =>
             '###project###',
         });
@@ -187,11 +187,11 @@ describe('sourceNodes', () => {
       const deliveryClientConfig = {
         projectId: 'dummyProject',
         typeResolvers: [
-          new TypeResolver('landing_page_image_section', () =>
-            new LandingPageImageSection()
+          new TypeResolver('landing_page_image_section', (rawData) =>
+            new LandingPageImageSection(rawData)
           ),
-          new TypeResolver('project', () =>
-            new Project()),
+          new TypeResolver('project', (rawData) =>
+            new Project(rawData)),
         ],
         httpService: new KenticoCloudJsSdkTestHttpService(
           fakeRichTextResponseConfig

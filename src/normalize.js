@@ -27,21 +27,16 @@ const parseContentItemContents =
     processedContents.push(contentItem.system.codename);
     const elements = {};
 
-    // TODO Needs to be changed - elements are in _debug.rawElements
-    // Use _debug.rawElements.Keys for iterating instead of elementPropertyKeys
-    const elementPropertyKeys = Object
-      .keys(contentItem)
-      .filter((key) => key !== `system` && key !== `elements`);
+    const elementPropertyKeys = Object.keys(contentItem._raw.elements);
 
     for (const key of elementPropertyKeys) {
       let propertyValue;
 
       // could be used (ElementType.ModularContent) from "kentico-cloud-delivery"
       // if (_.get(contentItem, `_debug.rawElements.elements[${key}].type`) === 'modular_content')
-      if (_.get(contentItem, `elements[${key}].type`) === 'modular_content') {
+      if (_.get(contentItem, `_raw.elements[${key}].type`) === 'modular_content') {
         const linkedItems = [];
-        // TODO is in Value contentItem[key].value.forEach((linkedItem) => {
-        contentItem[key].forEach((linkedItem) => {
+        contentItem[key].value.forEach((linkedItem) => {
           linkedItems.push(
             parseContentItemContents(
               linkedItem, Array.from(processedContents), contentItem
@@ -49,11 +44,19 @@ const parseContentItemContents =
           );
         });
         propertyValue = linkedItems;
+      } else if (_.get(contentItem, `_raw.elements[${key}].type`) === 'rich_text') {
+        const value = _.cloneDeep(contentItem[key]);
+        value.resolvedHtml = value.resolvedData ? value.resolvedData.html : value.value;
+        delete value.resolvedData;
+        propertyValue = value;
       } else {
         // Every element has now a value use contentItem[key].value
         propertyValue = contentItem[key];
       }
 
+      if (propertyValue.rawData) {
+        delete propertyValue.rawData;
+      }
       elements[key] = propertyValue;
     }
 

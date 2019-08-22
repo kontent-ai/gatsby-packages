@@ -2,6 +2,41 @@
 
 exports[`normalize.spec.js createKcArtifactNode with correct arguments creates correct structure for the item node 1`] = `
 Object {
+  "_raw": Object {
+    "elements": Object {
+      "asset_1": Object {
+        "name": "Asset 1",
+        "type": "asset",
+        "value": Array [
+          Object {
+            "description": null,
+            "name": "asset-1.jpg",
+            "size": 360791,
+            "type": "image/jpeg",
+            "url": "https://example.com/asset-1.jpg",
+          },
+        ],
+      },
+      "date_time_1": Object {
+        "name": "Date time 1",
+        "type": "date_time",
+        "value": null,
+      },
+      "linked_items_1": Object {
+        "name": "Linked items 1",
+        "type": "modular_content",
+        "value": Array [
+          "content_item_2",
+          "content_item_3",
+        ],
+      },
+      "text_1": Object {
+        "name": "Text 1",
+        "type": "text",
+        "value": "Text 1 value",
+      },
+    },
+  },
   "asset_1": Object {
     "name": "Asset 1",
     "type": "asset",
@@ -22,93 +57,70 @@ Object {
     "type": "date_time",
     "value": null,
   },
-  "elements": Object {
-    "asset_1": Object {
-      "name": "Asset 1",
-      "type": "asset",
-      "value": Array [
-        Object {
-          "description": null,
-          "name": "asset-1.jpg",
-          "size": 360791,
-          "type": "image/jpeg",
-          "url": "https://example.com/asset-1.jpg",
-        },
-      ],
-    },
-    "date_time_1": Object {
-      "name": "Date time 1",
-      "type": "date_time",
-      "value": null,
-    },
-    "linked_items_1": Object {
-      "name": "Linked items 1",
-      "type": "modular_content",
-      "value": Array [
-        "content_item_2",
-        "content_item_3",
-      ],
-    },
-    "text_1": Object {
-      "name": "Text 1",
-      "type": "text",
-      "value": "Text 1 value",
-    },
-  },
   "id": "dummyId",
   "internal": Object {
-    "content": "{\\"system\\":{\\"id\\":\\"7e70cb89-9281-4db9-8130-36076ee1e698\\",\\"name\\":\\"Content item 1\\",\\"codename\\":\\"content_item_1\\",\\"language\\":\\"default\\",\\"type\\":\\"content_type\\",\\"sitemap_locations\\":[],\\"last_modified\\":\\"2018-12-28T00:00:00.3224207Z\\"},\\"elements\\":{\\"text_1\\":{\\"type\\":\\"text\\",\\"name\\":\\"Text 1\\",\\"value\\":\\"Text 1 value\\"},\\"asset_1\\":{\\"type\\":\\"asset\\",\\"name\\":\\"Asset 1\\",\\"value\\":[{\\"name\\":\\"asset-1.jpg\\",\\"type\\":\\"image/jpeg\\",\\"size\\":360791,\\"description\\":null,\\"url\\":\\"https://example.com/asset-1.jpg\\"}]},\\"date_time_1\\":{\\"type\\":\\"date_time\\",\\"name\\":\\"Date time 1\\",\\"value\\":null},\\"linked_items_1\\":{\\"type\\":\\"modular_content\\",\\"name\\":\\"Linked items 1\\",\\"value\\":[\\"content_item_2\\",\\"content_item_3\\"]}},\\"text_1\\":{\\"type\\":\\"text\\",\\"name\\":\\"Text 1\\",\\"value\\":\\"Text 1 value\\"},\\"asset_1\\":{\\"type\\":\\"asset\\",\\"name\\":\\"Asset 1\\",\\"value\\":[{\\"name\\":\\"asset-1.jpg\\",\\"type\\":\\"image/jpeg\\",\\"size\\":360791,\\"description\\":null,\\"url\\":\\"https://example.com/asset-1.jpg\\"}]},\\"date_time_1\\":{\\"type\\":\\"date_time\\",\\"name\\":\\"Date time 1\\",\\"value\\":null},\\"linked_items_1\\":[{\\"system\\":{\\"id\\":\\"7e70cb89-9281-4db9-8130-36076ee1e698\\",\\"name\\":\\"Content item 2\\",\\"codename\\":\\"content_item_2\\",\\"language\\":\\"default\\",\\"type\\":\\"content_type\\",\\"sitemap_locations\\":[],\\"last_modified\\":\\"2018-12-28T00:00:00.3224207Z\\"},\\"elements\\":{\\"linked_items_1\\":{\\"type\\":\\"modular_content\\",\\"name\\":\\"Linked items 1\\",\\"value\\":[\\"content_item_3\\"]}},\\"linked_items_1\\":[{\\"system\\":{\\"id\\":\\"7e70cb89-9281-4db9-8130-36076ee1e698\\",\\"name\\":\\"Content item 3\\",\\"codename\\":\\"content_item_3\\",\\"language\\":\\"default\\",\\"type\\":\\"content_type\\",\\"sitemap_locations\\":[],\\"last_modified\\":\\"2018-12-28T00:00:00.3224207Z\\"},\\"elements\\":{}}]},{\\"system\\":{\\"id\\":\\"7e70cb89-9281-4db9-8130-36076ee1e698\\",\\"name\\":\\"Content item 3\\",\\"codename\\":\\"content_item_3\\",\\"language\\":\\"default\\",\\"type\\":\\"content_type\\",\\"sitemap_locations\\":[],\\"last_modified\\":\\"2018-12-28T00:00:00.3224207Z\\"},\\"elements\\":{}}]}",
-    "contentDigest": "5848b2ee4bb7532cb37dd2e005765388",
+    "content": "{\\"system\\":{\\"id\\":\\"7e70cb89-9281-4db9-8130-36076ee1e698\\",\\"name\\":\\"Content item 1\\",\\"codename\\":\\"content_item_1\\",\\"language\\":\\"default\\",\\"type\\":\\"content_type\\",\\"sitemap_locations\\":[],\\"last_modified\\":\\"2018-12-28T00:00:00.3224207Z\\"},\\"_raw\\":{\\"elements\\":{\\"text_1\\":{\\"type\\":\\"text\\",\\"name\\":\\"Text 1\\",\\"value\\":\\"Text 1 value\\"},\\"asset_1\\":{\\"type\\":\\"asset\\",\\"name\\":\\"Asset 1\\",\\"value\\":[{\\"name\\":\\"asset-1.jpg\\",\\"type\\":\\"image/jpeg\\",\\"size\\":360791,\\"description\\":null,\\"url\\":\\"https://example.com/asset-1.jpg\\"}]},\\"date_time_1\\":{\\"type\\":\\"date_time\\",\\"name\\":\\"Date time 1\\",\\"value\\":null},\\"linked_items_1\\":{\\"type\\":\\"modular_content\\",\\"name\\":\\"Linked items 1\\",\\"value\\":[\\"content_item_2\\",\\"content_item_3\\"]}}},\\"text_1\\":{\\"type\\":\\"text\\",\\"name\\":\\"Text 1\\",\\"value\\":\\"Text 1 value\\"},\\"asset_1\\":{\\"type\\":\\"asset\\",\\"name\\":\\"Asset 1\\",\\"value\\":[{\\"name\\":\\"asset-1.jpg\\",\\"type\\":\\"image/jpeg\\",\\"size\\":360791,\\"description\\":null,\\"url\\":\\"https://example.com/asset-1.jpg\\"}]},\\"date_time_1\\":{\\"type\\":\\"date_time\\",\\"name\\":\\"Date time 1\\",\\"value\\":null},\\"linked_items_1\\":{\\"value\\":[{\\"system\\":{\\"id\\":\\"7e70cb89-9281-4db9-8130-36076ee1e698\\",\\"name\\":\\"Content item 2\\",\\"codename\\":\\"content_item_2\\",\\"language\\":\\"default\\",\\"type\\":\\"content_type\\",\\"sitemap_locations\\":[],\\"last_modified\\":\\"2018-12-28T00:00:00.3224207Z\\"},\\"_raw\\":{\\"elements\\":{\\"linked_items_1\\":{\\"type\\":\\"modular_content\\",\\"name\\":\\"Linked items 1\\",\\"value\\":[\\"content_item_3\\"]}}},\\"linked_items_1\\":{\\"value\\":[{\\"system\\":{\\"id\\":\\"7e70cb89-9281-4db9-8130-36076ee1e698\\",\\"name\\":\\"Content item 3\\",\\"codename\\":\\"content_item_3\\",\\"language\\":\\"default\\",\\"type\\":\\"content_type\\",\\"sitemap_locations\\":[],\\"last_modified\\":\\"2018-12-28T00:00:00.3224207Z\\"},\\"_raw\\":{\\"elements\\":{}}}]}},{\\"system\\":{\\"id\\":\\"7e70cb89-9281-4db9-8130-36076ee1e698\\",\\"name\\":\\"Content item 3\\",\\"codename\\":\\"content_item_3\\",\\"language\\":\\"default\\",\\"type\\":\\"content_type\\",\\"sitemap_locations\\":[],\\"last_modified\\":\\"2018-12-28T00:00:00.3224207Z\\"},\\"_raw\\":{\\"elements\\":{}}}]}}",
+    "contentDigest": "f2c443e9cbd0925d17041a8cda5a2b24",
     "type": "KenticoCloudItemContentItem_1",
   },
-  "linked_items_1": Array [
-    Object {
-      "elements": Object {
-        "linked_items_1": Object {
-          "name": "Linked items 1",
-          "type": "modular_content",
-          "value": Array [
-            "content_item_3",
-          ],
-        },
-      },
-      "linked_items_1": Array [
-        Object {
-          "elements": Object {},
-          "system": Object {
-            "codename": "content_item_3",
-            "id": "7e70cb89-9281-4db9-8130-36076ee1e698",
-            "language": "default",
-            "last_modified": "2018-12-28T00:00:00.3224207Z",
-            "name": "Content item 3",
-            "sitemap_locations": Array [],
-            "type": "content_type",
+  "linked_items_1": Object {
+    "value": Array [
+      Object {
+        "_raw": Object {
+          "elements": Object {
+            "linked_items_1": Object {
+              "name": "Linked items 1",
+              "type": "modular_content",
+              "value": Array [
+                "content_item_3",
+              ],
+            },
           },
         },
-      ],
-      "system": Object {
-        "codename": "content_item_2",
-        "id": "7e70cb89-9281-4db9-8130-36076ee1e698",
-        "language": "default",
-        "last_modified": "2018-12-28T00:00:00.3224207Z",
-        "name": "Content item 2",
-        "sitemap_locations": Array [],
-        "type": "content_type",
+        "linked_items_1": Object {
+          "value": Array [
+            Object {
+              "_raw": Object {
+                "elements": Object {},
+              },
+              "system": Object {
+                "codename": "content_item_3",
+                "id": "7e70cb89-9281-4db9-8130-36076ee1e698",
+                "language": "default",
+                "last_modified": "2018-12-28T00:00:00.3224207Z",
+                "name": "Content item 3",
+                "sitemap_locations": Array [],
+                "type": "content_type",
+              },
+            },
+          ],
+        },
+        "system": Object {
+          "codename": "content_item_2",
+          "id": "7e70cb89-9281-4db9-8130-36076ee1e698",
+          "language": "default",
+          "last_modified": "2018-12-28T00:00:00.3224207Z",
+          "name": "Content item 2",
+          "sitemap_locations": Array [],
+          "type": "content_type",
+        },
       },
-    },
-    Object {
-      "elements": Object {},
-      "system": Object {
-        "codename": "content_item_3",
-        "id": "7e70cb89-9281-4db9-8130-36076ee1e698",
-        "language": "default",
-        "last_modified": "2018-12-28T00:00:00.3224207Z",
-        "name": "Content item 3",
-        "sitemap_locations": Array [],
-        "type": "content_type",
+      Object {
+        "_raw": Object {
+          "elements": Object {},
+        },
+        "system": Object {
+          "codename": "content_item_3",
+          "id": "7e70cb89-9281-4db9-8130-36076ee1e698",
+          "language": "default",
+          "last_modified": "2018-12-28T00:00:00.3224207Z",
+          "name": "Content item 3",
+          "sitemap_locations": Array [],
+          "type": "content_type",
+        },
       },
-    },
-  ],
+    ],
+  },
   "otherLanguages___NODE": Array [],
   "parent": null,
   "system": Object {
