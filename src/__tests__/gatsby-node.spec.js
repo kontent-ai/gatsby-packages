@@ -89,7 +89,7 @@ describe('sourceNodes', () => {
         }
       );
 
-      expect(deliveryClientConfig.globalHeaders(deliveryClientConfig))
+      expect(deliveryClientConfig.globalQueryConfig.customHeaders)
         .toContainEqual(customTrackingHeader);
     });
 
@@ -97,12 +97,12 @@ describe('sourceNodes', () => {
       const deliveryClientConfig = {
         projectId: 'dummyEmptyProject',
         httpService: fakeEmptyTestService,
-        globalHeaders: ((_) => [
-          {
+        globalQueryConfig: {
+          customHeaders: [{
             header: customTrackingHeader.header,
             value: 'dummyValue',
-          },
-        ]),
+          }],
+        },
       };
 
       await sourceNodes(
@@ -113,9 +113,9 @@ describe('sourceNodes', () => {
         }
       );
 
-      expect(deliveryClientConfig.globalHeaders(deliveryClientConfig))
+      expect(deliveryClientConfig.globalQueryConfig.customHeaders)
         .toContainEqual(customTrackingHeader);
-      expect(deliveryClientConfig.globalHeaders(deliveryClientConfig).length)
+      expect(deliveryClientConfig.globalQueryConfig.customHeaders.length)
         .toEqual(1);
     });
 
@@ -127,9 +127,11 @@ describe('sourceNodes', () => {
       const deliveryClientConfig = {
         projectId: 'dummyEmptyProject',
         httpService: fakeEmptyTestService,
-        globalHeaders: ((_) => [
-          anotherHeader,
-        ]),
+        globalQueryConfig: {
+          customHeaders: [
+            anotherHeader,
+          ],
+        },
       };
 
       await sourceNodes(
@@ -140,11 +142,11 @@ describe('sourceNodes', () => {
         }
       );
 
-      expect(deliveryClientConfig.globalHeaders(deliveryClientConfig))
+      expect(deliveryClientConfig.globalQueryConfig.customHeaders)
         .toContainEqual(customTrackingHeader);
-      expect(deliveryClientConfig.globalHeaders(deliveryClientConfig))
+      expect(deliveryClientConfig.globalQueryConfig.customHeaders)
         .toContainEqual(anotherHeader);
-      expect(deliveryClientConfig.globalHeaders(deliveryClientConfig).length)
+      expect(deliveryClientConfig.globalQueryConfig.customHeaders.length)
         .toEqual(2);
     });
   });

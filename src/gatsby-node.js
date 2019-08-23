@@ -94,28 +94,30 @@ exports.sourceNodes =
  * @param {IHeader} trackingHeader tracking header name
  */
 const addHeader = (deliveryClientConfig, trackingHeader) => {
-  if (!deliveryClientConfig.globalHeaders) {
-    deliveryClientConfig.globalHeaders = (_) => [trackingHeader];
+  deliveryClientConfig.globalQueryConfig =
+    deliveryClientConfig.globalQueryConfig || {};
+
+  if (!deliveryClientConfig.globalQueryConfig.customHeaders) {
+    deliveryClientConfig.globalQueryConfig.customHeaders = [trackingHeader];
     return;
   }
 
-  const originalConfig = _.cloneDeep(deliveryClientConfig);
+  let headers = _.cloneDeep(
+    deliveryClientConfig
+      .globalQueryConfig
+      .customHeaders
+  );
+  
+  if (headers.some((header) => header.header === trackingHeader.header)) {
+    console.warn(`Custom HTTP header value with name ${trackingHeader.header}
+        will be replaced by the source plugin.
+        Use different header name if you want to avoid this behavior;`);
+    headers = headers.filter((header) =>
+      header.header !== trackingHeader.header);
+  }
 
-  deliveryClientConfig.globalHeaders = (queryConfig) => {
-    let headers = originalConfig.globalHeaders(queryConfig);
-
-    if (headers.some((header) => header.header === trackingHeader.header)) {
-      console.warn(`Custom HTTP header value with name ${trackingHeader.header}
-      will be replaced by the source plugin.
-      Use different header name if you want to avoid this behavior;`);
-      headers = headers.filter((header) => {
-        return header.header !== trackingHeader.header;
-      });
-    }
-
-    headers.push(trackingHeader);
-    return headers;
-  };
+  headers.push(trackingHeader);
+  deliveryClientConfig.globalQueryConfig.customHeaders = headers;
 };
 
 /**
