@@ -5,7 +5,10 @@ on: [push]
 jobs:
   build:
 
-    runs-on: [ubuntu-latest, windows-latest, macOS-latest]
+    runs-on: 
+    - ubuntu-latest
+    - windows-latest
+    - macOS-latest]
 
     strategy:
       matrix:
