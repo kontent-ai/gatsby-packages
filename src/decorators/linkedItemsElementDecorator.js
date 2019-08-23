@@ -52,34 +52,31 @@ const decorateItemNodeWithLinkedItemsLinks =
       .forEach((propertyName) => {
         const property = itemNode.elements[propertyName];
 
-        if (_.isArray(property)) {
+        if (property.type === 'modular_content') {
           // https://www.gatsbyjs.org/docs/create-source-plugin/#creating-the-relationship
-          const linkPropertyName = `${propertyName}___NODE`;
-          itemNode.elements[linkPropertyName] = [];
+          const linkPropertyPath = `[${propertyName}].linked_items___NODE`;
 
-          if (_.has(property, `[0].system.codename`)) {
-            const linkedNodes = allNodesOfSameLanguage
-              .filter((node) => {
-                const match = property.find((propertyValue) => {
-                  return propertyValue !== null
-                    && node !== null
-                    && propertyValue.system.codename ===
-                    node.system.codename
-                    && propertyValue.system.type === node.system.type;
-                });
-
-                return match !== undefined && match !== null;
+          const linkedNodes = allNodesOfSameLanguage
+            .filter((node) => {
+              const match = property.value.find((propertyValue) => {
+                return propertyValue !== null
+                  && node !== null
+                  && propertyValue.system.codename ===
+                  node.system.codename
+                  && propertyValue.system.type === node.system.type;
               });
 
-            normalize.addLinkedItemsLinks(
-              itemNode,
-              linkedNodes,
-              linkPropertyName,
-              itemNode.elements[propertyName]
-            );
-          }
+              return match !== undefined && match !== null;
+            });
 
-          delete itemNode.elements[propertyName];
+          normalize.addLinkedItemsLinks(
+            itemNode,
+            linkedNodes,
+            linkPropertyPath,
+            itemNode.elements[propertyName].value
+          );
+
+          delete property.value;
         }
       });
   };

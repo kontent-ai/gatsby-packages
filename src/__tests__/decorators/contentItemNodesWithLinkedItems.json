@@ -10,36 +10,53 @@
       "sitemapLocations": []
     },
     "elements": {
-      "sub_items": [
-        {
-          "system": {
-            "name": "Sub item 1",
-            "codename": "sub_item_1",
-            "id": "3a3fd38a-57a4-4c79-9f48-0734e5b278a4",
-            "lastModified": "2019-04-29T13:04:23.546524Z",
-            "language": "default",
-            "type": "content_item",
-            "sitemapLocations": []
+      "sub_items": {
+        "type": "modular_content",
+        "name": "Sub items",
+        "itemCodenames": [
+          "sub_item_1"
+        ],
+        "value": [
+          {
+            "system": {
+              "name": "Sub item 1",
+              "codename": "sub_item_1",
+              "id": "3a3fd38a-57a4-4c79-9f48-0734e5b278a4",
+              "lastModified": "2019-04-29T13:04:23.546524Z",
+              "language": "default",
+              "type": "content_item",
+              "sitemapLocations": []
+            },
+            "elements": {
+              "sub_items": {
+                "type": "modular_content",
+                "name": "Sub items",
+                "itemCodenames": [],
+                "value": []
+              }
+            }
           },
-          "elements": {
-            "sub_items": []
+          {
+            "system": {
+              "name": "Sub Item 2",
+              "codename": "sub_item_2",
+              "id": "77162bf6-28a2-4c81-b9b0-a4442c2178c5",
+              "lastModified": "2019-04-29T13:04:33.247446Z",
+              "language": "default",
+              "type": "content_item",
+              "sitemapLocations": []
+            },
+            "elements": {
+              "sub_items": {
+                "type": "modular_content",
+                "name": "Sub items",
+                "itemCodenames": [],
+                "value": []
+              }
+            }
           }
-        },
-        {
-          "system": {
-            "name": "Sub Item 2",
-            "codename": "sub_item_2",
-            "id": "77162bf6-28a2-4c81-b9b0-a4442c2178c5",
-            "lastModified": "2019-04-29T13:04:33.247446Z",
-            "language": "default",
-            "type": "content_item",
-            "sitemapLocations": []
-          },
-          "elements": {
-            "sub_items": []
-          }
-        }
-      ]
+        ]
+      }
     },
     "otherLanguages___NODE": [],
     "contentType___NODE": "44a1049c-a9b3-553d-9591-0aa0d46da58e",
@@ -64,7 +81,12 @@
       "sitemapLocations": []
     },
     "elements": {
-      "sub_items": []
+      "sub_items": {
+        "type": "modular_content",
+        "name": "Sub items",
+        "itemCodenames": [],
+        "value": []
+      }
     },
     "otherLanguages___NODE": [],
     "contentType___NODE": "44a1049c-a9b3-553d-9591-0aa0d46da58e",
@@ -89,7 +111,12 @@
       "sitemapLocations": []
     },
     "elements": {
-      "sub_items": []
+      "sub_items": {
+        "type": "modular_content",
+        "name": "Sub items",
+        "itemCodenames": [],
+        "value": []
+      }
     },
     "otherLanguages___NODE": [],
     "contentType___NODE": "44a1049c-a9b3-553d-9591-0aa0d46da58e",

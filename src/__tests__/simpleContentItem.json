@@ -1,0 +1,18 @@
+{
+  "system": {
+    "id": "7e70cb89-9281-4db9-8130-36076ee1e698",
+    "name": "Content item 1",
+    "codename": "content_item_1",
+    "language": "default",
+    "type": "content_type",
+    "sitemap_locations": [],
+    "last_modified": "2018-12-28T00:00:00.3224207Z"
+  },
+  "elements": {
+    "text_1": {
+      "type": "text",
+      "name": "Text 1",
+      "value": "Text 1 value"
+    }
+  }
+}

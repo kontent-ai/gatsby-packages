@@ -11,20 +11,7 @@ const changeCase = require(`change-case`);
  * @throws {Error}
  */
 const parseContentItemContents =
-  (contentItem, processedContents = []) => {
-    if (processedContents.includes(contentItem.system.codename)) {
-      processedContents.push(contentItem.system.codename);
-      const flatted = processedContents.join(` -> `);
-
-      console.error(`Cycle detected in linked items' path: ${flatted}`);
-      return {
-        system: contentItem.system,
-        elements: null,
-        cycleDetected: true,
-      };
-    }
-
-    processedContents.push(contentItem.system.codename);
+  (contentItem) => {
     const elements = {};
 
     const elementPropertyKeys = Object.keys(contentItem._raw.elements);
@@ -32,19 +19,7 @@ const parseContentItemContents =
     for (const key of elementPropertyKeys) {
       let propertyValue;
 
-      // could be used (ElementType.ModularContent) from "kentico-cloud-delivery"
-      // if (_.get(contentItem, `_debug.rawElements.elements[${key}].type`) === 'modular_content')
-      if (_.get(contentItem, `_raw.elements[${key}].type`) === 'modular_content') {
-        const linkedItems = [];
-        contentItem[key].value.forEach((linkedItem) => {
-          linkedItems.push(
-            parseContentItemContents(
-              linkedItem, Array.from(processedContents), contentItem
-            )
-          );
-        });
-        propertyValue = linkedItems;
-      } else if (_.get(contentItem, `_raw.elements[${key}].type`) === 'rich_text') {
+      if (_.get(contentItem, `_raw.elements[${key}].type`) === 'rich_text') {
         const value = _.cloneDeep(contentItem[key]);
         value.resolvedHtml = value.resolvedData ? value.resolvedData.html : value.value;
         delete value.resolvedData;

@@ -8,16 +8,15 @@ const contentItemNodesWithLinkedItems =
 
 describe('decorateItemNodeWithLinkedItemsLinks', () => {
   it(
-    'remove linked items element property and creates ___NODE ones',
+    'creates ___NODE property links',
     () => {
       const defaultCultureItems = _.cloneDeep(contentItemNodesWithLinkedItems);
 
       linkedItemsElementDecorator
         .decorateItemNodesWithLinkedItemsLinks(defaultCultureItems, []);
-
       defaultCultureItems.forEach((item) =>
-        expect(item.elements).not.toHaveProperty('sub_items'));
+        expect(item.elements).toHaveProperty('sub_items'));
       defaultCultureItems.forEach((item) =>
-        expect(item.elements).toHaveProperty('sub_items___NODE'));
+        expect(item.elements.sub_items).toHaveProperty('linked_items___NODE'));
     });
 });
