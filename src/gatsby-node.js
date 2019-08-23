@@ -107,7 +107,7 @@ const addHeader = (deliveryClientConfig, trackingHeader) => {
       .globalQueryConfig
       .customHeaders
   );
-  
+
   if (headers.some((header) => header.header === trackingHeader.header)) {
     console.warn(`Custom HTTP header value with name ${trackingHeader.header}
         will be replaced by the source plugin.

@@ -1,5 +1,3 @@
-const _ = require('lodash');
-
 const validation = require('../validation');
 const normalize = require('../normalize');
 

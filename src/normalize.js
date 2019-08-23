@@ -21,7 +21,9 @@ const parseContentItemContents =
 
       if (_.get(contentItem, `_raw.elements[${key}].type`) === 'rich_text') {
         const value = _.cloneDeep(contentItem[key]);
-        value.resolvedHtml = value.resolvedData ? value.resolvedData.html : value.value;
+        value.resolvedHtml = value.resolvedData
+          ? value.resolvedData.html
+          : value.value;
         delete value.resolvedData;
         propertyValue = value;
       } else {
