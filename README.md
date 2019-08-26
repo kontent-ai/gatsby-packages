@@ -1,4 +1,5 @@
 # Gatsby source plugin for Kentico Cloud
+
 [![Gatsby plugin library](https://img.shields.io/badge/Gatsby%20plugin%20library-%23663399.svg)](https://www.gatsbyjs.org/packages/gatsby-source-kentico-cloud)
 [![Stack Overflow](https://img.shields.io/badge/Stack%20Overflow-ASK%20NOW-FE7A16.svg?logo=stackoverflow&logoColor=white)](https://stackoverflow.com/tags/kentico-cloud)
 
@@ -57,7 +58,7 @@ module.exports = {
 }
 ```
 3. Run `gatsby develop` and data from Kentico Cloud are provided in Gatsby GraphQL model.
-All Kentico Cloud content element values  reside inside of the `elements` property of `kenticoCloudItem` nodes.
+All Kentico Cloud content element values reside inside of the `elements` property of `kenticoCloudItem` nodes.
 
 ### C) Scaffold your project using Gatsby Kentico Cloud starter site
 
@@ -161,41 +162,45 @@ returns in case of two languages
 }
 ```
 
-
 </details>
-    
+
 ### Linked items elements relationships
 
 Each Linked items element does differ from classic JS SDK structure. They are replaced by [Gatsby GraphQL node references](https://www.gatsbyjs.org/docs/create-source-plugin/#creating-the-relationship) that can be used to traverse to the nodes linked through the use of the *Linked items* element.
 
 <details><summary>Example</summary>
 
-Should a *Linked items* element in KC contain items of only *one* type, you'll be able to specify elements and other properties of that type directly (directly under the `related_project_references` in the following example). However, once you add linked items of multiple types, you'll have to specify their properties using the `... on [type name]` syntax (so called "inline fragments" in the GraphQL terminology).
+Should a *Linked items* element in KC contain items of only *one* type, you'll be able to specify elements and other properties of that type directly (under the `related_project_references.linked_items` in the following example). However, once you add linked items of multiple types, you'll have to specify their properties using the `... on [type name]` syntax (so called "inline fragments" in the GraphQL terminology).
 
-The `related_project_refereces_nodes` will give you the full-fledged Gatsby GraphQL nodes with all additional properties and links.
+The `related_project_refereces.linked_items` will give you the full-fledged Gatsby GraphQL nodes with all additional properties and links.
 
 > :bulb: Notice the encapsulation into the `... on Node` [GraphQL inline fragment](https://graphql.org/learn/queries/#inline-fragments). This prevent failing creating GraphQL model when this field does not contain i.e. Blog post (`KenticoCloudItemBlogpostReference`) linked item.
 
-```
+```gql
 {
   allKenticoCloudItemProjectReference {
     edges {
       node {
         elements {
           related_project_references {
-            ... on Node {
-              __typename
-              ... on KenticoCloudItemBlogpostReference {
-                elements {
-                  name___teaser_image__name {
-                    value
+            name
+            type
+            itemCodenames
+            linked_items {
+              ... on Node {
+                __typename
+                ... on KenticoCloudItemBlogpostReference {
+                  elements {
+                    name___teaser_image__name {
+                      value
+                    }
                   }
                 }
-              }
-              ... on KenticoCloudItemProjectReference {
-                elements {
-                  name___teaser_image__name {
-                    value
+                ... on KenticoCloudItemProjectReference {
+                  elements {
+                    name___teaser_image__name {
+                      value
+                    }
                   }
                 }
               }
@@ -210,17 +215,15 @@ The `related_project_refereces_nodes` will give you the full-fledged Gatsby Grap
 
 </details>
 
-
 > :bulb: When you are modelling linked items, make sure you have no element with the same codename of different type. In case you had some, they would be omitted from the model and the following warning is logged during model generation.
-```
-KenticoCloudItemArticle.elements.related_articles[].elements.manufacturer.value:
+
+```plain
+KenticoCloudItemArticle.elements.related_articles.linked_items[].elements.manufacturer.value:
  - type: array<object> # THIS IS CHECK BOX ELEMENT
    value: [ { name: 'Aerobie', codename: 'aerobie' } ]
  - type: string # THIS IS TEXT ELEMENT
    value: 'Hario'
 ```
-
-> Since v 3.0.0 it is possible to model circular dependency in Kentico Cloud and use this plugin at one time. When the circular dependency is detected during the GraphQL generation, warning is logged to the console and a flag `cycleDetected` is placed next to the `elements` and `system` property.
 
 ### Rich text resolution
 
@@ -228,18 +231,23 @@ With following features, it is possible to resolve rich text [into the HTML stri
 
 #### Embedded JS SDK resolution
 
-Since [Kentico Cloud Delivery SDK](https://github.com/Kentico/kentico-cloud-js/tree/master/packages/delivery#kentico-cloud-delivery-sdk) could resolve [links](https://github.com/Kentico/kentico-cloud-js/blob/master/packages/delivery/DOCS.md#url-slugs-links) and also [linked items and components](https://github.com/Kentico/kentico-cloud-js/blob/master/packages/delivery/DOCS.md#resolving-content-items-and-components-in-rich-text-fields) in rich text elements by implementing the resolvers, Kentico Cloud Gatsby source plugin is enriching the [internal SDK structure](https://github.com/Kentico/kentico-cloud-js/blob/master/packages/delivery/lib/models/item/content-item.class.ts) in GraphQL model by `resolvedHtml` property containing the resolved value.
+Since [Kentico Cloud Delivery SDK](https://github.com/Kentico/kentico-cloud-js/tree/master/packages/delivery#kentico-cloud-delivery-sdk) could resolve [links](https://github.com/Kentico/kentico-cloud-js/blob/master/packages/delivery/DOCS.md#url-slugs-links) and also [linked items and components](https://github.com/Kentico/kentico-cloud-js/blob/master/packages/delivery/DOCS.md#resolving-content-items-and-components-in-rich-text-elements) in rich text elements by implementing the resolvers, Kentico Cloud Gatsby source plugin is enriching the rich text elements in GraphQL model by `resolvedData` property containing `html` property with the resolved value and for the url slug elements, there is a `resolvedUrl` property containing resolved link from the link resolver.
 
 <details><summary>`summary` rich text element example</summary>
 
-```
+```gql
 {
   ...
     node {
       elements {
         summary {
           value // NORMAL value
-          resolvedHtml // resolved output
+          resolvedData {
+            html // resolved output
+            linkedItemCodenames // only inline liked items codenames
+            componentCodenames // only content component codenames
+          }
+          linkedItemCodenames // inline linked items + content components codenames
         }
       }
     }
@@ -286,7 +294,7 @@ As with the previous example, all rich text element containing [inline content i
 
 #### Links in Rich text elements
 
-All rich text properties with content items linked in the element also have an accompanying `links` property. 
+All rich text properties with content items linked in the element also have an accompanying `links` property.
 <details><summary>Example</summary>
 
 ```
@@ -315,11 +323,11 @@ All rich text properties with content items linked in the element also have an a
 
 #### Images in Rich text elements
 
-All rich text properties with content items linked in the element also have an accompanying `images` property. 
+All rich text properties with content items linked in the element also have an accompanying `images` property.
 
 <details><summary>Example</summary>
 
-```
+```gql
 {
   allKenticoCloudItemBlogpostReference {
     edges {
@@ -331,6 +339,8 @@ All rich text properties with content items linked in the element also have an a
               imageId
               description
               url
+              width
+              height
             }
           }
         }
@@ -365,6 +375,7 @@ When you change the structure of the data, or the data itself and then `gatsby d
 For more developer resources, visit the Kentico Cloud Developer Hub at https://developer.kenticocloud.com.
 
 ### Running projects
+
 * [Kentico Developer Community Site](https://kentico.github.io) [[source code](https://github.com/Kentico/kentico.github.io/tree/source)]
 * [Kentico Advantage](https://advantage.kentico.com/) [[source code](https://github.com/Kentico/kentico-advantage/tree/source)]
 * [Richard Shackleton's Personal portfolio and blog website](https://rshackleton.co.uk/) [[source code](https://github.com/rshackleton/rshackleton.co.uk)]
@@ -373,6 +384,7 @@ For more developer resources, visit the Kentico Cloud Developer Hub at https://d
 * [Matt Nield's personal blog site](https://www.mattnield.co.uk) [[Source code](https://github.com/mattnield/mattnield-gatsby)]
 
 ### Guides and blog posts
+
 * [Sourcing from Kentico Cloud](https://www.gatsbyjs.org/docs/sourcing-from-kentico-cloud/)
 * [Kentico Cloud & Gatsby Take You Beyond Static Websites](https://www.gatsbyjs.org/blog/2018-12-19-kentico-cloud-and-gatsby-take-you-beyond-static-websites/)
 * [Rendering Kentico Cloud linked content items with React components in Gatsby](https://rshackleton.co.uk/articles/rendering-kentico-cloud-linked-content-items-with-react-components-in-gatsby) by [@rshackleton](https://github.com/rshackleton)
@@ -381,11 +393,10 @@ For more developer resources, visit the Kentico Cloud Developer Hub at https://d
 ### Previous versions
 
 For version 2 use [this branch](https://github.com/Kentico/gatsby-source-kentico-cloud/tree/v2).
+For version 3 use [this branch](https://github.com/Kentico/gatsby-source-kentico-cloud/tree/v3).
 
 ## Feedback & Contributing
 
 Check out the [contributing](https://github.com/Kentico/gatsby-source-kentico-cloud/blob/master/CONTRIBUTING.md) page to see the best places for file issues, to start discussions, and begin contributing.
 
 ![Analytics](https://kentico-ga-beacon.azurewebsites.net/api/UA-69014260-4/Kentico/gatsby-source-kentico-cloud?pixel)
-
-

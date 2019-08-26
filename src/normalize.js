@@ -17,23 +17,7 @@ const parseContentItemContents =
     const elementPropertyKeys = Object.keys(contentItem._raw.elements);
 
     for (const key of elementPropertyKeys) {
-      let propertyValue;
-
-      if (_.get(contentItem, `_raw.elements[${key}].type`) === 'rich_text') {
-        const value = _.cloneDeep(contentItem[key]);
-        value.resolvedHtml = value.resolvedData
-          ? value.resolvedData.html
-          : value.value;
-        delete value.resolvedData;
-        propertyValue = value;
-      } else {
-        // Every element has now a value use contentItem[key].value
-        propertyValue = contentItem[key];
-      }
-
-      if (propertyValue.rawData) {
-        delete propertyValue.rawData;
-      }
+      const propertyValue = contentItem[key];
       elements[key] = propertyValue;
     }
 

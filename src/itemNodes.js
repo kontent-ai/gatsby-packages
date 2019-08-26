@@ -7,6 +7,8 @@ const validation = require('./validation');
 
 const richTextElementDecorator =
   require('./decorators/richTextElementDecorator');
+const urlSlugElementDecorator =
+  require('./decorators/urlSlugElementDecorator');
 
 /**
  * Creates an array of content item nodes in default culture
@@ -33,7 +35,9 @@ const getFromDefaultLanguage = async (
     'system.codename');
 
   richTextElementDecorator
-    .resolveHtml(allItems);
+    .resolveData(allItems);
+  urlSlugElementDecorator
+    .resolveUrls(allItems);
 
   const itemsFlatted = parse(stringify(allItems));
   const contentItemNodes = itemsFlatted.map((contentItem) => {
@@ -78,7 +82,7 @@ const getFromNonDefaultLanguage = async (
       'system.codename');
 
     richTextElementDecorator
-      .resolveHtml(allItems);
+      .resolveData(allItems);
 
     const languageItemsFlatted = parse(stringify(allItems));
     const contentItemsNodes = languageItemsFlatted.map((languageItem) =>

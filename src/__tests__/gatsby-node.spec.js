@@ -245,7 +245,7 @@ describe('sourceNodes', () => {
         );
       expect(landingPageNode)
         .toHaveProperty(
-          'elements.content.resolvedHtml',
+          'elements.content.resolvedData.html',
           expectedResolvedRichTextComponent
         );
       expect(landingPageNode)

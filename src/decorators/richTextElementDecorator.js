@@ -40,10 +40,10 @@ const decorateItemNodesWithRichTextLinkedItemsLinks = (
 };
 
 /**
- * Create a new property with resolved Html.
+ * Create a new property with resolved data containing Resolved Html.
  * @param {Array} items Items response from JS SDK.
  */
-const resolveHtml = (items) => {
+const resolveData = (items) => {
   items.forEach((item) => {
     Object
       .keys(item)
@@ -51,7 +51,7 @@ const resolveHtml = (items) => {
         _.has(item[key], `type`)
         && item[key].type === `rich_text`)
       .forEach((key) => {
-        item[key].resolveHtml();
+        item[key].resolvedData = item[key].resolveData();
       });
   });
 };
@@ -97,5 +97,5 @@ const decorateItemNodeWithRichTextLinkedItemsLinks =
 
 module.exports = {
   decorateItemNodesWithRichTextLinkedItemsLinks,
-  resolveHtml,
+  resolveData,
 };
