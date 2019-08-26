@@ -73,8 +73,6 @@ const decorateItemNodeWithLinkedItemsLinks =
             linkPropertyPath,
             itemNode.elements[propertyName].value
           );
-
-          delete property.value;
         }
       });
   };

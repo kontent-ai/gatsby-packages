@@ -70,7 +70,33 @@ The plugin creates GraphQL nodes for all Kentico Cloud content types, content it
 
 The node names are prefixed with `kenticoCloud`. More specifically, content type nodes are prefixed by `kenticoCloudType` and content items and their language variants are prefixed with `kenticoCloudItem`.
 
-GraphQL nodes of content items contain the ordinary `system` and `elements` properties. However, the properties inside `elements` always have an internal structure that the aforementioned [Delivery SDK](https://github.com/Kentico/kentico-cloud-js/blob/master/packages/delivery/lib/models/item/content-item.class.ts) produces with **modifications** described in following section.
+GraphQL nodes of content items contain the ordinary `system` and `elements` properties. However, the properties inside `elements` always have an internal structure that the aforementioned [Delivery SDK](https://github.com/Kentico/kentico-cloud-js/blob/master/packages/delivery/lib/models/item/content-item.class.ts) produces with **modifications** described in following subsections.
+
+Every element contains:
+
+* `rawData` object containing raw data without the touch of the SDK
+* `name` property containing element name
+* `type` property containing element type codename
+* `value` property containing element value
+
+```
+{
+  allKenticoCloudItemProjectReference {
+    nodes {
+      elements {
+        name___teaser_image__name {
+          rawData {
+            ...
+          }
+          name
+          type
+          value
+        }
+      }
+    }
+  }
+}
+```
 
 ### Content item <-> content type relationships
 
@@ -80,22 +106,20 @@ This relationship is captured in the `contentItems` navigation property of all `
 
 You can use the [GraphiQL](https://github.com/graphql/graphiql) interface to experiment with the data structures produced by the source plugin. For instance, you can fetch a content item of the *Project reference* type (by querying `allKenticoCloudItemProjectReference`) and use the `contentType` navigation property to get a full list of all of the elements in the underlying content type. Like so:
 
-```
+```gql
 {
   allKenticoCloudItemProjectReference {
-    edges {
-      node {
-        elements {
-          name___teaser_image__name {
-            value
-          }
+    nodes {
+      elements {
+        name___teaser_image__name {
+          value
         }
-        contentType {
-          elements {
-            name
-            codename
-            type
-          }
+      }
+      contentType {
+        elements {
+          name
+          codename
+          type
         }
       }
     }
@@ -113,21 +137,19 @@ This relationship is captured by the `otherLanguages` navigation property of all
 
 For instance, you can get the names of all content items of the *Speaking engagement* type (by querying `kenticoCloudItemSpeakingEngagement`) in their default language as well as other languages all at once:
 
-```
+```gql
 {
   allKenticoCloudItemSpeakingEngagement {
-    edges {
-      node {
+    nodes {
+      elements {
+        name {
+          value
+        }
+      }
+      otherLanguages {
         elements {
           name {
             value
-          }
-        }
-        otherLanguages {
-          elements {
-            name {
-              value
-            }
           }
         }
       }
@@ -135,25 +157,25 @@ For instance, you can get the names of all content items of the *Speaking engage
   }
 }
 ```
-returns in case of two languages 
-```
+
+returns in case of two languages
+
+```json
 {
   "data": {
     "allKenticoCloudItemSpeakingEngagement": {
-      "edges": [
+      "nodes": [
         {
-          "node": {
-            "elements": {
-              "name": "Speaking engagement"
-            }
-            "otherLanguages": [
-              {
-                "elements": {
-                  "name": "Hablando de compromiso"
-                }
+          "elements": {
+            "name": "Speaking engagement"
+          },
+          "otherLanguages": [
+            {
+              "elements": {
+                "name": "Hablando de compromiso"
               }
-            ]
-          }
+            }
+          ]
         }
       ]
     }
@@ -226,7 +248,7 @@ KenticoCloudItemArticle.elements.related_articles.linked_items[].elements.manufa
 
 ### Rich text resolution
 
-With following features, it is possible to resolve rich text [into the HTML string](#embedded-JS-SDK-resolution), that could be injected to the site. For more complex scenarios, it is possible to use the raw `value` property in combination with [`linked_items`](#content-items-in-rich-text-elements-relationships), [`links`](#links-in-rich-text-elements), and [`images`](#images-in-rich-text-elements) property
+With following features, it is possible to resolve rich text [into the HTML string](#embedded-JS-SDK-resolution), that could be injected to the site. For more complex scenarios, it is possible to use the raw `value` property in combination with [`linked_items`](#content-items-in-rich-text-elements-relationships), [`links`](#links-in-rich-text-elements), and [`images`](#images-in-rich-text-elements) property.
 
 #### Embedded JS SDK resolution
 
