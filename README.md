@@ -19,49 +19,55 @@ You can use the plugin in any of the following ways:
 
 If you are new to the Gatsby ecosystem. The best way to start with using Gatsby & Kentico Cloud is to follow the official [Sourcing guide for Kentico Cloud](https://www.gatsbyjs.org/docs/sourcing-from-kentico-cloud/). To learn more about from sourcing from headless CMSs see the [Gatsby docs overview page](https://www.gatsbyjs.org/docs/headless-cms/).
 
-### B) Install plugin to your existing Gatsby project 
+### B) Install plugin to your existing Gatsby project
+
 1. Install the [gatsby-source-kentico-cloud](https://www.npmjs.com/package/gatsby-source-kentico-cloud) NPM package,
-```
-npm install --save gatsby-source-kentico-cloud
-```
-2. Configure the plugin in `gatsby-config.js` file
 
-> The source plugin uses the [Kentico Cloud SDK](https://github.com/Kentico/kentico-cloud-js/tree/master/packages/delivery#kentico-cloud-delivery-sdk) in the background.
+    ```sh
+    npm install --save gatsby-source-kentico-cloud
+    ```
 
-#### Configuration object ([example](https://github.com/Kentico/gatsby-starter-kentico-cloud/blob/master/gatsby-config.js))
+1. Configure the plugin in `gatsby-config.js` file
 
-   * `deliveryClientConfig`* - [Kentico Cloud client configuration object](https://github.com/Kentico/kentico-cloud-js/blob/master/packages/delivery/DOCS.md#client-configuration) of the JS SDK (like Preview API, Secure API, etc.).
-  * `languageCodenames`* - array of language codenames that defines [what languages a configured for the project](https://developer.kenticocloud.com/docs/localization#section-project-languages) - the first one is considered as the **default one**. Initial "Getting started" project has configured just one language `default`.
+    > The source plugin uses the [Kentico Cloud SDK](https://github.com/Kentico/kentico-cloud-js/tree/master/packages/delivery#kentico-cloud-delivery-sdk) in the background.
 
-\* required property
-```
-module.exports = {
-  ...
-  plugins: [
-    ...
-    {
-      resolve: `gatsby-source-kentico-cloud`,
-      options: {
-        deliveryClientConfig: { // Configuration object
-          projectId: `XXX`,
-          typeResolvers: []
-        },
-        languageCodenames: [ // example configuration
-          `default`, // default language
-        ]
-      }
+    **Configuration object** ([example](https://github.com/Kentico/gatsby-starter-kentico-cloud/blob/master/gatsby-config.js))
+
+      * `deliveryClientConfig`* - [Kentico Cloud client configuration object](https://github.com/Kentico/kentico-cloud-js/blob/master/packages/delivery/DOCS.md#client-configuration) of the JS SDK (like Preview API, Secure API, etc.).
+      * `languageCodenames`* - array of language codenames that defines [what languages a configured for the project](https://developer.kenticocloud.com/docs/localization#section-project-languages) - the first one is considered as the **default one**. Initial "Getting started" project has configured just one language `default`.
+
+      \* required property
+
+    ```javascript
+    module.exports = {
+      ...
+      plugins: [
+        ...
+        {
+          resolve: `gatsby-source-kentico-cloud`,
+          options: {
+            deliveryClientConfig: { // Configuration object
+              projectId: `XXX`,
+              typeResolvers: []
+            },
+            languageCodenames: [ // example configuration
+              `default`, // default language
+            ]
+          }
+        }
+        ...
+      ]
+      ...
     }
-    ...
-  ]
-  ...
-}
-```
-3. Run `gatsby develop` and data from Kentico Cloud are provided in Gatsby GraphQL model.
+    ```
+
+1. Run `gatsby develop` and data from Kentico Cloud are provided in Gatsby GraphQL model.
 All Kentico Cloud content element values reside inside of the `elements` property of `kenticoCloudItem` nodes.
 
 ### C) Scaffold your project using Gatsby Kentico Cloud starter site
 
 Use the [gatsby-starter-kentico-cloud](https://github.com/Kentico/gatsby-starter-kentico-cloud) starter site that includes this source plugin
+
 * [Gatsby gallery](https://www.gatsbyjs.org/starters/Kentico/gatsby-starter-kentico-cloud)
 
 ## Features
@@ -79,7 +85,7 @@ Every element contains:
 * `type` property containing element type codename
 * `value` property containing element value
 
-```
+```gql
 {
   allKenticoCloudItemProjectReference {
     nodes {
@@ -131,7 +137,7 @@ You can use the [GraphiQL](https://github.com/graphql/graphiql) interface to exp
 
 ### Language variant relationships
 
-This relationship is captured by the `otherLanguages` navigation property of all content item nodes in other language. 
+This relationship is captured by the `otherLanguages` navigation property of all content item nodes in other language.
 
 <details><summary>Example</summary>
 
@@ -200,28 +206,26 @@ The `related_project_refereces.linked_items` will give you the full-fledged Gats
 ```gql
 {
   allKenticoCloudItemProjectReference {
-    edges {
-      node {
-        elements {
-          related_project_references {
-            name
-            type
-            itemCodenames
-            linked_items {
-              ... on Node {
-                __typename
-                ... on KenticoCloudItemBlogpostReference {
-                  elements {
-                    name___teaser_image__name {
-                      value
-                    }
+    nodes {
+      elements {
+        related_project_references {
+          name
+          type
+          itemCodenames
+          linked_items {
+            ... on Node {
+              __typename
+              ... on KenticoCloudItemBlogpostReference {
+                elements {
+                  name___teaser_image__name {
+                    value
                   }
                 }
-                ... on KenticoCloudItemProjectReference {
-                  elements {
-                    name___teaser_image__name {
-                      value
-                    }
+              }
+              ... on KenticoCloudItemProjectReference {
+                elements {
+                  name___teaser_image__name {
+                    value
                   }
                 }
               }
@@ -284,22 +288,20 @@ As with the previous example, all rich text element containing [inline content i
 
 <details><summary>Example</summary>
 
-```
+```gql
 {
   allKenticoCloudItemBlogpostReference {
-    edges {
-      node {
-        elements {
-          summary {
-            value
-            linked_items {
-              ... on Node {
-              __typename
-              ... on KenticoCloudItemBlogpostReference {
-                elements {
-                  name___teaser_image__name {
-                    value
-                  }
+    nodes {
+      elements {
+        summary {
+          value
+          linked_items {
+            ... on Node {
+            __typename
+            ... on KenticoCloudItemBlogpostReference {
+              elements {
+                name___teaser_image__name {
+                  value
                 }
               }
             }
@@ -318,20 +320,18 @@ As with the previous example, all rich text element containing [inline content i
 All rich text properties with content items linked in the element also have an accompanying `links` property.
 <details><summary>Example</summary>
 
-```
+```gql
 {
   allKenticoCloudItemBlogpostReference {
-    edges {
-      node {
-        elements {
-          summary {
-            value
-            links {
-              codename
-              linkId
-              type
-              urlSlug
-            }
+    nodes {
+      elements {
+        summary {
+          value
+          links {
+            codename
+            linkId
+            type
+            urlSlug
           }
         }
       }
@@ -351,18 +351,16 @@ All rich text properties with content items linked in the element also have an a
 ```gql
 {
   allKenticoCloudItemBlogpostReference {
-    edges {
-      node {
-        elements {
-          summary {
-            value
-            images {
-              imageId
-              description
-              url
-              width
-              height
-            }
+    nodes {
+      elements {
+        summary {
+          value
+          images {
+            imageId
+            description
+            url
+            width
+            height
           }
         }
       }
@@ -393,7 +391,7 @@ When you change the structure of the data, or the data itself and then `gatsby d
 
 ## Further information
 
-For more developer resources, visit the Kentico Cloud Developer Hub at https://developer.kenticocloud.com.
+For more developer resources, visit the Kentico Cloud Developer Hub at [https://developer.kenticocloud.com](https://developer.kenticocloud.com).
 
 ### Running projects
 
