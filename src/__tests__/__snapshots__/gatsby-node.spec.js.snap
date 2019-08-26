@@ -5562,7 +5562,9 @@ GraphQL nodes of content items contain the ordinary \`system\` and \`elements\` 
         "contentDigest": "7b12245d3bc9e3d67705cb6033e1dcd1",
         "type": "KenticoCloudItemStep",
       },
-      "otherLanguages___NODE": Array [],
+      "otherLanguages___NODE": Array [
+        "dummyId",
+      ],
       "parent": null,
       "system": Object {
         "codename": "concept",
@@ -5618,7 +5620,9 @@ GraphQL nodes of content items contain the ordinary \`system\` and \`elements\` 
         "contentDigest": "beb752814cae34388f2e4467bb6b0d8d",
         "type": "KenticoCloudItemStep",
       },
-      "otherLanguages___NODE": Array [],
+      "otherLanguages___NODE": Array [
+        "dummyId",
+      ],
       "parent": null,
       "system": Object {
         "codename": "custom_element_devkit___react_component",
@@ -5688,7 +5692,9 @@ GraphQL nodes of content items contain the ordinary \`system\` and \`elements\` 
         "contentDigest": "1a844a112c3d5d35662a7b2d0277297c",
         "type": "KenticoCloudItemWebsite",
       },
-      "otherLanguages___NODE": Array [],
+      "otherLanguages___NODE": Array [
+        "dummyId",
+      ],
       "parent": null,
       "system": Object {
         "codename": "developer_community_site",
@@ -7486,7 +7492,9 @@ Currently I am interested in Gatsby.js. I have released the third version of Gat
         "contentDigest": "ce1884c4c0d580e49bd052defebfbdbb",
         "type": "KenticoCloudItemSession",
       },
-      "otherLanguages___NODE": Array [],
+      "otherLanguages___NODE": Array [
+        "dummyId",
+      ],
       "parent": null,
       "system": Object {
         "codename": "introduction_to_the_custom_elements_development",
@@ -7542,7 +7550,9 @@ Currently I am interested in Gatsby.js. I have released the third version of Gat
         "contentDigest": "713db9c729ed0248c21122b61dd1eb01",
         "type": "KenticoCloudItemStep",
       },
-      "otherLanguages___NODE": Array [],
+      "otherLanguages___NODE": Array [
+        "dummyId",
+      ],
       "parent": null,
       "system": Object {
         "codename": "jquery_datapicker",
@@ -7865,7 +7875,9 @@ Currently I am interested in Gatsby.js. I have released the third version of Gat
         "contentDigest": "3fdc698867b7b4658463e10f087a132d",
         "type": "KenticoCloudItemPerson",
       },
-      "otherLanguages___NODE": Array [],
+      "otherLanguages___NODE": Array [
+        "dummyId",
+      ],
       "parent": null,
       "system": Object {
         "codename": "ondrej_chrastina",
@@ -9055,7 +9067,9 @@ Currently I am interested in Gatsby.js. I have released the third version of Gat
         "contentDigest": "449b18d16c5f4ccc1d6d718a900771c6",
         "type": "KenticoCloudItemTraining",
       },
-      "otherLanguages___NODE": Array [],
+      "otherLanguages___NODE": Array [
+        "dummyId",
+      ],
       "parent": null,
       "system": Object {
         "codename": "open_source_training_2019",
