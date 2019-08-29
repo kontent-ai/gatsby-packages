@@ -46,6 +46,9 @@ module.exports = {
 
 All of the elements types [has element property called `value`](https://github.com/Kentico/kentico-cloud-js/blob/master/packages/delivery/UPGRADE.md#removal-of-type-specific-element-properties) not an element specific property. There is also `rawData` property containing raw data without the touch of the SDK.
 
+Custom element is now supported including [custom element models definition](https://github.com/Kentico/kentico-cloud-js/blob/master/packages/delivery/DOCS.md#using-custom-models-for-custom-elements).
+Image assets now contains [information about its resolution](https://docs.kenticocloud.com/reference/api-changelog#a-image-resolution-in-delivery-api).
+
 #### Basic types
 
 ```gql
