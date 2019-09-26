@@ -26,7 +26,7 @@ const decorateItemNodesWithRichTextLinkedItemsLinks = (
     }
   });
 
-  nonDefaultLanguageItemNodes.forEach((languageNodes) => {
+  Object.values(nonDefaultLanguageItemNodes).forEach((languageNodes) => {
     languageNodes.forEach((itemNode) => {
       try {
         decorateItemNodeWithRichTextLinkedItemsLinks(

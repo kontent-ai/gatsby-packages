@@ -1,6 +1,6 @@
 {
   "name": "gatsby-source-kentico-cloud",
-  "version": "4.0.0-beta1",
+  "version": "4.0.0-language-fallback.0",
   "description": "Gatsby source plugin for Kentico Cloud",
   "main": "./gatsby-node.js",
   "scripts": {

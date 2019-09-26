@@ -24,6 +24,7 @@ const parseContentItemContents =
     const itemWithElements = {
       system: contentItem.system,
       elements: elements,
+      preferred_language: contentItem.preferred_language,
     };
 
     return itemWithElements;

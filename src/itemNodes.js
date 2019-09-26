@@ -42,6 +42,7 @@ const getFromDefaultLanguage = async (
   const itemsFlatted = parse(stringify(allItems));
   const contentItemNodes = itemsFlatted.map((contentItem) => {
     try {
+      contentItem.preferred_language = defaultLanguageCodename;
       return createContentItemNode(
         createNodeId,
         contentItem,
@@ -69,7 +70,7 @@ const getFromNonDefaultLanguage = async (
   contentTypeNodes,
   createNodeId,
 ) => {
-  const nonDefaultLanguageItemNodes = new Map();
+  const nonDefaultLanguageItemNodes = {};
   for (const languageCodename of nonDefaultLanguageCodenames) {
     const languageResponse = await client
       .items()
@@ -85,14 +86,15 @@ const getFromNonDefaultLanguage = async (
       .resolveData(allItems);
 
     const languageItemsFlatted = parse(stringify(allItems));
-    const contentItemsNodes = languageItemsFlatted.map((languageItem) =>
-      createContentItemNode(
+    const contentItemsNodes = languageItemsFlatted.map((languageItem) => {
+      languageItem.preferred_language = languageCodename;
+      return createContentItemNode(
         createNodeId,
         languageItem,
         contentTypeNodes
-      )
-    );
-    nonDefaultLanguageItemNodes.set(languageCodename, contentItemsNodes);
+      );
+    });
+    nonDefaultLanguageItemNodes[languageCodename] = contentItemsNodes;
   };
   return nonDefaultLanguageItemNodes;
 };
@@ -114,7 +116,7 @@ const createContentItemNode =
       changeCase.paramCase(contentItem.system.codename);
 
     const languageParamCase =
-      changeCase.paramCase(contentItem.system.language);
+      changeCase.paramCase(contentItem.preferred_language);
 
     const nodeId = createNodeId(
       `kentico-cloud-item-${codenameParamCase}-${languageParamCase}`

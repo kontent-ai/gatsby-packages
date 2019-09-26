@@ -14,7 +14,7 @@ const decorateItemsWithLanguageVariants = (
   nonDefaultLanguageItemNodes
 ) => {
   for (const [languageCodename, currentLanguageNodes]
-    of nonDefaultLanguageItemNodes) {
+    of Object.entries(nonDefaultLanguageItemNodes)) {
     defaultCultureContentItemNodes.forEach((contentItemNode) => {
       try {
         decorateItemNodeWithLanguageVariantLink(
@@ -26,7 +26,7 @@ const decorateItemsWithLanguageVariants = (
     });
 
     for (const [otherLanguageCodename, otherLanguageNodes]
-      of nonDefaultLanguageItemNodes) {
+      of Object.entries(nonDefaultLanguageItemNodes)) {
       if (otherLanguageCodename !== languageCodename) {
         currentLanguageNodes.forEach((contentItemNode) => {
           try {
@@ -63,7 +63,6 @@ const decorateItemNodeWithLanguageVariantLink =
       (nodeOfSpecificLanguage) =>
         itemNode.system.codename === nodeOfSpecificLanguage.system.codename
         && itemNode.system.type === nodeOfSpecificLanguage.system.type
-        && itemNode.system.language !== nodeOfSpecificLanguage.system.language
     );
     if (languageVariantNode) {
       makeLink(languageVariantNode, itemNode);

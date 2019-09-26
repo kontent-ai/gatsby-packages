@@ -56,7 +56,7 @@ exports.sourceNodes =
     );
 
     const allItemNodes = defaultCultureContentItemNodes
-      .concat(_.flatten(nonDefaultLanguageItemNodes.values()));
+      .concat(_.flatten(Object.values(nonDefaultLanguageItemNodes)));
     typeItemDecorator.decorateTypeNodesWithItemLinks(
       allItemNodes,
       contentTypeNodes
@@ -79,7 +79,7 @@ exports.sourceNodes =
     createNodes(defaultCultureContentItemNodes, createNode);
 
     console.info(`Creating content item nodes for non-default languages.`);
-    nonDefaultLanguageItemNodes.forEach((languageNodes) => {
+    Object.values(nonDefaultLanguageItemNodes).forEach((languageNodes) => {
       createNodes(languageNodes, createNode);
     });
 

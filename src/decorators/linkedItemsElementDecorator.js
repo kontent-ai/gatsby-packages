@@ -22,7 +22,7 @@ const decorateItemNodesWithLinkedItemsLinks = (defaultCultureContentItemNodes,
     }
   });
 
-  nonDefaultLanguageItemNodes.forEach((languageNodes) => {
+  Object.values(nonDefaultLanguageItemNodes).forEach((languageNodes) => {
     languageNodes.forEach((itemNode) => {
       try {
         decorateItemNodeWithLinkedItemsLinks(itemNode, languageNodes);
