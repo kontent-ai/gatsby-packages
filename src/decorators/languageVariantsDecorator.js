@@ -65,18 +65,24 @@ const decorateItemNodeWithLanguageVariantLink =
         && itemNode.system.type === nodeOfSpecificLanguage.system.type
         && itemNode.system.language !== nodeOfSpecificLanguage.system.language
     );
-
-    makeLink(languageVariantNode, itemNode);
-    makeLink(itemNode, languageVariantNode);
+    if (languageVariantNode) {
+      makeLink(languageVariantNode, itemNode);
+      makeLink(itemNode, languageVariantNode);
+    }
   };
 
 const makeLink = (firstItem, secondItem) => {
   const existingLink = firstItem &&
+    secondItem &&
+    secondItem.otherLanguages___NODE &&
     secondItem.otherLanguages___NODE.find(
       (otherLanguageId) => otherLanguageId === firstItem.id
     );
 
   if (!existingLink && _.get(firstItem, 'id')) {
+    if (!secondItem.otherLanguages___NODE) {
+      secondItem.otherLanguages___NODE = [];
+    };
     secondItem.otherLanguages___NODE.push(firstItem.id);
   }
 };
