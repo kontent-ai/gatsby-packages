@@ -1,6 +1,7 @@
 const _ = require(`lodash`);
 const crypto = require(`crypto`);
 const changeCase = require(`change-case`);
+const stringify = require(`json-stringify-safe`);
 
 /**
  * Parses a content item to rebuild the 'elements' property.
@@ -17,6 +18,10 @@ const parseContentItemContents =
     const elementPropertyKeys = Object.keys(contentItem._raw.elements);
 
     for (const key of elementPropertyKeys) {
+      if (_.get(contentItem, `_raw.elements[${key}].type`) === 'modular_content') {
+        delete contentItem[key].value;
+      }
+
       const propertyValue = contentItem[key];
       elements[key] = propertyValue;
     }
@@ -42,7 +47,7 @@ const parseContentItemContents =
 const createKcArtifactNode =
   (nodeId, kcArtifact, artifactKind, codeName = ``,
     additionalNodeData = null) => {
-    const nodeContent = JSON.stringify(kcArtifact);
+    const nodeContent = stringify(kcArtifact);
 
     const nodeContentDigest = crypto
       .createHash(`md5`)
@@ -68,7 +73,7 @@ const createKcArtifactNode =
   };
 
 const addLinkedItemsLinks =
-  (itemNode, linkedNodes, linkPropertyName, originalNodeCollection = []) => {
+  (itemNode, linkedNodes, linkPropertyName, sortPattern = []) => {
     linkedNodes
       .forEach((linkedNode) => {
         if (!linkedNode.usedByContentItems___NODE.includes(itemNode.id)) {
@@ -77,12 +82,9 @@ const addLinkedItemsLinks =
       });
 
     // important to have the same order as it is Kentico Cloud
-    const sortPattern = originalNodeCollection
-      .map((item) => item.system.id);
-
     const sortedLinkedNodes = linkedNodes
       .sort((a, b) =>
-        sortPattern.indexOf(a.system.id) - sortPattern.indexOf(b.system.id)
+        sortPattern.indexOf(a.system.codename) - sortPattern.indexOf(b.system.codename)
       )
       .map((item) => item.id);
 

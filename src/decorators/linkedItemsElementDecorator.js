@@ -56,14 +56,8 @@ const decorateItemNodeWithLinkedItemsLinks =
 
           const linkedNodes = allNodesOfSameLanguage
             .filter((node) => {
-              const match = property.value.find((propertyValue) => {
-                return propertyValue !== null
-                  && node !== null
-                  && propertyValue.system.codename ===
-                  node.system.codename
-                  && propertyValue.system.type === node.system.type;
-              });
-
+              const match = property.itemCodenames.find((codename) =>
+                codename && codename === node.system.codename);
               return match !== undefined && match !== null;
             });
 
@@ -71,7 +65,7 @@ const decorateItemNodeWithLinkedItemsLinks =
             itemNode,
             linkedNodes,
             linkPropertyPath,
-            itemNode.elements[propertyName].value
+            property.itemCodenames
           );
         }
       });
