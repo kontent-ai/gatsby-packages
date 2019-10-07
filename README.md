@@ -26,15 +26,14 @@ If you are new to the Gatsby ecosystem. The best way to start with using Gatsby 
     ```sh
     npm install --save gatsby-source-kentico-cloud
     ```
+> The source plugin uses the [Kentico Cloud SDK](https://github.com/Kentico/kentico-kontent-js/tree/delivery%405.7.2/packages/delivery) in the background.
 
 1. Configure the plugin in `gatsby-config.js` file
 
-    > The source plugin uses the [Kentico Cloud SDK](https://github.com/Kentico/kentico-cloud-js/tree/master/packages/delivery#kentico-cloud-delivery-sdk) in the background.
-
     **Configuration object** ([example](https://github.com/Kentico/gatsby-starter-kentico-cloud/blob/master/gatsby-config.js))
 
-      * `deliveryClientConfig`* - [Kentico Cloud client configuration object](https://github.com/Kentico/kentico-cloud-js/blob/master/packages/delivery/DOCS.md#client-configuration) of the JS SDK (like Preview API, Secure API, etc.).
-      * `languageCodenames`* - array of language codenames that defines [what languages a configured for the project](https://developer.kenticocloud.com/docs/localization#section-project-languages) - the first one is considered as the **default one**. Initial "Getting started" project has configured just one language `default`.
+    * `deliveryClientConfig`* - [Kentico Cloud client configuration object](https://github.com/Kentico/kentico-kontent-js/blob/delivery%405.7.2/packages/delivery/DOCS.md#client-configuration) of the JS SDK (like Preview API, Secure API, etc.).
+    * `languageCodenames`* - array of language codenames that defines [what languages a configured for the project](https://developer.kenticocloud.com/docs/localization#section-project-languages) - the first one is considered as the **default one**. Initial "Getting started" project has configured just one language `default`.
 
       \* required property
 
@@ -256,7 +255,7 @@ With following features, it is possible to resolve rich text [into the HTML stri
 
 #### Embedded JS SDK resolution
 
-Since [Kentico Cloud Delivery SDK](https://github.com/Kentico/kentico-cloud-js/tree/master/packages/delivery#kentico-cloud-delivery-sdk) could resolve [links](https://github.com/Kentico/kentico-cloud-js/blob/master/packages/delivery/DOCS.md#url-slugs-links) and also [linked items and components](https://github.com/Kentico/kentico-cloud-js/blob/master/packages/delivery/DOCS.md#resolving-content-items-and-components-in-rich-text-elements) in rich text elements by implementing the resolvers, Kentico Cloud Gatsby source plugin is enriching the rich text elements in GraphQL model by `resolvedData` property containing `html` property with the resolved value and for the url slug elements, there is a `resolvedUrl` property containing resolved link from the link resolver.
+Since [Kentico Cloud Delivery SDK](https://github.com/Kentico/kentico-kontent-js/blob/delivery%405.7.2/packages/delivery#kentico-cloud-delivery-sdk) could resolve [links](https://github.com/Kentico/kentico-kontent-js/blob/delivery%405.7.2/packages/delivery/DOCS.md#url-slugs-links) and also [linked items and components](https://github.com/Kentico/kentico-kontent-js/blob/delivery%405.7.2/packages/delivery/DOCS.md#resolving-content-items-and-components-in-rich-text-fields) in rich text elements by implementing the resolvers, Kentico Cloud Gatsby source plugin is enriching the [internal SDK structure](https://github.com/Kentico/kentico-kontent-js/blob/delivery%405.7.2/packages/delivery/lib/models/item/content-item.class.ts) in GraphQL model by `resolvedHtml` property containing the resolved value.
 
 <details><summary>`summary` rich text element example</summary>
 
