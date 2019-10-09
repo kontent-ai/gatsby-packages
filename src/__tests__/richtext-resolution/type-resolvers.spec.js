@@ -12,7 +12,6 @@ const { sourceNodes } = require('../../../gatsby-node');
 
 
 describe(`Rich text resolution reference in modular content`, async () => {
-
   const fakeRichTextResponseConfig = new Map();
   fakeRichTextResponseConfig.set(
     /https:\/\/deliver.kenticocloud.com\/.*\/items/,

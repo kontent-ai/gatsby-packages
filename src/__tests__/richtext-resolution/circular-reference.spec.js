@@ -1,6 +1,5 @@
 const { KenticoCloudJsSdkTestHttpService }
   = require('kentico-cloud-js-sdk-test-http-service');
-const { ContentItem, TypeResolver } = require('kentico-cloud-delivery');
 
 // Project ID 71be1cca-0be3-0159-fdfe-6cf11b092e68
 const richtextCircularReferenceFakeItemsResponse =
@@ -12,7 +11,6 @@ const { sourceNodes } = require('../../../gatsby-node');
 
 
 describe(`Rich text resolution reference in modular content`, async () => {
-
   const fakeRichTextResponseConfig = new Map();
   fakeRichTextResponseConfig.set(
     /https:\/\/deliver.kenticocloud.com\/.*\/items/,

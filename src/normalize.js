@@ -18,7 +18,8 @@ const parseContentItemContents =
     const elementPropertyKeys = Object.keys(contentItem._raw.elements);
 
     for (const key of elementPropertyKeys) {
-      if (_.get(contentItem, `_raw.elements[${key}].type`) === 'modular_content') {
+      const elementType = _.get(contentItem, `_raw.elements[${key}].type`);
+      if (elementType === 'modular_content') {
         delete contentItem[key].value;
       }
 
@@ -83,9 +84,11 @@ const addLinkedItemsLinks =
 
     // important to have the same order as it is Kentico Cloud
     const sortedLinkedNodes = linkedNodes
-      .sort((a, b) =>
-        sortPattern.indexOf(a.system.codename) - sortPattern.indexOf(b.system.codename)
-      )
+      .sort((a, b) => {
+        const first = sortPattern.indexOf(a.system.codename);
+        const second = sortPattern.indexOf(b.system.codename);
+        return first - second;
+      })
       .map((item) => item.id);
 
     _.set(itemNode.elements, linkPropertyName, sortedLinkedNodes);
