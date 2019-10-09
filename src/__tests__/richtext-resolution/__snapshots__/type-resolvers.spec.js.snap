@@ -1,0 +1,427 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Rich text resolution reference in modular content resolves values using resolvers in rich text 1`] = `
+Array [
+  Array [
+    Object {
+      "children": Array [],
+      "contentItems___NODE": Array [
+        "dummy-kentico-cloud-item-simple-landing-page-default",
+      ],
+      "elements": Array [
+        Object {
+          "codename": "content",
+          "name": "Content",
+          "options": Array [],
+          "type": "rich_text",
+        },
+      ],
+      "id": "dummy-kentico-cloud-type-landing-page",
+      "internal": Object {
+        "content": "{\\"system\\":{\\"codename\\":\\"landing_page\\",\\"id\\":\\"b300f06d-d1e7-40b4-9dfc-e065e0455593\\",\\"name\\":\\"Landing page\\",\\"lastModified\\":\\"2019-10-09T10:20:42.6215148Z\\"},\\"elements\\":[{\\"options\\":[],\\"codename\\":\\"content\\",\\"name\\":\\"Content\\",\\"type\\":\\"rich_text\\"}]}",
+        "contentDigest": "a0ac33b7e607597366ab8ba9d6c24889",
+        "type": "KenticoCloudTypeLandingPage",
+      },
+      "parent": null,
+      "system": Object {
+        "codename": "landing_page",
+        "id": "b300f06d-d1e7-40b4-9dfc-e065e0455593",
+        "lastModified": "2019-10-09T10:20:42.6215148Z",
+        "name": "Landing page",
+      },
+      "usedByContentItems___NODE": Array [],
+    },
+  ],
+  Array [
+    Object {
+      "children": Array [],
+      "contentItems___NODE": Array [
+        "dummy-kentico-cloud-item-n26ddfb46-c2de-010e-3ad9-ec9aa8955144-default",
+      ],
+      "elements": Array [
+        Object {
+          "codename": "title",
+          "name": "Title",
+          "options": Array [],
+          "type": "text",
+        },
+        Object {
+          "codename": "images",
+          "name": "Images",
+          "options": Array [],
+          "type": "asset",
+        },
+      ],
+      "id": "dummy-kentico-cloud-type-landing-page-image-section",
+      "internal": Object {
+        "content": "{\\"system\\":{\\"codename\\":\\"landing_page_image_section\\",\\"id\\":\\"45e6379c-858c-49aa-b293-b1218581931b\\",\\"name\\":\\"Landing page image section\\",\\"lastModified\\":\\"2018-12-31T11:37:53.7435133Z\\"},\\"elements\\":[{\\"options\\":[],\\"codename\\":\\"title\\",\\"name\\":\\"Title\\",\\"type\\":\\"text\\"},{\\"options\\":[],\\"codename\\":\\"images\\",\\"name\\":\\"Images\\",\\"type\\":\\"asset\\"}]}",
+        "contentDigest": "b8c43d50ff8a1c089e6ceae4a2944567",
+        "type": "KenticoCloudTypeLandingPageImageSection",
+      },
+      "parent": null,
+      "system": Object {
+        "codename": "landing_page_image_section",
+        "id": "45e6379c-858c-49aa-b293-b1218581931b",
+        "lastModified": "2018-12-31T11:37:53.7435133Z",
+        "name": "Landing page image section",
+      },
+      "usedByContentItems___NODE": Array [],
+    },
+  ],
+  Array [
+    Object {
+      "children": Array [],
+      "contentItems___NODE": Array [
+        "dummy-kentico-cloud-item-main-project-default",
+      ],
+      "elements": Array [
+        Object {
+          "codename": "content",
+          "name": "Content",
+          "options": Array [],
+          "type": "text",
+        },
+      ],
+      "id": "dummy-kentico-cloud-type-project",
+      "internal": Object {
+        "content": "{\\"system\\":{\\"codename\\":\\"project\\",\\"id\\":\\"ec706130-b0dd-401c-ae1a-10f2eeb2eb89\\",\\"name\\":\\"Project\\",\\"lastModified\\":\\"2019-10-09T10:20:12.7155113Z\\"},\\"elements\\":[{\\"options\\":[],\\"codename\\":\\"content\\",\\"name\\":\\"Content\\",\\"type\\":\\"text\\"}]}",
+        "contentDigest": "8524000f6fc39895b271183bcddbd9d2",
+        "type": "KenticoCloudTypeProject",
+      },
+      "parent": null,
+      "system": Object {
+        "codename": "project",
+        "id": "ec706130-b0dd-401c-ae1a-10f2eeb2eb89",
+        "lastModified": "2019-10-09T10:20:12.7155113Z",
+        "name": "Project",
+      },
+      "usedByContentItems___NODE": Array [],
+    },
+  ],
+  Array [
+    Object {
+      "children": Array [],
+      "contentType___NODE": "dummy-kentico-cloud-type-project",
+      "elements": Object {
+        "content": Object {
+          "name": "Content",
+          "rawData": Object {
+            "name": "Content",
+            "type": "text",
+            "value": "Main project content",
+          },
+          "type": "text",
+          "value": "Main project content",
+        },
+      },
+      "id": "dummy-kentico-cloud-item-main-project-default",
+      "internal": Object {
+        "content": "{\\"system\\":{\\"name\\":\\"Main project\\",\\"codename\\":\\"main_project\\",\\"id\\":\\"1a3aa6bd-7b4b-486f-86ab-7bfe359ad614\\",\\"lastModified\\":\\"2018-12-28T12:53:59.075Z\\",\\"language\\":\\"default\\",\\"type\\":\\"project\\",\\"sitemapLocations\\":[]},\\"elements\\":{\\"content\\":{\\"rawData\\":{\\"type\\":\\"text\\",\\"name\\":\\"Content\\",\\"value\\":\\"Main project content\\"},\\"name\\":\\"Content\\",\\"type\\":\\"text\\",\\"value\\":\\"Main project content\\"}},\\"preferred_language\\":\\"default\\"}",
+        "contentDigest": "4a6ece61e2ecddeb1ee8cae188b6a3ec",
+        "type": "KenticoCloudItemProject",
+      },
+      "otherLanguages___NODE": Array [],
+      "parent": null,
+      "preferred_language": "default",
+      "system": Object {
+        "codename": "main_project",
+        "id": "1a3aa6bd-7b4b-486f-86ab-7bfe359ad614",
+        "language": "default",
+        "lastModified": "2018-12-28T12:53:59.075Z",
+        "name": "Main project",
+        "sitemapLocations": Array [],
+        "type": "project",
+      },
+      "usedByContentItems___NODE": Array [
+        "dummy-kentico-cloud-item-simple-landing-page-default",
+      ],
+    },
+  ],
+  Array [
+    Object {
+      "children": Array [],
+      "contentType___NODE": "dummy-kentico-cloud-type-landing-page",
+      "elements": Object {
+        "content": Object {
+          "images": Array [
+            Object {
+              "description": null,
+              "height": 1700,
+              "imageId": "98bf37b8-8be3-45e9-b284-293e205bf9a3",
+              "url": "https://assets-eu-01.kc-usercontent.com:443/71be1cca-0be3-0159-fdfe-6cf11b092e68/6c7c8367-f38c-41a1-a41d-91a71dcc073a/Back%203_4%20right.jpg",
+              "width": 3010,
+            },
+          ],
+          "linkedItemCodenames": Array [
+            "main_project",
+            "n26ddfb46_c2de_010e_3ad9_ec9aa8955144",
+          ],
+          "linked_items___NODE": Array [
+            "dummy-kentico-cloud-item-main-project-default",
+            "dummy-kentico-cloud-item-n26ddfb46-c2de-010e-3ad9-ec9aa8955144-default",
+          ],
+          "links": Array [
+            Object {
+              "codename": "main_project",
+              "linkId": "1a3aa6bd-7b4b-486f-86ab-7bfe359ad614",
+              "type": "project",
+              "urlSlug": "",
+            },
+          ],
+          "name": "Content",
+          "rawData": Object {
+            "images": Object {
+              "98bf37b8-8be3-45e9-b284-293e205bf9a3": Object {
+                "description": null,
+                "height": 1700,
+                "image_id": "98bf37b8-8be3-45e9-b284-293e205bf9a3",
+                "url": "https://assets-eu-01.kc-usercontent.com:443/71be1cca-0be3-0159-fdfe-6cf11b092e68/6c7c8367-f38c-41a1-a41d-91a71dcc073a/Back%203_4%20right.jpg",
+                "width": 3010,
+              },
+            },
+            "links": Object {
+              "1a3aa6bd-7b4b-486f-86ab-7bfe359ad614": Object {
+                "codename": "main_project",
+                "type": "project",
+                "url_slug": "",
+              },
+            },
+            "modular_content": Array [
+              "main_project",
+              "n26ddfb46_c2de_010e_3ad9_ec9aa8955144",
+            ],
+            "name": "Content",
+            "type": "rich_text",
+            "value": "<h1>Landing page</h1>
+<p><br>
+<strong>Lorem </strong><em>ipsum </em><sup>dolor </sup><sub>sit </sub>amet, consectetuer adipiscing elit. Duis condimentum augue id magna semper rutrum. Phasellus faucibus molestie nisl.&nbsp;</p>
+<ol>
+  <li>Aliquam erat volutpat.&nbsp;</li>
+</ol>
+<p><br></p>
+<p><a href=\\"https://kontent.ai\\">Link to web.</a></p>
+<p><br></p>
+<p><a data-asset-id=\\"98bf37b8-8be3-45e9-b284-293e205bf9a3\\" href=\\"https://assets-eu-01.kc-usercontent.com:443/71be1cca-0be3-0159-fdfe-6cf11b092e68/6c7c8367-f38c-41a1-a41d-91a71dcc073a/Back%203_4%20right.jpg\\">Link to Image</a></p>
+<p><br></p>
+<figure data-asset-id=\\"98bf37b8-8be3-45e9-b284-293e205bf9a3\\" data-image-id=\\"98bf37b8-8be3-45e9-b284-293e205bf9a3\\"><img src=\\"https://assets-eu-01.kc-usercontent.com:443/71be1cca-0be3-0159-fdfe-6cf11b092e68/6c7c8367-f38c-41a1-a41d-91a71dcc073a/Back%203_4%20right.jpg\\" data-asset-id=\\"98bf37b8-8be3-45e9-b284-293e205bf9a3\\" data-image-id=\\"98bf37b8-8be3-45e9-b284-293e205bf9a3\\" alt=\\"\\"></figure>
+<p>Inline component</p>
+<object type=\\"application/kenticocloud\\" data-type=\\"item\\" data-rel=\\"component\\" data-codename=\\"n26ddfb46_c2de_010e_3ad9_ec9aa8955144\\"></object>
+<p><br></p>
+<p>Projects (Link to content item):</p>
+<ul>
+  <li><a data-item-id=\\"1a3aa6bd-7b4b-486f-86ab-7bfe359ad614\\" href=\\"\\">Main project</a></li>
+</ul>
+<p>Aliquam ante. Nam quis nulla. Sed ac dolor sit amet purus malesuada congue. Curabitur vitae diam non enim vestibulum interdum. Phasellus et lorem id felis nonummy placerat. Etiam posuere lacus quis dolor.&nbsp;</p>
+<p><strong>Project (Link to existing content item)</strong></p>
+<object type=\\"application/kenticocloud\\" data-type=\\"item\\" data-rel=\\"link\\" data-codename=\\"main_project\\"></object>",
+          },
+          "resolvedData": Object {
+            "componentCodenames": Array [
+              "n26ddfb46_c2de_010e_3ad9_ec9aa8955144",
+            ],
+            "html": "<h1>Landing page</h1>
+<p><br>
+<strong>Lorem </strong><em>ipsum </em><sup>dolor </sup><sub>sit </sub>amet, consectetuer adipiscing elit. Duis condimentum augue id magna semper rutrum. Phasellus faucibus molestie nisl.&nbsp;</p>
+<ol>
+  <li>Aliquam erat volutpat.&nbsp;</li>
+</ol>
+<p><br></p>
+<p><a href=\\"https://kontent.ai\\">Link to web.</a></p>
+<p><br></p>
+<p><a data-asset-id=\\"98bf37b8-8be3-45e9-b284-293e205bf9a3\\" href=\\"https://assets-eu-01.kc-usercontent.com:443/71be1cca-0be3-0159-fdfe-6cf11b092e68/6c7c8367-f38c-41a1-a41d-91a71dcc073a/Back%203_4%20right.jpg\\">Link to Image</a></p>
+<p><br></p>
+<figure data-asset-id=\\"98bf37b8-8be3-45e9-b284-293e205bf9a3\\" data-image-id=\\"98bf37b8-8be3-45e9-b284-293e205bf9a3\\"><img src=\\"https://assets-eu-01.kc-usercontent.com:443/71be1cca-0be3-0159-fdfe-6cf11b092e68/6c7c8367-f38c-41a1-a41d-91a71dcc073a/Back%203_4%20right.jpg\\" data-asset-id=\\"98bf37b8-8be3-45e9-b284-293e205bf9a3\\" data-image-id=\\"98bf37b8-8be3-45e9-b284-293e205bf9a3\\" alt=\\"\\"></figure>
+<p>Inline component</p>
+<p type=\\"application/kenticocloud\\" data-type=\\"item\\" data-rel=\\"component\\" data-codename=\\"n26ddfb46_c2de_010e_3ad9_ec9aa8955144\\" data-sdk-resolved=\\"1\\" class=\\"kc-linked-item-wrapper\\">###landing_page_image_section###</p>
+<p><br></p>
+<p>Projects (Link to content item):</p>
+<ul>
+  <li><a data-item-id=\\"1a3aa6bd-7b4b-486f-86ab-7bfe359ad614\\" href=\\"###projectlink###\\">Main project</a></li>
+</ul>
+<p>Aliquam ante. Nam quis nulla. Sed ac dolor sit amet purus malesuada congue. Curabitur vitae diam non enim vestibulum interdum. Phasellus et lorem id felis nonummy placerat. Etiam posuere lacus quis dolor.&nbsp;</p>
+<p><strong>Project (Link to existing content item)</strong></p>
+<p type=\\"application/kenticocloud\\" data-type=\\"item\\" data-rel=\\"link\\" data-codename=\\"main_project\\" data-sdk-resolved=\\"1\\" class=\\"kc-linked-item-wrapper\\">###project###</p>",
+            "linkedItemCodenames": Array [
+              "main_project",
+            ],
+          },
+          "type": "rich_text",
+          "value": "<h1>Landing page</h1>
+<p><br>
+<strong>Lorem </strong><em>ipsum </em><sup>dolor </sup><sub>sit </sub>amet, consectetuer adipiscing elit. Duis condimentum augue id magna semper rutrum. Phasellus faucibus molestie nisl.&nbsp;</p>
+<ol>
+  <li>Aliquam erat volutpat.&nbsp;</li>
+</ol>
+<p><br></p>
+<p><a href=\\"https://kontent.ai\\">Link to web.</a></p>
+<p><br></p>
+<p><a data-asset-id=\\"98bf37b8-8be3-45e9-b284-293e205bf9a3\\" href=\\"https://assets-eu-01.kc-usercontent.com:443/71be1cca-0be3-0159-fdfe-6cf11b092e68/6c7c8367-f38c-41a1-a41d-91a71dcc073a/Back%203_4%20right.jpg\\">Link to Image</a></p>
+<p><br></p>
+<figure data-asset-id=\\"98bf37b8-8be3-45e9-b284-293e205bf9a3\\" data-image-id=\\"98bf37b8-8be3-45e9-b284-293e205bf9a3\\"><img src=\\"https://assets-eu-01.kc-usercontent.com:443/71be1cca-0be3-0159-fdfe-6cf11b092e68/6c7c8367-f38c-41a1-a41d-91a71dcc073a/Back%203_4%20right.jpg\\" data-asset-id=\\"98bf37b8-8be3-45e9-b284-293e205bf9a3\\" data-image-id=\\"98bf37b8-8be3-45e9-b284-293e205bf9a3\\" alt=\\"\\"></figure>
+<p>Inline component</p>
+<object type=\\"application/kenticocloud\\" data-type=\\"item\\" data-rel=\\"component\\" data-codename=\\"n26ddfb46_c2de_010e_3ad9_ec9aa8955144\\"></object>
+<p><br></p>
+<p>Projects (Link to content item):</p>
+<ul>
+  <li><a data-item-id=\\"1a3aa6bd-7b4b-486f-86ab-7bfe359ad614\\" href=\\"\\">Main project</a></li>
+</ul>
+<p>Aliquam ante. Nam quis nulla. Sed ac dolor sit amet purus malesuada congue. Curabitur vitae diam non enim vestibulum interdum. Phasellus et lorem id felis nonummy placerat. Etiam posuere lacus quis dolor.&nbsp;</p>
+<p><strong>Project (Link to existing content item)</strong></p>
+<object type=\\"application/kenticocloud\\" data-type=\\"item\\" data-rel=\\"link\\" data-codename=\\"main_project\\"></object>",
+        },
+      },
+      "id": "dummy-kentico-cloud-item-simple-landing-page-default",
+      "internal": Object {
+        "content": "{\\"system\\":{\\"name\\":\\"Simple Landing page\\",\\"codename\\":\\"simple_landing_page\\",\\"id\\":\\"45267fb2-2e53-41de-a51f-77a28f0a05e5\\",\\"lastModified\\":\\"2019-10-09T11:29:41.355Z\\",\\"language\\":\\"default\\",\\"type\\":\\"landing_page\\",\\"sitemapLocations\\":[]},\\"elements\\":{\\"content\\":{\\"rawData\\":{\\"type\\":\\"rich_text\\",\\"name\\":\\"Content\\",\\"images\\":{\\"98bf37b8-8be3-45e9-b284-293e205bf9a3\\":{\\"image_id\\":\\"98bf37b8-8be3-45e9-b284-293e205bf9a3\\",\\"description\\":null,\\"url\\":\\"https://assets-eu-01.kc-usercontent.com:443/71be1cca-0be3-0159-fdfe-6cf11b092e68/6c7c8367-f38c-41a1-a41d-91a71dcc073a/Back%203_4%20right.jpg\\",\\"width\\":3010,\\"height\\":1700}},\\"links\\":{\\"1a3aa6bd-7b4b-486f-86ab-7bfe359ad614\\":{\\"codename\\":\\"main_project\\",\\"type\\":\\"project\\",\\"url_slug\\":\\"\\"}},\\"modular_content\\":[\\"main_project\\",\\"n26ddfb46_c2de_010e_3ad9_ec9aa8955144\\"],\\"value\\":\\"<h1>Landing page</h1>\\\\n<p><br>\\\\n<strong>Lorem </strong><em>ipsum </em><sup>dolor </sup><sub>sit </sub>amet, consectetuer adipiscing elit. Duis condimentum augue id magna semper rutrum. Phasellus faucibus molestie nisl.&nbsp;</p>\\\\n<ol>\\\\n  <li>Aliquam erat volutpat.&nbsp;</li>\\\\n</ol>\\\\n<p><br></p>\\\\n<p><a href=\\\\\\"https://kontent.ai\\\\\\">Link to web.</a></p>\\\\n<p><br></p>\\\\n<p><a data-asset-id=\\\\\\"98bf37b8-8be3-45e9-b284-293e205bf9a3\\\\\\" href=\\\\\\"https://assets-eu-01.kc-usercontent.com:443/71be1cca-0be3-0159-fdfe-6cf11b092e68/6c7c8367-f38c-41a1-a41d-91a71dcc073a/Back%203_4%20right.jpg\\\\\\">Link to Image</a></p>\\\\n<p><br></p>\\\\n<figure data-asset-id=\\\\\\"98bf37b8-8be3-45e9-b284-293e205bf9a3\\\\\\" data-image-id=\\\\\\"98bf37b8-8be3-45e9-b284-293e205bf9a3\\\\\\"><img src=\\\\\\"https://assets-eu-01.kc-usercontent.com:443/71be1cca-0be3-0159-fdfe-6cf11b092e68/6c7c8367-f38c-41a1-a41d-91a71dcc073a/Back%203_4%20right.jpg\\\\\\" data-asset-id=\\\\\\"98bf37b8-8be3-45e9-b284-293e205bf9a3\\\\\\" data-image-id=\\\\\\"98bf37b8-8be3-45e9-b284-293e205bf9a3\\\\\\" alt=\\\\\\"\\\\\\"></figure>\\\\n<p>Inline component</p>\\\\n<object type=\\\\\\"application/kenticocloud\\\\\\" data-type=\\\\\\"item\\\\\\" data-rel=\\\\\\"component\\\\\\" data-codename=\\\\\\"n26ddfb46_c2de_010e_3ad9_ec9aa8955144\\\\\\"></object>\\\\n<p><br></p>\\\\n<p>Projects (Link to content item):</p>\\\\n<ul>\\\\n  <li><a data-item-id=\\\\\\"1a3aa6bd-7b4b-486f-86ab-7bfe359ad614\\\\\\" href=\\\\\\"\\\\\\">Main project</a></li>\\\\n</ul>\\\\n<p>Aliquam ante. Nam quis nulla. Sed ac dolor sit amet purus malesuada congue. Curabitur vitae diam non enim vestibulum interdum. Phasellus et lorem id felis nonummy placerat. Etiam posuere lacus quis dolor.&nbsp;</p>\\\\n<p><strong>Project (Link to existing content item)</strong></p>\\\\n<object type=\\\\\\"application/kenticocloud\\\\\\" data-type=\\\\\\"item\\\\\\" data-rel=\\\\\\"link\\\\\\" data-codename=\\\\\\"main_project\\\\\\"></object>\\"},\\"name\\":\\"Content\\",\\"type\\":\\"rich_text\\",\\"linkedItemCodenames\\":[\\"main_project\\",\\"n26ddfb46_c2de_010e_3ad9_ec9aa8955144\\"],\\"links\\":[{\\"codename\\":\\"main_project\\",\\"linkId\\":\\"1a3aa6bd-7b4b-486f-86ab-7bfe359ad614\\",\\"urlSlug\\":\\"\\",\\"type\\":\\"project\\"}],\\"images\\":[{\\"description\\":null,\\"imageId\\":\\"98bf37b8-8be3-45e9-b284-293e205bf9a3\\",\\"url\\":\\"https://assets-eu-01.kc-usercontent.com:443/71be1cca-0be3-0159-fdfe-6cf11b092e68/6c7c8367-f38c-41a1-a41d-91a71dcc073a/Back%203_4%20right.jpg\\",\\"height\\":1700,\\"width\\":3010}],\\"value\\":\\"<h1>Landing page</h1>\\\\n<p><br>\\\\n<strong>Lorem </strong><em>ipsum </em><sup>dolor </sup><sub>sit </sub>amet, consectetuer adipiscing elit. Duis condimentum augue id magna semper rutrum. Phasellus faucibus molestie nisl.&nbsp;</p>\\\\n<ol>\\\\n  <li>Aliquam erat volutpat.&nbsp;</li>\\\\n</ol>\\\\n<p><br></p>\\\\n<p><a href=\\\\\\"https://kontent.ai\\\\\\">Link to web.</a></p>\\\\n<p><br></p>\\\\n<p><a data-asset-id=\\\\\\"98bf37b8-8be3-45e9-b284-293e205bf9a3\\\\\\" href=\\\\\\"https://assets-eu-01.kc-usercontent.com:443/71be1cca-0be3-0159-fdfe-6cf11b092e68/6c7c8367-f38c-41a1-a41d-91a71dcc073a/Back%203_4%20right.jpg\\\\\\">Link to Image</a></p>\\\\n<p><br></p>\\\\n<figure data-asset-id=\\\\\\"98bf37b8-8be3-45e9-b284-293e205bf9a3\\\\\\" data-image-id=\\\\\\"98bf37b8-8be3-45e9-b284-293e205bf9a3\\\\\\"><img src=\\\\\\"https://assets-eu-01.kc-usercontent.com:443/71be1cca-0be3-0159-fdfe-6cf11b092e68/6c7c8367-f38c-41a1-a41d-91a71dcc073a/Back%203_4%20right.jpg\\\\\\" data-asset-id=\\\\\\"98bf37b8-8be3-45e9-b284-293e205bf9a3\\\\\\" data-image-id=\\\\\\"98bf37b8-8be3-45e9-b284-293e205bf9a3\\\\\\" alt=\\\\\\"\\\\\\"></figure>\\\\n<p>Inline component</p>\\\\n<object type=\\\\\\"application/kenticocloud\\\\\\" data-type=\\\\\\"item\\\\\\" data-rel=\\\\\\"component\\\\\\" data-codename=\\\\\\"n26ddfb46_c2de_010e_3ad9_ec9aa8955144\\\\\\"></object>\\\\n<p><br></p>\\\\n<p>Projects (Link to content item):</p>\\\\n<ul>\\\\n  <li><a data-item-id=\\\\\\"1a3aa6bd-7b4b-486f-86ab-7bfe359ad614\\\\\\" href=\\\\\\"\\\\\\">Main project</a></li>\\\\n</ul>\\\\n<p>Aliquam ante. Nam quis nulla. Sed ac dolor sit amet purus malesuada congue. Curabitur vitae diam non enim vestibulum interdum. Phasellus et lorem id felis nonummy placerat. Etiam posuere lacus quis dolor.&nbsp;</p>\\\\n<p><strong>Project (Link to existing content item)</strong></p>\\\\n<object type=\\\\\\"application/kenticocloud\\\\\\" data-type=\\\\\\"item\\\\\\" data-rel=\\\\\\"link\\\\\\" data-codename=\\\\\\"main_project\\\\\\"></object>\\",\\"resolvedData\\":{\\"html\\":\\"<h1>Landing page</h1>\\\\n<p><br>\\\\n<strong>Lorem </strong><em>ipsum </em><sup>dolor </sup><sub>sit </sub>amet, consectetuer adipiscing elit. Duis condimentum augue id magna semper rutrum. Phasellus faucibus molestie nisl.&nbsp;</p>\\\\n<ol>\\\\n  <li>Aliquam erat volutpat.&nbsp;</li>\\\\n</ol>\\\\n<p><br></p>\\\\n<p><a href=\\\\\\"https://kontent.ai\\\\\\">Link to web.</a></p>\\\\n<p><br></p>\\\\n<p><a data-asset-id=\\\\\\"98bf37b8-8be3-45e9-b284-293e205bf9a3\\\\\\" href=\\\\\\"https://assets-eu-01.kc-usercontent.com:443/71be1cca-0be3-0159-fdfe-6cf11b092e68/6c7c8367-f38c-41a1-a41d-91a71dcc073a/Back%203_4%20right.jpg\\\\\\">Link to Image</a></p>\\\\n<p><br></p>\\\\n<figure data-asset-id=\\\\\\"98bf37b8-8be3-45e9-b284-293e205bf9a3\\\\\\" data-image-id=\\\\\\"98bf37b8-8be3-45e9-b284-293e205bf9a3\\\\\\"><img src=\\\\\\"https://assets-eu-01.kc-usercontent.com:443/71be1cca-0be3-0159-fdfe-6cf11b092e68/6c7c8367-f38c-41a1-a41d-91a71dcc073a/Back%203_4%20right.jpg\\\\\\" data-asset-id=\\\\\\"98bf37b8-8be3-45e9-b284-293e205bf9a3\\\\\\" data-image-id=\\\\\\"98bf37b8-8be3-45e9-b284-293e205bf9a3\\\\\\" alt=\\\\\\"\\\\\\"></figure>\\\\n<p>Inline component</p>\\\\n<p type=\\\\\\"application/kenticocloud\\\\\\" data-type=\\\\\\"item\\\\\\" data-rel=\\\\\\"component\\\\\\" data-codename=\\\\\\"n26ddfb46_c2de_010e_3ad9_ec9aa8955144\\\\\\" data-sdk-resolved=\\\\\\"1\\\\\\" class=\\\\\\"kc-linked-item-wrapper\\\\\\">###landing_page_image_section###</p>\\\\n<p><br></p>\\\\n<p>Projects (Link to content item):</p>\\\\n<ul>\\\\n  <li><a data-item-id=\\\\\\"1a3aa6bd-7b4b-486f-86ab-7bfe359ad614\\\\\\" href=\\\\\\"###projectlink###\\\\\\">Main project</a></li>\\\\n</ul>\\\\n<p>Aliquam ante. Nam quis nulla. Sed ac dolor sit amet purus malesuada congue. Curabitur vitae diam non enim vestibulum interdum. Phasellus et lorem id felis nonummy placerat. Etiam posuere lacus quis dolor.&nbsp;</p>\\\\n<p><strong>Project (Link to existing content item)</strong></p>\\\\n<p type=\\\\\\"application/kenticocloud\\\\\\" data-type=\\\\\\"item\\\\\\" data-rel=\\\\\\"link\\\\\\" data-codename=\\\\\\"main_project\\\\\\" data-sdk-resolved=\\\\\\"1\\\\\\" class=\\\\\\"kc-linked-item-wrapper\\\\\\">###project###</p>\\",\\"componentCodenames\\":[\\"n26ddfb46_c2de_010e_3ad9_ec9aa8955144\\"],\\"linkedItemCodenames\\":[\\"main_project\\"]}}},\\"preferred_language\\":\\"default\\"}",
+        "contentDigest": "c2f4076f9dfb21423166e364fb17902f",
+        "type": "KenticoCloudItemLandingPage",
+      },
+      "otherLanguages___NODE": Array [],
+      "parent": null,
+      "preferred_language": "default",
+      "system": Object {
+        "codename": "simple_landing_page",
+        "id": "45267fb2-2e53-41de-a51f-77a28f0a05e5",
+        "language": "default",
+        "lastModified": "2019-10-09T11:29:41.355Z",
+        "name": "Simple Landing page",
+        "sitemapLocations": Array [],
+        "type": "landing_page",
+      },
+      "usedByContentItems___NODE": Array [],
+    },
+  ],
+  Array [
+    Object {
+      "children": Array [],
+      "contentType___NODE": "dummy-kentico-cloud-type-landing-page-image-section",
+      "elements": Object {
+        "images": Object {
+          "name": "Images",
+          "rawData": Object {
+            "name": "Images",
+            "type": "asset",
+            "value": Array [
+              Object {
+                "description": null,
+                "height": 1700,
+                "name": "Back 3_4 right.jpg",
+                "size": 1639188,
+                "type": "image/jpeg",
+                "url": "https://assets-eu-01.kc-usercontent.com:443/71be1cca-0be3-0159-fdfe-6cf11b092e68/6c7c8367-f38c-41a1-a41d-91a71dcc073a/Back%203_4%20right.jpg",
+                "width": 3010,
+              },
+              Object {
+                "description": null,
+                "height": 1826,
+                "name": "Front.jpg",
+                "size": 1552869,
+                "type": "image/jpeg",
+                "url": "https://assets-eu-01.kc-usercontent.com:443/71be1cca-0be3-0159-fdfe-6cf11b092e68/1b6e8055-2952-4236-92d3-33e7774fb7d0/Front.jpg",
+                "width": 2365,
+              },
+              Object {
+                "description": null,
+                "height": 1700,
+                "name": "Back 3_4.jpg",
+                "size": 1653072,
+                "type": "image/jpeg",
+                "url": "https://assets-eu-01.kc-usercontent.com:443/71be1cca-0be3-0159-fdfe-6cf11b092e68/feb9cb93-0d5e-4a22-879f-f6cb7dd6b67b/Back%203_4.jpg",
+                "width": 3010,
+              },
+            ],
+          },
+          "type": "asset",
+          "value": Array [
+            Object {
+              "contract": Object {
+                "description": null,
+                "height": 1700,
+                "name": "Back 3_4 right.jpg",
+                "size": 1639188,
+                "type": "image/jpeg",
+                "url": "https://assets-eu-01.kc-usercontent.com:443/71be1cca-0be3-0159-fdfe-6cf11b092e68/6c7c8367-f38c-41a1-a41d-91a71dcc073a/Back%203_4%20right.jpg",
+                "width": 3010,
+              },
+              "description": null,
+              "height": 1700,
+              "name": "Back 3_4 right.jpg",
+              "size": 1639188,
+              "type": "image/jpeg",
+              "url": "https://assets-eu-01.kc-usercontent.com:443/71be1cca-0be3-0159-fdfe-6cf11b092e68/6c7c8367-f38c-41a1-a41d-91a71dcc073a/Back%203_4%20right.jpg",
+              "width": 3010,
+            },
+            Object {
+              "contract": Object {
+                "description": null,
+                "height": 1826,
+                "name": "Front.jpg",
+                "size": 1552869,
+                "type": "image/jpeg",
+                "url": "https://assets-eu-01.kc-usercontent.com:443/71be1cca-0be3-0159-fdfe-6cf11b092e68/1b6e8055-2952-4236-92d3-33e7774fb7d0/Front.jpg",
+                "width": 2365,
+              },
+              "description": null,
+              "height": 1826,
+              "name": "Front.jpg",
+              "size": 1552869,
+              "type": "image/jpeg",
+              "url": "https://assets-eu-01.kc-usercontent.com:443/71be1cca-0be3-0159-fdfe-6cf11b092e68/1b6e8055-2952-4236-92d3-33e7774fb7d0/Front.jpg",
+              "width": 2365,
+            },
+            Object {
+              "contract": Object {
+                "description": null,
+                "height": 1700,
+                "name": "Back 3_4.jpg",
+                "size": 1653072,
+                "type": "image/jpeg",
+                "url": "https://assets-eu-01.kc-usercontent.com:443/71be1cca-0be3-0159-fdfe-6cf11b092e68/feb9cb93-0d5e-4a22-879f-f6cb7dd6b67b/Back%203_4.jpg",
+                "width": 3010,
+              },
+              "description": null,
+              "height": 1700,
+              "name": "Back 3_4.jpg",
+              "size": 1653072,
+              "type": "image/jpeg",
+              "url": "https://assets-eu-01.kc-usercontent.com:443/71be1cca-0be3-0159-fdfe-6cf11b092e68/feb9cb93-0d5e-4a22-879f-f6cb7dd6b67b/Back%203_4.jpg",
+              "width": 3010,
+            },
+          ],
+        },
+        "title": Object {
+          "name": "Title",
+          "rawData": Object {
+            "name": "Title",
+            "type": "text",
+            "value": "Cap",
+          },
+          "type": "text",
+          "value": "Cap",
+        },
+      },
+      "id": "dummy-kentico-cloud-item-n26ddfb46-c2de-010e-3ad9-ec9aa8955144-default",
+      "internal": Object {
+        "content": "{\\"system\\":{\\"name\\":\\"26ddfb46-c2de-010e-3ad9-ec9aa8955144\\",\\"codename\\":\\"n26ddfb46_c2de_010e_3ad9_ec9aa8955144\\",\\"id\\":\\"26ddfb46-c2de-010e-3ad9-ec9aa8955144\\",\\"lastModified\\":\\"2019-10-09T11:29:41.355Z\\",\\"language\\":\\"default\\",\\"type\\":\\"landing_page_image_section\\",\\"sitemapLocations\\":[]},\\"elements\\":{\\"title\\":{\\"rawData\\":{\\"type\\":\\"text\\",\\"name\\":\\"Title\\",\\"value\\":\\"Cap\\"},\\"name\\":\\"Title\\",\\"type\\":\\"text\\",\\"value\\":\\"Cap\\"},\\"images\\":{\\"rawData\\":{\\"type\\":\\"asset\\",\\"name\\":\\"Images\\",\\"value\\":[{\\"name\\":\\"Back 3_4 right.jpg\\",\\"description\\":null,\\"type\\":\\"image/jpeg\\",\\"size\\":1639188,\\"url\\":\\"https://assets-eu-01.kc-usercontent.com:443/71be1cca-0be3-0159-fdfe-6cf11b092e68/6c7c8367-f38c-41a1-a41d-91a71dcc073a/Back%203_4%20right.jpg\\",\\"width\\":3010,\\"height\\":1700},{\\"name\\":\\"Front.jpg\\",\\"description\\":null,\\"type\\":\\"image/jpeg\\",\\"size\\":1552869,\\"url\\":\\"https://assets-eu-01.kc-usercontent.com:443/71be1cca-0be3-0159-fdfe-6cf11b092e68/1b6e8055-2952-4236-92d3-33e7774fb7d0/Front.jpg\\",\\"width\\":2365,\\"height\\":1826},{\\"name\\":\\"Back 3_4.jpg\\",\\"description\\":null,\\"type\\":\\"image/jpeg\\",\\"size\\":1653072,\\"url\\":\\"https://assets-eu-01.kc-usercontent.com:443/71be1cca-0be3-0159-fdfe-6cf11b092e68/feb9cb93-0d5e-4a22-879f-f6cb7dd6b67b/Back%203_4.jpg\\",\\"width\\":3010,\\"height\\":1700}]},\\"name\\":\\"Images\\",\\"type\\":\\"asset\\",\\"value\\":[{\\"contract\\":{\\"name\\":\\"Back 3_4 right.jpg\\",\\"description\\":null,\\"type\\":\\"image/jpeg\\",\\"size\\":1639188,\\"url\\":\\"https://assets-eu-01.kc-usercontent.com:443/71be1cca-0be3-0159-fdfe-6cf11b092e68/6c7c8367-f38c-41a1-a41d-91a71dcc073a/Back%203_4%20right.jpg\\",\\"width\\":3010,\\"height\\":1700},\\"name\\":\\"Back 3_4 right.jpg\\",\\"type\\":\\"image/jpeg\\",\\"size\\":1639188,\\"description\\":null,\\"url\\":\\"https://assets-eu-01.kc-usercontent.com:443/71be1cca-0be3-0159-fdfe-6cf11b092e68/6c7c8367-f38c-41a1-a41d-91a71dcc073a/Back%203_4%20right.jpg\\",\\"width\\":3010,\\"height\\":1700},{\\"contract\\":{\\"name\\":\\"Front.jpg\\",\\"description\\":null,\\"type\\":\\"image/jpeg\\",\\"size\\":1552869,\\"url\\":\\"https://assets-eu-01.kc-usercontent.com:443/71be1cca-0be3-0159-fdfe-6cf11b092e68/1b6e8055-2952-4236-92d3-33e7774fb7d0/Front.jpg\\",\\"width\\":2365,\\"height\\":1826},\\"name\\":\\"Front.jpg\\",\\"type\\":\\"image/jpeg\\",\\"size\\":1552869,\\"description\\":null,\\"url\\":\\"https://assets-eu-01.kc-usercontent.com:443/71be1cca-0be3-0159-fdfe-6cf11b092e68/1b6e8055-2952-4236-92d3-33e7774fb7d0/Front.jpg\\",\\"width\\":2365,\\"height\\":1826},{\\"contract\\":{\\"name\\":\\"Back 3_4.jpg\\",\\"description\\":null,\\"type\\":\\"image/jpeg\\",\\"size\\":1653072,\\"url\\":\\"https://assets-eu-01.kc-usercontent.com:443/71be1cca-0be3-0159-fdfe-6cf11b092e68/feb9cb93-0d5e-4a22-879f-f6cb7dd6b67b/Back%203_4.jpg\\",\\"width\\":3010,\\"height\\":1700},\\"name\\":\\"Back 3_4.jpg\\",\\"type\\":\\"image/jpeg\\",\\"size\\":1653072,\\"description\\":null,\\"url\\":\\"https://assets-eu-01.kc-usercontent.com:443/71be1cca-0be3-0159-fdfe-6cf11b092e68/feb9cb93-0d5e-4a22-879f-f6cb7dd6b67b/Back%203_4.jpg\\",\\"width\\":3010,\\"height\\":1700}]}},\\"preferred_language\\":\\"default\\"}",
+        "contentDigest": "b567fea37ca7979117aaaf824a3614e0",
+        "type": "KenticoCloudItemLandingPageImageSection",
+      },
+      "otherLanguages___NODE": Array [],
+      "parent": null,
+      "preferred_language": "default",
+      "system": Object {
+        "codename": "n26ddfb46_c2de_010e_3ad9_ec9aa8955144",
+        "id": "26ddfb46-c2de-010e-3ad9-ec9aa8955144",
+        "language": "default",
+        "lastModified": "2019-10-09T11:29:41.355Z",
+        "name": "26ddfb46-c2de-010e-3ad9-ec9aa8955144",
+        "sitemapLocations": Array [],
+        "type": "landing_page_image_section",
+      },
+      "usedByContentItems___NODE": Array [
+        "dummy-kentico-cloud-item-simple-landing-page-default",
+      ],
+    },
+  ],
+]
+`;

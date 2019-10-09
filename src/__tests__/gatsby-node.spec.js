@@ -1,26 +1,15 @@
 const { KenticoCloudJsSdkTestHttpService }
   = require('kentico-cloud-js-sdk-test-http-service');
-const { ContentItem, TypeResolver } = require('kentico-cloud-delivery');
 
 const { sourceNodes } = require('../gatsby-node');
 const { customTrackingHeader } = require('../config');
 const { name, version } = require('../../package.json');
-const fakeItemsResponseWithRichTextElement =
-  require('./fakeItemsResponseWithRichTextElement.json');
-const fakeTypesResponseWithRichTextElement =
-  require('./fakeTypesResponseWithRichTextElement.json');
 const complexContentItemsFirstLanguageFakeReponse =
   require('./complexContentItemsFirstLanguageFakeReponse.json');
 const complexContentItemsSecondtLanguageFakeReponse =
   require('./complexContentItemsSecondLanguageFakeReponse.json');
 const complexTypesFakeResponse =
   require('./complexTypesFakeResponse.json');
-
-const {
-  expectedResolvedRichTextComponent,
-  expectedResolvedRichTextImages,
-} = require('./expectedOutputs/gatsby-node.output');
-
 
 describe('customTrackingHeader', () => {
   it('has correct name', () => {
@@ -148,110 +137,6 @@ describe('sourceNodes', () => {
         .toContainEqual(anotherHeader);
       expect(deliveryClientConfig.globalQueryConfig.customHeaders.length)
         .toEqual(2);
-    });
-  });
-
-  describe('rich text section', () => {
-    class LandingPageImageSection extends ContentItem {
-      constructor() {
-        super({
-          richTextResolver: (_contentItem, _context) =>
-            '###landing_page_image_section###',
-        });
-      }
-    }
-
-    class Project extends ContentItem {
-      constructor() {
-        super({
-          urlSlugResolver: (_link, _context) => ({ url: '###projectlink###' }),
-          richTextResolver: (_contentItem, _context) =>
-            '###project###',
-        });
-      }
-    }
-
-
-    it('does resolve rich text element', async () => {
-      const fakeRichTextResponseConfig = new Map();
-      fakeRichTextResponseConfig.set(
-        /https:\/\/deliver.kenticocloud.com\/.*\/items/,
-        {
-          fakeResponseJson: fakeItemsResponseWithRichTextElement,
-          throwCloudError: false,
-        });
-      fakeRichTextResponseConfig.set(
-        /https:\/\/deliver.kenticocloud.com\/.*\/types/,
-        {
-          fakeResponseJson: fakeTypesResponseWithRichTextElement,
-          throwCloudError: false,
-        });
-      const deliveryClientConfig = {
-        projectId: 'dummyProject',
-        typeResolvers: [
-          new TypeResolver('landing_page_image_section', (rawData) =>
-            new LandingPageImageSection(rawData)
-          ),
-          new TypeResolver('project', (rawData) =>
-            new Project(rawData)),
-        ],
-        httpService: new KenticoCloudJsSdkTestHttpService(
-          fakeRichTextResponseConfig
-        ),
-      };
-      const expectedRichTextValue = fakeItemsResponseWithRichTextElement
-        .items
-        .filter((item) => item.system.codename === 'simple_landing_page')[0]
-        .elements
-        .content
-        .value;
-
-      const createNodeMock = jest.fn();
-      const actions = {
-        actions: {
-          createNode: createNodeMock,
-        },
-        createNodeId: dummyCreation.createNodeId,
-      };
-      const pluginConfiguration = {
-        deliveryClientConfig,
-        languageCodenames: ['default'],
-      };
-
-      await sourceNodes(actions, pluginConfiguration);
-
-      const landingPageCallNodeSelection = createNodeMock
-        .mock
-        .calls
-        .filter((call) => {
-          const firstArgument = call[0];
-          return firstArgument.internal.type.startsWith('KenticoCloudItem')
-            && firstArgument.system.codename === 'simple_landing_page';
-        });
-
-      expect(landingPageCallNodeSelection).toHaveLength(1);
-      expect(landingPageCallNodeSelection[0]).toHaveLength(1);
-      const landingPageNode = landingPageCallNodeSelection[0][0];
-
-      expect(landingPageNode)
-        .toHaveProperty(
-          'elements.content.value',
-          expectedRichTextValue
-        );
-      expect(landingPageNode)
-        .toHaveProperty(
-          'elements.content.images',
-          expectedResolvedRichTextImages
-        );
-      expect(landingPageNode)
-        .toHaveProperty(
-          'elements.content.resolvedData.html',
-          expectedResolvedRichTextComponent
-        );
-      expect(landingPageNode)
-        .toHaveProperty('elements.content.linked_items___NODE');
-      expect(landingPageNode.elements.content.linked_items___NODE)
-        .toHaveLength(2);
     });
   });
 

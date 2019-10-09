@@ -1,24 +1,30 @@
-const circularReferenceItemsResponse =
-  require('./circularReferenceItemsResponse.json');
-const circularReferenceTypesResponse =
-  require('./circularReferenceTypesResponse.json');
 const { KenticoCloudJsSdkTestHttpService }
   = require('kentico-cloud-js-sdk-test-http-service');
+const { ContentItem, TypeResolver } = require('kentico-cloud-delivery');
 
-const { sourceNodes } = require('../gatsby-node');
+// Project ID 71be1cca-0be3-0159-fdfe-6cf11b092e68
+const richtextCircularReferenceFakeItemsResponse =
+  require('./richtextCircularReferenceFakeItemsResponse.json');
+const richtextCircularReferenceFakeTypesResponse =
+  require('./richtextCircularReferenceFakeTypesResponse.json');
 
-describe(`circular reference in modular content`, async () => {
-  const fakeHttpServiceConfig = new Map();
-  fakeHttpServiceConfig.set(
+const { sourceNodes } = require('../../../gatsby-node');
+
+
+describe(`Rich text resolution reference in modular content`, async () => {
+
+  const fakeRichTextResponseConfig = new Map();
+  fakeRichTextResponseConfig.set(
     /https:\/\/deliver.kenticocloud.com\/.*\/items/,
     {
-      fakeResponseJson: circularReferenceItemsResponse,
+      fakeResponseJson: richtextCircularReferenceFakeItemsResponse,
       throwCloudError: false,
     });
-  fakeHttpServiceConfig.set(
+
+  fakeRichTextResponseConfig.set(
     /https:\/\/deliver.kenticocloud.com\/.*\/types/,
     {
-      fakeResponseJson: circularReferenceTypesResponse,
+      fakeResponseJson: richtextCircularReferenceFakeTypesResponse,
       throwCloudError: false,
     });
 
@@ -43,7 +49,7 @@ describe(`circular reference in modular content`, async () => {
     projectId: 'dummyProject',
     typeResolvers: [],
     httpService: new KenticoCloudJsSdkTestHttpService(
-      fakeHttpServiceConfig
+      fakeRichTextResponseConfig
     ),
   };
 
@@ -52,7 +58,7 @@ describe(`circular reference in modular content`, async () => {
     languageCodenames: ['default'],
   };
 
-  it('passes with no error', async () => {
+  it('resolves values using resolvers in rich text', async () => {
     await sourceNodes(actions, pluginConfiguration);
 
     const calls = createNodeMock.mock.calls;

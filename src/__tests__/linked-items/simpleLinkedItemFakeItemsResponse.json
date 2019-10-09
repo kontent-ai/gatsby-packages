@@ -1,0 +1,130 @@
+{
+  "items": [
+    {
+      "system": {
+        "id": "1a3aa6bd-7b4b-486f-86ab-7bfe359ad614",
+        "name": "Main project",
+        "codename": "main_project",
+        "language": "default",
+        "type": "project",
+        "sitemap_locations": [],
+        "last_modified": "2018-12-28T12:53:59.0753983Z"
+      },
+      "elements": {
+        "content": {
+          "type": "text",
+          "name": "Content",
+          "value": "Main project content"
+        },
+        "related_projects": {
+          "type": "modular_content",
+          "name": "Related projects",
+          "value": [
+            "sub_project_1",
+            "sub_project_2"
+          ]
+        }
+      }
+    },
+    {
+      "system": {
+        "id": "8a7f275d-0e1c-4b30-af3e-f02c91259faf",
+        "name": "Sub project 1",
+        "codename": "sub_project_1",
+        "language": "default",
+        "type": "project",
+        "sitemap_locations": [],
+        "last_modified": "2019-01-14T15:52:54.9042801Z"
+      },
+      "elements": {
+        "content": {
+          "type": "text",
+          "name": "Content",
+          "value": "Sub project 1 content"
+        },
+        "related_projects": {
+          "type": "modular_content",
+          "name": "Related projects",
+          "value": []
+        }
+      }
+    },
+    {
+      "system": {
+        "id": "91703600-4d43-410e-ba48-93c6c8b0a754",
+        "name": "Sub project 2",
+        "codename": "sub_project_2",
+        "language": "default",
+        "type": "project",
+        "sitemap_locations": [],
+        "last_modified": "2018-12-28T12:30:21.6646176Z"
+      },
+      "elements": {
+        "content": {
+          "type": "text",
+          "name": "Content",
+          "value": "Sub project 2 content"
+        },
+        "related_projects": {
+          "type": "modular_content",
+          "name": "Related projects",
+          "value": []
+        }
+      }
+    }
+  ],
+  "modular_content": {
+    "sub_project_1": {
+      "system": {
+        "id": "8a7f275d-0e1c-4b30-af3e-f02c91259faf",
+        "name": "Sub project 1",
+        "codename": "sub_project_1",
+        "language": "default",
+        "type": "project",
+        "sitemap_locations": [],
+        "last_modified": "2019-01-14T15:52:54.9042801Z"
+      },
+      "elements": {
+        "content": {
+          "type": "text",
+          "name": "Content",
+          "value": "Sub project 1 content"
+        },
+        "related_projects": {
+          "type": "modular_content",
+          "name": "Related projects",
+          "value": []
+        }
+      }
+    },
+    "sub_project_2": {
+      "system": {
+        "id": "91703600-4d43-410e-ba48-93c6c8b0a754",
+        "name": "Sub project 2",
+        "codename": "sub_project_2",
+        "language": "default",
+        "type": "project",
+        "sitemap_locations": [],
+        "last_modified": "2018-12-28T12:30:21.6646176Z"
+      },
+      "elements": {
+        "content": {
+          "type": "text",
+          "name": "Content",
+          "value": "Sub project 2 content"
+        },
+        "related_projects": {
+          "type": "modular_content",
+          "name": "Related projects",
+          "value": []
+        }
+      }
+    }
+  },
+  "pagination": {
+    "skip": 0,
+    "limit": 0,
+    "count": 3,
+    "next_page": ""
+  }
+}
