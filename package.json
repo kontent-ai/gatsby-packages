@@ -1,6 +1,6 @@
 {
   "name": "gatsby-source-kentico-cloud",
-  "version": "4.0.0-language-fallback.1",
+  "version": "4.0.0-beta2",
   "description": "Gatsby source plugin for Kentico Cloud",
   "main": "./gatsby-node.js",
   "scripts": {
@@ -25,9 +25,9 @@
     "gatsby",
     "gatsby-plugin"
   ],
-  "author": "Jan Lenoch <janl@kentico.com>",
+  "author": "Ondřej Chrastina <ondrej.chrastina@gmail.com> (https://github.com/Simply007)",
   "contributors": [
-    "Ondřej Chrastina <ondrej.chrastina@gmail.com> (https://github.com/Simply007)"
+    "Jan Lenoch <janl@kentico.com>"
   ],
   "license": "MIT",
   "private": false,
@@ -35,10 +35,10 @@
     "node": ">=10.0.0"
   },
   "dependencies": {
+    "@kentico/kontent-delivery": "^7.0.1",
     "change-case": "^3.1.0",
     "flatted": "^2.0.0",
     "json-stringify-safe": "^5.0.1",
-    "kentico-cloud-delivery": "^6.2.0",
     "lodash": "^4.17.11",
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
@@ -52,6 +52,7 @@
     "@babel/core": "^7.3.3",
     "@babel/polyfill": "^7.2.5",
     "@babel/preset-env": "^7.3.1",
+    "@kentico/kontent-test-http-service-js": "^2.0.0-beta2",
     "babel-core": "^6.26.3",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.1.0",
@@ -62,7 +63,6 @@
     "eslint-plugin-node": "^8.0.1",
     "gatsby": "^2.1.18",
     "jest": "^24.1.0",
-    "kentico-cloud-js-sdk-test-http-service": "1.0.0",
     "regenerator-runtime": "^0.13.1"
   }
 }

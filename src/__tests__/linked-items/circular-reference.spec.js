@@ -1,6 +1,6 @@
 
-const { KenticoCloudJsSdkTestHttpService }
-  = require('kentico-cloud-js-sdk-test-http-service');
+const { KontentTestHttpService }
+  = require('@kentico/kontent-test-http-service-js');
 
 const { sourceNodes } = require('../../../gatsby-node');
 
@@ -13,16 +13,16 @@ const fakeTypeResponse =
 describe(`Circular reference in modular content`, async () => {
   const fakeHttpServiceConfig = new Map();
   fakeHttpServiceConfig.set(
-    /https:\/\/deliver.kenticocloud.com\/.*\/items/,
+    /https:\/\/deliver.kontent.ai\/.*\/items/,
     {
       fakeResponseJson: circularReferenceItemsResponse,
-      throwCloudError: false,
+      throwError: false,
     });
   fakeHttpServiceConfig.set(
-    /https:\/\/deliver.kenticocloud.com\/.*\/types/,
+    /https:\/\/deliver.kontent.ai\/.*\/types/,
     {
       fakeResponseJson: fakeTypeResponse,
-      throwCloudError: false,
+      throwError: false,
     });
 
   const dummyCreateNodeID = jest.fn();
@@ -45,7 +45,7 @@ describe(`Circular reference in modular content`, async () => {
   const deliveryClientConfig = {
     projectId: 'dummyProject',
     typeResolvers: [],
-    httpService: new KenticoCloudJsSdkTestHttpService(
+    httpService: new KontentTestHttpService(
       fakeHttpServiceConfig
     ),
   };

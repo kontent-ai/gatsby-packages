@@ -1,5 +1,5 @@
-const { KenticoCloudJsSdkTestHttpService }
-  = require('kentico-cloud-js-sdk-test-http-service');
+const { KontentTestHttpService }
+  = require('@kentico/kontent-test-http-service-js');
 
 const { sourceNodes } = require('../gatsby-node');
 const { customTrackingHeader } = require('../config');
@@ -36,7 +36,7 @@ describe('sourceNodes', () => {
   describe('tracking header tests', () => {
     const fakeEmptyResponseConfig = new Map();
     fakeEmptyResponseConfig.set(
-      /https:\/\/deliver.kenticocloud.com\/.*\/items/,
+      /https:\/\/deliver.kontent.ai\/.*\/items/,
       {
         fakeResponseJson: {
           items: [],
@@ -45,10 +45,10 @@ describe('sourceNodes', () => {
             next_page: null,
           },
         },
-        throwCloudError: false,
+        throwError: false,
       });
     fakeEmptyResponseConfig.set(
-      /https:\/\/deliver.kenticocloud.com\/.*\/types/,
+      /https:\/\/deliver.kontent.ai\/.*\/types/,
       {
         fakeResponseJson: {
           types: [],
@@ -57,11 +57,11 @@ describe('sourceNodes', () => {
             next_page: null,
           },
         },
-        throwCloudError: false,
+        throwError: false,
       });
 
     const fakeEmptyTestService =
-      new KenticoCloudJsSdkTestHttpService(fakeEmptyResponseConfig);
+      new KontentTestHttpService(fakeEmptyResponseConfig);
 
 
     it('does add tracking header', async () => {
@@ -143,22 +143,22 @@ describe('sourceNodes', () => {
   describe('complex multilingual data section', () => {
     const fakeComplexConfig = new Map();
     fakeComplexConfig.set(
-      /https:\/\/deliver.kenticocloud.com\/.*\/items.*Another_language.*/,
+      /https:\/\/deliver.kontent.ai\/.*\/items.*Another_language.*/,
       {
         fakeResponseJson: complexContentItemsSecondtLanguageFakeReponse,
-        throwCloudError: false,
+        throwError: false,
       });
     fakeComplexConfig.set(
-      /https:\/\/deliver.kenticocloud.com\/.*\/items/,
+      /https:\/\/deliver.kontent.ai\/.*\/items/,
       {
         fakeResponseJson: complexContentItemsFirstLanguageFakeReponse,
-        throwCloudError: false,
+        throwError: false,
       });
     fakeComplexConfig.set(
-      /https:\/\/deliver.kenticocloud.com\/.*\/types/,
+      /https:\/\/deliver.kontent.ai\/.*\/types/,
       {
         fakeResponseJson: complexTypesFakeResponse,
-        throwCloudError: false,
+        throwError: false,
       });
 
     const createNodeMock = jest.fn();
@@ -172,7 +172,7 @@ describe('sourceNodes', () => {
     const deliveryClientConfig = {
       projectId: 'dummyProject',
       typeResolvers: [],
-      httpService: new KenticoCloudJsSdkTestHttpService(
+      httpService: new KontentTestHttpService(
         fakeComplexConfig
       ),
     };

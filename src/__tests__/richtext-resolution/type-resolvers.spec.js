@@ -1,6 +1,6 @@
-const { KenticoCloudJsSdkTestHttpService }
-  = require('kentico-cloud-js-sdk-test-http-service');
-const { ContentItem, TypeResolver } = require('kentico-cloud-delivery');
+const { KontentTestHttpService }
+  = require('@kentico/kontent-test-http-service-js');
+const { ContentItem, TypeResolver } = require('@kentico/kontent-delivery');
 
 // Project ID 71be1cca-0be3-0159-fdfe-6cf11b092e68
 const richtextFakeItemsResponse =
@@ -14,17 +14,17 @@ const { sourceNodes } = require('../../../gatsby-node');
 describe(`Rich text resolution reference in modular content`, async () => {
   const fakeRichTextResponseConfig = new Map();
   fakeRichTextResponseConfig.set(
-    /https:\/\/deliver.kenticocloud.com\/.*\/items/,
+    /https:\/\/deliver.kontent.ai\/.*\/items/,
     {
       fakeResponseJson: richtextFakeItemsResponse,
-      throwCloudError: false,
+      throwError: false,
     });
 
   fakeRichTextResponseConfig.set(
-    /https:\/\/deliver.kenticocloud.com\/.*\/types/,
+    /https:\/\/deliver.kontent.ai\/.*\/types/,
     {
       fakeResponseJson: richtextFakeTypesResponse,
-      throwCloudError: false,
+      throwError: false,
     });
 
   const dummyCreateNodeID = jest.fn();
@@ -72,7 +72,7 @@ describe(`Rich text resolution reference in modular content`, async () => {
       new TypeResolver('project', (rawData) =>
         new Project(rawData)),
     ],
-    httpService: new KenticoCloudJsSdkTestHttpService(
+    httpService: new KontentTestHttpService(
       fakeRichTextResponseConfig
     ),
   };

@@ -1,7 +1,7 @@
 require(`@babel/polyfill`);
 
 const _ = require(`lodash`);
-const { DeliveryClient } = require(`kentico-cloud-delivery`);
+const { DeliveryClient } = require(`@kentico/kontent-delivery`);
 
 const validation = require(`./validation`);
 const itemNodes = require('./itemNodes');
@@ -127,11 +127,8 @@ const addHeader = (deliveryClientConfig, trackingHeader) => {
  */
 const createNodes = (nodes, createNode) => {
   try {
-    nodes.forEach((contentTypeNode) => {
-      const nodeId = contentTypeNode.id;
-      const nodeCodeName = contentTypeNode.system.codename;
-      console.info(`Creating node: ${nodeId}(${nodeCodeName})`);
-      createNode(contentTypeNode);
+    nodes.forEach((node) => {
+      createNode(node);
     });
   } catch (error) {
     console.error(`Error when creating nodes. Details: ${error}`);

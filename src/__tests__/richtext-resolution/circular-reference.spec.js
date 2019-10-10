@@ -1,5 +1,5 @@
-const { KenticoCloudJsSdkTestHttpService }
-  = require('kentico-cloud-js-sdk-test-http-service');
+const { KontentTestHttpService }
+  = require('@kentico/kontent-test-http-service-js');
 
 // Project ID 71be1cca-0be3-0159-fdfe-6cf11b092e68
 const richtextCircularReferenceFakeItemsResponse =
@@ -13,17 +13,17 @@ const { sourceNodes } = require('../../../gatsby-node');
 describe(`Rich text resolution reference in modular content`, async () => {
   const fakeRichTextResponseConfig = new Map();
   fakeRichTextResponseConfig.set(
-    /https:\/\/deliver.kenticocloud.com\/.*\/items/,
+    /https:\/\/deliver.kontent.ai\/.*\/items/,
     {
       fakeResponseJson: richtextCircularReferenceFakeItemsResponse,
-      throwCloudError: false,
+      throwError: false,
     });
 
   fakeRichTextResponseConfig.set(
-    /https:\/\/deliver.kenticocloud.com\/.*\/types/,
+    /https:\/\/deliver.kontent.ai\/.*\/types/,
     {
       fakeResponseJson: richtextCircularReferenceFakeTypesResponse,
-      throwCloudError: false,
+      throwError: false,
     });
 
   const dummyCreateNodeID = jest.fn();
@@ -46,7 +46,7 @@ describe(`Rich text resolution reference in modular content`, async () => {
   const deliveryClientConfig = {
     projectId: 'dummyProject',
     typeResolvers: [],
-    httpService: new KenticoCloudJsSdkTestHttpService(
+    httpService: new KontentTestHttpService(
       fakeRichTextResponseConfig
     ),
   };
