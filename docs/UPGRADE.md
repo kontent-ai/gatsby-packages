@@ -6,9 +6,13 @@ This upgrade is mainly caused by upgrading [Kentico Kontent Javascript Delivery 
 
 ### New Featuers
 
-#### Language fall backs
+* Language fall backs
 
 ### Breaking changes
+
+* Query names KenticoCloud -> Kontent
+* prefered_language
+* value in fields
 
 ### Delivery config
 
@@ -53,13 +57,13 @@ module.exports = {
 All of the elements types [has element property called `value`](https://github.com/Kentico/kentico-cloud-js/blob/master/packages/delivery/UPGRADE.md#removal-of-type-specific-element-properties) not an element specific property. There is also `rawData` property containing raw data without the touch of the SDK.
 
 Custom element is now supported including [custom element models definition](https://github.com/Kentico/kentico-cloud-js/blob/master/packages/delivery/DOCS.md#using-custom-models-for-custom-elements).
-Image assets now contains [information about its resolution](https://docs.kenticocloud.com/reference/api-changelog#a-image-resolution-in-delivery-api).
+Image assets now contains [information about its resolution](https://docs.kontent.ai/reference/api-changelog#a-image-resolution-in-delivery-api).
 
 #### Basic types
 
 ```gql
 {
-  allKenticoCloudBasicElementExample {
+  allKontentBasicElementExample {
     nodes {
       elements {
         text_type {
@@ -120,13 +124,13 @@ Linked items are not directly under the element codename (`linked_items_type` in
 
 ```gql
 {
-  allKenticoCloudLinkedItems {
+  allKontentLinkedItems {
     nodes {
       elements {
         linked_items_type {
           linked_items { // Gatsby Graphql node relationships
             ... on Node {
-              ... on KenticoCloudSubItemExample {
+              ... on KontentSubItemExample {
                 elements {
                   text_type {
                     name
@@ -155,7 +159,7 @@ Rich text elements internal structure was extended. The main difference is that 
 
 ```gql
 {
-  allKenticoCloudRichTextExample {
+  allKontentRichTextExample {
     nodes {
       elements {
         rich_text_type {
@@ -168,7 +172,7 @@ Rich text elements internal structure was extended. The main difference is that 
           linkedItemCodenames // array of the codenames
           linked_items {
             ... on Nodes {
-              ... on KenticoCloudSubItemExample {
+              ... on KontentSubItemExample {
                 elements {
                   text_type {
                     name

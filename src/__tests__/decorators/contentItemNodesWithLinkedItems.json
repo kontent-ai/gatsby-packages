@@ -65,7 +65,7 @@
     "children": [],
     "usedByContentItems___NODE": [],
     "internal": {
-      "type": "KenticoCloudItemContentItem",
+      "type": "KontentItemContentItem",
       "content": "{\"system\":{\"name\":\"Master\",\"codename\":\"master\",\"id\":\"06439d5a-0ec6-4d70-b13a-7482a9e04fcc\",\"lastModified\":\"2019-04-29T13:04:28.4841899Z\",\"language\":\"default\",\"type\":\"content_item\",\"sitemapLocations\":[]},\"elements\":{\"sub_items\":[{\"system\":{\"name\":\"Sub item 1\",\"codename\":\"sub_item_1\",\"id\":\"3a3fd38a-57a4-4c79-9f48-0734e5b278a4\",\"lastModified\":\"2019-04-29T13:04:23.546524Z\",\"language\":\"default\",\"type\":\"content_item\",\"sitemapLocations\":[]},\"elements\":{\"sub_items\":[]}},{\"system\":{\"name\":\"Sub Item 2\",\"codename\":\"sub_item_2\",\"id\":\"77162bf6-28a2-4c81-b9b0-a4442c2178c5\",\"lastModified\":\"2019-04-29T13:04:33.247446Z\",\"language\":\"default\",\"type\":\"content_item\",\"sitemapLocations\":[]},\"elements\":{\"sub_items\":[]}}]}}",
       "contentDigest": "e1987c918ed3d77a5150848ed635ee5c"
     }
@@ -95,7 +95,7 @@
     "children": [],
     "usedByContentItems___NODE": [],
     "internal": {
-      "type": "KenticoCloudItemContentItem",
+      "type": "KontentItemContentItem",
       "content": "{\"system\":{\"name\":\"Sub item 1\",\"codename\":\"sub_item_1\",\"id\":\"3a3fd38a-57a4-4c79-9f48-0734e5b278a4\",\"lastModified\":\"2019-04-29T13:04:23.546524Z\",\"language\":\"default\",\"type\":\"content_item\",\"sitemapLocations\":[]},\"elements\":{\"sub_items\":[]}}",
       "contentDigest": "e66f2e9d546df4d1ac26d8b831f9b2df"
     }
@@ -125,7 +125,7 @@
     "children": [],
     "usedByContentItems___NODE": [],
     "internal": {
-      "type": "KenticoCloudItemContentItem",
+      "type": "KontentItemContentItem",
       "content": "{\"system\":{\"name\":\"Sub Item 2\",\"codename\":\"sub_item_2\",\"id\":\"77162bf6-28a2-4c81-b9b0-a4442c2178c5\",\"lastModified\":\"2019-04-29T13:04:33.247446Z\",\"language\":\"default\",\"type\":\"content_item\",\"sitemapLocations\":[]},\"elements\":{\"sub_items\":[]}}",
       "contentDigest": "51af72a0f09def109d055314469b47f1"
     }
