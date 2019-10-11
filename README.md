@@ -83,7 +83,6 @@ GraphQL nodes of content items contain the ordinary `system` and `elements` prop
 
 Every primitive elements (all but rich text and linked items) element contains:
 
-* `rawData` object containing raw data without the touch of the SDK
 * `name` property containing element name
 * `type` property containing element type codename
 * `value` property containing element value
@@ -94,9 +93,6 @@ Every primitive elements (all but rich text and linked items) element contains:
     nodes {
       elements {
         name___teaser_image__name {
-          rawData {
-            ...
-          }
           name
           type
           value

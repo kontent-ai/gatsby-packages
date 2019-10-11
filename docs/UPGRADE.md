@@ -54,7 +54,7 @@ module.exports = {
 
 ### Element value property unification
 
-All of the elements types [has element property called `value`](https://github.com/Kentico/kentico-cloud-js/blob/master/packages/delivery/UPGRADE.md#removal-of-type-specific-element-properties) not an element specific property. There is also `rawData` property containing raw data without the touch of the SDK.
+All of the elements types [has element property called `value`](https://github.com/Kentico/kentico-cloud-js/blob/master/packages/delivery/UPGRADE.md#removal-of-type-specific-element-properties) not an element specific property.
 
 Custom element is now supported including [custom element models definition](https://github.com/Kentico/kentico-cloud-js/blob/master/packages/delivery/DOCS.md#using-custom-models-for-custom-elements).
 Image assets now contains [information about its resolution](https://docs.kontent.ai/reference/api-changelog#a-image-resolution-in-delivery-api).
@@ -70,19 +70,16 @@ Image assets now contains [information about its resolution](https://docs.konten
           name
           type
           value
-          rawData {...}
         }
         number_type {
           name
           type
           value
-          rawData {...}
         }
         date_of_birth {
           name
           type
           value
-          rawData {...}
         }
         multiple_choice_type {
           name
@@ -91,7 +88,6 @@ Image assets now contains [information about its resolution](https://docs.konten
             codename
             name
           }
-          rawData {...}
         }
         asset_type {
           name
@@ -104,13 +100,12 @@ Image assets now contains [information about its resolution](https://docs.konten
             width
             height
           }
-          rawData {...}
+          ta {...}
         }
         custom_element_type {
           name
           type
           value
-          rawData {...}
         }
       }
     }
@@ -136,7 +131,6 @@ Linked items are not directly under the element codename (`linked_items_type` in
                     name
                     type
                     value
-                    rawData {...}
                   }
                 }
               }
@@ -145,7 +139,6 @@ Linked items are not directly under the element codename (`linked_items_type` in
           itemCodenames // array of the codenames
           name
           type
-          rawData {...}
         }
       }
     }
@@ -197,7 +190,6 @@ Rich text elements internal structure was extended. The main difference is that 
           }
           type
           value
-          rawData {...}
         }
       }
     }
