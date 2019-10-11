@@ -1,7 +1,7 @@
 # Gatsby source plugin for Kentico Kontent
 
 [![Gatsby plugin library](https://img.shields.io/badge/Gatsby%20plugin%20library-%23663399.svg)](https://www.gatsbyjs.org/packages/gatsby-source-kentico-cloud)
-[![Stack Overflow](https://img.shields.io/badge/Stack%20Overflow-ASK%20NOW-FE7A16.svg?logo=stackoverflow&logoColor=white)](https://stackoverflow.com/tags/kentico-cloud)
+[![Stack Overflow](https://img.shields.io/badge/Stack%20Overflow-ASK%20NOW-FE7A16.svg?logo=stackoverflow&logoColor=white)](https://stackoverflow.com/tags/kentico-kontent)
 
 [![npm version](https://badge.fury.io/js/gatsby-source-kentico-cloud.svg)](https://www.npmjs.com/package/gatsby-source-kentico-cloud)
 [![Build Status](https://api.travis-ci.com/Kentico/gatsby-source-kentico-cloud.svg?branch=master)](https://travis-ci.com/Kentico/gatsby-source-kentico-cloud)
@@ -9,7 +9,7 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/e247b74d31eaa41c3bda/maintainability)](https://codeclimate.com/github/Kentico/gatsby-source-kentico-cloud/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/e247b74d31eaa41c3bda/test_coverage)](https://codeclimate.com/github/Kentico/gatsby-source-kentico-cloud/test_coverage)
 
-This repo contains a [Gatsby (v2) source plugin](https://www.gatsbyjs.org/docs/recipes/#sourcing-data) that retrieves data from the [Kentico Kontent](https://kenticocloud.com) Delivery API.
+This repo contains a [Gatsby (v2) source plugin](https://www.gatsbyjs.org/docs/recipes/#5-sourcing-data) that retrieves data from the [Kentico Kontent](https://kontent.ai.com) Delivery API.
 
 ## Get started
 
@@ -21,23 +21,23 @@ If you are new to the Gatsby ecosystem. The best way to start with using Gatsby 
 
 ### B) Install plugin to your existing Gatsby project
 
-1. Install the [gatsby-source-kentico-cloud](https://www.npmjs.com/package/gatsby-source-kentico-cloud) NPM package,
+1. Install the [@kentico/gatsby-source-kontent](https://www.npmjs.com/package/@kentico/gatsby-source-kontent) NPM package,
 
     ```sh
-    npm install --save gatsby-source-kentico-cloud
+    npm install --save @kentico/gatsby-source-kontent
     ```
 
 1. Configure the plugin in `gatsby-config.js` file
 
-    > The source plugin uses the [Kentico Kontent SDK](https://github.com/Kentico/kontent-delivery-sdk-js/#kentico-kontent-delivery-sdk) in the background.
-    
-   * `deliveryClientConfig`* - [Kentico Kontent client configuration object](https://github.com/Kentico/kentico-kontent-js/blob/delivery%405.7.2/packages/delivery/DOCS.md#client-configuration) of the JS SDK (like Preview API, Secure API, etc.).
-  * `languageCodenames`* - array of language codenames that defines [what languages a configured for the project](https://developer.kenticocloud.com/docs/localization#section-project-languages) - the first one is considered as the **default one**. Initial "Getting started" project has configured just one language `default`.
+    > The source plugin uses the [Kentico Kontent SDK](https://github.com/Kentico/kontent-delivery-sdk-js/tree/7.0.1#kentico-kontent-delivery-sdk) in the background.
+
+    * `deliveryClientConfig`* - [Kentico Kontent client configuration object](https://github.com/Kentico/kontent-delivery-sdk-js/blob/7.0.1/DOCS.md#client-configuration) of the JS SDK (like Preview API, Secure API, etc.).
+    * `languageCodenames`* - array of language codenames that defines [what languages a configured for the project](https://docs.kontent.ai/tutorials/develop-apps/get-content/getting-localized-content?tech=javascript#section-project-languages) - the first one is considered as the **default one**. Initial "Getting started" project has configured just one language `default`.
 
     **Configuration object** ([example](https://github.com/Kentico/gatsby-starter-kentico-cloud/blob/master/gatsby-config.js))
 
-      * `deliveryClientConfig`* - [Kentico Kontent client configuration object](https://github.com/Kentico/kontent-delivery-sdk-js/blob/master/DOCS.md#client-configuration) of the JS SDK (like Preview API, Secure API, etc.).
-      * `languageCodenames`* - array of language codenames that defines [what languages a configured for the project](https://developer.kenticocloud.com/docs/localization#section-project-languages) - the first one is considered as the **default one**. Initial "Getting started" project has configured just one language `default`.
+      * `deliveryClientConfig`* - [Kentico Kontent client configuration object](https://github.com/Kentico/kontent-delivery-sdk-js/blob/7.0.1/DOCS.md#client-configuration) of the JS SDK (like Preview API, Secure API, etc.).
+      * `languageCodenames`* - array of language codenames that defines [what languages a configured for the project](https://docs.kontent.ai/tutorials/develop-apps/get-content/getting-localized-content?tech=javascript#section-project-languages) - the first one is considered as the **default one**. Initial "Getting started" project has configured just one language `default`.
 
       \* required property
 
@@ -47,7 +47,7 @@ If you are new to the Gatsby ecosystem. The best way to start with using Gatsby 
       plugins: [
         ...
         {
-          resolve: `gatsby-source-kentico-cloud`,
+          resolve: `@kentico/gatsby-source-kontent`,
           options: {
             deliveryClientConfig: { // Configuration object
               projectId: `XXX`,
@@ -65,9 +65,9 @@ If you are new to the Gatsby ecosystem. The best way to start with using Gatsby 
     ```
 
 1. Run `gatsby develop` and data from Kentico Kontent are provided in Gatsby GraphQL model.
-All Kentico Kontent content element values reside inside of the `elements` property of `kenticoCloudItem` nodes.
+All Kentico Kontent content element values reside inside of the `elements` property of `KontentItem` nodes.
 
-### C) Scaffold your project using Gatsby Kentico Kontent starter site
+### C) Scaffold your project using Gatsby Kentico Kontent starter site (using source plugin v3 right now)
 
 Use the [gatsby-starter-kentico-cloud](https://github.com/Kentico/gatsby-starter-kentico-cloud) starter site that includes this source plugin
 
@@ -77,11 +77,11 @@ Use the [gatsby-starter-kentico-cloud](https://github.com/Kentico/gatsby-starter
 
 The plugin creates GraphQL nodes for all Kentico Kontent content types, content items, and its language variants.
 
-The node names are prefixed with `kenticoCloud`. More specifically, content type nodes are prefixed by `kenticoCloudType` and content items and their language variants are prefixed with `kenticoCloudItem`.
+The node names are prefixed with `Kontent`. More specifically, content type nodes are prefixed by `KontentType` and content items and their language variants are prefixed with `KontentItem`.
 
 GraphQL nodes of content items contain the ordinary `system` and `elements` properties. However, the properties inside `elements` always have an internal structure that the aforementioned [Delivery SDK](https://github.com/Kentico/kontent-delivery-sdk-js/blob/master/lib/models/item/content-item.class.ts) produces with **modifications** described in following subsections.
 
-Every element contains:
+Every primitive elements (all but rich text and linked items) element contains:
 
 * `rawData` object containing raw data without the touch of the SDK
 * `name` property containing element name
@@ -90,7 +90,7 @@ Every element contains:
 
 ```gql
 {
-  allKenticoCloudItemProjectReference {
+  allKontentItemProjectReference {
     nodes {
       elements {
         name___teaser_image__name {
@@ -106,20 +106,21 @@ Every element contains:
   }
 }
 ```
+
 =======
-GraphQL nodes of content items contain the ordinary `system` and `elements` properties. However, the properties inside `elements` always have an internal structure that the aforementioned [Delivery SDK](https://github.com/Kentico/kentico-kontent-js/blob/delivery%405.7.2/packages/delivery/lib/models/item/content-item.class.ts) produces with **modifications** described in following section.
+GraphQL nodes of content items contain the ordinary `system` and `elements` properties. However, the properties inside `elements` always have an internal structure that the aforementioned [Delivery SDK](https://github.com/Kentico/kontent-delivery-sdk-js/blob/7.0.1/lib/models/item/item-models.ts#L85) produces with **modifications** described in following section.
 
 ### Content item <-> content type relationships
 
-This relationship is captured in the `contentItems` navigation property of all `kenticoCloudType` nodes. In the opposite direction, in all `kenticoCloudItem` nodes, it can be found in the `contentType` navigation property.
+This relationship is captured in the `contentItems` navigation property of all `KontentType` nodes. In the opposite direction, in all `KontentItem` nodes, it can be found in the `contentType` navigation property.
 
 <details><summary>Example</summary>
 
-You can use the [GraphiQL](https://github.com/graphql/graphiql) interface to experiment with the data structures produced by the source plugin. For instance, you can fetch a content item of the *Project reference* type (by querying `allKenticoCloudItemProjectReference`) and use the `contentType` navigation property to get a full list of all of the elements in the underlying content type. Like so:
+You can use the [GraphiQL](https://github.com/graphql/graphiql) interface to experiment with the data structures produced by the source plugin. For instance, you can fetch a content item of the *Project reference* type (by querying `allKontentItemProjectReference`) and use the `contentType` navigation property to get a full list of all of the elements in the underlying content type. Like so:
 
 ```gql
 {
-  allKenticoCloudItemProjectReference {
+  allKontentItemProjectReference {
     nodes {
       elements {
         name___teaser_image__name {
@@ -146,11 +147,11 @@ This relationship is captured by the `otherLanguages` navigation property of all
 
 <details><summary>Example</summary>
 
-For instance, you can get the names of all content items of the *Speaking engagement* type (by querying `kenticoCloudItemSpeakingEngagement`) in their default language as well as other languages all at once:
+For instance, you can get the names of all content items of the *Speaking engagement* type (by querying `KontentItemSpeakingEngagement`) in their default language as well as other languages all at once:
 
 ```gql
 {
-  allKenticoCloudItemSpeakingEngagement {
+  allKontentItemSpeakingEngagement {
     nodes {
       elements {
         name {
@@ -174,7 +175,7 @@ returns in case of two languages
 ```json
 {
   "data": {
-    "allKenticoCloudItemSpeakingEngagement": {
+    "allKontentItemSpeakingEngagement": {
       "nodes": [
         {
           "elements": {
@@ -206,11 +207,11 @@ Should a *Linked items* element in KC contain items of only *one* type, you'll b
 
 The `related_project_refereces.linked_items` will give you the full-fledged Gatsby GraphQL nodes with all additional properties and links.
 
-> :bulb: Notice the encapsulation into the `... on Node` [GraphQL inline fragment](https://graphql.org/learn/queries/#inline-fragments). This prevent failing creating GraphQL model when this field does not contain i.e. Blog post (`KenticoCloudItemBlogpostReference`) linked item.
+> :bulb: Notice the encapsulation into the `... on Node` [GraphQL inline fragment](https://graphql.org/learn/queries/#inline-fragments). This prevent failing creating GraphQL model when this field does not contain i.e. Blog post (`KontentItemBlogpostReference`) linked item.
 
 ```gql
 {
-  allKenticoCloudItemProjectReference {
+  allKontentItemProjectReference {
     nodes {
       elements {
         related_project_references {
@@ -220,14 +221,14 @@ The `related_project_refereces.linked_items` will give you the full-fledged Gats
           linked_items {
             ... on Node {
               __typename
-              ... on KenticoCloudItemBlogpostReference {
+              ... on KontentItemBlogpostReference {
                 elements {
                   name___teaser_image__name {
                     value
                   }
                 }
               }
-              ... on KenticoCloudItemProjectReference {
+              ... on KontentItemProjectReference {
                 elements {
                   name___teaser_image__name {
                     value
@@ -248,7 +249,7 @@ The `related_project_refereces.linked_items` will give you the full-fledged Gats
 > :bulb: When you are modelling linked items, make sure you have no element with the same codename of different type. In case you had some, they would be omitted from the model and the following warning is logged during model generation.
 
 ```plain
-KenticoCloudItemArticle.elements.related_articles.linked_items[].elements.manufacturer.value:
+KontentItemArticle.elements.related_articles.linked_items[].elements.manufacturer.value:
  - type: array<object> # THIS IS CHECK BOX ELEMENT
    value: [ { name: 'Aerobie', codename: 'aerobie' } ]
  - type: string # THIS IS TEXT ELEMENT
@@ -289,13 +290,13 @@ Since [Kentico Kontent Delivery SDK](https://github.com/Kentico/kontent-delivery
 
 #### Content items and components in Rich text elements
 
-As with the previous example, all rich text element containing [inline content items](https://docs.kenticocloud.com/tutorials/compose-and-link-content/components/structuring-editorial-articles-with-components#a-using-content-items-in-the-rich-text-element) or [components](https://docs.kenticocloud.com/tutorials/compose-and-link-content/components/structuring-editorial-articles-with-components#a-using-components-in-the-rich-text-element) have an accompanying `linked_items` property which is referencing them.
+As with the previous example, all rich text element containing [inline content items](https://docs.kontent.ai/tutorials/write-and-collaborate/structure-your-content/structuring-editorial-articles-with-components#a-using-content-items-in-the-rich-text-element) or [components](https://docs.kontent.ai/tutorials/write-and-collaborate/structure-your-content/structuring-editorial-articles-with-components#a-using-components-in-the-rich-text-element) have an accompanying `linked_items` property which is referencing them.
 
 <details><summary>Example</summary>
 
 ```gql
 {
-  allKenticoCloudItemBlogpostReference {
+  allKontentItemBlogpostReference {
     nodes {
       elements {
         summary {
@@ -303,7 +304,7 @@ As with the previous example, all rich text element containing [inline content i
           linked_items {
             ... on Node {
             __typename
-            ... on KenticoCloudItemBlogpostReference {
+            ... on KontentItemBlogpostReference {
               elements {
                 name___teaser_image__name {
                   value
@@ -327,7 +328,7 @@ All rich text properties with content items linked in the element also have an a
 
 ```gql
 {
-  allKenticoCloudItemBlogpostReference {
+  allKontentItemBlogpostReference {
     nodes {
       elements {
         summary {
@@ -355,7 +356,7 @@ All rich text properties with content items linked in the element also have an a
 
 ```gql
 {
-  allKenticoCloudItemBlogpostReference {
+  allKontentItemBlogpostReference {
     nodes {
       elements {
         summary {
@@ -386,7 +387,7 @@ All nodes have a `usedByContentItems` property that reflects the other nodes in 
 
 ## Debugging
 
-To get a smooth debugging experience, you can temporarily copy the `gatsby-source-kentico-cloud` [directory](https://github.com/Kentico/gatsby-source-kentico-cloud) of the source plugin to the `/plugins` directory of your project and run `npm install` and `npm run build` there. Then your project would use this local source plugin.
+To get a smooth debugging experience, you can temporarily copy the content of this repository [directory](https://github.com/Kentico/gatsby-source-kontent) of the source plugin to the `/plugins/@kentico/gatsby-source-kontent` directory of your project and run `npm install` and `npm run build` there. Then your project would use this local source plugin. Or you could configure [local plugin manually](https://www.gatsbyjs.org/docs/loading-plugins-from-your-local-plugins-folder/).
 
 *Note:* It might be necessary to remove */.cache*, */node_modules*, */package-lock.json* and *run npm* install again.
 
@@ -396,7 +397,7 @@ When you change the structure of the data, or the data itself and then `gatsby d
 
 ## Further information
 
-For more developer resources, visit the Kentico Kontent Developer Hub at [https://developer.kenticocloud.com](https://developer.kenticocloud.com).
+For more developer resources, visit the [Kentico Kontent Docs](https://docs.kontent.ai).
 
 ### Running projects
 
@@ -410,9 +411,10 @@ For more developer resources, visit the Kentico Kontent Developer Hub at [https:
 ### Guides and blog posts
 
 * [Sourcing from Kentico Kontent](https://www.gatsbyjs.org/docs/sourcing-from-kentico-cloud/)
-* [Kentico Kontent & Gatsby Take You Beyond Static Websites](https://www.gatsbyjs.org/blog/2018-12-19-kentico-cloud-and-gatsby-take-you-beyond-static-websites/)
+* [Kentico Cloud & Gatsby Take You Beyond Static Websites](https://www.gatsbyjs.org/blog/2018-12-19-kentico-cloud-and-gatsby-take-you-beyond-static-websites/)
 * [Rendering Kentico Kontent linked content items with React components in Gatsby](https://rshackleton.co.uk/articles/rendering-kentico-cloud-linked-content-items-with-react-components-in-gatsby) by [@rshackleton](https://github.com/rshackleton)
 * [Automated builds with Netlify and Kentico Kontent webhooks](https://rshackleton.co.uk/articles/automated-builds-with-netlify-and-kentico-cloud-webhooks) by [@rshackleton](https://github.com/rshackleton)
+* [Learning about Gatsby schema customisation with Kontent.ai](https://rshackleton.co.uk/articles/learning-about-gatsby-schema-customisation-with-kontent-ai) by [@rshackleton](https://github.com/rshackleton)
 
 ### Previous versions
 
@@ -423,4 +425,4 @@ For version 3 use [this branch](https://github.com/Kentico/gatsby-source-kentico
 
 Check out the [contributing](https://github.com/Kentico/gatsby-source-kentico-cloud/blob/master/CONTRIBUTING.md) page to see the best places for file issues, to start discussions, and begin contributing.
 
-![Analytics](https://kentico-ga-beacon.azurewebsites.net/api/UA-69014260-4/Kentico/gatsby-source-kentico-cloud?pixel)
+![Analytics](https://kentico-ga-beacon.azurewebsites.net/api/UA-69014260-4/Kentico/gatsby-source-kontent?pixel)

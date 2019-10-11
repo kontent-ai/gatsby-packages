@@ -2,11 +2,17 @@
 
 ## Upgrade guide `3.x.x` to `4.x.x`
 
-This upgrade is mainly caused by upgrading [Kentico Kontent Javascript Delivery SDK](https://github.com/Kentico/kentico-cloud-js/tree/master/packages/delivery).
+This upgrade is mainly caused by upgrading [Kentico Kontent Javascript Delivery SDK](https://github.com/Kentico/kontent-delivery-sdk-js) and adding new features.
+
+### New Featuers
+
+#### Language fall backs
+
+### Breaking changes
 
 ### Delivery config
 
-When configuring the Kentico Kontent Source plugin one of the properties to set is `deliveryClientConfig`. It is respecting the [`IDeliveryClientConfig`](https://github.com/Kentico/kentico-cloud-js/blob/master/packages/delivery/UPGRADE.md#ideliveryclientconfig) interface from Kentico Kontent SDK.
+When configuring the Kentico Kontent Source plugin one of the properties to set is `deliveryClientConfig`. It is respecting the [`IDeliveryClientConfig`](https://github.com/Kentico/kontent-delivery-sdk-js/blob/master/UPGRADE.md#ideliveryclientconfig) interface from Kentico Kontent Delivery SDK.
 
 #### Example
 
@@ -194,3 +200,11 @@ Rich text elements internal structure was extended. The main difference is that 
   }
 }
 ```
+
+#### Assets
+
+TODO
+
+#### Custom elements
+
+TODO
