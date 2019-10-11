@@ -58,7 +58,7 @@ const getFromDefaultLanguage = async (
 /**
  * Creates an array of content item nodes from other than default language
  * ready to be imported to Gatsby model.
- * @param {Object} client Kentico Cloud Dlivery client.
+ * @param {Object} client Kentico Kontent Dlivery client.
  * @param {Array} nonDefaultLanguageCodenames
  *  Project non default languages codenames.
  * @param {Array} contentTypeNodes Array of content type nodes.
@@ -100,9 +100,9 @@ const getFromNonDefaultLanguage = async (
 };
 
 /**
- * Creates a Gatsby object out of a Kentico Cloud content item object.
+ * Creates a Gatsby object out of a Kentico Kontent content item object.
  * @param {function} createNodeId - Gatsby function to create a node ID.
- * @param {object} contentItem - Kentico Cloud content item object.
+ * @param {object} contentItem - Kentico Kontent content item object.
  * @param {array} contentTypeNodes - All Gatsby content type nodes.
  * @return {object} Gatsby content item node.
  * @throws {Error}

@@ -1,4 +1,4 @@
-# Gatsby source plugin for Kentico Cloud
+# Gatsby source plugin for Kentico Kontent
 
 [![Gatsby plugin library](https://img.shields.io/badge/Gatsby%20plugin%20library-%23663399.svg)](https://www.gatsbyjs.org/packages/gatsby-source-kentico-cloud)
 [![Stack Overflow](https://img.shields.io/badge/Stack%20Overflow-ASK%20NOW-FE7A16.svg?logo=stackoverflow&logoColor=white)](https://stackoverflow.com/tags/kentico-cloud)
@@ -9,15 +9,15 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/e247b74d31eaa41c3bda/maintainability)](https://codeclimate.com/github/Kentico/gatsby-source-kentico-cloud/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/e247b74d31eaa41c3bda/test_coverage)](https://codeclimate.com/github/Kentico/gatsby-source-kentico-cloud/test_coverage)
 
-This repo contains a [Gatsby (v2) source plugin](https://www.gatsbyjs.org/docs/recipes/#sourcing-data) that retrieves data from the [Kentico Cloud](https://kenticocloud.com) Delivery API.
+This repo contains a [Gatsby (v2) source plugin](https://www.gatsbyjs.org/docs/recipes/#sourcing-data) that retrieves data from the [Kentico Kontent](https://kenticocloud.com) Delivery API.
 
 ## Get started
 
 You can use the plugin in any of the following ways:
 
-### A) Use the Kentico Cloud sourcing guide
+### A) Use the Kentico Kontent sourcing guide
 
-If you are new to the Gatsby ecosystem. The best way to start with using Gatsby & Kentico Cloud is to follow the official [Sourcing guide for Kentico Cloud](https://www.gatsbyjs.org/docs/sourcing-from-kentico-cloud/). To learn more about from sourcing from headless CMSs see the [Gatsby docs overview page](https://www.gatsbyjs.org/docs/headless-cms/).
+If you are new to the Gatsby ecosystem. The best way to start with using Gatsby & Kentico Kontent is to follow the official [Sourcing guide for Kentico Kontent](https://www.gatsbyjs.org/docs/sourcing-from-kentico-cloud/). To learn more about from sourcing from headless CMSs see the [Gatsby docs overview page](https://www.gatsbyjs.org/docs/headless-cms/).
 
 ### B) Install plugin to your existing Gatsby project
 
@@ -29,14 +29,14 @@ If you are new to the Gatsby ecosystem. The best way to start with using Gatsby 
 
 1. Configure the plugin in `gatsby-config.js` file
 
-    > The source plugin uses the [Kentico Cloud SDK](https://github.com/Kentico/kontent-delivery-sdk-js/#kentico-kontent-delivery-sdk) in the background.
+    > The source plugin uses the [Kentico Kontent SDK](https://github.com/Kentico/kontent-delivery-sdk-js/#kentico-kontent-delivery-sdk) in the background.
     
-   * `deliveryClientConfig`* - [Kentico Cloud client configuration object](https://github.com/Kentico/kentico-kontent-js/blob/delivery%405.7.2/packages/delivery/DOCS.md#client-configuration) of the JS SDK (like Preview API, Secure API, etc.).
+   * `deliveryClientConfig`* - [Kentico Kontent client configuration object](https://github.com/Kentico/kentico-kontent-js/blob/delivery%405.7.2/packages/delivery/DOCS.md#client-configuration) of the JS SDK (like Preview API, Secure API, etc.).
   * `languageCodenames`* - array of language codenames that defines [what languages a configured for the project](https://developer.kenticocloud.com/docs/localization#section-project-languages) - the first one is considered as the **default one**. Initial "Getting started" project has configured just one language `default`.
 
     **Configuration object** ([example](https://github.com/Kentico/gatsby-starter-kentico-cloud/blob/master/gatsby-config.js))
 
-      * `deliveryClientConfig`* - [Kentico Cloud client configuration object](https://github.com/Kentico/kontent-delivery-sdk-js/blob/master/DOCS.md#client-configuration) of the JS SDK (like Preview API, Secure API, etc.).
+      * `deliveryClientConfig`* - [Kentico Kontent client configuration object](https://github.com/Kentico/kontent-delivery-sdk-js/blob/master/DOCS.md#client-configuration) of the JS SDK (like Preview API, Secure API, etc.).
       * `languageCodenames`* - array of language codenames that defines [what languages a configured for the project](https://developer.kenticocloud.com/docs/localization#section-project-languages) - the first one is considered as the **default one**. Initial "Getting started" project has configured just one language `default`.
 
       \* required property
@@ -64,10 +64,10 @@ If you are new to the Gatsby ecosystem. The best way to start with using Gatsby 
     }
     ```
 
-1. Run `gatsby develop` and data from Kentico Cloud are provided in Gatsby GraphQL model.
-All Kentico Cloud content element values reside inside of the `elements` property of `kenticoCloudItem` nodes.
+1. Run `gatsby develop` and data from Kentico Kontent are provided in Gatsby GraphQL model.
+All Kentico Kontent content element values reside inside of the `elements` property of `kenticoCloudItem` nodes.
 
-### C) Scaffold your project using Gatsby Kentico Cloud starter site
+### C) Scaffold your project using Gatsby Kentico Kontent starter site
 
 Use the [gatsby-starter-kentico-cloud](https://github.com/Kentico/gatsby-starter-kentico-cloud) starter site that includes this source plugin
 
@@ -75,7 +75,7 @@ Use the [gatsby-starter-kentico-cloud](https://github.com/Kentico/gatsby-starter
 
 ## Features
 
-The plugin creates GraphQL nodes for all Kentico Cloud content types, content items, and its language variants.
+The plugin creates GraphQL nodes for all Kentico Kontent content types, content items, and its language variants.
 
 The node names are prefixed with `kenticoCloud`. More specifically, content type nodes are prefixed by `kenticoCloudType` and content items and their language variants are prefixed with `kenticoCloudItem`.
 
@@ -261,7 +261,7 @@ With following features, it is possible to resolve rich text [into the HTML stri
 
 #### Embedded JS SDK resolution
 
-Since [Kentico Cloud Delivery SDK](https://github.com/Kentico/kontent-delivery-sdk-js/#kentico-kontent-delivery-sdk) could resolve [links](https://github.com/Kentico/kontent-delivery-sdk-js/blob/master/DOCS.md#url-slugs-links) and also [linked items and components](https://github.com/Kentico/kontent-delivery-sdk-js/blob/master/DOCS.md#resolving-content-items-and-components-in-rich-text-elements) in rich text elements by implementing the resolvers, Kentico Cloud Gatsby source plugin is enriching the rich text elements in GraphQL model by `resolvedData` property containing `html` property with the resolved value and for the url slug elements, there is a `resolvedUrl` property containing resolved link from the link resolver.
+Since [Kentico Kontent Delivery SDK](https://github.com/Kentico/kontent-delivery-sdk-js/#kentico-kontent-delivery-sdk) could resolve [links](https://github.com/Kentico/kontent-delivery-sdk-js/blob/master/DOCS.md#url-slugs-links) and also [linked items and components](https://github.com/Kentico/kontent-delivery-sdk-js/blob/master/DOCS.md#resolving-content-items-and-components-in-rich-text-elements) in rich text elements by implementing the resolvers, Kentico Kontent Gatsby source plugin is enriching the rich text elements in GraphQL model by `resolvedData` property containing `html` property with the resolved value and for the url slug elements, there is a `resolvedUrl` property containing resolved link from the link resolver.
 
 <details><summary>`summary` rich text element example</summary>
 
@@ -396,7 +396,7 @@ When you change the structure of the data, or the data itself and then `gatsby d
 
 ## Further information
 
-For more developer resources, visit the Kentico Cloud Developer Hub at [https://developer.kenticocloud.com](https://developer.kenticocloud.com).
+For more developer resources, visit the Kentico Kontent Developer Hub at [https://developer.kenticocloud.com](https://developer.kenticocloud.com).
 
 ### Running projects
 
@@ -409,10 +409,10 @@ For more developer resources, visit the Kentico Cloud Developer Hub at [https://
 
 ### Guides and blog posts
 
-* [Sourcing from Kentico Cloud](https://www.gatsbyjs.org/docs/sourcing-from-kentico-cloud/)
-* [Kentico Cloud & Gatsby Take You Beyond Static Websites](https://www.gatsbyjs.org/blog/2018-12-19-kentico-cloud-and-gatsby-take-you-beyond-static-websites/)
-* [Rendering Kentico Cloud linked content items with React components in Gatsby](https://rshackleton.co.uk/articles/rendering-kentico-cloud-linked-content-items-with-react-components-in-gatsby) by [@rshackleton](https://github.com/rshackleton)
-* [Automated builds with Netlify and Kentico Cloud webhooks](https://rshackleton.co.uk/articles/automated-builds-with-netlify-and-kentico-cloud-webhooks) by [@rshackleton](https://github.com/rshackleton)
+* [Sourcing from Kentico Kontent](https://www.gatsbyjs.org/docs/sourcing-from-kentico-cloud/)
+* [Kentico Kontent & Gatsby Take You Beyond Static Websites](https://www.gatsbyjs.org/blog/2018-12-19-kentico-cloud-and-gatsby-take-you-beyond-static-websites/)
+* [Rendering Kentico Kontent linked content items with React components in Gatsby](https://rshackleton.co.uk/articles/rendering-kentico-cloud-linked-content-items-with-react-components-in-gatsby) by [@rshackleton](https://github.com/rshackleton)
+* [Automated builds with Netlify and Kentico Kontent webhooks](https://rshackleton.co.uk/articles/automated-builds-with-netlify-and-kentico-cloud-webhooks) by [@rshackleton](https://github.com/rshackleton)
 
 ### Previous versions
 

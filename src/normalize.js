@@ -39,7 +39,7 @@ const parseContentItemContents =
 /**
  * Create Gatsby Node structure.
  * @param {Number} nodeId Gebnerated Gatsby node ID.
- * @param {Object} kcArtifact Node's Kentico Cloud data.
+ * @param {Object} kcArtifact Node's Kentico Kontent data.
  * @param {String} artifactKind Type of the artifact ('item/type')
  * @param {String} codeName Item code name
  * @param {Object} additionalNodeData Additional data
@@ -82,7 +82,7 @@ const addLinkedItemsLinks =
         }
       });
 
-    // important to have the same order as it is Kentico Cloud
+    // important to have the same order as it is Kentico Kontent
     const sortedLinkedNodes = linkedNodes
       .sort((a, b) => {
         const first = sortPattern.indexOf(a.system.codename);

@@ -21,7 +21,7 @@ const { customTrackingHeader } = require('./config');
 exports.sourceNodes =
   async ({ actions: { createNode }, createNodeId },
     { deliveryClientConfig, languageCodenames }) => {
-    console.info(`Generating Kentico Cloud nodes for projectId:\
+    console.info(`Generating Kentico Kontent nodes for projectId:\
  ${_.get(deliveryClientConfig, 'projectId')}`);
     console.info(`Provided language codenames: ${languageCodenames}.`);
 
@@ -83,14 +83,14 @@ exports.sourceNodes =
       createNodes(languageNodes, createNode);
     });
 
-    console.info(`Kentico Cloud nodes generation finished.`);
+    console.info(`Kentico Kontent nodes generation finished.`);
     return;
   };
 
 /**
  *
  * @param {DeliveryClientConfig} deliveryClientConfig
- *  Kentico Cloud JS configuration object
+ *  Kentico Kontent JS configuration object
  * @param {IHeader} trackingHeader tracking header name
  */
 const addHeader = (deliveryClientConfig, trackingHeader) => {

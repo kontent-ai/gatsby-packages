@@ -1493,15 +1493,15 @@ Currently I am interested in Gatsby.js. I have released the third version of Gat
             "modular_content": Array [],
             "name": "Description",
             "type": "rich_text",
-            "value": "<p>The training should make the clear picture about the Kentico Cloud opensource activities.</p>",
+            "value": "<p>The training should make the clear picture about the Kentico Kontent opensource activities.</p>",
           },
           "resolvedData": Object {
             "componentCodenames": Array [],
-            "html": "<p>The training should make the clear picture about the Kentico Cloud opensource activities.</p>",
+            "html": "<p>The training should make the clear picture about the Kentico Kontent opensource activities.</p>",
             "linkedItemCodenames": Array [],
           },
           "type": "rich_text",
-          "value": "<p>The training should make the clear picture about the Kentico Cloud opensource activities.</p>",
+          "value": "<p>The training should make the clear picture about the Kentico Kontent opensource activities.</p>",
         },
         "name": Object {
           "name": "Name",
@@ -1536,8 +1536,8 @@ Currently I am interested in Gatsby.js. I have released the third version of Gat
       },
       "id": "dummyId",
       "internal": Object {
-        "content": "{\\"system\\":{\\"name\\":\\"Open-source training 2019\\",\\"codename\\":\\"open_source_training_2019\\",\\"id\\":\\"aae6c1cf-1d20-4a0e-949b-65a5d1bb7c8f\\",\\"lastModified\\":\\"2019-04-01T18:55:13.887Z\\",\\"language\\":\\"default\\",\\"type\\":\\"training\\",\\"sitemapLocations\\":[]},\\"elements\\":{\\"name\\":{\\"rawData\\":{\\"type\\":\\"text\\",\\"name\\":\\"Name\\",\\"value\\":\\"Open-source training 2019\\"},\\"name\\":\\"Name\\",\\"type\\":\\"text\\",\\"value\\":\\"Open-source training 2019\\"},\\"description\\":{\\"rawData\\":{\\"type\\":\\"rich_text\\",\\"name\\":\\"Description\\",\\"images\\":{},\\"links\\":{},\\"modular_content\\":[],\\"value\\":\\"<p>The training should make the clear picture about the Kentico Cloud opensource activities.</p>\\"},\\"name\\":\\"Description\\",\\"type\\":\\"rich_text\\",\\"linkedItemCodenames\\":[],\\"links\\":[],\\"images\\":[],\\"value\\":\\"<p>The training should make the clear picture about the Kentico Cloud opensource activities.</p>\\",\\"resolvedData\\":{\\"html\\":\\"<p>The training should make the clear picture about the Kentico Cloud opensource activities.</p>\\",\\"componentCodenames\\":[],\\"linkedItemCodenames\\":[]}},\\"author\\":{\\"rawData\\":{\\"type\\":\\"modular_content\\",\\"name\\":\\"Author\\",\\"value\\":[\\"ondrej_chrastina\\"]},\\"name\\":\\"Author\\",\\"type\\":\\"modular_content\\",\\"itemCodenames\\":[\\"ondrej_chrastina\\"]},\\"sessions\\":{\\"rawData\\":{\\"type\\":\\"modular_content\\",\\"name\\":\\"Sessions\\",\\"value\\":[\\"introduction_to_github_on_kentico_examples\\",\\"introduction_to_the_custom_elements_development\\"]},\\"name\\":\\"Sessions\\",\\"type\\":\\"modular_content\\",\\"itemCodenames\\":[\\"introduction_to_github_on_kentico_examples\\",\\"introduction_to_the_custom_elements_development\\"]}},\\"preferred_language\\":\\"default\\"}",
-        "contentDigest": "ce5cd54f63a740f277c6c8367d85ea7f",
+        "content": "{\\"system\\":{\\"name\\":\\"Open-source training 2019\\",\\"codename\\":\\"open_source_training_2019\\",\\"id\\":\\"aae6c1cf-1d20-4a0e-949b-65a5d1bb7c8f\\",\\"lastModified\\":\\"2019-04-01T18:55:13.887Z\\",\\"language\\":\\"default\\",\\"type\\":\\"training\\",\\"sitemapLocations\\":[]},\\"elements\\":{\\"name\\":{\\"rawData\\":{\\"type\\":\\"text\\",\\"name\\":\\"Name\\",\\"value\\":\\"Open-source training 2019\\"},\\"name\\":\\"Name\\",\\"type\\":\\"text\\",\\"value\\":\\"Open-source training 2019\\"},\\"description\\":{\\"rawData\\":{\\"type\\":\\"rich_text\\",\\"name\\":\\"Description\\",\\"images\\":{},\\"links\\":{},\\"modular_content\\":[],\\"value\\":\\"<p>The training should make the clear picture about the Kentico Kontent opensource activities.</p>\\"},\\"name\\":\\"Description\\",\\"type\\":\\"rich_text\\",\\"linkedItemCodenames\\":[],\\"links\\":[],\\"images\\":[],\\"value\\":\\"<p>The training should make the clear picture about the Kentico Kontent opensource activities.</p>\\",\\"resolvedData\\":{\\"html\\":\\"<p>The training should make the clear picture about the Kentico Kontent opensource activities.</p>\\",\\"componentCodenames\\":[],\\"linkedItemCodenames\\":[]}},\\"author\\":{\\"rawData\\":{\\"type\\":\\"modular_content\\",\\"name\\":\\"Author\\",\\"value\\":[\\"ondrej_chrastina\\"]},\\"name\\":\\"Author\\",\\"type\\":\\"modular_content\\",\\"itemCodenames\\":[\\"ondrej_chrastina\\"]},\\"sessions\\":{\\"rawData\\":{\\"type\\":\\"modular_content\\",\\"name\\":\\"Sessions\\",\\"value\\":[\\"introduction_to_github_on_kentico_examples\\",\\"introduction_to_the_custom_elements_development\\"]},\\"name\\":\\"Sessions\\",\\"type\\":\\"modular_content\\",\\"itemCodenames\\":[\\"introduction_to_github_on_kentico_examples\\",\\"introduction_to_the_custom_elements_development\\"]}},\\"preferred_language\\":\\"default\\"}",
+        "contentDigest": "1423f1e1ac740eea947d800d29b92242",
         "type": "KenticoCloudItemTraining",
       },
       "otherLanguages___NODE": Array [
@@ -1899,30 +1899,30 @@ Currently I am interested in Gatsby.js. I have released the third version of Gat
           "rawData": Object {
             "name": "Description",
             "type": "custom",
-            "value": "# Gatsby source plugin for Kentico Cloud
+            "value": "# Gatsby source plugin for Kentico Kontent
 [![Gatsby plugin library](https://img.shields.io/badge/Gatsby%20plugin%20library-%23663399.svg)](https://www.gatsbyjs.org/packages/gatsby-source-kentico-cloud)
 [![Stack Overflow](https://img.shields.io/badge/Stack%20Overflow-ASK%20NOW-FE7A16.svg?logo=stackoverflow&logoColor=white)](https://stackoverflow.com/tags/kentico-cloud)
 
-This repo contains a [Gatsby (v2) source plugin](https://www.gatsbyjs.org/docs/recipes/#sourcing-data) that retrieves data from the [Kentico Cloud](https://kenticocloud.com) Delivery API.
+This repo contains a [Gatsby (v2) source plugin](https://www.gatsbyjs.org/docs/recipes/#sourcing-data) that retrieves data from the [Kentico Kontent](https://kenticocloud.com) Delivery API.
 
 ## Features
 
-The plugin creates GraphQL nodes for all Kentico Cloud content types, content items, and its language variants.
+The plugin creates GraphQL nodes for all Kentico Kontent content types, content items, and its language variants.
 
 The node names are prefixed with \`kenticoCloud\`. More specifically, content type nodes are prefixed by \`kenticoCloudType\` and content items and their language variants are prefixed with \`kenticoCloudItem\`.
 
 GraphQL nodes of content items contain the ordinary \`system\` and \`elements\` properties. However, the properties inside \`elements\` always have an internal structure that the aforementioned [Delivery SDK](https://github.com/Kentico/kentico-cloud-js/blob/master/packages/delivery/lib/models/item/content-item.class.ts) produces with **modifications** described in following section.",
           },
           "type": "custom",
-          "value": "# Gatsby source plugin for Kentico Cloud
+          "value": "# Gatsby source plugin for Kentico Kontent
 [![Gatsby plugin library](https://img.shields.io/badge/Gatsby%20plugin%20library-%23663399.svg)](https://www.gatsbyjs.org/packages/gatsby-source-kentico-cloud)
 [![Stack Overflow](https://img.shields.io/badge/Stack%20Overflow-ASK%20NOW-FE7A16.svg?logo=stackoverflow&logoColor=white)](https://stackoverflow.com/tags/kentico-cloud)
 
-This repo contains a [Gatsby (v2) source plugin](https://www.gatsbyjs.org/docs/recipes/#sourcing-data) that retrieves data from the [Kentico Cloud](https://kenticocloud.com) Delivery API.
+This repo contains a [Gatsby (v2) source plugin](https://www.gatsbyjs.org/docs/recipes/#sourcing-data) that retrieves data from the [Kentico Kontent](https://kenticocloud.com) Delivery API.
 
 ## Features
 
-The plugin creates GraphQL nodes for all Kentico Cloud content types, content items, and its language variants.
+The plugin creates GraphQL nodes for all Kentico Kontent content types, content items, and its language variants.
 
 The node names are prefixed with \`kenticoCloud\`. More specifically, content type nodes are prefixed by \`kenticoCloudType\` and content items and their language variants are prefixed with \`kenticoCloudItem\`.
 
@@ -1933,10 +1933,10 @@ GraphQL nodes of content items contain the ordinary \`system\` and \`elements\` 
           "rawData": Object {
             "name": "Name",
             "type": "text",
-            "value": "Gatsby source plugin for Kentico Cloud",
+            "value": "Gatsby source plugin for Kentico Kontent",
           },
           "type": "text",
-          "value": "Gatsby source plugin for Kentico Cloud",
+          "value": "Gatsby source plugin for Kentico Kontent",
         },
         "url": Object {
           "name": "URL",
@@ -1951,8 +1951,8 @@ GraphQL nodes of content items contain the ordinary \`system\` and \`elements\` 
       },
       "id": "dummyId",
       "internal": Object {
-        "content": "{\\"system\\":{\\"name\\":\\"8bf1055d-7b61-0180-e1c6-3a09d88f0396\\",\\"codename\\":\\"n8bf1055d_7b61_0180_e1c6_3a09d88f0396\\",\\"id\\":\\"8bf1055d-7b61-0180-e1c6-3a09d88f0396\\",\\"lastModified\\":\\"2019-04-29T14:40:06.437Z\\",\\"language\\":\\"default\\",\\"type\\":\\"repository\\",\\"sitemapLocations\\":[]},\\"elements\\":{\\"description\\":{\\"rawData\\":{\\"type\\":\\"custom\\",\\"name\\":\\"Description\\",\\"value\\":\\"# Gatsby source plugin for Kentico Cloud\\\\n[![Gatsby plugin library](https://img.shields.io/badge/Gatsby%20plugin%20library-%23663399.svg)](https://www.gatsbyjs.org/packages/gatsby-source-kentico-cloud)\\\\n[![Stack Overflow](https://img.shields.io/badge/Stack%20Overflow-ASK%20NOW-FE7A16.svg?logo=stackoverflow&logoColor=white)](https://stackoverflow.com/tags/kentico-cloud)\\\\n\\\\nThis repo contains a [Gatsby (v2) source plugin](https://www.gatsbyjs.org/docs/recipes/#sourcing-data) that retrieves data from the [Kentico Cloud](https://kenticocloud.com) Delivery API.\\\\n\\\\n## Features\\\\n\\\\nThe plugin creates GraphQL nodes for all Kentico Cloud content types, content items, and its language variants.\\\\n\\\\nThe node names are prefixed with \`kenticoCloud\`. More specifically, content type nodes are prefixed by \`kenticoCloudType\` and content items and their language variants are prefixed with \`kenticoCloudItem\`.\\\\n\\\\nGraphQL nodes of content items contain the ordinary \`system\` and \`elements\` properties. However, the properties inside \`elements\` always have an internal structure that the aforementioned [Delivery SDK](https://github.com/Kentico/kentico-cloud-js/blob/master/packages/delivery/lib/models/item/content-item.class.ts) produces with **modifications** described in following section.\\"},\\"name\\":\\"Description\\",\\"type\\":\\"custom\\",\\"value\\":\\"# Gatsby source plugin for Kentico Cloud\\\\n[![Gatsby plugin library](https://img.shields.io/badge/Gatsby%20plugin%20library-%23663399.svg)](https://www.gatsbyjs.org/packages/gatsby-source-kentico-cloud)\\\\n[![Stack Overflow](https://img.shields.io/badge/Stack%20Overflow-ASK%20NOW-FE7A16.svg?logo=stackoverflow&logoColor=white)](https://stackoverflow.com/tags/kentico-cloud)\\\\n\\\\nThis repo contains a [Gatsby (v2) source plugin](https://www.gatsbyjs.org/docs/recipes/#sourcing-data) that retrieves data from the [Kentico Cloud](https://kenticocloud.com) Delivery API.\\\\n\\\\n## Features\\\\n\\\\nThe plugin creates GraphQL nodes for all Kentico Cloud content types, content items, and its language variants.\\\\n\\\\nThe node names are prefixed with \`kenticoCloud\`. More specifically, content type nodes are prefixed by \`kenticoCloudType\` and content items and their language variants are prefixed with \`kenticoCloudItem\`.\\\\n\\\\nGraphQL nodes of content items contain the ordinary \`system\` and \`elements\` properties. However, the properties inside \`elements\` always have an internal structure that the aforementioned [Delivery SDK](https://github.com/Kentico/kentico-cloud-js/blob/master/packages/delivery/lib/models/item/content-item.class.ts) produces with **modifications** described in following section.\\"},\\"name\\":{\\"rawData\\":{\\"type\\":\\"text\\",\\"name\\":\\"Name\\",\\"value\\":\\"Gatsby source plugin for Kentico Cloud\\"},\\"name\\":\\"Name\\",\\"type\\":\\"text\\",\\"value\\":\\"Gatsby source plugin for Kentico Cloud\\"},\\"url\\":{\\"rawData\\":{\\"type\\":\\"text\\",\\"name\\":\\"URL\\",\\"value\\":\\"https://github.com/Kentico/gatsby-source-kentico-cloud\\"},\\"name\\":\\"URL\\",\\"type\\":\\"text\\",\\"value\\":\\"https://github.com/Kentico/gatsby-source-kentico-cloud\\"}},\\"preferred_language\\":\\"default\\"}",
-        "contentDigest": "5f855d675505d77a51cfc9ef1405ce44",
+        "content": "{\\"system\\":{\\"name\\":\\"8bf1055d-7b61-0180-e1c6-3a09d88f0396\\",\\"codename\\":\\"n8bf1055d_7b61_0180_e1c6_3a09d88f0396\\",\\"id\\":\\"8bf1055d-7b61-0180-e1c6-3a09d88f0396\\",\\"lastModified\\":\\"2019-04-29T14:40:06.437Z\\",\\"language\\":\\"default\\",\\"type\\":\\"repository\\",\\"sitemapLocations\\":[]},\\"elements\\":{\\"description\\":{\\"rawData\\":{\\"type\\":\\"custom\\",\\"name\\":\\"Description\\",\\"value\\":\\"# Gatsby source plugin for Kentico Kontent\\\\n[![Gatsby plugin library](https://img.shields.io/badge/Gatsby%20plugin%20library-%23663399.svg)](https://www.gatsbyjs.org/packages/gatsby-source-kentico-cloud)\\\\n[![Stack Overflow](https://img.shields.io/badge/Stack%20Overflow-ASK%20NOW-FE7A16.svg?logo=stackoverflow&logoColor=white)](https://stackoverflow.com/tags/kentico-cloud)\\\\n\\\\nThis repo contains a [Gatsby (v2) source plugin](https://www.gatsbyjs.org/docs/recipes/#sourcing-data) that retrieves data from the [Kentico Kontent](https://kenticocloud.com) Delivery API.\\\\n\\\\n## Features\\\\n\\\\nThe plugin creates GraphQL nodes for all Kentico Kontent content types, content items, and its language variants.\\\\n\\\\nThe node names are prefixed with \`kenticoCloud\`. More specifically, content type nodes are prefixed by \`kenticoCloudType\` and content items and their language variants are prefixed with \`kenticoCloudItem\`.\\\\n\\\\nGraphQL nodes of content items contain the ordinary \`system\` and \`elements\` properties. However, the properties inside \`elements\` always have an internal structure that the aforementioned [Delivery SDK](https://github.com/Kentico/kentico-cloud-js/blob/master/packages/delivery/lib/models/item/content-item.class.ts) produces with **modifications** described in following section.\\"},\\"name\\":\\"Description\\",\\"type\\":\\"custom\\",\\"value\\":\\"# Gatsby source plugin for Kentico Kontent\\\\n[![Gatsby plugin library](https://img.shields.io/badge/Gatsby%20plugin%20library-%23663399.svg)](https://www.gatsbyjs.org/packages/gatsby-source-kentico-cloud)\\\\n[![Stack Overflow](https://img.shields.io/badge/Stack%20Overflow-ASK%20NOW-FE7A16.svg?logo=stackoverflow&logoColor=white)](https://stackoverflow.com/tags/kentico-cloud)\\\\n\\\\nThis repo contains a [Gatsby (v2) source plugin](https://www.gatsbyjs.org/docs/recipes/#sourcing-data) that retrieves data from the [Kentico Kontent](https://kenticocloud.com) Delivery API.\\\\n\\\\n## Features\\\\n\\\\nThe plugin creates GraphQL nodes for all Kentico Kontent content types, content items, and its language variants.\\\\n\\\\nThe node names are prefixed with \`kenticoCloud\`. More specifically, content type nodes are prefixed by \`kenticoCloudType\` and content items and their language variants are prefixed with \`kenticoCloudItem\`.\\\\n\\\\nGraphQL nodes of content items contain the ordinary \`system\` and \`elements\` properties. However, the properties inside \`elements\` always have an internal structure that the aforementioned [Delivery SDK](https://github.com/Kentico/kentico-cloud-js/blob/master/packages/delivery/lib/models/item/content-item.class.ts) produces with **modifications** described in following section.\\"},\\"name\\":{\\"rawData\\":{\\"type\\":\\"text\\",\\"name\\":\\"Name\\",\\"value\\":\\"Gatsby source plugin for Kentico Kontent\\"},\\"name\\":\\"Name\\",\\"type\\":\\"text\\",\\"value\\":\\"Gatsby source plugin for Kentico Kontent\\"},\\"url\\":{\\"rawData\\":{\\"type\\":\\"text\\",\\"name\\":\\"URL\\",\\"value\\":\\"https://github.com/Kentico/gatsby-source-kentico-cloud\\"},\\"name\\":\\"URL\\",\\"type\\":\\"text\\",\\"value\\":\\"https://github.com/Kentico/gatsby-source-kentico-cloud\\"}},\\"preferred_language\\":\\"default\\"}",
+        "contentDigest": "3d08f555d026fc43bdd47c07d82d8946",
         "type": "KenticoCloudItemRepository",
       },
       "otherLanguages___NODE": Array [],
@@ -3211,15 +3211,15 @@ Currently I am interested in Gatsby.js. I have released the third version of Gat
             "modular_content": Array [],
             "name": "Description",
             "type": "rich_text",
-            "value": "<p>The training should make the clear picture about the Kentico Cloud opensource activities. (other language)</p>",
+            "value": "<p>The training should make the clear picture about the Kentico Kontent opensource activities. (other language)</p>",
           },
           "resolvedData": Object {
             "componentCodenames": Array [],
-            "html": "<p>The training should make the clear picture about the Kentico Cloud opensource activities. (other language)</p>",
+            "html": "<p>The training should make the clear picture about the Kentico Kontent opensource activities. (other language)</p>",
             "linkedItemCodenames": Array [],
           },
           "type": "rich_text",
-          "value": "<p>The training should make the clear picture about the Kentico Cloud opensource activities. (other language)</p>",
+          "value": "<p>The training should make the clear picture about the Kentico Kontent opensource activities. (other language)</p>",
         },
         "name": Object {
           "name": "Name",
@@ -3251,8 +3251,8 @@ Currently I am interested in Gatsby.js. I have released the third version of Gat
       },
       "id": "dummyId",
       "internal": Object {
-        "content": "{\\"system\\":{\\"name\\":\\"Open-source training 2019\\",\\"codename\\":\\"open_source_training_2019\\",\\"id\\":\\"aae6c1cf-1d20-4a0e-949b-65a5d1bb7c8f\\",\\"lastModified\\":\\"2019-04-29T14:47:05.794Z\\",\\"language\\":\\"Another_language\\",\\"type\\":\\"training\\",\\"sitemapLocations\\":[]},\\"elements\\":{\\"name\\":{\\"rawData\\":{\\"type\\":\\"text\\",\\"name\\":\\"Name\\",\\"value\\":\\"Open-source training 2019\\"},\\"name\\":\\"Name\\",\\"type\\":\\"text\\",\\"value\\":\\"Open-source training 2019\\"},\\"description\\":{\\"rawData\\":{\\"type\\":\\"rich_text\\",\\"name\\":\\"Description\\",\\"images\\":{},\\"links\\":{},\\"modular_content\\":[],\\"value\\":\\"<p>The training should make the clear picture about the Kentico Cloud opensource activities. (other language)</p>\\"},\\"name\\":\\"Description\\",\\"type\\":\\"rich_text\\",\\"linkedItemCodenames\\":[],\\"links\\":[],\\"images\\":[],\\"value\\":\\"<p>The training should make the clear picture about the Kentico Cloud opensource activities. (other language)</p>\\",\\"resolvedData\\":{\\"html\\":\\"<p>The training should make the clear picture about the Kentico Cloud opensource activities. (other language)</p>\\",\\"componentCodenames\\":[],\\"linkedItemCodenames\\":[]}},\\"author\\":{\\"rawData\\":{\\"type\\":\\"modular_content\\",\\"name\\":\\"Author\\",\\"value\\":[\\"ondrej_chrastina\\"]},\\"name\\":\\"Author\\",\\"type\\":\\"modular_content\\",\\"itemCodenames\\":[\\"ondrej_chrastina\\"]},\\"sessions\\":{\\"rawData\\":{\\"type\\":\\"modular_content\\",\\"name\\":\\"Sessions\\",\\"value\\":[\\"introduction_to_the_custom_elements_development\\"]},\\"name\\":\\"Sessions\\",\\"type\\":\\"modular_content\\",\\"itemCodenames\\":[\\"introduction_to_the_custom_elements_development\\"]}},\\"preferred_language\\":\\"Another_language\\"}",
-        "contentDigest": "c1bff10387ff128aa4b3ec8cc7f8f501",
+        "content": "{\\"system\\":{\\"name\\":\\"Open-source training 2019\\",\\"codename\\":\\"open_source_training_2019\\",\\"id\\":\\"aae6c1cf-1d20-4a0e-949b-65a5d1bb7c8f\\",\\"lastModified\\":\\"2019-04-29T14:47:05.794Z\\",\\"language\\":\\"Another_language\\",\\"type\\":\\"training\\",\\"sitemapLocations\\":[]},\\"elements\\":{\\"name\\":{\\"rawData\\":{\\"type\\":\\"text\\",\\"name\\":\\"Name\\",\\"value\\":\\"Open-source training 2019\\"},\\"name\\":\\"Name\\",\\"type\\":\\"text\\",\\"value\\":\\"Open-source training 2019\\"},\\"description\\":{\\"rawData\\":{\\"type\\":\\"rich_text\\",\\"name\\":\\"Description\\",\\"images\\":{},\\"links\\":{},\\"modular_content\\":[],\\"value\\":\\"<p>The training should make the clear picture about the Kentico Kontent opensource activities. (other language)</p>\\"},\\"name\\":\\"Description\\",\\"type\\":\\"rich_text\\",\\"linkedItemCodenames\\":[],\\"links\\":[],\\"images\\":[],\\"value\\":\\"<p>The training should make the clear picture about the Kentico Kontent opensource activities. (other language)</p>\\",\\"resolvedData\\":{\\"html\\":\\"<p>The training should make the clear picture about the Kentico Kontent opensource activities. (other language)</p>\\",\\"componentCodenames\\":[],\\"linkedItemCodenames\\":[]}},\\"author\\":{\\"rawData\\":{\\"type\\":\\"modular_content\\",\\"name\\":\\"Author\\",\\"value\\":[\\"ondrej_chrastina\\"]},\\"name\\":\\"Author\\",\\"type\\":\\"modular_content\\",\\"itemCodenames\\":[\\"ondrej_chrastina\\"]},\\"sessions\\":{\\"rawData\\":{\\"type\\":\\"modular_content\\",\\"name\\":\\"Sessions\\",\\"value\\":[\\"introduction_to_the_custom_elements_development\\"]},\\"name\\":\\"Sessions\\",\\"type\\":\\"modular_content\\",\\"itemCodenames\\":[\\"introduction_to_the_custom_elements_development\\"]}},\\"preferred_language\\":\\"Another_language\\"}",
+        "contentDigest": "cf332cafeb035deb56df28d843480a3f",
         "type": "KenticoCloudItemTraining",
       },
       "otherLanguages___NODE": Array [
@@ -3615,15 +3615,15 @@ Currently I am interested in Gatsby.js. I have released the third version of Gat
             "name": "Description",
             "type": "custom",
             "value": "*Other language: *
-# Gatsby source plugin for Kentico Cloud
+# Gatsby source plugin for Kentico Kontent
 [![Gatsby plugin library](https://img.shields.io/badge/Gatsby%20plugin%20library-%23663399.svg)](https://www.gatsbyjs.org/packages/gatsby-source-kentico-cloud)
 [![Stack Overflow](https://img.shields.io/badge/Stack%20Overflow-ASK%20NOW-FE7A16.svg?logo=stackoverflow&logoColor=white)](https://stackoverflow.com/tags/kentico-cloud)
 
-This repo contains a [Gatsby (v2) source plugin](https://www.gatsbyjs.org/docs/recipes/#sourcing-data) that retrieves data from the [Kentico Cloud](https://kenticocloud.com) Delivery API.
+This repo contains a [Gatsby (v2) source plugin](https://www.gatsbyjs.org/docs/recipes/#sourcing-data) that retrieves data from the [Kentico Kontent](https://kenticocloud.com) Delivery API.
 
 ## Features
 
-The plugin creates GraphQL nodes for all Kentico Cloud content types, content items, and its language variants.
+The plugin creates GraphQL nodes for all Kentico Kontent content types, content items, and its language variants.
 
 The node names are prefixed with \`kenticoCloud\`. More specifically, content type nodes are prefixed by \`kenticoCloudType\` and content items and their language variants are prefixed with \`kenticoCloudItem\`.
 
@@ -3631,15 +3631,15 @@ GraphQL nodes of content items contain the ordinary \`system\` and \`elements\` 
           },
           "type": "custom",
           "value": "*Other language: *
-# Gatsby source plugin for Kentico Cloud
+# Gatsby source plugin for Kentico Kontent
 [![Gatsby plugin library](https://img.shields.io/badge/Gatsby%20plugin%20library-%23663399.svg)](https://www.gatsbyjs.org/packages/gatsby-source-kentico-cloud)
 [![Stack Overflow](https://img.shields.io/badge/Stack%20Overflow-ASK%20NOW-FE7A16.svg?logo=stackoverflow&logoColor=white)](https://stackoverflow.com/tags/kentico-cloud)
 
-This repo contains a [Gatsby (v2) source plugin](https://www.gatsbyjs.org/docs/recipes/#sourcing-data) that retrieves data from the [Kentico Cloud](https://kenticocloud.com) Delivery API.
+This repo contains a [Gatsby (v2) source plugin](https://www.gatsbyjs.org/docs/recipes/#sourcing-data) that retrieves data from the [Kentico Kontent](https://kenticocloud.com) Delivery API.
 
 ## Features
 
-The plugin creates GraphQL nodes for all Kentico Cloud content types, content items, and its language variants.
+The plugin creates GraphQL nodes for all Kentico Kontent content types, content items, and its language variants.
 
 The node names are prefixed with \`kenticoCloud\`. More specifically, content type nodes are prefixed by \`kenticoCloudType\` and content items and their language variants are prefixed with \`kenticoCloudItem\`.
 
@@ -3650,10 +3650,10 @@ GraphQL nodes of content items contain the ordinary \`system\` and \`elements\` 
           "rawData": Object {
             "name": "Name",
             "type": "text",
-            "value": "Other language: Gatsby source plugin for Kentico Cloud",
+            "value": "Other language: Gatsby source plugin for Kentico Kontent",
           },
           "type": "text",
-          "value": "Other language: Gatsby source plugin for Kentico Cloud",
+          "value": "Other language: Gatsby source plugin for Kentico Kontent",
         },
         "url": Object {
           "name": "URL",
@@ -3668,8 +3668,8 @@ GraphQL nodes of content items contain the ordinary \`system\` and \`elements\` 
       },
       "id": "dummyId",
       "internal": Object {
-        "content": "{\\"system\\":{\\"name\\":\\"e76716e9-bcf0-01ad-2031-4d08701b3a3f\\",\\"codename\\":\\"e76716e9_bcf0_01ad_2031_4d08701b3a3f\\",\\"id\\":\\"e76716e9-bcf0-01ad-2031-4d08701b3a3f\\",\\"lastModified\\":\\"2019-04-29T14:44:36.129Z\\",\\"language\\":\\"Another_language\\",\\"type\\":\\"repository\\",\\"sitemapLocations\\":[]},\\"elements\\":{\\"description\\":{\\"rawData\\":{\\"type\\":\\"custom\\",\\"name\\":\\"Description\\",\\"value\\":\\"*Other language: *\\\\n# Gatsby source plugin for Kentico Cloud\\\\n[![Gatsby plugin library](https://img.shields.io/badge/Gatsby%20plugin%20library-%23663399.svg)](https://www.gatsbyjs.org/packages/gatsby-source-kentico-cloud)\\\\n[![Stack Overflow](https://img.shields.io/badge/Stack%20Overflow-ASK%20NOW-FE7A16.svg?logo=stackoverflow&logoColor=white)](https://stackoverflow.com/tags/kentico-cloud)\\\\n\\\\nThis repo contains a [Gatsby (v2) source plugin](https://www.gatsbyjs.org/docs/recipes/#sourcing-data) that retrieves data from the [Kentico Cloud](https://kenticocloud.com) Delivery API.\\\\n\\\\n## Features\\\\n\\\\nThe plugin creates GraphQL nodes for all Kentico Cloud content types, content items, and its language variants.\\\\n\\\\nThe node names are prefixed with \`kenticoCloud\`. More specifically, content type nodes are prefixed by \`kenticoCloudType\` and content items and their language variants are prefixed with \`kenticoCloudItem\`.\\\\n\\\\nGraphQL nodes of content items contain the ordinary \`system\` and \`elements\` properties. However, the properties inside \`elements\` always have an internal structure that the aforementioned [Delivery SDK](https://github.com/Kentico/kentico-cloud-js/blob/master/packages/delivery/lib/models/item/content-item.class.ts) produces with **modifications** described in following section.\\"},\\"name\\":\\"Description\\",\\"type\\":\\"custom\\",\\"value\\":\\"*Other language: *\\\\n# Gatsby source plugin for Kentico Cloud\\\\n[![Gatsby plugin library](https://img.shields.io/badge/Gatsby%20plugin%20library-%23663399.svg)](https://www.gatsbyjs.org/packages/gatsby-source-kentico-cloud)\\\\n[![Stack Overflow](https://img.shields.io/badge/Stack%20Overflow-ASK%20NOW-FE7A16.svg?logo=stackoverflow&logoColor=white)](https://stackoverflow.com/tags/kentico-cloud)\\\\n\\\\nThis repo contains a [Gatsby (v2) source plugin](https://www.gatsbyjs.org/docs/recipes/#sourcing-data) that retrieves data from the [Kentico Cloud](https://kenticocloud.com) Delivery API.\\\\n\\\\n## Features\\\\n\\\\nThe plugin creates GraphQL nodes for all Kentico Cloud content types, content items, and its language variants.\\\\n\\\\nThe node names are prefixed with \`kenticoCloud\`. More specifically, content type nodes are prefixed by \`kenticoCloudType\` and content items and their language variants are prefixed with \`kenticoCloudItem\`.\\\\n\\\\nGraphQL nodes of content items contain the ordinary \`system\` and \`elements\` properties. However, the properties inside \`elements\` always have an internal structure that the aforementioned [Delivery SDK](https://github.com/Kentico/kentico-cloud-js/blob/master/packages/delivery/lib/models/item/content-item.class.ts) produces with **modifications** described in following section.\\"},\\"name\\":{\\"rawData\\":{\\"type\\":\\"text\\",\\"name\\":\\"Name\\",\\"value\\":\\"Other language: Gatsby source plugin for Kentico Cloud\\"},\\"name\\":\\"Name\\",\\"type\\":\\"text\\",\\"value\\":\\"Other language: Gatsby source plugin for Kentico Cloud\\"},\\"url\\":{\\"rawData\\":{\\"type\\":\\"text\\",\\"name\\":\\"URL\\",\\"value\\":\\"https://github.com/Kentico/gatsby-source-kentico-cloud\\"},\\"name\\":\\"URL\\",\\"type\\":\\"text\\",\\"value\\":\\"https://github.com/Kentico/gatsby-source-kentico-cloud\\"}},\\"preferred_language\\":\\"Another_language\\"}",
-        "contentDigest": "d868fa5f41d4c8264d8f8d2d1f43e5b7",
+        "content": "{\\"system\\":{\\"name\\":\\"e76716e9-bcf0-01ad-2031-4d08701b3a3f\\",\\"codename\\":\\"e76716e9_bcf0_01ad_2031_4d08701b3a3f\\",\\"id\\":\\"e76716e9-bcf0-01ad-2031-4d08701b3a3f\\",\\"lastModified\\":\\"2019-04-29T14:44:36.129Z\\",\\"language\\":\\"Another_language\\",\\"type\\":\\"repository\\",\\"sitemapLocations\\":[]},\\"elements\\":{\\"description\\":{\\"rawData\\":{\\"type\\":\\"custom\\",\\"name\\":\\"Description\\",\\"value\\":\\"*Other language: *\\\\n# Gatsby source plugin for Kentico Kontent\\\\n[![Gatsby plugin library](https://img.shields.io/badge/Gatsby%20plugin%20library-%23663399.svg)](https://www.gatsbyjs.org/packages/gatsby-source-kentico-cloud)\\\\n[![Stack Overflow](https://img.shields.io/badge/Stack%20Overflow-ASK%20NOW-FE7A16.svg?logo=stackoverflow&logoColor=white)](https://stackoverflow.com/tags/kentico-cloud)\\\\n\\\\nThis repo contains a [Gatsby (v2) source plugin](https://www.gatsbyjs.org/docs/recipes/#sourcing-data) that retrieves data from the [Kentico Kontent](https://kenticocloud.com) Delivery API.\\\\n\\\\n## Features\\\\n\\\\nThe plugin creates GraphQL nodes for all Kentico Kontent content types, content items, and its language variants.\\\\n\\\\nThe node names are prefixed with \`kenticoCloud\`. More specifically, content type nodes are prefixed by \`kenticoCloudType\` and content items and their language variants are prefixed with \`kenticoCloudItem\`.\\\\n\\\\nGraphQL nodes of content items contain the ordinary \`system\` and \`elements\` properties. However, the properties inside \`elements\` always have an internal structure that the aforementioned [Delivery SDK](https://github.com/Kentico/kentico-cloud-js/blob/master/packages/delivery/lib/models/item/content-item.class.ts) produces with **modifications** described in following section.\\"},\\"name\\":\\"Description\\",\\"type\\":\\"custom\\",\\"value\\":\\"*Other language: *\\\\n# Gatsby source plugin for Kentico Kontent\\\\n[![Gatsby plugin library](https://img.shields.io/badge/Gatsby%20plugin%20library-%23663399.svg)](https://www.gatsbyjs.org/packages/gatsby-source-kentico-cloud)\\\\n[![Stack Overflow](https://img.shields.io/badge/Stack%20Overflow-ASK%20NOW-FE7A16.svg?logo=stackoverflow&logoColor=white)](https://stackoverflow.com/tags/kentico-cloud)\\\\n\\\\nThis repo contains a [Gatsby (v2) source plugin](https://www.gatsbyjs.org/docs/recipes/#sourcing-data) that retrieves data from the [Kentico Kontent](https://kenticocloud.com) Delivery API.\\\\n\\\\n## Features\\\\n\\\\nThe plugin creates GraphQL nodes for all Kentico Kontent content types, content items, and its language variants.\\\\n\\\\nThe node names are prefixed with \`kenticoCloud\`. More specifically, content type nodes are prefixed by \`kenticoCloudType\` and content items and their language variants are prefixed with \`kenticoCloudItem\`.\\\\n\\\\nGraphQL nodes of content items contain the ordinary \`system\` and \`elements\` properties. However, the properties inside \`elements\` always have an internal structure that the aforementioned [Delivery SDK](https://github.com/Kentico/kentico-cloud-js/blob/master/packages/delivery/lib/models/item/content-item.class.ts) produces with **modifications** described in following section.\\"},\\"name\\":{\\"rawData\\":{\\"type\\":\\"text\\",\\"name\\":\\"Name\\",\\"value\\":\\"Other language: Gatsby source plugin for Kentico Kontent\\"},\\"name\\":\\"Name\\",\\"type\\":\\"text\\",\\"value\\":\\"Other language: Gatsby source plugin for Kentico Kontent\\"},\\"url\\":{\\"rawData\\":{\\"type\\":\\"text\\",\\"name\\":\\"URL\\",\\"value\\":\\"https://github.com/Kentico/gatsby-source-kentico-cloud\\"},\\"name\\":\\"URL\\",\\"type\\":\\"text\\",\\"value\\":\\"https://github.com/Kentico/gatsby-source-kentico-cloud\\"}},\\"preferred_language\\":\\"Another_language\\"}",
+        "contentDigest": "4bc70542d935b17a8cb9888f006854eb",
         "type": "KenticoCloudItemRepository",
       },
       "otherLanguages___NODE": Array [],

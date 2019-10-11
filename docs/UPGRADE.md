@@ -2,11 +2,11 @@
 
 ## Upgrade guide `3.x.x` to `4.x.x`
 
-This upgrade is mainly caused by upgrading [Kentico Cloud Javascript Delivery SDK](https://github.com/Kentico/kentico-cloud-js/tree/master/packages/delivery).
+This upgrade is mainly caused by upgrading [Kentico Kontent Javascript Delivery SDK](https://github.com/Kentico/kentico-cloud-js/tree/master/packages/delivery).
 
 ### Delivery config
 
-When configuring the Kentico Cloud Source plugin one of the properties to set is `deliveryClientConfig`. It is respecting the [`IDeliveryClientConfig`](https://github.com/Kentico/kentico-cloud-js/blob/master/packages/delivery/UPGRADE.md#ideliveryclientconfig) interface from Kentico Cloud SDK.
+When configuring the Kentico Kontent Source plugin one of the properties to set is `deliveryClientConfig`. It is respecting the [`IDeliveryClientConfig`](https://github.com/Kentico/kentico-cloud-js/blob/master/packages/delivery/UPGRADE.md#ideliveryclientconfig) interface from Kentico Kontent SDK.
 
 #### Example
 
