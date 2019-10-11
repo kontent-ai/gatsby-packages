@@ -30,6 +30,9 @@ If you are new to the Gatsby ecosystem. The best way to start with using Gatsby 
 1. Configure the plugin in `gatsby-config.js` file
 
     > The source plugin uses the [Kentico Cloud SDK](https://github.com/Kentico/kontent-delivery-sdk-js/#kentico-kontent-delivery-sdk) in the background.
+    
+   * `deliveryClientConfig`* - [Kentico Cloud client configuration object](https://github.com/Kentico/kentico-kontent-js/blob/delivery%405.7.2/packages/delivery/DOCS.md#client-configuration) of the JS SDK (like Preview API, Secure API, etc.).
+  * `languageCodenames`* - array of language codenames that defines [what languages a configured for the project](https://developer.kenticocloud.com/docs/localization#section-project-languages) - the first one is considered as the **default one**. Initial "Getting started" project has configured just one language `default`.
 
     **Configuration object** ([example](https://github.com/Kentico/gatsby-starter-kentico-cloud/blob/master/gatsby-config.js))
 
@@ -103,6 +106,8 @@ Every element contains:
   }
 }
 ```
+=======
+GraphQL nodes of content items contain the ordinary `system` and `elements` properties. However, the properties inside `elements` always have an internal structure that the aforementioned [Delivery SDK](https://github.com/Kentico/kentico-kontent-js/blob/delivery%405.7.2/packages/delivery/lib/models/item/content-item.class.ts) produces with **modifications** described in following section.
 
 ### Content item <-> content type relationships
 
