@@ -20,10 +20,12 @@ const { customTrackingHeader } = require('./config');
 
 exports.sourceNodes =
   async ({ actions: { createNode }, createNodeId },
-    { deliveryClientConfig, languageCodenames }) => {
-    console.info(`Generating Kentico Kontent nodes for projectId:\
+    { deliveryClientConfig, languageCodenames, enableLogging = false }) => {
+    if (enableLogging) {
+      console.info(`Generating Kentico Kontent nodes for projectId:\
  ${_.get(deliveryClientConfig, 'projectId')}`);
-    console.info(`Provided language codenames: ${languageCodenames}.`);
+      console.info(`Provided language codenames: ${languageCodenames}.`);
+    }
 
     validation.validateLanguageCodenames(languageCodenames);
     const defaultLanguageCodename = languageCodenames[0];
@@ -72,18 +74,31 @@ exports.sourceNodes =
       nonDefaultLanguageItemNodes
     );
 
-    console.info(`Creating content type nodes.`);
+    if (enableLogging) {
+      console.info(`Creating content type nodes.`);
+    }
     createNodes(contentTypeNodes, createNode);
-
-    console.info(`Creating content item nodes for default language.`);
+    if (enableLogging) {
+      console.info(`Creating content item nodes for default language.`);
+    }
     createNodes(defaultCultureContentItemNodes, createNode);
 
-    console.info(`Creating content item nodes for non-default languages.`);
+    if (enableLogging) {
+      console.info(`Creating content item nodes for non-default languages.`);
+    }
+    let nonDefaultLanguagesCount = 0;
     Object.values(nonDefaultLanguageItemNodes).forEach((languageNodes) => {
       createNodes(languageNodes, createNode);
+      nonDefaultLanguagesCount += languageNodes.length;
     });
 
-    console.info(`Kentico Kontent nodes generation finished.`);
+    const typeNodesCount = contentTypeNodes.length;
+    const itemsCount = contentTypeNodes.length + nonDefaultLanguagesCount;
+    if (enableLogging) {
+      console.info(`Kentico Kontent nodes generation finished.`);
+      console.info(`${typeNodesCount} Kontent types item imported.`);
+      console.info(`${itemsCount} Kontent items imported.`);
+    }
     return;
   };
 

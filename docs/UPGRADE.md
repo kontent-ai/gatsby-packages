@@ -7,6 +7,7 @@ This upgrade is mainly caused by upgrading [Kentico Kontent Javascript Delivery 
 ### New Featuers
 
 * Language fall backs
+* enableLogging configuration
 
 ### Breaking changes
 
