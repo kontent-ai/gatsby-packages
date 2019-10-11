@@ -35,12 +35,9 @@ If you are new to the Gatsby ecosystem. The best way to start with using Gatsby 
     * `languageCodenames`* - array of language codenames that defines [what languages a configured for the project](https://docs.kontent.ai/tutorials/develop-apps/get-content/getting-localized-content?tech=javascript#section-project-languages) - the first one is considered as the **default one**. Initial "Getting started" project has configured just one language `default`.
     * `enableLogging` - enable logging of the source plugin. Turned off by default
 
-    **Configuration object** ([example](https://github.com/Kentico/gatsby-starter-kentico-cloud/blob/master/gatsby-config.js))
-
-      * `deliveryClientConfig`* - [Kentico Kontent client configuration object](https://github.com/Kentico/kontent-delivery-sdk-js/blob/7.0.1/DOCS.md#client-configuration) of the JS SDK (like Preview API, Secure API, etc.).
-      * `languageCodenames`* - array of language codenames that defines [what languages a configured for the project](https://docs.kontent.ai/tutorials/develop-apps/get-content/getting-localized-content?tech=javascript#section-project-languages) - the first one is considered as the **default one**. Initial "Getting started" project has configured just one language `default`.
-
       \* required property
+
+    **Configuration object** ([example](https://github.com/Kentico/gatsby-starter-kentico-cloud/blob/master/gatsby-config.js))
 
     ```javascript
     module.exports = {
