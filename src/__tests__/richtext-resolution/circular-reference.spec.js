@@ -7,7 +7,7 @@ const richtextCircularReferenceFakeItemsResponse =
 const richtextCircularReferenceFakeTypesResponse =
   require('./richtextCircularReferenceFakeTypesResponse.json');
 
-const { sourceNodes } = require('../../../gatsby-node');
+const { sourceNodes } = require('../../gatsby-node');
 
 
 describe(`Rich text resolution reference in modular content`, async () => {

@@ -2,7 +2,7 @@
 const { KontentTestHttpService }
   = require('@kentico/kontent-test-http-service-js');
 
-const { sourceNodes } = require('../../../gatsby-node');
+const { sourceNodes } = require('../../gatsby-node');
 
 // Project ID 4ac85e55-6daf-0122-7a52-81a12e5d986a
 const simpleLinkedItemFakeItemsResponse =
