@@ -6,8 +6,6 @@ const stringify = require(`json-stringify-safe`);
 /**
  * Parses a content item to rebuild the 'elements' property.
  * @param {object} contentItem - The content item to be parsed.
- * @param {array} processedContents - The array with the recursion
- * traversal history.
  * @return {object} Parsed content item.
  * @throws {Error}
  */
@@ -23,6 +21,7 @@ const parseContentItemContents =
         delete contentItem[key].value;
       }
 
+      delete contentItem[key].rawData;
       const propertyValue = contentItem[key];
       elements[key] = propertyValue;
     }

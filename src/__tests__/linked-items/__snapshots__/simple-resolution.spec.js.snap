@@ -47,11 +47,6 @@ Array [
       "elements": Object {
         "content": Object {
           "name": "Content",
-          "rawData": Object {
-            "name": "Content",
-            "type": "text",
-            "value": "Main project content",
-          },
           "type": "text",
           "value": "Main project content",
         },
@@ -65,21 +60,13 @@ Array [
             "dummy-kentico-cloud-item-sub-project-2-default",
           ],
           "name": "Related projects",
-          "rawData": Object {
-            "name": "Related projects",
-            "type": "modular_content",
-            "value": Array [
-              "sub_project_1",
-              "sub_project_2",
-            ],
-          },
           "type": "modular_content",
         },
       },
       "id": "dummy-kentico-cloud-item-main-project-default",
       "internal": Object {
-        "content": "{\\"system\\":{\\"name\\":\\"Main project\\",\\"codename\\":\\"main_project\\",\\"id\\":\\"1a3aa6bd-7b4b-486f-86ab-7bfe359ad614\\",\\"lastModified\\":\\"2018-12-28T12:53:59.075Z\\",\\"language\\":\\"default\\",\\"type\\":\\"project\\",\\"sitemapLocations\\":[]},\\"elements\\":{\\"content\\":{\\"rawData\\":{\\"type\\":\\"text\\",\\"name\\":\\"Content\\",\\"value\\":\\"Main project content\\"},\\"name\\":\\"Content\\",\\"type\\":\\"text\\",\\"value\\":\\"Main project content\\"},\\"related_projects\\":{\\"rawData\\":{\\"type\\":\\"modular_content\\",\\"name\\":\\"Related projects\\",\\"value\\":[\\"sub_project_1\\",\\"sub_project_2\\"]},\\"name\\":\\"Related projects\\",\\"type\\":\\"modular_content\\",\\"itemCodenames\\":[\\"sub_project_1\\",\\"sub_project_2\\"]}},\\"preferred_language\\":\\"default\\"}",
-        "contentDigest": "8b27d5cb6d0126da28a27911859e8d45",
+        "content": "{\\"system\\":{\\"name\\":\\"Main project\\",\\"codename\\":\\"main_project\\",\\"id\\":\\"1a3aa6bd-7b4b-486f-86ab-7bfe359ad614\\",\\"lastModified\\":\\"2018-12-28T12:53:59.075Z\\",\\"language\\":\\"default\\",\\"type\\":\\"project\\",\\"sitemapLocations\\":[]},\\"elements\\":{\\"content\\":{\\"name\\":\\"Content\\",\\"type\\":\\"text\\",\\"value\\":\\"Main project content\\"},\\"related_projects\\":{\\"name\\":\\"Related projects\\",\\"type\\":\\"modular_content\\",\\"itemCodenames\\":[\\"sub_project_1\\",\\"sub_project_2\\"]}},\\"preferred_language\\":\\"default\\"}",
+        "contentDigest": "ffad216a3735a2333747cb85ec66cef6",
         "type": "KontentItemProject",
       },
       "otherLanguages___NODE": Array [],
@@ -104,11 +91,6 @@ Array [
       "elements": Object {
         "content": Object {
           "name": "Content",
-          "rawData": Object {
-            "name": "Content",
-            "type": "text",
-            "value": "Sub project 1 content",
-          },
           "type": "text",
           "value": "Sub project 1 content",
         },
@@ -116,18 +98,13 @@ Array [
           "itemCodenames": Array [],
           "linked_items___NODE": Array [],
           "name": "Related projects",
-          "rawData": Object {
-            "name": "Related projects",
-            "type": "modular_content",
-            "value": Array [],
-          },
           "type": "modular_content",
         },
       },
       "id": "dummy-kentico-cloud-item-sub-project-1-default",
       "internal": Object {
-        "content": "{\\"system\\":{\\"name\\":\\"Sub project 1\\",\\"codename\\":\\"sub_project_1\\",\\"id\\":\\"8a7f275d-0e1c-4b30-af3e-f02c91259faf\\",\\"lastModified\\":\\"2019-01-14T15:52:54.904Z\\",\\"language\\":\\"default\\",\\"type\\":\\"project\\",\\"sitemapLocations\\":[]},\\"elements\\":{\\"content\\":{\\"rawData\\":{\\"type\\":\\"text\\",\\"name\\":\\"Content\\",\\"value\\":\\"Sub project 1 content\\"},\\"name\\":\\"Content\\",\\"type\\":\\"text\\",\\"value\\":\\"Sub project 1 content\\"},\\"related_projects\\":{\\"rawData\\":{\\"type\\":\\"modular_content\\",\\"name\\":\\"Related projects\\",\\"value\\":[]},\\"name\\":\\"Related projects\\",\\"type\\":\\"modular_content\\",\\"itemCodenames\\":[]}},\\"preferred_language\\":\\"default\\"}",
-        "contentDigest": "d45617e8d374d3f8b3b8c57fcf3a9b0c",
+        "content": "{\\"system\\":{\\"name\\":\\"Sub project 1\\",\\"codename\\":\\"sub_project_1\\",\\"id\\":\\"8a7f275d-0e1c-4b30-af3e-f02c91259faf\\",\\"lastModified\\":\\"2019-01-14T15:52:54.904Z\\",\\"language\\":\\"default\\",\\"type\\":\\"project\\",\\"sitemapLocations\\":[]},\\"elements\\":{\\"content\\":{\\"name\\":\\"Content\\",\\"type\\":\\"text\\",\\"value\\":\\"Sub project 1 content\\"},\\"related_projects\\":{\\"name\\":\\"Related projects\\",\\"type\\":\\"modular_content\\",\\"itemCodenames\\":[]}},\\"preferred_language\\":\\"default\\"}",
+        "contentDigest": "1ed4ffc99a2861d499cdb18bd8a301b0",
         "type": "KontentItemProject",
       },
       "otherLanguages___NODE": Array [],
@@ -154,11 +131,6 @@ Array [
       "elements": Object {
         "content": Object {
           "name": "Content",
-          "rawData": Object {
-            "name": "Content",
-            "type": "text",
-            "value": "Sub project 2 content",
-          },
           "type": "text",
           "value": "Sub project 2 content",
         },
@@ -166,18 +138,13 @@ Array [
           "itemCodenames": Array [],
           "linked_items___NODE": Array [],
           "name": "Related projects",
-          "rawData": Object {
-            "name": "Related projects",
-            "type": "modular_content",
-            "value": Array [],
-          },
           "type": "modular_content",
         },
       },
       "id": "dummy-kentico-cloud-item-sub-project-2-default",
       "internal": Object {
-        "content": "{\\"system\\":{\\"name\\":\\"Sub project 2\\",\\"codename\\":\\"sub_project_2\\",\\"id\\":\\"91703600-4d43-410e-ba48-93c6c8b0a754\\",\\"lastModified\\":\\"2018-12-28T12:30:21.664Z\\",\\"language\\":\\"default\\",\\"type\\":\\"project\\",\\"sitemapLocations\\":[]},\\"elements\\":{\\"content\\":{\\"rawData\\":{\\"type\\":\\"text\\",\\"name\\":\\"Content\\",\\"value\\":\\"Sub project 2 content\\"},\\"name\\":\\"Content\\",\\"type\\":\\"text\\",\\"value\\":\\"Sub project 2 content\\"},\\"related_projects\\":{\\"rawData\\":{\\"type\\":\\"modular_content\\",\\"name\\":\\"Related projects\\",\\"value\\":[]},\\"name\\":\\"Related projects\\",\\"type\\":\\"modular_content\\",\\"itemCodenames\\":[]}},\\"preferred_language\\":\\"default\\"}",
-        "contentDigest": "8acb068c366e9223c335266d4bc74e82",
+        "content": "{\\"system\\":{\\"name\\":\\"Sub project 2\\",\\"codename\\":\\"sub_project_2\\",\\"id\\":\\"91703600-4d43-410e-ba48-93c6c8b0a754\\",\\"lastModified\\":\\"2018-12-28T12:30:21.664Z\\",\\"language\\":\\"default\\",\\"type\\":\\"project\\",\\"sitemapLocations\\":[]},\\"elements\\":{\\"content\\":{\\"name\\":\\"Content\\",\\"type\\":\\"text\\",\\"value\\":\\"Sub project 2 content\\"},\\"related_projects\\":{\\"name\\":\\"Related projects\\",\\"type\\":\\"modular_content\\",\\"itemCodenames\\":[]}},\\"preferred_language\\":\\"default\\"}",
+        "contentDigest": "01e161a742aa48aaad251f263b292722",
         "type": "KontentItemProject",
       },
       "otherLanguages___NODE": Array [],
