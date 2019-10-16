@@ -1,6 +1,6 @@
 const { KenticoCloudJsSdkTestHttpService }
   = require('kentico-cloud-js-sdk-test-http-service');
-const { ContentItem, TypeResolver } = require('kentico-cloud-delivery');
+const { ContentItem, TypeResolver, TaxonomyGroup, TaxonomyQuery, TaxonomyMapper } = require('kentico-cloud-delivery');
 
 const { sourceNodes } = require('../gatsby-node');
 const { customTrackingHeader } = require('../config');
@@ -70,7 +70,7 @@ describe('sourceNodes', () => {
         },
         throwCloudError: false,
       });
-
+  
     const fakeEmptyTestService =
       new KenticoCloudJsSdkTestHttpService(fakeEmptyResponseConfig);
 

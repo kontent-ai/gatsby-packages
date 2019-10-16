@@ -6,6 +6,7 @@ const { DeliveryClient } = require(`kentico-cloud-delivery`);
 const validation = require(`./validation`);
 const itemNodes = require('./itemNodes');
 const typeNodes = require('./typeNodes');
+const taxonomiesNodes = require('./taxonomyNodes');
 
 const languageVariantsDecorator =
   require('./decorators/languageVariantsDecorator');
@@ -33,6 +34,7 @@ exports.sourceNodes =
 
     const client = new DeliveryClient(deliveryClientConfig);
     const contentTypeNodes = await typeNodes.get(client, createNodeId);
+    const taxonomyNodes = await taxonomiesNodes.get(client, createNodeId);
 
     const defaultCultureContentItemNodes = await itemNodes.
       getFromDefaultLanguage(
@@ -71,6 +73,9 @@ exports.sourceNodes =
       defaultCultureContentItemNodes,
       nonDefaultLanguageItemNodes
     );
+
+    console.info(`Creating taxonomy nodes`);
+    createNodes(taxonomyNodes, createNode);
 
     console.info(`Creating content type nodes.`);
     createNodes(contentTypeNodes, createNode);
