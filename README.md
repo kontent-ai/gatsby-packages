@@ -17,7 +17,7 @@ You can use the plugin in any of the following ways:
 
 ### A) Use the Kentico Kontent sourcing guide
 
-If you are new to the Gatsby ecosystem. The best way to start with using Gatsby & Kentico Kontent is to follow the official [Sourcing guide for Kentico Kontent](https://www.gatsbyjs.org/docs/sourcing-from-kentico-cloud/). To learn more about from sourcing from headless CMSs see the [Gatsby docs overview page](https://www.gatsbyjs.org/docs/headless-cms/).
+If you are new to the Gatsby ecosystem. The best way to start with using Gatsby & Kentico Kontent is to follow the official [Sourcing guide for Kentico Kontent](https://www.gatsbyjs.org/docs/sourcing-from-kentico-cloud/). To learn more about sourcing from headless CMSs see the [Gatsby docs overview page](https://www.gatsbyjs.org/docs/headless-cms/).
 
 ### B) Install plugin to your existing Gatsby project
 
