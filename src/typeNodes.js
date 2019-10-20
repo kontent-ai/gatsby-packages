@@ -39,7 +39,7 @@ const createContentTypeNode = (createNodeId, contentType) => {
   validation.checkTypesObjectStructure([contentType]);
 
   const codenameParamCase = changeCase.paramCase(contentType.system.codename);
-  const nodeId = createNodeId(`kentico-cloud-type-${codenameParamCase}`);
+  const nodeId = createNodeId(`kentico-kontent-type-${codenameParamCase}`);
 
   const additionalData = {
     contentItems___NODE: [],

@@ -119,7 +119,7 @@ const createContentItemNode =
       changeCase.paramCase(contentItem.preferred_language);
 
     const nodeId = createNodeId(
-      `kentico-cloud-item-${codenameParamCase}-${languageParamCase}`
+      `kentico-kontent-item-${codenameParamCase}-${languageParamCase}`
     );
 
     const parentContentTypeNode = contentTypeNodes.find(
