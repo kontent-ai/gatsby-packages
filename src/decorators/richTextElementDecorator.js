@@ -74,7 +74,7 @@ const decorateItemNodeWithRichTextLinkedItemsLinks =
       .forEach((propertyName) => {
         const property = itemNode.elements[propertyName];
 
-        // ElementType.RichText from "kentico-cloud-delivery"
+        // ElementType.RichText from "kentico-kontent-delivery"
         if (_.get(property, `type`) === `rich_text`) {
           const linkPropertyName = `${propertyName}.linked_items___NODE`;
 
