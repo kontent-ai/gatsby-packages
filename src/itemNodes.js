@@ -84,6 +84,8 @@ const getFromNonDefaultLanguage = async (
 
     richTextElementDecorator
       .resolveData(allItems);
+    urlSlugElementDecorator
+      .resolveUrls(allItems);
 
     const languageItemsFlatted = parse(stringify(allItems));
     const contentItemsNodes = languageItemsFlatted.map((languageItem) => {
