@@ -90,7 +90,6 @@ const createKcArtifactNode =
       usedByContentItems___NODE: [],
       internal: {
         type: `KenticoCloud${artifactKindPascalCase}${codenamePascalCase}`,
-        content: nodeContent,
         contentDigest: nodeContentDigest,
       },
     };
