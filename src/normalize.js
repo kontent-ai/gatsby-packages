@@ -42,11 +42,13 @@ const parseContentItemContents =
  * @param {String} artifactKind Type of the artifact ('item/type')
  * @param {String} codeName Item code name
  * @param {Object} additionalNodeData Additional data
+ * @param {Boolean} includeRawContent
+ *  Include raw content property in artifact node
  * @return {Object} Gatsby node object
  */
 const createKcArtifactNode =
   (nodeId, kcArtifact, artifactKind, codeName = ``,
-    additionalNodeData = null) => {
+    additionalNodeData = null, includeRawContent = false) => {
     const nodeContent = stringify(kcArtifact);
 
     const nodeContentDigest = crypto
@@ -57,6 +59,15 @@ const createKcArtifactNode =
     const codenamePascalCase = changeCase.pascalCase(codeName);
     const artifactKindPascalCase = changeCase.pascalCase(artifactKind);
 
+    const internal = {
+      type: `Kontent${artifactKindPascalCase}${codenamePascalCase}`,
+      contentDigest: nodeContentDigest,
+    };
+
+    if (includeRawContent) {
+      internal.content = nodeContent;
+    }
+
     return {
       ...kcArtifact,
       ...additionalNodeData,
@@ -64,11 +75,7 @@ const createKcArtifactNode =
       parent: null,
       children: [],
       usedByContentItems___NODE: [],
-      internal: {
-        type: `Kontent${artifactKindPascalCase}${codenamePascalCase}`,
-        content: nodeContent,
-        contentDigest: nodeContentDigest,
-      },
+      internal,
     };
   };
 

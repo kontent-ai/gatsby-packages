@@ -17,12 +17,15 @@ const urlSlugElementDecorator =
  * @param {String} defaultLanguageCodename Project default language codename
  * @param {Array} contentTypeNodes Array of content type nodes
  * @param {Function} createNodeId Gatsby method for generating ID
+ * @param {Boolean} includeRawContent
+ *  Include raw content property in artifact node
  */
 const getFromDefaultLanguage = async (
   client,
   defaultLanguageCodename,
   contentTypeNodes,
   createNodeId,
+  includeRawContent = false,
 ) => {
   const contentItemsResponse = await client
     .items()
@@ -46,7 +49,8 @@ const getFromDefaultLanguage = async (
       return createContentItemNode(
         createNodeId,
         contentItem,
-        contentTypeNodes
+        contentTypeNodes,
+        includeRawContent
       );
     } catch (error) {
       console.error(error);
@@ -58,17 +62,20 @@ const getFromDefaultLanguage = async (
 /**
  * Creates an array of content item nodes from other than default language
  * ready to be imported to Gatsby model.
- * @param {Object} client Kentico Kontent Dlivery client.
+ * @param {Object} client Kentico Kontent Delivery client.
  * @param {Array} nonDefaultLanguageCodenames
  *  Project non default languages codenames.
  * @param {Array} contentTypeNodes Array of content type nodes.
  * @param {Function} createNodeId Gatsby method for generation ID.
+ * @param {Boolean} includeRawContent
+ *  Include raw content property in artifact node
  */
 const getFromNonDefaultLanguage = async (
   client,
   nonDefaultLanguageCodenames,
   contentTypeNodes,
   createNodeId,
+  includeRawContent = false
 ) => {
   const nonDefaultLanguageItemNodes = {};
   for (const languageCodename of nonDefaultLanguageCodenames) {
@@ -93,7 +100,8 @@ const getFromNonDefaultLanguage = async (
       return createContentItemNode(
         createNodeId,
         languageItem,
-        contentTypeNodes
+        contentTypeNodes,
+        includeRawContent
       );
     });
     nonDefaultLanguageItemNodes[languageCodename] = contentItemsNodes;
@@ -106,11 +114,13 @@ const getFromNonDefaultLanguage = async (
  * @param {function} createNodeId - Gatsby function to create a node ID.
  * @param {object} contentItem - Kentico Kontent content item object.
  * @param {array} contentTypeNodes - All Gatsby content type nodes.
+ * @param {Boolean} includeRawContent
+ *  Include raw content property in artifact node
  * @return {object} Gatsby content item node.
  * @throws {Error}
  */
 const createContentItemNode =
-  (createNodeId, contentItem, contentTypeNodes) => {
+  (createNodeId, contentItem, contentTypeNodes, includeRawContent = false) => {
     if (!_.isFunction(createNodeId)) {
       throw new Error(`createNodeId is not a function.`);
     }
@@ -142,7 +152,8 @@ const createContentItemNode =
       itemWithElements,
       `item`,
       contentItem.system.type,
-      additionalData
+      additionalData,
+      includeRawContent
     );
   };
 

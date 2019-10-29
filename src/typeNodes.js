@@ -9,15 +9,17 @@ const validation = require('./validation');
  * Creates an array of content type nodes ready to be imported to Gatsby model.
  * @param {Object} client Delivery client
  * @param {Function} createNodeId Gatsby method for generating ID
+ * @param {Boolean} includeRawContent
+ *  Include raw content property in artifact node
  */
-const get = async (client, createNodeId) => {
+const get = async (client, createNodeId, includeRawContent) => {
   const contentTypesResponse = await client
     .types()
     .toPromise();
   const typesFlatted = parse(stringify(contentTypesResponse.types));
   const contentTypeNodes = typesFlatted.map((contentType) => {
     try {
-      return createContentTypeNode(createNodeId, contentType);
+      return createContentTypeNode(createNodeId, contentType, includeRawContent);
     } catch (error) {
       console.error(error);
     }
@@ -29,10 +31,15 @@ const get = async (client, createNodeId) => {
  * Creates a Gatsby object out of a Kentico Kontent content type object.
  * @param {function} createNodeId - Gatsby function to create a node ID.
  * @param {object} contentType - Kentico Kontent content type object.
+ * @param {Boolean} includeRawContent
+ *  Include raw content property in artifact node
  * @return {object} Gatsby content type node.
  * @throws {Error}
  */
-const createContentTypeNode = (createNodeId, contentType) => {
+const createContentTypeNode = (
+  createNodeId,
+  contentType,
+  includeRawContent) => {
   if (!_.isFunction(createNodeId)) {
     throw new Error(`createNodeId is not a function.`);
   }
@@ -50,7 +57,8 @@ const createContentTypeNode = (createNodeId, contentType) => {
     contentType,
     `type`,
     contentType.system.codename,
-    additionalData
+    additionalData,
+    includeRawContent
   );
 };
 
