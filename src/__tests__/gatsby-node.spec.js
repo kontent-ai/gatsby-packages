@@ -40,6 +40,7 @@ describe('sourceNodes', () => {
       {
         fakeResponseJson: {
           items: [],
+          modular_content: [],
           pagination: {
             continuation_token: null,
             next_page: null,
