@@ -1,0 +1,28 @@
+{
+  "types": [
+    {
+      "system": {
+        "id": "ec706130-b0dd-401c-ae1a-10f2eeb2eb89",
+        "name": "Project",
+        "codename": "project",
+        "last_modified": "2018-12-28T12:29:09.4933517Z"
+      },
+      "elements": {
+        "related_projects": {
+          "type": "modular_content",
+          "name": "Related projects"
+        },
+        "content": {
+          "type": "text",
+          "name": "Content"
+        }
+      }
+    }
+  ],
+  "pagination": {
+    "skip": 0,
+    "limit": 0,
+    "count": 1,
+    "next_page": ""
+  }
+}

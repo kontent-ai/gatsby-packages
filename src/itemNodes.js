@@ -7,6 +7,8 @@ const validation = require('./validation');
 
 const richTextElementDecorator =
   require('./decorators/richTextElementDecorator');
+const urlSlugElementDecorator =
+  require('./decorators/urlSlugElementDecorator');
 
 /**
  * Creates an array of content item nodes in default culture
@@ -15,33 +17,40 @@ const richTextElementDecorator =
  * @param {String} defaultLanguageCodename Project default language codename
  * @param {Array} contentTypeNodes Array of content type nodes
  * @param {Function} createNodeId Gatsby method for generating ID
+ * @param {Boolean} includeRawContent
+ *  Include raw content property in artifact node
  */
 const getFromDefaultLanguage = async (
   client,
   defaultLanguageCodename,
   contentTypeNodes,
   createNodeId,
+  includeRawContent = false,
 ) => {
   const contentItemsResponse = await client
     .items()
     .languageParameter(defaultLanguageCodename)
-    .getPromise();
+    .toPromise();
 
   const allItems = _.unionBy(
     contentItemsResponse.items,
-    contentItemsResponse.linkedItems,
+    Object.values(contentItemsResponse.linkedItems),
     'system.codename');
 
   richTextElementDecorator
-    .resolveHtml(allItems);
+    .resolveData(allItems);
+  urlSlugElementDecorator
+    .resolveUrls(allItems);
 
   const itemsFlatted = parse(stringify(allItems));
   const contentItemNodes = itemsFlatted.map((contentItem) => {
     try {
+      contentItem.preferred_language = defaultLanguageCodename;
       return createContentItemNode(
         createNodeId,
         contentItem,
-        contentTypeNodes
+        contentTypeNodes,
+        includeRawContent
       );
     } catch (error) {
       console.error(error);
@@ -53,70 +62,76 @@ const getFromDefaultLanguage = async (
 /**
  * Creates an array of content item nodes from other than default language
  * ready to be imported to Gatsby model.
- * @param {Object} client Kentico Cloud Dlivery client.
+ * @param {Object} client Kentico Kontent Delivery client.
  * @param {Array} nonDefaultLanguageCodenames
  *  Project non default languages codenames.
  * @param {Array} contentTypeNodes Array of content type nodes.
  * @param {Function} createNodeId Gatsby method for generation ID.
+ * @param {Boolean} includeRawContent
+ *  Include raw content property in artifact node
  */
 const getFromNonDefaultLanguage = async (
   client,
   nonDefaultLanguageCodenames,
   contentTypeNodes,
   createNodeId,
+  includeRawContent = false
 ) => {
-  const nonDefaultLanguageItemNodes = new Map();
+  const nonDefaultLanguageItemNodes = {};
   for (const languageCodename of nonDefaultLanguageCodenames) {
     const languageResponse = await client
       .items()
       .languageParameter(languageCodename)
-      .getPromise();
+      .toPromise();
 
     const allItems = _.unionBy(
       languageResponse.items,
-      languageResponse.linkedItems,
+      Object.values(languageResponse.linkedItems),
       'system.codename');
 
     richTextElementDecorator
-      .resolveHtml(allItems);
+      .resolveData(allItems);
+    urlSlugElementDecorator
+      .resolveUrls(allItems);
 
     const languageItemsFlatted = parse(stringify(allItems));
-    const contentItemsNodes = languageItemsFlatted.map((languageItem) =>
-      createContentItemNode(
+    const contentItemsNodes = languageItemsFlatted.map((languageItem) => {
+      languageItem.preferred_language = languageCodename;
+      return createContentItemNode(
         createNodeId,
         languageItem,
-        contentTypeNodes
-      )
-    );
-    nonDefaultLanguageItemNodes.set(languageCodename, contentItemsNodes);
+        contentTypeNodes,
+        includeRawContent
+      );
+    });
+    nonDefaultLanguageItemNodes[languageCodename] = contentItemsNodes;
   };
   return nonDefaultLanguageItemNodes;
 };
 
 /**
- * Creates a Gatsby object out of a Kentico Cloud content item object.
+ * Creates a Gatsby object out of a Kentico Kontent content item object.
  * @param {function} createNodeId - Gatsby function to create a node ID.
- * @param {object} contentItem - Kentico Cloud content item object.
+ * @param {object} contentItem - Kentico Kontent content item object.
  * @param {array} contentTypeNodes - All Gatsby content type nodes.
+ * @param {Boolean} includeRawContent
+ *  Include raw content property in artifact node
  * @return {object} Gatsby content item node.
  * @throws {Error}
  */
 const createContentItemNode =
-  (createNodeId, contentItem, contentTypeNodes) => {
+  (createNodeId, contentItem, contentTypeNodes, includeRawContent = false) => {
     if (!_.isFunction(createNodeId)) {
       throw new Error(`createNodeId is not a function.`);
     }
-    validation.checkItemsObjectStructure([contentItem]);
-    validation.checkTypesObjectStructure(contentTypeNodes);
-
     const codenameParamCase =
       changeCase.paramCase(contentItem.system.codename);
 
     const languageParamCase =
-      changeCase.paramCase(contentItem.system.language);
+      changeCase.paramCase(contentItem.preferred_language);
 
     const nodeId = createNodeId(
-      `kentico-cloud-item-${codenameParamCase}-${languageParamCase}`
+      `kentico-kontent-item-${codenameParamCase}-${languageParamCase}`
     );
 
     const parentContentTypeNode = contentTypeNodes.find(
@@ -124,6 +139,8 @@ const createContentItemNode =
         === contentItem.system.type);
 
     const itemWithElements = normalize.parseContentItemContents(contentItem);
+    validation.checkItemsObjectStructure([itemWithElements]);
+    validation.checkTypesObjectStructure(contentTypeNodes);
 
     const additionalData = {
       otherLanguages___NODE: [],
@@ -135,7 +152,8 @@ const createContentItemNode =
       itemWithElements,
       `item`,
       contentItem.system.type,
-      additionalData
+      additionalData,
+      includeRawContent
     );
   };
 
