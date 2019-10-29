@@ -115,7 +115,7 @@ For instance, you can get the names of all content items of the *Speaking engage
 
 ```gql
 {
-  allKontentItemSpeakingEngagement {
+  allKontentItemSpeakingEngagement (filter: {preferred_language: {eq: "default"}}) {
     nodes {
       elements {
         name {
