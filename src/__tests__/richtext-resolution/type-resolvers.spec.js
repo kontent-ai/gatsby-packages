@@ -30,18 +30,12 @@ describe(`Rich text resolution reference in modular content`, async () => {
   const dummyCreateNodeID = jest.fn();
   dummyCreateNodeID.mockImplementation((input) => `dummy-${input}`);
 
-  const dummyCreation = {
-    actions: {
-      createNode: jest.fn(),
-    },
-    createNodeId: dummyCreateNodeID,
-  };
   const createNodeMock = jest.fn();
   const actions = {
     actions: {
       createNode: createNodeMock,
     },
-    createNodeId: dummyCreation.createNodeId,
+    createNodeId: dummyCreateNodeID,
   };
 
   class LandingPageImageSection extends ContentItem {
