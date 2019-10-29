@@ -42,7 +42,7 @@ describe('normalize.spec.js', () => {
         .toHaveProperty('internal.content');
     });
 
-    it(`creates correct structure for the type node wit content`, () => {
+    it(`creates correct structure for the type node with content`, () => {
       const artifact = normalize.createKcArtifactNode(
         'dummyId',
         contentType,

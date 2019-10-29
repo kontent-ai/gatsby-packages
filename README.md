@@ -6,8 +6,8 @@
 [![npm version](https://badge.fury.io/js/%40kentico%2Fgatsby-source-kontent.svg)](https://badge.fury.io/js/%40kentico%2Fgatsby-source-kontent)
 [![Build Status](https://api.travis-ci.com/Kentico/gatsby-source-kentico-cloud.svg?branch=master)](https://travis-ci.com/Kentico/gatsby-source-kentico-cloud)
 [![npm](https://img.shields.io/npm/dt/%40kentico%2Fgatsby-source-kontent.svg)](https://www.npmjs.com/package/@kentico/gatsby-source-kontent)
-[![Maintainability](https://api.codeclimate.com/v1/badges/e247b74d31eaa41c3bda/maintainability)](https://codeclimate.com/github/Kentico/gatsby-source-kentico-cloud/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/e247b74d31eaa41c3bda/test_coverage)](https://codeclimate.com/github/Kentico/gatsby-source-kentico-cloud/test_coverage)
+[![Maintainability](https://api.codeclimate.com/v1/badges/d7938a5343f835709527/maintainability)](https://codeclimate.com/github/Kentico/gatsby-source-kontent/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/d7938a5343f835709527/test_coverage)](https://codeclimate.com/github/Kentico/gatsby-source-kontent/test_coverage)
 
 This repo contains a [Gatsby (v2) source plugin](https://www.gatsbyjs.org/docs/recipes/#5-sourcing-data) that retrieves data from the [Kentico Kontent](https://kontent.ai.com) Delivery API.
 
@@ -32,7 +32,7 @@ This repo contains a [Gatsby (v2) source plugin](https://www.gatsbyjs.org/docs/r
 
       \* required property
 
-    **Configuration object** ([example](https://github.com/Kentico/gatsby-starter-kentico-cloud/blob/master/gatsby-config.js))
+    **Configuration object**
 
     ```javascript
     module.exports = {
