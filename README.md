@@ -13,13 +13,7 @@ This repo contains a [Gatsby (v2) source plugin](https://www.gatsbyjs.org/docs/r
 
 ## Get started
 
-You can use the plugin in any of the following ways:
-
-### A) Use the Kentico Kontent sourcing guide
-
-If you are new to the Gatsby ecosystem. The best way to start with using Gatsby & Kentico Kontent is to follow the official [Sourcing guide for Kentico Kontent](https://www.gatsbyjs.org/docs/sourcing-from-kentico-cloud/). To learn more about sourcing from headless CMSs see the [Gatsby docs overview page](https://www.gatsbyjs.org/docs/headless-cms/).
-
-### B) Install plugin to your existing Gatsby project
+### Install plugin to your existing Gatsby project
 
 1. Install the [@kentico/gatsby-source-kontent](https://www.npmjs.com/package/@kentico/gatsby-source-kontent) NPM package,
 
@@ -29,11 +23,12 @@ If you are new to the Gatsby ecosystem. The best way to start with using Gatsby 
 
 1. Configure the plugin in `gatsby-config.js` file
 
-    > The source plugin uses the [Kentico Kontent SDK](https://github.com/Kentico/kontent-delivery-sdk-js/tree/7.0.1#kentico-kontent-delivery-sdk) in the background.
+    > The source plugin uses the [Kentico Kontent SDK](https://github.com/Kentico/kontent-delivery-sdk-js/tree/v8.0.0#kentico-kontent-delivery-sdk) in the background.
 
-    * `deliveryClientConfig`* - [Kentico Kontent client configuration object](https://github.com/Kentico/kontent-delivery-sdk-js/blob/7.0.1/DOCS.md#client-configuration) of the JS SDK (like Preview API, Secure API, etc.).
+    * `deliveryClientConfig`* - [Kentico Kontent client configuration object](https://github.com/Kentico/kontent-delivery-sdk-js/blob/v8.0.0/DOCS.md#client-configuration) of the JS SDK (like Preview API, Secure API, etc.).
     * `languageCodenames`* - array of language codenames that defines [what languages a configured for the project](https://docs.kontent.ai/tutorials/develop-apps/get-content/getting-localized-content?tech=javascript#section-project-languages) - the first one is considered as the **default one**. Initial "Getting started" project has configured just one language `default`.
-    * `enableLogging` - enable logging of the source plugin. Turned off by default
+    * `enableLogging` - enable logging of the source plugin. Turned off by default.
+    * `includeRawContent` - allows to include `internal.content` property as a part fo the GraphlQL model. Turned off by default.
 
       \* required property
 
@@ -65,12 +60,6 @@ If you are new to the Gatsby ecosystem. The best way to start with using Gatsby 
 1. Run `gatsby develop` and data from Kentico Kontent are provided in Gatsby GraphQL model.
 All Kentico Kontent content element values reside inside of the `elements` property of `KontentItem` nodes.
 
-### C) Scaffold your project using Gatsby Kentico Kontent starter site (using source plugin v3 right now)
-
-Use the [gatsby-starter-kentico-cloud](https://github.com/Kentico/gatsby-starter-kentico-cloud) starter site that includes this source plugin
-
-* [Gatsby gallery](https://www.gatsbyjs.org/starters/Kentico/gatsby-starter-kentico-cloud)
-
 ## Features
 
 The plugin creates GraphQL nodes for all Kentico Kontent content types, content items, and its language variants.
@@ -79,30 +68,7 @@ The node names are prefixed with `Kontent`. More specifically, content type node
 
 GraphQL nodes of content items contain the ordinary `system` and `elements` properties. However, the properties inside `elements` always have an internal structure that the aforementioned [Delivery SDK](https://github.com/Kentico/kontent-delivery-sdk-js/blob/master/lib/models/item/content-item.class.ts) produces with **modifications** described in following subsections.
 
-Every primitive elements (all but rich text and linked items) element contains:
-
-* `name` property containing element name
-* `type` property containing element type codename
-* `value` property containing element value
-
-```gql
-{
-  allKontentItemProjectReference {
-    nodes {
-      elements {
-        name___teaser_image__name {
-          name
-          type
-          value
-        }
-      }
-    }
-  }
-}
-```
-
-=======
-GraphQL nodes of content items contain the ordinary `system` and `elements` properties. However, the properties inside `elements` always have an internal structure that the aforementioned [Delivery SDK](https://github.com/Kentico/kontent-delivery-sdk-js/blob/7.0.1/lib/models/item/item-models.ts#L85) produces with **modifications** described in following section.
+GraphQL nodes of content items contain the ordinary `system` and `elements` properties. However, the properties inside `elements` always have an internal structure that the aforementioned [Delivery SDK](https://github.com/Kentico/kontent-delivery-sdk-js/blob/v8.0.0/lib/models/item/item-models.ts#L85) produces with **modifications** described in following section.
 
 ### Content item <-> content type relationships
 
@@ -134,6 +100,10 @@ You can use the [GraphiQL](https://github.com/graphql/graphiql) interface to exp
 ```
 
 </details>
+
+### Language fallbacks
+
+Gatsby source plugin is including GraphQL nodes by the language fallbacks configuration. As a part of that, there is a `prefered_language` property allowing to distinguish whether the fallback has been used or not.If the fallback is used `prefered language` is set to the desired language codename, but `system.language` value is using the actual culture that has been used (the fallback one). If the values are same, fallback is was not used.
 
 ### Language variant relationships
 
@@ -217,14 +187,14 @@ The `related_project_refereces.linked_items` will give you the full-fledged Gats
               __typename
               ... on KontentItemBlogpostReference {
                 elements {
-                  name___teaser_image__name {
+                  title {
                     value
                   }
                 }
               }
               ... on KontentItemProjectReference {
                 elements {
-                  name___teaser_image__name {
+                  project_name {
                     value
                   }
                 }
@@ -249,6 +219,10 @@ KontentItemArticle.elements.related_articles.linked_items[].elements.manufacture
  - type: string # THIS IS TEXT ELEMENT
    value: 'Hario'
 ```
+
+### Custom element parting support
+
+Custom element is now supported including [custom element models definition](https://github.com/Kentico/kentico-cloud-js/blob/v8.0.0/DOCS.md#using-custom-models-for-custom-elements). SO besides of the raw value property `value` it is possible to parse it and include it in the GraphQL model.
 
 ### Rich text resolution
 
@@ -300,7 +274,7 @@ As with the previous example, all rich text element containing [inline content i
             __typename
             ... on KontentItemBlogpostReference {
               elements {
-                name___teaser_image__name {
+                title {
                   value
                 }
               }
