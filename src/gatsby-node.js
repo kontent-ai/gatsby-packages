@@ -135,9 +135,9 @@ const addHeader = (deliveryClientConfig, trackingHeader) => {
   );
 
   if (headers.some((header) => header.header === trackingHeader.header)) {
-    console.log(`Custom HTTP header value with name ${trackingHeader.header}
-        will be replaced by the source plugin.
-        Use different header name if you want to avoid this behavior;`);
+    // console.warn(`Custom HTTP header value with name ${trackingHeader.header}
+    //     will be replaced by the source plugin.
+    //     Use different header name if you want to avoid this behavior;`);
     headers = headers.filter((header) =>
       header.header !== trackingHeader.header);
   }
