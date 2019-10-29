@@ -4,10 +4,12 @@
 [![Stack Overflow](https://img.shields.io/badge/Stack%20Overflow-ASK%20NOW-FE7A16.svg?logo=stackoverflow&logoColor=white)](https://stackoverflow.com/tags/kentico-kontent)
 
 [![npm version](https://badge.fury.io/js/%40kentico%2Fgatsby-source-kontent.svg)](https://badge.fury.io/js/%40kentico%2Fgatsby-source-kontent)
-[![Build Status](https://api.travis-ci.com/Kentico/gatsby-source-kentico-cloud.svg?branch=master)](https://travis-ci.com/Kentico/gatsby-source-kentico-cloud)
+[![Build Status](https://api.travis-ci.com/Kentico/gatsby-source-kontent.svg?branch=master)](https://travis-ci.com/Kentico/gatsby-source-kontent)
 [![npm](https://img.shields.io/npm/dt/%40kentico%2Fgatsby-source-kontent.svg)](https://www.npmjs.com/package/@kentico/gatsby-source-kontent)
 [![Maintainability](https://api.codeclimate.com/v1/badges/d7938a5343f835709527/maintainability)](https://codeclimate.com/github/Kentico/gatsby-source-kontent/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/d7938a5343f835709527/test_coverage)](https://codeclimate.com/github/Kentico/gatsby-source-kontent/test_coverage)
+
+> :warning: This version is still in beta phase, it is possible that some adjustments might cause other breaking changes. For  previous version snapshots see [Previous versions](#Previous-versions) section.
 
 This repo contains a [Gatsby (v2) source plugin](https://www.gatsbyjs.org/docs/recipes/#5-sourcing-data) that retrieves data from the [Kentico Kontent](https://kontent.ai.com) Delivery API.
 
@@ -364,6 +366,8 @@ To get a smooth debugging experience, you can temporarily copy the content of th
 When you change the structure of the data, or the data itself and then `gatsby develop`, or `gatsby build` command raise an error about the Gatsby presumes the old data structure. Try to remove `.cache` folder and run the command again, it is quite usual that Gatsby is caching the information about the content structure and does not clear it.
 
 ## Further information
+
+To see upgrade instructions see [Upgrade section](/docs/UPGRADE.md).
 
 For more developer resources, visit the [Kentico Kontent Docs](https://docs.kontent.ai).
 
