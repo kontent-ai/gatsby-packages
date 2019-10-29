@@ -20,7 +20,12 @@ const { customTrackingHeader } = require('./config');
 
 exports.sourceNodes =
   async ({ actions: { createNode }, createNodeId },
-    { deliveryClientConfig, languageCodenames, enableLogging = false, includeRawContent = false }) => {
+    { deliveryClientConfig,
+      languageCodenames,
+      enableLogging = false,
+      includeRawContent = false,
+    }
+  ) => {
     if (enableLogging) {
       console.info(`Generating Kentico Kontent nodes for projectId:\
  ${_.get(deliveryClientConfig, 'projectId')}`);
@@ -34,7 +39,11 @@ exports.sourceNodes =
     addHeader(deliveryClientConfig, customTrackingHeader);
 
     const client = new DeliveryClient(deliveryClientConfig);
-    const contentTypeNodes = await typeNodes.get(client, createNodeId, includeRawContent);
+    const contentTypeNodes = await typeNodes.get(
+      client,
+      createNodeId,
+      includeRawContent
+    );
 
     const defaultCultureContentItemNodes = await itemNodes.
       getFromDefaultLanguage(

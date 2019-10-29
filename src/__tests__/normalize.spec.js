@@ -6,7 +6,6 @@ const simpleContentItem = require('./simpleContentItem.json');
 
 describe('normalize.spec.js', () => {
   describe(`createKcArtifactNode with correct arguments`, () => {
-
     const checkArtifactStructure = (artifact) => {
       expect(artifact)
         .toHaveProperty('system');

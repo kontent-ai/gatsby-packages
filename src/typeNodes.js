@@ -19,7 +19,10 @@ const get = async (client, createNodeId, includeRawContent) => {
   const typesFlatted = parse(stringify(contentTypesResponse.types));
   const contentTypeNodes = typesFlatted.map((contentType) => {
     try {
-      return createContentTypeNode(createNodeId, contentType, includeRawContent);
+      return createContentTypeNode(
+        createNodeId,
+        contentType,
+        includeRawContent);
     } catch (error) {
       console.error(error);
     }
