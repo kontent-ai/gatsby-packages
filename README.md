@@ -1,11 +1,11 @@
 # Gatsby source plugin for Kentico Kontent
 
-[![Gatsby plugin library](https://img.shields.io/badge/Gatsby%20plugin%20library-%23663399.svg)](https://www.gatsbyjs.org/packages/gatsby-source-kentico-cloud)
+[![Gatsby plugin library](https://img.shields.io/badge/Gatsby%20plugin%20library-%23663399.svg)](https://www.gatsbyjs.org/packages/@kentico/gatsby-source-kontent)
 [![Stack Overflow](https://img.shields.io/badge/Stack%20Overflow-ASK%20NOW-FE7A16.svg?logo=stackoverflow&logoColor=white)](https://stackoverflow.com/tags/kentico-kontent)
 
-[![npm version](https://badge.fury.io/js/gatsby-source-kentico-cloud.svg)](https://www.npmjs.com/package/gatsby-source-kentico-cloud)
+[![npm version](https://badge.fury.io/js/%40kentico%2Fgatsby-source-kontent.svg)](https://badge.fury.io/js/%40kentico%2Fgatsby-source-kontent)
 [![Build Status](https://api.travis-ci.com/Kentico/gatsby-source-kentico-cloud.svg?branch=master)](https://travis-ci.com/Kentico/gatsby-source-kentico-cloud)
-[![npm](https://img.shields.io/npm/dt/gatsby-source-kentico-cloud.svg)](https://www.npmjs.com/package/gatsby-source-kentico-cloud)
+[![npm](https://img.shields.io/npm/dt/%40kentico%2Fgatsby-source-kontent.svg)](https://www.npmjs.com/package/@kentico/gatsby-source-kontent)
 [![Maintainability](https://api.codeclimate.com/v1/badges/e247b74d31eaa41c3bda/maintainability)](https://codeclimate.com/github/Kentico/gatsby-source-kentico-cloud/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/e247b74d31eaa41c3bda/test_coverage)](https://codeclimate.com/github/Kentico/gatsby-source-kentico-cloud/test_coverage)
 
@@ -222,7 +222,7 @@ KontentItemArticle.elements.related_articles.linked_items[].elements.manufacture
 
 ### Custom element parting support
 
-Custom element is now supported including [custom element models definition](https://github.com/Kentico/kentico-cloud-js/blob/v8.0.0/DOCS.md#using-custom-models-for-custom-elements). SO besides of the raw value property `value` it is possible to parse it and include it in the GraphQL model.
+Custom element is now supported including [custom element models definition](https://github.com/Kentico/kontent-delivery-sdk-js/blob/v8.0.0/DOCS.md#using-custom-models-for-custom-elements). SO besides of the raw value property `value` it is possible to parse it and include it in the GraphQL model.
 
 ### Rich text resolution
 
@@ -386,11 +386,11 @@ For more developer resources, visit the [Kentico Kontent Docs](https://docs.kont
 
 ### Previous versions
 
-For version 2 use [this branch](https://github.com/Kentico/gatsby-source-kentico-cloud/tree/v2).
-For version 3 use [this branch](https://github.com/Kentico/gatsby-source-kentico-cloud/tree/v3).
+* For version 2 use [this branch](https://github.com/Kentico/gatsby-source-kentico-cloud/tree/v2).
+* For version 3 use [this branch](https://github.com/Kentico/gatsby-source-kentico-cloud/tree/v3).
 
 ## Feedback & Contributing
 
-Check out the [contributing](https://github.com/Kentico/gatsby-source-kentico-cloud/blob/master/CONTRIBUTING.md) page to see the best places for file issues, to start discussions, and begin contributing.
+Check out the [contributing](/CONTRIBUTING.md) page to see the best places for file issues, to start discussions, and begin contributing.
 
 ![Analytics](https://kentico-ga-beacon.azurewebsites.net/api/UA-69014260-4/Kentico/gatsby-source-kontent?pixel)

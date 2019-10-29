@@ -18,7 +18,7 @@ There is a new plugin configuration property `includeRawContent` which allows to
 
 ### Custom element support
 
-Custom element is now supported including [custom element models definition](https://github.com/Kentico/kentico-cloud-js/blob/v8.0.0/DOCS.md#using-custom-models-for-custom-elements). SO besides of the raw value property `value` it is possible to parse it and include it in the GraphQL model.
+Custom element is now supported including [custom element models definition](https://github.com/Kentico/kontent-delivery-sdk-js/blob/v8.0.0/DOCS.md#using-custom-models-for-custom-elements). SO besides of the raw value property `value` it is possible to parse it and include it in the GraphQL model.
 
 ### Query names prefix changed
 
@@ -36,7 +36,7 @@ module.exports = {
   plugins: [
     ...
     {
-      resolve: `gatsby-source-kentico-cloud`,
+      resolve: `@kentico/gatsby-source-kontent`,
       options: {
         deliveryClientConfig: { // Configuration object
           projectId: `XXX`,
@@ -64,7 +64,7 @@ module.exports = {
 
 ### Elements structure unification
 
-Basic Kontent Item Node elements types (text, name, date & time, multiple choice) [has element property called `value`](https://github.com/Kentico/kentico-cloud-js/blob/master/packages/delivery/UPGRADE.md#removal-of-type-specific-element-properties) not an element specific property.
+Basic Kontent Item Node elements types (text, name, date & time, multiple choice) [has element property called `value`](https://github.com/Kentico/kontent-delivery-sdk-js/blob/v8.0.0/UPGRADE.md#removal-of-type-specific-element-properties) not an element specific property.
 
 Image assets now contains [information about its resolution](https://docs.kontent.ai/reference/api-changelog#a-image-resolution-in-delivery-api).
 
