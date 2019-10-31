@@ -92,9 +92,14 @@ exports.sourceNodes =
     createNodes(contentTypeNodes, createNode);
 
     if (enableLogging) {
-      console.info(`Creating content type nodes for types without an item representation.`);
+      console.info(
+        `Creating content type nodes for types without an item representation.`
+      );
     }
-    typeNodesWithoutAnItem.createTypeNodesWithoutItem(createTypes, contentTypeNodes);
+    typeNodesWithoutAnItem.createTypeNodesWithoutItem(
+      createTypes,
+      contentTypeNodes
+    );
 
     if (enableLogging) {
       console.info(`Creating content item nodes for default language.`);

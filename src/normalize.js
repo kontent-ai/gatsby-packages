@@ -97,7 +97,7 @@ const addLinkedItemsLinks =
     _.set(itemNode.elements, linkPropertyName, sortedLinkedNodes);
   };
 
-  /**
+/**
  * Get name of the artifact.
  * @param {String} codeName Item code name
  * @param {String} artifactKind Type of the artifact ('item/type')
@@ -107,12 +107,12 @@ const getArtifactName = (codeName, artifactKind) => {
   const codenamePascalCase = changeCase.pascalCase(codeName);
   const artifactKindPascalCase = changeCase.pascalCase(artifactKind);
 
-  return `Kontent${artifactKindPascalCase}${codenamePascalCase}`
-}
+  return `Kontent${artifactKindPascalCase}${codenamePascalCase}`;
+};
 
 module.exports = {
   createKcArtifactNode,
   addLinkedItemsLinks,
   parseContentItemContents,
-  getArtifactName
+  getArtifactName,
 };
