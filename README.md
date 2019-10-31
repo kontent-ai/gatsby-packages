@@ -11,7 +11,7 @@
 
 > :warning: This version is still in beta phase, it is possible that some adjustments might cause other breaking changes. For  previous version snapshots see [Previous versions](#Previous-versions) section.
 
-This repo contains a [Gatsby (v2) source plugin](https://www.gatsbyjs.org/docs/recipes/#5-sourcing-data) that retrieves data from the [Kentico Kontent](https://kontent.ai.com) Delivery API.
+This repo contains a [Gatsby (v2) source plugin](https://www.gatsbyjs.org/docs/recipes/#5-sourcing-data) that retrieves data from the [Kentico Kontent](https://kontent.ai) Delivery API.
 
 ## Get started
 
