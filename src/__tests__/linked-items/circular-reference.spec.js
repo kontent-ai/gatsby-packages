@@ -29,9 +29,12 @@ describe(`Circular reference in modular content`, async () => {
   dummyCreateNodeID.mockImplementation((input) => `dummy-${input}`);
 
   const createNodeMock = jest.fn();
+  const createTypesMock = jest.fn();
+
   const actions = {
     actions: {
       createNode: createNodeMock,
+      createTypes: createTypesMock,
     },
     createNodeId: dummyCreateNodeID,
   };

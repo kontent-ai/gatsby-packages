@@ -29,6 +29,7 @@ describe('sourceNodes', () => {
   const dummyCreation = {
     actions: {
       createNode: jest.fn(),
+      createTypes: jest.fn(),
     },
     createNodeId: dummyCreateNodeID,
   };
@@ -163,9 +164,12 @@ describe('sourceNodes', () => {
       });
 
     const createNodeMock = jest.fn();
+    const createTypesMock = jest.fn();
+
     const actions = {
       actions: {
         createNode: createNodeMock,
+        createTypes: createTypesMock,
       },
       createNodeId: dummyCreation.createNodeId,
     };
