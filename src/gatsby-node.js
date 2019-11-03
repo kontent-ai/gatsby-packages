@@ -40,7 +40,6 @@ exports.sourceNodes =
     addHeader(deliveryClientConfig, customTrackingHeader);
 
     const client = new DeliveryClient(deliveryClientConfig);
-    //const contentTypeNodes = await typeNodes.get(client, createNodeId);
     const taxonomyNodes = await taxonomiesNodes.get(client, createNodeId);
     const contentTypeNodes = await typeNodes.get(
       client,

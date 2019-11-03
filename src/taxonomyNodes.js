@@ -3,7 +3,6 @@ const _ = require('lodash');
 const changeCase = require('change-case');
 
 const normalize = require('./normalize');
-const validation = require('./validation');
 
 /**
  * Creates an array of content type nodes ready to be imported to Gatsby model.
