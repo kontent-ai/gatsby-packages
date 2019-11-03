@@ -1,26 +1,15 @@
-const { KenticoCloudJsSdkTestHttpService }
-  = require('kentico-cloud-js-sdk-test-http-service');
-const { ContentItem, TypeResolver } = require('kentico-cloud-delivery');
+const { KontentTestHttpService }
+  = require('@kentico/kontent-test-http-service-js');
 
 const { sourceNodes } = require('../gatsby-node');
 const { customTrackingHeader } = require('../config');
 const { name, version } = require('../../package.json');
-const fakeItemsResponseWithRichTextElement =
-  require('./fakeItemsResponseWithRichTextElement.json');
-const fakeTypesResponseWithRichTextElement =
-  require('./fakeTypesResponseWithRichTextElement.json');
 const complexContentItemsFirstLanguageFakeReponse =
   require('./complexContentItemsFirstLanguageFakeReponse.json');
 const complexContentItemsSecondtLanguageFakeReponse =
   require('./complexContentItemsSecondLanguageFakeReponse.json');
 const complexTypesFakeResponse =
   require('./complexTypesFakeResponse.json');
-
-const {
-  expectedResolvedRichTextComponent,
-  expectedResolvedRichTextImages,
-} = require('./expectedOutputs/gatsby-node.output');
-
 
 describe('customTrackingHeader', () => {
   it('has correct name', () => {
@@ -47,19 +36,20 @@ describe('sourceNodes', () => {
   describe('tracking header tests', () => {
     const fakeEmptyResponseConfig = new Map();
     fakeEmptyResponseConfig.set(
-      /https:\/\/deliver.kenticocloud.com\/.*\/items/,
+      /https:\/\/deliver.kontent.ai\/.*\/items/,
       {
         fakeResponseJson: {
           items: [],
+          modular_content: [],
           pagination: {
             continuation_token: null,
             next_page: null,
           },
         },
-        throwCloudError: false,
+        throwError: false,
       });
     fakeEmptyResponseConfig.set(
-      /https:\/\/deliver.kenticocloud.com\/.*\/types/,
+      /https:\/\/deliver.kontent.ai\/.*\/types/,
       {
         fakeResponseJson: {
           types: [],
@@ -68,11 +58,11 @@ describe('sourceNodes', () => {
             next_page: null,
           },
         },
-        throwCloudError: false,
+        throwError: false,
       });
 
     const fakeEmptyTestService =
-      new KenticoCloudJsSdkTestHttpService(fakeEmptyResponseConfig);
+      new KontentTestHttpService(fakeEmptyResponseConfig);
 
 
     it('does add tracking header', async () => {
@@ -89,7 +79,7 @@ describe('sourceNodes', () => {
         }
       );
 
-      expect(deliveryClientConfig.globalHeaders)
+      expect(deliveryClientConfig.globalQueryConfig.customHeaders)
         .toContainEqual(customTrackingHeader);
     });
 
@@ -97,12 +87,12 @@ describe('sourceNodes', () => {
       const deliveryClientConfig = {
         projectId: 'dummyEmptyProject',
         httpService: fakeEmptyTestService,
-        globalHeaders: [
-          {
+        globalQueryConfig: {
+          customHeaders: [{
             header: customTrackingHeader.header,
             value: 'dummyValue',
-          },
-        ],
+          }],
+        },
       };
 
       await sourceNodes(
@@ -113,9 +103,9 @@ describe('sourceNodes', () => {
         }
       );
 
-      expect(deliveryClientConfig.globalHeaders)
+      expect(deliveryClientConfig.globalQueryConfig.customHeaders)
         .toContainEqual(customTrackingHeader);
-      expect(deliveryClientConfig.globalHeaders.length)
+      expect(deliveryClientConfig.globalQueryConfig.customHeaders.length)
         .toEqual(1);
     });
 
@@ -127,9 +117,11 @@ describe('sourceNodes', () => {
       const deliveryClientConfig = {
         projectId: 'dummyEmptyProject',
         httpService: fakeEmptyTestService,
-        globalHeaders: [
-          anotherHeader,
-        ],
+        globalQueryConfig: {
+          customHeaders: [
+            anotherHeader,
+          ],
+        },
       };
 
       await sourceNodes(
@@ -140,138 +132,34 @@ describe('sourceNodes', () => {
         }
       );
 
-      expect(deliveryClientConfig.globalHeaders)
+      expect(deliveryClientConfig.globalQueryConfig.customHeaders)
         .toContainEqual(customTrackingHeader);
-      expect(deliveryClientConfig.globalHeaders)
+      expect(deliveryClientConfig.globalQueryConfig.customHeaders)
         .toContainEqual(anotherHeader);
-      expect(deliveryClientConfig.globalHeaders.length)
+      expect(deliveryClientConfig.globalQueryConfig.customHeaders.length)
         .toEqual(2);
-    });
-  });
-
-  describe('rich text section', () => {
-    class LandingPageImageSection extends ContentItem {
-      constructor() {
-        super({
-          richTextResolver: (_contentItem, _context) =>
-            '###landing_page_image_section###',
-        });
-      }
-    }
-
-    class Project extends ContentItem {
-      constructor() {
-        super({
-          linkResolver: (_link, _context) => '###projectlink###',
-          richTextResolver: (_contentItem, _context) =>
-            '###project###',
-        });
-      }
-    }
-
-
-    it('does resolve rich text element', async () => {
-      const fakeRichTextResponseConfig = new Map();
-      fakeRichTextResponseConfig.set(
-        /https:\/\/deliver.kenticocloud.com\/.*\/items/,
-        {
-          fakeResponseJson: fakeItemsResponseWithRichTextElement,
-          throwCloudError: false,
-        });
-      fakeRichTextResponseConfig.set(
-        /https:\/\/deliver.kenticocloud.com\/.*\/types/,
-        {
-          fakeResponseJson: fakeTypesResponseWithRichTextElement,
-          throwCloudError: false,
-        });
-      const deliveryClientConfig = {
-        projectId: 'dummyProject',
-        typeResolvers: [
-          new TypeResolver('landing_page_image_section', () =>
-            new LandingPageImageSection()
-          ),
-          new TypeResolver('project', () =>
-            new Project()),
-        ],
-        httpService: new KenticoCloudJsSdkTestHttpService(
-          fakeRichTextResponseConfig
-        ),
-      };
-      const expectedRichTextValue = fakeItemsResponseWithRichTextElement
-        .items
-        .filter((item) => item.system.codename === 'simple_landing_page')[0]
-        .elements
-        .content
-        .value;
-
-      const createNodeMock = jest.fn();
-      const actions = {
-        actions: {
-          createNode: createNodeMock,
-        },
-        createNodeId: dummyCreation.createNodeId,
-      };
-      const pluginConfiguration = {
-        deliveryClientConfig,
-        languageCodenames: ['default'],
-      };
-
-      await sourceNodes(actions, pluginConfiguration);
-
-      const landingPageCallNodeSelection = createNodeMock
-        .mock
-        .calls
-        .filter((call) => {
-          const firstArgument = call[0];
-          return firstArgument.internal.type.startsWith('KenticoCloudItem')
-            && firstArgument.system.codename === 'simple_landing_page';
-        });
-
-      expect(landingPageCallNodeSelection).toHaveLength(1);
-      expect(landingPageCallNodeSelection[0]).toHaveLength(1);
-      const landingPageNode = landingPageCallNodeSelection[0][0];
-
-      expect(landingPageNode)
-        .toHaveProperty(
-          'elements.content.value',
-          expectedRichTextValue
-        );
-      expect(landingPageNode)
-        .toHaveProperty(
-          'elements.content.images',
-          expectedResolvedRichTextImages
-        );
-      expect(landingPageNode)
-        .toHaveProperty(
-          'elements.content.resolvedHtml',
-          expectedResolvedRichTextComponent
-        );
-      expect(landingPageNode)
-        .toHaveProperty('elements.content.linked_items___NODE');
-      expect(landingPageNode.elements.content.linked_items___NODE)
-        .toHaveLength(2);
     });
   });
 
   describe('complex multilingual data section', () => {
     const fakeComplexConfig = new Map();
     fakeComplexConfig.set(
-      /https:\/\/deliver.kenticocloud.com\/.*\/items.*Another_language.*/,
+      /https:\/\/deliver.kontent.ai\/.*\/items.*Another_language.*/,
       {
         fakeResponseJson: complexContentItemsSecondtLanguageFakeReponse,
-        throwCloudError: false,
+        throwError: false,
       });
     fakeComplexConfig.set(
-      /https:\/\/deliver.kenticocloud.com\/.*\/items/,
+      /https:\/\/deliver.kontent.ai\/.*\/items/,
       {
         fakeResponseJson: complexContentItemsFirstLanguageFakeReponse,
-        throwCloudError: false,
+        throwError: false,
       });
     fakeComplexConfig.set(
-      /https:\/\/deliver.kenticocloud.com\/.*\/types/,
+      /https:\/\/deliver.kontent.ai\/.*\/types/,
       {
         fakeResponseJson: complexTypesFakeResponse,
-        throwCloudError: false,
+        throwError: false,
       });
 
     const createNodeMock = jest.fn();
@@ -285,7 +173,7 @@ describe('sourceNodes', () => {
     const deliveryClientConfig = {
       projectId: 'dummyProject',
       typeResolvers: [],
-      httpService: new KenticoCloudJsSdkTestHttpService(
+      httpService: new KontentTestHttpService(
         fakeComplexConfig
       ),
     };

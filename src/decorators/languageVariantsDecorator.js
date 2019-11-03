@@ -14,7 +14,7 @@ const decorateItemsWithLanguageVariants = (
   nonDefaultLanguageItemNodes
 ) => {
   for (const [languageCodename, currentLanguageNodes]
-    of nonDefaultLanguageItemNodes) {
+    of Object.entries(nonDefaultLanguageItemNodes)) {
     defaultCultureContentItemNodes.forEach((contentItemNode) => {
       try {
         decorateItemNodeWithLanguageVariantLink(
@@ -26,7 +26,7 @@ const decorateItemsWithLanguageVariants = (
     });
 
     for (const [otherLanguageCodename, otherLanguageNodes]
-      of nonDefaultLanguageItemNodes) {
+      of Object.entries(nonDefaultLanguageItemNodes)) {
       if (otherLanguageCodename !== languageCodename) {
         currentLanguageNodes.forEach((contentItemNode) => {
           try {
@@ -63,19 +63,30 @@ const decorateItemNodeWithLanguageVariantLink =
       (nodeOfSpecificLanguage) =>
         itemNode.system.codename === nodeOfSpecificLanguage.system.codename
         && itemNode.system.type === nodeOfSpecificLanguage.system.type
-        && itemNode.system.language !== nodeOfSpecificLanguage.system.language
     );
-
-    const otherLanguageLink = languageVariantNode &&
-      itemNode.otherLanguages___NODE.find(
-        (otherLanguageId) => otherLanguageId === languageVariantNode.id
-      );
-
-    if (!otherLanguageLink && _.get(languageVariantNode, 'id')) {
-      itemNode.otherLanguages___NODE.push(languageVariantNode.id);
+    if (languageVariantNode) {
+      makeLink(languageVariantNode, itemNode);
+      makeLink(itemNode, languageVariantNode);
     }
   };
+
+const makeLink = (firstItem, secondItem) => {
+  const existingLink = firstItem &&
+    secondItem &&
+    secondItem.otherLanguages___NODE &&
+    secondItem.otherLanguages___NODE.find(
+      (otherLanguageId) => otherLanguageId === firstItem.id
+    );
+
+  if (!existingLink && _.get(firstItem, 'id')) {
+    if (!secondItem.otherLanguages___NODE) {
+      secondItem.otherLanguages___NODE = [];
+    };
+    secondItem.otherLanguages___NODE.push(firstItem.id);
+  }
+};
 
 module.exports = {
   decorateItemsWithLanguageVariants,
 };
+

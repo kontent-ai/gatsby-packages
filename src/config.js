@@ -1,6 +1,6 @@
 const customTrackingHeader = {
   header: 'X-KC-SOURCE',
-  value: 'gatsby-source-kentico-cloud;3.1.0',
+  value: '@kentico/gatsby-source-kontent;4.0.0-beta2',
 };
 
 module.exports = {

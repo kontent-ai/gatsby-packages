@@ -1,59 +1,35 @@
 const _ = require(`lodash`);
 const crypto = require(`crypto`);
 const changeCase = require(`change-case`);
+const stringify = require(`json-stringify-safe`);
 
 /**
  * Parses a content item to rebuild the 'elements' property.
  * @param {object} contentItem - The content item to be parsed.
- * @param {array} processedContents - The array with the recursion
- * traversal history.
  * @return {object} Parsed content item.
  * @throws {Error}
  */
 const parseContentItemContents =
-  (contentItem, processedContents = []) => {
-    if (processedContents.includes(contentItem.system.codename)) {
-      processedContents.push(contentItem.system.codename);
-      const flatted = processedContents.join(` -> `);
-
-      console.error(`Cycle detected in linked items' path: ${flatted}`);
-      return {
-        system: contentItem.system,
-        elements: null,
-        cycleDetected: true,
-      };
-    }
-
-    processedContents.push(contentItem.system.codename);
+  (contentItem) => {
     const elements = {};
 
-    const elementPropertyKeys = Object
-      .keys(contentItem)
-      .filter((key) => key !== `system` && key !== `elements`);
+    const elementPropertyKeys = Object.keys(contentItem._raw.elements);
 
     for (const key of elementPropertyKeys) {
-      let propertyValue;
-
-      if (_.get(contentItem, `elements[${key}].type`) === 'modular_content') {
-        const linkedItems = [];
-        contentItem[key].forEach((linkedItem) => {
-          linkedItems.push(
-            parseContentItemContents(
-              linkedItem, Array.from(processedContents), contentItem
-            )
-          );
-        });
-        propertyValue = linkedItems;
-      } else {
-        propertyValue = contentItem[key];
+      const elementType = _.get(contentItem, `_raw.elements[${key}].type`);
+      if (elementType === 'modular_content') {
+        delete contentItem[key].value;
       }
 
+      delete contentItem[key].rawData;
+      const propertyValue = contentItem[key];
       elements[key] = propertyValue;
     }
 
     const itemWithElements = {
       system: contentItem.system,
       elements: elements,
+      preferred_language: contentItem.preferred_language,
     };
 
     return itemWithElements;
@@ -62,16 +38,18 @@ const parseContentItemContents =
 /**
  * Create Gatsby Node structure.
  * @param {Number} nodeId Gebnerated Gatsby node ID.
- * @param {Object} kcArtifact Node's Kentico Cloud data.
+ * @param {Object} kcArtifact Node's Kentico Kontent data.
  * @param {String} artifactKind Type of the artifact ('item/type')
  * @param {String} codeName Item code name
  * @param {Object} additionalNodeData Additional data
+ * @param {Boolean} includeRawContent
+ *  Include raw content property in artifact node
  * @return {Object} Gatsby node object
  */
 const createKcArtifactNode =
   (nodeId, kcArtifact, artifactKind, codeName = ``,
-    additionalNodeData = null) => {
-    const nodeContent = JSON.stringify(kcArtifact);
+    additionalNodeData = null, includeRawContent = false) => {
+    const nodeContent = stringify(kcArtifact);
 
     const nodeContentDigest = crypto
       .createHash(`md5`)
@@ -81,6 +59,15 @@ const createKcArtifactNode =
     const codenamePascalCase = changeCase.pascalCase(codeName);
     const artifactKindPascalCase = changeCase.pascalCase(artifactKind);
 
+    const internal = {
+      type: `Kontent${artifactKindPascalCase}${codenamePascalCase}`,
+      contentDigest: nodeContentDigest,
+    };
+
+    if (includeRawContent) {
+      internal.content = nodeContent;
+    }
+
     return {
       ...kcArtifact,
       ...additionalNodeData,
@@ -88,16 +75,12 @@ const createKcArtifactNode =
       parent: null,
       children: [],
       usedByContentItems___NODE: [],
-      internal: {
-        type: `KenticoCloud${artifactKindPascalCase}${codenamePascalCase}`,
-        content: nodeContent,
-        contentDigest: nodeContentDigest,
-      },
+      internal,
     };
   };
 
 const addLinkedItemsLinks =
-  (itemNode, linkedNodes, linkPropertyName, originalNodeCollection = []) => {
+  (itemNode, linkedNodes, linkPropertyName, sortPattern = []) => {
     linkedNodes
       .forEach((linkedNode) => {
         if (!linkedNode.usedByContentItems___NODE.includes(itemNode.id)) {
@@ -105,14 +88,13 @@ const addLinkedItemsLinks =
         }
       });
 
-    // important to have the same order as it is Kentico Cloud
-    const sortPattern = originalNodeCollection
-      .map((item) => item.system.id);
-
+    // important to have the same order as it is Kentico Kontent
     const sortedLinkedNodes = linkedNodes
-      .sort((a, b) =>
-        sortPattern.indexOf(a.system.id) - sortPattern.indexOf(b.system.id)
-      )
+      .sort((a, b) => {
+        const first = sortPattern.indexOf(a.system.codename);
+        const second = sortPattern.indexOf(b.system.codename);
+        return first - second;
+      })
       .map((item) => item.id);
 
     _.set(itemNode.elements, linkPropertyName, sortedLinkedNodes);

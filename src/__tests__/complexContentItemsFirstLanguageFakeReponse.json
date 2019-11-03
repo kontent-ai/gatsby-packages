@@ -435,7 +435,7 @@
           "images": {},
           "links": {},
           "modular_content": [],
-          "value": "<p>The training should make the clear picture about the Kentico Cloud opensource activities.</p>"
+          "value": "<p>The training should make the clear picture about the Kentico Kontent opensource activities.</p>"
         },
         "author": {
           "type": "modular_content",
@@ -912,12 +912,12 @@
         "description": {
           "type": "custom",
           "name": "Description",
-          "value": "# Gatsby source plugin for Kentico Cloud\n[![Gatsby plugin library](https://img.shields.io/badge/Gatsby%20plugin%20library-%23663399.svg)](https://www.gatsbyjs.org/packages/gatsby-source-kentico-cloud)\n[![Stack Overflow](https://img.shields.io/badge/Stack%20Overflow-ASK%20NOW-FE7A16.svg?logo=stackoverflow&logoColor=white)](https://stackoverflow.com/tags/kentico-cloud)\n\nThis repo contains a [Gatsby (v2) source plugin](https://www.gatsbyjs.org/docs/recipes/#sourcing-data) that retrieves data from the [Kentico Cloud](https://kenticocloud.com) Delivery API.\n\n## Features\n\nThe plugin creates GraphQL nodes for all Kentico Cloud content types, content items, and its language variants.\n\nThe node names are prefixed with `kenticoCloud`. More specifically, content type nodes are prefixed by `kenticoCloudType` and content items and their language variants are prefixed with `kenticoCloudItem`.\n\nGraphQL nodes of content items contain the ordinary `system` and `elements` properties. However, the properties inside `elements` always have an internal structure that the aforementioned [Delivery SDK](https://github.com/Kentico/kentico-cloud-js/blob/master/packages/delivery/lib/models/item/content-item.class.ts) produces with **modifications** described in following section."
+          "value": "# Gatsby source plugin for Kentico Kontent\n[![Gatsby plugin library](https://img.shields.io/badge/Gatsby%20plugin%20library-%23663399.svg)](https://www.gatsbyjs.org/packages/gatsby-source-kentico-cloud)\n[![Stack Overflow](https://img.shields.io/badge/Stack%20Overflow-ASK%20NOW-FE7A16.svg?logo=stackoverflow&logoColor=white)](https://stackoverflow.com/tags/kentico-cloud)\n\nThis repo contains a [Gatsby (v2) source plugin](https://www.gatsbyjs.org/docs/recipes/#sourcing-data) that retrieves data from the [Kentico Kontent](https://kenticocloud.com) Delivery API.\n\n## Features\n\nThe plugin creates GraphQL nodes for all Kentico Kontent content types, content items, and its language variants.\n\nThe node names are prefixed with `kenticoCloud`. More specifically, content type nodes are prefixed by `kenticoCloudType` and content items and their language variants are prefixed with `kenticoCloudItem`.\n\nGraphQL nodes of content items contain the ordinary `system` and `elements` properties. However, the properties inside `elements` always have an internal structure that the aforementioned [Delivery SDK](https://github.com/Kentico/kentico-cloud-js/blob/master/packages/delivery/lib/models/item/content-item.class.ts) produces with **modifications** described in following section."
         },
         "name": {
           "type": "text",
           "name": "Name",
-          "value": "Gatsby source plugin for Kentico Cloud"
+          "value": "Gatsby source plugin for Kentico Kontent"
         },
         "url": {
           "type": "text",

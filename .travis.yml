@@ -20,6 +20,6 @@ deploy:
  email: $NPM_EMAIL
  api_key: $NPM_API_KEY
  skip_cleanup: true
- # tag: beta # uncomment for beta release
+ tag: latest # comment for non-beta release
  on:
    tags: true
