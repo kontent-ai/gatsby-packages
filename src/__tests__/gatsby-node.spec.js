@@ -1,11 +1,5 @@
-<<<<<<< HEAD
-const { KenticoCloudJsSdkTestHttpService }
-  = require('kentico-cloud-js-sdk-test-http-service');
-const { ContentItem, TypeResolver, TaxonomyGroup, TaxonomyQuery, TaxonomyMapper } = require('kentico-cloud-delivery');
-=======
 const { KontentTestHttpService }
   = require('@kentico/kontent-test-http-service-js');
->>>>>>> master
 
 const { sourceNodes } = require('../gatsby-node');
 const { customTrackingHeader } = require('../config');
