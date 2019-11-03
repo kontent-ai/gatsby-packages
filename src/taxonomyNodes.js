@@ -13,7 +13,7 @@ const validation = require('./validation');
 const get = async (client, createNodeId) => {
   const taxonomiesResponse = await client
     .taxonomies()
-    .getPromise();
+    .toPromise();
   const taxonomiesFlatted = parse(stringify(taxonomiesResponse.taxonomies));
   const taxonomyNodes = taxonomiesFlatted.map((taxonomy) => {
     try {

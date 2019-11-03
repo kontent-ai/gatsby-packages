@@ -88,16 +88,14 @@ exports.sourceNodes =
       nonDefaultLanguageItemNodes
     );
 
-<<<<<<< HEAD
-    console.info(`Creating taxonomy nodes`);
+    if (enableLogging) {
+      console.info(`Creating taxonomy nodes`);
+    }
     createNodes(taxonomyNodes, createNode);
 
-    console.info(`Creating content type nodes.`);
-=======
     if (enableLogging) {
       console.info(`Creating content type nodes.`);
     }
->>>>>>> master
     createNodes(contentTypeNodes, createNode);
     if (enableLogging) {
       console.info(`Creating content item nodes for default language.`);
