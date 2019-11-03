@@ -60,7 +60,7 @@ describe('sourceNodes', () => {
         },
         throwError: false,
       });
-  
+
     const fakeEmptyTestService =
       new KontentTestHttpService(fakeEmptyResponseConfig);
 
