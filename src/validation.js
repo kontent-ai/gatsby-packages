@@ -20,7 +20,7 @@ neither the default language`);
 
 /**
  * Validates whether the content types are in correct format
- * @param {Array} contentTypeNodes Kentico Cloud content type nodes
+ * @param {Array} contentTypeNodes Kentico Kontent content type nodes
  * @throws {Error}
  */
 const checkTypesObjectStructure = (contentTypeNodes) => {
@@ -31,7 +31,7 @@ const checkTypesObjectStructure = (contentTypeNodes) => {
 
 /**
  * Validates whether the content items are in correct format
- * @param {Array} contentItemNodes Kentico Cloud content item nodes
+ * @param {Array} contentItemNodes Kentico Kontent content item nodes
  * @throws {Error}
  */
 const checkItemsObjectStructure = (contentItemNodes) => {

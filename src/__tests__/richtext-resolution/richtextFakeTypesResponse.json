@@ -1,0 +1,56 @@
+{
+  "types": [
+    {
+      "system": {
+        "id": "b300f06d-d1e7-40b4-9dfc-e065e0455593",
+        "name": "Landing page",
+        "codename": "landing_page",
+        "last_modified": "2019-10-09T10:20:42.6215148Z"
+      },
+      "elements": {
+        "content": {
+          "type": "rich_text",
+          "name": "Content"
+        }
+      }
+    },
+    {
+      "system": {
+        "id": "45e6379c-858c-49aa-b293-b1218581931b",
+        "name": "Landing page image section",
+        "codename": "landing_page_image_section",
+        "last_modified": "2018-12-31T11:37:53.7435133Z"
+      },
+      "elements": {
+        "title": {
+          "type": "text",
+          "name": "Title"
+        },
+        "images": {
+          "type": "asset",
+          "name": "Images"
+        }
+      }
+    },
+    {
+      "system": {
+        "id": "ec706130-b0dd-401c-ae1a-10f2eeb2eb89",
+        "name": "Project",
+        "codename": "project",
+        "last_modified": "2019-10-09T10:20:12.7155113Z"
+      },
+      "elements": {
+        "content": {
+          "type": "text",
+          "name": "Content"
+        }
+      }
+    }
+  ],
+  "pagination": {
+    "skip": 0,
+    "limit": 0,
+    "count": 3,
+    "next_page": ""
+  }
+}

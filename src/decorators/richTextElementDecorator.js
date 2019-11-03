@@ -26,7 +26,7 @@ const decorateItemNodesWithRichTextLinkedItemsLinks = (
     }
   });
 
-  nonDefaultLanguageItemNodes.forEach((languageNodes) => {
+  Object.values(nonDefaultLanguageItemNodes).forEach((languageNodes) => {
     languageNodes.forEach((itemNode) => {
       try {
         decorateItemNodeWithRichTextLinkedItemsLinks(
@@ -40,10 +40,10 @@ const decorateItemNodesWithRichTextLinkedItemsLinks = (
 };
 
 /**
- * Create a new property with resolved Html.
+ * Create a new property with resolved data containing Resolved Html.
  * @param {Array} items Items response from JS SDK.
  */
-const resolveHtml = (items) => {
+const resolveData = (items) => {
   items.forEach((item) => {
     Object
       .keys(item)
@@ -51,7 +51,7 @@ const resolveHtml = (items) => {
         _.has(item[key], `type`)
         && item[key].type === `rich_text`)
       .forEach((key) => {
-        item.elements[key].resolvedHtml = item[key].getHtml().toString();
+        item[key].resolvedData = item[key].resolveData();
       });
   });
 };
@@ -74,6 +74,7 @@ const decorateItemNodeWithRichTextLinkedItemsLinks =
       .forEach((propertyName) => {
         const property = itemNode.elements[propertyName];
 
+        // ElementType.RichText from "kentico-kontent-delivery"
         if (_.get(property, `type`) === `rich_text`) {
           const linkPropertyName = `${propertyName}.linked_items___NODE`;
 
@@ -96,5 +97,5 @@ const decorateItemNodeWithRichTextLinkedItemsLinks =
 
 module.exports = {
   decorateItemNodesWithRichTextLinkedItemsLinks,
-  resolveHtml,
+  resolveData,
 };

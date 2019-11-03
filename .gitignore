@@ -16,6 +16,7 @@ node_modules
 /decorators/typeItemDecorator.js
 /decorators/richTextElementDecorator.js
 /decorators/linkedItemsElementDecorator.js
+/decorators/urlSlugElementDecorator.js
 
 # Test coverage
 /coverage

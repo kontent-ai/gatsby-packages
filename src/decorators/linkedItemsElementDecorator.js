@@ -1,5 +1,3 @@
-const _ = require('lodash');
-
 const validation = require('../validation');
 const normalize = require('../normalize');
 
@@ -24,7 +22,7 @@ const decorateItemNodesWithLinkedItemsLinks = (defaultCultureContentItemNodes,
     }
   });
 
-  nonDefaultLanguageItemNodes.forEach((languageNodes) => {
+  Object.values(nonDefaultLanguageItemNodes).forEach((languageNodes) => {
     languageNodes.forEach((itemNode) => {
       try {
         decorateItemNodeWithLinkedItemsLinks(itemNode, languageNodes);
@@ -52,34 +50,23 @@ const decorateItemNodeWithLinkedItemsLinks =
       .forEach((propertyName) => {
         const property = itemNode.elements[propertyName];
 
-        if (_.isArray(property)) {
+        if (property.type === 'modular_content') {
           // https://www.gatsbyjs.org/docs/create-source-plugin/#creating-the-relationship
-          const linkPropertyName = `${propertyName}___NODE`;
-          itemNode.elements[linkPropertyName] = [];
+          const linkPropertyPath = `[${propertyName}].linked_items___NODE`;
 
-          if (_.has(property, `[0].system.codename`)) {
-            const linkedNodes = allNodesOfSameLanguage
-              .filter((node) => {
-                const match = property.find((propertyValue) => {
-                  return propertyValue !== null
-                    && node !== null
-                    && propertyValue.system.codename ===
-                    node.system.codename
-                    && propertyValue.system.type === node.system.type;
-                });
+          const linkedNodes = allNodesOfSameLanguage
+            .filter((node) => {
+              const match = property.itemCodenames.find((codename) =>
+                codename && codename === node.system.codename);
+              return match !== undefined && match !== null;
+            });
 
-                return match !== undefined && match !== null;
-              });
-
-            normalize.addLinkedItemsLinks(
-              itemNode,
-              linkedNodes,
-              linkPropertyName,
-              itemNode.elements[propertyName]
-            );
-          }
-
-          delete itemNode.elements[propertyName];
+          normalize.addLinkedItemsLinks(
+            itemNode,
+            linkedNodes,
+            linkPropertyPath,
+            property.itemCodenames
+          );
         }
       });
   };

@@ -1,0 +1,184 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Rich text resolution reference in modular content resolves values using resolvers in rich text 1`] = `
+Array [
+  Array [
+    Object {
+      "children": Array [],
+      "contentItems___NODE": Array [
+        "dummy-kentico-kontent-item-simple-landing-page-default",
+      ],
+      "elements": Array [
+        Object {
+          "codename": "content",
+          "name": "Content",
+          "options": Array [],
+          "type": "rich_text",
+        },
+      ],
+      "id": "dummy-kentico-kontent-type-landing-page",
+      "internal": Object {
+        "contentDigest": "a0ac33b7e607597366ab8ba9d6c24889",
+        "type": "KontentTypeLandingPage",
+      },
+      "parent": null,
+      "system": Object {
+        "codename": "landing_page",
+        "id": "b300f06d-d1e7-40b4-9dfc-e065e0455593",
+        "lastModified": "2019-10-09T10:20:42.6215148Z",
+        "name": "Landing page",
+      },
+      "usedByContentItems___NODE": Array [],
+    },
+  ],
+  Array [
+    Object {
+      "children": Array [],
+      "contentItems___NODE": Array [],
+      "elements": Array [
+        Object {
+          "codename": "title",
+          "name": "Title",
+          "options": Array [],
+          "type": "text",
+        },
+        Object {
+          "codename": "images",
+          "name": "Images",
+          "options": Array [],
+          "type": "asset",
+        },
+      ],
+      "id": "dummy-kentico-kontent-type-landing-page-image-section",
+      "internal": Object {
+        "contentDigest": "b8c43d50ff8a1c089e6ceae4a2944567",
+        "type": "KontentTypeLandingPageImageSection",
+      },
+      "parent": null,
+      "system": Object {
+        "codename": "landing_page_image_section",
+        "id": "45e6379c-858c-49aa-b293-b1218581931b",
+        "lastModified": "2018-12-31T11:37:53.7435133Z",
+        "name": "Landing page image section",
+      },
+      "usedByContentItems___NODE": Array [],
+    },
+  ],
+  Array [
+    Object {
+      "children": Array [],
+      "contentItems___NODE": Array [
+        "dummy-kentico-kontent-item-main-project-default",
+      ],
+      "elements": Array [
+        Object {
+          "codename": "content",
+          "name": "Content",
+          "options": Array [],
+          "type": "text",
+        },
+      ],
+      "id": "dummy-kentico-kontent-type-project",
+      "internal": Object {
+        "contentDigest": "8524000f6fc39895b271183bcddbd9d2",
+        "type": "KontentTypeProject",
+      },
+      "parent": null,
+      "system": Object {
+        "codename": "project",
+        "id": "ec706130-b0dd-401c-ae1a-10f2eeb2eb89",
+        "lastModified": "2019-10-09T10:20:12.7155113Z",
+        "name": "Project",
+      },
+      "usedByContentItems___NODE": Array [],
+    },
+  ],
+  Array [
+    Object {
+      "children": Array [],
+      "contentType___NODE": "dummy-kentico-kontent-type-project",
+      "elements": Object {
+        "content": Object {
+          "name": "Content",
+          "type": "text",
+          "value": "Main project content",
+        },
+      },
+      "id": "dummy-kentico-kontent-item-main-project-default",
+      "internal": Object {
+        "contentDigest": "76d61969e0b504ce90f234ee5c246223",
+        "type": "KontentItemProject",
+      },
+      "otherLanguages___NODE": Array [],
+      "parent": null,
+      "preferred_language": "default",
+      "system": Object {
+        "codename": "main_project",
+        "id": "1a3aa6bd-7b4b-486f-86ab-7bfe359ad614",
+        "language": "default",
+        "lastModified": "2018-12-28T12:53:59.075Z",
+        "name": "Main project",
+        "sitemapLocations": Array [],
+        "type": "project",
+      },
+      "usedByContentItems___NODE": Array [],
+    },
+  ],
+  Array [
+    Object {
+      "children": Array [],
+      "contentType___NODE": "dummy-kentico-kontent-type-landing-page",
+      "elements": Object {
+        "content": Object {
+          "images": Array [],
+          "linkedItemCodenames": Array [
+            "simple_landing_page",
+          ],
+          "linked_items___NODE": Array [
+            "dummy-kentico-kontent-item-simple-landing-page-default",
+          ],
+          "links": Array [],
+          "name": "Content",
+          "resolvedData": Object {
+            "componentCodenames": Array [],
+            "html": "<h1>Landing page</h1>
+<p><br>
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis condimentum augue id magna semper rutrum. Phasellus faucibus molestie nisl. Aliquam erat volutpat. Fusce consectetuer risus a nunc. Duis viverra diam non justo. Etiam commodo dui eget wisi. In enim a arcu imperdiet malesuada. Curabitur ligula sapien, pulvinar a vestibulum quis, facilisis vel sapien. Vivamus ac leo pretium faucibus. Nulla non arcu lacinia neque faucibus fringilla. Duis pulvinar. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Nulla est. Proin in tellus sit amet nibh dignissim sagittis. Aliquam erat volutpat. Donec iaculis gravida nulla. Integer malesuada. Proin mattis lacinia justo.</p>
+<p type=\\"application/kenticocloud\\" data-type=\\"item\\" data-rel=\\"link\\" data-codename=\\"simple_landing_page\\" data-sdk-resolved=\\"1\\" class=\\"kc-linked-item-wrapper\\"></p>
+<p><br></p>",
+            "linkedItemCodenames": Array [
+              "simple_landing_page",
+            ],
+          },
+          "type": "rich_text",
+          "value": "<h1>Landing page</h1>
+<p><br>
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis condimentum augue id magna semper rutrum. Phasellus faucibus molestie nisl. Aliquam erat volutpat. Fusce consectetuer risus a nunc. Duis viverra diam non justo. Etiam commodo dui eget wisi. In enim a arcu imperdiet malesuada. Curabitur ligula sapien, pulvinar a vestibulum quis, facilisis vel sapien. Vivamus ac leo pretium faucibus. Nulla non arcu lacinia neque faucibus fringilla. Duis pulvinar. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Nulla est. Proin in tellus sit amet nibh dignissim sagittis. Aliquam erat volutpat. Donec iaculis gravida nulla. Integer malesuada. Proin mattis lacinia justo.</p>
+<object type=\\"application/kenticocloud\\" data-type=\\"item\\" data-rel=\\"link\\" data-codename=\\"simple_landing_page\\"></object>
+<p><br></p>",
+        },
+      },
+      "id": "dummy-kentico-kontent-item-simple-landing-page-default",
+      "internal": Object {
+        "contentDigest": "ddc9831399b6b21560cf6b518fcff1ce",
+        "type": "KontentItemLandingPage",
+      },
+      "otherLanguages___NODE": Array [],
+      "parent": null,
+      "preferred_language": "default",
+      "system": Object {
+        "codename": "simple_landing_page",
+        "id": "45267fb2-2e53-41de-a51f-77a28f0a05e5",
+        "language": "default",
+        "lastModified": "2019-10-09T11:20:40.724Z",
+        "name": "Simple Landing page",
+        "sitemapLocations": Array [],
+        "type": "landing_page",
+      },
+      "usedByContentItems___NODE": Array [
+        "dummy-kentico-kontent-item-simple-landing-page-default",
+      ],
+    },
+  ],
+]
+`;

@@ -1,7 +1,7 @@
 {
-  "name": "gatsby-source-kentico-cloud",
-  "version": "3.1.0",
-  "description": "Gatsby source plugin for Kentico Cloud",
+  "name": "@kentico/gatsby-source-kontent",
+  "version": "4.0.0-beta2",
+  "description": "Gatsby source plugin for Kentico Kontent",
   "main": "./gatsby-node.js",
   "scripts": {
     "test": "jest",
@@ -14,20 +14,20 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Kentico/gatsby-source-kentico-cloud"
+    "url": "https://github.com/Kentico/gatsby-source-kontent"
   },
   "keywords": [
-    "kentico-cloud",
+    "kentico-kontent",
     "gatsby-source-plugin",
     "Kentico",
-    "Kentico Cloud",
+    "Kentico Kontent",
     "GatsbyJS",
     "gatsby",
     "gatsby-plugin"
   ],
-  "author": "Jan Lenoch <janl@kentico.com>",
+  "author": "Ondřej Chrastina <ondrej.chrastina@gmail.com> (https://github.com/Simply007)",
   "contributors": [
-    "Ondřej Chrastina <ondrej.chrastina@gmail.com> (https://github.com/Simply007)"
+    "Jan Lenoch <janl@kentico.com>"
   ],
   "license": "MIT",
   "private": false,
@@ -35,13 +35,14 @@
     "node": ">=10.0.0"
   },
   "dependencies": {
+    "@kentico/kontent-delivery": "^8.0.0",
     "change-case": "^3.1.0",
     "flatted": "^2.0.0",
-    "kentico-cloud-delivery": "^5.7.2",
+    "json-stringify-safe": "^5.0.1",
     "lodash": "^4.17.11",
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
-    "rxjs": "^6.4.0"
+    "rxjs": "^6.5.3"
   },
   "peerDependencies": {
     "gatsby": ">=2.1.18"
@@ -51,6 +52,7 @@
     "@babel/core": "^7.3.3",
     "@babel/polyfill": "^7.2.5",
     "@babel/preset-env": "^7.3.1",
+    "@kentico/kontent-test-http-service-js": "^2.1.0-beta2",
     "babel-core": "^6.26.3",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.1.0",
@@ -61,7 +63,6 @@
     "eslint-plugin-node": "^8.0.1",
     "gatsby": "^2.1.18",
     "jest": "^24.1.0",
-    "kentico-cloud-js-sdk-test-http-service": "1.0.0",
     "regenerator-runtime": "^0.13.1"
   }
 }

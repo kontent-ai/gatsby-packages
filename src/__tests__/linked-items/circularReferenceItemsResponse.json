@@ -1,0 +1,114 @@
+{
+  "items": [
+    {
+      "system": {
+        "id": "1a3aa6bd-7b4b-486f-86ab-7bfe359ad614",
+        "name": "Main project",
+        "codename": "main_project",
+        "language": "default",
+        "type": "project",
+        "sitemap_locations": [],
+        "last_modified": "2019-10-09T11:42:33.0510946Z"
+      },
+      "elements": {
+        "content": {
+          "type": "text",
+          "name": "Content",
+          "value": "Main project content"
+        },
+        "related_projects": {
+          "type": "modular_content",
+          "name": "Related projects",
+          "value": [
+            "sub_project_1",
+            "main_project"
+          ]
+        }
+      }
+    },
+    {
+      "system": {
+        "id": "8a7f275d-0e1c-4b30-af3e-f02c91259faf",
+        "name": "Sub project 1",
+        "codename": "sub_project_1",
+        "language": "default",
+        "type": "project",
+        "sitemap_locations": [],
+        "last_modified": "2019-10-09T11:42:42.6821965Z"
+      },
+      "elements": {
+        "content": {
+          "type": "text",
+          "name": "Content",
+          "value": "Sub project 1 content"
+        },
+        "related_projects": {
+          "type": "modular_content",
+          "name": "Related projects",
+          "value": [
+            "main_project"
+          ]
+        }
+      }
+    }
+  ],
+  "modular_content": {
+    "main_project": {
+      "system": {
+        "id": "1a3aa6bd-7b4b-486f-86ab-7bfe359ad614",
+        "name": "Main project",
+        "codename": "main_project",
+        "language": "default",
+        "type": "project",
+        "sitemap_locations": [],
+        "last_modified": "2019-10-09T11:42:33.0510946Z"
+      },
+      "elements": {
+        "content": {
+          "type": "text",
+          "name": "Content",
+          "value": "Main project content"
+        },
+        "related_projects": {
+          "type": "modular_content",
+          "name": "Related projects",
+          "value": [
+            "sub_project_1",
+            "main_project"
+          ]
+        }
+      }
+    },
+    "sub_project_1": {
+      "system": {
+        "id": "8a7f275d-0e1c-4b30-af3e-f02c91259faf",
+        "name": "Sub project 1",
+        "codename": "sub_project_1",
+        "language": "default",
+        "type": "project",
+        "sitemap_locations": [],
+        "last_modified": "2019-10-09T11:42:42.6821965Z"
+      },
+      "elements": {
+        "content": {
+          "type": "text",
+          "name": "Content",
+          "value": "Sub project 1 content"
+        },
+        "related_projects": {
+          "type": "modular_content",
+          "name": "Related projects",
+          "value": [
+            "main_project"
+          ]
+        }
+      }
+    }
+  },
+  "pagination": {
+    "skip": 0,
+    "limit": 0,
+    "count": 2,
+    "next_page": ""
+  }
+}

@@ -1,7 +1,7 @@
 require(`@babel/polyfill`);
 
 const _ = require(`lodash`);
-const { DeliveryClient } = require(`kentico-cloud-delivery`);
+const { DeliveryClient } = require(`@kentico/kontent-delivery`);
 
 const validation = require(`./validation`);
 const itemNodes = require('./itemNodes');
@@ -21,10 +21,17 @@ const { customTrackingHeader } = require('./config');
 
 exports.sourceNodes =
   async ({ actions: { createNode }, createNodeId },
-    { deliveryClientConfig, languageCodenames }) => {
-    console.info(`Generating Kentico Cloud nodes for projectId:\
+    { deliveryClientConfig,
+      languageCodenames,
+      enableLogging = false,
+      includeRawContent = false,
+    }
+  ) => {
+    if (enableLogging) {
+      console.info(`Generating Kentico Kontent nodes for projectId:\
  ${_.get(deliveryClientConfig, 'projectId')}`);
-    console.info(`Provided language codenames: ${languageCodenames}.`);
+      console.info(`Provided language codenames: ${languageCodenames}.`);
+    }
 
     validation.validateLanguageCodenames(languageCodenames);
     const defaultLanguageCodename = languageCodenames[0];
@@ -33,8 +40,13 @@ exports.sourceNodes =
     addHeader(deliveryClientConfig, customTrackingHeader);
 
     const client = new DeliveryClient(deliveryClientConfig);
-    const contentTypeNodes = await typeNodes.get(client, createNodeId);
+    //const contentTypeNodes = await typeNodes.get(client, createNodeId);
     const taxonomyNodes = await taxonomiesNodes.get(client, createNodeId);
+    const contentTypeNodes = await typeNodes.get(
+      client,
+      createNodeId,
+      includeRawContent
+    );
 
     const defaultCultureContentItemNodes = await itemNodes.
       getFromDefaultLanguage(
@@ -42,6 +54,7 @@ exports.sourceNodes =
         defaultLanguageCodename,
         contentTypeNodes,
         createNodeId,
+        includeRawContent,
       );
 
     const nonDefaultLanguageItemNodes = await itemNodes
@@ -50,6 +63,7 @@ exports.sourceNodes =
         nonDefaultLanguageCodenames,
         contentTypeNodes,
         createNodeId,
+        includeRawContent,
       );
 
     languageVariantsDecorator.decorateItemsWithLanguageVariants(
@@ -58,7 +72,7 @@ exports.sourceNodes =
     );
 
     const allItemNodes = defaultCultureContentItemNodes
-      .concat(_.flatten(nonDefaultLanguageItemNodes.values()));
+      .concat(_.flatten(Object.values(nonDefaultLanguageItemNodes)));
     typeItemDecorator.decorateTypeNodesWithItemLinks(
       allItemNodes,
       contentTypeNodes
@@ -74,48 +88,72 @@ exports.sourceNodes =
       nonDefaultLanguageItemNodes
     );
 
+<<<<<<< HEAD
     console.info(`Creating taxonomy nodes`);
     createNodes(taxonomyNodes, createNode);
 
     console.info(`Creating content type nodes.`);
+=======
+    if (enableLogging) {
+      console.info(`Creating content type nodes.`);
+    }
+>>>>>>> master
     createNodes(contentTypeNodes, createNode);
-
-    console.info(`Creating content item nodes for default language.`);
+    if (enableLogging) {
+      console.info(`Creating content item nodes for default language.`);
+    }
     createNodes(defaultCultureContentItemNodes, createNode);
 
-    console.info(`Creating content item nodes for non-default languages.`);
-    nonDefaultLanguageItemNodes.forEach((languageNodes) => {
+    if (enableLogging) {
+      console.info(`Creating content item nodes for non-default languages.`);
+    }
+    let nonDefaultLanguagesCount = 0;
+    Object.values(nonDefaultLanguageItemNodes).forEach((languageNodes) => {
       createNodes(languageNodes, createNode);
+      nonDefaultLanguagesCount += languageNodes.length;
     });
 
-    console.info(`Kentico Cloud nodes generation finished.`);
+    const typeNodesCount = contentTypeNodes.length;
+    const itemsCount = contentTypeNodes.length + nonDefaultLanguagesCount;
+    if (enableLogging) {
+      console.info(`Kentico Kontent nodes generation finished.`);
+      console.info(`${typeNodesCount} Kontent types item imported.`);
+      console.info(`${itemsCount} Kontent items imported.`);
+    }
     return;
   };
 
 /**
  *
  * @param {DeliveryClientConfig} deliveryClientConfig
- *  Kentico Cloud JS configuration object
+ *  Kentico Kontent JS configuration object
  * @param {IHeader} trackingHeader tracking header name
  */
 const addHeader = (deliveryClientConfig, trackingHeader) => {
-  let headers = deliveryClientConfig.globalHeaders
-    ? _.cloneDeep(deliveryClientConfig.globalHeaders)
-    : [];
+  deliveryClientConfig.globalQueryConfig =
+    deliveryClientConfig.globalQueryConfig || {};
+
+  if (!deliveryClientConfig.globalQueryConfig.customHeaders) {
+    deliveryClientConfig.globalQueryConfig.customHeaders = [trackingHeader];
+    return;
+  }
+
+  let headers = _.cloneDeep(
+    deliveryClientConfig
+      .globalQueryConfig
+      .customHeaders
+  );
 
   if (headers.some((header) => header.header === trackingHeader.header)) {
     console.warn(`Custom HTTP header value with name ${trackingHeader.header}
-      will be replaced by the source plugin.
-      Use different header name if you want to avoid this behavior;`);
-    headers = headers.filter((header) => {
-      return header.header !== trackingHeader.header;
-    });
+        will be replaced by the source plugin.
+        Use different header name if you want to avoid this behavior;`);
+    headers = headers.filter((header) =>
+      header.header !== trackingHeader.header);
   }
-  headers.push({
-    header: trackingHeader.header,
-    value: trackingHeader.value,
-  });
-  deliveryClientConfig.globalHeaders = headers;
+
+  headers.push(trackingHeader);
+  deliveryClientConfig.globalQueryConfig.customHeaders = headers;
 };
 
 /**
@@ -125,11 +163,8 @@ const addHeader = (deliveryClientConfig, trackingHeader) => {
  */
 const createNodes = (nodes, createNode) => {
   try {
-    nodes.forEach((contentTypeNode) => {
-      const nodeId = contentTypeNode.id;
-      const nodeCodeName = contentTypeNode.system.codename;
-      console.info(`Creating node: ${nodeId}(${nodeCodeName})`);
-      createNode(contentTypeNode);
+    nodes.forEach((node) => {
+      createNode(node);
     });
   } catch (error) {
     console.error(`Error when creating nodes. Details: ${error}`);

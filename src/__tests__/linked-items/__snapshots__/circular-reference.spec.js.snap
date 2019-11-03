@@ -1,0 +1,131 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Circular reference in modular content passes with no error 1`] = `
+Array [
+  Array [
+    Object {
+      "children": Array [],
+      "contentItems___NODE": Array [
+        "dummy-kentico-kontent-item-main-project-default",
+        "dummy-kentico-kontent-item-sub-project-1-default",
+      ],
+      "elements": Array [
+        Object {
+          "codename": "related_projects",
+          "name": "Related projects",
+          "options": Array [],
+          "type": "modular_content",
+        },
+        Object {
+          "codename": "content",
+          "name": "Content",
+          "options": Array [],
+          "type": "text",
+        },
+      ],
+      "id": "dummy-kentico-kontent-type-project",
+      "internal": Object {
+        "contentDigest": "98b4a5274bd4a532bf161ca1f3631df1",
+        "type": "KontentTypeProject",
+      },
+      "parent": null,
+      "system": Object {
+        "codename": "project",
+        "id": "ec706130-b0dd-401c-ae1a-10f2eeb2eb89",
+        "lastModified": "2018-12-28T12:29:09.4933517Z",
+        "name": "Project",
+      },
+      "usedByContentItems___NODE": Array [],
+    },
+  ],
+  Array [
+    Object {
+      "children": Array [],
+      "contentType___NODE": "dummy-kentico-kontent-type-project",
+      "elements": Object {
+        "content": Object {
+          "name": "Content",
+          "type": "text",
+          "value": "Main project content",
+        },
+        "related_projects": Object {
+          "itemCodenames": Array [
+            "sub_project_1",
+            "main_project",
+          ],
+          "linked_items___NODE": Array [
+            "dummy-kentico-kontent-item-sub-project-1-default",
+            "dummy-kentico-kontent-item-main-project-default",
+          ],
+          "name": "Related projects",
+          "type": "modular_content",
+        },
+      },
+      "id": "dummy-kentico-kontent-item-main-project-default",
+      "internal": Object {
+        "contentDigest": "04a184c484e045419feb6e89e45c37fe",
+        "type": "KontentItemProject",
+      },
+      "otherLanguages___NODE": Array [],
+      "parent": null,
+      "preferred_language": "default",
+      "system": Object {
+        "codename": "main_project",
+        "id": "1a3aa6bd-7b4b-486f-86ab-7bfe359ad614",
+        "language": "default",
+        "lastModified": "2019-10-09T11:42:33.051Z",
+        "name": "Main project",
+        "sitemapLocations": Array [],
+        "type": "project",
+      },
+      "usedByContentItems___NODE": Array [
+        "dummy-kentico-kontent-item-main-project-default",
+        "dummy-kentico-kontent-item-sub-project-1-default",
+      ],
+    },
+  ],
+  Array [
+    Object {
+      "children": Array [],
+      "contentType___NODE": "dummy-kentico-kontent-type-project",
+      "elements": Object {
+        "content": Object {
+          "name": "Content",
+          "type": "text",
+          "value": "Sub project 1 content",
+        },
+        "related_projects": Object {
+          "itemCodenames": Array [
+            "main_project",
+          ],
+          "linked_items___NODE": Array [
+            "dummy-kentico-kontent-item-main-project-default",
+          ],
+          "name": "Related projects",
+          "type": "modular_content",
+        },
+      },
+      "id": "dummy-kentico-kontent-item-sub-project-1-default",
+      "internal": Object {
+        "contentDigest": "93c6d6472e9c0da5d2d56a258b3dc3f9",
+        "type": "KontentItemProject",
+      },
+      "otherLanguages___NODE": Array [],
+      "parent": null,
+      "preferred_language": "default",
+      "system": Object {
+        "codename": "sub_project_1",
+        "id": "8a7f275d-0e1c-4b30-af3e-f02c91259faf",
+        "language": "default",
+        "lastModified": "2019-10-09T11:42:42.682Z",
+        "name": "Sub project 1",
+        "sitemapLocations": Array [],
+        "type": "project",
+      },
+      "usedByContentItems___NODE": Array [
+        "dummy-kentico-kontent-item-main-project-default",
+      ],
+    },
+  ],
+]
+`;
