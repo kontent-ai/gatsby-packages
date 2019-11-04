@@ -1,0 +1,37 @@
+{
+    "items": [
+      {
+        "system": {
+          "id": "3dc16e0c-31fa-407b-9bc1-d777cb9f71eb",
+          "name": "Item representation",
+          "codename": "item_representation",
+          "language": "default",
+          "type": "withitem",
+          "sitemap_locations": [],
+          "last_modified": "2019-11-04T09:50:37.0942594Z"
+        },
+        "elements": {
+          "title": {
+            "type": "text",
+            "name": "Title",
+            "value": "Generic title"
+          },
+          "description": {
+            "type": "rich_text",
+            "name": "Description",
+            "images": {},
+            "links": {},
+            "modular_content": [],
+            "value": "<p>Lorem Ipsum</p>"
+          }
+        }
+      }
+    ],
+    "modular_content": {},
+    "pagination": {
+      "skip": 0,
+      "limit": 0,
+      "count": 1,
+      "next_page": ""
+    }
+  }

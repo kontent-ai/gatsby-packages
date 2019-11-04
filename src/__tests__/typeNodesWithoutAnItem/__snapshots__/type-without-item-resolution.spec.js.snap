@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Simple content type without item representation passes with no error 1`] = `
+Array [
+  Array [
+    "type KontentTypeWithoutitem implements Node { 
+      photos: String ,title: String 
+  }",
+  ],
+]
+`;

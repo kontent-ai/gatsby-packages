@@ -1,0 +1,46 @@
+{
+  "types": [
+    {
+      "system": {
+        "id": "a42d5be7-14e4-483d-ac7d-918bd679aee8",
+        "name": "WithItem",
+        "codename": "withitem",
+        "last_modified": "2019-11-04T09:49:40.8021985Z"
+      },
+      "elements": {
+        "title": {
+          "type": "text",
+          "name": "Title"
+        },
+        "description": {
+          "type": "rich_text",
+          "name": "Description"
+        }
+      }
+    },
+    {
+      "system": {
+        "id": "a5510551-7879-4f6a-bf87-c7d7f7b09c36",
+        "name": "WithoutItem",
+        "codename": "withoutitem",
+        "last_modified": "2019-11-04T09:50:02.1543224Z"
+      },
+      "elements": {
+        "photos": {
+          "type": "asset",
+          "name": "Photos"
+        },
+        "title": {
+          "type": "text",
+          "name": "Title"
+        }
+      }
+    }
+  ],
+  "pagination": {
+    "skip": 0,
+    "limit": 0,
+    "count": 2,
+    "next_page": ""
+  }
+}
