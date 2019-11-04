@@ -1,7 +1,11 @@
 const normalize = require('./normalize');
 
+/**
+ * Creates type nodes for types that do not have item representation.
+ * @param {function} createTypes - Gatsby function to create a type.
+ * @param {Array} contentTypeNodes - Array of content type nodes.
+ */
 const createTypeNodesWithoutItem = (createTypes, contentTypeNodes) => {
-  // nodes for types without an item
   const contentTypeNodesWithoutItem = contentTypeNodes.filter((typeNode) =>
     typeNode.contentItems___NODE.length === 0
   );
@@ -15,7 +19,6 @@ const createTypeNodesWithoutItem = (createTypes, contentTypeNodes) => {
       propertyTypePairsDefinitionForContentType
     );
 
-    // concat all type definitions
     typeDefinitions = typeDefinitions.concat(typeDefinitionForContentType);
   });
 
@@ -24,7 +27,6 @@ const createTypeNodesWithoutItem = (createTypes, contentTypeNodes) => {
 
 const getPropertyTypePairsDefinitionForContentType =
   (contentTypeNodeWithoutItem) => {
-  // prepare property with it's type
     const propertyTypePairs = [];
     contentTypeNodeWithoutItem.elements.map((element) => {
       const elementName = element.codename;
