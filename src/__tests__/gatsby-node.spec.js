@@ -25,7 +25,7 @@ describe('customTrackingHeader', () => {
 describe('sourceNodes', () => {
   const dummyCreateNodeID = jest.fn();
   dummyCreateNodeID.mockReturnValue('dummyId');
-  const mockedSchema = {buildObjectType: jest.fn()}
+  const mockedSchema = {buildObjectType: jest.fn()};
 
   const dummyCreation = {
     actions: {
@@ -167,7 +167,7 @@ describe('sourceNodes', () => {
 
     const createNodeMock = jest.fn();
     const createTypesMock = jest.fn();
-    const mockedSchema = {buildObjectType: jest.fn()} 
+    const mockedSchema = {buildObjectType: jest.fn()};
 
     const actions = {
       actions: {

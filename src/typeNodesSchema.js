@@ -5,7 +5,7 @@ const changeCase = require('change-case');
  * Creates type nodes schema definition.
  * @param {Object} client Delivery client
  * @param {Object} schema GraphQL schema
- * @param {function} createTypes - Gatsby function to create a type.
+ * @param {function} createTypes - Gatsby function to create a type
  */
 const createTypeNodesSchema = async (client, schema, createTypes) => {
   createTypes(getKontentBaseTypeDefintions());
@@ -14,8 +14,9 @@ const createTypeNodesSchema = async (client, schema, createTypes) => {
 
   createTypes(
     kontentTypesResponse.types.reduce(
-      (typeDefinitions, type) => typeDefinitions.concat(createFieldDefinitionsForType(schema, type)),
-      [],
+      (typeDefinitions, type) => {
+        typeDefinitions.concat(createFieldDefinitionsForType(schema, type));
+      }, [],
     ),
   );
 };
@@ -23,7 +24,8 @@ const createTypeNodesSchema = async (client, schema, createTypes) => {
 /**
  * Creates type field definition.
  * @param {Object} schema GraphQL schema
- * @param {Object} type - Konten type.
+ * @param {Object} type - Konten type
+ * @return {Object} type field definition
  */
 const createFieldDefinitionsForType = (schema, type) => {
   const elementFields = type.elements.reduce((acc, element) => {
@@ -53,35 +55,39 @@ const createFieldDefinitionsForType = (schema, type) => {
   });
 
   return [elementsTypeDef, typeDef];
-}
+};
 
 /**
  * Returns graph type name.
  * @param {String} typeName
+ * @return {String} graph type name
  */
 const getGraphTypeName = (typeName) => {
   return normalize.getArtifactName(typeName, 'item');
-}
+};
 
 /**
  * Returns element value type.
  * @param {String} elementType
+ * @return {String} element value type
  */
 const getElementValueType = (elementType) => {
   return `Kontent${changeCase.pascalCase(elementType)}Element`;
-}
+};
 
 /**
  * Returns element field name.
  * @param {String} elementName
+ * @return {String} graph field name
  */
 const getGraphFieldName = (elementName) => {
   return changeCase.camelCase(elementName);
-}
+};
 
 /**
  * Returns Kontent base type definitions.
  * @param {String} elementName
+ * @return {String} kontent base type definitions
  */
 const getKontentBaseTypeDefintions = () => {
   const typeDefs = `
@@ -183,7 +189,7 @@ const getKontentBaseTypeDefintions = () => {
   `;
 
   return typeDefs;
-}
+};
 
 module.exports = {
   createTypeNodesSchema,
