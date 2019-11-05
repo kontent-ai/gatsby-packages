@@ -2,9 +2,10 @@ const normalize = require('./normalize');
 const changeCase = require('change-case');
 
 /**
- * Creates type nodes for types that do not have item representation.
+ * Creates type nodes schema definition.
+ * @param {Object} client Delivery client
+ * @param {Object} schema GraphQL schema
  * @param {function} createTypes - Gatsby function to create a type.
- * @param {Array} contentTypeNodes - Array of content type nodes.
  */
 const createTypeNodesSchema = async (client, schema, createTypes) => {
   createTypes(getKontentBaseTypeDefintions());
@@ -19,8 +20,12 @@ const createTypeNodesSchema = async (client, schema, createTypes) => {
   );
 };
 
+/**
+ * Creates type field definition.
+ * @param {Object} schema GraphQL schema
+ * @param {Object} type - Konten type.
+ */
 const createFieldDefinitionsForType = (schema, type) => {
-  // Create field definitions for Kontent type elements.
   const elementFields = type.elements.reduce((acc, element) => {
     const fieldName = getGraphFieldName(element.codename);
 
@@ -50,12 +55,16 @@ const createFieldDefinitionsForType = (schema, type) => {
   return [elementsTypeDef, typeDef];
 }
 
+/**
+ * Returns graph type name.
+ * @param {String} typeName
+ */
 const getGraphTypeName = (typeName) => {
-  return normalize.getArtifactName('item', typeName);
+  return normalize.getArtifactName(typeName, 'item');
 }
 
 /**
- * Return appropriate GraphQL type for Kontent element type.
+ * Returns element value type.
  * @param {String} elementType
  */
 const getElementValueType = (elementType) => {
@@ -63,13 +72,17 @@ const getElementValueType = (elementType) => {
 }
 
 /**
- * Return transformed field name.
+ * Returns element field name.
  * @param {String} elementName
  */
 const getGraphFieldName = (elementName) => {
   return changeCase.camelCase(elementName);
 }
 
+/**
+ * Returns Kontent base type definitions.
+ * @param {String} elementName
+ */
 const getKontentBaseTypeDefintions = () => {
   const typeDefs = `
     interface KontentItem @nodeInterface {
