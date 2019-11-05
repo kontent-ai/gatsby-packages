@@ -4,14 +4,15 @@ const { KontentTestHttpService }
 
 const { sourceNodes } = require('../../gatsby-node');
 
-const fakeTypeResponse =
+const fakeTypesResponse =
 require('./fakeTypesResponse.json');
 const fakeItemsResponse =
 require('./fakeItemsResponse.json');
 
 describe(
-  `Simple content type without item representation`,
+  `Complex content types schema resolution`,
   async () => {
+    // Project ID 532c0844-5eb3-0033-7d1b-faeea1e7e407
     const fakeHttpServiceConfig = new Map();
     fakeHttpServiceConfig.set(
       /https:\/\/deliver.kontent.ai\/.*\/items/,
@@ -22,7 +23,7 @@ describe(
     fakeHttpServiceConfig.set(
       /https:\/\/deliver.kontent.ai\/.*\/types/,
       {
-        fakeResponseJson: fakeTypeResponse,
+        fakeResponseJson: fakeTypesResponse,
         throwError: false,
       });
 
@@ -31,6 +32,7 @@ describe(
 
     const createNodeMock = jest.fn();
     const createTypesMock = jest.fn();
+    const mockedSchema = {buildObjectType: jest.fn()} 
 
     const actions = {
       actions: {
@@ -38,6 +40,7 @@ describe(
         createTypes: createTypesMock,
       },
       createNodeId: dummyCreateNodeID,
+      schema: mockedSchema,
     };
     const deliveryClientConfig = {
       projectId: 'dummyProject',
@@ -55,7 +58,10 @@ describe(
     it('passes with no error', async () => {
       await sourceNodes(actions, pluginConfiguration);
 
-      const calls = createTypesMock.mock.calls;
-      expect(calls).toMatchSnapshot();
+      const createTypeCalls = createTypesMock.mock.calls;
+      expect(createTypeCalls).toMatchSnapshot();
+
+      const buildObjectTypeCalls = mockedSchema.buildObjectType.mock.calls;
+      expect(buildObjectTypeCalls).toMatchSnapshot();
     });
   });
