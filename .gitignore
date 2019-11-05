@@ -11,7 +11,7 @@ node_modules
 /validation.js
 /itemNodes.js
 /typeNodes.js
-/typeNodesWithoutAnItem.js
+/typeNodesSchema.js
 /decorators/languageVariantsDecorator.js
 /decorators/typeItemDecorator.js
 /decorators/richTextElementDecorator.js
