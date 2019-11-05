@@ -30,6 +30,7 @@ describe(`Circular reference in modular content`, async () => {
 
   const createNodeMock = jest.fn();
   const createTypesMock = jest.fn();
+  const mockedSchema = {buildObjectType: jest.fn()}
 
   const actions = {
     actions: {
@@ -37,6 +38,7 @@ describe(`Circular reference in modular content`, async () => {
       createTypes: createTypesMock,
     },
     createNodeId: dummyCreateNodeID,
+    schema: mockedSchema,
   };
 
   const deliveryClientConfig = {

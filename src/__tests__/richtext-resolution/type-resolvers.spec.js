@@ -32,6 +32,7 @@ describe(`Rich text resolution reference in modular content`, async () => {
 
   const createNodeMock = jest.fn();
   const createTypesMock = jest.fn();
+  const mockedSchema = {buildObjectType: jest.fn()}
 
   const actions = {
     actions: {
@@ -39,6 +40,7 @@ describe(`Rich text resolution reference in modular content`, async () => {
       createTypes: createTypesMock,
     },
     createNodeId: dummyCreateNodeID,
+    schema: mockedSchema,
   };
 
   class LandingPageImageSection extends ContentItem {

@@ -32,6 +32,7 @@ describe(
 
     const createNodeMock = jest.fn();
     const createTypesMock = jest.fn();
+    const mockedSchema = {buildObjectType: jest.fn()}
 
     const actions = {
       actions: {
@@ -39,6 +40,7 @@ describe(
         createTypes: createTypesMock,
       },
       createNodeId: dummyCreateNodeID,
+      schema: mockedSchema,
     };
     const deliveryClientConfig = {
       projectId: 'dummyProject',
