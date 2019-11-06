@@ -103,10 +103,22 @@ Array [
   ],
   Array [
     Array [
-      undefined,
-      undefined,
-      undefined,
-      undefined,
+      Object {
+        "data": "Returning from mocked schema's buildObjectType function.
+        Original input: [object Object]",
+      },
+      Object {
+        "data": "Returning from mocked schema's buildObjectType function.
+        Original input: [object Object]",
+      },
+      Object {
+        "data": "Returning from mocked schema's buildObjectType function.
+        Original input: [object Object]",
+      },
+      Object {
+        "data": "Returning from mocked schema's buildObjectType function.
+        Original input: [object Object]",
+      },
     ],
   ],
 ]
@@ -131,7 +143,7 @@ Array [
   Array [
     Object {
       "fields": Object {
-        "elements": "KontentItemWithitemElements",
+        "elements": "KontentItemWithitemElements!",
         "system": "KontentItemSystem!",
       },
       "infer": false,
@@ -177,7 +189,7 @@ Array [
   Array [
     Object {
       "fields": Object {
-        "elements": "KontentItemWithoutitemElements",
+        "elements": "KontentItemWithoutitemElements!",
         "system": "KontentItemSystem!",
       },
       "infer": false,

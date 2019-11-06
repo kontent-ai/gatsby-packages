@@ -1,13 +1,15 @@
 
 const { KontentTestHttpService }
-= require('@kentico/kontent-test-http-service-js');
+  = require('@kentico/kontent-test-http-service-js');
+
+const { } = require('gatsby/utils');
 
 const { sourceNodes } = require('../../gatsby-node');
 
 const fakeTypesResponse =
-require('./fakeTypesResponse.json');
+  require('./fakeTypesResponse.json');
 const fakeItemsResponse =
-require('./fakeItemsResponse.json');
+  require('./fakeItemsResponse.json');
 
 describe(
   `Complex content types schema resolution`,
@@ -32,7 +34,11 @@ describe(
 
     const createNodeMock = jest.fn();
     const createTypesMock = jest.fn();
-    const mockedSchema = {buildObjectType: jest.fn()};
+
+    const mockedSchema = { buildObjectType: jest.fn((input) => (
+      { data: `Returning from mocked schema's buildObjectType function.
+        Original input: ${input}`,
+      }))}; ;
 
     const actions = {
       actions: {
@@ -59,9 +65,11 @@ describe(
       await sourceNodes(actions, pluginConfiguration);
 
       const createTypeCalls = createTypesMock.mock.calls;
+      expect(createTypeCalls).toHaveLength(2);
       expect(createTypeCalls).toMatchSnapshot();
 
       const buildObjectTypeCalls = mockedSchema.buildObjectType.mock.calls;
+      expect(buildObjectTypeCalls).toHaveLength(4);
       expect(buildObjectTypeCalls).toMatchSnapshot();
     });
   });
