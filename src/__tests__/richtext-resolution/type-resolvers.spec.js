@@ -32,7 +32,9 @@ describe(`Rich text resolution reference in modular content`, async () => {
 
   const createNodeMock = jest.fn();
   const createTypesMock = jest.fn();
-  const mockedSchema = {buildObjectType: jest.fn()};
+  const mockedSchema = { buildObjectType: jest.fn((input) => ({
+    data: input,
+  }))};
 
   const actions = {
     actions: {
