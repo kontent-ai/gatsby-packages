@@ -2,8 +2,6 @@
 const { KontentTestHttpService }
   = require('@kentico/kontent-test-http-service-js');
 
-const { } = require('gatsby/utils');
-
 const { sourceNodes } = require('../../gatsby-node');
 
 const fakeTypesResponse =
