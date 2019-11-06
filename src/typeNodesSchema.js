@@ -15,18 +15,13 @@ const createTypeNodesSchema = async (client, schema, createTypes) => {
   createTypes(
     kontentTypesResponse.types.reduce(
       (typeDefinitions, type) => {
-        typeDefinitions.concat(createFieldDefinitionsForType(schema, type));
+        const fieldTypeDefinition = createFieldDefinitionsForType(schema, type);
+        return typeDefinitions.concat(fieldTypeDefinition);
       }, [],
     ),
   );
 };
 
-/**
- * Creates type field definition.
- * @param {Object} schema GraphQL schema
- * @param {Object} type - Konten type
- * @return {Object} type field definition
- */
 const createFieldDefinitionsForType = (schema, type) => {
   const elementFields = type.elements.reduce((acc, element) => {
     const fieldName = getGraphFieldName(element.codename);
@@ -48,7 +43,7 @@ const createFieldDefinitionsForType = (schema, type) => {
     name: getGraphTypeName(type.system.codename),
     fields: {
       system: 'KontentItemSystem!',
-      elements: `${getGraphTypeName(type.system.codename)}Elements`,
+      elements: `${getGraphTypeName(type.system.codename)}Elements!`,
     },
     interfaces: ['Node', 'KontentItem'],
     infer: false,
@@ -57,38 +52,18 @@ const createFieldDefinitionsForType = (schema, type) => {
   return [elementsTypeDef, typeDef];
 };
 
-/**
- * Returns graph type name.
- * @param {String} typeName
- * @return {String} graph type name
- */
 const getGraphTypeName = (typeName) => {
   return normalize.getArtifactName(typeName, 'item');
 };
 
-/**
- * Returns element value type.
- * @param {String} elementType
- * @return {String} element value type
- */
 const getElementValueType = (elementType) => {
   return `Kontent${changeCase.pascalCase(elementType)}Element`;
 };
 
-/**
- * Returns element field name.
- * @param {String} elementName
- * @return {String} graph field name
- */
 const getGraphFieldName = (elementName) => {
   return changeCase.camelCase(elementName);
 };
 
-/**
- * Returns Kontent base type definitions.
- * @param {String} elementName
- * @return {String} kontent base type definitions
- */
 const getKontentBaseTypeDefintions = () => {
   const typeDefs = `
     interface KontentItem @nodeInterface {
