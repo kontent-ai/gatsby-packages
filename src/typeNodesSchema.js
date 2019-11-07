@@ -42,6 +42,7 @@ const createFieldDefinitionsForType = (schema, type) => {
     fields: {
       system: 'KontentItemSystem!',
       elements: `${getGraphTypeName(type.system.codename)}Elements!`,
+      preferred_language: 'String!'
     },
     interfaces: ['Node', 'KontentItem'],
     infer: false,
@@ -63,6 +64,7 @@ const getKontentBaseTypeDefintions = () => {
     interface KontentItem @nodeInterface {
       id: ID!
       system: KontentItemSystem!
+      preferred_language: String!
     }
     interface KontentElement @dontInfer {
       name: String!

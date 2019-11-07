@@ -7,6 +7,7 @@ Array [
     interface KontentItem @nodeInterface {
       id: ID!
       system: KontentItemSystem!
+      preferred_language: String!
     }
     interface KontentElement @dontInfer {
       name: String!
@@ -158,6 +159,7 @@ Array [
     Object {
       "fields": Object {
         "elements": "KontentItemWithitemElements!",
+        "preferred_language": "String!",
         "system": "KontentItemSystem!",
       },
       "infer": false,
@@ -204,6 +206,7 @@ Array [
     Object {
       "fields": Object {
         "elements": "KontentItemWithoutitemElements!",
+        "preferred_language": "String!",
         "system": "KontentItemSystem!",
       },
       "infer": false,
