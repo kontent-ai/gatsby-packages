@@ -42,7 +42,7 @@ const createFieldDefinitionsForType = (schema, type) => {
     fields: {
       system: 'KontentItemSystem!',
       elements: `${getGraphTypeName(type.system.codename)}Elements!`,
-      preferred_language: 'String!'
+      preferred_language: 'String!',
     },
     interfaces: ['Node', 'KontentItem'],
     infer: false,
