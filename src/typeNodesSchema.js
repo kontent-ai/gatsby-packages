@@ -91,6 +91,7 @@ const getKontentBaseTypeDefintions = () => {
     }
     type KontentElementRichTextResolvedData @infer{
       html: String
+      linkedItemCodenames: [String]
       componentCodenames: [String]
     }
     type KontentRichTextImage @infer {
@@ -119,6 +120,7 @@ const getKontentBaseTypeDefintions = () => {
     type KontentModularContentElement implements KontentElement @infer {
       name: String!
       type: String!
+      itemCodenames: [String]
       value: [KontentItem] @link(by: "system.codename")
     }
     type KontentMultipleChoiceElement implements KontentElement @infer {

@@ -105,6 +105,7 @@ Linked items are not directly under the element codename (`linked_items_type` in
           type
           value {
             name
+            description
             size
             type
             url
@@ -141,7 +142,6 @@ Linked items are not directly under the element codename (`linked_items_type` in
 }
 ```
 
-
 ### Rich text
 
 Rich text elements internal structure was extended. The main difference is that `resolvedHtml` is now transfered `resolvedData.html`.
@@ -170,6 +170,7 @@ Rich text elements internal structure was extended. The main difference is that 
             }
           }
           images {
+            description
             height
             imageId
             url
