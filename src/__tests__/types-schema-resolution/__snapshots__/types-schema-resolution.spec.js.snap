@@ -29,6 +29,27 @@ Array [
       width: Int
       height: Int
     }
+    type KontentElementMultipleChoiceValue @infer {
+      codename: String!
+      name: String!
+    }
+    type KontentElementRichTextResolvedData @infer{
+      html: String
+      componentCodenames: [String]
+    }
+    type KontentRichTextImage @infer {
+      description: String
+      height: Int!
+      imageId: String!
+      url: String!
+      width: Int!
+    }
+    type KontentRichTextLink @infer {
+      codename: String!
+      linkId: String!
+      type: String!
+      urlSlug: String!
+    }
     type KontentAssetElement implements KontentElement @infer {
       name: String!
       type: String!
@@ -47,6 +68,7 @@ Array [
     type KontentMultipleChoiceElement implements KontentElement @infer {
       name: String!
       type: String!
+      value: [KontentElementMultipleChoiceValue]
     }
     type KontentNumberElement implements KontentElement @infer {
       name: String!
@@ -59,21 +81,11 @@ Array [
       value: String
       images: [KontentRichTextImage]
       links: [KontentRichTextLink]
-      linkedItems: [KontentItem] @link(by: \\"system.codename\\")
+      linked_items: [KontentItem] @link(by: \\"system.codename\\")
+      linkedItemCodenames: [String]
+      resolvedData: KontentElementRichTextResolvedData
     }
-    type KontentRichTextImage @infer {
-      description: String
-      height: Int!
-      imageId: String!
-      url: String!
-      width: Int!
-    }
-    type KontentRichTextLink @infer {
-      codename: String!
-      linkId: String!
-      type: String!
-      urlSlug: String!
-    }
+
     type KontentTaxonomyElement implements KontentElement @infer {
       name: String!
       type: String!
@@ -160,10 +172,10 @@ Array [
         "born": Object {
           "type": "KontentDateTimeElement",
         },
-        "countOfEverything": Object {
+        "count_of_everything": Object {
           "type": "KontentNumberElement",
         },
-        "custocmColorPicker": Object {
+        "custocm_color_picker": Object {
           "type": "KontentCustomElement",
         },
         "description": Object {
@@ -172,13 +184,13 @@ Array [
         "photos": Object {
           "type": "KontentAssetElement",
         },
-        "relatedItems": Object {
+        "related_items": Object {
           "type": "KontentModularContentElement",
         },
         "title": Object {
           "type": "KontentTextElement",
         },
-        "yourAwesomeChoices": Object {
+        "your_awesome_choices": Object {
           "type": "KontentMultipleChoiceElement",
         },
       },

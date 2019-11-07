@@ -24,10 +24,8 @@ const createTypeNodesSchema = async (client, schema, createTypes) => {
 
 const createFieldDefinitionsForType = (schema, type) => {
   const elementFields = type.elements.reduce((acc, element) => {
-    const fieldName = getGraphFieldName(element.codename);
-
     return Object.assign(acc, {
-      [fieldName]: {
+      [element.codename]: {
         type: getElementValueType(element.type),
       },
     });
@@ -60,10 +58,6 @@ const getElementValueType = (elementType) => {
   return `Kontent${changeCase.pascalCase(elementType)}Element`;
 };
 
-const getGraphFieldName = (elementName) => {
-  return changeCase.camelCase(elementName);
-};
-
 const getKontentBaseTypeDefintions = () => {
   const typeDefs = `
     interface KontentItem @nodeInterface {
@@ -91,6 +85,27 @@ const getKontentBaseTypeDefintions = () => {
       width: Int
       height: Int
     }
+    type KontentElementMultipleChoiceValue @infer {
+      codename: String!
+      name: String!
+    }
+    type KontentElementRichTextResolvedData @infer{
+      html: String
+      componentCodenames: [String]
+    }
+    type KontentRichTextImage @infer {
+      description: String
+      height: Int!
+      imageId: String!
+      url: String!
+      width: Int!
+    }
+    type KontentRichTextLink @infer {
+      codename: String!
+      linkId: String!
+      type: String!
+      urlSlug: String!
+    }
     type KontentAssetElement implements KontentElement @infer {
       name: String!
       type: String!
@@ -109,6 +124,7 @@ const getKontentBaseTypeDefintions = () => {
     type KontentMultipleChoiceElement implements KontentElement @infer {
       name: String!
       type: String!
+      value: [KontentElementMultipleChoiceValue]
     }
     type KontentNumberElement implements KontentElement @infer {
       name: String!
@@ -121,21 +137,11 @@ const getKontentBaseTypeDefintions = () => {
       value: String
       images: [KontentRichTextImage]
       links: [KontentRichTextLink]
-      linkedItems: [KontentItem] @link(by: "system.codename")
+      linked_items: [KontentItem] @link(by: "system.codename")
+      linkedItemCodenames: [String]
+      resolvedData: KontentElementRichTextResolvedData
     }
-    type KontentRichTextImage @infer {
-      description: String
-      height: Int!
-      imageId: String!
-      url: String!
-      width: Int!
-    }
-    type KontentRichTextLink @infer {
-      codename: String!
-      linkId: String!
-      type: String!
-      urlSlug: String!
-    }
+
     type KontentTaxonomyElement implements KontentElement @infer {
       name: String!
       type: String!
