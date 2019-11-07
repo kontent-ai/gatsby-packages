@@ -42,7 +42,7 @@
     "lodash": "^4.17.15",
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
-    "rxjs": "^6.5.3"
+    "rxjs": "6.4.0"
   },
   "peerDependencies": {
     "gatsby": ">=2.1.18"
