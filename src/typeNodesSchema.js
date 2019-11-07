@@ -88,8 +88,8 @@ const getKontentBaseTypeDefintions = () => {
       type: String!
       size: Int!
       url: String!
-      width: Int!
-      height: Int!
+      width: Int
+      height: Int
     }
     type KontentAssetElement implements KontentElement @infer {
       name: String!
