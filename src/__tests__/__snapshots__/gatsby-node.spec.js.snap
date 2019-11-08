@@ -1596,6 +1596,66 @@ GraphQL nodes of content items contain the ordinary \`system\` and \`elements\` 
   Array [
     Object {
       "children": Array [],
+      "id": "dummyId",
+      "internal": Object {
+        "contentDigest": "9f77ec1fba818dbbc31676bc96d0bb17",
+        "type": "KontentTaxonomyCategories",
+      },
+      "parent": null,
+      "system": Object {
+        "codename": "categories",
+        "id": "e4c2a7f7-2774-49eb-8d26-2351f646f407",
+        "lastModified": "2019-11-04T16:06:59.9936285Z",
+        "name": "Categories",
+      },
+      "terms": Array [
+        Object {
+          "codename": "article",
+          "name": "Article",
+          "terms": Array [],
+        },
+        Object {
+          "codename": "code",
+          "name": "Code",
+          "terms": Array [],
+        },
+        Object {
+          "codename": "education",
+          "name": "Education",
+          "terms": Array [],
+        },
+      ],
+      "usedByContentItems___NODE": Array [],
+    },
+  ],
+  Array [
+    Object {
+      "children": Array [],
+      "id": "dummyId",
+      "internal": Object {
+        "contentDigest": "8182400fb81c06e0a030c2abf05621fc",
+        "type": "KontentTaxonomyTags",
+      },
+      "parent": null,
+      "system": Object {
+        "codename": "tags",
+        "id": "45ed7f4f-edb4-4f5c-a929-50ef6c214c10",
+        "lastModified": "2019-10-09T21:09:14.8052879Z",
+        "name": "Tags",
+      },
+      "terms": Array [
+        Object {
+          "codename": "education",
+          "name": "Education",
+          "terms": Array [],
+        },
+      ],
+      "usedByContentItems___NODE": Array [],
+    },
+  ],
+  Array [
+    Object {
+      "children": Array [],
       "contentType___NODE": "dummyId",
       "elements": Object {
         "text": Object {

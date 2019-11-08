@@ -10,7 +10,7 @@ const complexContentItemsSecondtLanguageFakeReponse =
   require('./complexContentItemsSecondLanguageFakeReponse.json');
 const complexTypesFakeResponse =
   require('./complexTypesFakeResponse.json');
-const fakeTaxonomyResponse = 
+const fakeTaxonomyResponse =
   require('./fakeTaxonomyResponse.json');
 
 describe('customTrackingHeader', () => {
@@ -62,7 +62,18 @@ describe('sourceNodes', () => {
         },
         throwError: false,
       });
-
+    fakeEmptyResponseConfig.set(
+      /https:\/\/deliver.kontent.ai\/.*\/taxonomies/,
+      {
+        fakeResponseJson: {
+          taxonomies: [],
+          pagination: {
+            continuation_token: null,
+            next_page: null,
+          },
+        },
+        throwError: false,
+      });
     const fakeEmptyTestService =
       new KontentTestHttpService(fakeEmptyResponseConfig);
 
@@ -164,7 +175,7 @@ describe('sourceNodes', () => {
         throwError: false,
       });
     fakeComplexConfig.set(
-      /https:\/\/deliver.kontent.ai\/.*\/types/,
+      /https:\/\/deliver.kontent.ai\/.*\/taxonomies/,
       {
         fakeResponseJson: fakeTaxonomyResponse,
         throwError: false,
