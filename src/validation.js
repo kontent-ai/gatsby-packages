@@ -44,19 +44,27 @@ const checkItemsObjectStructure = (contentItemNodes) => {
   }
 };
 
+const checkTaxonomyObjectStructure = (taxonomyNodes) => {
+  if (!hasBasicValidStructure(taxonomyNodes))
+  {  
+    throw new Error(`taxonomyNodes is not an array of valid objects.`);
+  }
+};
+
 const hasBasicValidStructure = (contentNodes) => {
   return _.isArray(contentNodes)
     && _.every(contentNodes, ((item) =>
       _.has(item, 'system.id')
       && _.has(item, 'system.name')
       && _.has(item, 'system.codename')
-      && _.has(item, 'elements')));
+      && (_.has(item, 'elements') || _.has(item, 'terms'))));
 };
 
 module.exports = {
   validateLanguageCodenames,
   checkTypesObjectStructure,
   checkItemsObjectStructure,
+  checkTaxonomyObjectStructure,
 };
 ;
 
