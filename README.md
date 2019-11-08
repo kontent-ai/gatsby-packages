@@ -351,6 +351,25 @@ All rich text properties with content items linked in the element also have an a
 
 All nodes have a `usedByContentItems` property that reflects the other nodes in which the given node is used as linked content in *Linked items* or *Rich text* elements.
 
+### Taxonomies
+
+Taxonomy groups can be queried similar to content types.  For example, to fetch a taxonomy group called *Categories*, you can query `allKontentTaxonomyCategories`, using the `terms` property to return the values of taxonomy terms.
+
+<details><summary>Example</summary>
+```gql
+{
+  allKontentTaxonomyCategories {
+    nodes {
+      terms {
+        name
+        codename
+      }
+    }
+  }
+}
+```
+</details>
+
 ## Development prerequisites
 
 * [Node.js](https://nodejs.org/) with NPM installed
