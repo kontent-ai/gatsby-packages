@@ -6,6 +6,7 @@ const { DeliveryClient } = require(`@kentico/kontent-delivery`);
 const validation = require(`./validation`);
 const itemNodes = require('./itemNodes');
 const typeNodes = require('./typeNodes');
+const taxonomiesNodes = require('./taxonomyNodes');
 
 const languageVariantsDecorator =
   require('./decorators/languageVariantsDecorator');
@@ -43,6 +44,11 @@ exports.sourceNodes =
       client,
       createNodeId,
       includeRawContent
+    );
+
+    const taxonomyNodes = await taxonomiesNodes.get(
+      client, 
+      createNodeId
     );
 
     const defaultCultureContentItemNodes = await itemNodes.
@@ -93,6 +99,10 @@ exports.sourceNodes =
       console.info(`Creating content item nodes for default language.`);
     }
     createNodes(defaultCultureContentItemNodes, createNode);
+    if (enableLogging) {
+      console.info(`Creating taxonomy nodes`);
+    }
+    createNodes(taxonomyNodes, createNode);
 
     if (enableLogging) {
       console.info(`Creating content item nodes for non-default languages.`);
@@ -105,10 +115,12 @@ exports.sourceNodes =
 
     const typeNodesCount = contentTypeNodes.length;
     const itemsCount = contentTypeNodes.length + nonDefaultLanguagesCount;
+    const taxonomiesCount = taxonomyNodes.length;
     if (enableLogging) {
       console.info(`Kentico Kontent nodes generation finished.`);
       console.info(`${typeNodesCount} Kontent types item imported.`);
       console.info(`${itemsCount} Kontent items imported.`);
+      console.info(`${taxonomiesCount} Kontent taxonomies imported.`);
     }
     return;
   };
