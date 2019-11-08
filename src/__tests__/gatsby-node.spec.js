@@ -10,6 +10,8 @@ const complexContentItemsSecondtLanguageFakeReponse =
   require('./complexContentItemsSecondLanguageFakeReponse.json');
 const complexTypesFakeResponse =
   require('./complexTypesFakeResponse.json');
+const fakeTaxonomyResponse = 
+  require('./fakeTaxonomyResponse.json');
 
 describe('customTrackingHeader', () => {
   it('has correct name', () => {
@@ -159,6 +161,12 @@ describe('sourceNodes', () => {
       /https:\/\/deliver.kontent.ai\/.*\/types/,
       {
         fakeResponseJson: complexTypesFakeResponse,
+        throwError: false,
+      });
+    fakeComplexConfig.set(
+      /https:\/\/deliver.kontent.ai\/.*\/types/,
+      {
+        fakeResponseJson: fakeTaxonomyResponse,
         throwError: false,
       });
 

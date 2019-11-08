@@ -1,0 +1,50 @@
+{
+    "taxonomies": [
+        {
+            "system": {
+                "id": "e4c2a7f7-2774-49eb-8d26-2351f646f407",
+                "name": "Categories",
+                "codename": "categories",
+                "last_modified": "2019-11-04T16:06:59.9936285Z"
+            },
+            "terms": [
+                {
+                    "name": "Article",
+                    "codename": "article",
+                    "terms": []
+                },
+                {
+                    "name": "Code",
+                    "codename": "code",
+                    "terms": []
+                },
+                {
+                    "name": "Education",
+                    "codename": "education",
+                    "terms": []
+                }
+            ]
+        },
+        {
+            "system": {
+                "id": "45ed7f4f-edb4-4f5c-a929-50ef6c214c10",
+                "name": "Tags",
+                "codename": "tags",
+                "last_modified": "2019-10-09T21:09:14.8052879Z"
+            },
+            "terms": [
+                {
+                    "name": "Education",
+                    "codename": "education",
+                    "terms": []
+                }
+            ]
+        }
+    ],
+    "pagination": {
+        "skip": 0,
+        "limit": 0,
+        "count": 2,
+        "next_page": ""
+    }
+}
