@@ -44,7 +44,7 @@ const checkItemsObjectStructure = (contentItemNodes) => {
   }
 };
 
-const checkTaxonomyObjectStructure = taxonomyNodes => {
+const checkTaxonomyObjectStructure = (taxonomyNodes) => {
   if (!hasBasicValidStructure(taxonomyNodes)) {
     throw new Error(`taxonomyNodes is not an array of valid objects.`);
   }
@@ -57,7 +57,7 @@ const hasBasicValidStructure = (contentNodes) => {
       && _.has(item, 'system.name')
       && _.has(item, 'system.codename')
       && (_.has(item, 'elements')) || _.has(item, 'terms'))
-  );
+    );
 };
 
 module.exports = {

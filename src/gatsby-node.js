@@ -47,7 +47,7 @@ exports.sourceNodes =
     );
 
     const taxonomyNodes = await taxonomiesNodes.get(
-      client, 
+      client,
       createNodeId
     );
 

@@ -364,6 +364,10 @@ Taxonomy groups can be queried similar to content types.  For example, to fetch 
         name
         codename
       }
+      system {
+        name
+        codename
+      }
     }
   }
 }

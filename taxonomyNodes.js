@@ -1,8 +1,8 @@
-"use strict";
+'use strict';
 
 const {
   parse,
-  stringify
+  stringify,
 } = require('flatted/cjs');
 
 const _ = require('lodash');
@@ -22,7 +22,7 @@ const validation = require('./validation');
 const get = async (client, createNodeId) => {
   const taxonomiesResponse = await client.taxonomies().toPromise();
   const taxonomiesFlatted = parse(stringify(taxonomiesResponse.taxonomies));
-  const taxonomyNodes = taxonomiesFlatted.map(taxonomy => {
+  const taxonomyNodes = taxonomiesFlatted.map((taxonomy) => {
     try {
       return createTaxonomyNode(createNodeId, taxonomy);
     } catch (error) {
@@ -52,5 +52,5 @@ const createTaxonomyNode = (createNodeId, taxonomy) => {
 };
 
 module.exports = {
-  get
+  get,
 };
