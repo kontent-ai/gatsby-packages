@@ -7,6 +7,8 @@ const richtextFakeItemsResponse =
   require('./richtextFakeItemsResponse.json');
 const richtextFakeTypesResponse =
   require('./richtextFakeTypesResponse.json');
+const fakeTaxonomiesResponse =
+  require('../fakeTaxonomiesResponse.json');
 
 const { sourceNodes } = require('../../gatsby-node');
 
@@ -27,6 +29,13 @@ describe(`Rich text resolution reference in modular content`, async () => {
       throwError: false,
     });
 
+    fakeRichTextResponseConfig.set(
+      /https:\/\/deliver.kontent.ai\/.*\/taxonomies/,
+      {
+        fakeResponseJson: fakeTaxonomiesResponse,
+        throwError: false,
+      });
+  
   const dummyCreateNodeID = jest.fn();
   dummyCreateNodeID.mockImplementation((input) => `dummy-${input}`);
 

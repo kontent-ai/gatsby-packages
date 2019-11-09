@@ -1,155 +1,52 @@
 {
-    "taxonomies": [
-      {
-        "system": {
-          "id": "03b40e77-d7bf-a3f9-3b7a-0a541ed1dc72",
-          "name": "Blog tags",
-          "codename": "blog_tags",
-          "last_modified": "2019-10-02T13:53:50.7174635Z"
-        },
-        "terms": [
-          {
-            "name": "SQL",
-            "codename": "sql",
-            "terms": []
-          },
-          {
-            "name": "CMS",
-            "codename": "cms",
-            "terms": []
-          },
-          {
-            "name": "Kentico Kontent",
-            "codename": "kentico_kontent",
-            "terms": []
-          },
-          {
-            "name": "Kentico",
-            "codename": "kentico",
-            "terms": []
-          },
-          {
-            "name": "Web development",
-            "codename": "web_development",
-            "terms": []
-          },
-          {
-            "name": "Azure",
-            "codename": "azure",
-            "terms": []
-          },
-          {
-            "name": "Reading",
-            "codename": "reading",
-            "terms": []
-          },
-          {
-            "name": "Docker",
-            "codename": "docker",
-            "terms": []
-          },
-          {
-            "name": "eCommerce",
-            "codename": "ecommerce",
-            "terms": []
-          },
-          {
-            "name": ".NET Core",
-            "codename": "_net_core",
-            "terms": []
-          },
-          {
-            "name": "GDPR",
-            "codename": "gdpr",
-            "terms": []
-          },
-          {
-            "name": "Ucommerce",
-            "codename": "ucommerce",
-            "terms": []
-          },
-          {
-            "name": "C#",
-            "codename": "c_",
-            "terms": []
-          },
-          {
-            "name": "MVC",
-            "codename": "mvc",
-            "terms": []
-          },
-          {
-            "name": "Dialogflow",
-            "codename": "dialogflow",
-            "terms": []
-          },
-          {
-            "name": "Chatbots",
-            "codename": "chatbots",
-            "terms": []
-          },
-          {
-            "name": "Gatsby",
-            "codename": "gatsby",
-            "terms": []
-          }
-        ]
+  "taxonomies": [
+    {
+      "system": {
+        "id": "f30c7f72-e9ab-8832-2a57-62944a038809",
+        "name": "Personas",
+        "codename": "personas",
+        "last_modified": "2016-10-20T13:24:00.3200000Z"
       },
-      {
-        "system": {
-          "id": "d7cb0bc0-53ab-7526-413b-e27a113c72b5",
-          "name": "Category",
-          "codename": "category",
-          "last_modified": "2016-12-07T00:09:06.4570625Z"
+      "terms": [
+        {
+          "name": "Coffee expert",
+          "codename": "coffee_expert",
+          "terms": [
+            {
+              "name": "Barista",
+              "codename": "barista",
+              "terms": []
+            },
+            {
+              "name": "Cafe owner",
+              "codename": "cafe_owner",
+              "terms": []
+            }
+          ]
         },
-        "terms": [
-          {
-            "name": "Web Development",
-            "codename": "web_development",
-            "terms": []
-          }
-        ]
-      },
-      {
-        "system": {
-          "id": "a2ce4b1f-9c9b-cc97-ac31-aaa59432f958",
-          "name": "Social media",
-          "codename": "social_media",
-          "last_modified": "2017-07-20T11:44:04.8890008Z"
-        },
-        "terms": [
-          {
-            "name": "Twitter",
-            "codename": "twitter",
-            "terms": []
-          },
-          {
-            "name": "Facebook",
-            "codename": "facebook",
-            "terms": []
-          },
-          {
-            "name": "LinkedIn",
-            "codename": "linkedin",
-            "terms": []
-          },
-          {
-            "name": "Stackoverflow",
-            "codename": "stackoverflow",
-            "terms": []
-          },
-          {
-            "name": "dev.to",
-            "codename": "dev_to",
-            "terms": []
-          }
-        ]
-      }
-    ],
-    "pagination": {
-      "skip": 0,
-      "limit": 0,
-      "count": 3,
-      "next_page": ""
+        {
+          "name": "Coffee enthusiast",
+          "codename": "coffee_enthusiast",
+          "terms": [
+            {
+              "name": "Coffee lover",
+              "codename": "coffee_lover",
+              "terms": []
+            },
+            {
+              "name": "Coffee blogger",
+              "codename": "coffee_blogger",
+              "terms": []
+            }
+          ]
+        }
+      ]
     }
+  ],
+  "pagination": {
+    "skip": 0,
+    "limit": 0,
+    "count": 1,
+    "next_page": ""
   }
+}

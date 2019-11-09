@@ -6,6 +6,8 @@ const richtextCircularReferenceFakeItemsResponse =
   require('./richtextCircularReferenceFakeItemsResponse.json');
 const richtextCircularReferenceFakeTypesResponse =
   require('./richtextCircularReferenceFakeTypesResponse.json');
+const fakeTaxonomiesResponse =
+  require('../fakeTaxonomiesResponse.json');
 
 const { sourceNodes } = require('../../gatsby-node');
 
@@ -26,10 +28,18 @@ describe(`Rich text resolution reference in modular content`, async () => {
       throwError: false,
     });
 
+  fakeRichTextResponseConfig.set(
+    /https:\/\/deliver.kontent.ai\/.*\/taxonomies/,
+    {
+      fakeResponseJson: fakeTaxonomiesResponse,
+      throwError: false,
+    });
+
   const dummyCreateNodeID = jest.fn();
   dummyCreateNodeID.mockImplementation((input) => `dummy-${input}`);
 
   const createNodeMock = jest.fn();
+  
   const actions = {
     actions: {
       createNode: createNodeMock,
@@ -50,7 +60,7 @@ describe(`Rich text resolution reference in modular content`, async () => {
     languageCodenames: ['default'],
   };
 
-  it('resolves values using resolvers in rich text', async () => {
+  test('resolves values using resolvers in rich text', async () => {
     await sourceNodes(actions, pluginConfiguration);
 
     const calls = createNodeMock.mock.calls;

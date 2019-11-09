@@ -5,6 +5,58 @@ Array [
   Array [
     Object {
       "children": Array [],
+      "id": "dummy-kentico-cloud-taxonomy-personas",
+      "internal": Object {
+        "contentDigest": "91ece672836106bfc0f186606f20a01d",
+        "type": "KontentTaxonomyPersonas",
+      },
+      "parent": null,
+      "system": Object {
+        "codename": "personas",
+        "id": "f30c7f72-e9ab-8832-2a57-62944a038809",
+        "lastModified": "2016-10-20T13:24:00.3200000Z",
+        "name": "Personas",
+      },
+      "terms": Array [
+        Object {
+          "codename": "coffee_expert",
+          "name": "Coffee expert",
+          "terms": Array [
+            Object {
+              "codename": "barista",
+              "name": "Barista",
+              "terms": Array [],
+            },
+            Object {
+              "codename": "cafe_owner",
+              "name": "Cafe owner",
+              "terms": Array [],
+            },
+          ],
+        },
+        Object {
+          "codename": "coffee_enthusiast",
+          "name": "Coffee enthusiast",
+          "terms": Array [
+            Object {
+              "codename": "coffee_lover",
+              "name": "Coffee lover",
+              "terms": Array [],
+            },
+            Object {
+              "codename": "coffee_blogger",
+              "name": "Coffee blogger",
+              "terms": Array [],
+            },
+          ],
+        },
+      ],
+      "usedByContentItems___NODE": Array [],
+    },
+  ],
+  Array [
+    Object {
+      "children": Array [],
       "contentItems___NODE": Array [
         "dummy-kentico-kontent-item-main-project-default",
         "dummy-kentico-kontent-item-sub-project-1-default",
