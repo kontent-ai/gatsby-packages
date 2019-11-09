@@ -27,7 +27,6 @@ describe(`Circular reference in modular content`, async () => {
       throwError: false,
     });
 
-    
   fakeHttpServiceConfig.set(
     /https:\/\/deliver.kontent.ai\/.*\/taxonomies/,
     {
@@ -50,7 +49,7 @@ describe(`Circular reference in modular content`, async () => {
     projectId: 'dummyProject',
     typeResolvers: [],
     httpService: new KontentTestHttpService(
-      fakeHttpServiceConfig
+      fakeHttpServiceConfig,
     ),
   };
 

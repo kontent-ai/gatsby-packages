@@ -13,13 +13,13 @@ const validation = require('../validation');
  */
 const decorateItemNodesWithRichTextLinkedItemsLinks = (
   defaultCultureContentItemNodes,
-  nonDefaultLanguageItemNodes
+  nonDefaultLanguageItemNodes,
 ) => {
   defaultCultureContentItemNodes.forEach((itemNode) => {
     try {
       decorateItemNodeWithRichTextLinkedItemsLinks(
         itemNode,
-        defaultCultureContentItemNodes
+        defaultCultureContentItemNodes,
       );
     } catch (error) {
       console.error(error);
@@ -82,14 +82,14 @@ const decorateItemNodeWithRichTextLinkedItemsLinks =
             .filter((node) => _.has(property, `linkedItemCodenames`)
               && _.isArray(property.linkedItemCodenames)
               && property.linkedItemCodenames.includes(
-                node.system.codename)
+                node.system.codename),
             );
 
           _.set(itemNode.elements, linkPropertyName, []);
           normalize.addLinkedItemsLinks(
             itemNode,
             linkedNodes,
-            linkPropertyName
+            linkPropertyName,
           );
         }
       });

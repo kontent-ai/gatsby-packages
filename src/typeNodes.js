@@ -61,7 +61,7 @@ const createContentTypeNode = (
     `type`,
     contentType.system.codename,
     additionalData,
-    includeRawContent
+    includeRawContent,
   );
 };
 

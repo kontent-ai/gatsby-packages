@@ -33,7 +33,7 @@ describe('normalize.spec.js', () => {
         contentType.system.codename,
         {
           contentItems___NODE: [],
-        }
+        },
       );
 
       checkArtifactStructure(artifact);
@@ -68,7 +68,7 @@ describe('normalize.spec.js', () => {
         {
           otherLanguages___NODE: [],
           contentType___NODE: 'dummyContentTypeId',
-        }
+        },
       );
 
       checkArtifactStructure(artifact);
@@ -87,7 +87,7 @@ describe('normalize.spec.js', () => {
           otherLanguages___NODE: [],
           contentType___NODE: 'dummyContentTypeId',
         },
-        true
+        true,
       );
 
       checkArtifactStructure(artifact);

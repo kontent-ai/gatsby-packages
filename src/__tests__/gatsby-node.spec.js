@@ -61,18 +61,18 @@ describe('sourceNodes', () => {
         },
         throwError: false,
       });
-      fakeEmptyResponseConfig.set(
-        /https:\/\/deliver.kontent.ai\/.*\/taxonomies/,
-        {
-          fakeResponseJson: {
-            taxonomies: [],
-            pagination: {
-              continuation_token: null,
-              next_page: null,
-            },
+    fakeEmptyResponseConfig.set(
+      /https:\/\/deliver.kontent.ai\/.*\/taxonomies/,
+      {
+        fakeResponseJson: {
+          taxonomies: [],
+          pagination: {
+            continuation_token: null,
+            next_page: null,
           },
-          throwError: false,
-        });
+        },
+        throwError: false,
+      });
 
     const fakeEmptyTestService =
       new KontentTestHttpService(fakeEmptyResponseConfig);
@@ -89,7 +89,7 @@ describe('sourceNodes', () => {
         {
           deliveryClientConfig,
           languageCodenames: ['default'],
-        }
+        },
       );
 
       expect(deliveryClientConfig.globalQueryConfig.customHeaders)
@@ -113,7 +113,7 @@ describe('sourceNodes', () => {
         {
           deliveryClientConfig,
           languageCodenames: ['default'],
-        }
+        },
       );
 
       expect(deliveryClientConfig.globalQueryConfig.customHeaders)
@@ -142,7 +142,7 @@ describe('sourceNodes', () => {
         {
           deliveryClientConfig,
           languageCodenames: ['default'],
-        }
+        },
       );
 
       expect(deliveryClientConfig.globalQueryConfig.customHeaders)
@@ -181,34 +181,34 @@ describe('sourceNodes', () => {
         throwError: false,
       });
 
-  const createNodeMock = jest.fn();
-  const actions = {
-    actions: {
-      createNode: createNodeMock,
-    },
-    createNodeId: dummyCreation.createNodeId,
-  };
+    const createNodeMock = jest.fn();
+    const actions = {
+      actions: {
+        createNode: createNodeMock,
+      },
+      createNodeId: dummyCreation.createNodeId,
+    };
 
-  const deliveryClientConfig = {
-    projectId: 'dummyProject',
-    typeResolvers: [],
-    httpService: new KontentTestHttpService(
-      fakeComplexConfig
-    ),
-  };
+    const deliveryClientConfig = {
+      projectId: 'dummyProject',
+      typeResolvers: [],
+      httpService: new KontentTestHttpService(
+        fakeComplexConfig,
+      ),
+    };
 
-  const pluginConfiguration = {
-    deliveryClientConfig,
-    languageCodenames: ['default', 'Another_language'],
-  };
+    const pluginConfiguration = {
+      deliveryClientConfig,
+      languageCodenames: ['default', 'Another_language'],
+    };
 
-  it('resolve all element types in two languages', async () => {
-    await sourceNodes(actions, pluginConfiguration);
+    it('resolve all element types in two languages', async () => {
+      await sourceNodes(actions, pluginConfiguration);
 
-    const calls = createNodeMock.mock.calls;
-    expect(calls).toMatchSnapshot();
+      const calls = createNodeMock.mock.calls;
+      expect(calls).toMatchSnapshot();
+    });
   });
-});
 });
 
 

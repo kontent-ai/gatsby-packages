@@ -43,7 +43,7 @@ const createTaxonomyNode = (createNodeId, taxonomy) => {
     nodeId,
     taxonomy,
     `taxonomy`,
-    taxonomy.system.codename
+    taxonomy.system.codename,
   );
 };
 

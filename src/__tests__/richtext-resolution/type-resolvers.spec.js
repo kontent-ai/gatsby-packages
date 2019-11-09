@@ -29,13 +29,13 @@ describe(`Rich text resolution reference in modular content`, async () => {
       throwError: false,
     });
 
-    fakeRichTextResponseConfig.set(
-      /https:\/\/deliver.kontent.ai\/.*\/taxonomies/,
-      {
-        fakeResponseJson: fakeTaxonomiesResponse,
-        throwError: false,
-      });
-  
+  fakeRichTextResponseConfig.set(
+    /https:\/\/deliver.kontent.ai\/.*\/taxonomies/,
+    {
+      fakeResponseJson: fakeTaxonomiesResponse,
+      throwError: false,
+    });
+
   const dummyCreateNodeID = jest.fn();
   dummyCreateNodeID.mockImplementation((input) => `dummy-${input}`);
 
@@ -70,13 +70,13 @@ describe(`Rich text resolution reference in modular content`, async () => {
     projectId: 'dummyProject',
     typeResolvers: [
       new TypeResolver('landing_page_image_section', (rawData) =>
-        new LandingPageImageSection(rawData)
+        new LandingPageImageSection(rawData),
       ),
       new TypeResolver('project', (rawData) =>
         new Project(rawData)),
     ],
     httpService: new KontentTestHttpService(
-      fakeRichTextResponseConfig
+      fakeRichTextResponseConfig,
     ),
   };
 

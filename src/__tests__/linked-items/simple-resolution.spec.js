@@ -50,7 +50,7 @@ describe(
       projectId: 'dummyProject',
       typeResolvers: [],
       httpService: new KontentTestHttpService(
-        fakeHttpServiceConfig
+        fakeHttpServiceConfig,
       ),
     };
 

@@ -25,7 +25,7 @@ exports.sourceNodes =
       languageCodenames,
       enableLogging = false,
       includeRawContent = false,
-    }
+    },
   ) => {
     if (enableLogging) {
       console.info(`Generating Kentico Kontent nodes for projectId:\
@@ -44,7 +44,7 @@ exports.sourceNodes =
     const contentTypeNodes = await typeNodes.get(
       client,
       createNodeId,
-      includeRawContent
+      includeRawContent,
     );
 
     const defaultCultureContentItemNodes = await itemNodes.
@@ -67,24 +67,24 @@ exports.sourceNodes =
 
     languageVariantsDecorator.decorateItemsWithLanguageVariants(
       defaultCultureContentItemNodes,
-      nonDefaultLanguageItemNodes
+      nonDefaultLanguageItemNodes,
     );
 
     const allItemNodes = defaultCultureContentItemNodes
       .concat(_.flatten(Object.values(nonDefaultLanguageItemNodes)));
     typeItemDecorator.decorateTypeNodesWithItemLinks(
       allItemNodes,
-      contentTypeNodes
+      contentTypeNodes,
     );
 
     linkedItemsElementDecorator.decorateItemNodesWithLinkedItemsLinks(
       defaultCultureContentItemNodes,
-      nonDefaultLanguageItemNodes
+      nonDefaultLanguageItemNodes,
     );
 
     richTextElementDecorator.decorateItemNodesWithRichTextLinkedItemsLinks(
       defaultCultureContentItemNodes,
-      nonDefaultLanguageItemNodes
+      nonDefaultLanguageItemNodes,
     );
 
     if (enableLogging) {
@@ -138,7 +138,7 @@ const addHeader = (deliveryClientConfig, trackingHeader) => {
   let headers = _.cloneDeep(
     deliveryClientConfig
       .globalQueryConfig
-      .customHeaders
+      .customHeaders,
   );
 
   if (headers.some((header) => header.header === trackingHeader.header)) {
