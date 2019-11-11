@@ -11,7 +11,7 @@ const fakeItemsResponse =
 
 describe(
   `Complex content types schema resolution`,
-  async () => {
+  () => {
     // Project ID 532c0844-5eb3-0033-7d1b-faeea1e7e407
     const fakeHttpServiceConfig = new Map();
     fakeHttpServiceConfig.set(

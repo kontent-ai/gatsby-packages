@@ -12,7 +12,7 @@ const fakeTypeResponse =
 
 describe(
   `Simple linked items element contains reference to another items`,
-  async () => {
+  () => {
     const fakeHttpServiceConfig = new Map();
     fakeHttpServiceConfig.set(
       /https:\/\/deliver.kontent.ai\/.*\/items/,
@@ -32,9 +32,11 @@ describe(
 
     const createNodeMock = jest.fn();
     const createTypesMock = jest.fn();
-    const mockedSchema = { buildObjectType: jest.fn((input) => ({
-      data: input,
-    }))}; ;
+    const mockedSchema = {
+      buildObjectType: jest.fn((input) => ({
+        data: input,
+      }))
+    };;
 
     const actions = {
       actions: {

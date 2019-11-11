@@ -10,7 +10,7 @@ const circularReferenceItemsResponse =
 const fakeTypeResponse =
   require('./fakeTypeResponse.json');
 
-describe(`Circular reference in modular content`, async () => {
+describe(`Circular reference in modular content`, () => {
   const fakeHttpServiceConfig = new Map();
   fakeHttpServiceConfig.set(
     /https:\/\/deliver.kontent.ai\/.*\/items/,

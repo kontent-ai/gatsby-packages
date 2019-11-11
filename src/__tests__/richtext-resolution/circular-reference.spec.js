@@ -10,7 +10,7 @@ const richtextCircularReferenceFakeTypesResponse =
 const { sourceNodes } = require('../../gatsby-node');
 
 
-describe(`Rich text resolution reference in modular content`, async () => {
+describe(`Rich text resolution reference in modular content`, () => {
   const fakeRichTextResponseConfig = new Map();
   fakeRichTextResponseConfig.set(
     /https:\/\/deliver.kontent.ai\/.*\/items/,
