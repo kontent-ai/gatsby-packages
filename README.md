@@ -226,6 +226,8 @@ KontentItemArticle.elements.related_articles.linked_items[].elements.manufacture
 
 Custom element is now supported including [custom element models definition](https://github.com/Kentico/kontent-delivery-sdk-js/blob/v8.0.0/DOCS.md#using-custom-models-for-custom-elements). SO besides of the raw value property `value` it is possible to parse it and include it in the GraphQL model.
 
+> External properties are not automatically generated [using Schema API](docs/UPGRADE.md#schema-definition-api--all-items-query).
+
 ### Rich text resolution
 
 With following features, it is possible to resolve rich text [into the HTML string](#embedded-JS-SDK-resolution), that could be injected to the site. For more complex scenarios, it is possible to use the raw `value` property in combination with [`linked_items`](#content-items-in-rich-text-elements-relationships), [`links`](#links-in-rich-text-elements), and [`images`](#images-in-rich-text-elements) property.

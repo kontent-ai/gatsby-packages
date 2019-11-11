@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Element resolver in configuration resolves correctly passes parsed data to the model 1`] = `
+Array [
+  Array [
+    Object {
+      "children": Array [],
+      "contentItems___NODE": Array [
+        "dummy-kentico-kontent-item-content-item-1-default",
+      ],
+      "elements": Array [
+        Object {
+          "codename": "custom_element",
+          "name": "Youtube",
+          "options": Array [],
+          "type": "custom",
+        },
+      ],
+      "id": "dummy-kentico-kontent-type-content-type",
+      "internal": Object {
+        "contentDigest": "b76693de90391308edcfcdd6639ead60",
+        "type": "KontentTypeContentType",
+      },
+      "parent": null,
+      "system": Object {
+        "codename": "content_type",
+        "id": "9ea98d20-a477-455c-b30f-0e3b9d055795",
+        "lastModified": "2018-12-28T00:00:00.115595Z",
+        "name": "Content type",
+      },
+      "usedByContentItems___NODE": Array [],
+    },
+  ],
+  Array [
+    Object {
+      "children": Array [],
+      "contentType___NODE": "dummy-kentico-kontent-type-content-type",
+      "elements": Object {
+        "custom_element": Object {
+          "name": "Youtube",
+          "title": "Eminem - Lose Yourself [HD]",
+          "type": "custom",
+          "value": "{\\"title\\":\\"Eminem - Lose Yourself [HD]\\",\\"videoId\\":\\"_Yhyp-_hX2s\\"}",
+          "videoId": "_Yhyp-_hX2s",
+        },
+      },
+      "id": "dummy-kentico-kontent-item-content-item-1-default",
+      "internal": Object {
+        "contentDigest": "54ad7f2d8a2b1d281a6a6ad3cebe9f25",
+        "type": "KontentItemContentType",
+      },
+      "otherLanguages___NODE": Array [],
+      "parent": null,
+      "preferred_language": "default",
+      "system": Object {
+        "codename": "content_item_1",
+        "id": "7e70cb89-9281-4db9-8130-36076ee1e698",
+        "language": "default",
+        "lastModified": "2018-12-28T00:00:00.322Z",
+        "name": "Content item 1",
+        "sitemapLocations": Array [],
+        "type": "content_type",
+      },
+      "usedByContentItems___NODE": Array [],
+    },
+  ],
+]
+`;
