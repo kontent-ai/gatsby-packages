@@ -35,8 +35,8 @@ describe(
     const mockedSchema = {
       buildObjectType: jest.fn((input) => ({
         data: input,
-      }))
-    };;
+      })),
+    }; ;
 
     const actions = {
       actions: {
