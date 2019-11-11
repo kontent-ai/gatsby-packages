@@ -196,7 +196,7 @@ Rich text elements internal structure was extended. The main difference is that 
 
 ### Schema definition API & All items query
 
-Thanks to #80 it is possible remove the [fully filled dummy content items](https://github.com/Kentico/gatsby-source-kontent/issues/59#issuecomment-496412677) from Kentico Kontent to provide Gatsby inference engine information about content structure.
+Thanks to [#80](https://github.com/Kentico/gatsby-source-kontent/pull/80) it is possible remove the [fully filled dummy content items](https://github.com/Kentico/gatsby-source-kontent/issues/59#issuecomment-496412677) from Kentico Kontent to provide Gatsby inference engine information about content structure.
 
 As a part of that adjustment there are two queries (`allKontentItem` and `kontentItem`) allows to load content items from unified endpoint regardless of type
 
