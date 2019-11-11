@@ -10,6 +10,7 @@
 !validation.js
 !itemNodes.js
 !typeNodes.js
+!typeNodesSchema.js
 !decorators/languageVariantsDecorator.js
 !decorators/typeItemDecorator.js
 !decorators/richTextElementDecorator.js

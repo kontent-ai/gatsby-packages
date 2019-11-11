@@ -7,6 +7,7 @@ const validation = require(`./validation`);
 const itemNodes = require('./itemNodes');
 const typeNodes = require('./typeNodes');
 const taxonomiesNodes = require('./taxonomyNodes');
+const typeNodesSchema = require('./typeNodesSchema');
 
 const languageVariantsDecorator =
   require('./decorators/languageVariantsDecorator');
@@ -20,7 +21,7 @@ const { customTrackingHeader } = require('./config');
 
 
 exports.sourceNodes =
-  async ({ actions: { createNode }, createNodeId },
+  async ({ actions: { createNode, createTypes }, createNodeId, schema },
     { deliveryClientConfig,
       languageCodenames,
       enableLogging = false,
@@ -45,6 +46,17 @@ exports.sourceNodes =
       client,
       createNodeId,
       includeRawContent,
+    );
+
+    if (enableLogging) {
+      console.info(
+        `Creating type nodes schema.`
+      );
+    }
+    await typeNodesSchema.createTypeNodesSchema(
+      client,
+      schema,
+      createTypes,
     );
 
     const defaultCultureContentItemNodes = await itemNodes.
@@ -96,6 +108,7 @@ exports.sourceNodes =
       console.info(`Creating content type nodes.`);
     }
     createNodes(contentTypeNodes, createNode);
+
     if (enableLogging) {
       console.info(`Creating content item nodes for default language.`);
     }

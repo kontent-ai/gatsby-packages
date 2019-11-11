@@ -26,12 +26,15 @@ describe('customTrackingHeader', () => {
 describe('sourceNodes', () => {
   const dummyCreateNodeID = jest.fn();
   dummyCreateNodeID.mockReturnValue('dummyId');
+  const schemaDummy = { buildObjectType: jest.fn((input) => ({ data: input }))};
 
   const dummyCreation = {
     actions: {
       createNode: jest.fn(),
+      createTypes: jest.fn(),
     },
     createNodeId: dummyCreateNodeID,
+    schema: schemaDummy,
   };
 
   describe('tracking header tests', () => {
@@ -182,11 +185,18 @@ describe('sourceNodes', () => {
       });
 
     const createNodeMock = jest.fn();
+    const createTypesMock = jest.fn();
+    const mockedSchema = { buildObjectType: jest.fn((input) => ({
+      data: input,
+    }))};
+
     const actions = {
       actions: {
         createNode: createNodeMock,
+        createTypes: createTypesMock,
       },
       createNodeId: dummyCreation.createNodeId,
+      schema: mockedSchema,
     };
 
     const deliveryClientConfig = {

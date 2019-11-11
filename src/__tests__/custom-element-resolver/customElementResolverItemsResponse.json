@@ -1,0 +1,29 @@
+{
+  "items": [
+    {
+      "system": {
+        "id": "7e70cb89-9281-4db9-8130-36076ee1e698",
+        "name": "Content item 1",
+        "codename": "content_item_1",
+        "language": "default",
+        "type": "content_type",
+        "sitemap_locations": [],
+        "last_modified": "2018-12-28T00:00:00.3224207Z"
+      },
+      "elements": {
+        "custom_element": {
+          "type": "custom",
+          "name": "Youtube",
+          "value": "{\"title\":\"Eminem - Lose Yourself [HD]\",\"videoId\":\"_Yhyp-_hX2s\"}"
+        }
+      }
+    }
+  ],
+  "modular_content": [],
+  "pagination": {
+    "skip": 0,
+    "limit": 0,
+    "count": 1,
+    "next_page": ""
+  }
+}

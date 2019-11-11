@@ -12,7 +12,7 @@ const fakeTaxonomiesResponse =
 const { sourceNodes } = require('../../gatsby-node');
 
 
-describe(`Rich text resolution reference in modular content`, async () => {
+describe(`Rich text resolution reference in modular content`, () => {
   const fakeRichTextResponseConfig = new Map();
   fakeRichTextResponseConfig.set(
     /https:\/\/deliver.kontent.ai\/.*\/items/,
@@ -39,12 +39,18 @@ describe(`Rich text resolution reference in modular content`, async () => {
   dummyCreateNodeID.mockImplementation((input) => `dummy-${input}`);
 
   const createNodeMock = jest.fn();
+  const createTypesMock = jest.fn();
+  const schemaDummy = { buildObjectType: jest.fn((input) => ({
+    data: input,
+  }))}; ;
 
   const actions = {
     actions: {
       createNode: createNodeMock,
+      createTypes: createTypesMock,
     },
     createNodeId: dummyCreateNodeID,
+    schema: schemaDummy,
   };
 
   const deliveryClientConfig = {

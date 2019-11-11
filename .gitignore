@@ -12,6 +12,7 @@ node_modules
 /itemNodes.js
 /typeNodes.js
 /taxonomyNodes.js
+/typeNodesSchema.js
 /decorators/languageVariantsDecorator.js
 /decorators/typeItemDecorator.js
 /decorators/richTextElementDecorator.js

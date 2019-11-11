@@ -12,7 +12,7 @@ const fakeTypeResponse =
 const fakeTaxonomiesResponse =
   require('../fakeTaxonomiesResponse.json');
 
-describe(`Circular reference in modular content`, async () => {
+describe(`Circular reference in modular content`, () => {
   const fakeHttpServiceConfig = new Map();
   fakeHttpServiceConfig.set(
     /https:\/\/deliver.kontent.ai\/.*\/items/,
@@ -38,11 +38,18 @@ describe(`Circular reference in modular content`, async () => {
   dummyCreateNodeID.mockImplementation((input) => `dummy-${input}`);
 
   const createNodeMock = jest.fn();
+  const createTypesMock = jest.fn();
+  const mockedSchema = { buildObjectType: jest.fn((input) => ({
+    data: input,
+  }))}; ;
+
   const actions = {
     actions: {
       createNode: createNodeMock,
+      createTypes: createTypesMock,
     },
     createNodeId: dummyCreateNodeID,
+    schema: mockedSchema,
   };
 
   const deliveryClientConfig = {

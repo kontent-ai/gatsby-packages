@@ -226,6 +226,8 @@ KontentItemArticle.elements.related_articles.linked_items[].elements.manufacture
 
 Custom element is now supported including [custom element models definition](https://github.com/Kentico/kontent-delivery-sdk-js/blob/v8.0.0/DOCS.md#using-custom-models-for-custom-elements). SO besides of the raw value property `value` it is possible to parse it and include it in the GraphQL model.
 
+> External properties are not automatically generated [using Schema API](docs/UPGRADE.md#schema-definition-api--all-items-query).
+
 ### Taxonomy support
 
 Each taxonomy group can be returned as a nested group of taxonomy terms. To retrieve the `Personas`, the following graphQL can be used:
@@ -428,6 +430,59 @@ All rich text properties with content items linked in the element also have an a
 ### Reverse link relationships
 
 All nodes have a `usedByContentItems` property that reflects the other nodes in which the given node is used as linked content in *Linked items* or *Rich text* elements.
+
+### All items queries
+
+There are two queries (`allKontentItem` and `kontentItem`) allows to load content items from unified endpoint regardless of type.
+
+<details><summary>Example</summary>
+
+```gql
+query {
+  allKontentItem {
+    nodes {
+      system {
+        type
+        name
+      }
+    }
+  }
+}
+```
+
+Response
+
+```json
+{
+  "data": {
+    "allKontentItem": {
+      "nodes": [
+        {
+          "system": {
+            "type": "about_us",
+            "name": "About us"
+          }
+        },
+        {
+          "system": {
+            "type": "fact_about_us",
+            "name": "How we roast our coffees"
+          }
+        },
+        {
+          "system": {
+            "type": "fact_about_us",
+            "name": "How we source our coffees"
+          }
+        },
+        ...
+      ]
+    }
+  }
+}
+```
+
+</details>
 
 ## Development prerequisites
 
