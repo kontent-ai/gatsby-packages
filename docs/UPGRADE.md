@@ -105,6 +105,7 @@ Linked items are not directly under the element codename (`linked_items_type` in
           type
           value {
             name
+            description
             size
             type
             url
@@ -141,8 +142,7 @@ Linked items are not directly under the element codename (`linked_items_type` in
 }
 ```
 
-
-### Rich text
+### Rich text element structure
 
 Rich text elements internal structure was extended. The main difference is that `resolvedHtml` is now transfered `resolvedData.html`.
 
@@ -170,6 +170,7 @@ Rich text elements internal structure was extended. The main difference is that 
             }
           }
           images {
+            description
             height
             imageId
             url
@@ -191,4 +192,23 @@ Rich text elements internal structure was extended. The main difference is that 
     }
   }
 }
+```
+
+### Schema definition API & All items query
+
+Thanks to [#80](https://github.com/Kentico/gatsby-source-kontent/pull/80) it is possible remove the [fully filled dummy content items](https://github.com/Kentico/gatsby-source-kontent/issues/59#issuecomment-496412677) from Kentico Kontent to provide Gatsby inference engine information about content structure.
+
+As a part of that adjustment there are two queries (`allKontentItem` and `kontentItem`) allows to load content items from unified endpoint regardless of type
+
+```gql
+  query {
+    allKontentItem {
+      nodes {
+        system {
+          codename
+          name
+        }
+      }
+    }
+  }
 ```

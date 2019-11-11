@@ -1,0 +1,84 @@
+{
+  "types": [
+    {
+      "system": {
+        "id": "a42d5be7-14e4-483d-ac7d-918bd679aee8",
+        "name": "WithItem",
+        "codename": "withitem",
+        "last_modified": "2019-11-04T09:49:40.8021985Z"
+      },
+      "elements": {
+        "title": {
+          "type": "text",
+          "name": "Title"
+        },
+        "description": {
+          "type": "rich_text",
+          "name": "Description"
+        }
+      }
+    },
+    {
+      "system": {
+        "id": "a5510551-7879-4f6a-bf87-c7d7f7b09c36",
+        "name": "WithoutItem",
+        "codename": "withoutitem",
+        "last_modified": "2019-11-05T12:26:22.4591962Z"
+      },
+      "elements": {
+        "description": {
+          "type": "rich_text",
+          "name": "Description"
+        },
+        "related_items": {
+          "type": "modular_content",
+          "name": "Related items"
+        },
+        "photos": {
+          "type": "asset",
+          "name": "Photos"
+        },
+        "your_awesome_choices": {
+          "type": "multiple_choice",
+          "name": "Your awesome choices",
+          "options": [
+            {
+              "name": "one",
+              "codename": "one"
+            },
+            {
+              "name": "two",
+              "codename": "two"
+            },
+            {
+              "name": "any",
+              "codename": "any"
+            }
+          ]
+        },
+        "custocm_color_picker": {
+          "type": "custom",
+          "name": "Custom color picker"
+        },
+        "title": {
+          "type": "text",
+          "name": "Title"
+        },
+        "born": {
+          "type": "date_time",
+          "name": "Born"
+        },
+        "count_of_everything": {
+          "type": "number",
+          "name": "Count of Everything"
+        }
+      }
+    }
+  ],
+  "pagination": {
+    "skip": 0,
+    "limit": 0,
+    "count": 2,
+    "next_page": ""
+  }
+}
