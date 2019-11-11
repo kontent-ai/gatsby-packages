@@ -10,7 +10,7 @@ const customElementResolverItemsResponse =
   require('./customElementResolverItemsResponse.json');
 const customElementResolverTypesResponse =
   require('./customElementResolverTypesResponse.json');
-  const fakeTaxonomiesResponse =
+const fakeTaxonomiesResponse =
   require('../fakeTaxonomiesResponse.json');
 
 const { sourceNodes } = require('../../gatsby-node');
@@ -32,12 +32,12 @@ describe(`Element resolver in configuration resolves correctly`,
         throwError: false,
       });
 
-      fakeRichTextResponseConfig.set(
-        /https:\/\/deliver.kontent.ai\/.*\/taxonomies/,
-        {
-          fakeResponseJson: fakeTaxonomiesResponse,
-          throwError: false,
-        });
+    fakeRichTextResponseConfig.set(
+      /https:\/\/deliver.kontent.ai\/.*\/taxonomies/,
+      {
+        fakeResponseJson: fakeTaxonomiesResponse,
+        throwError: false,
+      });
 
     const dummyCreateNodeID = jest.fn();
     dummyCreateNodeID.mockImplementation((input) => `dummy-${input}`);
@@ -80,7 +80,7 @@ describe(`Element resolver in configuration resolves correctly`,
         }
       }),
       httpService: new KontentTestHttpService(
-        fakeRichTextResponseConfig
+        fakeRichTextResponseConfig,
       ),
     };
 

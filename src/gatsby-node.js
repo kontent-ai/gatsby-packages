@@ -50,7 +50,7 @@ exports.sourceNodes =
 
     if (enableLogging) {
       console.info(
-        `Creating type nodes schema.`
+        `Creating type nodes schema.`,
       );
     }
     await typeNodesSchema.createTypeNodesSchema(

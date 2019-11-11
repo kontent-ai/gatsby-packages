@@ -8,7 +8,7 @@ const fakeTypesResponse =
   require('./fakeTypesResponse.json');
 const fakeItemsResponse =
   require('./fakeItemsResponse.json');
-const fakeTaxonomiesReponse = 
+const fakeTaxonomiesReponse =
   require('../fakeTaxonomiesResponse.json');
 
 describe(
@@ -32,9 +32,8 @@ describe(
       /https:\/\/deliver.kontent.ai\/.*\/taxonomies/,
       {
         fakeResponseJson: fakeTaxonomiesReponse,
-        throError: false,
-      }
-    )
+        throwError: false,
+      });
 
     const dummyCreateNodeID = jest.fn();
     dummyCreateNodeID.mockImplementation((input) => `dummy-${input}`);
@@ -59,7 +58,7 @@ describe(
       projectId: 'dummyProject',
       typeResolvers: [],
       httpService: new KontentTestHttpService(
-        fakeHttpServiceConfig
+        fakeHttpServiceConfig,
       ),
     };
 
