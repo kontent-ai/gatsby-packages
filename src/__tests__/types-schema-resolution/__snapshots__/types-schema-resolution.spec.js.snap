@@ -1,0 +1,221 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Complex content types schema resolution passes with no error 1`] = `
+Array [
+  Array [
+    "
+    interface KontentItem @nodeInterface {
+      id: ID!
+      system: KontentItemSystem!
+      preferred_language: String!
+    }
+    interface KontentElement @dontInfer {
+      name: String!
+      type: String!
+    }
+    type KontentItemSystem @infer {
+      codename: String!
+      id: String!
+      language: String!
+      lastModified: Date! @dateformat
+      name: String!
+      type: String!
+    }
+    type KontentAsset @infer {
+      name: String!
+      description: String
+      type: String!
+      size: Int!
+      url: String!
+      width: Int
+      height: Int
+    }
+    type KontentElementMultipleChoiceValue @infer {
+      codename: String!
+      name: String!
+    }
+    type KontentElementRichTextResolvedData @infer{
+      html: String
+      linkedItemCodenames: [String]
+      componentCodenames: [String]
+    }
+    type KontentRichTextImage @infer {
+      description: String
+      height: Int!
+      imageId: String!
+      url: String!
+      width: Int!
+    }
+    type KontentRichTextLink @infer {
+      codename: String!
+      linkId: String!
+      type: String!
+      urlSlug: String!
+    }
+    type KontentAssetElement implements KontentElement @infer {
+      name: String!
+      type: String!
+      value: [KontentAsset]
+    }
+    type KontentDateTimeElement implements KontentElement @infer {
+      name: String!
+      type: String!
+      value: Date @dateformat
+    }
+    type KontentModularContentElement implements KontentElement @infer {
+      name: String!
+      type: String!
+      itemCodenames: [String]
+      linked_items: [KontentItem] @link(by: \\"id\\", from: \\"linked_items___NODE\\")
+    }
+    type KontentMultipleChoiceElement implements KontentElement @infer {
+      name: String!
+      type: String!
+      value: [KontentElementMultipleChoiceValue]
+    }
+    type KontentNumberElement implements KontentElement @infer {
+      name: String!
+      type: String!
+      value: Float
+    }
+    type KontentRichTextElement implements KontentElement @infer {
+      name: String!
+      type: String!
+      value: String
+      images: [KontentRichTextImage]
+      links: [KontentRichTextLink]
+      linked_items: [KontentItem] @link(by: \\"id\\", from: \\"linked_items___NODE\\")
+      linkedItemCodenames: [String]
+      resolvedData: KontentElementRichTextResolvedData
+    }
+
+    type KontentTaxonomyElement implements KontentElement @infer {
+      name: String!
+      type: String!
+      taxonomyGroup: String!
+      value: [KontentTaxonomyItem]
+    }
+    type KontentTaxonomyItem @infer {
+      name: String!
+      codename: String!
+    }
+    type KontentTextElement implements KontentElement @infer {
+      name: String!
+      type: String!
+      value: String
+    }
+    type KontentUrlSlugElement implements KontentElement @infer {
+      name: String!
+      type: String!
+      value: String
+    }
+    type KontentCustomElement implements KontentElement @infer {
+      name: String!
+      type: String!
+      value: String
+    }
+  ",
+  ],
+  Array [
+    Array [
+      Object {
+        "data": "Returning from mocked schema's buildObjectType function.
+        Original input: [object Object]",
+      },
+      Object {
+        "data": "Returning from mocked schema's buildObjectType function.
+        Original input: [object Object]",
+      },
+      Object {
+        "data": "Returning from mocked schema's buildObjectType function.
+        Original input: [object Object]",
+      },
+      Object {
+        "data": "Returning from mocked schema's buildObjectType function.
+        Original input: [object Object]",
+      },
+    ],
+  ],
+]
+`;
+
+exports[`Complex content types schema resolution passes with no error 2`] = `
+Array [
+  Array [
+    Object {
+      "fields": Object {
+        "description": Object {
+          "type": "KontentRichTextElement",
+        },
+        "title": Object {
+          "type": "KontentTextElement",
+        },
+      },
+      "infer": false,
+      "name": "KontentItemWithitemElements",
+    },
+  ],
+  Array [
+    Object {
+      "fields": Object {
+        "elements": "KontentItemWithitemElements!",
+        "preferred_language": "String!",
+        "system": "KontentItemSystem!",
+      },
+      "infer": false,
+      "interfaces": Array [
+        "Node",
+        "KontentItem",
+      ],
+      "name": "KontentItemWithitem",
+    },
+  ],
+  Array [
+    Object {
+      "fields": Object {
+        "born": Object {
+          "type": "KontentDateTimeElement",
+        },
+        "count_of_everything": Object {
+          "type": "KontentNumberElement",
+        },
+        "custocm_color_picker": Object {
+          "type": "KontentCustomElement",
+        },
+        "description": Object {
+          "type": "KontentRichTextElement",
+        },
+        "photos": Object {
+          "type": "KontentAssetElement",
+        },
+        "related_items": Object {
+          "type": "KontentModularContentElement",
+        },
+        "title": Object {
+          "type": "KontentTextElement",
+        },
+        "your_awesome_choices": Object {
+          "type": "KontentMultipleChoiceElement",
+        },
+      },
+      "infer": false,
+      "name": "KontentItemWithoutitemElements",
+    },
+  ],
+  Array [
+    Object {
+      "fields": Object {
+        "elements": "KontentItemWithoutitemElements!",
+        "preferred_language": "String!",
+        "system": "KontentItemSystem!",
+      },
+      "infer": false,
+      "interfaces": Array [
+        "Node",
+        "KontentItem",
+      ],
+      "name": "KontentItemWithoutitem",
+    },
+  ],
+]
+`;

@@ -1,6 +1,6 @@
 {
   "name": "@kentico/gatsby-source-kontent",
-  "version": "4.0.0-beta2",
+  "version": "4.0.0-beta4",
   "description": "Gatsby source plugin for Kentico Kontent",
   "main": "./gatsby-node.js",
   "scripts": {
@@ -45,7 +45,7 @@
     "rxjs": "^6.5.3"
   },
   "peerDependencies": {
-    "gatsby": ">=2.1.18"
+    "gatsby": ">=2.2.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",

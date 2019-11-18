@@ -1,0 +1,24 @@
+{
+  "types": [
+    {
+      "system": {
+        "id": "9ea98d20-a477-455c-b30f-0e3b9d055795",
+        "name": "Content type",
+        "codename": "content_type",
+        "last_modified": "2018-12-28T00:00:00.115595Z"
+      },
+      "elements": {
+        "custom_element": {
+          "type": "custom",
+          "name": "Youtube"
+        }
+      }
+    }
+  ],
+  "pagination": {
+    "skip": 0,
+    "limit": 0,
+    "count": 1,
+    "next_page": ""
+  }
+}
