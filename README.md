@@ -163,6 +163,8 @@ returns in case of two languages
 
 </details>
 
+> [Other Languages](https://github.com/Kentico/gatsby-source-kontent/issues/84) are not automatically generated [using Schema API](docs/UPGRADE.md#schema-definition-api--all-items-query).
+
 ### Linked items elements relationships
 
 Each Linked items element does differ from classic JS SDK structure. They are replaced by [Gatsby GraphQL node references](https://www.gatsbyjs.org/docs/create-source-plugin/#creating-the-relationship) that can be used to traverse to the nodes linked through the use of the *Linked items* element.
@@ -340,6 +342,8 @@ All rich text properties with content items linked in the element also have an a
 ```
 
 </details>
+
+> [Resolved Data in Rich text elements](https://github.com/Kentico/gatsby-source-kontent/issues/85) are not automatically generated [using Schema API](docs/UPGRADE.md#schema-definition-api--all-items-query).
 
 ### Reverse link relationships
 
