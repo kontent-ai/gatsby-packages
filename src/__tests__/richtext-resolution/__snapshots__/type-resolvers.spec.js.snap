@@ -108,7 +108,7 @@ Array [
       },
       "id": "dummy-kentico-kontent-item-main-project-default",
       "internal": Object {
-        "contentDigest": "76d61969e0b504ce90f234ee5c246223",
+        "contentDigest": "f5a99881f9ade3a14d14a6ed14cc51b1",
         "type": "KontentItemProject",
       },
       "otherLanguages___NODE": Array [],
@@ -217,7 +217,7 @@ Array [
       },
       "id": "dummy-kentico-kontent-item-simple-landing-page-default",
       "internal": Object {
-        "contentDigest": "16d6806589cc9c3f25e4bd43d9fff1ab",
+        "contentDigest": "9ba07c8f895e2058f26f337274b8bd3e",
         "type": "KontentItemLandingPage",
       },
       "otherLanguages___NODE": Array [],
@@ -308,7 +308,7 @@ Array [
       },
       "id": "dummy-kentico-kontent-item-n26ddfb46-c2de-010e-3ad9-ec9aa8955144-default",
       "internal": Object {
-        "contentDigest": "09ec3b54b529f0fab8deac89b2973886",
+        "contentDigest": "0c0eb06b49c0d89e5e8f02c654389c3f",
         "type": "KontentItemLandingPageImageSection",
       },
       "otherLanguages___NODE": Array [],

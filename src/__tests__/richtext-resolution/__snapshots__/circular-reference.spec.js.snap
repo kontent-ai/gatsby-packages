@@ -106,7 +106,7 @@ Array [
       },
       "id": "dummy-kentico-kontent-item-main-project-default",
       "internal": Object {
-        "contentDigest": "76d61969e0b504ce90f234ee5c246223",
+        "contentDigest": "f5a99881f9ade3a14d14a6ed14cc51b1",
         "type": "KontentItemProject",
       },
       "otherLanguages___NODE": Array [],
@@ -160,7 +160,7 @@ Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis condimentum augue
       },
       "id": "dummy-kentico-kontent-item-simple-landing-page-default",
       "internal": Object {
-        "contentDigest": "ddc9831399b6b21560cf6b518fcff1ce",
+        "contentDigest": "0c3911e89d1a264dadccd5341f9b8be6",
         "type": "KontentItemLandingPage",
       },
       "otherLanguages___NODE": Array [],

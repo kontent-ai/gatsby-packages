@@ -7,7 +7,6 @@ const stringify = require(`json-stringify-safe`);
  * Parses a content item to rebuild the 'elements' property.
  * @param {object} contentItem - The content item to be parsed.
  * @return {object} Parsed content item.
- * @throws {Error}
  */
 const parseContentItemContents =
   (contentItem) => {
@@ -35,6 +34,50 @@ const parseContentItemContents =
     return itemWithElements;
   };
 
+const getNodeContent = (artifactKind, rawItem) => {
+  let item = {};
+  switch (artifactKind) {
+    case 'type':
+      item = { ...rawItem };
+      break;
+    case 'item':
+      // for update purposes
+      const elements = (rawItem._raw && rawItem._raw.elements) || rawItem.elements;
+      item = {
+        system: rawItem.system,
+        elements,
+      };
+      break;
+    case 'taxonomy':
+      // TODO think about it when merge
+      item = { ...rawItem };
+      break;
+    default:
+      console.error('Unknown type for KcArtifact creation.');
+      break;
+  }
+  return stringify(item);
+};
+
+
+const getNodeInternal =
+  (artifactKind, rawItem, includeRawContent, codeName) => {
+    const nodeContent = getNodeContent(artifactKind, rawItem);
+    // TODO create Content + Content digest from raw data
+    const nodeContentDigest = crypto
+      .createHash(`md5`)
+      .update(nodeContent)
+      .digest(`hex`);
+    const internal = {
+      type: getArtifactName(codeName, artifactKind),
+      contentDigest: nodeContentDigest,
+    };
+    if (includeRawContent) {
+      internal.content = nodeContent;
+    }
+    return internal;
+  };
+
 /**
  * Create Gatsby Node structure.
  * @param {Number} nodeId Gebnerated Gatsby node ID.
@@ -44,26 +87,15 @@ const parseContentItemContents =
  * @param {Object} additionalNodeData Additional data
  * @param {Boolean} includeRawContent
  *  Include raw content property in artifact node
+*  @param {Object} rawItem raw item got from Kontent
+ *  Item for contentProperty and its digest
  * @return {Object} Gatsby node object
  */
 const createKcArtifactNode =
   (nodeId, kcArtifact, artifactKind, codeName = ``,
-    additionalNodeData = null, includeRawContent = false) => {
-    const nodeContent = stringify(kcArtifact);
+    additionalNodeData = null, includeRawContent = false, rawItem) => {
 
-    const nodeContentDigest = crypto
-      .createHash(`md5`)
-      .update(nodeContent)
-      .digest(`hex`);
-
-    const internal = {
-      type: getArtifactName(codeName, artifactKind),
-      contentDigest: nodeContentDigest,
-    };
-
-    if (includeRawContent) {
-      internal.content = nodeContent;
-    }
+    const internal = getNodeInternal(artifactKind, rawItem, includeRawContent, codeName);
 
     return {
       ...kcArtifact,
@@ -115,4 +147,6 @@ module.exports = {
   addLinkedItemsLinks,
   parseContentItemContents,
   getArtifactName,
+  getNodeInternal,
 };
+

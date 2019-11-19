@@ -7,6 +7,7 @@ const validation = require(`./validation`);
 const itemNodes = require('./itemNodes');
 const typeNodes = require('./typeNodes');
 const typeNodesSchema = require('./typeNodesSchema');
+const { getNodeInternal } = require('./normalize');
 
 const languageVariantsDecorator =
   require('./decorators/languageVariantsDecorator');
@@ -18,15 +19,83 @@ const richTextElementDecorator =
   require('./decorators/richTextElementDecorator');
 const { customTrackingHeader } = require('./config');
 
+const performUpdate = (webhookBody, createNodeId, createNode, getNodes, touchNode, includeRawContent) => {
+  const kontentItemNodes = getNodes()
+    .filter((item) =>
+      item.internal.owner === '@kentico/gatsby-source-kontent'
+      && item.internal.type.startsWith(`KontentItem`));
+
+
+  // Don't use the item.system.language because it would differ when the language fallback was used.
+  // For gatsby these are two different language variants (figure out how to handle that for update).
+  // If (item.system.language !== preferredLanguage) // TODO
+  const preferredLanguage = webhookBody.message.selectedLanguage;
+  const itemToUpdate = webhookBody.data.items[0];
+  const itemToUpdateNodeId = itemNodes.createItemNodeId(itemToUpdate.system.codename, preferredLanguage, createNodeId);
+
+  for (const itemNode of kontentItemNodes) {
+    if (itemToUpdateNodeId !== itemNode.id) {
+      touchNode(itemNode);
+    } else { // Update item
+      // TODO is is possible to get more then one codename at one time?
+      // What os this situation ?
+      const itemChangedCodenames = webhookBody.message.elementCodenames;
+      console.log(`Update these elements: ${JSON.stringify(itemChangedCodenames)}`);
+
+      const changedElement = itemNode.elements[itemChangedCodenames[0]];
+      // TODO add support for all another elements
+      if (changedElement.type === 'text') {
+        changedElement.value = itemToUpdate.elements[itemChangedCodenames[0]].value;
+        itemNode.internal = getNodeInternal('item', itemToUpdate, includeRawContent, itemNode.system.codename);
+        createNode(itemNode);
+      }
+    }
+  }
+};
+
 
 exports.sourceNodes =
-  async ({ actions: { createNode, createTypes }, createNodeId, schema },
-    { deliveryClientConfig,
+  async (api, pluginConfig) => {
+    const {
+      actions: {
+        createNode,
+        createTypes,
+        touchNode,
+      },
+      createNodeId,
+      schema,
+      webhookBody,
+      getNodes,
+    } = api;
+
+    const {
+      deliveryClientConfig,
       languageCodenames,
       enableLogging = false,
       includeRawContent = false,
+    } = pluginConfig;
+
+
+    const operation = _.get(webhookBody, 'message.operation');
+    if (operation) {
+      if (enableLogging) {
+        console.info(`Refresh run.`);
+      }
+
+      switch (operation) {
+        case 'update': {
+          console.log('Update run');
+          performUpdate(webhookBody, createNodeId, createNode, getNodes, touchNode, includeRawContent);
+          break;
+        }
+        default: {
+          break;
+        }
+      }
+
+      return;
     }
-  ) => {
+
     if (enableLogging) {
       console.info(`Generating Kentico Kontent nodes for projectId:\
  ${_.get(deliveryClientConfig, 'projectId')}`);
@@ -40,6 +109,7 @@ exports.sourceNodes =
     addHeader(deliveryClientConfig, customTrackingHeader);
 
     const client = new DeliveryClient(deliveryClientConfig);
+
     const contentTypeNodes = await typeNodes.get(
       client,
       createNodeId,
@@ -117,7 +187,7 @@ exports.sourceNodes =
     });
 
     const typeNodesCount = contentTypeNodes.length;
-    const itemsCount = contentTypeNodes.length + nonDefaultLanguagesCount;
+    const itemsCount = defaultCultureContentItemNodes.length + nonDefaultLanguagesCount;
     if (enableLogging) {
       console.info(`Kentico Kontent nodes generation finished.`);
       console.info(`${typeNodesCount} Kontent types item imported.`);

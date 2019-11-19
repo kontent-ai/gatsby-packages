@@ -124,14 +124,10 @@ const createContentItemNode =
     if (!_.isFunction(createNodeId)) {
       throw new Error(`createNodeId is not a function.`);
     }
-    const codenameParamCase =
-      changeCase.paramCase(contentItem.system.codename);
-
-    const languageParamCase =
-      changeCase.paramCase(contentItem.preferred_language);
-
-    const nodeId = createNodeId(
-      `kentico-kontent-item-${codenameParamCase}-${languageParamCase}`
+    const nodeId = createItemNodeId(
+      contentItem.system.codename,
+      contentItem.preferred_language,
+      createNodeId,
     );
 
     const parentContentTypeNode = contentTypeNodes.find(
@@ -147,17 +143,37 @@ const createContentItemNode =
       contentType___NODE: parentContentTypeNode.id,
     };
 
+    // TODO create Content + Content digest from raw data
     return normalize.createKcArtifactNode(
       nodeId,
       itemWithElements,
       `item`,
       contentItem.system.type,
       additionalData,
-      includeRawContent
+      includeRawContent,
+      contentItem
     );
   };
+
+/**
+ * Create Gatsby generated is for content item language variant.
+ * @param {String} itemCodename Code of the Item for creation.
+ * @param {String} itemLanguage Preffered language fo the content item.
+ * @param {Function} createNodeId Gatsby API method for ID creation.
+ * @return {String} Gatsby node ID fot specified Llanguage variant.
+ */
+const createItemNodeId = (itemCodename, itemLanguage, createNodeId) => {
+  const codename = changeCase.paramCase(itemCodename);
+  const language = changeCase.paramCase(itemLanguage);
+  const prefix = 'kentico-kontent-item';
+  const identificationString = `${prefix}-${codename}-${language}`;
+  return createNodeId(identificationString);
+};
 
 module.exports = {
   getFromDefaultLanguage,
   getFromNonDefaultLanguage,
+  createItemNodeId,
 };
+
+

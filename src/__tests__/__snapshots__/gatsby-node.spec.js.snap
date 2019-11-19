@@ -386,7 +386,7 @@ Array [
       },
       "id": "dummyId",
       "internal": Object {
-        "contentDigest": "f69e0b076c59e6143746c7bd6319dce9",
+        "contentDigest": "1ecb6bfcbf12dcf71954c238246f9c7a",
         "type": "KontentItemStep",
       },
       "otherLanguages___NODE": Array [
@@ -434,7 +434,7 @@ Array [
       },
       "id": "dummyId",
       "internal": Object {
-        "contentDigest": "bb4680b55a5cc24c2a449c47ae0c09ba",
+        "contentDigest": "aaf4e0fb7a9acc8ef11ff08099d56a1e",
         "type": "KontentItemStep",
       },
       "otherLanguages___NODE": Array [
@@ -488,7 +488,7 @@ Array [
       },
       "id": "dummyId",
       "internal": Object {
-        "contentDigest": "5dba223ff67382f899c3a4ac292704c5",
+        "contentDigest": "7927ebc0e754d398e4134e9455b4397a",
         "type": "KontentItemWebsite",
       },
       "otherLanguages___NODE": Array [
@@ -546,7 +546,7 @@ Array [
       },
       "id": "dummyId",
       "internal": Object {
-        "contentDigest": "c2875794a636984df1ed9c3cc407a416",
+        "contentDigest": "0a3fbd7971fd015708a3023d88715fca",
         "type": "KontentItemStep",
       },
       "otherLanguages___NODE": Array [
@@ -681,7 +681,7 @@ Array [
       },
       "id": "dummyId",
       "internal": Object {
-        "contentDigest": "c7c042ccf33b0f5f3ae785344e8d5284",
+        "contentDigest": "c17ad356a0e8cab0f2e99e9b35f98ec3",
         "type": "KontentItemSession",
       },
       "otherLanguages___NODE": Array [
@@ -827,7 +827,7 @@ Array [
       },
       "id": "dummyId",
       "internal": Object {
-        "contentDigest": "617fa8d2cfa1f74327663ebf1a0dedb9",
+        "contentDigest": "8e1c0b6111aea32c03c9c8805810fca1",
         "type": "KontentItemSession",
       },
       "otherLanguages___NODE": Array [
@@ -875,7 +875,7 @@ Array [
       },
       "id": "dummyId",
       "internal": Object {
-        "contentDigest": "697b23d8be6aa102563d78add51bd93e",
+        "contentDigest": "8b1f35f63074ea619c964adcb7cb4d08",
         "type": "KontentItemStep",
       },
       "otherLanguages___NODE": Array [
@@ -927,7 +927,7 @@ Array [
       },
       "id": "dummyId",
       "internal": Object {
-        "contentDigest": "bea8834f3f007c86c34801127a5c07df",
+        "contentDigest": "0f3a2a0e0915425e118d25b325a3405e",
         "type": "KontentItemStep",
       },
       "otherLanguages___NODE": Array [
@@ -1093,7 +1093,7 @@ Currently I am interested in Gatsby.js. I have released the third version of Gat
       },
       "id": "dummyId",
       "internal": Object {
-        "contentDigest": "997c41d626e404f7ca3ecddbae484063",
+        "contentDigest": "bde5000cf577c5217ff249037df20df4",
         "type": "KontentItemPerson",
       },
       "otherLanguages___NODE": Array [
@@ -1164,7 +1164,7 @@ Currently I am interested in Gatsby.js. I have released the third version of Gat
       },
       "id": "dummyId",
       "internal": Object {
-        "contentDigest": "77b94f73a4827e51afa69d91d24f5665",
+        "contentDigest": "1d7b06343d264f4c3da49e220d99656d",
         "type": "KontentItemTraining",
       },
       "otherLanguages___NODE": Array [
@@ -1220,7 +1220,7 @@ Currently I am interested in Gatsby.js. I have released the third version of Gat
       },
       "id": "dummyId",
       "internal": Object {
-        "contentDigest": "f6dc6b37b165b001830293e780928f6f",
+        "contentDigest": "0f1306b964c383e4407e039785edcff9",
         "type": "KontentItemStep",
       },
       "otherLanguages___NODE": Array [
@@ -1300,7 +1300,7 @@ Currently I am interested in Gatsby.js. I have released the third version of Gat
       },
       "id": "dummyId",
       "internal": Object {
-        "contentDigest": "ca3c224feb9d59cfd89ad342a9995a89",
+        "contentDigest": "9b6af480b74900f45a3383706a097724",
         "type": "KontentItemStep",
       },
       "otherLanguages___NODE": Array [
@@ -1350,7 +1350,7 @@ Currently I am interested in Gatsby.js. I have released the third version of Gat
       },
       "id": "dummyId",
       "internal": Object {
-        "contentDigest": "85d11e3a212f5536928bc7c8e5f7b721",
+        "contentDigest": "97c65e63c56b538ca77a4f31bf6e926f",
         "type": "KontentItemStep",
       },
       "otherLanguages___NODE": Array [
@@ -1418,7 +1418,7 @@ Currently I am interested in Gatsby.js. I have released the third version of Gat
       },
       "id": "dummyId",
       "internal": Object {
-        "contentDigest": "0d2f44d35ae71fcd964950ac3b44c388",
+        "contentDigest": "62fa54a5a339f9bab82612e37bb52cce",
         "type": "KontentItemStep",
       },
       "otherLanguages___NODE": Array [
@@ -1475,7 +1475,7 @@ GraphQL nodes of content items contain the ordinary \`system\` and \`elements\` 
       },
       "id": "dummyId",
       "internal": Object {
-        "contentDigest": "27f7a467afe48946d0f97a8d4373b4a3",
+        "contentDigest": "725810ec83eb6c3a758937f5feb98dc7",
         "type": "KontentItemRepository",
       },
       "otherLanguages___NODE": Array [],
@@ -1527,7 +1527,7 @@ GraphQL nodes of content items contain the ordinary \`system\` and \`elements\` 
       },
       "id": "dummyId",
       "internal": Object {
-        "contentDigest": "108eceb1e71053b655e8991cd1237f24",
+        "contentDigest": "ec8e527a1521d429bdee87c62725b4a1",
         "type": "KontentItemStep",
       },
       "otherLanguages___NODE": Array [],
@@ -1573,7 +1573,7 @@ GraphQL nodes of content items contain the ordinary \`system\` and \`elements\` 
       },
       "id": "dummyId",
       "internal": Object {
-        "contentDigest": "5f7ab9782945c0f36b8d59c9e772b088",
+        "contentDigest": "d33ad6c56b3539f4ccfdbd43b14276ed",
         "type": "KontentItemStep",
       },
       "otherLanguages___NODE": Array [],
@@ -1619,7 +1619,7 @@ GraphQL nodes of content items contain the ordinary \`system\` and \`elements\` 
       },
       "id": "dummyId",
       "internal": Object {
-        "contentDigest": "39e88f2462ebb599dce93f50b655152b",
+        "contentDigest": "4d13082363d35bbdce055cdb197721fc",
         "type": "KontentItemStep",
       },
       "otherLanguages___NODE": Array [
@@ -1667,7 +1667,7 @@ GraphQL nodes of content items contain the ordinary \`system\` and \`elements\` 
       },
       "id": "dummyId",
       "internal": Object {
-        "contentDigest": "2512efaa44a07e9fbd9d7f039550b7f1",
+        "contentDigest": "56f1e8e34292fbff2d4c9003e3f26d64",
         "type": "KontentItemStep",
       },
       "otherLanguages___NODE": Array [
@@ -1721,7 +1721,7 @@ GraphQL nodes of content items contain the ordinary \`system\` and \`elements\` 
       },
       "id": "dummyId",
       "internal": Object {
-        "contentDigest": "205b635cb400ea2a2deeb5ad95a48465",
+        "contentDigest": "501ac9e04c38b20555dd7cc0fd170e43",
         "type": "KontentItemWebsite",
       },
       "otherLanguages___NODE": Array [
@@ -1779,7 +1779,7 @@ GraphQL nodes of content items contain the ordinary \`system\` and \`elements\` 
       },
       "id": "dummyId",
       "internal": Object {
-        "contentDigest": "5ae3652f157f790d31364f3df32cbb77",
+        "contentDigest": "0a3fbd7971fd015708a3023d88715fca",
         "type": "KontentItemStep",
       },
       "otherLanguages___NODE": Array [
@@ -1914,7 +1914,7 @@ GraphQL nodes of content items contain the ordinary \`system\` and \`elements\` 
       },
       "id": "dummyId",
       "internal": Object {
-        "contentDigest": "dc9cb4180b003ac7f4316760c5edb81e",
+        "contentDigest": "c17ad356a0e8cab0f2e99e9b35f98ec3",
         "type": "KontentItemSession",
       },
       "otherLanguages___NODE": Array [
@@ -2054,7 +2054,7 @@ GraphQL nodes of content items contain the ordinary \`system\` and \`elements\` 
       },
       "id": "dummyId",
       "internal": Object {
-        "contentDigest": "15c80da5d679b56d3785393f68b4afff",
+        "contentDigest": "54e3027205261b8439a3e87485539351",
         "type": "KontentItemSession",
       },
       "otherLanguages___NODE": Array [
@@ -2102,7 +2102,7 @@ GraphQL nodes of content items contain the ordinary \`system\` and \`elements\` 
       },
       "id": "dummyId",
       "internal": Object {
-        "contentDigest": "75a8ddf1c58f19331a9b9a68609c1375",
+        "contentDigest": "2fcdf1fe462b537d74241e9b7fac03af",
         "type": "KontentItemStep",
       },
       "otherLanguages___NODE": Array [
@@ -2154,7 +2154,7 @@ GraphQL nodes of content items contain the ordinary \`system\` and \`elements\` 
       },
       "id": "dummyId",
       "internal": Object {
-        "contentDigest": "9dc97a9645ff925864687ba4902f48c2",
+        "contentDigest": "0f3a2a0e0915425e118d25b325a3405e",
         "type": "KontentItemStep",
       },
       "otherLanguages___NODE": Array [
@@ -2320,7 +2320,7 @@ Currently I am interested in Gatsby.js. I have released the third version of Gat
       },
       "id": "dummyId",
       "internal": Object {
-        "contentDigest": "d135ccd665c9624cd088e09fca2ca78c",
+        "contentDigest": "0642c378ab2792c804f674b1b06d8fcc",
         "type": "KontentItemPerson",
       },
       "otherLanguages___NODE": Array [
@@ -2389,7 +2389,7 @@ Currently I am interested in Gatsby.js. I have released the third version of Gat
       },
       "id": "dummyId",
       "internal": Object {
-        "contentDigest": "3ce419096842037adde75e90e37b115e",
+        "contentDigest": "8415e03da479cb0809dfad8525877a90",
         "type": "KontentItemTraining",
       },
       "otherLanguages___NODE": Array [
@@ -2445,7 +2445,7 @@ Currently I am interested in Gatsby.js. I have released the third version of Gat
       },
       "id": "dummyId",
       "internal": Object {
-        "contentDigest": "9db0f9cfa19ce6763fcae998cd11266a",
+        "contentDigest": "0f1306b964c383e4407e039785edcff9",
         "type": "KontentItemStep",
       },
       "otherLanguages___NODE": Array [
@@ -2525,7 +2525,7 @@ Currently I am interested in Gatsby.js. I have released the third version of Gat
       },
       "id": "dummyId",
       "internal": Object {
-        "contentDigest": "1e509cfe01eef27c35a2faa78189f829",
+        "contentDigest": "9b6af480b74900f45a3383706a097724",
         "type": "KontentItemStep",
       },
       "otherLanguages___NODE": Array [
@@ -2575,7 +2575,7 @@ Currently I am interested in Gatsby.js. I have released the third version of Gat
       },
       "id": "dummyId",
       "internal": Object {
-        "contentDigest": "e4a35583256ab3e0040c24416fbe7b45",
+        "contentDigest": "97c65e63c56b538ca77a4f31bf6e926f",
         "type": "KontentItemStep",
       },
       "otherLanguages___NODE": Array [
@@ -2643,7 +2643,7 @@ Currently I am interested in Gatsby.js. I have released the third version of Gat
       },
       "id": "dummyId",
       "internal": Object {
-        "contentDigest": "b290d254a8bd02c4e7f00c65b53a7356",
+        "contentDigest": "62fa54a5a339f9bab82612e37bb52cce",
         "type": "KontentItemStep",
       },
       "otherLanguages___NODE": Array [
@@ -2701,7 +2701,7 @@ GraphQL nodes of content items contain the ordinary \`system\` and \`elements\` 
       },
       "id": "dummyId",
       "internal": Object {
-        "contentDigest": "3818c770a1fcb915ac534f54d07277ed",
+        "contentDigest": "6934708f2b6278d5c2a7a62480856af4",
         "type": "KontentItemRepository",
       },
       "otherLanguages___NODE": Array [],
@@ -2755,7 +2755,7 @@ Choose an example I have showed you and extend it</p>
       },
       "id": "dummyId",
       "internal": Object {
-        "contentDigest": "c4f257c131c74e380c30cdee0a2f803f",
+        "contentDigest": "5c3b756b934084ad4ce5da2721a5b261",
         "type": "KontentItemStep",
       },
       "otherLanguages___NODE": Array [],
@@ -2801,7 +2801,7 @@ Choose an example I have showed you and extend it</p>
       },
       "id": "dummyId",
       "internal": Object {
-        "contentDigest": "e872851e38a360dffb7e35fc2a621226",
+        "contentDigest": "18ef51fae1981177df303ae01d62c761",
         "type": "KontentItemStep",
       },
       "otherLanguages___NODE": Array [],
