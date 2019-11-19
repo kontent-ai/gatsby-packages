@@ -15,15 +15,21 @@ This repo contains a [Gatsby (v2) source plugin](https://www.gatsbyjs.org/docs/r
 
 ## Get started
 
-### Install plugin to your existing Gatsby project
+You can use the plugin in any of the following ways:
 
-1. Install the [@kentico/gatsby-source-kontent](https://www.npmjs.com/package/@kentico/gatsby-source-kontent) NPM package,
+### A) Use the Kentico Kontent sourcing guide
+
+If you are new to the Gatsby ecosystem. The best way to start with using Gatsby & Kentico Kontent is to follow the official [sourcing guide for Kentico Kontent](https://www.gatsbyjs.org/docs/sourcing-from-kentico-kontent/). To learn more about sourcing from headless CMSs see the [Gatsby docs overview page](https://www.gatsbyjs.org/docs/headless-cms/).
+
+### B) Install the plugin in your existing Gatsby project
+
+1. Install the [@kentico/gatsby-source-kontent](https://www.npmjs.com/package/@kentico/gatsby-source-kontent) NPM package.
 
     ```sh
     npm install --save @kentico/gatsby-source-kontent
     ```
 
-1. Configure the plugin in `gatsby-config.js` file
+1. Configure the plugin in `gatsby-config.js` file.
 
     > The source plugin uses the [Kentico Kontent SDK](https://github.com/Kentico/kontent-delivery-sdk-js/tree/v8.0.0#kentico-kontent-delivery-sdk) in the background.
 
@@ -61,6 +67,12 @@ This repo contains a [Gatsby (v2) source plugin](https://www.gatsbyjs.org/docs/r
 
 1. Run `gatsby develop` and data from Kentico Kontent are provided in Gatsby GraphQL model.
 All Kentico Kontent content element values reside inside of the `elements` property of `KontentItem` nodes.
+
+### C) Scaffold your project using the Gatsby Kentico Kontent starter site
+
+Use the [gatsby-starter-kontent](https://github.com/Kentico/gatsby-starter-kontent) starter site, which includes this source plugin.
+
+* [Gatsby gallery](https://www.gatsbyjs.org/starters/Kentico/gatsby-starter-kontent/)
 
 ## Features
 
@@ -429,7 +441,7 @@ For more developer resources, visit the [Kentico Kontent Docs](https://docs.kont
 
 ### Guides and blog posts
 
-* [Sourcing from Kentico Kontent](https://www.gatsbyjs.org/docs/sourcing-from-kentico-cloud/)
+* [Sourcing from Kentico Kontent](https://www.gatsbyjs.org/docs/sourcing-from-kontent/)
 * [Kentico Cloud & Gatsby Take You Beyond Static Websites](https://www.gatsbyjs.org/blog/2018-12-19-kentico-cloud-and-gatsby-take-you-beyond-static-websites/)
 * [Rendering Kentico Kontent linked content items with React components in Gatsby](https://rshackleton.co.uk/articles/rendering-kentico-cloud-linked-content-items-with-react-components-in-gatsby) by [@rshackleton](https://github.com/rshackleton)
 * [Automated builds with Netlify and Kentico Kontent webhooks](https://rshackleton.co.uk/articles/automated-builds-with-netlify-and-kentico-cloud-webhooks) by [@rshackleton](https://github.com/rshackleton)
