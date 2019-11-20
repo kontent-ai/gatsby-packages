@@ -53,19 +53,21 @@ const performUpdate = (
       // What os this situation ?
       const itemChangedCodenames = webhookBody.message.elementCodenames;
 
-      const changedElement = itemNode.elements[itemChangedCodenames[0]];
+      const updatedItem = _.cloneDeep(itemNode);
+
+      const changedElement = updatedItem.elements[itemChangedCodenames[0]];
       // TODO add support for all another elements
       if (changedElement.type === 'text') {
         changedElement.value = itemToUpdate
           .elements[itemChangedCodenames[0]]
           .value;
-        itemNode.internal = getNodeInternal(
+        updatedItem.internal = getNodeInternal(
           'item',
           itemToUpdate,
           includeRawContent,
-          itemNode.system.codename
+          updatedItem.system.codename
         );
-        createNode(itemNode);
+        createNode(updatedItem);
       }
     }
   }
