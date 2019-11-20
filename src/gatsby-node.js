@@ -19,19 +19,31 @@ const richTextElementDecorator =
   require('./decorators/richTextElementDecorator');
 const { customTrackingHeader } = require('./config');
 
-const performUpdate = (webhookBody, createNodeId, createNode, getNodes, touchNode, includeRawContent) => {
+const performUpdate = (
+  webhookBody,
+  createNodeId,
+  createNode,
+  getNodes,
+  touchNode,
+  includeRawContent
+) => {
   const kontentItemNodes = getNodes()
     .filter((item) =>
       item.internal.owner === '@kentico/gatsby-source-kontent'
       && item.internal.type.startsWith(`KontentItem`));
 
 
-  // Don't use the item.system.language because it would differ when the language fallback was used.
-  // For gatsby these are two different language variants (figure out how to handle that for update).
+  // Don't use the item.system.language because
+  // it would differ when the language fallback was used.
+  // For gatsby these are two different language variants
+  // (figure out how to handle that for update).
   // If (item.system.language !== preferredLanguage) // TODO
   const preferredLanguage = webhookBody.message.selectedLanguage;
   const itemToUpdate = webhookBody.data.items[0];
-  const itemToUpdateNodeId = itemNodes.createItemNodeId(itemToUpdate.system.codename, preferredLanguage, createNodeId);
+  const itemToUpdateNodeId = itemNodes.createItemNodeId(
+    itemToUpdate.system.codename,
+    preferredLanguage,
+    createNodeId);
 
   for (const itemNode of kontentItemNodes) {
     if (itemToUpdateNodeId !== itemNode.id) {
@@ -40,13 +52,19 @@ const performUpdate = (webhookBody, createNodeId, createNode, getNodes, touchNod
       // TODO is is possible to get more then one codename at one time?
       // What os this situation ?
       const itemChangedCodenames = webhookBody.message.elementCodenames;
-      console.log(`Update these elements: ${JSON.stringify(itemChangedCodenames)}`);
 
       const changedElement = itemNode.elements[itemChangedCodenames[0]];
       // TODO add support for all another elements
       if (changedElement.type === 'text') {
-        changedElement.value = itemToUpdate.elements[itemChangedCodenames[0]].value;
-        itemNode.internal = getNodeInternal('item', itemToUpdate, includeRawContent, itemNode.system.codename);
+        changedElement.value = itemToUpdate
+          .elements[itemChangedCodenames[0]]
+          .value;
+        itemNode.internal = getNodeInternal(
+          'item',
+          itemToUpdate,
+          includeRawContent,
+          itemNode.system.codename
+        );
         createNode(itemNode);
       }
     }
@@ -85,7 +103,14 @@ exports.sourceNodes =
       switch (operation) {
         case 'update': {
           console.log('Update run');
-          performUpdate(webhookBody, createNodeId, createNode, getNodes, touchNode, includeRawContent);
+          performUpdate(
+            webhookBody,
+            createNodeId,
+            createNode,
+            getNodes,
+            touchNode,
+            includeRawContent
+          );
           break;
         }
         default: {
@@ -187,7 +212,8 @@ exports.sourceNodes =
     });
 
     const typeNodesCount = contentTypeNodes.length;
-    const itemsCount = defaultCultureContentItemNodes.length + nonDefaultLanguagesCount;
+    const itemsCount =
+      defaultCultureContentItemNodes.length + nonDefaultLanguagesCount;
     if (enableLogging) {
       console.info(`Kentico Kontent nodes generation finished.`);
       console.info(`${typeNodesCount} Kontent types item imported.`);

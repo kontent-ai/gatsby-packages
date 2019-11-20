@@ -42,7 +42,8 @@ const getNodeContent = (artifactKind, rawItem) => {
       break;
     case 'item':
       // for update purposes
-      const elements = (rawItem._raw && rawItem._raw.elements) || rawItem.elements;
+      const elements = (rawItem._raw && rawItem._raw.elements)
+        || rawItem.elements;
       item = {
         system: rawItem.system,
         elements,
@@ -91,22 +92,31 @@ const getNodeInternal =
  *  Item for contentProperty and its digest
  * @return {Object} Gatsby node object
  */
-const createKcArtifactNode =
-  (nodeId, kcArtifact, artifactKind, codeName = ``,
-    additionalNodeData = null, includeRawContent = false, rawItem) => {
+const createKcArtifactNode = (
+  nodeId,
+  kcArtifact,
+  artifactKind,
+  codeName = ``,
+  additionalNodeData = null,
+  includeRawContent = false,
+  rawItem) => {
+  const internal = getNodeInternal(
+    artifactKind,
+    rawItem,
+    includeRawContent,
+    codeName
+  );
 
-    const internal = getNodeInternal(artifactKind, rawItem, includeRawContent, codeName);
-
-    return {
-      ...kcArtifact,
-      ...additionalNodeData,
-      id: nodeId,
-      parent: null,
-      children: [],
-      usedByContentItems___NODE: [],
-      internal,
-    };
+  return {
+    ...kcArtifact,
+    ...additionalNodeData,
+    id: nodeId,
+    parent: null,
+    children: [],
+    usedByContentItems___NODE: [],
+    internal,
   };
+};
 
 const addLinkedItemsLinks =
   (itemNode, linkedNodes, linkPropertyName, sortPattern = []) => {
