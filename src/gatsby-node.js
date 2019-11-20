@@ -56,18 +56,26 @@ const performUpdate = (
       const updatedItem = _.cloneDeep(itemNode);
 
       const changedElement = updatedItem.elements[itemChangedCodenames[0]];
-      // TODO add support for all another elements
-      if (changedElement.type === 'text') {
-        changedElement.value = itemToUpdate
-          .elements[itemChangedCodenames[0]]
-          .value;
-        updatedItem.internal = getNodeInternal(
-          'item',
-          itemToUpdate,
-          includeRawContent,
-          updatedItem.system.codename
-        );
-        createNode(updatedItem);
+
+      switch (changedElement.type) {
+        case 'text':
+        case 'number':
+        case 'url_slug':
+          changedElement.value = itemToUpdate
+            .elements[itemChangedCodenames[0]]
+            .value;
+          updatedItem.internal = getNodeInternal(
+            'item',
+            itemToUpdate,
+            includeRawContent,
+            updatedItem.system.type
+          );
+          createNode(updatedItem);
+          break;
+
+        default:
+          // TODO add support for all another elements
+          break;
       }
     }
   }
