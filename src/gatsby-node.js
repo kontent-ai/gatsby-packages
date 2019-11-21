@@ -25,7 +25,8 @@ const performUpdate = (
   createNode,
   getNodes,
   touchNode,
-  includeRawContent
+  includeRawContent,
+  enableLogging
 ) => {
   const kontentItemNodes = getNodes()
     .filter((item) =>
@@ -50,32 +51,32 @@ const performUpdate = (
       touchNode(itemNode);
     } else { // Update item
       // TODO is is possible to get more then one codename at one time?
-      // What os this situation ?
-      const itemChangedCodenames = webhookBody.message.elementCodenames;
+      // What os this situation ? auto generated url_slug also make two changes
+      // const itemChangedCodenames = webhookBody.message.elementCodenames;
 
       const updatedItem = _.cloneDeep(itemNode);
 
-      const changedElement = updatedItem.elements[itemChangedCodenames[0]];
+      const updatedElements = [];
+      for (const elementName in updatedItem.elements) {
+        if (updatedItem.elements.hasOwnProperty(elementName)) {
+          const element = updatedItem.elements[elementName];
+          if (['text', 'number', 'url_slug', 'custom', 'date_time'].includes(element.type)) {
+            element.value = itemToUpdate.elements[elementName].value;
+            updatedElements.push(element.name);
+          }
+          // TODO implement the rest of element types
+        }
+      }
 
-      switch (changedElement.type) {
-        case 'text':
-        case 'number':
-        case 'url_slug':
-          changedElement.value = itemToUpdate
-            .elements[itemChangedCodenames[0]]
-            .value;
-          updatedItem.internal = getNodeInternal(
-            'item',
-            itemToUpdate,
-            includeRawContent,
-            updatedItem.system.type
-          );
-          createNode(updatedItem);
-          break;
-
-        default:
-          // TODO add support for all another elements
-          break;
+      updatedItem.internal = getNodeInternal(
+        'item',
+        itemToUpdate,
+        includeRawContent,
+        updatedItem.system.type
+      );
+      createNode(updatedItem);
+      if (enableLogging) {
+        console.info(`Updated elements: ${updatedElements.join(', ')}`);
       }
     }
   }
@@ -119,7 +120,8 @@ exports.sourceNodes =
             createNode,
             getNodes,
             touchNode,
-            includeRawContent
+            includeRawContent,
+            enableLogging,
           );
           break;
         }
