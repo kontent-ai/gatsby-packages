@@ -56,11 +56,18 @@ const performUpdate = (
 
       const updatedItem = _.cloneDeep(itemNode);
 
+      const primitiveElementTypes = [
+        'text',
+        'number',
+        'url_slug',
+        'custom',
+        'date_time',
+      ];
       const updatedElements = [];
       for (const elementName in updatedItem.elements) {
         if (updatedItem.elements.hasOwnProperty(elementName)) {
           const element = updatedItem.elements[elementName];
-          if (['text', 'number', 'url_slug', 'custom', 'date_time'].includes(element.type)) {
+          if (primitiveElementTypes.includes(element.type)) {
             element.value = itemToUpdate.elements[elementName].value;
             updatedElements.push(element.name);
           }
