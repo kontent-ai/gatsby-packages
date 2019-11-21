@@ -8,18 +8,17 @@ const changeCase = require('change-case');
  * @param {function} createTypes - Gatsby function to create a type
  */
 const createTypeNodesSchema = async (client, schema, createTypes) => {
-  createTypes(getKontentBaseTypeDefintions());
+  const baseSchemaTypes = getKontentBaseTypeDefinitions();
+  createTypes(baseSchemaTypes);
 
   const kontentTypesResponse = await client.types().toPromise();
 
-  createTypes(
-    kontentTypesResponse.types.reduce(
-      (typeDefinitions, type) => {
-        const fieldTypeDefinition = createFieldDefinitionsForType(schema, type);
-        return typeDefinitions.concat(fieldTypeDefinition);
-      }, [],
-    ),
-  );
+  const schemaTypes =
+    kontentTypesResponse.types.reduce((typeDefinitions, type) => {
+      const fieldTypeDefinition = createFieldDefinitionsForType(schema, type);
+      return typeDefinitions.concat(fieldTypeDefinition);
+    }, []);
+  createTypes(schemaTypes);
 };
 
 const createFieldDefinitionsForType = (schema, type) => {
@@ -59,7 +58,7 @@ const getElementValueType = (elementType) => {
   return `Kontent${changeCase.pascalCase(elementType)}Element`;
 };
 
-const getKontentBaseTypeDefintions = () => {
+const getKontentBaseTypeDefinitions = () => {
   const typeDefs = `
     interface KontentItem @nodeInterface {
       id: ID!
@@ -123,7 +122,7 @@ const getKontentBaseTypeDefintions = () => {
       name: String!
       type: String!
       itemCodenames: [String]
-      value: [KontentItem] @link(by: "system.codename")
+      linked_items: [KontentItem] @link(by: "id", from: "linked_items___NODE")
     }
     type KontentMultipleChoiceElement implements KontentElement @infer {
       name: String!
@@ -141,7 +140,7 @@ const getKontentBaseTypeDefintions = () => {
       value: String
       images: [KontentRichTextImage]
       links: [KontentRichTextLink]
-      linked_items: [KontentItem] @link(by: "system.codename")
+      linked_items: [KontentItem] @link(by: "id", from: "linked_items___NODE")
       linkedItemCodenames: [String]
       resolvedData: KontentElementRichTextResolvedData
     }
