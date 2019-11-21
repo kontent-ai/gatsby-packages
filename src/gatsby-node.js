@@ -81,6 +81,8 @@ const performUpdate = (
         includeRawContent,
         updatedItem.system.type
       );
+      // fields are reserved for gatsby generated fields
+      delete updatedItem.fields;
       createNode(updatedItem);
       if (enableLogging) {
         console.info(`Updated elements: ${updatedElements.join(', ')}`);
