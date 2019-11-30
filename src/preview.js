@@ -4,7 +4,7 @@ const { getNodeInternal } = require('./normalize');
 const { DeliveryClient } = require('@kentico/kontent-delivery');
 const richTextElementDecorator =
   require('./decorators/richTextElementDecorator');
-  const linkedItemsElementDecorator =
+const linkedItemsElementDecorator =
   require('./decorators/linkedItemsElementDecorator');
 const urlSlugElementDecorator =
   require('./decorators/urlSlugElementDecorator');
@@ -67,8 +67,11 @@ const performUpdate = (
       const resolvedItemFlattened = parse(stringify(resolvedItem.item));
 
       resolvedItemFlattened.preferred_language = preferredLanguage;
-      // TODO  additional data + used by content items - possible to pass from old item?
-      // definitely linked item and content items in rich text needs to be added to used_by_content_items when adding (removing) the item from element value
+      // TODO  additional data + used by content items
+      // - possible to pass from old item?
+      // definitely linked item and content items in rich text needs to be
+      // added to used_by_content_items when adding (removing)
+      // the item from element value
       const updatedItem = itemNodes.createContentItemNode(
         itemToUpdateNodeId,
         resolvedItemFlattened,
@@ -84,17 +87,18 @@ const performUpdate = (
         updatedItem.system.type
       );
 
-      // TODO decorateTypeNodesWithItemLinks probably not necessary (using  itemNode.contentType___NODE above)
-      // TODO decorateItemsWithLanguageVariants probably not necessary
+      // TODO decorateTypeNodesWithItemLinks probably not necessary
+      // (using  itemNode.contentType___NODE above)
+      // TODO decorateItemsWithLanguageVariants
       updatedItem.otherLanguages___NODE = itemNode.otherLanguages___NODE;
-      // TODO decorateItemNodesWithLinkedItemsLinks probably not necessary
+      // TODO decorateItemNodesWithLinkedItemsLinks
       const sameLanguagesItemNodes = kontentItemNodes.filter((item) =>
         item.preferred_language == updatedItem.preferred_language);
       linkedItemsElementDecorator.decorateItemNodeWithLinkedItemsLinks(
         updatedItem,
         sameLanguagesItemNodes
       );
-      // TODO decorateItemNodesWithRichTextLinkedItemsLinks probably not necessary
+      // TODO decorateItemNodesWithRichTextLinkedItemsLinks
       richTextElementDecorator.decorateItemNodeWithRichTextLinkedItemsLinks(
         updatedItem,
         sameLanguagesItemNodes
@@ -104,7 +108,9 @@ const performUpdate = (
       createNode(updatedItem);
 
       if (enableLogging) {
-        console.info(`Content item ${itemToUpdate.system.codename} was updated`);
+        console.info(
+          `Content item ${itemToUpdate.system.codename} was updated`
+        );
       }
     }
   }
