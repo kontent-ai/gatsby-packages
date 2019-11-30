@@ -46,10 +46,19 @@ const getFromDefaultLanguage = async (
   const contentItemNodes = itemsFlatted.map((contentItem) => {
     try {
       contentItem.preferred_language = defaultLanguageCodename;
-      return createContentItemNode(
+      const contentItemId = createItemNodeId(
+        contentItem.system.codename,
+        contentItem.preferred_language,
         createNodeId,
+      );
+      const contentTypeNodeId = contentTypeNodes.find(
+        (contentType) =>
+          contentType.system.codename === contentItem.system.type
+      ).id;
+      return createContentItemNode(
+        contentItemId,
         contentItem,
-        contentTypeNodes,
+        contentTypeNodeId,
         includeRawContent
       );
     } catch (error) {
@@ -97,10 +106,20 @@ const getFromNonDefaultLanguage = async (
     const languageItemsFlatted = parse(stringify(allItems));
     const contentItemsNodes = languageItemsFlatted.map((languageItem) => {
       languageItem.preferred_language = languageCodename;
-      return createContentItemNode(
+
+      const contentItemId = createItemNodeId(
+        languageItem.system.codename,
+        languageItem.preferred_language,
         createNodeId,
+      );
+      const contentTypeNodeId = contentTypeNodes.find(
+        (contentType) =>
+          contentType.system.codename === languageItem.system.type
+      ).id;
+      return createContentItemNode(
+        contentItemId,
         languageItem,
-        contentTypeNodes,
+        contentTypeNodeId,
         includeRawContent
       );
     });
@@ -111,36 +130,22 @@ const getFromNonDefaultLanguage = async (
 
 /**
  * Creates a Gatsby object out of a Kentico Kontent content item object.
- * @param {function} createNodeId - Gatsby function to create a node ID.
+ * @param {string} nodeId - Gatsby node ID for node.
  * @param {object} contentItem - Kentico Kontent content item object.
- * @param {array} contentTypeNodes - All Gatsby content type nodes.
+ * @param {string} parentContentTypeNodeId - Parent Content type Gatsby node ID.
  * @param {Boolean} includeRawContent
  *  Include raw content property in artifact node
  * @return {object} Gatsby content item node.
  * @throws {Error}
  */
 const createContentItemNode =
-  (createNodeId, contentItem, contentTypeNodes, includeRawContent = false) => {
-    if (!_.isFunction(createNodeId)) {
-      throw new Error(`createNodeId is not a function.`);
-    }
-    const nodeId = createItemNodeId(
-      contentItem.system.codename,
-      contentItem.preferred_language,
-      createNodeId,
-    );
-
-    const parentContentTypeNode = contentTypeNodes.find(
-      (contentType) => contentType.system.codename
-        === contentItem.system.type);
-
+  (nodeId, contentItem, parentContentTypeNodeId, includeRawContent = false) => {
     const itemWithElements = normalize.parseContentItemContents(contentItem);
     validation.checkItemsObjectStructure([itemWithElements]);
-    validation.checkTypesObjectStructure(contentTypeNodes);
 
     const additionalData = {
       otherLanguages___NODE: [],
-      contentType___NODE: parentContentTypeNode.id,
+      contentType___NODE: parentContentTypeNodeId,
     };
 
     // TODO create Content + Content digest from raw data
@@ -174,6 +179,7 @@ module.exports = {
   getFromDefaultLanguage,
   getFromNonDefaultLanguage,
   createItemNodeId,
+  createContentItemNode,
 };
 
 

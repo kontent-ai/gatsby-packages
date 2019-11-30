@@ -11,6 +11,7 @@
 !itemNodes.js
 !typeNodes.js
 !typeNodesSchema.js
+!preview.js
 !decorators/languageVariantsDecorator.js
 !decorators/typeItemDecorator.js
 !decorators/richTextElementDecorator.js

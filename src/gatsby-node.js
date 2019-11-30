@@ -7,7 +7,6 @@ const validation = require(`./validation`);
 const itemNodes = require('./itemNodes');
 const typeNodes = require('./typeNodes');
 const typeNodesSchema = require('./typeNodesSchema');
-const { getNodeInternal } = require('./normalize');
 
 const languageVariantsDecorator =
   require('./decorators/languageVariantsDecorator');
@@ -18,79 +17,7 @@ const linkedItemsElementDecorator =
 const richTextElementDecorator =
   require('./decorators/richTextElementDecorator');
 const { customTrackingHeader } = require('./config');
-
-const performUpdate = (
-  webhookBody,
-  createNodeId,
-  createNode,
-  getNodes,
-  touchNode,
-  includeRawContent,
-  enableLogging
-) => {
-  const kontentItemNodes = getNodes()
-    .filter((item) =>
-      item.internal.owner === '@kentico/gatsby-source-kontent'
-      && item.internal.type.startsWith(`KontentItem`));
-
-
-  // Don't use the item.system.language because
-  // it would differ when the language fallback was used.
-  // For gatsby these are two different language variants
-  // (figure out how to handle that for update).
-  // If (item.system.language !== preferredLanguage) // TODO
-  const preferredLanguage = webhookBody.message.selectedLanguage;
-  const itemToUpdate = webhookBody.data.items[0];
-  const itemToUpdateNodeId = itemNodes.createItemNodeId(
-    itemToUpdate.system.codename,
-    preferredLanguage,
-    createNodeId);
-
-  for (const itemNode of kontentItemNodes) {
-    if (itemToUpdateNodeId !== itemNode.id) {
-      touchNode(itemNode);
-    } else { // Update item
-      // TODO is is possible to get more then one codename at one time?
-      // What os this situation ? auto generated url_slug also make two changes
-      // const itemChangedCodenames = webhookBody.message.elementCodenames;
-
-      const updatedItem = _.cloneDeep(itemNode);
-
-      const primitiveElementTypes = [
-        'text',
-        'number',
-        'url_slug',
-        'custom',
-        'date_time',
-      ];
-      const updatedElements = [];
-      for (const elementName in updatedItem.elements) {
-        if (updatedItem.elements.hasOwnProperty(elementName)) {
-          const element = updatedItem.elements[elementName];
-          if (primitiveElementTypes.includes(element.type)) {
-            element.value = itemToUpdate.elements[elementName].value;
-            updatedElements.push(element.name);
-          }
-          // TODO implement the rest of element types
-        }
-      }
-
-      updatedItem.internal = getNodeInternal(
-        'item',
-        itemToUpdate,
-        includeRawContent,
-        updatedItem.system.type
-      );
-      // fields are reserved for gatsby generated fields
-      delete updatedItem.fields;
-      createNode(updatedItem);
-      if (enableLogging) {
-        console.info(`Updated elements: ${updatedElements.join(', ')}`);
-      }
-    }
-  }
-};
-
+const {performUpdate } = require('./preview');
 
 exports.sourceNodes =
   async (api, pluginConfig) => {
@@ -131,6 +58,7 @@ exports.sourceNodes =
             touchNode,
             includeRawContent,
             enableLogging,
+            deliveryClientConfig,
           );
           break;
         }
@@ -138,7 +66,6 @@ exports.sourceNodes =
           break;
         }
       }
-
       return;
     }
 

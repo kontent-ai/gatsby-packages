@@ -73,4 +73,5 @@ const decorateItemNodeWithLinkedItemsLinks =
 
 module.exports = {
   decorateItemNodesWithLinkedItemsLinks,
+  decorateItemNodeWithLinkedItemsLinks,
 };
