@@ -1,0 +1,135 @@
+{
+  "system": {
+    "name": "Test item",
+    "codename": "test_item",
+    "id": "2a44123c-83d9-43ee-9dca-681d77286abe",
+    "lastModified": "2019-12-04T13:18:24.585Z",
+    "language": "default",
+    "type": "test_preview",
+    "sitemapLocations": []
+  },
+  "elements": {
+    "gatsby_preview__untitled_custom_element": {
+      "name": "Gatsby preview watcher - local",
+      "type": "custom",
+      "value": null
+    },
+    "text": {
+      "name": "Text",
+      "type": "text",
+      "value": "Test"
+    },
+    "number": {
+      "name": "Number",
+      "type": "number",
+      "value": 321
+    },
+    "date___time": {
+      "name": "Date & time",
+      "type": "date_time",
+      "value": "2019-11-30T00:00:00.000Z"
+    },
+    "toast_ui_editor": {
+      "name": "Toast UI Editor",
+      "type": "custom",
+      "value": "# Custom element"
+    },
+    "url_slug_text_source": {
+      "name": "URL slug text source",
+      "type": "text",
+      "value": "Url slug with source"
+    },
+    "url_slug": {
+      "name": "URL slug",
+      "type": "url_slug",
+      "value": "url-slug-with-source",
+      "resolvedUrl": ""
+    },
+    "asset": {
+      "name": "Asset",
+      "type": "asset",
+      "value": [
+        {
+          "contract": {
+            "name": "kk-logo-short-color-pos-rgb-256px.png",
+            "description": null,
+            "type": "image/png",
+            "size": 10355,
+            "url": "https://preview-assets-us-01.kc-usercontent.com:443/5e171834-8697-00d6-08fa-fdd643306171/172eb0ad-f2d9-41e1-bb33-0d396c041bb2/kk-logo-short-color-pos-rgb-256px.png",
+            "width": 512,
+            "height": 512
+          },
+          "name": "kk-logo-short-color-pos-rgb-256px.png",
+          "type": "image/png",
+          "size": 10355,
+          "description": null,
+          "url": "https://preview-assets-us-01.kc-usercontent.com:443/5e171834-8697-00d6-08fa-fdd643306171/172eb0ad-f2d9-41e1-bb33-0d396c041bb2/kk-logo-short-color-pos-rgb-256px.png",
+          "width": 512,
+          "height": 512
+        }
+      ]
+    },
+    "linked_items": {
+      "name": "Linked items",
+      "type": "modular_content",
+      "itemCodenames": [
+        "test_item"
+      ],
+      "linked_items___NODE": [
+        "1bdc8830-979d-57b2-a2a3-501486825575"
+      ]
+    },
+    "rich_text": {
+      "name": "Rich text",
+      "type": "rich_text",
+      "linkedItemCodenames": [
+        "test_item",
+        "n21ee8eda_a2e9_01f6_d90b_eb0a2f07d6a8"
+      ],
+      "links": [
+        {
+          "codename": "test_item",
+          "linkId": "2a44123c-83d9-43ee-9dca-681d77286abe",
+          "urlSlug": "url-slug-with-source",
+          "type": "test_preview"
+        }
+      ],
+      "images": [
+        {
+          "description": null,
+          "imageId": "190484cb-7bbf-4a1d-b978-784331e0a9f5",
+          "url": "https://preview-assets-us-01.kc-usercontent.com:443/5e171834-8697-00d6-08fa-fdd643306171/172eb0ad-f2d9-41e1-bb33-0d396c041bb2/kk-logo-short-color-pos-rgb-256px.png",
+          "height": 512,
+          "width": 512
+        }
+      ],
+      "value": "<p>Rich text contentX</p>\n<figure data-asset-id=\"190484cb-7bbf-4a1d-b978-784331e0a9f5\" data-image-id=\"190484cb-7bbf-4a1d-b978-784331e0a9f5\"><img src=\"https://preview-assets-us-01.kc-usercontent.com:443/5e171834-8697-00d6-08fa-fdd643306171/172eb0ad-f2d9-41e1-bb33-0d396c041bb2/kk-logo-short-color-pos-rgb-256px.png\" data-asset-id=\"190484cb-7bbf-4a1d-b978-784331e0a9f5\" data-image-id=\"190484cb-7bbf-4a1d-b978-784331e0a9f5\" alt=\"\"></figure>\n<object type=\"application/kenticocloud\" data-type=\"item\" data-rel=\"link\" data-codename=\"test_item\"></object>\n<object type=\"application/kenticocloud\" data-type=\"item\" data-rel=\"component\" data-codename=\"n21ee8eda_a2e9_01f6_d90b_eb0a2f07d6a8\"></object>\n<p><a data-item-id=\"2a44123c-83d9-43ee-9dca-681d77286abe\" href=\"\">Link to content item</a></p>",
+      "resolvedData": {
+        "html": "<p>Rich text contentX</p>\n<figure data-asset-id=\"190484cb-7bbf-4a1d-b978-784331e0a9f5\" data-image-id=\"190484cb-7bbf-4a1d-b978-784331e0a9f5\"><img src=\"https://preview-assets-us-01.kc-usercontent.com:443/5e171834-8697-00d6-08fa-fdd643306171/172eb0ad-f2d9-41e1-bb33-0d396c041bb2/kk-logo-short-color-pos-rgb-256px.png\" data-asset-id=\"190484cb-7bbf-4a1d-b978-784331e0a9f5\" data-image-id=\"190484cb-7bbf-4a1d-b978-784331e0a9f5\" alt=\"\"></figure>\n<p type=\"application/kenticocloud\" data-type=\"item\" data-rel=\"link\" data-codename=\"test_item\" data-sdk-resolved=\"1\" class=\"kc-linked-item-wrapper\"></p>\n<p type=\"application/kenticocloud\" data-type=\"item\" data-rel=\"component\" data-codename=\"n21ee8eda_a2e9_01f6_d90b_eb0a2f07d6a8\" data-sdk-resolved=\"1\" class=\"kc-linked-item-wrapper\"></p>\n<p><a data-item-id=\"2a44123c-83d9-43ee-9dca-681d77286abe\" href=\"\">Link to content item</a></p>",
+        "componentCodenames": [
+          "n21ee8eda_a2e9_01f6_d90b_eb0a2f07d6a8"
+        ],
+        "linkedItemCodenames": [
+          "test_item"
+        ]
+      },
+      "linked_items___NODE": [
+        "1bdc8830-979d-57b2-a2a3-501486825575"
+      ]
+    }
+  },
+  "preferred_language": "default",
+  "otherLanguages___NODE": [],
+  "contentType___NODE": "c19f9560-4994-59fe-a258-0a53a18c5880",
+  "id": "1bdc8830-979d-57b2-a2a3-501486825575",
+  "parent": null,
+  "children": [],
+  "usedByContentItems___NODE": [],
+  "internal": {
+    "type": "KontentItemTestPreview",
+    "contentDigest": "9329ed7653cccce0f6ff1212c453d340",
+    "content": "{\"system\":{\"id\":\"2a44123c-83d9-43ee-9dca-681d77286abe\",\"name\":\"Test item\",\"codename\":\"test_item\",\"language\":\"default\",\"type\":\"test_preview\",\"sitemap_locations\":[],\"last_modified\":\"2019-12-04T13:18:24.5858341Z\"},\"elements\":{\"gatsby_preview__untitled_custom_element\":{\"type\":\"custom\",\"name\":\"Gatsby preview watcher - local\",\"value\":null},\"text\":{\"type\":\"text\",\"name\":\"Text\",\"value\":\"Test\"},\"number\":{\"type\":\"number\",\"name\":\"Number\",\"value\":321},\"date___time\":{\"type\":\"date_time\",\"name\":\"Date & time\",\"value\":\"2019-11-30T00:00:00Z\"},\"toast_ui_editor\":{\"type\":\"custom\",\"name\":\"Toast UI Editor\",\"value\":\"# Custom element\"},\"url_slug_text_source\":{\"type\":\"text\",\"name\":\"URL slug text source\",\"value\":\"Url slug with source\"},\"url_slug\":{\"type\":\"url_slug\",\"name\":\"URL slug\",\"value\":\"url-slug-with-source\"},\"asset\":{\"type\":\"asset\",\"name\":\"Asset\",\"value\":[{\"name\":\"kk-logo-short-color-pos-rgb-256px.png\",\"description\":null,\"type\":\"image/png\",\"size\":10355,\"url\":\"https://preview-assets-us-01.kc-usercontent.com:443/5e171834-8697-00d6-08fa-fdd643306171/172eb0ad-f2d9-41e1-bb33-0d396c041bb2/kk-logo-short-color-pos-rgb-256px.png\",\"width\":512,\"height\":512}]},\"linked_items\":{\"type\":\"modular_content\",\"name\":\"Linked items\",\"value\":[\"test_item\"]},\"rich_text\":{\"type\":\"rich_text\",\"name\":\"Rich text\",\"images\":{\"190484cb-7bbf-4a1d-b978-784331e0a9f5\":{\"image_id\":\"190484cb-7bbf-4a1d-b978-784331e0a9f5\",\"description\":null,\"url\":\"https://preview-assets-us-01.kc-usercontent.com:443/5e171834-8697-00d6-08fa-fdd643306171/172eb0ad-f2d9-41e1-bb33-0d396c041bb2/kk-logo-short-color-pos-rgb-256px.png\",\"width\":512,\"height\":512}},\"links\":{\"2a44123c-83d9-43ee-9dca-681d77286abe\":{\"codename\":\"test_item\",\"type\":\"test_preview\",\"url_slug\":\"url-slug-with-source\"}},\"modular_content\":[\"test_item\",\"n21ee8eda_a2e9_01f6_d90b_eb0a2f07d6a8\"],\"value\":\"<p>Rich text contentX</p>\\n<figure data-asset-id=\\\"190484cb-7bbf-4a1d-b978-784331e0a9f5\\\" data-image-id=\\\"190484cb-7bbf-4a1d-b978-784331e0a9f5\\\"><img src=\\\"https://preview-assets-us-01.kc-usercontent.com:443/5e171834-8697-00d6-08fa-fdd643306171/172eb0ad-f2d9-41e1-bb33-0d396c041bb2/kk-logo-short-color-pos-rgb-256px.png\\\" data-asset-id=\\\"190484cb-7bbf-4a1d-b978-784331e0a9f5\\\" data-image-id=\\\"190484cb-7bbf-4a1d-b978-784331e0a9f5\\\" alt=\\\"\\\"></figure>\\n<object type=\\\"application/kenticocloud\\\" data-type=\\\"item\\\" data-rel=\\\"link\\\" data-codename=\\\"test_item\\\"></object>\\n<object type=\\\"application/kenticocloud\\\" data-type=\\\"item\\\" data-rel=\\\"component\\\" data-codename=\\\"n21ee8eda_a2e9_01f6_d90b_eb0a2f07d6a8\\\"></object>\\n<p><a data-item-id=\\\"2a44123c-83d9-43ee-9dca-681d77286abe\\\" href=\\\"\\\">Link to content item</a></p>\"}}}",
+    "counter": 972,
+    "owner": "@kentico/gatsby-source-kontent"
+  }
+}

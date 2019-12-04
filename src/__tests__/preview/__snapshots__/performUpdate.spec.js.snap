@@ -1,0 +1,954 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Gatsby Preview update asset element 1`] = `
+Array [
+  Object {
+    "children": Array [],
+    "contentType___NODE": "c19f9560-4994-59fe-a258-0a53a18c5880",
+    "elements": Object {
+      "asset": Object {
+        "name": "Asset",
+        "type": "asset",
+        "value": Array [
+          Object {
+            "contract": Object {
+              "description": null,
+              "height": 512,
+              "name": "kk-logo-short-color-pos-rgb-256px.png",
+              "size": 10355,
+              "type": "image/png",
+              "url": "https://preview-assets-us-01.kc-usercontent.com:443/5e171834-8697-00d6-08fa-fdd643306171/172eb0ad-f2d9-41e1-bb33-0d396c041bb2/kk-logo-short-color-pos-rgb-256px.png",
+              "width": 512,
+            },
+            "description": null,
+            "height": 512,
+            "name": "kk-logo-short-color-pos-rgb-256px.png",
+            "size": 10355,
+            "type": "image/png",
+            "url": "https://preview-assets-us-01.kc-usercontent.com:443/5e171834-8697-00d6-08fa-fdd643306171/172eb0ad-f2d9-41e1-bb33-0d396c041bb2/kk-logo-short-color-pos-rgb-256px.png",
+            "width": 512,
+          },
+          Object {
+            "contract": Object {
+              "description": null,
+              "height": 512,
+              "name": "kk-logo-short-color-pos-rgb-256px-added.png",
+              "size": 10355,
+              "type": "image/png",
+              "url": "https://preview-assets-us-01.kc-usercontent.com:443/5e171834-8697-00d6-08fa-fdd643306171/315d4ad9-e1f6-4ef2-a416-9ff09e3afc75/kk-logo-short-color-pos-rgb-256px-added.png",
+              "width": 512,
+            },
+            "description": null,
+            "height": 512,
+            "name": "kk-logo-short-color-pos-rgb-256px-added.png",
+            "size": 10355,
+            "type": "image/png",
+            "url": "https://preview-assets-us-01.kc-usercontent.com:443/5e171834-8697-00d6-08fa-fdd643306171/315d4ad9-e1f6-4ef2-a416-9ff09e3afc75/kk-logo-short-color-pos-rgb-256px-added.png",
+            "width": 512,
+          },
+        ],
+      },
+      "date___time": Object {
+        "name": "Date & time",
+        "type": "date_time",
+        "value": "2019-11-30T00:00:00.000Z",
+      },
+      "gatsby_preview__untitled_custom_element": Object {
+        "name": "Gatsby preview watcher - local",
+        "type": "custom",
+        "value": null,
+      },
+      "linked_items": Object {
+        "itemCodenames": Array [],
+        "linked_items___NODE": Array [],
+        "name": "Linked items",
+        "type": "modular_content",
+      },
+      "number": Object {
+        "name": "Number",
+        "type": "number",
+        "value": 321,
+      },
+      "rich_text": Object {
+        "images": Array [],
+        "linkedItemCodenames": Array [],
+        "linked_items___NODE": Array [],
+        "links": Array [],
+        "name": "Rich text",
+        "resolvedData": Object {
+          "componentCodenames": Array [],
+          "html": "<p>Test value</p>",
+          "linkedItemCodenames": Array [],
+        },
+        "type": "rich_text",
+        "value": "<p>Test value</p>",
+      },
+      "text": Object {
+        "name": "Text",
+        "type": "text",
+        "value": "Test - changed",
+      },
+      "toast_ui_editor": Object {
+        "name": "Toast UI Editor",
+        "type": "custom",
+        "value": "# Custom element",
+      },
+      "url_slug": Object {
+        "name": "URL slug",
+        "resolvedUrl": "",
+        "type": "url_slug",
+        "value": "url-slug-with-source",
+      },
+      "url_slug_text_source": Object {
+        "name": "URL slug text source",
+        "type": "text",
+        "value": "Url slug with source",
+      },
+    },
+    "id": "1bdc8830-979d-57b2-a2a3-501486825575",
+    "internal": Object {
+      "contentDigest": "06609d1e0da129e87108599af8d96d7c",
+      "type": "KontentItemTestPreview",
+    },
+    "otherLanguages___NODE": Array [],
+    "parent": null,
+    "preferred_language": "default",
+    "system": Object {
+      "codename": "test_item",
+      "id": "2a44123c-83d9-43ee-9dca-681d77286abe",
+      "language": "default",
+      "lastModified": "2019-12-04T13:18:38.272Z",
+      "name": "Test item",
+      "sitemapLocations": Array [],
+      "type": "test_preview",
+    },
+    "usedByContentItems___NODE": Array [],
+  },
+]
+`;
+
+exports[`Gatsby Preview update custom element 1`] = `
+Array [
+  Object {
+    "children": Array [],
+    "contentType___NODE": "c19f9560-4994-59fe-a258-0a53a18c5880",
+    "elements": Object {
+      "asset": Object {
+        "name": "Asset",
+        "type": "asset",
+        "value": Array [
+          Object {
+            "contract": Object {
+              "description": null,
+              "height": 512,
+              "name": "kk-logo-short-color-pos-rgb-256px.png",
+              "size": 10355,
+              "type": "image/png",
+              "url": "https://preview-assets-us-01.kc-usercontent.com:443/5e171834-8697-00d6-08fa-fdd643306171/172eb0ad-f2d9-41e1-bb33-0d396c041bb2/kk-logo-short-color-pos-rgb-256px.png",
+              "width": 512,
+            },
+            "description": null,
+            "height": 512,
+            "name": "kk-logo-short-color-pos-rgb-256px.png",
+            "size": 10355,
+            "type": "image/png",
+            "url": "https://preview-assets-us-01.kc-usercontent.com:443/5e171834-8697-00d6-08fa-fdd643306171/172eb0ad-f2d9-41e1-bb33-0d396c041bb2/kk-logo-short-color-pos-rgb-256px.png",
+            "width": 512,
+          },
+        ],
+      },
+      "date___time": Object {
+        "name": "Date & time",
+        "type": "date_time",
+        "value": "2019-11-30T00:00:00.000Z",
+      },
+      "gatsby_preview__untitled_custom_element": Object {
+        "name": "Gatsby preview watcher - local",
+        "type": "custom",
+        "value": null,
+      },
+      "linked_items": Object {
+        "itemCodenames": Array [],
+        "linked_items___NODE": Array [],
+        "name": "Linked items",
+        "type": "modular_content",
+      },
+      "number": Object {
+        "name": "Number",
+        "type": "number",
+        "value": 321,
+      },
+      "rich_text": Object {
+        "images": Array [],
+        "linkedItemCodenames": Array [],
+        "linked_items___NODE": Array [],
+        "links": Array [],
+        "name": "Rich text",
+        "resolvedData": Object {
+          "componentCodenames": Array [],
+          "html": "<p>Test value</p>",
+          "linkedItemCodenames": Array [],
+        },
+        "type": "rich_text",
+        "value": "<p>Test value</p>",
+      },
+      "text": Object {
+        "name": "Text",
+        "type": "text",
+        "value": "Test",
+      },
+      "toast_ui_editor": Object {
+        "name": "Toast UI Editor",
+        "type": "custom",
+        "value": "# Custom element - changed",
+      },
+      "url_slug": Object {
+        "name": "URL slug",
+        "resolvedUrl": "",
+        "type": "url_slug",
+        "value": "url-slug-with-source",
+      },
+      "url_slug_text_source": Object {
+        "name": "URL slug text source",
+        "type": "text",
+        "value": "Url slug with source",
+      },
+    },
+    "id": "1bdc8830-979d-57b2-a2a3-501486825575",
+    "internal": Object {
+      "contentDigest": "0ed7d8fadc1a3a5bdc8180c94bba227c",
+      "type": "KontentItemTestPreview",
+    },
+    "otherLanguages___NODE": Array [],
+    "parent": null,
+    "preferred_language": "default",
+    "system": Object {
+      "codename": "test_item",
+      "id": "2a44123c-83d9-43ee-9dca-681d77286abe",
+      "language": "default",
+      "lastModified": "2019-12-04T13:18:38.272Z",
+      "name": "Test item",
+      "sitemapLocations": Array [],
+      "type": "test_preview",
+    },
+    "usedByContentItems___NODE": Array [],
+  },
+]
+`;
+
+exports[`Gatsby Preview update date time element 1`] = `
+Array [
+  Object {
+    "children": Array [],
+    "contentType___NODE": "c19f9560-4994-59fe-a258-0a53a18c5880",
+    "elements": Object {
+      "asset": Object {
+        "name": "Asset",
+        "type": "asset",
+        "value": Array [
+          Object {
+            "contract": Object {
+              "description": null,
+              "height": 512,
+              "name": "kk-logo-short-color-pos-rgb-256px.png",
+              "size": 10355,
+              "type": "image/png",
+              "url": "https://preview-assets-us-01.kc-usercontent.com:443/5e171834-8697-00d6-08fa-fdd643306171/172eb0ad-f2d9-41e1-bb33-0d396c041bb2/kk-logo-short-color-pos-rgb-256px.png",
+              "width": 512,
+            },
+            "description": null,
+            "height": 512,
+            "name": "kk-logo-short-color-pos-rgb-256px.png",
+            "size": 10355,
+            "type": "image/png",
+            "url": "https://preview-assets-us-01.kc-usercontent.com:443/5e171834-8697-00d6-08fa-fdd643306171/172eb0ad-f2d9-41e1-bb33-0d396c041bb2/kk-logo-short-color-pos-rgb-256px.png",
+            "width": 512,
+          },
+        ],
+      },
+      "date___time": Object {
+        "name": "Date & time",
+        "type": "date_time",
+        "value": "2020-11-30T00:00:00.000Z",
+      },
+      "gatsby_preview__untitled_custom_element": Object {
+        "name": "Gatsby preview watcher - local",
+        "type": "custom",
+        "value": null,
+      },
+      "linked_items": Object {
+        "itemCodenames": Array [],
+        "linked_items___NODE": Array [],
+        "name": "Linked items",
+        "type": "modular_content",
+      },
+      "number": Object {
+        "name": "Number",
+        "type": "number",
+        "value": 321,
+      },
+      "rich_text": Object {
+        "images": Array [],
+        "linkedItemCodenames": Array [],
+        "linked_items___NODE": Array [],
+        "links": Array [],
+        "name": "Rich text",
+        "resolvedData": Object {
+          "componentCodenames": Array [],
+          "html": "<p>Test value</p>",
+          "linkedItemCodenames": Array [],
+        },
+        "type": "rich_text",
+        "value": "<p>Test value</p>",
+      },
+      "text": Object {
+        "name": "Text",
+        "type": "text",
+        "value": "Test",
+      },
+      "toast_ui_editor": Object {
+        "name": "Toast UI Editor",
+        "type": "custom",
+        "value": "# Custom element",
+      },
+      "url_slug": Object {
+        "name": "URL slug",
+        "resolvedUrl": "",
+        "type": "url_slug",
+        "value": "url-slug-with-source",
+      },
+      "url_slug_text_source": Object {
+        "name": "URL slug text source",
+        "type": "text",
+        "value": "Url slug with source",
+      },
+    },
+    "id": "1bdc8830-979d-57b2-a2a3-501486825575",
+    "internal": Object {
+      "contentDigest": "a4f174c494d23b9b9a9cb271648eb882",
+      "type": "KontentItemTestPreview",
+    },
+    "otherLanguages___NODE": Array [],
+    "parent": null,
+    "preferred_language": "default",
+    "system": Object {
+      "codename": "test_item",
+      "id": "2a44123c-83d9-43ee-9dca-681d77286abe",
+      "language": "default",
+      "lastModified": "2019-12-04T13:18:38.272Z",
+      "name": "Test item",
+      "sitemapLocations": Array [],
+      "type": "test_preview",
+    },
+    "usedByContentItems___NODE": Array [],
+  },
+]
+`;
+
+exports[`Gatsby Preview update linked items element 1`] = `
+Array [
+  Object {
+    "children": Array [],
+    "contentType___NODE": "c19f9560-4994-59fe-a258-0a53a18c5880",
+    "elements": Object {
+      "asset": Object {
+        "name": "Asset",
+        "type": "asset",
+        "value": Array [
+          Object {
+            "contract": Object {
+              "description": null,
+              "height": 512,
+              "name": "kk-logo-short-color-pos-rgb-256px.png",
+              "size": 10355,
+              "type": "image/png",
+              "url": "https://preview-assets-us-01.kc-usercontent.com:443/5e171834-8697-00d6-08fa-fdd643306171/172eb0ad-f2d9-41e1-bb33-0d396c041bb2/kk-logo-short-color-pos-rgb-256px.png",
+              "width": 512,
+            },
+            "description": null,
+            "height": 512,
+            "name": "kk-logo-short-color-pos-rgb-256px.png",
+            "size": 10355,
+            "type": "image/png",
+            "url": "https://preview-assets-us-01.kc-usercontent.com:443/5e171834-8697-00d6-08fa-fdd643306171/172eb0ad-f2d9-41e1-bb33-0d396c041bb2/kk-logo-short-color-pos-rgb-256px.png",
+            "width": 512,
+          },
+        ],
+      },
+      "date___time": Object {
+        "name": "Date & time",
+        "type": "date_time",
+        "value": "2019-11-30T00:00:00.000Z",
+      },
+      "gatsby_preview__untitled_custom_element": Object {
+        "name": "Gatsby preview watcher - local",
+        "type": "custom",
+        "value": null,
+      },
+      "linked_items": Object {
+        "itemCodenames": Array [
+          "test_item",
+          "test_item_2",
+        ],
+        "linked_items___NODE": Array [
+          "1bdc8830-979d-57b2-a2a3-501486825575",
+        ],
+        "name": "Linked items",
+        "type": "modular_content",
+      },
+      "number": Object {
+        "name": "Number",
+        "type": "number",
+        "value": 321,
+      },
+      "rich_text": Object {
+        "images": Array [],
+        "linkedItemCodenames": Array [],
+        "linked_items___NODE": Array [],
+        "links": Array [],
+        "name": "Rich text",
+        "resolvedData": Object {
+          "componentCodenames": Array [],
+          "html": "<p>Test value</p>",
+          "linkedItemCodenames": Array [],
+        },
+        "type": "rich_text",
+        "value": "<p>Test value</p>",
+      },
+      "text": Object {
+        "name": "Text",
+        "type": "text",
+        "value": "Test",
+      },
+      "toast_ui_editor": Object {
+        "name": "Toast UI Editor",
+        "type": "custom",
+        "value": "# Custom element",
+      },
+      "url_slug": Object {
+        "name": "URL slug",
+        "resolvedUrl": "",
+        "type": "url_slug",
+        "value": "url-slug-with-source",
+      },
+      "url_slug_text_source": Object {
+        "name": "URL slug text source",
+        "type": "text",
+        "value": "Url slug with source",
+      },
+    },
+    "id": "1bdc8830-979d-57b2-a2a3-501486825575",
+    "internal": Object {
+      "contentDigest": "196e67476827a80909ee2a9cdc437acc",
+      "type": "KontentItemTestPreview",
+    },
+    "otherLanguages___NODE": Array [],
+    "parent": null,
+    "preferred_language": "default",
+    "system": Object {
+      "codename": "test_item",
+      "id": "2a44123c-83d9-43ee-9dca-681d77286abe",
+      "language": "default",
+      "lastModified": "2019-12-04T13:18:38.272Z",
+      "name": "Test item",
+      "sitemapLocations": Array [],
+      "type": "test_preview",
+    },
+    "usedByContentItems___NODE": Array [],
+  },
+]
+`;
+
+exports[`Gatsby Preview update number element 1`] = `
+Array [
+  Object {
+    "children": Array [],
+    "contentType___NODE": "c19f9560-4994-59fe-a258-0a53a18c5880",
+    "elements": Object {
+      "asset": Object {
+        "name": "Asset",
+        "type": "asset",
+        "value": Array [
+          Object {
+            "contract": Object {
+              "description": null,
+              "height": 512,
+              "name": "kk-logo-short-color-pos-rgb-256px.png",
+              "size": 10355,
+              "type": "image/png",
+              "url": "https://preview-assets-us-01.kc-usercontent.com:443/5e171834-8697-00d6-08fa-fdd643306171/172eb0ad-f2d9-41e1-bb33-0d396c041bb2/kk-logo-short-color-pos-rgb-256px.png",
+              "width": 512,
+            },
+            "description": null,
+            "height": 512,
+            "name": "kk-logo-short-color-pos-rgb-256px.png",
+            "size": 10355,
+            "type": "image/png",
+            "url": "https://preview-assets-us-01.kc-usercontent.com:443/5e171834-8697-00d6-08fa-fdd643306171/172eb0ad-f2d9-41e1-bb33-0d396c041bb2/kk-logo-short-color-pos-rgb-256px.png",
+            "width": 512,
+          },
+        ],
+      },
+      "date___time": Object {
+        "name": "Date & time",
+        "type": "date_time",
+        "value": "2019-11-30T00:00:00.000Z",
+      },
+      "gatsby_preview__untitled_custom_element": Object {
+        "name": "Gatsby preview watcher - local",
+        "type": "custom",
+        "value": null,
+      },
+      "linked_items": Object {
+        "itemCodenames": Array [],
+        "linked_items___NODE": Array [],
+        "name": "Linked items",
+        "type": "modular_content",
+      },
+      "number": Object {
+        "name": "Number",
+        "type": "number",
+        "value": 4321,
+      },
+      "rich_text": Object {
+        "images": Array [],
+        "linkedItemCodenames": Array [],
+        "linked_items___NODE": Array [],
+        "links": Array [],
+        "name": "Rich text",
+        "resolvedData": Object {
+          "componentCodenames": Array [],
+          "html": "<p>Test value</p>",
+          "linkedItemCodenames": Array [],
+        },
+        "type": "rich_text",
+        "value": "<p>Test value</p>",
+      },
+      "text": Object {
+        "name": "Text",
+        "type": "text",
+        "value": "Test",
+      },
+      "toast_ui_editor": Object {
+        "name": "Toast UI Editor",
+        "type": "custom",
+        "value": "# Custom element",
+      },
+      "url_slug": Object {
+        "name": "URL slug",
+        "resolvedUrl": "",
+        "type": "url_slug",
+        "value": "url-slug-with-source",
+      },
+      "url_slug_text_source": Object {
+        "name": "URL slug text source",
+        "type": "text",
+        "value": "Url slug with source",
+      },
+    },
+    "id": "1bdc8830-979d-57b2-a2a3-501486825575",
+    "internal": Object {
+      "contentDigest": "c598308d1308fd9fb82dd9c9d157ac41",
+      "type": "KontentItemTestPreview",
+    },
+    "otherLanguages___NODE": Array [],
+    "parent": null,
+    "preferred_language": "default",
+    "system": Object {
+      "codename": "test_item",
+      "id": "2a44123c-83d9-43ee-9dca-681d77286abe",
+      "language": "default",
+      "lastModified": "2019-12-04T13:18:38.272Z",
+      "name": "Test item",
+      "sitemapLocations": Array [],
+      "type": "test_preview",
+    },
+    "usedByContentItems___NODE": Array [],
+  },
+]
+`;
+
+exports[`Gatsby Preview update rich text element 1`] = `
+Array [
+  Object {
+    "children": Array [],
+    "contentType___NODE": "c19f9560-4994-59fe-a258-0a53a18c5880",
+    "elements": Object {
+      "asset": Object {
+        "name": "Asset",
+        "type": "asset",
+        "value": Array [
+          Object {
+            "contract": Object {
+              "description": null,
+              "height": 512,
+              "name": "kk-logo-short-color-pos-rgb-256px.png",
+              "size": 10355,
+              "type": "image/png",
+              "url": "https://preview-assets-us-01.kc-usercontent.com:443/5e171834-8697-00d6-08fa-fdd643306171/172eb0ad-f2d9-41e1-bb33-0d396c041bb2/kk-logo-short-color-pos-rgb-256px.png",
+              "width": 512,
+            },
+            "description": null,
+            "height": 512,
+            "name": "kk-logo-short-color-pos-rgb-256px.png",
+            "size": 10355,
+            "type": "image/png",
+            "url": "https://preview-assets-us-01.kc-usercontent.com:443/5e171834-8697-00d6-08fa-fdd643306171/172eb0ad-f2d9-41e1-bb33-0d396c041bb2/kk-logo-short-color-pos-rgb-256px.png",
+            "width": 512,
+          },
+        ],
+      },
+      "date___time": Object {
+        "name": "Date & time",
+        "type": "date_time",
+        "value": "2019-11-30T00:00:00.000Z",
+      },
+      "gatsby_preview__untitled_custom_element": Object {
+        "name": "Gatsby preview watcher - local",
+        "type": "custom",
+        "value": null,
+      },
+      "linked_items": Object {
+        "itemCodenames": Array [
+          "test_item",
+        ],
+        "linked_items___NODE": Array [
+          "1bdc8830-979d-57b2-a2a3-501486825575",
+        ],
+        "name": "Linked items",
+        "type": "modular_content",
+      },
+      "number": Object {
+        "name": "Number",
+        "type": "number",
+        "value": 321,
+      },
+      "rich_text": Object {
+        "images": Array [
+          Object {
+            "description": null,
+            "height": 512,
+            "imageId": "190484cb-7bbf-4a1d-b978-784331e0a9f5",
+            "url": "https://preview-assets-us-01.kc-usercontent.com:443/5e171834-8697-00d6-08fa-fdd643306171/172eb0ad-f2d9-41e1-bb33-0d396c041bb2/kk-logo-short-color-pos-rgb-256px.png",
+            "width": 512,
+          },
+          Object {
+            "description": null,
+            "height": 512,
+            "imageId": "70d69a3f-bb92-47f8-87ff-2d0a27d94461",
+            "url": "https://preview-assets-us-01.kc-usercontent.com:443/5e171834-8697-00d6-08fa-fdd643306171/154cdf96-8381-4452-8ab2-7bdf12cf1d7c/kk-logo-short-color-pos-rgb-256px-new.png",
+            "width": 512,
+          },
+        ],
+        "linkedItemCodenames": Array [
+          "test_item",
+          "n21ee8eda_a2e9_01f6_d90b_eb0a2f07d6a8",
+          "test_item_2",
+        ],
+        "linked_items___NODE": Array [
+          "1bdc8830-979d-57b2-a2a3-501486825575",
+        ],
+        "links": Array [
+          Object {
+            "codename": "test_item",
+            "linkId": "2a44123c-83d9-43ee-9dca-681d77286abe",
+            "type": "test_preview",
+            "urlSlug": "url-slug-with-source",
+          },
+          Object {
+            "codename": "test_item_2",
+            "linkId": "86a36af6-0edd-418b-8d9a-9d28ea146e66",
+            "type": "test_item_2",
+            "urlSlug": "",
+          },
+        ],
+        "name": "Rich text",
+        "resolvedData": Object {
+          "componentCodenames": Array [
+            "n21ee8eda_a2e9_01f6_d90b_eb0a2f07d6a8",
+            "n21ee8eda_a2e9_01f6_d90b_eb0a2f07d6a8",
+          ],
+          "html": "<p>Rich text contentX</p>
+<figure data-asset-id=\\"190484cb-7bbf-4a1d-b978-784331e0a9f5\\" data-image-id=\\"190484cb-7bbf-4a1d-b978-784331e0a9f5\\"><img src=\\"https://preview-assets-us-01.kc-usercontent.com:443/5e171834-8697-00d6-08fa-fdd643306171/172eb0ad-f2d9-41e1-bb33-0d396c041bb2/kk-logo-short-color-pos-rgb-256px.png\\" data-asset-id=\\"190484cb-7bbf-4a1d-b978-784331e0a9f5\\" data-image-id=\\"190484cb-7bbf-4a1d-b978-784331e0a9f5\\" alt=\\"\\"></figure>
+<figure data-asset-id=\\"70d69a3f-bb92-47f8-87ff-2d0a27d94461\\" data-image-id=\\"70d69a3f-bb92-47f8-87ff-2d0a27d94461\\"><img src=\\"https://preview-assets-us-01.kc-usercontent.com:443/5e171834-8697-00d6-08fa-fdd643306171/154cdf96-8381-4452-8ab2-7bdf12cf1d7c/kk-logo-short-color-pos-rgb-256px-new.png\\" data-asset-id=\\"70d69a3f-bb92-47f8-87ff-2d0a27d94461\\" data-image-id=\\"70d69a3f-bb92-47f8-87ff-2d0a27d94461\\" alt=\\"\\"></figure>
+<p type=\\"application/kenticocloud\\" data-type=\\"item\\" data-rel=\\"link\\" data-codename=\\"test_item\\" data-sdk-resolved=\\"1\\" class=\\"kc-linked-item-wrapper\\"></p>
+<p type=\\"application/kenticocloud\\" data-type=\\"item\\" data-rel=\\"component\\" data-codename=\\"n21ee8eda_a2e9_01f6_d90b_eb0a2f07d6a8\\" data-sdk-resolved=\\"1\\" class=\\"kc-linked-item-wrapper\\"></p>
+<p type=\\"application/kenticocloud\\" data-type=\\"item\\" data-rel=\\"link\\" data-codename=\\"test_item_2\\" data-sdk-resolved=\\"1\\" class=\\"kc-linked-item-wrapper\\"></p>
+<p type=\\"application/kenticocloud\\" data-type=\\"item\\" data-rel=\\"component\\" data-codename=\\"n21ee8eda_a2e9_01f6_d90b_eb0a2f07d6a8\\" data-sdk-resolved=\\"1\\" class=\\"kc-linked-item-wrapper\\"></p>
+<p><a data-item-id=\\"2a44123c-83d9-43ee-9dca-681d77286abe\\" href=\\"\\">Link to content item</a> <a data-item-id=\\"86a36af6-0edd-418b-8d9a-9d28ea146e66\\" href=\\"\\">Link to content item</a></p>",
+          "linkedItemCodenames": Array [
+            "test_item",
+            "test_item_2",
+          ],
+        },
+        "type": "rich_text",
+        "value": "<p>Rich text contentX</p>
+<figure data-asset-id=\\"190484cb-7bbf-4a1d-b978-784331e0a9f5\\" data-image-id=\\"190484cb-7bbf-4a1d-b978-784331e0a9f5\\"><img src=\\"https://preview-assets-us-01.kc-usercontent.com:443/5e171834-8697-00d6-08fa-fdd643306171/172eb0ad-f2d9-41e1-bb33-0d396c041bb2/kk-logo-short-color-pos-rgb-256px.png\\" data-asset-id=\\"190484cb-7bbf-4a1d-b978-784331e0a9f5\\" data-image-id=\\"190484cb-7bbf-4a1d-b978-784331e0a9f5\\" alt=\\"\\"></figure>
+<figure data-asset-id=\\"70d69a3f-bb92-47f8-87ff-2d0a27d94461\\" data-image-id=\\"70d69a3f-bb92-47f8-87ff-2d0a27d94461\\"><img src=\\"https://preview-assets-us-01.kc-usercontent.com:443/5e171834-8697-00d6-08fa-fdd643306171/154cdf96-8381-4452-8ab2-7bdf12cf1d7c/kk-logo-short-color-pos-rgb-256px-new.png\\" data-asset-id=\\"70d69a3f-bb92-47f8-87ff-2d0a27d94461\\" data-image-id=\\"70d69a3f-bb92-47f8-87ff-2d0a27d94461\\" alt=\\"\\"></figure>
+<object type=\\"application/kenticocloud\\" data-type=\\"item\\" data-rel=\\"link\\" data-codename=\\"test_item\\"></object>
+<object type=\\"application/kenticocloud\\" data-type=\\"item\\" data-rel=\\"component\\" data-codename=\\"n21ee8eda_a2e9_01f6_d90b_eb0a2f07d6a8\\"></object>
+<object type=\\"application/kenticocloud\\" data-type=\\"item\\" data-rel=\\"link\\" data-codename=\\"test_item_2\\"></object>
+<object type=\\"application/kenticocloud\\" data-type=\\"item\\" data-rel=\\"component\\" data-codename=\\"n21ee8eda_a2e9_01f6_d90b_eb0a2f07d6a8\\"></object>
+<p><a data-item-id=\\"2a44123c-83d9-43ee-9dca-681d77286abe\\" href=\\"\\">Link to content item</a> <a data-item-id=\\"86a36af6-0edd-418b-8d9a-9d28ea146e66\\" href=\\"\\">Link to content item</a></p>",
+      },
+      "text": Object {
+        "name": "Text",
+        "type": "text",
+        "value": "Test",
+      },
+      "toast_ui_editor": Object {
+        "name": "Toast UI Editor",
+        "type": "custom",
+        "value": "# Custom element",
+      },
+      "url_slug": Object {
+        "name": "URL slug",
+        "resolvedUrl": "",
+        "type": "url_slug",
+        "value": "url-slug-with-source",
+      },
+      "url_slug_text_source": Object {
+        "name": "URL slug text source",
+        "type": "text",
+        "value": "Url slug with source",
+      },
+    },
+    "id": "1bdc8830-979d-57b2-a2a3-501486825575",
+    "internal": Object {
+      "contentDigest": "e38b464fa498fbb36af71fe37a084946",
+      "type": "KontentItemTestPreview",
+    },
+    "otherLanguages___NODE": Array [],
+    "parent": null,
+    "preferred_language": "default",
+    "system": Object {
+      "codename": "test_item",
+      "id": "2a44123c-83d9-43ee-9dca-681d77286abe",
+      "language": "default",
+      "lastModified": "2019-12-04T13:18:38.272Z",
+      "name": "Test item",
+      "sitemapLocations": Array [],
+      "type": "test_preview",
+    },
+    "usedByContentItems___NODE": Array [],
+  },
+]
+`;
+
+exports[`Gatsby Preview update text element 1`] = `
+Array [
+  Object {
+    "children": Array [],
+    "contentType___NODE": "c19f9560-4994-59fe-a258-0a53a18c5880",
+    "elements": Object {
+      "asset": Object {
+        "name": "Asset",
+        "type": "asset",
+        "value": Array [
+          Object {
+            "contract": Object {
+              "description": null,
+              "height": 512,
+              "name": "kk-logo-short-color-pos-rgb-256px.png",
+              "size": 10355,
+              "type": "image/png",
+              "url": "https://preview-assets-us-01.kc-usercontent.com:443/5e171834-8697-00d6-08fa-fdd643306171/172eb0ad-f2d9-41e1-bb33-0d396c041bb2/kk-logo-short-color-pos-rgb-256px.png",
+              "width": 512,
+            },
+            "description": null,
+            "height": 512,
+            "name": "kk-logo-short-color-pos-rgb-256px.png",
+            "size": 10355,
+            "type": "image/png",
+            "url": "https://preview-assets-us-01.kc-usercontent.com:443/5e171834-8697-00d6-08fa-fdd643306171/172eb0ad-f2d9-41e1-bb33-0d396c041bb2/kk-logo-short-color-pos-rgb-256px.png",
+            "width": 512,
+          },
+        ],
+      },
+      "date___time": Object {
+        "name": "Date & time",
+        "type": "date_time",
+        "value": "2019-11-30T00:00:00.000Z",
+      },
+      "gatsby_preview__untitled_custom_element": Object {
+        "name": "Gatsby preview watcher - local",
+        "type": "custom",
+        "value": null,
+      },
+      "linked_items": Object {
+        "itemCodenames": Array [],
+        "linked_items___NODE": Array [],
+        "name": "Linked items",
+        "type": "modular_content",
+      },
+      "number": Object {
+        "name": "Number",
+        "type": "number",
+        "value": 321,
+      },
+      "rich_text": Object {
+        "images": Array [],
+        "linkedItemCodenames": Array [],
+        "linked_items___NODE": Array [],
+        "links": Array [],
+        "name": "Rich text",
+        "resolvedData": Object {
+          "componentCodenames": Array [],
+          "html": "<p>Test value</p>",
+          "linkedItemCodenames": Array [],
+        },
+        "type": "rich_text",
+        "value": "<p>Test value</p>",
+      },
+      "text": Object {
+        "name": "Text",
+        "type": "text",
+        "value": "Test - changed",
+      },
+      "toast_ui_editor": Object {
+        "name": "Toast UI Editor",
+        "type": "custom",
+        "value": "# Custom element",
+      },
+      "url_slug": Object {
+        "name": "URL slug",
+        "resolvedUrl": "",
+        "type": "url_slug",
+        "value": "url-slug-with-source",
+      },
+      "url_slug_text_source": Object {
+        "name": "URL slug text source",
+        "type": "text",
+        "value": "Url slug with source",
+      },
+    },
+    "id": "1bdc8830-979d-57b2-a2a3-501486825575",
+    "internal": Object {
+      "contentDigest": "db5ab75093c6ba16472685b70b416957",
+      "type": "KontentItemTestPreview",
+    },
+    "otherLanguages___NODE": Array [],
+    "parent": null,
+    "preferred_language": "default",
+    "system": Object {
+      "codename": "test_item",
+      "id": "2a44123c-83d9-43ee-9dca-681d77286abe",
+      "language": "default",
+      "lastModified": "2019-12-04T13:18:38.272Z",
+      "name": "Test item",
+      "sitemapLocations": Array [],
+      "type": "test_preview",
+    },
+    "usedByContentItems___NODE": Array [],
+  },
+]
+`;
+
+exports[`Gatsby Preview update url slug element 1`] = `
+Array [
+  Object {
+    "children": Array [],
+    "contentType___NODE": "c19f9560-4994-59fe-a258-0a53a18c5880",
+    "elements": Object {
+      "asset": Object {
+        "name": "Asset",
+        "type": "asset",
+        "value": Array [
+          Object {
+            "contract": Object {
+              "description": null,
+              "height": 512,
+              "name": "kk-logo-short-color-pos-rgb-256px.png",
+              "size": 10355,
+              "type": "image/png",
+              "url": "https://preview-assets-us-01.kc-usercontent.com:443/5e171834-8697-00d6-08fa-fdd643306171/172eb0ad-f2d9-41e1-bb33-0d396c041bb2/kk-logo-short-color-pos-rgb-256px.png",
+              "width": 512,
+            },
+            "description": null,
+            "height": 512,
+            "name": "kk-logo-short-color-pos-rgb-256px.png",
+            "size": 10355,
+            "type": "image/png",
+            "url": "https://preview-assets-us-01.kc-usercontent.com:443/5e171834-8697-00d6-08fa-fdd643306171/172eb0ad-f2d9-41e1-bb33-0d396c041bb2/kk-logo-short-color-pos-rgb-256px.png",
+            "width": 512,
+          },
+        ],
+      },
+      "date___time": Object {
+        "name": "Date & time",
+        "type": "date_time",
+        "value": "2019-11-30T00:00:00.000Z",
+      },
+      "gatsby_preview__untitled_custom_element": Object {
+        "name": "Gatsby preview watcher - local",
+        "type": "custom",
+        "value": null,
+      },
+      "linked_items": Object {
+        "itemCodenames": Array [],
+        "linked_items___NODE": Array [],
+        "name": "Linked items",
+        "type": "modular_content",
+      },
+      "number": Object {
+        "name": "Number",
+        "type": "number",
+        "value": 321,
+      },
+      "rich_text": Object {
+        "images": Array [],
+        "linkedItemCodenames": Array [],
+        "linked_items___NODE": Array [],
+        "links": Array [],
+        "name": "Rich text",
+        "resolvedData": Object {
+          "componentCodenames": Array [],
+          "html": "<p>Test value</p>",
+          "linkedItemCodenames": Array [],
+        },
+        "type": "rich_text",
+        "value": "<p>Test value</p>",
+      },
+      "text": Object {
+        "name": "Text",
+        "type": "text",
+        "value": "Test",
+      },
+      "toast_ui_editor": Object {
+        "name": "Toast UI Editor",
+        "type": "custom",
+        "value": "# Custom element",
+      },
+      "url_slug": Object {
+        "name": "URL slug",
+        "resolvedUrl": "",
+        "type": "url_slug",
+        "value": "url-slug-with-source-changed",
+      },
+      "url_slug_text_source": Object {
+        "name": "URL slug text source",
+        "type": "text",
+        "value": "Url slug with source changed",
+      },
+    },
+    "id": "1bdc8830-979d-57b2-a2a3-501486825575",
+    "internal": Object {
+      "contentDigest": "42985bd915b71d94a4f8f199ab86e3c0",
+      "type": "KontentItemTestPreview",
+    },
+    "otherLanguages___NODE": Array [],
+    "parent": null,
+    "preferred_language": "default",
+    "system": Object {
+      "codename": "test_item",
+      "id": "2a44123c-83d9-43ee-9dca-681d77286abe",
+      "language": "default",
+      "lastModified": "2019-12-04T13:18:38.272Z",
+      "name": "Test item",
+      "sitemapLocations": Array [],
+      "type": "test_preview",
+    },
+    "usedByContentItems___NODE": Array [],
+  },
+]
+`;

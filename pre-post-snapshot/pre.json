@@ -1,0 +1,116 @@
+{
+  "system": {
+    "name": "Test item",
+    "codename": "test_item",
+    "id": "2a44123c-83d9-43ee-9dca-681d77286abe",
+    "lastModified": "2019-12-02T07:56:08.359Z",
+    "language": "default",
+    "type": "test_preview",
+    "sitemapLocations": []
+  },
+  "elements": {
+    "gatsby_preview__untitled_custom_element": {
+      "name": "Gatsby preview watcher - local",
+      "type": "custom",
+      "value": null
+    },
+    "gatsby_preview__gatsby_preview_watcher___live": {
+      "name": "Gatsby preview watcher - live",
+      "type": "custom",
+      "value": null
+    },
+    "text": {
+      "name": "Text",
+      "type": "text",
+      "value": "Test"
+    },
+    "number": {
+      "name": "Number",
+      "type": "number",
+      "value": 432
+    },
+    "date___time": {
+      "name": "Date & time",
+      "type": "date_time",
+      "value": "2019-11-30T00:00:00.000Z"
+    },
+    "toast_ui_editor": {
+      "name": "Toast UI Editor",
+      "type": "custom",
+      "value": "# Custom element"
+    },
+    "url_slug_text_source": {
+      "name": "URL slug text source",
+      "type": "text",
+      "value": "Url slug with source"
+    },
+    "url_slug": {
+      "name": "URL slug",
+      "type": "url_slug",
+      "value": "url-slug-with-source",
+      "resolvedUrl": ""
+    },
+    "asset": {
+      "name": "Asset",
+      "type": "asset",
+      "value": [
+        {
+          "contract": {
+            "name": "kk-logo-short-color-pos-rgb-256px.png",
+            "description": null,
+            "type": "image/png",
+            "size": 10355,
+            "url": "https://preview-assets-us-01.kc-usercontent.com:443/5e171834-8697-00d6-08fa-fdd643306171/172eb0ad-f2d9-41e1-bb33-0d396c041bb2/kk-logo-short-color-pos-rgb-256px.png",
+            "width": 512,
+            "height": 512
+          },
+          "name": "kk-logo-short-color-pos-rgb-256px.png",
+          "type": "image/png",
+          "size": 10355,
+          "description": null,
+          "url": "https://preview-assets-us-01.kc-usercontent.com:443/5e171834-8697-00d6-08fa-fdd643306171/172eb0ad-f2d9-41e1-bb33-0d396c041bb2/kk-logo-short-color-pos-rgb-256px.png",
+          "width": 512,
+          "height": 512
+        }
+      ]
+    },
+    "linked_items": {
+      "name": "Linked items",
+      "type": "modular_content",
+      "itemCodenames": [
+        "test_item"
+      ],
+      "linked_items___NODE": [
+        "1bdc8830-979d-57b2-a2a3-501486825575"
+      ]
+    },
+    "rich_text": {
+      "name": "Rich text",
+      "type": "rich_text",
+      "linkedItemCodenames": [],
+      "links": [],
+      "images": [],
+      "value": "<p>Rich text contentX</p>",
+      "resolvedData": {
+        "html": "<p>Rich text contentX</p>",
+        "componentCodenames": [],
+        "linkedItemCodenames": []
+      },
+      "linked_items___NODE": []
+    }
+  },
+  "preferred_language": "default",
+  "otherLanguages___NODE": [],
+  "contentType___NODE": "c19f9560-4994-59fe-a258-0a53a18c5880",
+  "id": "1bdc8830-979d-57b2-a2a3-501486825575",
+  "parent": null,
+  "children": [],
+  "usedByContentItems___NODE": [],
+  "internal": {
+    "type": "KontentItemTestPreview",
+    "contentDigest": "64c022c55d015216428c0969a9551a35",
+    "content": "{\"system\":{\"id\":\"2a44123c-83d9-43ee-9dca-681d77286abe\",\"name\":\"Test item\",\"codename\":\"test_item\",\"language\":\"default\",\"type\":\"test_preview\",\"sitemap_locations\":[],\"last_modified\":\"2019-12-02T07:56:08.3590953Z\"},\"elements\":{\"gatsby_preview__untitled_custom_element\":{\"type\":\"custom\",\"name\":\"Gatsby preview watcher - local\",\"value\":null},\"gatsby_preview__gatsby_preview_watcher___live\":{\"type\":\"custom\",\"name\":\"Gatsby preview watcher - live\",\"value\":null},\"text\":{\"type\":\"text\",\"name\":\"Text\",\"value\":\"Test\"},\"number\":{\"type\":\"number\",\"name\":\"Number\",\"value\":432},\"date___time\":{\"type\":\"date_time\",\"name\":\"Date & time\",\"value\":\"2019-11-30T00:00:00Z\"},\"toast_ui_editor\":{\"type\":\"custom\",\"name\":\"Toast UI Editor\",\"value\":\"# Custom element\"},\"url_slug_text_source\":{\"type\":\"text\",\"name\":\"URL slug text source\",\"value\":\"Url slug with source\"},\"url_slug\":{\"type\":\"url_slug\",\"name\":\"URL slug\",\"value\":\"url-slug-with-source\"},\"asset\":{\"type\":\"asset\",\"name\":\"Asset\",\"value\":[{\"name\":\"kk-logo-short-color-pos-rgb-256px.png\",\"description\":null,\"type\":\"image/png\",\"size\":10355,\"url\":\"https://preview-assets-us-01.kc-usercontent.com:443/5e171834-8697-00d6-08fa-fdd643306171/172eb0ad-f2d9-41e1-bb33-0d396c041bb2/kk-logo-short-color-pos-rgb-256px.png\",\"width\":512,\"height\":512}]},\"linked_items\":{\"type\":\"modular_content\",\"name\":\"Linked items\",\"value\":[\"test_item\"]},\"rich_text\":{\"type\":\"rich_text\",\"name\":\"Rich text\",\"images\":{},\"links\":{},\"modular_content\":[],\"value\":\"<p>Rich text contentX</p>\"}}}",
+    "counter": 341,
+    "owner": "@kentico/gatsby-source-kontent"
+  }
+}
