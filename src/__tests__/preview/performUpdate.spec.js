@@ -1,4 +1,7 @@
 const testItemNode = require('./test-item-node');
+const testItem2Node = require('./test-item-2-node');
+const testComponentNode = require('./test-component-node');
+
 
 const { sourceNodes } = require('../../gatsby-node');
 
@@ -10,9 +13,7 @@ describe('Gatsby Preview update', () => {
     ['custom element', './item-response-updated-custom'],
     ['url slug element', './item-response-updated-url-slug'],
     ['asset element', './item-response-updated-asset'],
-    // ___NODES NEEDS UPDATE
     ['linked items element', './item-response-updated-linked-items'],
-    // ___NODES NEED UPDATE
     ['rich text element', './item-response-updated-rich-text'],
   ])('%s', async (_, updateResponse) => {
     const response = require(updateResponse);
@@ -37,7 +38,7 @@ describe('Gatsby Preview update', () => {
           response,
         },
       },
-      getNodes: jest.fn(() => [testItemNode]),
+      getNodes: jest.fn(() => [testItemNode, testItem2Node, testComponentNode]),
     };
 
     const pluginConfig = {
