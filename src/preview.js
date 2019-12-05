@@ -11,7 +11,7 @@ const urlSlugElementDecorator =
 const { parse, stringify } = require(`flatted/cjs`);
 
 /**
- * 
+ *
  * @param {Object} webhookBody The request body data passed as a refresh webhook
  * @param {Function} createNodeId Gatsby function for generating node ID
  * @param {Function} createNode Gatsby API function node Creation
