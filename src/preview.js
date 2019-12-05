@@ -10,7 +10,19 @@ const urlSlugElementDecorator =
   require('./decorators/urlSlugElementDecorator');
 const { parse, stringify } = require(`flatted/cjs`);
 
-
+/**
+ * 
+ * @param {Object} webhookBody The request body data passed as a refresh webhook
+ * @param {Function} createNodeId Gatsby function for generating node ID
+ * @param {Function} createNode Gatsby API function node Creation
+ * @param {Function} getNodes Gatsby API function for getting all nodes
+ * @param {Function} touchNode
+ * Gatsby API function node touch - when no change was performed
+ * @param {Boolean} includeRawContent
+ * Flag whether the raw `content` field should be included in Gatsby node
+ * @param {Boolean} enableLogging Flag to include logging in the output
+ * @param {Object} deliveryClientConfig Js SDK Delivery client configuration
+ */
 const performUpdate = (
   webhookBody,
   createNodeId,
@@ -33,12 +45,11 @@ const performUpdate = (
     preferredLanguage,
     createNodeId);
 
-
   // Don't use the item.system.language because
   // it would differ when the language fallback was used.
   // For gatsby these are two different language variants
   // (figure out how to handle that for update).
-  // If (item.system.language !== preferredLanguage) // TODO
+  // If (item.system.language !== preferredLanguage)
   for (const itemNode of kontentItemNodes) {
     if (itemToUpdateNodeId !== itemNode.id) {
       touchNode(itemNode);
