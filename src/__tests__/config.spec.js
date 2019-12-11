@@ -1,6 +1,3 @@
-const { KontentTestHttpService }
-  = require('@kentico/kontent-test-http-service-js');
-
 const { addHeader } = require('../config');
 const { customTrackingHeader } = require('../config');
 const { name, version } = require('../../package.json');
