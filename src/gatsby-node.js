@@ -16,8 +16,40 @@ const linkedItemsElementDecorator =
   require('./decorators/linkedItemsElementDecorator');
 const richTextElementDecorator =
   require('./decorators/richTextElementDecorator');
-const { customTrackingHeader } = require('./config');
-const {performUpdate } = require('./preview');
+const { customTrackingHeader, addHeader } = require('./config');
+const { performUpdate } = require('./preview');
+
+exports.createSchemaCustomization = async (api, pluginConfig) => {
+  const {
+    actions: {
+      createTypes,
+    },
+    schema,
+  } = api;
+
+  const {
+    deliveryClientConfig,
+    enableLogging = false,
+  } = pluginConfig;
+
+  const kontentClientConfig =
+    addHeader(deliveryClientConfig, customTrackingHeader);
+
+  const client = new DeliveryClient(kontentClientConfig);
+
+
+  if (enableLogging) {
+    console.info(
+      `Creating type nodes schema.`
+    );
+  }
+
+  await typeNodesSchema.createTypeNodesSchema(
+    client,
+    schema,
+    createTypes,
+  );
+};
 
 exports.sourceNodes =
   async (api, pluginConfig) => {
@@ -40,6 +72,9 @@ exports.sourceNodes =
       includeRawContent = false,
     } = pluginConfig;
 
+    const kontentClientConfig =
+    addHeader(deliveryClientConfig, customTrackingHeader);
+
 
     const operation = _.get(webhookBody, 'message.operation');
     if (operation) {
@@ -58,7 +93,7 @@ exports.sourceNodes =
             touchNode,
             includeRawContent,
             enableLogging,
-            deliveryClientConfig,
+            kontentClientConfig,
           );
           break;
         }
@@ -71,7 +106,7 @@ exports.sourceNodes =
 
     if (enableLogging) {
       console.info(`Generating Kentico Kontent nodes for projectId:\
- ${_.get(deliveryClientConfig, 'projectId')}`);
+ ${_.get(kontentClientConfig, 'projectId')}`);
       console.info(`Provided language codenames: ${languageCodenames}.`);
     }
 
@@ -79,9 +114,7 @@ exports.sourceNodes =
     const defaultLanguageCodename = languageCodenames[0];
     const nonDefaultLanguageCodenames = languageCodenames.slice(1);
 
-    addHeader(deliveryClientConfig, customTrackingHeader);
-
-    const client = new DeliveryClient(deliveryClientConfig);
+    const client = new DeliveryClient(kontentClientConfig);
 
     const contentTypeNodes = await typeNodes.get(
       client,
@@ -169,39 +202,6 @@ exports.sourceNodes =
     }
     return;
   };
-
-/**
- *
- * @param {DeliveryClientConfig} deliveryClientConfig
- *  Kentico Kontent JS configuration object
- * @param {IHeader} trackingHeader tracking header name
- */
-const addHeader = (deliveryClientConfig, trackingHeader) => {
-  deliveryClientConfig.globalQueryConfig =
-    deliveryClientConfig.globalQueryConfig || {};
-
-  if (!deliveryClientConfig.globalQueryConfig.customHeaders) {
-    deliveryClientConfig.globalQueryConfig.customHeaders = [trackingHeader];
-    return;
-  }
-
-  let headers = _.cloneDeep(
-    deliveryClientConfig
-      .globalQueryConfig
-      .customHeaders
-  );
-
-  if (headers.some((header) => header.header === trackingHeader.header)) {
-    console.warn(`Custom HTTP header value with name ${trackingHeader.header}
-        will be replaced by the source plugin.
-        Use different header name if you want to avoid this behavior;`);
-    headers = headers.filter((header) =>
-      header.header !== trackingHeader.header);
-  }
-
-  headers.push(trackingHeader);
-  deliveryClientConfig.globalQueryConfig.customHeaders = headers;
-};
 
 /**
  * Call @see createNode function  for all items in @see nodes.
