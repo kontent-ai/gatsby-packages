@@ -56,11 +56,9 @@ exports.sourceNodes =
     const {
       actions: {
         createNode,
-        createTypes,
         touchNode,
       },
       createNodeId,
-      schema,
       webhookBody,
       getNodes,
     } = api;
@@ -120,17 +118,6 @@ exports.sourceNodes =
       client,
       createNodeId,
       includeRawContent
-    );
-
-    if (enableLogging) {
-      console.info(
-        `Creating type nodes schema.`
-      );
-    }
-    await typeNodesSchema.createTypeNodesSchema(
-      client,
-      schema,
-      createTypes,
     );
 
     const defaultCultureContentItemNodes = await itemNodes.

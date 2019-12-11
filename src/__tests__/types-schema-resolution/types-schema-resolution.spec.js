@@ -2,7 +2,7 @@
 const { KontentTestHttpService }
   = require('@kentico/kontent-test-http-service-js');
 
-const { sourceNodes } = require('../../gatsby-node');
+const { createSchemaCustomization } = require('../../gatsby-node');
 
 const fakeTypesResponse =
   require('./fakeTypesResponse.json');
@@ -38,7 +38,7 @@ describe(
         Original input: ${input}`,
       }))}; ;
 
-    const actions = {
+    const api = {
       actions: {
         createNode: createNodeMock,
         createTypes: createTypesMock,
@@ -60,7 +60,7 @@ describe(
     };
 
     it('passes with no error', async () => {
-      await sourceNodes(actions, pluginConfiguration);
+      await createSchemaCustomization(api, pluginConfiguration);
 
       const createTypeCalls = createTypesMock.mock.calls;
       expect(createTypeCalls).toHaveLength(2);
