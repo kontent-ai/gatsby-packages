@@ -117,7 +117,7 @@ You can use the [GraphiQL](https://github.com/graphql/graphiql) interface to exp
 
 ### Language fallbacks
 
-Gatsby source plugin is including GraphQL nodes by the language fallbacks configuration. As a part of that, there is a `prefered_language` property allowing to distinguish whether the fallback has been used or not.If the fallback is used `prefered language` is set to the desired language codename, but `system.language` value is using the actual culture that has been used (the fallback one). If the values are same, fallback is was not used.
+Gatsby source plugin is including GraphQL nodes by the language fallbacks configuration. As a part of that, there is a `preferred_language` property allowing to distinguish whether the fallback has been used or not.If the fallback is used `preferred language` is set to the desired language codename, but `system.language` value is using the actual culture that has been used (the fallback one). If the values are same, fallback is was not used.
 
 ### Language variant relationships
 
