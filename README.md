@@ -40,7 +40,7 @@ If you are new to the Gatsby ecosystem. The best way to start with using Gatsby 
 
       \* required property
 
-    **Configuration object**
+#### Configuration object
 
     ```javascript
     module.exports = {
