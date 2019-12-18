@@ -4,10 +4,33 @@ exports[`Complex content types schema resolution passes with no error 1`] = `
 Array [
   Array [
     "
+    interface KontentType @nodeInterface {
+      id: ID!
+      system: KontentTypeSystem!
+      elements: [KontentTypeElement]
+    }
+    type KontentTypeSystem @infer {
+      codename: String!
+      id: String!
+      lastModified: Date! @dateformat
+      name: String!
+    }
+    type KontentTypeElement @infer {
+      codename: String!
+      name: String!
+      type: String!
+      taxonomyGroup: String
+      options: [ElementOption]
+    }
+    type ElementOption {
+      name: String
+      codename: String
+    }
     interface KontentItem @nodeInterface {
       id: ID!
       system: KontentItemSystem!
       preferred_language: String!
+      contentType: KontentType!
     }
     interface KontentElement @dontInfer {
       name: String!
@@ -134,6 +157,14 @@ Array [
         "data": "Returning from mocked schema's buildObjectType function.
         Original input: [object Object]",
       },
+      Object {
+        "data": "Returning from mocked schema's buildObjectType function.
+        Original input: [object Object]",
+      },
+      Object {
+        "data": "Returning from mocked schema's buildObjectType function.
+        Original input: [object Object]",
+      },
     ],
   ],
 ]
@@ -141,6 +172,20 @@ Array [
 
 exports[`Complex content types schema resolution passes with no error 2`] = `
 Array [
+  Array [
+    Object {
+      "fields": Object {
+        "elements": "[KontentTypeElement]",
+        "system": "KontentTypeSystem!",
+      },
+      "infer": false,
+      "interfaces": Array [
+        "Node",
+        "KontentType",
+      ],
+      "name": "KontentTypeWithitem",
+    },
+  ],
   Array [
     Object {
       "fields": Object {
@@ -158,6 +203,7 @@ Array [
   Array [
     Object {
       "fields": Object {
+        "contentType": "KontentTypeWithitem!",
         "elements": "KontentItemWithitemElements!",
         "preferred_language": "String!",
         "system": "KontentItemSystem!",
@@ -168,6 +214,20 @@ Array [
         "KontentItem",
       ],
       "name": "KontentItemWithitem",
+    },
+  ],
+  Array [
+    Object {
+      "fields": Object {
+        "elements": "[KontentTypeElement]",
+        "system": "KontentTypeSystem!",
+      },
+      "infer": false,
+      "interfaces": Array [
+        "Node",
+        "KontentType",
+      ],
+      "name": "KontentTypeWithoutitem",
     },
   ],
   Array [
@@ -205,6 +265,7 @@ Array [
   Array [
     Object {
       "fields": Object {
+        "contentType": "KontentTypeWithoutitem!",
         "elements": "KontentItemWithoutitemElements!",
         "preferred_language": "String!",
         "system": "KontentItemSystem!",

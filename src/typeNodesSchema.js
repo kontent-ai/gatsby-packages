@@ -22,6 +22,18 @@ const createTypeNodesSchema = async (client, schema, createTypes) => {
 };
 
 const createFieldDefinitionsForType = (schema, type) => {
+
+  const typeTypeDef = schema.buildObjectType({
+    name: getGraphTypeTypeName(type.system.codename),
+    fields: {
+      system: 'KontentTypeSystem!',
+      // contentItems: `[${getGraphItemTypeName(type.system.codename)}]`,
+      elements: '[KontentTypeElement]',
+    },
+    interfaces: ['Node', 'KontentType'],
+    infer: false,
+  });
+
   const elementFields = type.elements.reduce((acc, element) => {
     return Object.assign(acc, {
       [element.codename]: {
@@ -31,27 +43,31 @@ const createFieldDefinitionsForType = (schema, type) => {
   }, {});
 
   const elementsTypeDef = schema.buildObjectType({
-    name: `${getGraphTypeName(type.system.codename)}Elements`,
+    name: `${getGraphItemTypeName(type.system.codename)}Elements`,
     fields: elementFields,
     infer: false,
   });
 
-  const typeDef = schema.buildObjectType({
-    name: getGraphTypeName(type.system.codename),
+  const typeItemDef = schema.buildObjectType({
+    name: getGraphItemTypeName(type.system.codename),
     fields: {
       system: 'KontentItemSystem!',
-      elements: `${getGraphTypeName(type.system.codename)}Elements!`,
+      elements: `${getGraphItemTypeName(type.system.codename)}Elements!`,
       preferred_language: 'String!',
+      contentType: `${getGraphTypeTypeName(type.system.codename)}!`,
     },
     interfaces: ['Node', 'KontentItem'],
     infer: false,
   });
-
-  return [elementsTypeDef, typeDef];
+  return [elementsTypeDef, typeItemDef, typeTypeDef];
 };
 
-const getGraphTypeName = (typeName) => {
+const getGraphItemTypeName = (typeName) => {
   return normalize.getArtifactName(typeName, 'item');
+};
+
+const getGraphTypeTypeName = (typeName) => {
+  return normalize.getArtifactName(typeName, 'type');
 };
 
 const getElementValueType = (elementType) => {
@@ -60,10 +76,33 @@ const getElementValueType = (elementType) => {
 
 const getKontentBaseTypeDefinitions = () => {
   const typeDefs = `
+    interface KontentType @nodeInterface {
+      id: ID!
+      system: KontentTypeSystem!
+      elements: [KontentTypeElement]
+    }
+    type KontentTypeSystem @infer {
+      codename: String!
+      id: String!
+      lastModified: Date! @dateformat
+      name: String!
+    }
+    type KontentTypeElement @infer {
+      codename: String!
+      name: String!
+      type: String!
+      taxonomyGroup: String
+      options: [ElementOption]
+    }
+    type ElementOption {
+      name: String
+      codename: String
+    }
     interface KontentItem @nodeInterface {
       id: ID!
       system: KontentItemSystem!
       preferred_language: String!
+      contentType: KontentType!
     }
     interface KontentElement @dontInfer {
       name: String!
