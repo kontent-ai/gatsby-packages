@@ -8,6 +8,7 @@ Array [
       id: ID!
       system: KontentTypeSystem!
       elements: [KontentTypeElement]
+      contentItems: [KontentItem] @link(by: \\"id\\", from: \\"contentItems___NODE\\")
     }
     type KontentTypeSystem @infer {
       codename: String!
@@ -175,6 +176,10 @@ Array [
   Array [
     Object {
       "fields": Object {
+        "contentItems": Object {
+          "resolve": [Function],
+          "type": "[KontentItemWithitem]",
+        },
         "elements": "[KontentTypeElement]",
         "system": "KontentTypeSystem!",
       },
@@ -222,6 +227,10 @@ Array [
   Array [
     Object {
       "fields": Object {
+        "contentItems": Object {
+          "resolve": [Function],
+          "type": "[KontentItemWithoutitem]",
+        },
         "elements": "[KontentTypeElement]",
         "system": "KontentTypeSystem!",
       },

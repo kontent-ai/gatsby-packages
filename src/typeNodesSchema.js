@@ -26,8 +26,19 @@ const createFieldDefinitionsForType = (schema, type) => {
     name: getGraphTypeTypeName(type.system.codename),
     fields: {
       system: 'KontentTypeSystem!',
-      // contentItems: `[${getGraphItemTypeName(type.system.codename)}]`,
       elements: '[KontentTypeElement]',
+      contentItems: {
+        type: `[${getGraphItemTypeName(type.system.codename)}]`,
+        async resolve(source, _args, context, info) {
+          const result = context.nodeModel
+            .getAllNodes({
+              type: getGraphItemTypeName(type.system.codename)
+            })
+            .filter((type) =>
+              source[info.fieldName + '___NODE'].includes(type.id));
+          return result;
+        },
+      },
     },
     interfaces: ['Node', 'KontentType'],
     infer: false,
@@ -87,6 +98,7 @@ const getKontentBaseTypeDefinitions = () => {
       id: ID!
       system: KontentTypeSystem!
       elements: [KontentTypeElement]
+      contentItems: [KontentItem] @link(by: "id", from: "contentItems___NODE")
     }
     type KontentTypeSystem @infer {
       codename: String!
