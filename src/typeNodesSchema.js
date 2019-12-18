@@ -32,7 +32,7 @@ const createFieldDefinitionsForType = (schema, type) => {
         async resolve(source, _args, context, info) {
           const result = context.nodeModel
             .getAllNodes({
-              type: getGraphItemTypeName(type.system.codename)
+              type: getGraphItemTypeName(type.system.codename),
             })
             .filter((type) =>
               source[info.fieldName + '___NODE'].includes(type.id));
