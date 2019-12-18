@@ -32,6 +32,8 @@ Array [
       system: KontentItemSystem!
       preferred_language: String!
       contentType: KontentType! @link(by: \\"id\\", from: \\"contentType___NODE\\")
+      usedByContentItems: 
+        [KontentItem] @link(by: \\"id\\", from: \\"usedByContentItems___NODE\\")
     }
     interface KontentElement @dontInfer {
       name: String!
@@ -215,6 +217,10 @@ Array [
         "elements": "KontentItemWithitemElements!",
         "preferred_language": "String!",
         "system": "KontentItemSystem!",
+        "usedByContentItems": Object {
+          "resolve": [Function],
+          "type": "[KontentItem]",
+        },
       },
       "infer": false,
       "interfaces": Array [
@@ -284,6 +290,10 @@ Array [
         "elements": "KontentItemWithoutitemElements!",
         "preferred_language": "String!",
         "system": "KontentItemSystem!",
+        "usedByContentItems": Object {
+          "resolve": [Function],
+          "type": "[KontentItem]",
+        },
       },
       "infer": false,
       "interfaces": Array [

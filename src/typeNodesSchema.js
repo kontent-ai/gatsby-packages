@@ -31,11 +31,7 @@ const createFieldDefinitionsForType = (schema, type) => {
         type: `[${getGraphItemTypeName(type.system.codename)}]`,
         async resolve(source, _args, context, info) {
           const result = context.nodeModel
-            .getAllNodes({
-              type: getGraphItemTypeName(type.system.codename),
-            })
-            .filter((type) =>
-              source[info.fieldName + '___NODE'].includes(type.id));
+            .getNodesByIds({ ids: source[info.fieldName + '___NODE'] });
           return result;
         },
       },
@@ -68,8 +64,15 @@ const createFieldDefinitionsForType = (schema, type) => {
         type: `${getGraphTypeTypeName(type.system.codename)}!`,
         async resolve(source, _args, context, info) {
           const result = context.nodeModel
-            .getAllNodes({ type: getGraphTypeTypeName(type.system.codename) })
-            .find((type) => type.id === source[info.fieldName + '___NODE']);
+            .getNodesByIds({ ids: source[info.fieldName + '___NODE'] });
+          return result;
+        },
+      },
+      usedByContentItems: {
+        type: '[KontentItem]',
+        async resolve(source, _args, context, info) {
+          const result = context.nodeModel
+            .getNodesByIds({ ids: source[info.fieldName + '___NODE'] });
           return result;
         },
       },
@@ -122,6 +125,8 @@ const getKontentBaseTypeDefinitions = () => {
       system: KontentItemSystem!
       preferred_language: String!
       contentType: KontentType! @link(by: "id", from: "contentType___NODE")
+      usedByContentItems: 
+        [KontentItem] @link(by: "id", from: "usedByContentItems___NODE")
     }
     interface KontentElement @dontInfer {
       name: String!
