@@ -45,7 +45,7 @@
     "rxjs": "^6.5.3"
   },
   "peerDependencies": {
-    "gatsby": ">=2.2.0"
+    "gatsby": ">=2.18.11"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",

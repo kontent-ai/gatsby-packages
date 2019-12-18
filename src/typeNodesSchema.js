@@ -22,7 +22,6 @@ const createTypeNodesSchema = async (client, schema, createTypes) => {
 };
 
 const createFieldDefinitionsForType = (schema, type) => {
-
   const typeTypeDef = schema.buildObjectType({
     name: getGraphTypeTypeName(type.system.codename),
     fields: {
@@ -54,7 +53,15 @@ const createFieldDefinitionsForType = (schema, type) => {
       system: 'KontentItemSystem!',
       elements: `${getGraphItemTypeName(type.system.codename)}Elements!`,
       preferred_language: 'String!',
-      contentType: `${getGraphTypeTypeName(type.system.codename)}!`,
+      contentType: {
+        type: `${getGraphTypeTypeName(type.system.codename)}!`,
+        async resolve(source, _args, context, info) {
+          const result = context.nodeModel
+            .getAllNodes({ type: getGraphTypeTypeName(type.system.codename) })
+            .find((type) => type.id === source[info.fieldName + '___NODE']);
+          return result;
+        },
+      },
     },
     interfaces: ['Node', 'KontentItem'],
     infer: false,
@@ -102,7 +109,7 @@ const getKontentBaseTypeDefinitions = () => {
       id: ID!
       system: KontentItemSystem!
       preferred_language: String!
-      contentType: KontentType!
+      contentType: KontentType! @link(by: "id", from: "contentType___NODE")
     }
     interface KontentElement @dontInfer {
       name: String!

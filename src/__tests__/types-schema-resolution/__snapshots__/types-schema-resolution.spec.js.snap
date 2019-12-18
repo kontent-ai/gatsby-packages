@@ -30,7 +30,7 @@ Array [
       id: ID!
       system: KontentItemSystem!
       preferred_language: String!
-      contentType: KontentType!
+      contentType: KontentType! @link(by: \\"id\\", from: \\"contentType___NODE\\")
     }
     interface KontentElement @dontInfer {
       name: String!
@@ -203,7 +203,10 @@ Array [
   Array [
     Object {
       "fields": Object {
-        "contentType": "KontentTypeWithitem!",
+        "contentType": Object {
+          "resolve": [Function],
+          "type": "KontentTypeWithitem!",
+        },
         "elements": "KontentItemWithitemElements!",
         "preferred_language": "String!",
         "system": "KontentItemSystem!",
@@ -265,7 +268,10 @@ Array [
   Array [
     Object {
       "fields": Object {
-        "contentType": "KontentTypeWithoutitem!",
+        "contentType": Object {
+          "resolve": [Function],
+          "type": "KontentTypeWithoutitem!",
+        },
         "elements": "KontentItemWithoutitemElements!",
         "preferred_language": "String!",
         "system": "KontentItemSystem!",
