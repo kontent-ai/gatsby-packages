@@ -1,6 +1,6 @@
 {
   "name": "@kentico/gatsby-source-kontent",
-  "version": "4.0.0-beta5",
+  "version": "4.0.0-beta6",
   "description": "Gatsby source plugin for Kentico Kontent",
   "main": "./gatsby-node.js",
   "scripts": {
@@ -25,7 +25,7 @@
     "gatsby",
     "gatsby-plugin"
   ],
-  "author": "Ondřej Chrastina <ondrej.chrastina@gmail.com> (https://github.com/Simply007)",
+  "author": "Ondřej Chrastina <ondrej.chrastina@kentico.com> (https://github.com/Simply007)",
   "contributors": [
     "Jan Lenoch <janl@kentico.com>"
   ],
@@ -45,7 +45,7 @@
     "rxjs": "^6.5.3"
   },
   "peerDependencies": {
-    "gatsby": ">=2.18.11"
+    "gatsby": ">=2.18.15"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",

@@ -64,7 +64,7 @@ const createFieldDefinitionsForType = (schema, type) => {
         type: `${getGraphTypeTypeName(type.system.codename)}!`,
         async resolve(source, _args, context, info) {
           const result = context.nodeModel
-            .getNodesByIds({ ids: source[info.fieldName + '___NODE'] });
+            .getNodeById({ id: source[info.fieldName + '___NODE'] });
           return result;
         },
       },
