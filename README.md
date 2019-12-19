@@ -361,9 +361,10 @@ All rich text properties with content items linked in the element also have an a
 
 All nodes have a `usedByContentItems` property that reflects the other nodes in which the given node is used as linked content in *Linked items* or *Rich text* elements.
 
-### All items queries
+### All items and types queries
 
-There are two queries (`allKontentItem` and `kontentItem`) allows to load content items from unified endpoint regardless of type.
+Queries `allKontentItem` and `kontentItem` allow to load content items from unified endpoint regardless of type.
+Queries `allKontentType` and `kontentType` allow to load content types from unified endpoint.
 
 <details><summary>Example</summary>
 
@@ -374,6 +375,20 @@ query {
       system {
         type
         name
+      }
+    }
+  }
+  allKontentType {
+    nodes {
+      elements {
+        codename
+        name
+        type
+        taxonomyGroup
+        options {
+          codename
+          name
+        }
       }
     }
   }
