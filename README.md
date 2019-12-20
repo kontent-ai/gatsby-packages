@@ -9,8 +9,6 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/d7938a5343f835709527/maintainability)](https://codeclimate.com/github/Kentico/gatsby-source-kontent/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/d7938a5343f835709527/test_coverage)](https://codeclimate.com/github/Kentico/gatsby-source-kontent/test_coverage)
 
-> :warning: This version is still in beta phase, it is possible that some adjustments might cause other breaking changes. For  previous version snapshots see [Previous versions](#Previous-versions) section.
-
 This repo contains a [Gatsby (v2) source plugin](https://www.gatsbyjs.org/docs/recipes/#5-sourcing-data) that retrieves data from the [Kentico Kontent](https://kontent.ai) Delivery API.
 
 ## Get started
