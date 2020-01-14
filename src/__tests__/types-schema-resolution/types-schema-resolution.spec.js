@@ -75,7 +75,7 @@ describe(
       expect(createTypeCalls).toMatchSnapshot();
 
       const buildObjectTypeCalls = mockedSchema.buildObjectType.mock.calls;
-      expect(buildObjectTypeCalls).toHaveLength(4);
+      expect(buildObjectTypeCalls).toHaveLength(6);
       expect(buildObjectTypeCalls).toMatchSnapshot();
     });
   });

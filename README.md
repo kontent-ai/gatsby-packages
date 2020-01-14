@@ -9,8 +9,6 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/d7938a5343f835709527/maintainability)](https://codeclimate.com/github/Kentico/gatsby-source-kontent/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/d7938a5343f835709527/test_coverage)](https://codeclimate.com/github/Kentico/gatsby-source-kontent/test_coverage)
 
-> :warning: This version is still in beta phase, it is possible that some adjustments might cause other breaking changes. For  previous version snapshots see [Previous versions](#Previous-versions) section.
-
 This repo contains a [Gatsby (v2) source plugin](https://www.gatsbyjs.org/docs/recipes/#5-sourcing-data) that retrieves data from the [Kentico Kontent](https://kontent.ai) Delivery API.
 
 ## Get started
@@ -40,7 +38,7 @@ If you are new to the Gatsby ecosystem. The best way to start with using Gatsby 
 
       \* required property
 
-    **Configuration object**
+#### Configuration object
 
     ```javascript
     module.exports = {
@@ -117,7 +115,7 @@ You can use the [GraphiQL](https://github.com/graphql/graphiql) interface to exp
 
 ### Language fallbacks
 
-Gatsby source plugin is including GraphQL nodes by the language fallbacks configuration. As a part of that, there is a `prefered_language` property allowing to distinguish whether the fallback has been used or not.If the fallback is used `prefered language` is set to the desired language codename, but `system.language` value is using the actual culture that has been used (the fallback one). If the values are same, fallback is was not used.
+Gatsby source plugin is including GraphQL nodes by the language fallbacks configuration. As a part of that, there is a `preferred_language` property allowing to distinguish whether the fallback has been used or not.If the fallback is used `preferred language` is set to the desired language codename, but `system.language` value is using the actual culture that has been used (the fallback one). If the values are same, fallback is was not used.
 
 ### Language variant relationships
 
@@ -439,9 +437,10 @@ All rich text properties with content items linked in the element also have an a
 
 All nodes have a `usedByContentItems` property that reflects the other nodes in which the given node is used as linked content in *Linked items* or *Rich text* elements.
 
-### All items queries
+### All items and types queries
 
-There are two queries (`allKontentItem` and `kontentItem`) allows to load content items from unified endpoint regardless of type.
+Queries `allKontentItem` and `kontentItem` allow to load content items from unified endpoint regardless of type.
+Queries `allKontentType` and `kontentType` allow to load content types from unified endpoint.
 
 <details><summary>Example</summary>
 
@@ -452,6 +451,20 @@ query {
       system {
         type
         name
+      }
+    }
+  }
+  allKontentType {
+    nodes {
+      elements {
+        codename
+        name
+        type
+        taxonomyGroup
+        options {
+          codename
+          name
+        }
       }
     }
   }

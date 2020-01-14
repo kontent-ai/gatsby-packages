@@ -6,7 +6,7 @@ This upgrade is mainly caused by upgrading [Kentico Kontent Javascript Delivery 
 
 ### Language fallbacks
 
-Gatsby source plugin is now including GraphQL nodes by the language fallbacks configuration. As a part of that, there is a new `prefered_language` property allowing to distinguish whether the fallback has been used or not.If the fallback is used `prefered language` is set to the desired language codename, but `system.language` value is using the actual culture that has been used (the fallback one). If the values are same, fallback is was not used.
+Gatsby source plugin is now including GraphQL nodes by the language fallbacks configuration. As a part of that, there is a new `preferred_language` property allowing to distinguish whether the fallback has been used or not.If the fallback is used `preferred language` is set to the desired language codename, but `system.language` value is using the actual culture that has been used (the fallback one). If the values are same, fallback is was not used.
 
 ### Configurable logging
 
@@ -196,7 +196,7 @@ Rich text elements internal structure was extended. The main difference is that 
 
 ### Schema definition API
 
-Thanks to [#80](https://github.com/Kentico/gatsby-source-kontent/pull/80) it is possible remove the [fully filled dummy content items](https://github.com/Kentico/gatsby-source-kontent/issues/59#issuecomment-496412677) from Kentico Kontent to provide Gatsby inference engine information about content structure.
+Thanks to [#80](https://github.com/Kentico/gatsby-source-kontent/pull/80), [#94](https://github.com/Kentico/gatsby-source-kontent/pull/94), and [#95](https://github.com/Kentico/gatsby-source-kontent/pull/95) it is possible remove the [fully filled dummy content items](https://github.com/Kentico/gatsby-source-kontent/issues/59#issuecomment-496412677) from Kentico Kontent to provide Gatsby inference engine information about content structure.
 
 For linked items in linked items element nor for rich text element encapsulation into the `... on Node` [GraphQL inline fragment](https://graphql.org/learn/queries/#inline-fragments) is not required any more ([#82](https://github.com/Kentico/gatsby-source-kontent/pull/82)).
 
@@ -247,4 +247,32 @@ As a part of that adjustment there are two queries (`allKontentItem` and `konten
       }
     }
   }
+```
+
+#### All Types query
+
+As a part of that adjustment there are two queries (`allKontentType` and `kontentType`) allows to load content types from unified endpoint
+
+```gql
+query {
+  allKontentType {
+    nodes {
+      elements {
+        codename
+        name
+        type
+        taxonomyGroup
+        options {
+          codename
+          name
+        }
+      }
+      system {
+        id
+        codename
+        name
+      }
+    }
+  }
+}
 ```
