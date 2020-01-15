@@ -288,7 +288,7 @@ query PersonasQuery {
       terms {
         codename
         name
-        terms { // sub-terms
+        terms { # sub-terms
           codename
           name
         }
