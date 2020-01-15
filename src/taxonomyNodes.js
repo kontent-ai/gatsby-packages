@@ -37,7 +37,7 @@ const createTaxonomyNode = (createNodeId, taxonomy) => {
   }
 
   const codenameParamCase = changeCase.paramCase(taxonomy.system.codename);
-  const nodeId = createNodeId(`kentico-cloud-taxonomy-${codenameParamCase}`);
+  const nodeId = createNodeId(`kentico-kontent-taxonomy-${codenameParamCase}`);
 
   return normalize.createKcArtifactNode(
     nodeId,
