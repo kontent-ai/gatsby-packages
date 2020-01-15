@@ -9,6 +9,8 @@ const simpleLinkedItemFakeItemsResponse =
   require('./simpleLinkedItemFakeItemsResponse.json');
 const fakeTypeResponse =
   require('./fakeTypeResponse.json');
+const fakeTaxonomiesResponse =
+    require('../fakeTaxonomiesResponse.json');
 
 describe(
   `Simple linked items element contains reference to another items`,
@@ -24,6 +26,12 @@ describe(
       /https:\/\/deliver.kontent.ai\/.*\/types/,
       {
         fakeResponseJson: fakeTypeResponse,
+        throwError: false,
+      });
+    fakeHttpServiceConfig.set(
+      /https:\/\/deliver.kontent.ai\/.*\/taxonomies/,
+      {
+        fakeResponseJson: fakeTaxonomiesResponse,
         throwError: false,
       });
 
@@ -50,7 +58,7 @@ describe(
       projectId: 'dummyProject',
       typeResolvers: [],
       httpService: new KontentTestHttpService(
-        fakeHttpServiceConfig
+        fakeHttpServiceConfig,
       ),
     };
 

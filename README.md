@@ -235,6 +235,84 @@ Custom element is now supported including [custom element models definition](htt
 
 > External properties are not automatically generated [using Schema API](docs/UPGRADE.md#schema-definition-api--all-items-query).
 
+### Taxonomy support
+
+Each taxonomy group can be returned as a nested group of taxonomy terms. To retrieve the `Personas`, the following graphQL can be used:
+
+<details><summary>Query to recieve the personas taxonomy group</summary>
+
+```gql
+query MyQuery {
+  allKontentTaxonomyPersonas {
+    nodes {
+      terms {
+        terms {
+          codename
+          name
+        }
+        name
+        codename
+      }
+      system {
+        codename
+        name
+      }
+    }
+  }
+}
+```
+
+This would result in the following response:
+
+```json
+{
+  "data": {
+    "allKontentTaxonomyPersonas": {
+      "nodes": [
+        {
+          "terms": [
+            {
+              "terms": [
+                {
+                  "codename": "barista",
+                  "name": "Barista"
+                },
+                {
+                  "codename": "cafe_owner",
+                  "name": "Cafe owner"
+                }
+              ],
+              "name": "Coffee expert",
+              "codename": "coffee_expert"
+            },
+            {
+              "terms": [
+                {
+                  "codename": "coffee_lover",
+                  "name": "Coffee lover"
+                },
+                {
+                  "codename": "coffee_blogger",
+                  "name": "Coffee blogger"
+                }
+              ],
+              "name": "Coffee enthusiast",
+              "codename": "coffee_enthusiast"
+            }
+          ],
+          "system": {
+            "codename": "personas",
+            "name": "Personas"
+          }
+        }
+      ]
+    }
+  }
+}
+```
+
+</details>
+
 ### Rich text resolution
 
 With following features, it is possible to resolve rich text [into the HTML string](#embedded-JS-SDK-resolution), that could be injected to the site. For more complex scenarios, it is possible to use the raw `value` property in combination with [`linked_items`](#content-items-in-rich-text-elements-relationships), [`links`](#links-in-rich-text-elements), and [`images`](#images-in-rich-text-elements) property.

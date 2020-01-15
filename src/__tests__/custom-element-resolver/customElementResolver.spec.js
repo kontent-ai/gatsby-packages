@@ -10,9 +10,10 @@ const customElementResolverItemsResponse =
   require('./customElementResolverItemsResponse.json');
 const customElementResolverTypesResponse =
   require('./customElementResolverTypesResponse.json');
+const fakeTaxonomiesResponse =
+  require('../fakeTaxonomiesResponse.json');
 
 const { sourceNodes } = require('../../gatsby-node');
-
 
 describe(`Element resolver in configuration resolves correctly`,
   () => {
@@ -28,6 +29,13 @@ describe(`Element resolver in configuration resolves correctly`,
       /https:\/\/deliver.kontent.ai\/.*\/types/,
       {
         fakeResponseJson: customElementResolverTypesResponse,
+        throwError: false,
+      });
+
+    fakeRichTextResponseConfig.set(
+      /https:\/\/deliver.kontent.ai\/.*\/taxonomies/,
+      {
+        fakeResponseJson: fakeTaxonomiesResponse,
         throwError: false,
       });
 
@@ -72,7 +80,7 @@ describe(`Element resolver in configuration resolves correctly`,
         }
       }),
       httpService: new KontentTestHttpService(
-        fakeRichTextResponseConfig
+        fakeRichTextResponseConfig,
       ),
     };
 

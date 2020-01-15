@@ -6,6 +6,8 @@ const richtextCircularReferenceFakeItemsResponse =
   require('./richtextCircularReferenceFakeItemsResponse.json');
 const richtextCircularReferenceFakeTypesResponse =
   require('./richtextCircularReferenceFakeTypesResponse.json');
+const fakeTaxonomiesResponse =
+  require('../fakeTaxonomiesResponse.json');
 
 const { sourceNodes } = require('../../gatsby-node');
 
@@ -23,6 +25,13 @@ describe(`Rich text resolution reference in modular content`, () => {
     /https:\/\/deliver.kontent.ai\/.*\/types/,
     {
       fakeResponseJson: richtextCircularReferenceFakeTypesResponse,
+      throwError: false,
+    });
+
+  fakeRichTextResponseConfig.set(
+    /https:\/\/deliver.kontent.ai\/.*\/taxonomies/,
+    {
+      fakeResponseJson: fakeTaxonomiesResponse,
       throwError: false,
     });
 
@@ -48,7 +57,7 @@ describe(`Rich text resolution reference in modular content`, () => {
     projectId: 'dummyProject',
     typeResolvers: [],
     httpService: new KontentTestHttpService(
-      fakeRichTextResponseConfig
+      fakeRichTextResponseConfig,
     ),
   };
 

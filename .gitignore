@@ -11,6 +11,7 @@ node_modules
 /validation.js
 /itemNodes.js
 /typeNodes.js
+/taxonomyNodes.js
 /typeNodesSchema.js
 /decorators/languageVariantsDecorator.js
 /decorators/typeItemDecorator.js

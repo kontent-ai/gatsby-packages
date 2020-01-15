@@ -7,6 +7,8 @@ const richtextFakeItemsResponse =
   require('./richtextFakeItemsResponse.json');
 const richtextFakeTypesResponse =
   require('./richtextFakeTypesResponse.json');
+const fakeTaxonomiesResponse =
+  require('../fakeTaxonomiesResponse.json');
 
 const { sourceNodes } = require('../../gatsby-node');
 
@@ -24,6 +26,13 @@ describe(`Rich text resolution reference in modular content`, () => {
     /https:\/\/deliver.kontent.ai\/.*\/types/,
     {
       fakeResponseJson: richtextFakeTypesResponse,
+      throwError: false,
+    });
+
+  fakeRichTextResponseConfig.set(
+    /https:\/\/deliver.kontent.ai\/.*\/taxonomies/,
+    {
+      fakeResponseJson: fakeTaxonomiesResponse,
       throwError: false,
     });
 
@@ -68,13 +77,13 @@ describe(`Rich text resolution reference in modular content`, () => {
     projectId: 'dummyProject',
     typeResolvers: [
       new TypeResolver('landing_page_image_section', (rawData) =>
-        new LandingPageImageSection(rawData)
+        new LandingPageImageSection(rawData),
       ),
       new TypeResolver('project', (rawData) =>
         new Project(rawData)),
     ],
     httpService: new KontentTestHttpService(
-      fakeRichTextResponseConfig
+      fakeRichTextResponseConfig,
     ),
   };
 

@@ -8,6 +8,8 @@ const fakeTypesResponse =
   require('./fakeTypesResponse.json');
 const fakeItemsResponse =
   require('./fakeItemsResponse.json');
+const fakeTaxonomiesReponse =
+  require('../fakeTaxonomiesResponse.json');
 
 describe(
   `Complex content types schema resolution`,
@@ -24,6 +26,12 @@ describe(
       /https:\/\/deliver.kontent.ai\/.*\/types/,
       {
         fakeResponseJson: fakeTypesResponse,
+        throwError: false,
+      });
+    fakeHttpServiceConfig.set(
+      /https:\/\/deliver.kontent.ai\/.*\/taxonomies/,
+      {
+        fakeResponseJson: fakeTaxonomiesReponse,
         throwError: false,
       });
 
@@ -50,7 +58,7 @@ describe(
       projectId: 'dummyProject',
       typeResolvers: [],
       httpService: new KontentTestHttpService(
-        fakeHttpServiceConfig
+        fakeHttpServiceConfig,
       ),
     };
 

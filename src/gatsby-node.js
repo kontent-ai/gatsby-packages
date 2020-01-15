@@ -6,6 +6,7 @@ const { DeliveryClient } = require(`@kentico/kontent-delivery`);
 const validation = require(`./validation`);
 const itemNodes = require('./itemNodes');
 const typeNodes = require('./typeNodes');
+const taxonomiesNodes = require('./taxonomyNodes');
 const typeNodesSchema = require('./typeNodesSchema');
 
 const languageVariantsDecorator =
@@ -25,7 +26,7 @@ exports.sourceNodes =
       languageCodenames,
       enableLogging = false,
       includeRawContent = false,
-    }
+    },
   ) => {
     if (enableLogging) {
       console.info(`Generating Kentico Kontent nodes for projectId:\
@@ -40,15 +41,16 @@ exports.sourceNodes =
     addHeader(deliveryClientConfig, customTrackingHeader);
 
     const client = new DeliveryClient(deliveryClientConfig);
+    const taxonomyNodes = await taxonomiesNodes.get(client, createNodeId);
     const contentTypeNodes = await typeNodes.get(
       client,
       createNodeId,
-      includeRawContent
+      includeRawContent,
     );
 
     if (enableLogging) {
       console.info(
-        `Creating type nodes schema.`
+        `Creating type nodes schema.`,
       );
     }
     await typeNodesSchema.createTypeNodesSchema(
@@ -77,25 +79,30 @@ exports.sourceNodes =
 
     languageVariantsDecorator.decorateItemsWithLanguageVariants(
       defaultCultureContentItemNodes,
-      nonDefaultLanguageItemNodes
+      nonDefaultLanguageItemNodes,
     );
 
     const allItemNodes = defaultCultureContentItemNodes
       .concat(_.flatten(Object.values(nonDefaultLanguageItemNodes)));
     typeItemDecorator.decorateTypeNodesWithItemLinks(
       allItemNodes,
-      contentTypeNodes
+      contentTypeNodes,
     );
 
     linkedItemsElementDecorator.decorateItemNodesWithLinkedItemsLinks(
       defaultCultureContentItemNodes,
-      nonDefaultLanguageItemNodes
+      nonDefaultLanguageItemNodes,
     );
 
     richTextElementDecorator.decorateItemNodesWithRichTextLinkedItemsLinks(
       defaultCultureContentItemNodes,
-      nonDefaultLanguageItemNodes
+      nonDefaultLanguageItemNodes,
     );
+
+    if (enableLogging) {
+      console.info(`Creating taxonomy nodes`);
+    }
+    createNodes(taxonomyNodes, createNode);
 
     if (enableLogging) {
       console.info(`Creating content type nodes.`);
@@ -144,7 +151,7 @@ const addHeader = (deliveryClientConfig, trackingHeader) => {
   let headers = _.cloneDeep(
     deliveryClientConfig
       .globalQueryConfig
-      .customHeaders
+      .customHeaders,
   );
 
   if (headers.some((header) => header.header === trackingHeader.header)) {

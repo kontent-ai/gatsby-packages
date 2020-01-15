@@ -9,6 +9,8 @@ const circularReferenceItemsResponse =
   require('./circularReferenceItemsResponse.json');
 const fakeTypeResponse =
   require('./fakeTypeResponse.json');
+const fakeTaxonomiesResponse =
+  require('../fakeTaxonomiesResponse.json');
 
 describe(`Circular reference in modular content`, () => {
   const fakeHttpServiceConfig = new Map();
@@ -22,6 +24,13 @@ describe(`Circular reference in modular content`, () => {
     /https:\/\/deliver.kontent.ai\/.*\/types/,
     {
       fakeResponseJson: fakeTypeResponse,
+      throwError: false,
+    });
+
+  fakeHttpServiceConfig.set(
+    /https:\/\/deliver.kontent.ai\/.*\/taxonomies/,
+    {
+      fakeResponseJson: fakeTaxonomiesResponse,
       throwError: false,
     });
 
@@ -47,7 +56,7 @@ describe(`Circular reference in modular content`, () => {
     projectId: 'dummyProject',
     typeResolvers: [],
     httpService: new KontentTestHttpService(
-      fakeHttpServiceConfig
+      fakeHttpServiceConfig,
     ),
   };
 

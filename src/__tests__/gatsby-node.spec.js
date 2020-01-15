@@ -10,6 +10,7 @@ const complexContentItemsSecondtLanguageFakeReponse =
   require('./complexContentItemsSecondLanguageFakeReponse.json');
 const complexTypesFakeResponse =
   require('./complexTypesFakeResponse.json');
+const fakeTaxonomiesResponse = require('./fakeTaxonomiesResponse.json');
 
 describe('customTrackingHeader', () => {
   it('has correct name', () => {
@@ -63,6 +64,18 @@ describe('sourceNodes', () => {
         },
         throwError: false,
       });
+    fakeEmptyResponseConfig.set(
+      /https:\/\/deliver.kontent.ai\/.*\/taxonomies/,
+      {
+        fakeResponseJson: {
+          taxonomies: [],
+          pagination: {
+            continuation_token: null,
+            next_page: null,
+          },
+        },
+        throwError: false,
+      });
 
     const fakeEmptyTestService =
       new KontentTestHttpService(fakeEmptyResponseConfig);
@@ -79,7 +92,7 @@ describe('sourceNodes', () => {
         {
           deliveryClientConfig,
           languageCodenames: ['default'],
-        }
+        },
       );
 
       expect(deliveryClientConfig.globalQueryConfig.customHeaders)
@@ -103,7 +116,7 @@ describe('sourceNodes', () => {
         {
           deliveryClientConfig,
           languageCodenames: ['default'],
-        }
+        },
       );
 
       expect(deliveryClientConfig.globalQueryConfig.customHeaders)
@@ -132,7 +145,7 @@ describe('sourceNodes', () => {
         {
           deliveryClientConfig,
           languageCodenames: ['default'],
-        }
+        },
       );
 
       expect(deliveryClientConfig.globalQueryConfig.customHeaders)
@@ -164,6 +177,12 @@ describe('sourceNodes', () => {
         fakeResponseJson: complexTypesFakeResponse,
         throwError: false,
       });
+    fakeComplexConfig.set(
+      /https:\/\/deliver.kontent.ai\/.*\/taxonomies/,
+      {
+        fakeResponseJson: fakeTaxonomiesResponse,
+        throwError: false,
+      });
 
     const createNodeMock = jest.fn();
     const createTypesMock = jest.fn();
@@ -184,7 +203,7 @@ describe('sourceNodes', () => {
       projectId: 'dummyProject',
       typeResolvers: [],
       httpService: new KontentTestHttpService(
-        fakeComplexConfig
+        fakeComplexConfig,
       ),
     };
 

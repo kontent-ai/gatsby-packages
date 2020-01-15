@@ -9,13 +9,13 @@ const normalize = require('../normalize');
  *  Non-default gatsby content item nodes stored under the culture key.
  */
 const decorateItemNodesWithLinkedItemsLinks = (defaultCultureContentItemNodes,
-  nonDefaultLanguageItemNodes
+  nonDefaultLanguageItemNodes,
 ) => {
   defaultCultureContentItemNodes.forEach((itemNode) => {
     try {
       decorateItemNodeWithLinkedItemsLinks(
         itemNode,
-        defaultCultureContentItemNodes
+        defaultCultureContentItemNodes,
       );
     } catch (error) {
       console.error(error);
@@ -65,7 +65,7 @@ const decorateItemNodeWithLinkedItemsLinks =
             itemNode,
             linkedNodes,
             linkPropertyPath,
-            property.itemCodenames
+            property.itemCodenames,
           );
         }
       });

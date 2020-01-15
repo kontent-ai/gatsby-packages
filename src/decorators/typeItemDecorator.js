@@ -11,7 +11,7 @@ const validation = require(`../validation`);
  */
 const decorateTypeNodesWithItemLinks = (
   contentItemNodes,
-  contentTypeNodes
+  contentTypeNodes,
 ) => {
   try {
     validation.checkItemsObjectStructure(contentItemNodes);
@@ -22,7 +22,7 @@ const decorateTypeNodesWithItemLinks = (
 
   contentTypeNodes.forEach((contentTypeNode) => {
     const itemNodesPerType = contentItemNodes.filter((contentItemNode) =>
-      contentItemNode.system.type === contentTypeNode.system.codename
+      contentItemNode.system.type === contentTypeNode.system.codename,
     );
 
     if (!_.isEmpty(itemNodesPerType)) {

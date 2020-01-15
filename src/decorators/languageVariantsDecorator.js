@@ -11,7 +11,7 @@ const validation = require('../validation');
  */
 const decorateItemsWithLanguageVariants = (
   defaultCultureContentItemNodes,
-  nonDefaultLanguageItemNodes
+  nonDefaultLanguageItemNodes,
 ) => {
   for (const [languageCodename, currentLanguageNodes]
     of Object.entries(nonDefaultLanguageItemNodes)) {
@@ -62,7 +62,7 @@ const decorateItemNodeWithLanguageVariantLink =
     const languageVariantNode = allNodesOfAnotherLanguage.find(
       (nodeOfSpecificLanguage) =>
         itemNode.system.codename === nodeOfSpecificLanguage.system.codename
-        && itemNode.system.type === nodeOfSpecificLanguage.system.type
+        && itemNode.system.type === nodeOfSpecificLanguage.system.type,
     );
     if (languageVariantNode) {
       makeLink(languageVariantNode, itemNode);
@@ -75,7 +75,7 @@ const makeLink = (firstItem, secondItem) => {
     secondItem &&
     secondItem.otherLanguages___NODE &&
     secondItem.otherLanguages___NODE.find(
-      (otherLanguageId) => otherLanguageId === firstItem.id
+      (otherLanguageId) => otherLanguageId === firstItem.id,
     );
 
   if (!existingLink && _.get(firstItem, 'id')) {

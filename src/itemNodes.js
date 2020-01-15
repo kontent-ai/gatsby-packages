@@ -50,7 +50,7 @@ const getFromDefaultLanguage = async (
         createNodeId,
         contentItem,
         contentTypeNodes,
-        includeRawContent
+        includeRawContent,
       );
     } catch (error) {
       console.error(error);
@@ -75,7 +75,7 @@ const getFromNonDefaultLanguage = async (
   nonDefaultLanguageCodenames,
   contentTypeNodes,
   createNodeId,
-  includeRawContent = false
+  includeRawContent = false,
 ) => {
   const nonDefaultLanguageItemNodes = {};
   for (const languageCodename of nonDefaultLanguageCodenames) {
@@ -101,7 +101,7 @@ const getFromNonDefaultLanguage = async (
         createNodeId,
         languageItem,
         contentTypeNodes,
-        includeRawContent
+        includeRawContent,
       );
     });
     nonDefaultLanguageItemNodes[languageCodename] = contentItemsNodes;
@@ -131,7 +131,7 @@ const createContentItemNode =
       changeCase.paramCase(contentItem.preferred_language);
 
     const nodeId = createNodeId(
-      `kentico-kontent-item-${codenameParamCase}-${languageParamCase}`
+      `kentico-kontent-item-${codenameParamCase}-${languageParamCase}`,
     );
 
     const parentContentTypeNode = contentTypeNodes.find(
@@ -153,7 +153,7 @@ const createContentItemNode =
       `item`,
       contentItem.system.type,
       additionalData,
-      includeRawContent
+      includeRawContent,
     );
   };
 
