@@ -66,7 +66,7 @@ describe(`Rich text resolution reference in modular content`, () => {
     languageCodenames: ['default'],
   };
 
-  test('resolves values using resolvers in rich text', async () => {
+  it('resolves values using resolvers in rich text', async () => {
     await sourceNodes(actions, pluginConfiguration);
 
     const calls = createNodeMock.mock.calls;
