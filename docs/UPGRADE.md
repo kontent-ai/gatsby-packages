@@ -276,3 +276,24 @@ query {
   }
 }
 ```
+
+### Taxonomy support
+
+Thanks to the [#79](https://github.com/Kentico/gatsby-source-kontent/pull/79) it is possible to [query taxonomies](/README.md#Taxonomy-support) i.e. in case of loading all the taxonomy option to you site.
+
+```gql
+query PersonasQuery {
+  allKontentTaxonomyPersona {
+    nodes {
+      terms {
+        codename
+        name
+        terms { // sub-terms
+          codename
+          name
+        }
+      }
+    }
+  }
+}
+```
