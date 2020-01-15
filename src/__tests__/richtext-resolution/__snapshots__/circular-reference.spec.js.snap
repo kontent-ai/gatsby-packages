@@ -5,7 +5,7 @@ Array [
   Array [
     Object {
       "children": Array [],
-      "id": "dummy-kentico-cloud-taxonomy-personas",
+      "id": "dummy-kentico-kontent-taxonomy-personas",
       "internal": Object {
         "contentDigest": "91ece672836106bfc0f186606f20a01d",
         "type": "KontentTaxonomyPersonas",
