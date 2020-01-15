@@ -25,7 +25,7 @@ const get = async (client, createNodeId) => {
 };
 
 /**
- * Creates a Gatsby object out of a Kentico Cloud taxonomy object.
+ * Creates a Gatsby object out of a Kentico Kontent taxonomy object.
  * @param {function} createNodeId - Gatsby function to create a node ID.
  * @param {object} taxonomy - Kentico Cloud taxonomy object.
  * @return {object} Gatsby content type node.
