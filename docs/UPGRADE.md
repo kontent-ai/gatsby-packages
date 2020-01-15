@@ -121,8 +121,8 @@ Linked items are not directly under the element codename (`linked_items_type` in
         linked_items_type {
           name
           type
-          itemCodenames // array of the codenames
-          linked_items { // Gatsby Graphql node relationships
+          itemCodenames # array of the codenames
+          linked_items { # Gatsby Graphql node relationships
             ... on Node {
               ... on KontentSubItemExample {
                 elements {
@@ -155,7 +155,7 @@ Rich text elements internal structure was extended. The main difference is that 
           name
           type
           value
-          linkedItemCodenames // array of the codenames
+          linkedItemCodenames # array of the codenames
           linked_items {
             ... on Nodes {
               ... on KontentSubItemExample {
@@ -207,7 +207,7 @@ For linked items in linked items element nor for rich text element encapsulation
       elements {
         related_project_references {
           linked_items {
-            ... on Node { // NOT REQUIRED
+            ... on Node { # NOT REQUIRED
               __typename
               ... on KontentItemBlogpostReference {
                 elements {
