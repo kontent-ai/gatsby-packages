@@ -41,9 +41,11 @@ describe(`Rich text resolution reference in modular content`, () => {
 
   const createNodeMock = jest.fn();
   const createTypesMock = jest.fn();
-  const mockedSchema = { buildObjectType: jest.fn((input) => ({
-    data: input,
-  }))};
+  const mockedSchema = {
+    buildObjectType: jest.fn((input) => ({
+      data: input,
+    })),
+  };
 
   const actions = {
     actions: {
@@ -87,15 +89,30 @@ describe(`Rich text resolution reference in modular content`, () => {
     ),
   };
 
-  const pluginConfiguration = {
+  const pluginConfigurationWithItemsEndpoint = {
     deliveryClientConfig,
     languageCodenames: ['default'],
   };
 
-  it('resolves values using resolvers in rich text', async () => {
-    await sourceNodes(actions, pluginConfiguration);
+  const pluginConfigurationWithItemsFeedEndpoint = {
+    deliveryClientConfig,
+    languageCodenames: ['default'],
 
-    const calls = createNodeMock.mock.calls;
-    expect(calls).toMatchSnapshot();
+  };
+
+  describe('resolves values using resolvers in rich text', () => {
+    it('using items endpoint', async () => {
+      await sourceNodes(actions, pluginConfigurationWithItemsEndpoint);
+
+      const calls = createNodeMock.mock.calls;
+      expect(calls).toMatchSnapshot();
+    });
+
+    it('using items-feed endpoint', async () => {
+      await sourceNodes(actions, pluginConfigurationWithItemsFeedEndpoint);
+
+      const calls = createNodeMock.mock.calls;
+      expect(calls).toMatchSnapshot();
+    });
   });
 });

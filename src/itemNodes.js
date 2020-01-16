@@ -19,6 +19,8 @@ const urlSlugElementDecorator =
  * @param {Function} createNodeId Gatsby method for generating ID
  * @param {Boolean} includeRawContent
  *  Include raw content property in artifact node
+ * @param {Boolean} useItemsFeedEndpoint
+ *  Include wether to use /items  or /items-feed Kontent delivery endpoint
  */
 const getFromDefaultLanguage = async (
   client,
@@ -26,21 +28,15 @@ const getFromDefaultLanguage = async (
   contentTypeNodes,
   createNodeId,
   includeRawContent = false,
+  useItemsFeedEndpoint = false,
 ) => {
-  const contentItemsResponse = await client
-    .items()
-    .languageParameter(defaultLanguageCodename)
-    .toPromise();
+  const allItems =
+    await loadAllItems(client, defaultLanguageCodename, useItemsFeedEndpoint);
 
-  const allItems = _.unionBy(
-    contentItemsResponse.items,
-    Object.values(contentItemsResponse.linkedItems),
-    'system.codename');
-
-  richTextElementDecorator
-    .resolveData(allItems);
-  urlSlugElementDecorator
-    .resolveUrls(allItems);
+  // TODO remove condition once the resolution is implemented in SDK
+  if (!useItemsFeedEndpoint) {
+    resolveItems(allItems);
+  }
 
   const itemsFlatted = parse(stringify(allItems));
   const contentItemNodes = itemsFlatted.map((contentItem) => {
@@ -69,6 +65,8 @@ const getFromDefaultLanguage = async (
  * @param {Function} createNodeId Gatsby method for generation ID.
  * @param {Boolean} includeRawContent
  *  Include raw content property in artifact node
+ * @param {Boolean} useItemsFeedEndpoint
+ *  Include wether to use /items  or /items-feed Kontent delivery endpoint
  */
 const getFromNonDefaultLanguage = async (
   client,
@@ -76,23 +74,17 @@ const getFromNonDefaultLanguage = async (
   contentTypeNodes,
   createNodeId,
   includeRawContent = false,
+  useItemsFeedEndpoint = false,
 ) => {
   const nonDefaultLanguageItemNodes = {};
   for (const languageCodename of nonDefaultLanguageCodenames) {
-    const languageResponse = await client
-      .items()
-      .languageParameter(languageCodename)
-      .toPromise();
+    const allItems =
+      await loadAllItems(client, languageCodename, useItemsFeedEndpoint);
 
-    const allItems = _.unionBy(
-      languageResponse.items,
-      Object.values(languageResponse.linkedItems),
-      'system.codename');
-
-    richTextElementDecorator
-      .resolveData(allItems);
-    urlSlugElementDecorator
-      .resolveUrls(allItems);
+    // TODO remove condition once the resolution is implemented in SDK
+    if (!useItemsFeedEndpoint) {
+      resolveItems(allItems);
+    }
 
     const languageItemsFlatted = parse(stringify(allItems));
     const contentItemsNodes = languageItemsFlatted.map((languageItem) => {
@@ -156,6 +148,36 @@ const createContentItemNode =
       includeRawContent,
     );
   };
+
+const loadAllItems = async (client, languageCodename, useItemsFeedEndpoint) => {
+  let contentItemsResponse = [];
+
+  if (useItemsFeedEndpoint) {
+    contentItemsResponse = await client
+      .itemsFeedAll()
+      .languageParameter(languageCodename)
+      .toPromise();
+  } else {
+    contentItemsResponse = await client
+      .items()
+      .languageParameter(languageCodename)
+      .toPromise();
+  }
+
+  const allItems = _.unionBy(
+    contentItemsResponse.items,
+    Object.values(contentItemsResponse.linkedItems),
+    'system.codename'
+  );
+  return allItems;
+};
+
+const resolveItems = (allItems) => {
+  richTextElementDecorator
+    .resolveData(allItems);
+  urlSlugElementDecorator
+    .resolveUrls(allItems);
+};
 
 module.exports = {
   getFromDefaultLanguage,

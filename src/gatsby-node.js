@@ -26,6 +26,7 @@ exports.sourceNodes =
       languageCodenames,
       enableLogging = false,
       includeRawContent = false,
+      useItemsFeedEndpoint = false,
     },
   ) => {
     if (enableLogging) {
@@ -66,6 +67,7 @@ exports.sourceNodes =
         contentTypeNodes,
         createNodeId,
         includeRawContent,
+        useItemsFeedEndpoint,
       );
 
     const nonDefaultLanguageItemNodes = await itemNodes
@@ -75,6 +77,7 @@ exports.sourceNodes =
         contentTypeNodes,
         createNodeId,
         includeRawContent,
+        useItemsFeedEndpoint
       );
 
     languageVariantsDecorator.decorateItemsWithLanguageVariants(
