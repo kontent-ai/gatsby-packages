@@ -19,9 +19,41 @@ const richTextElementDecorator =
   require('./decorators/richTextElementDecorator');
 const { customTrackingHeader, addHeader } = require('./config');
 
+exports.createSchemaCustomization = async (api, pluginConfig) => {
+  const {
+    actions: {
+      createTypes,
+    },
+    schema,
+  } = api;
+
+  const {
+    deliveryClientConfig,
+    enableLogging = false,
+  } = pluginConfig;
+
+  const kontentClientConfig =
+    addHeader(deliveryClientConfig, customTrackingHeader);
+
+  const client = new DeliveryClient(kontentClientConfig);
+
+
+  if (enableLogging) {
+    console.info(
+      `Creating type nodes schema.`
+    );
+  }
+
+  await typeNodesSchema.createTypeNodesSchema(
+    client,
+    schema,
+    createTypes,
+  );
+};
+
 
 exports.sourceNodes =
-  async ({ actions: { createNode, createTypes }, createNodeId, schema },
+  async ({ actions: { createNode }, createNodeId },
     { deliveryClientConfig,
       languageCodenames,
       enableLogging = false,
@@ -46,17 +78,6 @@ exports.sourceNodes =
       client,
       createNodeId,
       includeRawContent,
-    );
-
-    if (enableLogging) {
-      console.info(
-        `Creating type nodes schema.`,
-      );
-    }
-    await typeNodesSchema.createTypeNodesSchema(
-      client,
-      schema,
-      createTypes,
     );
 
     const defaultCultureContentItemNodes = await itemNodes.
