@@ -53,13 +53,21 @@ exports.createSchemaCustomization = async (api, pluginConfig) => {
 
 
 exports.sourceNodes =
-  async ({ actions: { createNode }, createNodeId },
-    { deliveryClientConfig,
+  async (api, pluginConfig) => {
+    const {
+      actions: {
+        createNode,
+      },
+      createNodeId,
+    } = api;
+
+    const {
+      deliveryClientConfig,
       languageCodenames,
       enableLogging = false,
       includeRawContent = false,
-    },
-  ) => {
+    } = pluginConfig;
+
     if (enableLogging) {
       console.info(`Generating Kentico Kontent nodes for projectId:\
  ${_.get(deliveryClientConfig, 'projectId')}`);
