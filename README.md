@@ -35,7 +35,7 @@ If you are new to the Gatsby ecosystem. The best way to start with using Gatsby 
     * `languageCodenames`* - array of language codenames that defines [what languages a configured for the project](https://docs.kontent.ai/tutorials/develop-apps/get-content/getting-localized-content?tech=javascript#section-project-languages) - the first one is considered as the **default one**. Initial "Getting started" project has configured just one language `default`.
     * `enableLogging` - enable logging of the source plugin. Turned off by default.
     * `includeRawContent` - allows to include `internal.content` property as a part fo the GraphlQL model. Turned off by default.
-    * `useItemsFeedEndpoint` - allows to use [`/items-feed`](https://docs.kontent.ai/reference/delivery-api#operation/enumerate-content-items) endpoint to load content items. By default [`/items`](https://docs.kontent.ai/reference/delivery-api#operation/list-content-items) which is able to handle at most 1000 content items per language (incl. linked items). **:warning: Items feed currently does not perform [Embeded SDK resolution](#embedded-JS-SDK-resolution) as `/items` endpoint.**
+    * `useItemsFeedEndpoint` - allows to use [`/items-feed`](https://docs.kontent.ai/reference/delivery-api#operation/enumerate-content-items) endpoint to load content items. By default [`/items`](https://docs.kontent.ai/reference/delivery-api#operation/list-content-items) which is able to handle at most 1000 content items per language (incl. linked items).
 
       \* required property
 
