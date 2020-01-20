@@ -55,13 +55,14 @@ const createContentTypeNode = (
     contentItems___NODE: [],
   };
 
-  return normalize.createKcArtifactNode(
+  return normalize.createKontentArtifactNode(
     nodeId,
     contentType,
     `type`,
     contentType.system.codename,
     additionalData,
     includeRawContent,
+    contentType
   );
 };
 

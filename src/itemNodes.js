@@ -147,17 +147,38 @@ const createContentItemNode =
       contentType___NODE: parentContentTypeNode.id,
     };
 
-    return normalize.createKcArtifactNode(
+    const rawContent = createItemRawContent(
+      contentItem.system,
+      contentItem._raw.elements,
+      contentItem.preferred_language
+    );
+
+    return normalize.createKontentArtifactNode(
       nodeId,
       itemWithElements,
       `item`,
       contentItem.system.type,
       additionalData,
       includeRawContent,
+      rawContent
     );
   };
+
+/**
+ * Return structured rawContent from content item for Gatsby Node
+ * @param {Object} system System elements
+ * @param {Object} elements Raw element property
+ * @param {String} preferredLanguage Preferred language
+ * @return {Object} Structured raw content object
+ */
+const createItemRawContent = (system, elements, preferredLanguage) => ({
+  system,
+  elements,
+  preferred_language: preferredLanguage,
+});
 
 module.exports = {
   getFromDefaultLanguage,
   getFromNonDefaultLanguage,
+  createItemRawContent,
 };
