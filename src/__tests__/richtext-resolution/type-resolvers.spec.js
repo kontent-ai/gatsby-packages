@@ -92,12 +92,13 @@ describe(`Rich text resolution reference in modular content`, () => {
   const pluginConfigurationWithItemsEndpoint = {
     deliveryClientConfig,
     languageCodenames: ['default'],
+    useItemsFeedEndpoint: false,
   };
 
   const pluginConfigurationWithItemsFeedEndpoint = {
     deliveryClientConfig,
     languageCodenames: ['default'],
-
+    useItemsFeedEndpoint: true,
   };
 
   describe('resolves values using resolvers in rich text', () => {

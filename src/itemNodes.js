@@ -33,10 +33,8 @@ const getFromDefaultLanguage = async (
   const allItems =
     await loadAllItems(client, defaultLanguageCodename, useItemsFeedEndpoint);
 
-  // TODO remove condition once the resolution is implemented in SDK
-  if (!useItemsFeedEndpoint) {
-    resolveItems(allItems);
-  }
+  resolveItems(allItems);
+
 
   const itemsFlatted = parse(stringify(allItems));
   const contentItemNodes = itemsFlatted.map((contentItem) => {
@@ -81,10 +79,7 @@ const getFromNonDefaultLanguage = async (
     const allItems =
       await loadAllItems(client, languageCodename, useItemsFeedEndpoint);
 
-    // TODO remove condition once the resolution is implemented in SDK
-    if (!useItemsFeedEndpoint) {
-      resolveItems(allItems);
-    }
+    resolveItems(allItems);
 
     const languageItemsFlatted = parse(stringify(allItems));
     const contentItemsNodes = languageItemsFlatted.map((languageItem) => {
