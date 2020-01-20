@@ -17,7 +17,7 @@ const linkedItemsElementDecorator =
   require('./decorators/linkedItemsElementDecorator');
 const richTextElementDecorator =
   require('./decorators/richTextElementDecorator');
-const { customTrackingHeader } = require('./config');
+const { customTrackingHeader, addHeader } = require('./config');
 
 
 exports.sourceNodes =
@@ -132,39 +132,6 @@ exports.sourceNodes =
     }
     return;
   };
-
-/**
- *
- * @param {DeliveryClientConfig} deliveryClientConfig
- *  Kentico Kontent JS configuration object
- * @param {IHeader} trackingHeader tracking header name
- */
-const addHeader = (deliveryClientConfig, trackingHeader) => {
-  deliveryClientConfig.globalQueryConfig =
-    deliveryClientConfig.globalQueryConfig || {};
-
-  if (!deliveryClientConfig.globalQueryConfig.customHeaders) {
-    deliveryClientConfig.globalQueryConfig.customHeaders = [trackingHeader];
-    return;
-  }
-
-  let headers = _.cloneDeep(
-    deliveryClientConfig
-      .globalQueryConfig
-      .customHeaders,
-  );
-
-  if (headers.some((header) => header.header === trackingHeader.header)) {
-    console.warn(`Custom HTTP header value with name ${trackingHeader.header}
-        will be replaced by the source plugin.
-        Use different header name if you want to avoid this behavior;`);
-    headers = headers.filter((header) =>
-      header.header !== trackingHeader.header);
-  }
-
-  headers.push(trackingHeader);
-  deliveryClientConfig.globalQueryConfig.customHeaders = headers;
-};
 
 /**
  * Call @see createNode function  for all items in @see nodes.
