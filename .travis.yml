@@ -1,5 +1,6 @@
 dist: trusty
 language: node_js
+version: 1.0
 node_js:
 - "stable"
 addons:
@@ -17,6 +18,7 @@ notifications:
   email: false
 deploy:
  provider: npm
+ edge: true
  email: $NPM_EMAIL
  api_key: $NPM_API_KEY
  skip_cleanup: true
