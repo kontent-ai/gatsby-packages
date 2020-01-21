@@ -40,28 +40,28 @@ If you are new to the Gatsby ecosystem. The best way to start with using Gatsby 
 
 #### Configuration object
 
-    ```javascript
-    module.exports = {
+  ```javascript
+  module.exports = {
+    ...
+    plugins: [
       ...
-      plugins: [
-        ...
-        {
-          resolve: `@kentico/gatsby-source-kontent`,
-          options: {
-            deliveryClientConfig: { // Configuration object
-              projectId: `XXX`,
-              typeResolvers: []
-            },
-            languageCodenames: [ // example configuration
-              `default`, // default language
-            ]
-          }
+      {
+        resolve: `@kentico/gatsby-source-kontent`,
+        options: {
+          deliveryClientConfig: { // Configuration object
+            projectId: `XXX`,
+            typeResolvers: []
+          },
+          languageCodenames: [ // example configuration
+            `default`, // default language
+          ]
         }
-        ...
-      ]
+      }
       ...
-    }
-    ```
+    ]
+    ...
+  }
+  ```
 
 1. Run `gatsby develop` and data from Kentico Kontent are provided in Gatsby GraphQL model.
 All Kentico Kontent content element values reside inside of the `elements` property of `KontentItem` nodes.

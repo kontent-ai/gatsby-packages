@@ -1650,6 +1650,61 @@ GraphQL nodes of content items contain the ordinary \`system\` and \`elements\` 
       "children": Array [],
       "contentType___NODE": "dummyId",
       "elements": Object {
+        "description": Object {
+          "name": "Description",
+          "type": "custom",
+          "value": "# Gatsby source plugin for Kentico Kontent
+[![Gatsby plugin library](https://img.shields.io/badge/Gatsby%20plugin%20library-%23663399.svg)](https://www.gatsbyjs.org/packages/gatsby-source-kentico-cloud)
+[![Stack Overflow](https://img.shields.io/badge/Stack%20Overflow-ASK%20NOW-FE7A16.svg?logo=stackoverflow&logoColor=white)](https://stackoverflow.com/tags/kentico-cloud)
+
+This repo contains a [Gatsby (v2) source plugin](https://www.gatsbyjs.org/docs/recipes/#sourcing-data) that retrieves data from the [Kentico Kontent](https://kenticocloud.com) Delivery API.
+
+## Features
+
+The plugin creates GraphQL nodes for all Kentico Kontent content types, content items, and its language variants.
+
+The node names are prefixed with \`kenticoCloud\`. More specifically, content type nodes are prefixed by \`kenticoCloudType\` and content items and their language variants are prefixed with \`kenticoCloudItem\`.
+
+GraphQL nodes of content items contain the ordinary \`system\` and \`elements\` properties. However, the properties inside \`elements\` always have an internal structure that the aforementioned [Delivery SDK](https://github.com/Kentico/kentico-cloud-js/blob/master/packages/delivery/lib/models/item/content-item.class.ts) produces with **modifications** described in following section.",
+        },
+        "name": Object {
+          "name": "Name",
+          "type": "text",
+          "value": "Gatsby source plugin for Kentico Kontent",
+        },
+        "url": Object {
+          "name": "URL",
+          "type": "text",
+          "value": "https://github.com/Kentico/gatsby-source-kentico-cloud",
+        },
+      },
+      "id": "dummyId",
+      "internal": Object {
+        "contentDigest": "27f7a467afe48946d0f97a8d4373b4a3",
+        "type": "KontentItemRepository",
+      },
+      "otherLanguages___NODE": Array [],
+      "parent": null,
+      "preferred_language": "default",
+      "system": Object {
+        "codename": "n8bf1055d_7b61_0180_e1c6_3a09d88f0396",
+        "id": "8bf1055d-7b61-0180-e1c6-3a09d88f0396",
+        "language": "default",
+        "lastModified": "2019-04-29T14:40:06.437Z",
+        "name": "8bf1055d-7b61-0180-e1c6-3a09d88f0396",
+        "sitemapLocations": Array [],
+        "type": "repository",
+      },
+      "usedByContentItems___NODE": Array [
+        "dummyId",
+      ],
+    },
+  ],
+  Array [
+    Object {
+      "children": Array [],
+      "contentType___NODE": "dummyId",
+      "elements": Object {
         "text": Object {
           "images": Array [],
           "linkedItemCodenames": Array [],

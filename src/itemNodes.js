@@ -27,20 +27,11 @@ const getFromDefaultLanguage = async (
   createNodeId,
   includeRawContent = false,
 ) => {
-  const contentItemsResponse = await client
-    .items()
-    .languageParameter(defaultLanguageCodename)
-    .toPromise();
+  const allItems =
+    await loadAllItems(client, defaultLanguageCodename);
 
-  const allItems = _.unionBy(
-    contentItemsResponse.items,
-    Object.values(contentItemsResponse.linkedItems),
-    'system.codename');
+  resolveItems(allItems);
 
-  richTextElementDecorator
-    .resolveData(allItems);
-  urlSlugElementDecorator
-    .resolveUrls(allItems);
 
   const itemsFlatted = parse(stringify(allItems));
   const contentItemNodes = itemsFlatted.map((contentItem) => {
@@ -79,20 +70,10 @@ const getFromNonDefaultLanguage = async (
 ) => {
   const nonDefaultLanguageItemNodes = {};
   for (const languageCodename of nonDefaultLanguageCodenames) {
-    const languageResponse = await client
-      .items()
-      .languageParameter(languageCodename)
-      .toPromise();
+    const allItems =
+      await loadAllItems(client, languageCodename);
 
-    const allItems = _.unionBy(
-      languageResponse.items,
-      Object.values(languageResponse.linkedItems),
-      'system.codename');
-
-    richTextElementDecorator
-      .resolveData(allItems);
-    urlSlugElementDecorator
-      .resolveUrls(allItems);
+    resolveItems(allItems);
 
     const languageItemsFlatted = parse(stringify(allItems));
     const contentItemsNodes = languageItemsFlatted.map((languageItem) => {
@@ -176,6 +157,27 @@ const createItemRawContent = (system, elements, preferredLanguage) => ({
   elements,
   preferred_language: preferredLanguage,
 });
+
+const loadAllItems = async (client, languageCodename) => {
+  const contentItemsResponse = await client
+    .itemsFeedAll()
+    .languageParameter(languageCodename)
+    .toPromise();
+
+  const allItems = _.unionBy(
+    contentItemsResponse.items,
+    Object.values(contentItemsResponse.linkedItems),
+    'system.codename'
+  );
+  return allItems;
+};
+
+const resolveItems = (allItems) => {
+  richTextElementDecorator
+    .resolveData(allItems);
+  urlSlugElementDecorator
+    .resolveUrls(allItems);
+};
 
 module.exports = {
   getFromDefaultLanguage,
