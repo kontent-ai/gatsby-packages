@@ -1,6 +1,6 @@
 {
   "name": "@kentico/gatsby-source-kontent",
-  "version": "4.2.0",
+  "version": "4.3.0-beta1",
   "description": "Gatsby source plugin for Kentico Kontent",
   "main": "./gatsby-node.js",
   "scripts": {
@@ -35,7 +35,7 @@
     "node": ">=10.0.0"
   },
   "dependencies": {
-    "@kentico/kontent-delivery": "^8.0.0",
+    "@kentico/kontent-delivery": "^9.0.0",
     "change-case": "^3.1.0",
     "flatted": "^2.0.0",
     "json-stringify-safe": "^5.0.1",
