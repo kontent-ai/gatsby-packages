@@ -19,8 +19,6 @@ const urlSlugElementDecorator =
  * @param {Function} createNodeId Gatsby method for generating ID
  * @param {Boolean} includeRawContent
  *  Include raw content property in artifact node
- * @param {Boolean} useItemsFeedEndpoint
- *  Include wether to use /items  or /items-feed Kontent delivery endpoint
  */
 const getFromDefaultLanguage = async (
   client,
@@ -28,10 +26,9 @@ const getFromDefaultLanguage = async (
   contentTypeNodes,
   createNodeId,
   includeRawContent = false,
-  useItemsFeedEndpoint = false,
 ) => {
   const allItems =
-    await loadAllItems(client, defaultLanguageCodename, useItemsFeedEndpoint);
+    await loadAllItems(client, defaultLanguageCodename);
 
   resolveItems(allItems);
 
@@ -63,8 +60,6 @@ const getFromDefaultLanguage = async (
  * @param {Function} createNodeId Gatsby method for generation ID.
  * @param {Boolean} includeRawContent
  *  Include raw content property in artifact node
- * @param {Boolean} useItemsFeedEndpoint
- *  Include wether to use /items  or /items-feed Kontent delivery endpoint
  */
 const getFromNonDefaultLanguage = async (
   client,
@@ -72,12 +67,11 @@ const getFromNonDefaultLanguage = async (
   contentTypeNodes,
   createNodeId,
   includeRawContent = false,
-  useItemsFeedEndpoint = false,
 ) => {
   const nonDefaultLanguageItemNodes = {};
   for (const languageCodename of nonDefaultLanguageCodenames) {
     const allItems =
-      await loadAllItems(client, languageCodename, useItemsFeedEndpoint);
+      await loadAllItems(client, languageCodename);
 
     resolveItems(allItems);
 
@@ -144,20 +138,11 @@ const createContentItemNode =
     );
   };
 
-const loadAllItems = async (client, languageCodename, useItemsFeedEndpoint) => {
-  let contentItemsResponse = [];
-
-  if (useItemsFeedEndpoint) {
-    contentItemsResponse = await client
-      .itemsFeedAll()
-      .languageParameter(languageCodename)
-      .toPromise();
-  } else {
-    contentItemsResponse = await client
-      .items()
-      .languageParameter(languageCodename)
-      .toPromise();
-  }
+const loadAllItems = async (client, languageCodename) => {
+  const contentItemsResponse = await client
+    .itemsFeedAll()
+    .languageParameter(languageCodename)
+    .toPromise();
 
   const allItems = _.unionBy(
     contentItemsResponse.items,

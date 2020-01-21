@@ -89,31 +89,14 @@ describe(`Rich text resolution reference in modular content`, () => {
     ),
   };
 
-  const pluginConfigurationWithItemsEndpoint = {
-    deliveryClientConfig,
-    languageCodenames: ['default'],
-    useItemsFeedEndpoint: false,
-  };
+  it('resolves values using resolvers in rich text', async () => {
+    const pluginConfiguration = {
+      deliveryClientConfig,
+      languageCodenames: ['default'],
+    };
+    await sourceNodes(actions, pluginConfiguration);
 
-  const pluginConfigurationWithItemsFeedEndpoint = {
-    deliveryClientConfig,
-    languageCodenames: ['default'],
-    useItemsFeedEndpoint: true,
-  };
-
-  describe('resolves values using resolvers in rich text', () => {
-    it('using items endpoint', async () => {
-      await sourceNodes(actions, pluginConfigurationWithItemsEndpoint);
-
-      const calls = createNodeMock.mock.calls;
-      expect(calls).toMatchSnapshot();
-    });
-
-    it('using items-feed endpoint', async () => {
-      await sourceNodes(actions, pluginConfigurationWithItemsFeedEndpoint);
-
-      const calls = createNodeMock.mock.calls;
-      expect(calls).toMatchSnapshot();
-    });
+    const calls = createNodeMock.mock.calls;
+    expect(calls).toMatchSnapshot();
   });
 });
