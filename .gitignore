@@ -18,6 +18,7 @@ node_modules
 /decorators/richTextElementDecorator.js
 /decorators/linkedItemsElementDecorator.js
 /decorators/urlSlugElementDecorator.js
+/preview.js
 
 # Test coverage
 /coverage

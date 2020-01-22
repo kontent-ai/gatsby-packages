@@ -17,6 +17,7 @@
 !decorators/richTextElementDecorator.js
 !decorators/linkedItemsElementDecorator.js
 !decorators/urlSlugElementDecorator.js
+!preview.js
 
 !package.json
 !.npmignore
