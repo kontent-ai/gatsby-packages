@@ -70,7 +70,7 @@ const createKontentArtifactNode =
   };
 
 const getNodeInternal =
-  (artifactKind, nodeContent, includeRawContent, codeName) => {
+  (artifactKind, rawContent, includeRawContent, codeName) => {
     const nodeContent = stringify(rawContent);
     // TODO create Content + Content digest from raw data
     const nodeContentDigest = crypto
