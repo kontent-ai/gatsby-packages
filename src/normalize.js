@@ -71,10 +71,11 @@ const createKontentArtifactNode =
 
 const getNodeInternal =
   (artifactKind, nodeContent, includeRawContent, codeName) => {
+    const nodeContent = stringify(rawContent);
     // TODO create Content + Content digest from raw data
     const nodeContentDigest = crypto
       .createHash(`md5`)
-      .update(stringify(nodeContent))
+      .update(nodeContent)
       .digest(`hex`);
     const internal = {
       type: getArtifactName(codeName, artifactKind),
