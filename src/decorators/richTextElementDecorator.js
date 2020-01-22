@@ -97,5 +97,6 @@ const decorateItemNodeWithRichTextLinkedItemsLinks =
 
 module.exports = {
   decorateItemNodesWithRichTextLinkedItemsLinks,
+  decorateItemNodeWithRichTextLinkedItemsLinks,
   resolveData,
 };

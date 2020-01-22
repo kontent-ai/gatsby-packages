@@ -19,6 +19,8 @@ const richTextElementDecorator =
   require('./decorators/richTextElementDecorator');
 const { customTrackingHeader, addHeader } = require('./config');
 
+const { performUpdate } = require('./preview');
+
 exports.createSchemaCustomization = async (api, pluginConfig) => {
   const {
     actions: {
@@ -57,8 +59,12 @@ exports.sourceNodes =
     const {
       actions: {
         createNode,
+        touchNode,
+
       },
       createNodeId,
+      webhookBody,
+      getNodes,
     } = api;
 
     const {
@@ -68,9 +74,40 @@ exports.sourceNodes =
       includeRawContent = false,
     } = pluginConfig;
 
+    const kontentClientConfig =
+      addHeader(deliveryClientConfig, customTrackingHeader);
+
+    const operation = _.get(webhookBody, 'message.operation');
+    if (operation) {
+      if (enableLogging) {
+        console.info(`Refresh run.`);
+      }
+
+      switch (operation) {
+        case 'update': {
+          console.log('Update run');
+          performUpdate(
+            webhookBody,
+            createNodeId,
+            createNode,
+            getNodes,
+            touchNode,
+            includeRawContent,
+            enableLogging,
+            kontentClientConfig,
+          );
+          break;
+        }
+        default: {
+          break;
+        }
+      }
+      return;
+    }
+
     if (enableLogging) {
       console.info(`Generating Kentico Kontent nodes for projectId:\
- ${_.get(deliveryClientConfig, 'projectId')}`);
+ ${_.get(kontentClientConfig, 'projectId')}`);
       console.info(`Provided language codenames: ${languageCodenames}.`);
     }
 
@@ -78,9 +115,8 @@ exports.sourceNodes =
     const defaultLanguageCodename = languageCodenames[0];
     const nonDefaultLanguageCodenames = languageCodenames.slice(1);
 
-    addHeader(deliveryClientConfig, customTrackingHeader);
+    const client = new DeliveryClient(kontentClientConfig);
 
-    const client = new DeliveryClient(deliveryClientConfig);
     const taxonomyNodes = await taxonomiesNodes.get(
       client,
       createNodeId,

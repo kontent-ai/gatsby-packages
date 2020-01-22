@@ -199,4 +199,5 @@ module.exports = {
   getFromNonDefaultLanguage,
   createItemNodeId,
   createItemRawContent,
+  createContentItemNode,
 };
