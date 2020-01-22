@@ -1,0 +1,32 @@
+{
+  "system": {
+    "name": "test_item_2",
+    "codename": "test_item_2",
+    "id": "59bbb9f6-7381-4d13-9489-6a31d6487fd5",
+    "lastModified": "2019-12-05T09:16:15.635Z",
+    "language": "default",
+    "type": "test_item_2",
+    "sitemapLocations": []
+  },
+  "elements": {
+    "text": {
+      "name": "Text",
+      "type": "text",
+      "value": "Component text"
+    }
+  },
+  "preferred_language": "default",
+  "otherLanguages___NODE": [],
+  "contentType___NODE": "0915cbf4-41c7-5304-b225-7181485e5b7c",
+  "id": "c1307231-443a-5d7c-b442-ca2275ca3bb9",
+  "parent": null,
+  "children": [],
+  "usedByContentItems___NODE": [],
+  "internal": {
+    "type": "KontentItemTestItem_2",
+    "contentDigest": "cd598f65305e7f3bf347985ca861f245",
+    "content": "{\"system\":{\"name\":\"test_item_2\",\"codename\":\"test_item_2\",\"id\":\"59bbb9f6-7381-4d13-9489-6a31d6487fd5\",\"lastModified\":\"2019-12-05T09:16:15.635Z\",\"language\":\"default\",\"type\":\"test_item_2\",\"sitemapLocations\":[]},\"elements\":{\"text\":{\"type\":\"text\",\"name\":\"Text\",\"value\":\"Component text\"}}}",
+    "counter": 65,
+    "owner": "@kentico/gatsby-source-kontent"
+  }
+}

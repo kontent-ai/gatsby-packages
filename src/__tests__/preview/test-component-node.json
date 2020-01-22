@@ -1,0 +1,34 @@
+{
+  "system": {
+    "name": "8c6fba45-9e5d-0153-ddd2-1bdb1454c7c3",
+    "codename": "n8c6fba45_9e5d_0153_ddd2_1bdb1454c7c3",
+    "id": "8c6fba45-9e5d-0153-ddd2-1bdb1454c7c3",
+    "lastModified": "2019-12-05T09:28:16.719Z",
+    "language": "default",
+    "type": "test_item_2",
+    "sitemapLocations": []
+  },
+  "elements": {
+    "text": {
+      "name": "Text",
+      "type": "text",
+      "value": "Component text content"
+    }
+  },
+  "preferred_language": "default",
+  "otherLanguages___NODE": [],
+  "contentType___NODE": "0915cbf4-41c7-5304-b225-7181485e5b7c",
+  "id": "6e022985-4c72-57c8-90a0-c0b88e2ab93f",
+  "parent": null,
+  "children": [],
+  "usedByContentItems___NODE": [
+    "1bdc8830-979d-57b2-a2a3-501486825575"
+  ],
+  "internal": {
+    "type": "KontentItemTestItem_2",
+    "contentDigest": "da21d9a8ed861e731099c425a824fc2a",
+    "content": "{\"system\":{\"name\":\"8c6fba45-9e5d-0153-ddd2-1bdb1454c7c3\",\"codename\":\"n8c6fba45_9e5d_0153_ddd2_1bdb1454c7c3\",\"id\":\"8c6fba45-9e5d-0153-ddd2-1bdb1454c7c3\",\"lastModified\":\"2019-12-05T09:28:16.719Z\",\"language\":\"default\",\"type\":\"test_item_2\",\"sitemapLocations\":[]},\"elements\":{\"text\":{\"type\":\"text\",\"name\":\"Text\",\"value\":\"Component text content\"}}}",
+    "counter": 70,
+    "owner": "@kentico/gatsby-source-kontent"
+  }
+}

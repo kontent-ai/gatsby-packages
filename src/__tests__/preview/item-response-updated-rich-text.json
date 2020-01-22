@@ -1,0 +1,256 @@
+{
+  "item": {
+    "system": {
+      "id": "2a44123c-83d9-43ee-9dca-681d77286abe",
+      "name": "Test item",
+      "codename": "test_item",
+      "language": "default",
+      "type": "test_preview",
+      "sitemap_locations": [],
+      "last_modified": "2019-12-04T13:18:38.2721508Z"
+    },
+    "elements": {
+      "gatsby_preview__untitled_custom_element": {
+        "type": "custom",
+        "name": "Gatsby preview watcher - local",
+        "value": null
+      },
+      "text": {
+        "type": "text",
+        "name": "Text",
+        "value": "Test"
+      },
+      "number": {
+        "type": "number",
+        "name": "Number",
+        "value": 321
+      },
+      "date___time": {
+        "type": "date_time",
+        "name": "Date & time",
+        "value": "2019-11-30T00:00:00Z"
+      },
+      "toast_ui_editor": {
+        "type": "custom",
+        "name": "Toast UI Editor",
+        "value": "# Custom element"
+      },
+      "url_slug_text_source": {
+        "type": "text",
+        "name": "URL slug text source",
+        "value": "Url slug with source"
+      },
+      "url_slug": {
+        "type": "url_slug",
+        "name": "URL slug",
+        "value": "url-slug-with-source"
+      },
+      "asset": {
+        "type": "asset",
+        "name": "Asset",
+        "value": [
+          {
+            "name": "kk-logo-short-color-pos-rgb-256px.png",
+            "description": null,
+            "type": "image/png",
+            "size": 10355,
+            "url": "https://preview-assets-us-01.kc-usercontent.com:443/5e171834-8697-00d6-08fa-fdd643306171/172eb0ad-f2d9-41e1-bb33-0d396c041bb2/kk-logo-short-color-pos-rgb-256px.png",
+            "width": 512,
+            "height": 512
+          }
+        ]
+      },
+      "linked_items": {
+        "type": "modular_content",
+        "name": "Linked items",
+        "value": [
+          "test_item"
+        ]
+      },
+      "rich_text": {
+        "type": "rich_text",
+        "name": "Rich text",
+        "images": {
+          "190484cb-7bbf-4a1d-b978-784331e0a9f5": {
+            "image_id": "190484cb-7bbf-4a1d-b978-784331e0a9f5",
+            "description": null,
+            "url": "https://preview-assets-us-01.kc-usercontent.com:443/5e171834-8697-00d6-08fa-fdd643306171/172eb0ad-f2d9-41e1-bb33-0d396c041bb2/kk-logo-short-color-pos-rgb-256px.png",
+            "width": 512,
+            "height": 512
+          },
+          "70d69a3f-bb92-47f8-87ff-2d0a27d94461": {
+            "image_id": "70d69a3f-bb92-47f8-87ff-2d0a27d94461",
+            "description": null,
+            "url": "https://preview-assets-us-01.kc-usercontent.com:443/5e171834-8697-00d6-08fa-fdd643306171/154cdf96-8381-4452-8ab2-7bdf12cf1d7c/kk-logo-short-color-pos-rgb-256px-new.png",
+            "width": 512,
+            "height": 512
+          }
+        },
+        "links": {
+          "2a44123c-83d9-43ee-9dca-681d77286abe": {
+            "codename": "test_item",
+            "type": "test_preview",
+            "url_slug": "url-slug-with-source"
+          },
+          "86a36af6-0edd-418b-8d9a-9d28ea146e66": {
+            "codename": "test_item_2",
+            "type": "test_item_2",
+            "url_slug": ""
+          }
+        },
+        "modular_content": [
+          "test_item",
+          "n8c6fba45_9e5d_0153_ddd2_1bdb1454c7c3",
+          "test_item_2"
+        ],
+        "value": "<p>Rich text contentX</p>\n<figure data-asset-id=\"190484cb-7bbf-4a1d-b978-784331e0a9f5\" data-image-id=\"190484cb-7bbf-4a1d-b978-784331e0a9f5\"><img src=\"https://preview-assets-us-01.kc-usercontent.com:443/5e171834-8697-00d6-08fa-fdd643306171/172eb0ad-f2d9-41e1-bb33-0d396c041bb2/kk-logo-short-color-pos-rgb-256px.png\" data-asset-id=\"190484cb-7bbf-4a1d-b978-784331e0a9f5\" data-image-id=\"190484cb-7bbf-4a1d-b978-784331e0a9f5\" alt=\"\"></figure>\n<figure data-asset-id=\"70d69a3f-bb92-47f8-87ff-2d0a27d94461\" data-image-id=\"70d69a3f-bb92-47f8-87ff-2d0a27d94461\"><img src=\"https://preview-assets-us-01.kc-usercontent.com:443/5e171834-8697-00d6-08fa-fdd643306171/154cdf96-8381-4452-8ab2-7bdf12cf1d7c/kk-logo-short-color-pos-rgb-256px-new.png\" data-asset-id=\"70d69a3f-bb92-47f8-87ff-2d0a27d94461\" data-image-id=\"70d69a3f-bb92-47f8-87ff-2d0a27d94461\" alt=\"\"></figure>\n<object type=\"application/kenticocloud\" data-type=\"item\" data-rel=\"link\" data-codename=\"test_item\"></object>\n<object type=\"application/kenticocloud\" data-type=\"item\" data-rel=\"component\" data-codename=\"n8c6fba45_9e5d_0153_ddd2_1bdb1454c7c3\"></object>\n<object type=\"application/kenticocloud\" data-type=\"item\" data-rel=\"link\" data-codename=\"test_item_2\"></object>\n<object type=\"application/kenticocloud\" data-type=\"item\" data-rel=\"component\" data-codename=\"n8c6fba45_9e5d_0153_ddd2_1bdb1454c7c3\"></object>\n<p><a data-item-id=\"2a44123c-83d9-43ee-9dca-681d77286abe\" href=\"\">Link to content item</a> <a data-item-id=\"86a36af6-0edd-418b-8d9a-9d28ea146e66\" href=\"\">Link to content item</a></p>"
+      }
+    }
+  },
+  "modular_content": {
+    "test_item_2": {
+      "system": {
+        "id": "86a36af6-0edd-418b-8d9a-9d28ea146e66",
+        "name": "test_item_2",
+        "codename": "test_item_2",
+        "language": "default",
+        "type": "test_item",
+        "sitemap_locations": [],
+        "last_modified": "2019-12-05T13:18:38.2721508Z"
+      },
+      "elements": {
+        "text": {
+          "type": "text",
+          "name": "Text",
+          "value": "Component text"
+        }
+      }
+    },
+    "n8c6fba45_9e5d_0153_ddd2_1bdb1454c7c3": {
+      "system": {
+        "id": "8c6fba45-9e5d-0153-ddd2-1bdb1454c7c3",
+        "name": "8c6fba45-9e5d-0153-ddd2-1bdb1454c7c3",
+        "codename": "n8c6fba45_9e5d_0153_ddd2_1bdb1454c7c3",
+        "language": "default",
+        "type": "test_item_2",
+        "sitemap_locations": [],
+        "last_modified": "2019-12-05T09:28:16.719Z"
+      },
+      "elements": {
+        "text": {
+          "name": "Text",
+          "type": "text",
+          "value": "Component text content"
+        }
+      }
+    },
+    "test_item": {
+      "system": {
+        "id": "2a44123c-83d9-43ee-9dca-681d77286abe",
+        "name": "Test item",
+        "codename": "test_item",
+        "language": "default",
+        "type": "test_preview",
+        "sitemap_locations": [],
+        "last_modified": "2019-12-04T13:18:38.2721508Z"
+      },
+      "elements": {
+        "gatsby_preview__untitled_custom_element": {
+          "type": "custom",
+          "name": "Gatsby preview watcher - local",
+          "value": null
+        },
+        "text": {
+          "type": "text",
+          "name": "Text",
+          "value": "Test"
+        },
+        "number": {
+          "type": "number",
+          "name": "Number",
+          "value": 321
+        },
+        "date___time": {
+          "type": "date_time",
+          "name": "Date & time",
+          "value": "2019-11-30T00:00:00Z"
+        },
+        "toast_ui_editor": {
+          "type": "custom",
+          "name": "Toast UI Editor",
+          "value": "# Custom element"
+        },
+        "url_slug_text_source": {
+          "type": "text",
+          "name": "URL slug text source",
+          "value": "Url slug with source"
+        },
+        "url_slug": {
+          "type": "url_slug",
+          "name": "URL slug",
+          "value": "url-slug-with-source"
+        },
+        "asset": {
+          "type": "asset",
+          "name": "Asset",
+          "value": [
+            {
+              "name": "kk-logo-short-color-pos-rgb-256px.png",
+              "description": null,
+              "type": "image/png",
+              "size": 10355,
+              "url": "https://preview-assets-us-01.kc-usercontent.com:443/5e171834-8697-00d6-08fa-fdd643306171/172eb0ad-f2d9-41e1-bb33-0d396c041bb2/kk-logo-short-color-pos-rgb-256px.png",
+              "width": 512,
+              "height": 512
+            }
+          ]
+        },
+        "linked_items": {
+          "type": "modular_content",
+          "name": "Linked items",
+          "value": [
+            "test_item"
+          ]
+        },
+        "rich_text": {
+          "type": "rich_text",
+          "name": "Rich text",
+          "images": {
+            "190484cb-7bbf-4a1d-b978-784331e0a9f5": {
+              "image_id": "190484cb-7bbf-4a1d-b978-784331e0a9f5",
+              "description": null,
+              "url": "https://preview-assets-us-01.kc-usercontent.com:443/5e171834-8697-00d6-08fa-fdd643306171/172eb0ad-f2d9-41e1-bb33-0d396c041bb2/kk-logo-short-color-pos-rgb-256px.png",
+              "width": 512,
+              "height": 512
+            },
+            "70d69a3f-bb92-47f8-87ff-2d0a27d94461": {
+              "image_id": "70d69a3f-bb92-47f8-87ff-2d0a27d94461",
+              "description": null,
+              "url": "https://preview-assets-us-01.kc-usercontent.com:443/5e171834-8697-00d6-08fa-fdd643306171/154cdf96-8381-4452-8ab2-7bdf12cf1d7c/kk-logo-short-color-pos-rgb-256px-new.png",
+              "width": 512,
+              "height": 512
+            }
+          },
+          "links": {
+            "2a44123c-83d9-43ee-9dca-681d77286abe": {
+              "codename": "test_item",
+              "type": "test_preview",
+              "url_slug": "url-slug-with-source"
+            },
+            "86a36af6-0edd-418b-8d9a-9d28ea146e66": {
+              "codename": "test_item_2",
+              "type": "test_item_2",
+              "url_slug": ""
+            }
+          },
+          "modular_content": [
+            "test_item",
+            "n8c6fba45_9e5d_0153_ddd2_1bdb1454c7c3",
+            "test_item_2"
+          ],
+          "value": "<p>Rich text contentX</p>\n<figure data-asset-id=\"190484cb-7bbf-4a1d-b978-784331e0a9f5\" data-image-id=\"190484cb-7bbf-4a1d-b978-784331e0a9f5\"><img src=\"https://preview-assets-us-01.kc-usercontent.com:443/5e171834-8697-00d6-08fa-fdd643306171/172eb0ad-f2d9-41e1-bb33-0d396c041bb2/kk-logo-short-color-pos-rgb-256px.png\" data-asset-id=\"190484cb-7bbf-4a1d-b978-784331e0a9f5\" data-image-id=\"190484cb-7bbf-4a1d-b978-784331e0a9f5\" alt=\"\"></figure>\n<figure data-asset-id=\"70d69a3f-bb92-47f8-87ff-2d0a27d94461\" data-image-id=\"70d69a3f-bb92-47f8-87ff-2d0a27d94461\"><img src=\"https://preview-assets-us-01.kc-usercontent.com:443/5e171834-8697-00d6-08fa-fdd643306171/154cdf96-8381-4452-8ab2-7bdf12cf1d7c/kk-logo-short-color-pos-rgb-256px-new.png\" data-asset-id=\"70d69a3f-bb92-47f8-87ff-2d0a27d94461\" data-image-id=\"70d69a3f-bb92-47f8-87ff-2d0a27d94461\" alt=\"\"></figure>\n<object type=\"application/kenticocloud\" data-type=\"item\" data-rel=\"link\" data-codename=\"test_item\"></object>\n<object type=\"application/kenticocloud\" data-type=\"item\" data-rel=\"component\" data-codename=\"n8c6fba45_9e5d_0153_ddd2_1bdb1454c7c3\"></object>\n<object type=\"application/kenticocloud\" data-type=\"item\" data-rel=\"link\" data-codename=\"test_item_2\"></object>\n<object type=\"application/kenticocloud\" data-type=\"item\" data-rel=\"component\" data-codename=\"n8c6fba45_9e5d_0153_ddd2_1bdb1454c7c3\"></object>\n<p><a data-item-id=\"2a44123c-83d9-43ee-9dca-681d77286abe\" href=\"\">Link to content item</a> <a data-item-id=\"86a36af6-0edd-418b-8d9a-9d28ea146e66\" href=\"\">Link to content item</a></p>"
+        }
+      }
+    }
+  }
+}
