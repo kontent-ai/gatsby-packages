@@ -37,11 +37,20 @@ const getFromDefaultLanguage = async (
   const contentItemNodes = itemsFlatted.map((contentItem) => {
     try {
       contentItem.preferred_language = defaultLanguageCodename;
-      return createContentItemNode(
+      const contentItemId = createItemNodeId(
+        contentItem.system.codename,
+        contentItem.preferred_language,
         createNodeId,
+      );
+      const contentTypeNodeId = contentTypeNodes.find(
+        (contentType) =>
+          contentType.system.codename === contentItem.system.type
+      ).id;
+      return createContentItemNode(
+        contentItemId,
         contentItem,
-        contentTypeNodes,
-        includeRawContent,
+        contentTypeNodeId,
+        includeRawContent
       );
     } catch (error) {
       console.error(error);
@@ -78,11 +87,20 @@ const getFromNonDefaultLanguage = async (
     const languageItemsFlatted = parse(stringify(allItems));
     const contentItemsNodes = languageItemsFlatted.map((languageItem) => {
       languageItem.preferred_language = languageCodename;
-      return createContentItemNode(
+      const contentItemId = createItemNodeId(
+        languageItem.system.codename,
+        languageItem.preferred_language,
         createNodeId,
+      );
+      const contentTypeNodeId = contentTypeNodes.find(
+        (contentType) =>
+          contentType.system.codename === languageItem.system.type
+      ).id;
+      return createContentItemNode(
+        contentItemId,
         languageItem,
-        contentTypeNodes,
-        includeRawContent,
+        contentTypeNodeId,
+        includeRawContent
       );
     });
     nonDefaultLanguageItemNodes[languageCodename] = contentItemsNodes;
@@ -92,40 +110,22 @@ const getFromNonDefaultLanguage = async (
 
 /**
  * Creates a Gatsby object out of a Kentico Kontent content item object.
- * @param {function} createNodeId - Gatsby function to create a node ID.
+ * @param {string} nodeId - Gatsby node ID for node.
  * @param {object} contentItem - Kentico Kontent content item object.
- * @param {array} contentTypeNodes - All Gatsby content type nodes.
+ * @param {string} parentContentTypeNodeId - Parent Content type Gatsby node ID.
  * @param {Boolean} includeRawContent
  *  Include raw content property in artifact node
  * @return {object} Gatsby content item node.
  * @throws {Error}
  */
 const createContentItemNode =
-  (createNodeId, contentItem, contentTypeNodes, includeRawContent = false) => {
-    if (!_.isFunction(createNodeId)) {
-      throw new Error(`createNodeId is not a function.`);
-    }
-    const codenameParamCase =
-      changeCase.paramCase(contentItem.system.codename);
-
-    const languageParamCase =
-      changeCase.paramCase(contentItem.preferred_language);
-
-    const nodeId = createNodeId(
-      `kentico-kontent-item-${codenameParamCase}-${languageParamCase}`,
-    );
-
-    const parentContentTypeNode = contentTypeNodes.find(
-      (contentType) => contentType.system.codename
-        === contentItem.system.type);
-
+  (nodeId, contentItem, parentContentTypeNodeId, includeRawContent = false) => {
     const itemWithElements = normalize.parseContentItemContents(contentItem);
     validation.checkItemsObjectStructure([itemWithElements]);
-    validation.checkTypesObjectStructure(contentTypeNodes);
 
     const additionalData = {
       otherLanguages___NODE: [],
-      contentType___NODE: parentContentTypeNode.id,
+      contentType___NODE: parentContentTypeNodeId,
     };
 
     const rawContent = createItemRawContent(
@@ -179,8 +179,24 @@ const resolveItems = (allItems) => {
     .resolveUrls(allItems);
 };
 
+/**
+ * Create Gatsby generated is for content item language variant.
+ * @param {String} itemCodename Code of the Item for creation.
+ * @param {String} itemLanguage Preffered language fo the content item.
+ * @param {Function} createNodeId Gatsby API method for ID creation.
+ * @return {String} Gatsby node ID fot specified Llanguage variant.
+ */
+const createItemNodeId = (itemCodename, itemLanguage, createNodeId) => {
+  const codename = changeCase.paramCase(itemCodename);
+  const language = changeCase.paramCase(itemLanguage);
+  const prefix = 'kentico-kontent-item';
+  const identificationString = `${prefix}-${codename}-${language}`;
+  return createNodeId(identificationString);
+};
+
 module.exports = {
   getFromDefaultLanguage,
   getFromNonDefaultLanguage,
+  createItemNodeId,
   createItemRawContent,
 };
