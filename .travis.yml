@@ -22,6 +22,6 @@ deploy:
  email: $NPM_EMAIL
  api_key: $NPM_API_KEY
  skip_cleanup: true
- tag: items-feed # comment out for non-beta release
+ # tag: beta # uncomment for beta release
  on:
    tags: true
