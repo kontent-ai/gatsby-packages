@@ -157,7 +157,8 @@ exports.sourceNodes =
     });
 
     const typeNodesCount = contentTypeNodes.length;
-    const itemsCount = contentTypeNodes.length + nonDefaultLanguagesCount;
+    const itemsCount =
+      defaultCultureContentItemNodes.length + nonDefaultLanguagesCount;
     if (enableLogging) {
       console.info(`Kentico Kontent nodes generation finished.`);
       console.info(`${typeNodesCount} Kontent types item imported.`);
