@@ -36,7 +36,7 @@ const parseContentItemContents =
 
 /**
 * Create Gatsby Node structure.
-* @param {String} nodeId Gebnerated Gatsby node ID.
+* @param {String} nodeId Generated Gatsby node ID.
 * @param {Object} kcArtifact Node's Kentico Kontent data.
 * @param {String} artifactKind Type of the artifact ('item/type')
 * @param {String} codeName Item code name
@@ -128,4 +128,3 @@ module.exports = {
   getArtifactName,
   getNodeInternal,
 };
-
