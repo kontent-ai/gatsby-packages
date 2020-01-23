@@ -229,7 +229,7 @@ KontentItemArticle.elements.related_articles.linked_items[].elements.manufacture
    value: 'Hario'
 ```
 
-### Custom element parting support
+### Custom element parsing support
 
 Custom element is now supported including [custom element models definition](https://github.com/Kentico/kontent-delivery-sdk-js/blob/v8.0.0/DOCS.md#using-custom-models-for-custom-elements). SO besides of the raw value property `value` it is possible to parse it and include it in the GraphQL model.
 
