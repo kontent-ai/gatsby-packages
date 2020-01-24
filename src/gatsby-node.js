@@ -19,15 +19,54 @@ const richTextElementDecorator =
   require('./decorators/richTextElementDecorator');
 const { customTrackingHeader, addHeader } = require('./config');
 
+exports.createSchemaCustomization = async (api, pluginConfig) => {
+  const {
+    actions: {
+      createTypes,
+    },
+    schema,
+  } = api;
+
+  const {
+    deliveryClientConfig,
+    enableLogging = false,
+  } = pluginConfig;
+
+  const kontentClientConfig =
+    addHeader(deliveryClientConfig, customTrackingHeader);
+
+  const client = new DeliveryClient(kontentClientConfig);
+
+
+  if (enableLogging) {
+    console.info(
+      `Creating type nodes schema.`
+    );
+  }
+
+  await typeNodesSchema.createTypeNodesSchema(
+    client,
+    schema,
+    createTypes,
+  );
+};
 
 exports.sourceNodes =
-  async ({ actions: { createNode, createTypes }, createNodeId, schema },
-    { deliveryClientConfig,
+  async (api, pluginConfig) => {
+    const {
+      actions: {
+        createNode,
+      },
+      createNodeId,
+    } = api;
+
+    const {
+      deliveryClientConfig,
       languageCodenames,
       enableLogging = false,
       includeRawContent = false,
-    },
-  ) => {
+    } = pluginConfig;
+
     if (enableLogging) {
       console.info(`Generating Kentico Kontent nodes for projectId:\
  ${_.get(deliveryClientConfig, 'projectId')}`);
@@ -41,22 +80,15 @@ exports.sourceNodes =
     addHeader(deliveryClientConfig, customTrackingHeader);
 
     const client = new DeliveryClient(deliveryClientConfig);
-    const taxonomyNodes = await taxonomiesNodes.get(client, createNodeId);
+    const taxonomyNodes = await taxonomiesNodes.get(
+      client,
+      createNodeId,
+      includeRawContent
+    );
     const contentTypeNodes = await typeNodes.get(
       client,
       createNodeId,
       includeRawContent,
-    );
-
-    if (enableLogging) {
-      console.info(
-        `Creating type nodes schema.`,
-      );
-    }
-    await typeNodesSchema.createTypeNodesSchema(
-      client,
-      schema,
-      createTypes,
     );
 
     const defaultCultureContentItemNodes = await itemNodes.
@@ -124,7 +156,8 @@ exports.sourceNodes =
     });
 
     const typeNodesCount = contentTypeNodes.length;
-    const itemsCount = contentTypeNodes.length + nonDefaultLanguagesCount;
+    const itemsCount =
+      defaultCultureContentItemNodes.length + nonDefaultLanguagesCount;
     if (enableLogging) {
       console.info(`Kentico Kontent nodes generation finished.`);
       console.info(`${typeNodesCount} Kontent types item imported.`);

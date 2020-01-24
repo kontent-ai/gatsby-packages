@@ -115,7 +115,7 @@ Array [
       },
       "id": "dummy-kentico-kontent-item-main-project-default",
       "internal": Object {
-        "contentDigest": "04a184c484e045419feb6e89e45c37fe",
+        "contentDigest": "b781959410c08f6071bf0deb02d1f048",
         "type": "KontentItemProject",
       },
       "otherLanguages___NODE": Array [],
@@ -159,7 +159,7 @@ Array [
       },
       "id": "dummy-kentico-kontent-item-sub-project-1-default",
       "internal": Object {
-        "contentDigest": "93c6d6472e9c0da5d2d56a258b3dc3f9",
+        "contentDigest": "eea050f00dd7e1572aaa9e122104cbe8",
         "type": "KontentItemProject",
       },
       "otherLanguages___NODE": Array [],

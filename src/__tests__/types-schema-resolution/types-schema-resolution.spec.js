@@ -2,7 +2,7 @@
 const { KontentTestHttpService }
   = require('@kentico/kontent-test-http-service-js');
 
-const { sourceNodes } = require('../../gatsby-node');
+const { createSchemaCustomization } = require('../../gatsby-node');
 
 const fakeTypesResponse =
   require('./fakeTypesResponse.json');
@@ -35,10 +35,6 @@ describe(
         throwError: false,
       });
 
-    const dummyCreateNodeID = jest.fn();
-    dummyCreateNodeID.mockImplementation((input) => `dummy-${input}`);
-
-    const createNodeMock = jest.fn();
     const createTypesMock = jest.fn();
 
     const mockedSchema = { buildObjectType: jest.fn((input) => (
@@ -46,12 +42,10 @@ describe(
         Original input: ${input}`,
       }))}; ;
 
-    const actions = {
+    const api = {
       actions: {
-        createNode: createNodeMock,
         createTypes: createTypesMock,
       },
-      createNodeId: dummyCreateNodeID,
       schema: mockedSchema,
     };
     const deliveryClientConfig = {
@@ -68,7 +62,7 @@ describe(
     };
 
     it('passes with no error', async () => {
-      await sourceNodes(actions, pluginConfiguration);
+      await createSchemaCustomization(api, pluginConfiguration);
 
       const createTypeCalls = createTypesMock.mock.calls;
       expect(createTypeCalls).toHaveLength(2);
