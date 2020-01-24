@@ -229,7 +229,7 @@ KontentItemArticle.elements.related_articles.linked_items[].elements.manufacture
    value: 'Hario'
 ```
 
-### Custom element parting support
+### Custom element parsing support
 
 Custom element is now supported including [custom element models definition](https://github.com/Kentico/kontent-delivery-sdk-js/blob/v8.0.0/DOCS.md#using-custom-models-for-custom-elements). SO besides of the raw value property `value` it is possible to parse it and include it in the GraphQL model.
 
@@ -533,11 +533,14 @@ For more developer resources, visit the [Kentico Kontent Docs](https://docs.kont
 * [Aaron Collier's Czech Theather site](https://czechtheater.cz/) [[source code](https://github.com/CollierCZ/czechtheater)]
 * [Ilesh Mistry's personal blog site](https://www.ileshmistry.com/)
 * [Matt Nield's personal blog site](https://www.mattnield.co.uk) [[Source code](https://github.com/mattnield/mattnield-gatsby)]
+* [NetConstruct agency website](https://www.netconstruct.com/)
 
 ### Guides and blog posts
 
 * [Sourcing from Kentico Kontent](https://www.gatsbyjs.org/docs/sourcing-from-kontent/)
 * [Kentico Cloud & Gatsby Take You Beyond Static Websites](https://www.gatsbyjs.org/blog/2018-12-19-kentico-cloud-and-gatsby-take-you-beyond-static-websites/)
+* [Using Gatsby with Kontent
+](https://www.gatsbyjs.com/guides/kentico-kontent/)
 * [Rendering Kentico Kontent linked content items with React components in Gatsby](https://rshackleton.co.uk/articles/rendering-kentico-cloud-linked-content-items-with-react-components-in-gatsby) by [@rshackleton](https://github.com/rshackleton)
 * [Automated builds with Netlify and Kentico Kontent webhooks](https://rshackleton.co.uk/articles/automated-builds-with-netlify-and-kentico-cloud-webhooks) by [@rshackleton](https://github.com/rshackleton)
 * [Learning about Gatsby schema customisation with Kontent.ai](https://rshackleton.co.uk/articles/learning-about-gatsby-schema-customisation-with-kontent-ai) by [@rshackleton](https://github.com/rshackleton)
