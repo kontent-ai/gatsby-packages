@@ -533,7 +533,7 @@ For more developer resources, visit the [Kentico Kontent Docs](https://docs.kont
 * [Aaron Collier's Czech Theather site](https://czechtheater.cz/) [[source code](https://github.com/CollierCZ/czechtheater)]
 * [Ilesh Mistry's personal blog site](https://www.ileshmistry.com/)
 * [Matt Nield's personal blog site](https://www.mattnield.co.uk) [[Source code](https://github.com/mattnield/mattnield-gatsby)]
-* [NetConstruct site](https://www.netconstruct.com/)
+* [NetConstruct agency website](https://www.netconstruct.com/)
 
 ### Guides and blog posts
 
