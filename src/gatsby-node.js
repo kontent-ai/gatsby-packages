@@ -51,7 +51,6 @@ exports.createSchemaCustomization = async (api, pluginConfig) => {
   );
 };
 
-
 exports.sourceNodes =
   async (api, pluginConfig) => {
     const {
