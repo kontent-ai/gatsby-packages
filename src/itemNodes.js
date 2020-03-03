@@ -1,6 +1,5 @@
 const { parse, stringify } = require(`flatted/cjs`);
 const _ = require('lodash');
-const changeCase = require('change-case');
 
 const normalize = require('./normalize');
 const validation = require('./validation');
@@ -181,16 +180,18 @@ const resolveItems = (allItems) => {
 
 /**
  * Create Gatsby generated is for content item language variant.
+ * createNodeId is a utility function useful to generate globally
+ * unique and stable node IDs. It will generate different IDs
+ * for different plugins if they use same input, therefore
+ * identificationString must be unique.
  * @param {String} itemCodename Code of the Item for creation.
  * @param {String} itemLanguage Preffered language fo the content item.
  * @param {Function} createNodeId Gatsby API method for ID creation.
  * @return {String} Gatsby node ID fot specified Llanguage variant.
  */
 const createItemNodeId = (itemCodename, itemLanguage, createNodeId) => {
-  const codename = changeCase.paramCase(itemCodename);
-  const language = changeCase.paramCase(itemLanguage);
   const prefix = 'kentico-kontent-item';
-  const identificationString = `${prefix}-${codename}-${language}`;
+  const identificationString = `${prefix}-${itemCodename}-${itemLanguage}`;
   return createNodeId(identificationString);
 };
 

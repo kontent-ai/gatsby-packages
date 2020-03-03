@@ -58,7 +58,7 @@ Array [
     Object {
       "children": Array [],
       "contentItems___NODE": Array [
-        "dummy-kentico-kontent-item-content-item-1-default",
+        "dummy-kentico-kontent-item-content_item_1-default",
       ],
       "elements": Array [
         Object {
@@ -96,7 +96,7 @@ Array [
           "videoId": "_Yhyp-_hX2s",
         },
       },
-      "id": "dummy-kentico-kontent-item-content-item-1-default",
+      "id": "dummy-kentico-kontent-item-content_item_1-default",
       "internal": Object {
         "contentDigest": "7be3f945c82e0dc4ac4aa36f4be493b9",
         "type": "KontentItemContentType",

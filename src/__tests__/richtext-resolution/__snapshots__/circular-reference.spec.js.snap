@@ -58,7 +58,7 @@ Array [
     Object {
       "children": Array [],
       "contentItems___NODE": Array [
-        "dummy-kentico-kontent-item-simple-landing-page-default",
+        "dummy-kentico-kontent-item-simple_landing_page-default",
       ],
       "elements": Array [
         Object {
@@ -120,7 +120,7 @@ Array [
     Object {
       "children": Array [],
       "contentItems___NODE": Array [
-        "dummy-kentico-kontent-item-main-project-default",
+        "dummy-kentico-kontent-item-main_project-default",
       ],
       "elements": Array [
         Object {
@@ -156,7 +156,7 @@ Array [
           "value": "Main project content",
         },
       },
-      "id": "dummy-kentico-kontent-item-main-project-default",
+      "id": "dummy-kentico-kontent-item-main_project-default",
       "internal": Object {
         "contentDigest": "8ace37ff9c6af66c73da31ca5bb9a991",
         "type": "KontentItemProject",
@@ -187,7 +187,7 @@ Array [
             "simple_landing_page",
           ],
           "linked_items___NODE": Array [
-            "dummy-kentico-kontent-item-simple-landing-page-default",
+            "dummy-kentico-kontent-item-simple_landing_page-default",
           ],
           "links": Array [],
           "name": "Content",
@@ -210,7 +210,7 @@ Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis condimentum augue
 <p><br></p>",
         },
       },
-      "id": "dummy-kentico-kontent-item-simple-landing-page-default",
+      "id": "dummy-kentico-kontent-item-simple_landing_page-default",
       "internal": Object {
         "contentDigest": "c343943a6bbcd7d749dd4ed55ec406ae",
         "type": "KontentItemLandingPage",
@@ -228,7 +228,7 @@ Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis condimentum augue
         "type": "landing_page",
       },
       "usedByContentItems___NODE": Array [
-        "dummy-kentico-kontent-item-simple-landing-page-default",
+        "dummy-kentico-kontent-item-simple_landing_page-default",
       ],
     },
   ],

@@ -1,0 +1,42 @@
+{
+  "types": [
+    {
+      "system": {
+        "id": "7593cb08-f848-42dd-b6df-b8e619025a3c",
+        "name": "Child",
+        "codename": "child",
+        "last_modified": "2020-03-03T09:15:59.4486118Z"
+      },
+      "elements": {
+        "title": {
+          "type": "text",
+          "name": "Title"
+        }
+      }
+    },
+    {
+      "system": {
+        "id": "d1cd2f83-60e8-4416-b2e7-d73b1361d3e7",
+        "name": "Parent",
+        "codename": "parent",
+        "last_modified": "2020-03-03T09:15:37.2966743Z"
+      },
+      "elements": {
+        "title": {
+          "type": "text",
+          "name": "Title"
+        },
+        "children": {
+          "type": "modular_content",
+          "name": "Children"
+        }
+      }
+    }
+  ],
+  "pagination": {
+    "skip": 0,
+    "limit": 0,
+    "count": 2,
+    "next_page": ""
+  }
+}

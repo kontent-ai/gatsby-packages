@@ -58,8 +58,8 @@ Array [
     Object {
       "children": Array [],
       "contentItems___NODE": Array [
-        "dummy-kentico-kontent-item-main-project-default",
-        "dummy-kentico-kontent-item-sub-project-1-default",
+        "dummy-kentico-kontent-item-main_project-default",
+        "dummy-kentico-kontent-item-sub_project_1-default",
       ],
       "elements": Array [
         Object {
@@ -106,14 +106,14 @@ Array [
             "main_project",
           ],
           "linked_items___NODE": Array [
-            "dummy-kentico-kontent-item-sub-project-1-default",
-            "dummy-kentico-kontent-item-main-project-default",
+            "dummy-kentico-kontent-item-sub_project_1-default",
+            "dummy-kentico-kontent-item-main_project-default",
           ],
           "name": "Related projects",
           "type": "modular_content",
         },
       },
-      "id": "dummy-kentico-kontent-item-main-project-default",
+      "id": "dummy-kentico-kontent-item-main_project-default",
       "internal": Object {
         "contentDigest": "b781959410c08f6071bf0deb02d1f048",
         "type": "KontentItemProject",
@@ -131,8 +131,8 @@ Array [
         "type": "project",
       },
       "usedByContentItems___NODE": Array [
-        "dummy-kentico-kontent-item-main-project-default",
-        "dummy-kentico-kontent-item-sub-project-1-default",
+        "dummy-kentico-kontent-item-main_project-default",
+        "dummy-kentico-kontent-item-sub_project_1-default",
       ],
     },
   ],
@@ -151,13 +151,13 @@ Array [
             "main_project",
           ],
           "linked_items___NODE": Array [
-            "dummy-kentico-kontent-item-main-project-default",
+            "dummy-kentico-kontent-item-main_project-default",
           ],
           "name": "Related projects",
           "type": "modular_content",
         },
       },
-      "id": "dummy-kentico-kontent-item-sub-project-1-default",
+      "id": "dummy-kentico-kontent-item-sub_project_1-default",
       "internal": Object {
         "contentDigest": "eea050f00dd7e1572aaa9e122104cbe8",
         "type": "KontentItemProject",
@@ -175,7 +175,7 @@ Array [
         "type": "project",
       },
       "usedByContentItems___NODE": Array [
-        "dummy-kentico-kontent-item-main-project-default",
+        "dummy-kentico-kontent-item-main_project-default",
       ],
     },
   ],

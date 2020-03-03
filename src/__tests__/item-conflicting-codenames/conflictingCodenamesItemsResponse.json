@@ -1,0 +1,221 @@
+{
+  "items": [
+    {
+      "system": {
+        "id": "60fbe92a-a491-43b5-841f-e8c838d7b31f",
+        "name": "__child",
+        "codename": "__child",
+        "language": "default",
+        "type": "child",
+        "sitemap_locations": [],
+        "last_modified": "2020-03-03T09:17:43.3179479Z"
+      },
+      "elements": {
+        "title": {
+          "type": "text",
+          "name": "Title",
+          "value": "__child"
+        }
+      }
+    },
+    {
+      "system": {
+        "id": "04e1d690-ee87-4791-931c-64ef5343c2cd",
+        "name": "_child",
+        "codename": "_child",
+        "language": "default",
+        "type": "child",
+        "sitemap_locations": [],
+        "last_modified": "2020-03-03T09:16:58.8739219Z"
+      },
+      "elements": {
+        "title": {
+          "type": "text",
+          "name": "Title",
+          "value": "_child"
+        }
+      }
+    },
+    {
+      "system": {
+        "id": "c7a0bf25-0acf-4a35-8a82-48360afc64bb",
+        "name": "chi__ld",
+        "codename": "chi__ld",
+        "language": "default",
+        "type": "child",
+        "sitemap_locations": [],
+        "last_modified": "2020-03-03T09:18:52.451175Z"
+      },
+      "elements": {
+        "title": {
+          "type": "text",
+          "name": "Title",
+          "value": "chi__ld"
+        }
+      }
+    },
+    {
+      "system": {
+        "id": "71984f0b-fbb1-4f25-b329-095e9aaa6fa0",
+        "name": "chi_ld",
+        "codename": "chi_ld",
+        "language": "default",
+        "type": "child",
+        "sitemap_locations": [],
+        "last_modified": "2020-03-03T09:18:16.1835478Z"
+      },
+      "elements": {
+        "title": {
+          "type": "text",
+          "name": "Title",
+          "value": "chi_ld"
+        }
+      }
+    },
+    {
+      "system": {
+        "id": "2d995afc-8e73-4d10-bd19-fc2857c19e92",
+        "name": "child",
+        "codename": "child",
+        "language": "default",
+        "type": "child",
+        "sitemap_locations": [],
+        "last_modified": "2020-03-03T09:17:17.7783968Z"
+      },
+      "elements": {
+        "title": {
+          "type": "text",
+          "name": "Title",
+          "value": "child"
+        }
+      }
+    },
+    {
+      "system": {
+        "id": "c66d1a0b-a9b6-4b45-8e6f-5f30550806f0",
+        "name": "Conflicted Codenames",
+        "codename": "conflicted_codenames",
+        "language": "default",
+        "type": "parent",
+        "sitemap_locations": [],
+        "last_modified": "2020-03-03T09:18:44.1424674Z"
+      },
+      "elements": {
+        "title": {
+          "type": "text",
+          "name": "Title",
+          "value": "Conflicted Codenames"
+        },
+        "children": {
+          "type": "modular_content",
+          "name": "Children",
+          "value": [
+            "child",
+            "_child",
+            "__child",
+            "chi_ld",
+            "chi__ld"
+          ]
+        }
+      }
+    }
+  ],
+  "modular_content": {
+    "__child": {
+      "system": {
+        "id": "60fbe92a-a491-43b5-841f-e8c838d7b31f",
+        "name": "__child",
+        "codename": "__child",
+        "language": "default",
+        "type": "child",
+        "sitemap_locations": [],
+        "last_modified": "2020-03-03T09:17:43.3179479Z"
+      },
+      "elements": {
+        "title": {
+          "type": "text",
+          "name": "Title",
+          "value": "__child"
+        }
+      }
+    },
+    "_child": {
+      "system": {
+        "id": "04e1d690-ee87-4791-931c-64ef5343c2cd",
+        "name": "_child",
+        "codename": "_child",
+        "language": "default",
+        "type": "child",
+        "sitemap_locations": [],
+        "last_modified": "2020-03-03T09:16:58.8739219Z"
+      },
+      "elements": {
+        "title": {
+          "type": "text",
+          "name": "Title",
+          "value": "_child"
+        }
+      }
+    },
+    "chi__ld": {
+      "system": {
+        "id": "c7a0bf25-0acf-4a35-8a82-48360afc64bb",
+        "name": "chi__ld",
+        "codename": "chi__ld",
+        "language": "default",
+        "type": "child",
+        "sitemap_locations": [],
+        "last_modified": "2020-03-03T09:18:52.451175Z"
+      },
+      "elements": {
+        "title": {
+          "type": "text",
+          "name": "Title",
+          "value": "chi__ld"
+        }
+      }
+    },
+    "chi_ld": {
+      "system": {
+        "id": "71984f0b-fbb1-4f25-b329-095e9aaa6fa0",
+        "name": "chi_ld",
+        "codename": "chi_ld",
+        "language": "default",
+        "type": "child",
+        "sitemap_locations": [],
+        "last_modified": "2020-03-03T09:18:16.1835478Z"
+      },
+      "elements": {
+        "title": {
+          "type": "text",
+          "name": "Title",
+          "value": "chi_ld"
+        }
+      }
+    },
+    "child": {
+      "system": {
+        "id": "2d995afc-8e73-4d10-bd19-fc2857c19e92",
+        "name": "child",
+        "codename": "child",
+        "language": "default",
+        "type": "child",
+        "sitemap_locations": [],
+        "last_modified": "2020-03-03T09:17:17.7783968Z"
+      },
+      "elements": {
+        "title": {
+          "type": "text",
+          "name": "Title",
+          "value": "child"
+        }
+      }
+    }
+  },
+  "pagination": {
+    "skip": 0,
+    "limit": 0,
+    "count": 6,
+    "next_page": ""
+  }
+}
