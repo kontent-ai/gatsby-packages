@@ -8,7 +8,7 @@ Array [
       "id": "dummy-kentico-kontent-taxonomy-personas",
       "internal": Object {
         "contentDigest": "91ece672836106bfc0f186606f20a01d",
-        "type": "KontentTaxonomyPersonas",
+        "type": "KontentTaxonomy-personas",
       },
       "parent": null,
       "system": Object {
@@ -58,7 +58,7 @@ Array [
     Object {
       "children": Array [],
       "contentItems___NODE": Array [
-        "dummy-kentico-kontent-item-content-item-1-default",
+        "dummy-kentico-kontent-item-content_item_1-default",
       ],
       "elements": Array [
         Object {
@@ -68,10 +68,10 @@ Array [
           "type": "custom",
         },
       ],
-      "id": "dummy-kentico-kontent-type-content-type",
+      "id": "dummy-kentico-kontent-type-content_type",
       "internal": Object {
         "contentDigest": "b76693de90391308edcfcdd6639ead60",
-        "type": "KontentTypeContentType",
+        "type": "KontentType-content_type",
       },
       "parent": null,
       "system": Object {
@@ -86,7 +86,7 @@ Array [
   Array [
     Object {
       "children": Array [],
-      "contentType___NODE": "dummy-kentico-kontent-type-content-type",
+      "contentType___NODE": "dummy-kentico-kontent-type-content_type",
       "elements": Object {
         "custom_element": Object {
           "name": "Youtube",
@@ -96,10 +96,10 @@ Array [
           "videoId": "_Yhyp-_hX2s",
         },
       },
-      "id": "dummy-kentico-kontent-item-content-item-1-default",
+      "id": "dummy-kentico-kontent-item-content_item_1-default",
       "internal": Object {
         "contentDigest": "7be3f945c82e0dc4ac4aa36f4be493b9",
-        "type": "KontentItemContentType",
+        "type": "KontentItem-content_type",
       },
       "otherLanguages___NODE": Array [],
       "parent": null,

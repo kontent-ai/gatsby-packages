@@ -8,7 +8,7 @@ Array [
       "id": "dummy-kentico-kontent-taxonomy-personas",
       "internal": Object {
         "contentDigest": "91ece672836106bfc0f186606f20a01d",
-        "type": "KontentTaxonomyPersonas",
+        "type": "KontentTaxonomy-personas",
       },
       "parent": null,
       "system": Object {
@@ -58,7 +58,7 @@ Array [
     Object {
       "children": Array [],
       "contentItems___NODE": Array [
-        "dummy-kentico-kontent-item-simple-landing-page-default",
+        "dummy-kentico-kontent-item-simple_landing_page-default",
       ],
       "elements": Array [
         Object {
@@ -68,10 +68,10 @@ Array [
           "type": "rich_text",
         },
       ],
-      "id": "dummy-kentico-kontent-type-landing-page",
+      "id": "dummy-kentico-kontent-type-landing_page",
       "internal": Object {
         "contentDigest": "a0ac33b7e607597366ab8ba9d6c24889",
-        "type": "KontentTypeLandingPage",
+        "type": "KontentType-landing_page",
       },
       "parent": null,
       "system": Object {
@@ -87,7 +87,7 @@ Array [
     Object {
       "children": Array [],
       "contentItems___NODE": Array [
-        "dummy-kentico-kontent-item-n26ddfb46-c2de-010e-3ad9-ec9aa8955144-default",
+        "dummy-kentico-kontent-item-n26ddfb46_c2de_010e_3ad9_ec9aa8955144-default",
       ],
       "elements": Array [
         Object {
@@ -103,10 +103,10 @@ Array [
           "type": "asset",
         },
       ],
-      "id": "dummy-kentico-kontent-type-landing-page-image-section",
+      "id": "dummy-kentico-kontent-type-landing_page_image_section",
       "internal": Object {
         "contentDigest": "b8c43d50ff8a1c089e6ceae4a2944567",
-        "type": "KontentTypeLandingPageImageSection",
+        "type": "KontentType-landing_page_image_section",
       },
       "parent": null,
       "system": Object {
@@ -122,7 +122,7 @@ Array [
     Object {
       "children": Array [],
       "contentItems___NODE": Array [
-        "dummy-kentico-kontent-item-main-project-default",
+        "dummy-kentico-kontent-item-main_project-default",
       ],
       "elements": Array [
         Object {
@@ -135,7 +135,7 @@ Array [
       "id": "dummy-kentico-kontent-type-project",
       "internal": Object {
         "contentDigest": "8524000f6fc39895b271183bcddbd9d2",
-        "type": "KontentTypeProject",
+        "type": "KontentType-project",
       },
       "parent": null,
       "system": Object {
@@ -158,10 +158,10 @@ Array [
           "value": "Main project content",
         },
       },
-      "id": "dummy-kentico-kontent-item-main-project-default",
+      "id": "dummy-kentico-kontent-item-main_project-default",
       "internal": Object {
         "contentDigest": "8ace37ff9c6af66c73da31ca5bb9a991",
-        "type": "KontentItemProject",
+        "type": "KontentItem-project",
       },
       "otherLanguages___NODE": Array [],
       "parent": null,
@@ -176,14 +176,14 @@ Array [
         "type": "project",
       },
       "usedByContentItems___NODE": Array [
-        "dummy-kentico-kontent-item-simple-landing-page-default",
+        "dummy-kentico-kontent-item-simple_landing_page-default",
       ],
     },
   ],
   Array [
     Object {
       "children": Array [],
-      "contentType___NODE": "dummy-kentico-kontent-type-landing-page",
+      "contentType___NODE": "dummy-kentico-kontent-type-landing_page",
       "elements": Object {
         "content": Object {
           "images": Array [
@@ -200,8 +200,8 @@ Array [
             "n26ddfb46_c2de_010e_3ad9_ec9aa8955144",
           ],
           "linked_items___NODE": Array [
-            "dummy-kentico-kontent-item-main-project-default",
-            "dummy-kentico-kontent-item-n26ddfb46-c2de-010e-3ad9-ec9aa8955144-default",
+            "dummy-kentico-kontent-item-main_project-default",
+            "dummy-kentico-kontent-item-n26ddfb46_c2de_010e_3ad9_ec9aa8955144-default",
           ],
           "links": Array [
             Object {
@@ -267,10 +267,10 @@ Array [
 <object type=\\"application/kenticocloud\\" data-type=\\"item\\" data-rel=\\"link\\" data-codename=\\"main_project\\"></object>",
         },
       },
-      "id": "dummy-kentico-kontent-item-simple-landing-page-default",
+      "id": "dummy-kentico-kontent-item-simple_landing_page-default",
       "internal": Object {
         "contentDigest": "f13ad3c1ccf382fccc8700b3ae72f15a",
-        "type": "KontentItemLandingPage",
+        "type": "KontentItem-landing_page",
       },
       "otherLanguages___NODE": Array [],
       "parent": null,
@@ -290,7 +290,7 @@ Array [
   Array [
     Object {
       "children": Array [],
-      "contentType___NODE": "dummy-kentico-kontent-type-landing-page-image-section",
+      "contentType___NODE": "dummy-kentico-kontent-type-landing_page_image_section",
       "elements": Object {
         "images": Object {
           "name": "Images",
@@ -358,10 +358,10 @@ Array [
           "value": "Cap",
         },
       },
-      "id": "dummy-kentico-kontent-item-n26ddfb46-c2de-010e-3ad9-ec9aa8955144-default",
+      "id": "dummy-kentico-kontent-item-n26ddfb46_c2de_010e_3ad9_ec9aa8955144-default",
       "internal": Object {
         "contentDigest": "6bec88217837aa668a48f7aa9372965c",
-        "type": "KontentItemLandingPageImageSection",
+        "type": "KontentItem-landing_page_image_section",
       },
       "otherLanguages___NODE": Array [],
       "parent": null,
@@ -376,7 +376,7 @@ Array [
         "type": "landing_page_image_section",
       },
       "usedByContentItems___NODE": Array [
-        "dummy-kentico-kontent-item-simple-landing-page-default",
+        "dummy-kentico-kontent-item-simple_landing_page-default",
       ],
     },
   ],

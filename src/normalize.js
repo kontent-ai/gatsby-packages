@@ -1,6 +1,5 @@
 const _ = require(`lodash`);
 const crypto = require(`crypto`);
-const changeCase = require(`change-case`);
 const stringify = require(`json-stringify-safe`);
 
 /**
@@ -111,14 +110,11 @@ const addLinkedItemsLinks =
 /**
  * Get name of the artifact.
  * @param {String} codeName Item code name
- * @param {String} artifactKind Type of the artifact ('item/type')
+ * @param {String} artifactKind Type of the artifact ('Item/Type')
  * @return {String} Artifact name
  */
 const getArtifactName = (codeName, artifactKind) => {
-  const codenamePascalCase = changeCase.pascalCase(codeName);
-  const artifactKindPascalCase = changeCase.pascalCase(artifactKind);
-
-  return `Kontent${artifactKindPascalCase}${codenamePascalCase}`;
+  return `Kontent${artifactKind}-${codeName}`;
 };
 
 module.exports = {

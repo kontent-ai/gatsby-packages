@@ -1,6 +1,5 @@
 const { parse, stringify } = require('flatted/cjs');
 const _ = require('lodash');
-const changeCase = require('change-case');
 
 const normalize = require('./normalize');
 
@@ -40,15 +39,14 @@ const createTaxonomyNode = (createNodeId, taxonomy, includeRawContent) => {
     throw new Error(`createNodeId is not a function.`);
   }
 
-  const codenameParamCase = changeCase.paramCase(taxonomy.system.codename);
-  const nodeId = createNodeId(`kentico-kontent-taxonomy-${codenameParamCase}`);
+  const nodeId = createNodeId(`kentico-kontent-taxonomy-${taxonomy.system.codename}`);
 
   const additionalData = {};
 
   return normalize.createKontentArtifactNode(
     nodeId,
     taxonomy,
-    `taxonomy`,
+    `Taxonomy`,
     taxonomy.system.codename,
     additionalData,
     includeRawContent,

@@ -8,7 +8,7 @@ Array [
       "id": "dummy-kentico-kontent-taxonomy-personas",
       "internal": Object {
         "contentDigest": "91ece672836106bfc0f186606f20a01d",
-        "type": "KontentTaxonomyPersonas",
+        "type": "KontentTaxonomy-personas",
       },
       "parent": null,
       "system": Object {
@@ -58,7 +58,7 @@ Array [
     Object {
       "children": Array [],
       "contentItems___NODE": Array [
-        "dummy-kentico-kontent-item-simple-landing-page-default",
+        "dummy-kentico-kontent-item-simple_landing_page-default",
       ],
       "elements": Array [
         Object {
@@ -68,10 +68,10 @@ Array [
           "type": "rich_text",
         },
       ],
-      "id": "dummy-kentico-kontent-type-landing-page",
+      "id": "dummy-kentico-kontent-type-landing_page",
       "internal": Object {
         "contentDigest": "a0ac33b7e607597366ab8ba9d6c24889",
-        "type": "KontentTypeLandingPage",
+        "type": "KontentType-landing_page",
       },
       "parent": null,
       "system": Object {
@@ -101,10 +101,10 @@ Array [
           "type": "asset",
         },
       ],
-      "id": "dummy-kentico-kontent-type-landing-page-image-section",
+      "id": "dummy-kentico-kontent-type-landing_page_image_section",
       "internal": Object {
         "contentDigest": "b8c43d50ff8a1c089e6ceae4a2944567",
-        "type": "KontentTypeLandingPageImageSection",
+        "type": "KontentType-landing_page_image_section",
       },
       "parent": null,
       "system": Object {
@@ -120,7 +120,7 @@ Array [
     Object {
       "children": Array [],
       "contentItems___NODE": Array [
-        "dummy-kentico-kontent-item-main-project-default",
+        "dummy-kentico-kontent-item-main_project-default",
       ],
       "elements": Array [
         Object {
@@ -133,7 +133,7 @@ Array [
       "id": "dummy-kentico-kontent-type-project",
       "internal": Object {
         "contentDigest": "8524000f6fc39895b271183bcddbd9d2",
-        "type": "KontentTypeProject",
+        "type": "KontentType-project",
       },
       "parent": null,
       "system": Object {
@@ -156,10 +156,10 @@ Array [
           "value": "Main project content",
         },
       },
-      "id": "dummy-kentico-kontent-item-main-project-default",
+      "id": "dummy-kentico-kontent-item-main_project-default",
       "internal": Object {
         "contentDigest": "8ace37ff9c6af66c73da31ca5bb9a991",
-        "type": "KontentItemProject",
+        "type": "KontentItem-project",
       },
       "otherLanguages___NODE": Array [],
       "parent": null,
@@ -179,7 +179,7 @@ Array [
   Array [
     Object {
       "children": Array [],
-      "contentType___NODE": "dummy-kentico-kontent-type-landing-page",
+      "contentType___NODE": "dummy-kentico-kontent-type-landing_page",
       "elements": Object {
         "content": Object {
           "images": Array [],
@@ -187,7 +187,7 @@ Array [
             "simple_landing_page",
           ],
           "linked_items___NODE": Array [
-            "dummy-kentico-kontent-item-simple-landing-page-default",
+            "dummy-kentico-kontent-item-simple_landing_page-default",
           ],
           "links": Array [],
           "name": "Content",
@@ -210,10 +210,10 @@ Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis condimentum augue
 <p><br></p>",
         },
       },
-      "id": "dummy-kentico-kontent-item-simple-landing-page-default",
+      "id": "dummy-kentico-kontent-item-simple_landing_page-default",
       "internal": Object {
         "contentDigest": "c343943a6bbcd7d749dd4ed55ec406ae",
-        "type": "KontentItemLandingPage",
+        "type": "KontentItem-landing_page",
       },
       "otherLanguages___NODE": Array [],
       "parent": null,
@@ -228,7 +228,7 @@ Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis condimentum augue
         "type": "landing_page",
       },
       "usedByContentItems___NODE": Array [
-        "dummy-kentico-kontent-item-simple-landing-page-default",
+        "dummy-kentico-kontent-item-simple_landing_page-default",
       ],
     },
   ],
