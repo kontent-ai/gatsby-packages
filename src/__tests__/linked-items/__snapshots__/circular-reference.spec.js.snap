@@ -8,7 +8,7 @@ Array [
       "id": "dummy-kentico-kontent-taxonomy-personas",
       "internal": Object {
         "contentDigest": "91ece672836106bfc0f186606f20a01d",
-        "type": "KontentTaxonomy-personas",
+        "type": "KontentTaxonomy_personas",
       },
       "parent": null,
       "system": Object {
@@ -78,7 +78,7 @@ Array [
       "id": "dummy-kentico-kontent-type-project",
       "internal": Object {
         "contentDigest": "98b4a5274bd4a532bf161ca1f3631df1",
-        "type": "KontentType-project",
+        "type": "KontentType_project",
       },
       "parent": null,
       "system": Object {
@@ -116,7 +116,7 @@ Array [
       "id": "dummy-kentico-kontent-item-main_project-default",
       "internal": Object {
         "contentDigest": "b781959410c08f6071bf0deb02d1f048",
-        "type": "KontentItem-project",
+        "type": "KontentItem_project",
       },
       "otherLanguages___NODE": Array [],
       "parent": null,
@@ -160,7 +160,7 @@ Array [
       "id": "dummy-kentico-kontent-item-sub_project_1-default",
       "internal": Object {
         "contentDigest": "eea050f00dd7e1572aaa9e122104cbe8",
-        "type": "KontentItem-project",
+        "type": "KontentItem_project",
       },
       "otherLanguages___NODE": Array [],
       "parent": null,

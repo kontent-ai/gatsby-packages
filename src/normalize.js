@@ -109,12 +109,13 @@ const addLinkedItemsLinks =
 
 /**
  * Get name of the artifact.
+ * Names must match /^[_a-zA-Z][_a-zA-Z0-9]*$/.
  * @param {String} codeName Item code name
  * @param {String} artifactKind Type of the artifact ('Item/Type')
  * @return {String} Artifact name
  */
 const getArtifactName = (codeName, artifactKind) => {
-  return `Kontent${artifactKind}-${codeName}`;
+  return `Kontent${artifactKind}_${codeName}`;
 };
 
 module.exports = {
