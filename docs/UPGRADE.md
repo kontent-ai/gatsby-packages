@@ -8,7 +8,7 @@ This upgrade is necessary to fix [colliding identifiers](https://github.com/Kent
 
 It is necessary to rename all Kontent taxonomy, type, and item names in all GraphQL queries.
 
-#### Taxonomy type name
+#### Taxonomy name
 
 | 4.x.x pattern                                | 5.x.x pattern                  |
 | -------------------------------------------- | ------------------------------ |
@@ -18,7 +18,7 @@ It is necessary to rename all Kontent taxonomy, type, and item names in all Grap
 | -------------------------------------------- | ------------------------------ |
 | KontentTaxonomyMyPersonas                    | KontentTaxonomy_my_personas    |
 
-#### Kontent type name
+#### Type name
 
 | 4.x.x pattern                                | 5.x.x pattern                  |
 | -------------------------------------------- | ------------------------------ |
@@ -28,7 +28,7 @@ It is necessary to rename all Kontent taxonomy, type, and item names in all Grap
 | -------------------------------------------- | ------------------------------ |
 | KontentTypeMyPerson                          | KontentType_my_person          |
 
-#### Kontent item name
+#### Item name
 
 | 4.x.x pattern                                | 5.x.x pattern                  |
 | -------------------------------------------- | ------------------------------ |
