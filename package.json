@@ -1,0 +1,22 @@
+{
+  "name": "@simply007org/gatsby-kontent-packages",
+  "version": "0.2.0",
+  "description": "Monorepo containing Kentico Kontent packages for Gatsbyjs.",
+  "repository": "https://github.com/Simply007/gatsby-kontent-packages.git",
+  "author": {
+    "name": "Ondřej Chrastina",
+    "email": "chrastina.ondra@gmail.com",
+    "url": "https://ondrej.chrastina.tech"
+  },
+  "license": "MIT",
+  "workspaces": [
+    "packages/gatsby-source-kontent-items",
+    "site"
+  ],
+  "scripts": {
+    "build:gatsby-source-kontent-items": "yarn workspace @simply007org/gatsby-source-kontent-items build",
+    "prepare": "yarn build:gatsby-source-kontent-items"
+  },
+  "private": true,
+  "devDependencies": {}
+}

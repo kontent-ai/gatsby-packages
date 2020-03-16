@@ -1,0 +1,1020 @@
+{
+  "items": [
+    {
+      "system": {
+        "id": "b5624158-93f1-44f9-971e-aac85610ab10",
+        "name": "Concept",
+        "codename": "concept",
+        "language": "Another_language",
+        "type": "step",
+        "sitemap_locations": [],
+        "last_modified": "2019-04-29T14:45:22.1150343Z"
+      },
+      "elements": {
+        "text": {
+          "type": "rich_text",
+          "name": "Text",
+          "images": {},
+          "links": {},
+          "modular_content": [],
+          "value": "<ul>\n  <li>Theoretical&nbsp;<a href=\"https://developer.kenticocloud.com/docs/integrating-content-editing-features\">concept of custom elements</a>&nbsp;and&nbsp;<a href=\"https://developer.kenticocloud.com/v1/reference#custom-elements-api\">API reference</a>&nbsp;walkthrough. (other language)</li>\n</ul>"
+        }
+      }
+    },
+    {
+      "system": {
+        "id": "2aebd051-0e24-414c-b4ff-734b6c9ab40f",
+        "name": "Custom element devkit + React component",
+        "codename": "custom_element_devkit___react_component",
+        "language": "Another_language",
+        "type": "step",
+        "sitemap_locations": [],
+        "last_modified": "2019-04-29T14:45:53.4392891Z"
+      },
+      "elements": {
+        "text": {
+          "type": "rich_text",
+          "name": "Text",
+          "images": {},
+          "links": {},
+          "modular_content": [],
+          "value": "<ul>\n  <li>(other language)</li>\n</ul>"
+        }
+      }
+    },
+    {
+      "system": {
+        "id": "59002186-1886-48f3-b8ba-6f053b5cf777",
+        "name": "Developer Community Site",
+        "codename": "developer_community_site",
+        "language": "Another_language",
+        "type": "website",
+        "sitemap_locations": [],
+        "last_modified": "2019-04-29T14:44:04.4377286Z"
+      },
+      "elements": {
+        "name": {
+          "type": "text",
+          "name": "Name",
+          "value": "Developer Community site"
+        },
+        "description": {
+          "type": "rich_text",
+          "name": "Description",
+          "images": {},
+          "links": {},
+          "modular_content": [],
+          "value": "<p>Other language: A gateway to the world of open-source at Kentico.</p>"
+        },
+        "url": {
+          "type": "text",
+          "name": "URL",
+          "value": "https://kentico.github.io/"
+        }
+      }
+    },
+    {
+      "system": {
+        "id": "9e1cda06-c88b-4665-8907-38d2f7486873",
+        "name": "Developer Community Site",
+        "codename": "developer_community_site_9e1cda0",
+        "language": "default",
+        "type": "step",
+        "sitemap_locations": [],
+        "last_modified": "2019-04-01T18:53:37.4860924Z"
+      },
+      "elements": {
+        "text": {
+          "type": "rich_text",
+          "name": "Text",
+          "images": {},
+          "links": {},
+          "modular_content": [],
+          "value": "<p><a href=\"http://kentico.github.io/\">Developer Community Site</a></p>\n<ul>\n  <li>Main purpose - Overall guidepost for information\n    <ul>\n      <li>Describe URLs</li>\n    </ul>\n  </li>\n</ul>"
+        }
+      }
+    },
+    {
+      "system": {
+        "id": "30d24de4-34aa-4b38-933d-3a7f744f8fd4",
+        "name": "Introduction to Github on Kentico examples",
+        "codename": "introduction_to_github_on_kentico_examples",
+        "language": "default",
+        "type": "session",
+        "sitemap_locations": [],
+        "last_modified": "2019-04-01T18:55:05.7218382Z"
+      },
+      "elements": {
+        "name": {
+          "type": "text",
+          "name": "Name",
+          "value": "Introduction to Github on Kentico examples"
+        },
+        "summary": {
+          "type": "rich_text",
+          "name": "Summary",
+          "images": {},
+          "links": {},
+          "modular_content": [],
+          "value": "<p>Github structure and description of the features used by Kentico (+ just a note about Stack Overflow).</p>"
+        },
+        "agenda": {
+          "type": "modular_content",
+          "name": "Agenda",
+          "value": [
+            "kentico_github_organizations",
+            "teams_and_people",
+            "repositories",
+            "projects",
+            "developer_community_site_9e1cda0",
+            "stack_overflow"
+          ]
+        },
+        "assets": {
+          "type": "asset",
+          "name": "Assets",
+          "value": [
+            {
+              "name": "KenticoGitHubOrganization.pptx",
+              "description": null,
+              "type": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+              "size": 3202558,
+              "url": "https://assets-us-01.kc-usercontent.com:443/09fc0115-dd4d-00c7-5bd9-5f73836aee81/2395d81f-0577-4eb4-a642-ad3177c9f963/KenticoGitHubOrganization.pptx"
+            }
+          ]
+        },
+        "excercise": {
+          "type": "rich_text",
+          "name": "Excercise",
+          "images": {},
+          "links": {},
+          "modular_content": [],
+          "value": "<p>Quiz!</p>"
+        },
+        "presenter": {
+          "type": "modular_content",
+          "name": "Presenter",
+          "value": [
+            "ondrej_chrastina"
+          ]
+        },
+        "checklist": {
+          "type": "multiple_choice",
+          "name": "Checklist",
+          "value": [
+            {
+              "name": "Training sessions scheduled",
+              "codename": "training_sessions_scheduled"
+            },
+            {
+              "name": "Training rooms reserved",
+              "codename": "training_rooms_reserved"
+            },
+            {
+              "name": "Presentations and files proofread",
+              "codename": "presentations_and_files_proofread"
+            },
+            {
+              "name": "Introduction and supporting files uploaded",
+              "codename": "introduction_and_supporting_files_uploaded"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "system": {
+        "id": "9cc4f323-e59c-45af-a961-f0c98a5f1262",
+        "name": "Introduction to the Custom elements development",
+        "codename": "introduction_to_the_custom_elements_development",
+        "language": "Another_language",
+        "type": "session",
+        "sitemap_locations": [],
+        "last_modified": "2019-04-29T14:46:40.6273686Z"
+      },
+      "elements": {
+        "name": {
+          "type": "text",
+          "name": "Name",
+          "value": "Introduction to the Custom elements development"
+        },
+        "summary": {
+          "type": "rich_text",
+          "name": "Summary",
+          "images": {},
+          "links": {},
+          "modular_content": [],
+          "value": "<p>Present how it is possible to develop a custom element.</p>"
+        },
+        "agenda": {
+          "type": "modular_content",
+          "name": "Agenda",
+          "value": [
+            "concept",
+            "jquery_datapicker",
+            "custom_element_devkit___react_component"
+          ]
+        },
+        "assets": {
+          "type": "asset",
+          "name": "Assets",
+          "value": [
+            {
+              "name": "KenticoGitHubOrganization.pptx",
+              "description": null,
+              "type": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+              "size": 2479201,
+              "url": "https://assets-us-01.kc-usercontent.com:443/09fc0115-dd4d-00c7-5bd9-5f73836aee81/475acae0-579d-47af-9de1-229535f968df/KenticoGitHubOrganization.pptx"
+            }
+          ]
+        },
+        "excercise": {
+          "type": "rich_text",
+          "name": "Excercise",
+          "images": {},
+          "links": {},
+          "modular_content": [
+            "f37dfa2e_0aa6_01ef_6f1e_f374c7fe3356",
+            "n32ee0075_0b25_0105_503d_b8fc0eb3cc6e"
+          ],
+          "value": "<object type=\"application/kenticocloud\" data-type=\"item\" data-rel=\"component\" data-codename=\"f37dfa2e_0aa6_01ef_6f1e_f374c7fe3356\"></object>\n<object type=\"application/kenticocloud\" data-type=\"item\" data-rel=\"component\" data-codename=\"n32ee0075_0b25_0105_503d_b8fc0eb3cc6e\"></object>\n<p><br></p>"
+        },
+        "presenter": {
+          "type": "modular_content",
+          "name": "Presenter",
+          "value": [
+            "ondrej_chrastina"
+          ]
+        },
+        "checklist": {
+          "type": "multiple_choice",
+          "name": "Checklist",
+          "value": [
+            {
+              "name": "Presentations and files proofread",
+              "codename": "presentations_and_files_proofread"
+            },
+            {
+              "name": "Introduction and supporting files uploaded",
+              "codename": "introduction_and_supporting_files_uploaded"
+            },
+            {
+              "name": "START code files and FINAL code files uploaded",
+              "codename": "start_code_files_and_final_code_files_uploaded"
+            },
+            {
+              "name": "Training session tagged in Confluence",
+              "codename": "training_session_tagged_in_confluence"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "system": {
+        "id": "3ace3379-c4cf-43bf-85de-98e707c4f202",
+        "name": "jQuery Datapicker",
+        "codename": "jquery_datapicker",
+        "language": "Another_language",
+        "type": "step",
+        "sitemap_locations": [],
+        "last_modified": "2019-04-29T14:45:45.102267Z"
+      },
+      "elements": {
+        "text": {
+          "type": "rich_text",
+          "name": "Text",
+          "images": {},
+          "links": {},
+          "modular_content": [],
+          "value": "<ul>\n  <li>Implementing the&nbsp;<a href=\"https://jqueryui.com/datepicker/\">jQuery Datepicker</a>&nbsp;using&nbsp;<a href=\"http://vanilla-js.com/\">vanilla javascript</a>&nbsp;+ Htm + css. (other language)</li>\n</ul>"
+        }
+      }
+    },
+    {
+      "system": {
+        "id": "cea256ba-063d-418d-8258-458b9ba9094d",
+        "name": "Kentico Github organizations",
+        "codename": "kentico_github_organizations",
+        "language": "default",
+        "type": "step",
+        "sitemap_locations": [],
+        "last_modified": "2019-04-01T18:49:49.3402097Z"
+      },
+      "elements": {
+        "text": {
+          "type": "rich_text",
+          "name": "Text",
+          "images": {},
+          "links": {},
+          "modular_content": [],
+          "value": "<p>Kentico Github&nbsp;<a href=\"https://help.github.com/en/articles/about-organizations\">organizations</a></p>\n<ul>\n  <li>KenticoInternal - beneficial legacy billing plan (gold) paid by the number of private members (250 is the limit)</li>\n  <li>Kentico - on the billing plan&nbsp;<a href=\"https://help.github.com/en/articles/githubs-products#github-team-for-open-source\">Github Team for opensource</a>&nbsp;with no mmebers limitation, just all repositories have to be OS</li>\n</ul>"
+        }
+      }
+    },
+    {
+      "system": {
+        "id": "d72eea98-774f-48fc-b52a-7ebc51271855",
+        "name": "Ondřej Chrastina",
+        "codename": "ondrej_chrastina",
+        "language": "Another_language",
+        "type": "person",
+        "sitemap_locations": [],
+        "last_modified": "2019-04-29T14:44:36.1299868Z"
+      },
+      "elements": {
+        "name_and_surname": {
+          "type": "text",
+          "name": "Name and Surname",
+          "value": "Ondřej Chrastina"
+        },
+        "date_of_birth": {
+          "type": "date_time",
+          "name": "Date of Birth",
+          "value": "1991-07-24T00:00:00Z"
+        },
+        "profile_photo": {
+          "type": "asset",
+          "name": "Profile Photo",
+          "value": [
+            {
+              "name": "profil.png",
+              "description": null,
+              "type": "image/png",
+              "size": 74555,
+              "url": "https://assets-us-01.kc-usercontent.com:443/09fc0115-dd4d-00c7-5bd9-5f73836aee81/0ad9d4fd-ab24-4899-9222-8926907a6962/profil.png",
+              "width": 219,
+              "height": 218
+            }
+          ]
+        },
+        "favorite_number": {
+          "type": "number",
+          "name": "Favorite Number",
+          "value": 33
+        },
+        "gender": {
+          "type": "multiple_choice",
+          "name": "Gender",
+          "value": [
+            {
+              "name": "Man",
+              "codename": "man"
+            }
+          ]
+        },
+        "bio": {
+          "type": "rich_text",
+          "name": "Bio",
+          "images": {
+            "fcf07d43-46d4-46ef-a58d-c7bf7a4aecb1": {
+              "image_id": "fcf07d43-46d4-46ef-a58d-c7bf7a4aecb1",
+              "description": null,
+              "url": "https://assets-us-01.kc-usercontent.com:443/09fc0115-dd4d-00c7-5bd9-5f73836aee81/0faa87b4-9e1e-41b8-8b38-c107cbb35147/2.jpg",
+              "width": 1600,
+              "height": 1065
+            },
+            "8d1adb2e-ee09-4c94-8758-f23be1e4969a": {
+              "image_id": "8d1adb2e-ee09-4c94-8758-f23be1e4969a",
+              "description": null,
+              "url": "https://assets-us-01.kc-usercontent.com:443/09fc0115-dd4d-00c7-5bd9-5f73836aee81/c6f94bd6-71ab-4499-98dd-d9ec39bc1a1f/1.jpg",
+              "width": 610,
+              "height": 920
+            },
+            "e268e8be-3d5e-4ba8-887c-49b357784d94": {
+              "image_id": "e268e8be-3d5e-4ba8-887c-49b357784d94",
+              "description": null,
+              "url": "https://assets-us-01.kc-usercontent.com:443/09fc0115-dd4d-00c7-5bd9-5f73836aee81/78a90563-27b0-4f7c-9213-dc3b4cf840a0/3.jpg",
+              "width": 1080,
+              "height": 810
+            }
+          },
+          "links": {
+            "59002186-1886-48f3-b8ba-6f053b5cf777": {
+              "codename": "developer_community_site",
+              "type": "website",
+              "url_slug": ""
+            }
+          },
+          "modular_content": [
+            "developer_community_site",
+            "e76716e9_bcf0_01ad_2031_4d08701b3a3f"
+          ],
+          "value": "<p>I am a &nbsp;tech guy passionate about all of the new technologies and gadgets.<br>\nOther language content: <br>\nCurrently I am interested in Gatsby.js. I have released the third version of Gatsby source plugin.<br>\n</p>\n<object type=\"application/kenticocloud\" data-type=\"item\" data-rel=\"component\" data-codename=\"e76716e9_bcf0_01ad_2031_4d08701b3a3f\"></object>\n<p><br></p>\n<p>Interesting in exploring how storytelling and targeted messaging create business-changing content.</p>\n<p>As an Developer Advocate, I am responsible for running <a href=\"https://github.com/Kentico\">Kentico Github organization</a>, implementing inbound marketing strategies like <a data-item-id=\"59002186-1886-48f3-b8ba-6f053b5cf777\" href=\"\">Developer Community site&nbsp;</a> that help increase brand awareness of Kentico as an opensource friendly company and acquire new developers.</p>\n<object type=\"application/kenticocloud\" data-type=\"item\" data-rel=\"link\" data-codename=\"developer_community_site\"></object>\n<p>When I am not working, you’ll find me doing some sports, travelling, or in a <a data-asset-id=\"e268e8be-3d5e-4ba8-887c-49b357784d94\" href=\"https://assets-us-01.kc-usercontent.com:443/09fc0115-dd4d-00c7-5bd9-5f73836aee81/78a90563-27b0-4f7c-9213-dc3b4cf840a0/3.jpg\">pub</a>.<br>\n</p>\n<figure data-asset-id=\"fcf07d43-46d4-46ef-a58d-c7bf7a4aecb1\" data-image-id=\"fcf07d43-46d4-46ef-a58d-c7bf7a4aecb1\"><img src=\"https://assets-us-01.kc-usercontent.com:443/09fc0115-dd4d-00c7-5bd9-5f73836aee81/0faa87b4-9e1e-41b8-8b38-c107cbb35147/2.jpg\" data-asset-id=\"fcf07d43-46d4-46ef-a58d-c7bf7a4aecb1\" data-image-id=\"fcf07d43-46d4-46ef-a58d-c7bf7a4aecb1\" alt=\"\"></figure>\n<figure data-asset-id=\"8d1adb2e-ee09-4c94-8758-f23be1e4969a\" data-image-id=\"8d1adb2e-ee09-4c94-8758-f23be1e4969a\"><img src=\"https://assets-us-01.kc-usercontent.com:443/09fc0115-dd4d-00c7-5bd9-5f73836aee81/c6f94bd6-71ab-4499-98dd-d9ec39bc1a1f/1.jpg\" data-asset-id=\"8d1adb2e-ee09-4c94-8758-f23be1e4969a\" data-image-id=\"8d1adb2e-ee09-4c94-8758-f23be1e4969a\" alt=\"\"></figure>\n<figure data-asset-id=\"e268e8be-3d5e-4ba8-887c-49b357784d94\" data-image-id=\"e268e8be-3d5e-4ba8-887c-49b357784d94\"><img src=\"https://assets-us-01.kc-usercontent.com:443/09fc0115-dd4d-00c7-5bd9-5f73836aee81/78a90563-27b0-4f7c-9213-dc3b4cf840a0/3.jpg\" data-asset-id=\"e268e8be-3d5e-4ba8-887c-49b357784d94\" data-image-id=\"e268e8be-3d5e-4ba8-887c-49b357784d94\" alt=\"\"></figure>\n<p><br></p>"
+        },
+        "url_slug": {
+          "type": "url_slug",
+          "name": "URL slug",
+          "value": "ondrej-chrastina"
+        }
+      }
+    },
+    {
+      "system": {
+        "id": "aae6c1cf-1d20-4a0e-949b-65a5d1bb7c8f",
+        "name": "Open-source training 2019",
+        "codename": "open_source_training_2019",
+        "language": "Another_language",
+        "type": "training",
+        "sitemap_locations": [],
+        "last_modified": "2019-04-29T14:47:05.7940332Z"
+      },
+      "elements": {
+        "name": {
+          "type": "text",
+          "name": "Name",
+          "value": "Open-source training 2019"
+        },
+        "description": {
+          "type": "rich_text",
+          "name": "Description",
+          "images": {},
+          "links": {},
+          "modular_content": [],
+          "value": "<p>The training should make the clear picture about the Kentico Kontent opensource activities. (other language)</p>"
+        },
+        "author": {
+          "type": "modular_content",
+          "name": "Author",
+          "value": [
+            "ondrej_chrastina"
+          ]
+        },
+        "sessions": {
+          "type": "modular_content",
+          "name": "Sessions",
+          "value": [
+            "introduction_to_the_custom_elements_development"
+          ]
+        }
+      }
+    },
+    {
+      "system": {
+        "id": "00b305ad-2f05-4899-9c14-17ea62d0032f",
+        "name": "Projects",
+        "codename": "projects",
+        "language": "default",
+        "type": "step",
+        "sitemap_locations": [],
+        "last_modified": "2019-04-01T18:52:39.348748Z"
+      },
+      "elements": {
+        "text": {
+          "type": "rich_text",
+          "name": "Text",
+          "images": {},
+          "links": {},
+          "modular_content": [],
+          "value": "<p><a href=\"https://github.com/orgs/Kentico/projects\">Projects</a></p>\n<ul>\n  <li>Purpose - organize issue cross repositories in specified stack\n    <ul>\n      <li>Emphasize&nbsp;<a href=\"https://github.com/orgs/Kentico/projects/8\">Content backlog</a></li>\n    </ul>\n  </li>\n</ul>"
+        }
+      }
+    },
+    {
+      "system": {
+        "id": "ea15d7bc-7d8f-4ded-9795-0e615b31316e",
+        "name": "Repositories",
+        "codename": "repositories",
+        "language": "default",
+        "type": "step",
+        "sitemap_locations": [],
+        "last_modified": "2019-04-01T18:52:12.4177018Z"
+      },
+      "elements": {
+        "text": {
+          "type": "rich_text",
+          "name": "Text",
+          "images": {},
+          "links": {},
+          "modular_content": [],
+          "value": "<p><a href=\"https://github.com/Kentico\">Repositories</a></p>\n<ul>\n  <li>Groups&nbsp;\n    <ul>\n      <li>SDKs</li>\n      <li>Sample apps</li>\n      <li>Plugins/Extensions</li>\n      <li>Documentation repos</li>\n    </ul>\n  </li>\n  <li>Went through the repositories and make some short introduction for it (go through the description)</li>\n  <li>Naming conventions for repository name</li>\n  <li>Kentico Home repository (special one)\n    <ul>\n      <li>Go through the wiki articles:&nbsp;<a href=\"https://github.com/Kentico/Home/wiki\">https://github.com/Kentico/Home/wiki</a></li>\n      <li>Describe&nbsp;<a href=\"https://github.com/Kentico/Home/blob/master/CODE_OF_CONDUCT.md\">Code of conduct</a>&nbsp;and&nbsp;<a href=\"https://github.com/Kentico/Home/blob/master/CONTRIBUTING.md\">Contributing</a></li>\n    </ul>\n  </li>\n</ul>"
+        }
+      }
+    },
+    {
+      "system": {
+        "id": "a89518c5-82b9-457e-8cbd-a8719f8a3bdb",
+        "name": "Stack overflow",
+        "codename": "stack_overflow",
+        "language": "default",
+        "type": "step",
+        "sitemap_locations": [],
+        "last_modified": "2019-04-01T18:53:50.3351338Z"
+      },
+      "elements": {
+        "text": {
+          "type": "rich_text",
+          "name": "Text",
+          "images": {},
+          "links": {},
+          "modular_content": [],
+          "value": "<p><a href=\"https://stackoverflow.com/tags/kentico-cloud\">Stack overflow</a></p>\n<ul>\n  <li>Purpose - ask anything, better for complex questions than submitting question issue, which should be focused on the repository only</li>\n</ul>"
+        }
+      }
+    },
+    {
+      "system": {
+        "id": "4a0ed14b-fe95-41f7-938f-000b9a400539",
+        "name": "Teams and people",
+        "codename": "teams_and_people",
+        "language": "default",
+        "type": "step",
+        "sitemap_locations": [],
+        "last_modified": "2019-04-01T18:51:04.1737989Z"
+      },
+      "elements": {
+        "text": {
+          "type": "rich_text",
+          "name": "Text",
+          "images": {},
+          "links": {},
+          "modular_content": [],
+          "value": "<ul>\n  <li>Teams are for organizing people to groups, they are used for permissions setup, interest grouping etc...\n    <ul>\n      <li>Description of the teams are described&nbsp;<a href=\"https://github.com/Kentico/Home/wiki/Guidelines-for-GitHub-permissions-in-the-Kentico-organization\">publicly</a></li>\n    </ul>\n  </li>\n  <li><a href=\"https://github.com/orgs/Kentico/people\">People</a>\n    <ul>\n      <li>Github user has to be invited by the organization admin</li>\n      <li>No out of the box way to request invitation right now</li>\n    </ul>\n  </li>\n</ul>"
+        }
+      }
+    }
+  ],
+  "modular_content": {
+    "concept": {
+      "system": {
+        "id": "b5624158-93f1-44f9-971e-aac85610ab10",
+        "name": "Concept",
+        "codename": "concept",
+        "language": "Another_language",
+        "type": "step",
+        "sitemap_locations": [],
+        "last_modified": "2019-04-29T14:45:22.1150343Z"
+      },
+      "elements": {
+        "text": {
+          "type": "rich_text",
+          "name": "Text",
+          "images": {},
+          "links": {},
+          "modular_content": [],
+          "value": "<ul>\n  <li>Theoretical&nbsp;<a href=\"https://developer.kenticocloud.com/docs/integrating-content-editing-features\">concept of custom elements</a>&nbsp;and&nbsp;<a href=\"https://developer.kenticocloud.com/v1/reference#custom-elements-api\">API reference</a>&nbsp;walkthrough. (other language)</li>\n</ul>"
+        }
+      }
+    },
+    "custom_element_devkit___react_component": {
+      "system": {
+        "id": "2aebd051-0e24-414c-b4ff-734b6c9ab40f",
+        "name": "Custom element devkit + React component",
+        "codename": "custom_element_devkit___react_component",
+        "language": "Another_language",
+        "type": "step",
+        "sitemap_locations": [],
+        "last_modified": "2019-04-29T14:45:53.4392891Z"
+      },
+      "elements": {
+        "text": {
+          "type": "rich_text",
+          "name": "Text",
+          "images": {},
+          "links": {},
+          "modular_content": [],
+          "value": "<ul>\n  <li>(other language)</li>\n</ul>"
+        }
+      }
+    },
+    "developer_community_site": {
+      "system": {
+        "id": "59002186-1886-48f3-b8ba-6f053b5cf777",
+        "name": "Developer Community Site",
+        "codename": "developer_community_site",
+        "language": "Another_language",
+        "type": "website",
+        "sitemap_locations": [],
+        "last_modified": "2019-04-29T14:44:04.4377286Z"
+      },
+      "elements": {
+        "name": {
+          "type": "text",
+          "name": "Name",
+          "value": "Developer Community site"
+        },
+        "description": {
+          "type": "rich_text",
+          "name": "Description",
+          "images": {},
+          "links": {},
+          "modular_content": [],
+          "value": "<p>Other language: A gateway to the world of open-source at Kentico.</p>"
+        },
+        "url": {
+          "type": "text",
+          "name": "URL",
+          "value": "https://kentico.github.io/"
+        }
+      }
+    },
+    "developer_community_site_9e1cda0": {
+      "system": {
+        "id": "9e1cda06-c88b-4665-8907-38d2f7486873",
+        "name": "Developer Community Site",
+        "codename": "developer_community_site_9e1cda0",
+        "language": "default",
+        "type": "step",
+        "sitemap_locations": [],
+        "last_modified": "2019-04-01T18:53:37.4860924Z"
+      },
+      "elements": {
+        "text": {
+          "type": "rich_text",
+          "name": "Text",
+          "images": {},
+          "links": {},
+          "modular_content": [],
+          "value": "<p><a href=\"http://kentico.github.io/\">Developer Community Site</a></p>\n<ul>\n  <li>Main purpose - Overall guidepost for information\n    <ul>\n      <li>Describe URLs</li>\n    </ul>\n  </li>\n</ul>"
+        }
+      }
+    },
+    "e76716e9_bcf0_01ad_2031_4d08701b3a3f": {
+      "system": {
+        "id": "e76716e9-bcf0-01ad-2031-4d08701b3a3f",
+        "name": "e76716e9-bcf0-01ad-2031-4d08701b3a3f",
+        "codename": "e76716e9_bcf0_01ad_2031_4d08701b3a3f",
+        "language": "Another_language",
+        "type": "repository",
+        "sitemap_locations": [],
+        "last_modified": "2019-04-29T14:44:36.1299868Z"
+      },
+      "elements": {
+        "description": {
+          "type": "custom",
+          "name": "Description",
+          "value": "*Other language: *\n# Gatsby source plugin for Kentico Kontent\n[![Gatsby plugin library](https://img.shields.io/badge/Gatsby%20plugin%20library-%23663399.svg)](https://www.gatsbyjs.org/packages/gatsby-source-kentico-cloud)\n[![Stack Overflow](https://img.shields.io/badge/Stack%20Overflow-ASK%20NOW-FE7A16.svg?logo=stackoverflow&logoColor=white)](https://stackoverflow.com/tags/kentico-cloud)\n\nThis repo contains a [Gatsby (v2) source plugin](https://www.gatsbyjs.org/docs/recipes/#sourcing-data) that retrieves data from the [Kentico Kontent](https://kenticocloud.com) Delivery API.\n\n## Features\n\nThe plugin creates GraphQL nodes for all Kentico Kontent content types, content items, and its language variants.\n\nThe node names are prefixed with `kenticoCloud`. More specifically, content type nodes are prefixed by `kenticoCloudType` and content items and their language variants are prefixed with `kenticoCloudItem`.\n\nGraphQL nodes of content items contain the ordinary `system` and `elements` properties. However, the properties inside `elements` always have an internal structure that the aforementioned [Delivery SDK](https://github.com/Kentico/kentico-cloud-js/blob/master/packages/delivery/lib/models/item/content-item.class.ts) produces with **modifications** described in following section."
+        },
+        "name": {
+          "type": "text",
+          "name": "Name",
+          "value": "Other language: Gatsby source plugin for Kentico Kontent"
+        },
+        "url": {
+          "type": "text",
+          "name": "URL",
+          "value": "https://github.com/Kentico/gatsby-source-kentico-cloud"
+        }
+      }
+    },
+    "f37dfa2e_0aa6_01ef_6f1e_f374c7fe3356": {
+      "system": {
+        "id": "f37dfa2e-0aa6-01ef-6f1e-f374c7fe3356",
+        "name": "f37dfa2e-0aa6-01ef-6f1e-f374c7fe3356",
+        "codename": "f37dfa2e_0aa6_01ef_6f1e_f374c7fe3356",
+        "language": "Another_language",
+        "type": "step",
+        "sitemap_locations": [],
+        "last_modified": "2019-04-29T14:46:40.6273686Z"
+      },
+      "elements": {
+        "text": {
+          "type": "rich_text",
+          "name": "Text",
+          "images": {},
+          "links": {},
+          "modular_content": [],
+          "value": "<p>(other language)<br>\nChoose an example I have showed you and extend it</p>\n<ul>\n  <li>Add configuration</li>\n  <li>Add some styling</li>\n  <li>Preconfigure component</li>\n</ul>"
+        }
+      }
+    },
+    "introduction_to_the_custom_elements_development": {
+      "system": {
+        "id": "9cc4f323-e59c-45af-a961-f0c98a5f1262",
+        "name": "Introduction to the Custom elements development",
+        "codename": "introduction_to_the_custom_elements_development",
+        "language": "Another_language",
+        "type": "session",
+        "sitemap_locations": [],
+        "last_modified": "2019-04-29T14:46:40.6273686Z"
+      },
+      "elements": {
+        "name": {
+          "type": "text",
+          "name": "Name",
+          "value": "Introduction to the Custom elements development"
+        },
+        "summary": {
+          "type": "rich_text",
+          "name": "Summary",
+          "images": {},
+          "links": {},
+          "modular_content": [],
+          "value": "<p>Present how it is possible to develop a custom element.</p>"
+        },
+        "agenda": {
+          "type": "modular_content",
+          "name": "Agenda",
+          "value": [
+            "concept",
+            "jquery_datapicker",
+            "custom_element_devkit___react_component"
+          ]
+        },
+        "assets": {
+          "type": "asset",
+          "name": "Assets",
+          "value": [
+            {
+              "name": "KenticoGitHubOrganization.pptx",
+              "description": null,
+              "type": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+              "size": 2479201,
+              "url": "https://assets-us-01.kc-usercontent.com:443/09fc0115-dd4d-00c7-5bd9-5f73836aee81/475acae0-579d-47af-9de1-229535f968df/KenticoGitHubOrganization.pptx"
+            }
+          ]
+        },
+        "excercise": {
+          "type": "rich_text",
+          "name": "Excercise",
+          "images": {},
+          "links": {},
+          "modular_content": [
+            "f37dfa2e_0aa6_01ef_6f1e_f374c7fe3356",
+            "n32ee0075_0b25_0105_503d_b8fc0eb3cc6e"
+          ],
+          "value": "<object type=\"application/kenticocloud\" data-type=\"item\" data-rel=\"component\" data-codename=\"f37dfa2e_0aa6_01ef_6f1e_f374c7fe3356\"></object>\n<object type=\"application/kenticocloud\" data-type=\"item\" data-rel=\"component\" data-codename=\"n32ee0075_0b25_0105_503d_b8fc0eb3cc6e\"></object>\n<p><br></p>"
+        },
+        "presenter": {
+          "type": "modular_content",
+          "name": "Presenter",
+          "value": [
+            "ondrej_chrastina"
+          ]
+        },
+        "checklist": {
+          "type": "multiple_choice",
+          "name": "Checklist",
+          "value": [
+            {
+              "name": "Presentations and files proofread",
+              "codename": "presentations_and_files_proofread"
+            },
+            {
+              "name": "Introduction and supporting files uploaded",
+              "codename": "introduction_and_supporting_files_uploaded"
+            },
+            {
+              "name": "START code files and FINAL code files uploaded",
+              "codename": "start_code_files_and_final_code_files_uploaded"
+            },
+            {
+              "name": "Training session tagged in Confluence",
+              "codename": "training_session_tagged_in_confluence"
+            }
+          ]
+        }
+      }
+    },
+    "jquery_datapicker": {
+      "system": {
+        "id": "3ace3379-c4cf-43bf-85de-98e707c4f202",
+        "name": "jQuery Datapicker",
+        "codename": "jquery_datapicker",
+        "language": "Another_language",
+        "type": "step",
+        "sitemap_locations": [],
+        "last_modified": "2019-04-29T14:45:45.102267Z"
+      },
+      "elements": {
+        "text": {
+          "type": "rich_text",
+          "name": "Text",
+          "images": {},
+          "links": {},
+          "modular_content": [],
+          "value": "<ul>\n  <li>Implementing the&nbsp;<a href=\"https://jqueryui.com/datepicker/\">jQuery Datepicker</a>&nbsp;using&nbsp;<a href=\"http://vanilla-js.com/\">vanilla javascript</a>&nbsp;+ Htm + css. (other language)</li>\n</ul>"
+        }
+      }
+    },
+    "kentico_github_organizations": {
+      "system": {
+        "id": "cea256ba-063d-418d-8258-458b9ba9094d",
+        "name": "Kentico Github organizations",
+        "codename": "kentico_github_organizations",
+        "language": "default",
+        "type": "step",
+        "sitemap_locations": [],
+        "last_modified": "2019-04-01T18:49:49.3402097Z"
+      },
+      "elements": {
+        "text": {
+          "type": "rich_text",
+          "name": "Text",
+          "images": {},
+          "links": {},
+          "modular_content": [],
+          "value": "<p>Kentico Github&nbsp;<a href=\"https://help.github.com/en/articles/about-organizations\">organizations</a></p>\n<ul>\n  <li>KenticoInternal - beneficial legacy billing plan (gold) paid by the number of private members (250 is the limit)</li>\n  <li>Kentico - on the billing plan&nbsp;<a href=\"https://help.github.com/en/articles/githubs-products#github-team-for-open-source\">Github Team for opensource</a>&nbsp;with no mmebers limitation, just all repositories have to be OS</li>\n</ul>"
+        }
+      }
+    },
+    "n32ee0075_0b25_0105_503d_b8fc0eb3cc6e": {
+      "system": {
+        "id": "32ee0075-0b25-0105-503d-b8fc0eb3cc6e",
+        "name": "32ee0075-0b25-0105-503d-b8fc0eb3cc6e",
+        "codename": "n32ee0075_0b25_0105_503d_b8fc0eb3cc6e",
+        "language": "Another_language",
+        "type": "step",
+        "sitemap_locations": [],
+        "last_modified": "2019-04-29T14:46:40.6273686Z"
+      },
+      "elements": {
+        "text": {
+          "type": "rich_text",
+          "name": "Text",
+          "images": {},
+          "links": {},
+          "modular_content": [],
+          "value": "<ul>\n  <li>Implement your own custom element (other language)</li>\n</ul>"
+        }
+      }
+    },
+    "ondrej_chrastina": {
+      "system": {
+        "id": "d72eea98-774f-48fc-b52a-7ebc51271855",
+        "name": "Ondřej Chrastina",
+        "codename": "ondrej_chrastina",
+        "language": "Another_language",
+        "type": "person",
+        "sitemap_locations": [],
+        "last_modified": "2019-04-29T14:44:36.1299868Z"
+      },
+      "elements": {
+        "name_and_surname": {
+          "type": "text",
+          "name": "Name and Surname",
+          "value": "Ondřej Chrastina"
+        },
+        "date_of_birth": {
+          "type": "date_time",
+          "name": "Date of Birth",
+          "value": "1991-07-24T00:00:00Z"
+        },
+        "profile_photo": {
+          "type": "asset",
+          "name": "Profile Photo",
+          "value": [
+            {
+              "name": "profil.png",
+              "description": null,
+              "type": "image/png",
+              "size": 74555,
+              "url": "https://assets-us-01.kc-usercontent.com:443/09fc0115-dd4d-00c7-5bd9-5f73836aee81/0ad9d4fd-ab24-4899-9222-8926907a6962/profil.png",
+              "width": 219,
+              "height": 218
+            }
+          ]
+        },
+        "favorite_number": {
+          "type": "number",
+          "name": "Favorite Number",
+          "value": 33
+        },
+        "gender": {
+          "type": "multiple_choice",
+          "name": "Gender",
+          "value": [
+            {
+              "name": "Man",
+              "codename": "man"
+            }
+          ]
+        },
+        "bio": {
+          "type": "rich_text",
+          "name": "Bio",
+          "images": {
+            "fcf07d43-46d4-46ef-a58d-c7bf7a4aecb1": {
+              "image_id": "fcf07d43-46d4-46ef-a58d-c7bf7a4aecb1",
+              "description": null,
+              "url": "https://assets-us-01.kc-usercontent.com:443/09fc0115-dd4d-00c7-5bd9-5f73836aee81/0faa87b4-9e1e-41b8-8b38-c107cbb35147/2.jpg",
+              "width": 1600,
+              "height": 1065
+            },
+            "8d1adb2e-ee09-4c94-8758-f23be1e4969a": {
+              "image_id": "8d1adb2e-ee09-4c94-8758-f23be1e4969a",
+              "description": null,
+              "url": "https://assets-us-01.kc-usercontent.com:443/09fc0115-dd4d-00c7-5bd9-5f73836aee81/c6f94bd6-71ab-4499-98dd-d9ec39bc1a1f/1.jpg",
+              "width": 610,
+              "height": 920
+            },
+            "e268e8be-3d5e-4ba8-887c-49b357784d94": {
+              "image_id": "e268e8be-3d5e-4ba8-887c-49b357784d94",
+              "description": null,
+              "url": "https://assets-us-01.kc-usercontent.com:443/09fc0115-dd4d-00c7-5bd9-5f73836aee81/78a90563-27b0-4f7c-9213-dc3b4cf840a0/3.jpg",
+              "width": 1080,
+              "height": 810
+            }
+          },
+          "links": {
+            "59002186-1886-48f3-b8ba-6f053b5cf777": {
+              "codename": "developer_community_site",
+              "type": "website",
+              "url_slug": ""
+            }
+          },
+          "modular_content": [
+            "developer_community_site",
+            "e76716e9_bcf0_01ad_2031_4d08701b3a3f"
+          ],
+          "value": "<p>I am a &nbsp;tech guy passionate about all of the new technologies and gadgets.<br>\nOther language content: <br>\nCurrently I am interested in Gatsby.js. I have released the third version of Gatsby source plugin.<br>\n</p>\n<object type=\"application/kenticocloud\" data-type=\"item\" data-rel=\"component\" data-codename=\"e76716e9_bcf0_01ad_2031_4d08701b3a3f\"></object>\n<p><br></p>\n<p>Interesting in exploring how storytelling and targeted messaging create business-changing content.</p>\n<p>As an Developer Advocate, I am responsible for running <a href=\"https://github.com/Kentico\">Kentico Github organization</a>, implementing inbound marketing strategies like <a data-item-id=\"59002186-1886-48f3-b8ba-6f053b5cf777\" href=\"\">Developer Community site&nbsp;</a> that help increase brand awareness of Kentico as an opensource friendly company and acquire new developers.</p>\n<object type=\"application/kenticocloud\" data-type=\"item\" data-rel=\"link\" data-codename=\"developer_community_site\"></object>\n<p>When I am not working, you’ll find me doing some sports, travelling, or in a <a data-asset-id=\"e268e8be-3d5e-4ba8-887c-49b357784d94\" href=\"https://assets-us-01.kc-usercontent.com:443/09fc0115-dd4d-00c7-5bd9-5f73836aee81/78a90563-27b0-4f7c-9213-dc3b4cf840a0/3.jpg\">pub</a>.<br>\n</p>\n<figure data-asset-id=\"fcf07d43-46d4-46ef-a58d-c7bf7a4aecb1\" data-image-id=\"fcf07d43-46d4-46ef-a58d-c7bf7a4aecb1\"><img src=\"https://assets-us-01.kc-usercontent.com:443/09fc0115-dd4d-00c7-5bd9-5f73836aee81/0faa87b4-9e1e-41b8-8b38-c107cbb35147/2.jpg\" data-asset-id=\"fcf07d43-46d4-46ef-a58d-c7bf7a4aecb1\" data-image-id=\"fcf07d43-46d4-46ef-a58d-c7bf7a4aecb1\" alt=\"\"></figure>\n<figure data-asset-id=\"8d1adb2e-ee09-4c94-8758-f23be1e4969a\" data-image-id=\"8d1adb2e-ee09-4c94-8758-f23be1e4969a\"><img src=\"https://assets-us-01.kc-usercontent.com:443/09fc0115-dd4d-00c7-5bd9-5f73836aee81/c6f94bd6-71ab-4499-98dd-d9ec39bc1a1f/1.jpg\" data-asset-id=\"8d1adb2e-ee09-4c94-8758-f23be1e4969a\" data-image-id=\"8d1adb2e-ee09-4c94-8758-f23be1e4969a\" alt=\"\"></figure>\n<figure data-asset-id=\"e268e8be-3d5e-4ba8-887c-49b357784d94\" data-image-id=\"e268e8be-3d5e-4ba8-887c-49b357784d94\"><img src=\"https://assets-us-01.kc-usercontent.com:443/09fc0115-dd4d-00c7-5bd9-5f73836aee81/78a90563-27b0-4f7c-9213-dc3b4cf840a0/3.jpg\" data-asset-id=\"e268e8be-3d5e-4ba8-887c-49b357784d94\" data-image-id=\"e268e8be-3d5e-4ba8-887c-49b357784d94\" alt=\"\"></figure>\n<p><br></p>"
+        },
+        "url_slug": {
+          "type": "url_slug",
+          "name": "URL slug",
+          "value": "ondrej-chrastina"
+        }
+      }
+    },
+    "projects": {
+      "system": {
+        "id": "00b305ad-2f05-4899-9c14-17ea62d0032f",
+        "name": "Projects",
+        "codename": "projects",
+        "language": "default",
+        "type": "step",
+        "sitemap_locations": [],
+        "last_modified": "2019-04-01T18:52:39.348748Z"
+      },
+      "elements": {
+        "text": {
+          "type": "rich_text",
+          "name": "Text",
+          "images": {},
+          "links": {},
+          "modular_content": [],
+          "value": "<p><a href=\"https://github.com/orgs/Kentico/projects\">Projects</a></p>\n<ul>\n  <li>Purpose - organize issue cross repositories in specified stack\n    <ul>\n      <li>Emphasize&nbsp;<a href=\"https://github.com/orgs/Kentico/projects/8\">Content backlog</a></li>\n    </ul>\n  </li>\n</ul>"
+        }
+      }
+    },
+    "repositories": {
+      "system": {
+        "id": "ea15d7bc-7d8f-4ded-9795-0e615b31316e",
+        "name": "Repositories",
+        "codename": "repositories",
+        "language": "default",
+        "type": "step",
+        "sitemap_locations": [],
+        "last_modified": "2019-04-01T18:52:12.4177018Z"
+      },
+      "elements": {
+        "text": {
+          "type": "rich_text",
+          "name": "Text",
+          "images": {},
+          "links": {},
+          "modular_content": [],
+          "value": "<p><a href=\"https://github.com/Kentico\">Repositories</a></p>\n<ul>\n  <li>Groups&nbsp;\n    <ul>\n      <li>SDKs</li>\n      <li>Sample apps</li>\n      <li>Plugins/Extensions</li>\n      <li>Documentation repos</li>\n    </ul>\n  </li>\n  <li>Went through the repositories and make some short introduction for it (go through the description)</li>\n  <li>Naming conventions for repository name</li>\n  <li>Kentico Home repository (special one)\n    <ul>\n      <li>Go through the wiki articles:&nbsp;<a href=\"https://github.com/Kentico/Home/wiki\">https://github.com/Kentico/Home/wiki</a></li>\n      <li>Describe&nbsp;<a href=\"https://github.com/Kentico/Home/blob/master/CODE_OF_CONDUCT.md\">Code of conduct</a>&nbsp;and&nbsp;<a href=\"https://github.com/Kentico/Home/blob/master/CONTRIBUTING.md\">Contributing</a></li>\n    </ul>\n  </li>\n</ul>"
+        }
+      }
+    },
+    "stack_overflow": {
+      "system": {
+        "id": "a89518c5-82b9-457e-8cbd-a8719f8a3bdb",
+        "name": "Stack overflow",
+        "codename": "stack_overflow",
+        "language": "default",
+        "type": "step",
+        "sitemap_locations": [],
+        "last_modified": "2019-04-01T18:53:50.3351338Z"
+      },
+      "elements": {
+        "text": {
+          "type": "rich_text",
+          "name": "Text",
+          "images": {},
+          "links": {},
+          "modular_content": [],
+          "value": "<p><a href=\"https://stackoverflow.com/tags/kentico-cloud\">Stack overflow</a></p>\n<ul>\n  <li>Purpose - ask anything, better for complex questions than submitting question issue, which should be focused on the repository only</li>\n</ul>"
+        }
+      }
+    },
+    "teams_and_people": {
+      "system": {
+        "id": "4a0ed14b-fe95-41f7-938f-000b9a400539",
+        "name": "Teams and people",
+        "codename": "teams_and_people",
+        "language": "default",
+        "type": "step",
+        "sitemap_locations": [],
+        "last_modified": "2019-04-01T18:51:04.1737989Z"
+      },
+      "elements": {
+        "text": {
+          "type": "rich_text",
+          "name": "Text",
+          "images": {},
+          "links": {},
+          "modular_content": [],
+          "value": "<ul>\n  <li>Teams are for organizing people to groups, they are used for permissions setup, interest grouping etc...\n    <ul>\n      <li>Description of the teams are described&nbsp;<a href=\"https://github.com/Kentico/Home/wiki/Guidelines-for-GitHub-permissions-in-the-Kentico-organization\">publicly</a></li>\n    </ul>\n  </li>\n  <li><a href=\"https://github.com/orgs/Kentico/people\">People</a>\n    <ul>\n      <li>Github user has to be invited by the organization admin</li>\n      <li>No out of the box way to request invitation right now</li>\n    </ul>\n  </li>\n</ul>"
+        }
+      }
+    }
+  },
+  "pagination": {
+    "skip": 0,
+    "limit": 0,
+    "count": 14,
+    "next_page": ""
+  }
+}

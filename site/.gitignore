@@ -1,0 +1,15 @@
+# Ignore dependencies
+node_modules
+package-lock.json
+yarn-error.log
+npm-debug.log
+
+node_modules/
+.cache/
+public/
+.eslintcache
+.gatsby-context.js
+.idea
+gatsby-starter-lumen.iml
+
+
