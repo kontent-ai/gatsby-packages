@@ -1,4 +1,4 @@
-import { PluginOptions, CreateSchemaCustomizationArgs } from "gatsby";
+import { PluginOptions, CreateSchemaCustomizationArgs, NodeInput } from "gatsby";
 
 /**
  * The plugin options.
@@ -42,7 +42,7 @@ interface RichTextElementLink {
   urlSlug: string;
 }
 
-interface KontentItem {
+interface KontentItem extends NodeInput {
   system: {
     codename: string;
     id: string;

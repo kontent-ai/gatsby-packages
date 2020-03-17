@@ -1,6 +1,6 @@
 {
   "version": "0.2.0",
-  "name": "gatsby-starter-kontent-lumen",
+  "name": "@simply007org/gatsby-starter-kontent-lumen",
   "description": "Simple starter for Gatsby + Kentico Kontent",
   "main": "n/a",
   "scripts": {
@@ -9,7 +9,7 @@
     "clean:public": "rm -rf public",
     "clean": "npm run clean:public",
     "lint": "./node_modules/.bin/eslint --cache --ext .js,.jsx --ignore-pattern public .",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"WARNING: no test specified\" && exit 0",
     "format": "prettier --write './*.js' 'src/**/*.js' 'src/**/*.jsx'",
     "deploy": "gatsby build --prefix-paths && gh-pages -d public"
   },

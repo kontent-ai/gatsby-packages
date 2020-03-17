@@ -2,7 +2,7 @@
 
 import { sourceNodes } from '../src/sourceNodes';
 import { SourceNodesArgs, Actions } from 'gatsby';
-import { CustomPluginOptions } from '../src/types';
+import { CustomPluginOptions, KontentItem } from '../src/types';
 import { createMock } from "ts-auto-mock";
 
 // TODO fix lint error
@@ -12,6 +12,7 @@ import * as complexContentItemsSecondLanguageFakeReponse from './complexContentI
 
 import axios from 'axios';
 import { mocked } from 'ts-jest/dist/util/testing';
+import * as _ from 'lodash';
 jest.mock('axios');
 const mockedAxios = axios as jest.Mocked<typeof axios>;
 
@@ -38,7 +39,7 @@ describe('sourceNodes', () => {
           data: complexContentItemsFirstLanguageFakeReponse,
           headers: []
         })
-      } else if (url.includes('Another_language')) {
+      } else if (url.includes('')) {
         return Promise.resolve({
           data: complexContentItemsSecondLanguageFakeReponse,
           headers: []
@@ -52,8 +53,43 @@ describe('sourceNodes', () => {
     it('resolve all element types in two languages', async () => {
       await sourceNodes(api, pluginConfiguration);
       const createNodesMock = mocked(api.actions.createNode, true);
-      // TODO defined expected values
-      expect(createNodesMock.mock.calls.length).toBe(34);
+      const createdNodes = _.flatMap(createNodesMock.mock.calls) as KontentItem[];
+
+      const defaultLanguageNodes = createdNodes
+        .filter(node => node.preferred_language === "default")
+      const anotherLanguageNodes = createdNodes
+        .filter(node => node.preferred_language === "Another_language")
+      const languageFallbackNodes = createdNodes
+        .filter(node => node.preferred_language !== node.system.language)
+
+      const nodesByType: {
+        person: KontentItem[];
+        repository: KontentItem[];
+        session: KontentItem[];
+        step: KontentItem[];
+        training: KontentItem[];
+        website: KontentItem[];
+      } = {
+        person: createdNodes.filter(node => node.system.type === "person"),
+        repository: createdNodes.filter(node => node.system.type === "repository"),
+        session: createdNodes.filter(node => node.system.type === "session"),
+        step: createdNodes.filter(node => node.system.type === "step"),
+        training: createdNodes.filter(node => node.system.type === "training"),
+        website: createdNodes.filter(node => node.system.type === "website")
+      };
+
+
+      expect(createdNodes.length).toBe(35);
+      expect(defaultLanguageNodes.length).toBe(17);
+      expect(anotherLanguageNodes.length).toBe(18);
+      expect(languageFallbackNodes.length).toBe(7);
+
+      expect(nodesByType.person.length).toBe(3);
+      expect(nodesByType.repository.length).toBe(2);
+      expect(nodesByType.session.length).toBe(4);
+      expect(nodesByType.step.length).toBe(22);
+      expect(nodesByType.training.length).toBe(2);
+      expect(nodesByType.website.length).toBe(2);
     });
   });
 });

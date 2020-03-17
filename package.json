@@ -14,8 +14,12 @@
     "site"
   ],
   "scripts": {
+    "build:site": "yarn workspace @simply007org/gatsby-starter-kontent-lumen build",
+    "develop:site": "yarn workspace @simply007org/gatsby-starter-kontent-lumen develop",
+    "watch:gatsby-source-kontent-items": "yarn workspace @simply007org/gatsby-source-kontent-items watch",
     "build:gatsby-source-kontent-items": "yarn workspace @simply007org/gatsby-source-kontent-items build",
-    "prepare": "yarn build:gatsby-source-kontent-items"
+    "prepare": "yarn build:gatsby-source-kontent-items",
+    "test": "yarn workspaces run test"
   },
   "private": true,
   "devDependencies": {}
