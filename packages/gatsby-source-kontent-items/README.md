@@ -36,7 +36,7 @@ Linked Items element
         elements {
           friends {
             value {
-              ... on simple_kontent_item_person {
+              ... on kontent_item_person {
                 id
                 elements {
                   name_and_surname {
@@ -61,7 +61,7 @@ Rich text element
         elements {
           bio {
             modular_content { // inline linked items as well as content components
-              ... on simple_kontent_item_website {
+              ... on kontent_item_website {
                 id
                 elements {
                   name {

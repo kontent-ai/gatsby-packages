@@ -1,0 +1,25 @@
+type KontentType implements Node {
+  id: ID!
+  system: KontentTypeSystem!
+  elements: [KontentTypeElement]
+}
+
+type KontentTypeSystem {
+  codename: String!
+  id: String!
+  last_modified: Date! @dateformat
+  name: String!
+}
+
+interface KontentTypeElement {
+  codename: String!
+  name: String!
+  type: String!
+  taxonomy_group: String
+  options: [ElementOption]
+}
+
+type ElementOption {
+  name: String
+  codename: String
+}

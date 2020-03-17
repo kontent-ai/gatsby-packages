@@ -1,5 +1,5 @@
 {
-  "name": "@simply007org/gatsby-source-kontent-items",
+  "name": "@simply007org/gatsby-source-kontent-types",
   "description": "Loads Kentico Kontent data from REST Delivery API",
   "version": "0.2.0",
   "author": {
@@ -13,7 +13,7 @@
   "scripts": {
     "build": "tsc",
     "format": "prettier --write \"*.ts\" \"*.js\"",
-    "lint": "eslint src/**/*.ts",
+    "lint": "eslint src/**/*",
     "test": "jest",
     "watch": "tsc -w",
     "prepare": "cross-env NODE_ENV=production npm run build",
@@ -45,7 +45,7 @@
     "ttypescript": "^1.5.10",
     "typescript": "^3.7.5"
   },
-  "homepage": "https://github.com/Simply007/gatsby-kontent-packages/tree/master/packages/gatsby-source-kontent-items#readme",
+  "homepage": "https://github.com/Simply007/gatsby-kontent-packages/tree/master/packages/gatsby-source-kontent-types#readme",
   "keywords": [
     "gatsby",
     "gatsby-plugin",

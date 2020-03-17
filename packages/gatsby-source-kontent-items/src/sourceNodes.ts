@@ -1,4 +1,4 @@
-import { SourceNodesArgs, NodeInput } from "gatsby";
+import { SourceNodesArgs } from "gatsby";
 import { CustomPluginOptions, KontentItem, KontentItemElement, RichTextElementLink, RichTextElementImage } from "./types";
 import { loadAllKontentItems } from "./client";
 import { getKontentItemNodeStringForId, getKontentItemNodeTypeName } from "./naming";

@@ -5,9 +5,8 @@ import { SourceNodesArgs, Actions } from 'gatsby';
 import { CustomPluginOptions, KontentItem } from '../src/types';
 import { createMock } from "ts-auto-mock";
 
-// TODO fix lint error
-// TODO change data format fo items feed
-import * as complexContentItemsFirstLanguageFakeReponse from './complexContentItemsFirstLanguageFakeReponse.json';
+// TODO fix lint error https://github.com/microsoft/TypeScript/issues/25400
+import complexContentItemsFirstLanguageFakeReponse from './complexContentItemsFirstLanguageFakeReponse.json';
 import * as complexContentItemsSecondLanguageFakeReponse from './complexContentItemsSecondLanguageFakeReponse.json';
 
 import axios from 'axios';

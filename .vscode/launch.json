@@ -21,5 +21,29 @@
       "sourceMaps": true,
       "smartStep": true
     },
+    {
+      "type": "node",
+      "request": "launch",
+      "protocol": "inspector",
+      "name": "Develop site",
+      "program": "${workspaceFolder}/node_modules/gatsby/dist/bin/gatsby",
+      "args": [
+        "develop"
+      ],
+      "stopOnEntry": false,
+      "cwd": "${workspaceFolder}/site",
+      "preLaunchTask": null,
+      "runtimeExecutable": null,
+      "runtimeArgs": [
+        "--nolazy"
+      ],
+      "restart": true,
+      "internalConsoleOptions": "neverOpen",
+      "env": { 
+        "NODE_ENV": "development",
+        // "DEBUG": "gatsby:*" 
+      },
+      "console": "integratedTerminal",
+    }
   ]
 }
