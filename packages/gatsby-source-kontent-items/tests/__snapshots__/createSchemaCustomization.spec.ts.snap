@@ -33,8 +33,8 @@ type kontent_item_rich_text_element_value {
   type: String!
   value: String
   modular_content: [kontent_item] @link(by: \\"system.codename\\")
-  images: [kontent_item_rich_text_image_element]
-  links: [kontent_item_rich_text_link_element]
+  images: [kontent_item_rich_text_element_link]
+  links: [kontent_item_rich_text_element_image]
 }
 
 type kontent_item_number_element_value {
@@ -106,7 +106,7 @@ type kontent_item_taxonomy_element {
   codename: String!
 }
 
-type kontent_item_rich_text_image_element {
+type kontent_item_rich_text_element_link {
   image_id: String!
   url: String!
   description: String
@@ -114,7 +114,7 @@ type kontent_item_rich_text_image_element {
   width: Int!
 }
 
-type kontent_item_rich_text_link_element {
+type kontent_item_rich_text_element_image {
   link_id: String!
   codename: String!
   type: String!
