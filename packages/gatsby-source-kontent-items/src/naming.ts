@@ -3,6 +3,7 @@ import { PluginNamingConfiguration } from "./types";
 const CONNECTOR = "_";
 const SYSTEM_IDENTIFIER = "system";
 const ELEMENT_IDENTIFIER = "element";
+const VALUE_IDENTIFIER = "value";
 const MULTI_ELEMENT_IDENTIFIER = `${ELEMENT_IDENTIFIER}s`;
 
 const defaultPluginNamingConfiguration: PluginNamingConfiguration = {
@@ -22,10 +23,14 @@ const getKontentItemSystemElementTypeName = (config: PluginNamingConfiguration =
   `${config.prefix}${CONNECTOR}${SYSTEM_IDENTIFIER}`;
 
 const getKontentItemElementTypeNameByType = (type: string, config: PluginNamingConfiguration = defaultPluginNamingConfiguration): string =>
+  `${config.prefix}${CONNECTOR}${type}${CONNECTOR}${ELEMENT_IDENTIFIER}${CONNECTOR}${VALUE_IDENTIFIER}`;
+
+const getKontentItemElementValueTypeNameByType = (type: string, config: PluginNamingConfiguration = defaultPluginNamingConfiguration): string =>
   `${config.prefix}${CONNECTOR}${type}${CONNECTOR}${ELEMENT_IDENTIFIER}`;
 
 const getKontentItemElementsSchemaTypeName = (type: string, config: PluginNamingConfiguration = defaultPluginNamingConfiguration): string =>
   `${config.prefix}${CONNECTOR}${type}${CONNECTOR}${MULTI_ELEMENT_IDENTIFIER}`;
+ 
 
 const getSchemaNamingConfiguration = (template: string, config: PluginNamingConfiguration = defaultPluginNamingConfiguration): string =>
   template
@@ -41,7 +46,13 @@ const getSchemaNamingConfiguration = (template: string, config: PluginNamingConf
     .replace(/__KONTENT_ITEM_MODULAR_CONTENT_ELEMENT__/g, getKontentItemElementTypeNameByType('modular_content', config))
     .replace(/__KONTENT_ITEM_CUSTOM_ELEMENT_ELEMENT__/g, getKontentItemElementTypeNameByType('custom', config))
     .replace(/__KONTENT_ITEM_TAXONOMY_ELEMENT__/g, getKontentItemElementTypeNameByType('taxonomy', config))
-    .replace(/__KONTENT_ITEM_URL_SLUG_ELEMENT__/g, getKontentItemElementTypeNameByType('url_slug', config));  
+    .replace(/__KONTENT_ITEM_URL_SLUG_ELEMENT__/g, getKontentItemElementTypeNameByType('url_slug', config))
+    // element values
+    .replace(/__KONTENT_ELEMENT_MULTIPLE_CHOICE_VALUE__/g, getKontentItemElementValueTypeNameByType('multiple_choice', config))
+    .replace(/__KONTENT_ELEMENT_ASSET_VALUE__/g, getKontentItemElementValueTypeNameByType('asset', config))
+    .replace(/__KONTENT_ELEMENT_TAXONOMY_VALUE__/g, getKontentItemElementValueTypeNameByType('taxonomy', config))
+    .replace(/__KONTENT_ELEMENT_RICH_TEXT_IMAGE_VALUE__/g, getKontentItemElementValueTypeNameByType('rich_text_image', config))
+    .replace(/__KONTENT_ELEMENT_RICH_TEXT_LINK_VALUE__/g, getKontentItemElementValueTypeNameByType('rich_text_link', config));
 
 
 export {

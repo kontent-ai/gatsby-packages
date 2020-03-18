@@ -83,12 +83,12 @@ type __KONTENT_ITEM_URL_SLUG_ELEMENT__ {
   value: String
 }
 
-type KontentElementMultipleChoiceValue {
+type __KONTENT_ELEMENT_MULTIPLE_CHOICE_VALUE__ {
   codename: String!
   name: String!
 }
 
-type KontentElementAssetValue {
+type __KONTENT_ELEMENT_ASSET_VALUE__ {
   name: String!
   description: String
   type: String!
@@ -103,7 +103,7 @@ type KontentElementTaxonomyValue {
   codename: String!
 }
 
-type KontentElementRichTextImage {
+type __KONTENT_ELEMENT_RICH_TEXT_IMAGE_VALUE__ {
   image_id: String!
   url: String!
   description: String
@@ -111,7 +111,7 @@ type KontentElementRichTextImage {
   width: Int!
 }
 
-type KontentElementRichTextLink {
+type __KONTENT_ELEMENT_RICH_TEXT_LINK_VALUE__ {
   link_id: String!
   codename: String!
   type: String!
