@@ -7,7 +7,7 @@ import { createMock } from "ts-auto-mock";
 
 // TODO fix lint error
 // TODO change data format fo items feed
-import * as complexContentTypesFakeResponse from './complexContentTypesFakeResponse.json';
+import * as complexTypesFakeResponse from './complexTypesFakeResponse.json';
 
 import { mocked } from 'ts-jest/dist/util/testing';
 import * as _ from 'lodash';
@@ -34,7 +34,7 @@ describe('sourceNodes', () => {
     mockedAxios.get.mockImplementation((url) => {
       if (url.includes('types')) {
         return Promise.resolve({
-          data: complexContentTypesFakeResponse,
+          data: complexTypesFakeResponse,
           headers: []
         })
       } else {

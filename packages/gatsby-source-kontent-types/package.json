@@ -1,6 +1,6 @@
 {
   "name": "@simply007org/gatsby-source-kontent-types",
-  "description": "Loads Kentico Kontent data from REST Delivery API",
+  "description": "Loads Kentico Kontent types data from REST Delivery API",
   "version": "0.2.0",
   "author": {
     "name": "Ondřej Chrastina",
