@@ -32,7 +32,8 @@ class CategoriesRoute extends React.Component {
                             className="categories__list-item-link"
                           >
                             TODO implements
-                            {/* {category.elements.slug.value} ({category.usedByContentItems.length}) */}
+                            {/* {category.elements.slug.value}
+                            ({category.usedByContentItems.length}) */}
                           </Link>
                         </li>
                       ))}

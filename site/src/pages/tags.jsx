@@ -28,7 +28,7 @@ class TagsRoute extends React.Component {
                             to={`/tags/${tag.elements.slug.value}/`}
                             className="tags__list-item-link"
                           >
-                            {tag.elements.title.value} (9)
+                            {tag.elements.title.value} {/* TODO implements number  (9) */}
                           </Link>
                         </li>
                       ))}

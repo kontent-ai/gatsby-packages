@@ -6,7 +6,6 @@ import Links from '../Links'
 import './style.scss'
 
 const sidebar = () => {
-
   const data = useStaticQuery(graphql`
   query SidebarQuery {
     kontentItemSiteMetadata(system: {codename: {eq: "site_metadata"}}) {
@@ -76,7 +75,7 @@ const sidebar = () => {
     }
   }
 `
-)
+  )
 
   const author = data.kontentItemAuthor
   const menu = data.kontentItemMenu

@@ -23,7 +23,7 @@ class ArticleTemplateDetails extends React.Component {
       <div className="article-single__tags">
         <ul className="article-single__tags-list">
           {tags &&
-            tags.map((tag) => (
+            tags.map(tag => (
               <li className="article-single__tags-list-item" key={tag.system.codename}>
                 <Link to={`/tags/${tag.elements.slug.value}`} className="article-single__tags-list-item-link">
                   {tag.elements.title.value}
