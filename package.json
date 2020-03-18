@@ -17,11 +17,15 @@
   "scripts": {
     "build:site": "yarn workspace @simply007org/gatsby-starter-kontent-lumen build",
     "develop:site": "yarn workspace @simply007org/gatsby-starter-kontent-lumen develop",
-    "watch:gatsby-source-kontent-items": "yarn workspace @simply007org/gatsby-source-kontent-items watch",
-    "build:gatsby-source-kontent-items": "yarn workspace @simply007org/gatsby-source-kontent-items build",
-    "prepare": "yarn build:gatsby-source-kontent-items",
+    "watch:items": "yarn workspace @simply007org/gatsby-source-kontent-items watch",
+    "watch:types": "yarn workspace @simply007org/gatsby-source-kontent-items watch",
+    "watch:packages": "run-p watch:items watch:types",
+    "build:packages": "yarn workspace @simply007org/gatsby-source-kontent-items build && yarn workspace @simply007org/gatsby-source-kontent-types build",
+    "prepare": "yarn build:packages",
     "test": "yarn workspaces run test"
   },
   "private": true,
-  "devDependencies": {}
+  "devDependencies": {
+    "npm-run-all": "^4.1.5"
+  }
 }
