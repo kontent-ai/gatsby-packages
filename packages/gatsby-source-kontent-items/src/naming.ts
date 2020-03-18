@@ -31,7 +31,6 @@ const getKontentItemElementValueTypeNameByType = (type: string, config: PluginNa
 const getKontentItemElementsSchemaTypeName = (type: string, config: PluginNamingConfiguration = defaultPluginNamingConfiguration): string =>
   `${config.prefix}${CONNECTOR}${type}${CONNECTOR}${MULTI_ELEMENT_IDENTIFIER}`;
  
-
 const getSchemaNamingConfiguration = (template: string, config: PluginNamingConfiguration = defaultPluginNamingConfiguration): string =>
   template
     .replace(/__KONTENT_ITEM_INTERFACE__/g, getKontentItemInterfaceName(config))

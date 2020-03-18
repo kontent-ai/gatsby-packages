@@ -1,16 +1,15 @@
-[![GitHub release](https://img.shields.io/github/release/GatsbyCentral/gatsby-v2-starter-lumen.svg)](https://github.com/GatsbyCentral/gatsby-v2-starter-lumen) [![Code Climate](https://img.shields.io/codeclimate/maintainability/GatsbyCentral/gatsby-v2-starter-lumen.svg)](https://codeclimate.com/github/GatsbyCentral/gatsby-v2-starter-lumen) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/GatsbyCentral/gatsby-v2-starter-lumen/master/LICENSE) [![Twitter](https://img.shields.io/twitter/url/https/github.com/GatsbyCentral/gatsby-v2-starter-lumen.svg?style=social)](https://twitter.com/intent/tweet?text=Wow:&url=https://github.com/GatsbyCentral/gatsby-v2-starter-lumen)
+# Gatsby Starter Kontent Lumen
 
-# Lumen
-
-Lumen is a minimal, lightweight and mobile-first starter for creating blogs uses
+Lumen is a minimal, lightweight and mobile-first starter for creating blogs using
 [Gatsby](https://github.com/gatsbyjs/gatsby).
 
-This is a fork of
-[gatsby-starter-lumen](https://github.com/alxshelepenok/gatsby-starter-lumen)
-updated for Gatsby v2 by the team at
-[GatsbyCentral](https://www.gatsbycentral.com/).
+This is an edited clone of
+[gatsby-starter-lumen](https://github.com/alxshelepenok/gatsby-starter-lumen) and [gatsby-v2-starter-lumen](https://github.com/GatsbyCentral/gatsby-v2-starter-lumen)
+migrated for getting content from headless CMS
+[Kontent](https://kontent.ai/).
 
 ## Features
++ Content from [Kontent](http://kontent.ai/) headless CMS.
 + Lost Grid ([peterramsing/lost](https://github.com/peterramsing/lost)).
 + Beautiful typography inspired by [matejlatin/Gutenberg](https://github.com/matejlatin/Gutenberg).
 + [Mobile-First](https://medium.com/@mrmrs_/mobile-first-css-48bc4cc3f60f) approach in development.
@@ -18,9 +17,7 @@ updated for Gatsby v2 by the team at
 + Syntax highlighting in code blocks.
 + Sidebar menu built using a configuration block.
 + Archive organized by tags and categories.
-+ Automatic RSS generation.
 + Automatic Sitemap generation.
-+ Offline support.
 + Google Analytics support.
 
 ## Folder Structure
@@ -37,31 +34,32 @@ updated for Gatsby v2 by the team at
     │       ├── mixins
     │       └── pages
     ├── components
-    │   ├── CategoryTemplateDetails
-    │   ├── Links
-    │   ├── Menu
-    │   ├── PageTemplateDetails
     │   ├── Article
     │   ├── ArticleTemplateDetails
+    │   ├── CategoryTemplateDetails
+    │   ├── Links
+    │   ├── Layout
+    │   ├── Menu
+    │   ├── PageTemplateDetails
     │   ├── Sidebar
     │   └── TagTemplateDetails
-    ├── layouts
     ├── pages
-    │   ├── articles
-    │   │   ├── 2016-01-09---Perfecting-the-Art-of-Perfection
-    │   │   ├── 2016-01-12---The-Origins-of-Social-Stationery-Lettering
-    │   │   ├── 2016-02-02---A-Brief-History-of-Typography
-    │   │   ├── 2017-18-08---The-Birth-of-Movable-Type
-    │   │   └── 2017-19-08---Humane-Typography-in-the-Digital-Age
-    │   └── pages
-    │       ├── 2015-05-01---about
-    │       └── 2015-05-01---contact
     └── templates
 ```
 
 ## Getting Started
 Install this starter (assuming Gatsby is installed) by running from your CLI:
-`gatsby new lumen https://github.com/GatsbyCentral/gatsby-v2-starter-lumen`
+`gatsby new gatsby-starter-kontent-lumen https://github.com/kentico/gatsby-starter-kontent-lumen`
+
+#### Import sample data and content structure from the source project into your project
+
+1. Create a free project in app.kontent.ai
+1. Get a [projectId](https://docs.kontent.ai/reference/management-api-v2#section/Authentication) and a [CM API key](https://docs.kontent.ai/reference/management-api-v2#section/Authentication) of the newly created (target) project
+1. Go to Kontent [Template Manager](https://kentico.github.io/kontent-template-manager/) and enter copied `projectId` and `CM API key` into *Target Project* section
+1. Into *Source Project* section copy `00676a8d-358c-0084-f2f2-33ed466c480a` projectId and `default` language
+1. Click on `Prepare import data`
+1. Click on `Proceed with import`
+1. Use target `projectId` in the `gatsby-config.json`
 
 #### Running in Development
 `gatsby develop`
