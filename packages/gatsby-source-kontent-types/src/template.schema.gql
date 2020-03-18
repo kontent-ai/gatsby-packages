@@ -11,10 +11,10 @@ type KontentTypeSystem {
   name: String!
 }
 
-interface KontentTypeElement {
-  codename: String!
-  name: String!
-  type: String!
+type KontentTypeElement {
+  codename: String
+  name: String
+  type: String
   taxonomy_group: String
   options: [ElementOption]
 }

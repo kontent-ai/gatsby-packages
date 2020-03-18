@@ -21,7 +21,35 @@ Some of the data from Kontent Delivery API requires to be altered, or extended i
 
 #### Elements property
 
-Elements property is transformed rom object to array.
+Elements property is transformed from object to array.
+
+This is the "Website" type sample. As you can see there is `element` property, which is an object in Kontent delivery REST API.
+
+````json
+{
+  "system": {
+    "id": "aeabe925-9221-4fb2-bc3a-2a91abc904fd",
+    "name": "Website",
+    "codename": "website",
+    "last_modified": "2019-04-01T18:33:45.0353591Z"
+  },
+  "elements": {
+    "url": {
+      "type": "text",
+      "name": "URL"
+    },
+    "name": {
+      "type": "text",
+      "name": "Name"
+    },
+    "description": {
+      "type": "rich_text",
+      "name": "Description"
+    }
+  }
+}
+    ```
+
 TODO: describe.
 
 ## How to install
@@ -59,3 +87,4 @@ TODO: describe.
 > If you have unanswered questions, would like help with enhancing or debugging the plugin, it is nice to include instructions for people who want to contribute to your plugin.
 
 - _written according to [Gatsby plugin template](https://www.gatsbyjs.org/contributing/docs-templates/#plugin-readme-template)_
+````
