@@ -30,8 +30,8 @@ type __KONTENT_ITEM_RICH_TEXT_ELEMENT__ {
   type: String!
   value: String
   modular_content: [__KONTENT_ITEM_INTERFACE__] @link(by: "system.codename")
-  images: [KontentElementRichTextImage]
-  links: [KontentElementRichTextLink]
+  images: [__KONTENT_ELEMENT_RICH_TEXT_IMAGE_VALUE__]
+  links: [__KONTENT_ELEMENT_RICH_TEXT_LINK_VALUE__]
 }
 
 type __KONTENT_ITEM_NUMBER_ELEMENT__ {
@@ -43,7 +43,7 @@ type __KONTENT_ITEM_NUMBER_ELEMENT__ {
 type __KONTENT_ITEM_MULTIPLE_CHOICE_ELEMENT__ {
   name: String!
   type: String!
-  value: [KontentElementMultipleChoiceValue]
+  value: [__KONTENT_ELEMENT_MULTIPLE_CHOICE_VALUE__]
 }
 
 type __KONTENT_ITEM_DATE_TIME_ELEMENT__ {
@@ -55,7 +55,7 @@ type __KONTENT_ITEM_DATE_TIME_ELEMENT__ {
 type __KONTENT_ITEM_ASSET_ELEMENT__ {
   name: String!
   type: String!
-  value: [KontentElementAssetValue]
+  value: [__KONTENT_ELEMENT_ASSET_VALUE__]
 }
 
 type __KONTENT_ITEM_MODULAR_CONTENT_ELEMENT__ {
@@ -74,7 +74,7 @@ type __KONTENT_ITEM_TAXONOMY_ELEMENT__ {
   name: String!
   type: String!
   taxonomy_group: String!
-  value: [KontentElementTaxonomyValue]
+  value: [__KONTENT_ELEMENT_TAXONOMY_VALUE__]
 }
 
 type __KONTENT_ITEM_URL_SLUG_ELEMENT__ {
@@ -98,7 +98,7 @@ type __KONTENT_ELEMENT_ASSET_VALUE__ {
   height: Int
 }
 
-type KontentElementTaxonomyValue {
+type __KONTENT_ELEMENT_TAXONOMY_VALUE__ {
   name: String!
   codename: String!
 }

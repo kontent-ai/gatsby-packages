@@ -51,8 +51,8 @@ const getSchemaNamingConfiguration = (template: string, config: PluginNamingConf
     .replace(/__KONTENT_ELEMENT_MULTIPLE_CHOICE_VALUE__/g, getKontentItemElementValueTypeNameByType('multiple_choice', config))
     .replace(/__KONTENT_ELEMENT_ASSET_VALUE__/g, getKontentItemElementValueTypeNameByType('asset', config))
     .replace(/__KONTENT_ELEMENT_TAXONOMY_VALUE__/g, getKontentItemElementValueTypeNameByType('taxonomy', config))
-    .replace(/__KONTENT_ELEMENT_RICH_TEXT_IMAGE_VALUE__/g, getKontentItemElementValueTypeNameByType('rich_text_image', config))
-    .replace(/__KONTENT_ELEMENT_RICH_TEXT_LINK_VALUE__/g, getKontentItemElementValueTypeNameByType('rich_text_link', config));
+    .replace(/__KONTENT_ELEMENT_RICH_TEXT_IMAGE_VALUE__/g, `${getKontentItemElementValueTypeNameByType('rich_text', config)}${CONNECTOR}link`)
+    .replace(/__KONTENT_ELEMENT_RICH_TEXT_LINK_VALUE__/g, `${getKontentItemElementValueTypeNameByType('rich_text', config)}${CONNECTOR}image`);
 
 
 export {
