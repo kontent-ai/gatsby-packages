@@ -12,15 +12,20 @@
   "workspaces": [
     "packages/gatsby-source-kontent-items",
     "packages/gatsby-source-kontent-types",
+    "packages/gatsby-source-kontent-taxonomies",
     "site"
   ],
   "scripts": {
     "build:site": "yarn workspace @simply007org/gatsby-starter-kontent-lumen build",
     "develop:site": "yarn workspace @simply007org/gatsby-starter-kontent-lumen develop",
     "watch:items": "yarn workspace @simply007org/gatsby-source-kontent-items watch",
-    "watch:types": "yarn workspace @simply007org/gatsby-source-kontent-items watch",
-    "watch:packages": "run-p watch:items watch:types",
-    "build:packages": "yarn workspace @simply007org/gatsby-source-kontent-items build && yarn workspace @simply007org/gatsby-source-kontent-types build",
+    "watch:types": "yarn workspace @simply007org/gatsby-source-kontent-types watch",
+    "watch:taxonomies": "yarn workspace @simply007org/gatsby-source-kontent-taxonomies watch",
+    "build:items": "yarn workspace @simply007org/gatsby-source-kontent-items build",
+    "build:types": "yarn workspace @simply007org/gatsby-source-kontent-types build",
+    "build:taxonomies": "yarn workspace @simply007org/gatsby-source-kontent-taxonomies build",
+    "watch:packages": "run-p watch:items watch:types watch:taxonomies",
+    "build:packages": "run-p build:items build:types build:taxonomies",
     "prepare": "yarn build:packages",
     "test": "yarn workspaces run test"
   },

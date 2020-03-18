@@ -19,6 +19,12 @@ module.exports = {
       },
     },
     {
+      resolve: '@simply007org/gatsby-source-kontent-taxonomies',
+      options: {
+        projectId: '00676a8d-358c-0084-f2f2-33ed466c480a', // Fill in your Project ID
+      },
+    },
+    {
       resolve: '@simply007org/gatsby-source-kontent-types',
       options: {
         projectId: '00676a8d-358c-0084-f2f2-33ed466c480a', // Fill in your Project ID
