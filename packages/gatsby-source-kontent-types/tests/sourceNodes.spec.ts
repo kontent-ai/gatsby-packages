@@ -9,9 +9,9 @@ import { createMock } from "ts-auto-mock";
 // TODO change data format fo items feed
 import * as complexContentTypesFakeResponse from './complexContentTypesFakeResponse.json';
 
-import axios from 'axios';
 import { mocked } from 'ts-jest/dist/util/testing';
 import * as _ from 'lodash';
+import axios from 'axios';
 jest.mock('axios');
 const mockedAxios = axios as jest.Mocked<typeof axios>;
 
@@ -40,7 +40,6 @@ describe('sourceNodes', () => {
       } else {
         throw new Error('Language should be defined in the language parameter');
       }
-
     });
 
     it('import all types correctly', async () => {

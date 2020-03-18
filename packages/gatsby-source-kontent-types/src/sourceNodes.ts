@@ -1,6 +1,6 @@
 import { SourceNodesArgs } from "gatsby";
 import { CustomPluginOptions, KontentType, KontentTypeElementArrayItem, KontentTypeElementsObject } from "./types";
-import { getKontentTypeNodeStringForCodeName } from "./naming";
+import { getKontentTypeNodeStringForCodeName, getKontentTypeTypeName } from "./naming";
 import { loadAllKontentTypes } from "./client";
 
 const getKontentTypeArtifact = (api: SourceNodesArgs, kontentType: KontentType): KontentType => {
@@ -11,7 +11,7 @@ const getKontentTypeArtifact = (api: SourceNodesArgs, kontentType: KontentType):
     id: api.createNodeId(nodeIdString),
     children: [],
     internal: {
-      type: 'KontentType',
+      type: getKontentTypeTypeName(),
       content: nodeContent,
       contentDigest: api.createContentDigest(kontentType),
     },
