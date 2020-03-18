@@ -1,8 +1,8 @@
-# Simple Gatsby source plugin for Kentico Kontent
+#  Gatsby source plugin for Kentico Kontent
 
 ## Description
 
-(Unofficial) Simple source plugin for Kentico Kontent REST Delivery API.
+(Unofficial) Source plugin for Kentico Kontent REST Delivery API.
 
 > Include a summary of what this plugin accomplishes. Is there a demo site that shows how this plugin operates? If so, include a link to the deployed demo site and/or its source code here.
 > Themes are considered plugins in the Gatsby ecosystem and should follow this README as well. Note that themes include multiple READMEs. One inside the theme directory with configuration instructions, one inside the example project directory, and one in the root of the repository which will follow this guide.
@@ -31,7 +31,7 @@ Linked Items element
 
   ```gql
   query PersonQuery {
-    allSimpleKontentItemPerson {
+    allKontentItemPerson {
       nodes {
         elements {
           friends {
@@ -56,7 +56,7 @@ Rich text element
 
   ```gql
   query PersonQuery {
-    allSimpleKontentItemPerson {
+    allKontentItemPerson {
       nodes {
         elements {
           bio {
@@ -116,7 +116,7 @@ This wrapper transforms these objects to the the arrays. In case ofe image the I
 
 ```gql
 query PersonQuery {
-  allSimpleKontentItemPerson {
+  allKontentItemPerson {
     nodes {
       elements {
         bio {

@@ -30,8 +30,8 @@ type __KONTENT_ITEM_RICH_TEXT_ELEMENT__ {
   type: String!
   value: String
   modular_content: [__KONTENT_ITEM_INTERFACE__] @link(by: "system.codename")
-  images: [SimpleKontentElementRichTextImage]
-  links: [SimpleKontentElementRichTextLink]
+  images: [KontentElementRichTextImage]
+  links: [KontentElementRichTextLink]
 }
 
 type __KONTENT_ITEM_NUMBER_ELEMENT__ {
@@ -43,7 +43,7 @@ type __KONTENT_ITEM_NUMBER_ELEMENT__ {
 type __KONTENT_ITEM_MULTIPLE_CHOICE_ELEMENT__ {
   name: String!
   type: String!
-  value: [SimpleKontentElementMultipleChoiceValue]
+  value: [KontentElementMultipleChoiceValue]
 }
 
 type __KONTENT_ITEM_DATE_TIME_ELEMENT__ {
@@ -55,7 +55,7 @@ type __KONTENT_ITEM_DATE_TIME_ELEMENT__ {
 type __KONTENT_ITEM_ASSET_ELEMENT__ {
   name: String!
   type: String!
-  value: [SimpleKontentElementAssetValue]
+  value: [KontentElementAssetValue]
 }
 
 type __KONTENT_ITEM_MODULAR_CONTENT_ELEMENT__ {
@@ -74,7 +74,7 @@ type __KONTENT_ITEM_TAXONOMY_ELEMENT__ {
   name: String!
   type: String!
   taxonomy_group: String!
-  value: [SimpleKontentElementTaxonomyValue]
+  value: [KontentElementTaxonomyValue]
 }
 
 type __KONTENT_ITEM_URL_SLUG_ELEMENT__ {
@@ -83,12 +83,12 @@ type __KONTENT_ITEM_URL_SLUG_ELEMENT__ {
   value: String
 }
 
-type SimpleKontentElementMultipleChoiceValue {
+type KontentElementMultipleChoiceValue {
   codename: String!
   name: String!
 }
 
-type SimpleKontentElementAssetValue {
+type KontentElementAssetValue {
   name: String!
   description: String
   type: String!
@@ -98,12 +98,12 @@ type SimpleKontentElementAssetValue {
   height: Int
 }
 
-type SimpleKontentElementTaxonomyValue {
+type KontentElementTaxonomyValue {
   name: String!
   codename: String!
 }
 
-type SimpleKontentElementRichTextImage {
+type KontentElementRichTextImage {
   image_id: String!
   url: String!
   description: String
@@ -111,7 +111,7 @@ type SimpleKontentElementRichTextImage {
   width: Int!
 }
 
-type SimpleKontentElementRichTextLink {
+type KontentElementRichTextLink {
   link_id: String!
   codename: String!
   type: String!
