@@ -25,7 +25,7 @@ Elements property is transformed from object to array.
 
 This is the "Website" type sample. As you can see there is `element` property, which is an object in Kontent delivery REST API.
 
-````json
+```json
 {
   "system": {
     "id": "aeabe925-9221-4fb2-bc3a-2a91abc904fd",
@@ -48,10 +48,63 @@ This is the "Website" type sample. As you can see there is `element` property, w
     }
   }
 }
-    ```
+```
 
-TODO: describe.
+And here is the example how does the source plugin transform the data.
 
+Query
+
+```gql
+{
+  kontentType(system: { name: { eq: "Website" } }) {
+    system {
+      codename
+      id
+      last_modified
+      name
+    }
+    elements {
+      name
+      codename
+      type
+    }
+  }
+}
+```
+
+Result
+
+```json
+{
+  "data": {
+    "kontentType": {
+      "system": {
+        "codename": "website",
+        "id": "aeabe925-9221-4fb2-bc3a-2a91abc904fd",
+        "last_modified": "2019-04-01T18:33:45.0353591Z",
+        "name": "Website"
+      },
+      "elements": [
+        {
+          "name": "URL",
+          "codename": "url",
+          "type": "text"
+        },
+        {
+          "name": "Name",
+          "codename": "name",
+          "type": "text"
+        },
+        {
+          "name": "Description",
+          "codename": "description",
+          "type": "rich_text"
+        }
+      ]
+    }
+  }
+}
+```
 ## How to install
 
 > Please include installation instructions here.
@@ -87,4 +140,7 @@ TODO: describe.
 > If you have unanswered questions, would like help with enhancing or debugging the plugin, it is nice to include instructions for people who want to contribute to your plugin.
 
 - _written according to [Gatsby plugin template](https://www.gatsbyjs.org/contributing/docs-templates/#plugin-readme-template)_
-````
+
+```
+
+```
