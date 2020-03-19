@@ -1,67 +1,32 @@
 {
-  "version": "0.2.0",
-  "name": "@simply007org/gatsby-starter-kontent-lumen",
-  "description": "Simple starter blog portfolio page for Gatsby and Kontent headless CMS.",
-  "main": "n/a",
-  "author": "Martin Makarsky <martinmakarsky@gmail.com> (https://github.com/makma)",
+  "name": "@simply007org/gatsby-starter-kontent-hello-world",
+  "private": true,
+  "description": "A simplified bare-bones testing site for Gatsby",
+  "version": "0.1.0",
   "license": "MIT",
   "scripts": {
-    "develop": "gatsby develop",
     "build": "gatsby build",
-    "clean:public": "rm -rf public",
-    "clean": "npm run clean:public",
-    "lint": "./node_modules/.bin/eslint --cache --ext .js,.jsx --ignore-pattern public .",
-    "test": "echo \"WARNING: no test specified\" && exit 0",
-    "format": "prettier --write './*.js' 'src/**/*.js' 'src/**/*.jsx'",
-    "deploy": "gatsby build --prefix-paths && gh-pages -d public"
+    "develop": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "test": "echo \"No tests written! -> https://gatsby.dev/unit-testing\" && exit 0"
+  },
+  "dependencies": {
+    "@kentico/gatsby-source-kontent": "^4.4.0",
+    "gatsby": "^2.19.49",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  },
+  "devDependencies": {
+    "prettier": "^1.19.1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Simply007/gatsby-kontent-packages.git"
+    "url": "https://github.com/Simply007/gatsby-kontent-packages"
   },
-  "homepage": "https://github.com/Simply007/gatsby-kontent-packages/tree/master/packages/site#readme",
-  "keywords": [
-    "gatsby",
-    "blog",
-    "starter",
-    "kontent",
-    "headless CMS",
-    "CMS"
-  ],
-  "dependencies": {
-    "@simply007org/gatsby-source-kontent-items": "0.2.0",
-    "@simply007org/gatsby-source-kontent-types": "0.2.0",
-    "@simply007org/gatsby-source-kontent-taxonomies": "0.2.0",
-    "bluebird": "^3.5.1",
-    "gatsby": "^2.19.29",
-    "gatsby-cli": "^2.9.0",
-    "gatsby-plugin-catch-links": "^2.0.4",
-    "gatsby-plugin-google-analytics": "^2.0.6",
-    "gatsby-plugin-google-fonts": "latest",
-    "gatsby-plugin-offline": "^2.0.6",
-    "gatsby-plugin-react-helmet": "^3.0.0",
-    "gatsby-plugin-sass": "^2.0.1",
-    "gatsby-plugin-sharp": "^2.0.6",
-    "gatsby-plugin-sitemap": "^2.0.1",
-    "gatsby-source-filesystem": "^2.0.3",
-    "lodash": "^4.17.4",
-    "node-sass": "^4.9.3",
-    "prismjs": "^1.15.0",
-    "react": "^16.8.0",
-    "react-dom": "^16.8.0",
-    "react-helmet": "^5.2.0"
-  },
-  "devDependencies": {
-    "babel-eslint": "^8.2.1",
-    "eslint": "^4.14.0",
-    "eslint-config-airbnb": "^16.1.0",
-    "eslint-config-prettier": "^3.1.0",
-    "eslint-plugin-import": "^2.8.0",
-    "eslint-plugin-jsx-a11y": "^6.0.3",
-    "eslint-plugin-react": "^7.5.1",
-    "gh-pages": "^1.1.0",
-    "lost": "^8.2.0",
-    "postcss-pxtorem": "^4.0.1",
-    "prettier": "^1.10.2"
+  "bugs": {
+    "url": "https://github.com/Simply007/gatsby-kontent-packages/issues"
   }
 }
