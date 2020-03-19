@@ -16,8 +16,8 @@
     "site"
   ],
   "scripts": {
-    "build:site": "yarn workspace @simply007org/gatsby-starter-kontent-lumen build",
-    "develop:site": "yarn workspace @simply007org/gatsby-starter-kontent-lumen develop",
+    "build:site": "yarn workspace @simply007org/gatsby-starter-kontent-hello-world build",
+    "develop:site": "yarn workspace @simply007org/gatsby-starter-kontent-hello-world develop",
     "watch:items": "yarn workspace @simply007org/gatsby-source-kontent-items watch",
     "watch:types": "yarn workspace @simply007org/gatsby-source-kontent-types watch",
     "watch:taxonomies": "yarn workspace @simply007org/gatsby-source-kontent-taxonomies watch",
