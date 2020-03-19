@@ -1,5 +1,6 @@
 # Ignore compiled files
 fragments.js
+index.js
 gatsby-*.js
 src/**/*.js
 **/*.gql

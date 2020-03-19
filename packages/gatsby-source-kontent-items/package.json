@@ -59,7 +59,7 @@
     "type": "git",
     "url": "https://github.com/Simply007/gatsby-kontent-packages.git"
   },
-  "main": "gatsby-node.js",
+  "main": "index.js",
   "publishConfig": {
     "access": "public"
   }

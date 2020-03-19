@@ -23,7 +23,8 @@
   },
   "include": [
     "src/**/*",
-    "gatsby-node.ts"
+    "gatsby-node.ts",
+    "index.ts"
   ],
   "exclude": [
     "node_modules",

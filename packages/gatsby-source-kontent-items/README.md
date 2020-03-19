@@ -27,6 +27,8 @@ Besides of `system.language` every Kontent item node contains the property `pref
 
 Each linked items element in **linked items element** as well as in **rich text element** is using [Gatsby GraphQL node references](https://www.gatsbyjs.org/docs/create-source-plugin/#creating-the-relationship) that can be used to traverse to the nodes linked through the use of the *Linked items* element.
 
+The resolution is using the `createFieldExtension` called `languageLink` that is resolving the codenames. [Embedded `@link` extension](https://www.gatsbyjs.org/docs/schema-customization/#foreign-key-fields) is not used because the links has to be resolved by `preferred_language` as well as `system.codename` equality and embedded link resolution allow to use only one field to make the links out of the box.
+
 Linked Items element
 
   ```gql

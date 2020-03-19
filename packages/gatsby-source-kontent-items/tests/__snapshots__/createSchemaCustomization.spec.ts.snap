@@ -32,7 +32,7 @@ type kontent_item_rich_text_element_value {
   name: String!
   type: String!
   value: String
-  modular_content: [kontent_item] @link(by: \\"system.codename\\")
+  modular_content: [kontent_item] @languageLink
   images: [kontent_item_rich_text_element_link]
   links: [kontent_item_rich_text_element_image]
 }
@@ -64,7 +64,7 @@ type kontent_item_asset_element_value {
 type kontent_item_modular_content_element_value {
   name: String!
   type: String!
-  value: [kontent_item] @link(by: \\"system.codename\\") # TODO note about multi-lingual links
+  value: [kontent_item] @languageLink
 }
 
 type kontent_item_custom_element_value {

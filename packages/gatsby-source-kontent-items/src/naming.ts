@@ -10,8 +10,14 @@ const defaultPluginNamingConfiguration: PluginNamingConfiguration = {
   prefix: `kontent${CONNECTOR}item`,
 };
 
-const getKontentItemNodeStringForId = (id: string, preferredLanguage: string, config: PluginNamingConfiguration = defaultPluginNamingConfiguration): string =>
-  `${config.prefix}${CONNECTOR}${preferredLanguage}${CONNECTOR}${id}`;
+/**
+ * Retrieve ID string Gatsby CreateNodeId method for specified Kontent item language variant.
+ * @param codename Codename because modular content is using them for linking items
+ * @param preferredLanguage Preferred language of the language variant.
+ * @param config Optional parameter with extra configuration.
+ */
+const getKontentItemNodeStringForId = (codename: string, preferredLanguage: string, config: PluginNamingConfiguration = defaultPluginNamingConfiguration): string =>
+  `${config.prefix}${CONNECTOR}${preferredLanguage}${CONNECTOR}${codename}`;
 
 const getKontentItemNodeTypeName = (type: string, config: PluginNamingConfiguration = defaultPluginNamingConfiguration): string =>
   `${config.prefix}${CONNECTOR}${type}`

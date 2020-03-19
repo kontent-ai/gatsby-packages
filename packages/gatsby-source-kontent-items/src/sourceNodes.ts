@@ -30,7 +30,7 @@ const alterRichTextElements = (items: Array<KontentItem>): void => {
 
 
 const getKontentItemLanguageVariantArtifact = (api: SourceNodesArgs, kontentItem: KontentItem): KontentItem => {
-  const nodeIdString = getKontentItemNodeStringForId(kontentItem.system.id, kontentItem.preferred_language);
+  const nodeIdString = getKontentItemNodeStringForId(kontentItem.system.codename, kontentItem.preferred_language);
   const nodeContent = JSON.stringify(kontentItem)
   const nodeData: KontentItem = {
     ...kontentItem,
