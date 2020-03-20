@@ -60,7 +60,7 @@ interface KontentType {
     id: string;
     name: string;
     codename: string;
-    last_modified: date;
+    last_modified: Date;
   };
   elements:
   {
