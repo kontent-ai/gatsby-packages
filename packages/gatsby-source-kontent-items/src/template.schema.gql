@@ -29,7 +29,7 @@ type __KONTENT_ITEM_RICH_TEXT_ELEMENT__ {
   name: String!
   type: String!
   value: String
-  modular_content: [__KONTENT_ITEM_INTERFACE__] @languageLink
+  modular_content: [__KONTENT_ITEM_INTERFACE__] @__KONTENT_ITEM_LANGUAGE_EXTENSION__
   images: [__KONTENT_ELEMENT_RICH_TEXT_IMAGE_VALUE__]
   links: [__KONTENT_ELEMENT_RICH_TEXT_LINK_VALUE__]
 }
@@ -61,7 +61,7 @@ type __KONTENT_ITEM_ASSET_ELEMENT__ {
 type __KONTENT_ITEM_MODULAR_CONTENT_ELEMENT__ {
   name: String!
   type: String!
-  value: [__KONTENT_ITEM_INTERFACE__] @languageLink
+  value: [__KONTENT_ITEM_INTERFACE__] @__KONTENT_ITEM_LANGUAGE_EXTENSION__
 }
 
 type __KONTENT_ITEM_CUSTOM_ELEMENT_ELEMENT__ {

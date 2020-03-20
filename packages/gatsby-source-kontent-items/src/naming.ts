@@ -1,3 +1,5 @@
+import * as fs from "fs";
+import * as path from "path";
 import { PluginNamingConfiguration } from "./types";
 
 const CONNECTOR = "_";
@@ -5,6 +7,7 @@ const SYSTEM_IDENTIFIER = "system";
 const ELEMENT_IDENTIFIER = "element";
 const VALUE_IDENTIFIER = "value";
 const MULTI_ELEMENT_IDENTIFIER = `${ELEMENT_IDENTIFIER}s`;
+const LANGUAGE_LINK_EXTENSION_IDENTIFIER = 'language_link';
 
 const defaultPluginNamingConfiguration: PluginNamingConfiguration = {
   prefix: `kontent${CONNECTOR}item`,
@@ -36,9 +39,14 @@ const getKontentItemElementValueTypeNameByType = (type: string, config: PluginNa
 
 const getKontentItemElementsSchemaTypeName = (type: string, config: PluginNamingConfiguration = defaultPluginNamingConfiguration): string =>
   `${config.prefix}${CONNECTOR}${type}${CONNECTOR}${MULTI_ELEMENT_IDENTIFIER}`;
- 
-const getSchemaNamingConfiguration = (template: string, config: PluginNamingConfiguration = defaultPluginNamingConfiguration): string =>
-  template
+
+const getKontentItemLanguageLinkExtensionName = (config: PluginNamingConfiguration = defaultPluginNamingConfiguration): string =>
+  `${config.prefix}${CONNECTOR}${LANGUAGE_LINK_EXTENSION_IDENTIFIER}`;
+
+const getSchemaNamingConfiguration = (config: PluginNamingConfiguration = defaultPluginNamingConfiguration): string => {
+  const template = fs.readFileSync(path.join(__dirname, "template.schema.gql"), "utf8");
+
+  return template
     .replace(/__KONTENT_ITEM_INTERFACE__/g, getKontentItemInterfaceName(config))
     .replace(/__KONTENT_ITEM_SYSTEM_TYPE__/g, getKontentItemSystemElementTypeName(config))
     // elements
@@ -57,7 +65,11 @@ const getSchemaNamingConfiguration = (template: string, config: PluginNamingConf
     .replace(/__KONTENT_ELEMENT_ASSET_VALUE__/g, getKontentItemElementValueTypeNameByType('asset', config))
     .replace(/__KONTENT_ELEMENT_TAXONOMY_VALUE__/g, getKontentItemElementValueTypeNameByType('taxonomy', config))
     .replace(/__KONTENT_ELEMENT_RICH_TEXT_IMAGE_VALUE__/g, `${getKontentItemElementValueTypeNameByType('rich_text', config)}${CONNECTOR}link`)
-    .replace(/__KONTENT_ELEMENT_RICH_TEXT_LINK_VALUE__/g, `${getKontentItemElementValueTypeNameByType('rich_text', config)}${CONNECTOR}image`);
+    .replace(/__KONTENT_ELEMENT_RICH_TEXT_LINK_VALUE__/g, `${getKontentItemElementValueTypeNameByType('rich_text', config)}${CONNECTOR}image`)
+    // extensions
+    .replace(/__KONTENT_ITEM_LANGUAGE_EXTENSION__/g, getKontentItemLanguageLinkExtensionName(config));
+}
+
 
 
 export {
@@ -68,4 +80,5 @@ export {
   getKontentItemElementTypeNameByType,
   getKontentItemElementsSchemaTypeName,
   getSchemaNamingConfiguration,
+  getKontentItemLanguageLinkExtensionName
 }
