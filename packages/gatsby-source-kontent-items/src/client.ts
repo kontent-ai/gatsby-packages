@@ -1,3 +1,4 @@
+import * as rax from 'retry-axios';
 import axios from "axios";
 import { KontentItem, KontentType } from "./types";
 import * as _ from "lodash";
@@ -12,15 +13,30 @@ const loadAllKontentItems = async (projectId: string, language: string): Promise
     const headers = {
       [continuationHeaderName]: continuationToken
     };
-    const response = await axios.get(`${KontentDeliveryProductionDomain}/${projectId}/items-feed?language=${language}`, {
-      headers
-    });
-    const union = _.unionBy<KontentItem>(
-      response.data.items,
-      Object.values(response.data.modular_content),
-      'system.codename');
-    items.push(...union);
-    continuationToken = response.headers[continuationHeaderName];
+    try {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const interceptorId = rax.attach();
+      const response = await axios.get(`${KontentDeliveryProductionDomain}/${projectId}/items-feed?language=${language}`, {
+        headers,
+        raxConfig: {
+          onRetryAttempt: err => {
+            const cfg = rax.getConfig(err);
+            console.log(`Retry attempt #${cfg?.currentRetryAttempt}`);
+          }
+        }
+      });
+
+      const union = _.unionBy<KontentItem>(
+        response.data.items,
+        Object.values(response.data.modular_content),
+        'system.codename');
+      items.push(...union);
+      continuationToken = response.headers[continuationHeaderName];
+    } catch (error) {
+      console.error(`Items load for project ${projectId} on language ${language} failed with error: ${JSON.stringify(error)}`);
+    }
+
+
   } while (continuationToken);
   return items;
 }

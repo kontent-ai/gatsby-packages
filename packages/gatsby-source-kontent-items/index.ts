@@ -1,5 +1,6 @@
-import { getKontentItemInterfaceName } from './src/naming';
+import { getKontentItemInterfaceName, getKontentItemNodeStringForId } from './src/naming';
 
 export {
-  getKontentItemInterfaceName
+  getKontentItemInterfaceName,
+  getKontentItemNodeStringForId
 }

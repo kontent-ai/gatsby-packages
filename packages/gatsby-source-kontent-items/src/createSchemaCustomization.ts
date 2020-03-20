@@ -8,7 +8,8 @@ import {
   getSchemaNamingConfiguration,
   getKontentItemSystemElementTypeName,
   getKontentItemInterfaceName,
-  getKontentItemElementTypeNameByType
+  getKontentItemElementTypeNameByType,
+  getKontentItemNodeStringForId
 } from "./naming";
 
 const createSchemaCustomization = async (api: CustomCreateSchemaCustomizationArgs, pluginConfig: CustomPluginOptions): Promise<void> => {
@@ -26,17 +27,13 @@ const createSchemaCustomization = async (api: CustomCreateSchemaCustomizationArg
               findRootNodeAncestor: Function;
               getAllNodes: Function;
               runQuery: Function;
-            }
+              getNodesByIds: Function;
+            };
           }
         ): Promise<KontentItem[]> {
           const kontentItemNode = context.nodeModel.findRootNodeAncestor(source);
-          const linkedItems = context.nodeModel
-            .getAllNodes({ type: getKontentItemInterfaceName() })
-            .filter((item: KontentItem) =>
-              source.value.includes(item.system.codename)
-              && item.preferred_language === kontentItemNode.preferred_language);
 
-          const linkedItems2 = await context.nodeModel
+          const linkedItems = await context.nodeModel
             .runQuery({
               query: {
                 filter: {
@@ -45,8 +42,7 @@ const createSchemaCustomization = async (api: CustomCreateSchemaCustomizationArg
                       in: source.value
                     },
                   },
-                  // eslint-disable-next-line @typescript-eslint/camelcase
-                  preferred_language: {
+                  "preferred_language": {
                     eq: kontentItemNode.preferred_language
                   }
                 },
@@ -54,7 +50,27 @@ const createSchemaCustomization = async (api: CustomCreateSchemaCustomizationArg
               type: getKontentItemInterfaceName(),
               firstOnly: false,
             });
-          return Promise.resolve(linkedItems); // TODO or linkedItems2 (?)
+
+
+
+          const nodesCodeNames = source.value;
+          const nodesLanguage = kontentItemNode.preferred_language;
+          const nodeIds = nodesCodeNames.map(codename => {
+            // the method is the same as used on sourceNodes for getting id string input
+            const stringForId = getKontentItemNodeStringForId(codename, nodesLanguage);
+            // But this method automatically creates namespaced 
+            // now it is fine - because we are still in the same source plugin
+            // but this approach could not be used outside (in the website/other plugin)
+            return api.createNodeId(stringForId); 
+          });
+
+          const linkedItems2 = context.nodeModel.getNodesByIds({
+            ids: nodeIds,
+            type: getKontentItemInterfaceName()
+          });
+
+          
+          return Promise.resolve(linkedItems);
         },
       }
     },

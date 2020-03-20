@@ -27,7 +27,8 @@
     "fs-extra": "^8.1.0",
     "gatsby-plugin-sharp": "^2.3.13",
     "gatsby-source-filesystem": "^2.1.46",
-    "lodash": "^4.17.15"
+    "lodash": "^4.17.15",
+    "retry-axios": "^2.1.2"
   },
   "devDependencies": {
     "@types/jest": "24.9.0",

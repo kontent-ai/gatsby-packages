@@ -1,9 +1,10 @@
 const {
-  getKontentItemInterfaceName
+  getKontentItemInterfaceName,
+  getKontentItemNodeStringForId
 } = require("@simply007org/gatsby-source-kontent-items");
 
-
 exports.createSchemaCustomization = (api) => {
+
   const { actions, schema } = api;
   const { createTypes } = actions;
   const typeDefs = [
@@ -46,6 +47,27 @@ exports.createSchemaCustomization = (api) => {
                 type: getKontentItemInterfaceName(),
                 firstOnly: false,
               });
+
+            const nodesCodeNames = source.value;
+            const nodesLanguage = kontentItemNode.preferred_language;
+            const nodeIds = nodesCodeNames.map(codename => {
+              // the method is the same as used on sourceNodes for getting id string input
+              const stringForId = getKontentItemNodeStringForId(codename, nodesLanguage);
+              // But createNodeId method automatically creates namespaced - so the ID is incorrect
+              // and there is now way to search NodesByIds event a user has method 
+              // getKontentItemNodeStringForId exported by the source plugin 
+              return api.createNodeId(stringForId);
+            });
+
+            const linkedItems3 = context.nodeModel.getNodesByIds({
+              ids: nodeIds,
+              type: getKontentItemInterfaceName()
+            });
+
+            // linkesItems1 == linkedItems2
+            // linkesItems3 != linkedItems2
+
+
             return "RESOLVED";
           },
         },
