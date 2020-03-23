@@ -66,10 +66,13 @@ const getKontentTypeNodeStringForCodeName = (codename: string, config: PluginNam
 
 const getKontentTypeTypeName = (config: PluginNamingConfiguration = defaultPluginNamingConfiguration): string =>
   `${config.prefix}${CONNECTOR}${TYPE_IDENTIFIER}`;
+
 const getKontentTypeSystemElementTypeName = (config: PluginNamingConfiguration = defaultPluginNamingConfiguration): string =>
   `${config.prefix}${CONNECTOR}${TYPE_IDENTIFIER}${CONNECTOR}${SYSTEM_IDENTIFIER}`;
+
 const getKontentTypeElementTypeName = (config: PluginNamingConfiguration = defaultPluginNamingConfiguration): string =>
   `${config.prefix}${CONNECTOR}${TYPE_IDENTIFIER}${CONNECTOR}${ELEMENT_IDENTIFIER}`;
+  
 const getKontentTypeElementOptionTypeName = (config: PluginNamingConfiguration = defaultPluginNamingConfiguration): string =>
   `${getKontentTypeElementTypeName(config)}${CONNECTOR}${ELEMENT_OPTION_IDENTIFIER}`;
 
