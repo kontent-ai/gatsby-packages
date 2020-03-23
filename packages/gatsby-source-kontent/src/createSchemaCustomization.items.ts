@@ -4,7 +4,7 @@ import { loadAllKontentTypes } from "./client";
 import {
   getKontentItemElementsSchemaTypeName,
   getKontentItemNodeTypeName,
-  getSchemaNamingConfiguration,
+  getKontentItemsSchemaNamingConfiguration,
   getKontentItemSystemElementTypeName,
   getKontentItemInterfaceName,
   getKontentItemElementTypeNameByType,
@@ -66,7 +66,7 @@ const createSchemaCustomization = async (api: CustomCreateSchemaCustomizationArg
   const languageExtension = getLanguageLinkExtension(api);
   api.actions.createFieldExtension(languageExtension, { name: "TODO: will be done optional in next gatsby release" });
 
-  const baseSchemaTypes = getSchemaNamingConfiguration();
+  const baseSchemaTypes = getKontentItemsSchemaNamingConfiguration();
   api.actions.createTypes(baseSchemaTypes);
 
   const types = await loadAllKontentTypes(pluginConfig.projectId);

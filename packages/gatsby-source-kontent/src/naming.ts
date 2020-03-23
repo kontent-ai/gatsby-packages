@@ -44,8 +44,8 @@ const getKontentItemElementsSchemaTypeName = (type: string, config: PluginNaming
 const getKontentItemLanguageLinkExtensionName = (config: PluginNamingConfiguration = defaultPluginNamingConfiguration): string =>
   `${config.prefix}${CONNECTOR}${ITEM_IDENTIFIER}${CONNECTOR}${LANGUAGE_LINK_EXTENSION_IDENTIFIER}`;
 
-const getSchemaNamingConfiguration = (config: PluginNamingConfiguration = defaultPluginNamingConfiguration): string => {
-  const template = fs.readFileSync(path.join(__dirname, "template.schema.gql"), "utf8");
+const getKontentItemsSchemaNamingConfiguration = (config: PluginNamingConfiguration = defaultPluginNamingConfiguration): string => {
+  const template = fs.readFileSync(path.join(__dirname, "template.items.schema.gql"), "utf8");
 
   return template
     .replace(/__KONTENT_ITEM_INTERFACE__/g, getKontentItemInterfaceName(config))
@@ -80,6 +80,6 @@ export {
   getKontentItemInterfaceName,
   getKontentItemElementTypeNameByType,
   getKontentItemElementsSchemaTypeName,
-  getSchemaNamingConfiguration,
+  getKontentItemsSchemaNamingConfiguration,
   getKontentItemLanguageLinkExtensionName
 }
