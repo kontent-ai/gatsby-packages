@@ -1,4 +1,4 @@
-import { createSchemaCustomization } from './src/createSchemaCustomization';
-import { sourceNodes } from './src/sourceNodes';
+import { kontentTaxonomiesCreateSchemaCustomization } from './src/createSchemaCustomization.taxonomies';
+import { kontentTaxonomiesSourceNodes } from './src/sourceNodes.taxonomies';
 
-export { createSchemaCustomization, sourceNodes };
+export { kontentTaxonomiesCreateSchemaCustomization as createSchemaCustomization, kontentTaxonomiesSourceNodes as sourceNodes };

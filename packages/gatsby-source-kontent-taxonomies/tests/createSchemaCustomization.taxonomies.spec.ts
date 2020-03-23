@@ -1,5 +1,5 @@
 import { CustomCreateSchemaCustomizationArgs } from "../src/types";
-import { createSchemaCustomization } from "../src/createSchemaCustomization";
+import { kontentTaxonomiesCreateSchemaCustomization } from "../src/createSchemaCustomization.taxonomies";
 import { createMock } from "ts-auto-mock";
 import { Actions } from "gatsby";
 import { mocked } from "ts-jest/dist/util/testing";
@@ -14,7 +14,7 @@ describe("createSchemaCustomization", () =>{
     });
 
 
-    createSchemaCustomization(api);
+    kontentTaxonomiesCreateSchemaCustomization(api);
     const createTypesMock = mocked(api.actions.createTypes, true);
     expect(createTypesMock).toBeCalledTimes(1);
     // Fix schema

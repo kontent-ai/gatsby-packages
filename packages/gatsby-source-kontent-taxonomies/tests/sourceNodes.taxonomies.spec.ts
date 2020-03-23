@@ -1,6 +1,6 @@
 
 
-import { sourceNodes } from '../src/sourceNodes';
+import { kontentTaxonomiesSourceNodes } from '../src/sourceNodes.taxonomies';
 import { SourceNodesArgs, Actions } from 'gatsby';
 import { CustomPluginOptions, KontentTaxonomy } from '../src/types';
 import { createMock } from "ts-auto-mock";
@@ -43,7 +43,7 @@ describe('sourceNodes', () => {
     });
 
     it('import all taxonomies correctly', async () => {
-      await sourceNodes(api, pluginConfiguration);
+      await kontentTaxonomiesSourceNodes(api, pluginConfiguration);
       const createNodesMock = mocked(api.actions.createNode, true);
       const createdNodes = _.flatMap(createNodesMock.mock.calls) as KontentTaxonomy[];
       expect(createdNodes.length).toBe(5);
