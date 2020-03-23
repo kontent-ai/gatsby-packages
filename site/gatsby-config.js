@@ -14,6 +14,8 @@ module.exports = {
           'default', // Or the languages in your project (Project settings -> Localization),
           'Another_language'
         ],
+        includeTaxonomies: true,
+        includeTypes: true
       },
     }
   ]

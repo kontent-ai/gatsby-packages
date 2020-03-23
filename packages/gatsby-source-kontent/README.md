@@ -1,4 +1,4 @@
-#  Gatsby source plugin for Kentico Kontent
+# Gatsby source plugin for Kentico Kontent
 
 ## Description
 
@@ -25,25 +25,24 @@ Besides of `system.language` every Kontent item node contains the property `pref
 
 #### Linked items as links
 
-Each linked items element in **linked items element** as well as in **rich text element** is using [Gatsby GraphQL node references](https://www.gatsbyjs.org/docs/create-source-plugin/#creating-the-relationship) that can be used to traverse to the nodes linked through the use of the *Linked items* element.
+Each linked items element in **linked items element** as well as in **rich text element** is using [Gatsby GraphQL node references](https://www.gatsbyjs.org/docs/create-source-plugin/#creating-the-relationship) that can be used to traverse to the nodes linked through the use of the _Linked items_ element.
 
 The resolution is using the `createFieldExtension` called `languageLink` that is resolving the codenames. [Embedded `@link` extension](https://www.gatsbyjs.org/docs/schema-customization/#foreign-key-fields) is not used because the links has to be resolved by `preferred_language` as well as `system.codename` equality and embedded link resolution allow to use only one field to make the links out of the box.
 
 Linked Items element
 
-  ```gql
-  query PersonQuery {
-    allKontentItemPerson {
-      nodes {
-        elements {
-          friends {
-            value {
-              ... on kontent_item_person {
-                id
-                elements {
-                  name_and_surname {
-                    value
-                  }
+```gql
+query PersonQuery {
+  allKontentItemPerson {
+    nodes {
+      elements {
+        friends {
+          value {
+            ... on kontent_item_person {
+              id
+              elements {
+                name_and_surname {
+                  value
                 }
               }
             }
@@ -52,36 +51,37 @@ Linked Items element
       }
     }
   }
-  ```
+}
+```
 
 Rich text element
 
-  ```gql
-  query PersonQuery {
-    allKontentItemPerson {
-      nodes {
-        elements {
-          bio {
-            modular_content { // inline linked items as well as content components
-              ... on kontent_item_website {
-                id
-                elements {
-                  name {
-                    value
-                  }
-                  url {
-                    value
-                  }
+```gql
+query PersonQuery {
+  allKontentItemPerson {
+    nodes {
+      elements {
+        bio {
+          modular_content { // inline linked items as well as content components
+            ... on kontent_item_website {
+              id
+              elements {
+                name {
+                  value
+                }
+                url {
+                  value
                 }
               }
             }
-            value
           }
+          value
         }
       }
     }
   }
-  ```
+}
+```
 
 #### Rich text images and links
 
@@ -99,7 +99,7 @@ Kontent REST API return images and links for Rich Text element in form of object
         "url": "https://assets-us-01.kc-usercontent.com:443/09fc0115-dd4d-00c7-5bd9-5f73836aee81/0faa87b4-9e1e-41b8-8b38-c107cbb35147/2.jpg",
         "width": 1600,
         "height": 1065
-      },
+      }
     },
     "links": {
       "59002186-1886-48f3-b8ba-6f053b5cf777": {
@@ -122,14 +122,16 @@ query PersonQuery {
     nodes {
       elements {
         bio {
-          images { # Object transformed to array
+          images {
+            # Object transformed to array
             image_id
             url
             description
             height
             width
           }
-          links { # Object transformed to array
+          links {
+            # Object transformed to array
             codename
             type
             url_slug
@@ -245,7 +247,20 @@ Result
 
 > This usually shows a code example showing how to include this plugin in a site's `config.js` file.
 
-    code example
+```json
+{
+  "resolve": "@simply007org/gatsby-source-kontent-simple",
+  "options": {
+    "projectId": "09fc0115-dd4d-00c7-5bd9-5f73836aee81", // Fill in your Project ID
+    "languageCodenames": [
+      "default", // Or the languages in your project (Project settings -> Localization),
+      "Another_language"
+    ],
+    "includeTaxonomies": true,
+    "includeTypes": true
+  }
+}
+```
 
 > See this [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#code) on how to format code examples.
 > This section could also include before-and-after examples of data when the plugin is enabled, if applicable.
