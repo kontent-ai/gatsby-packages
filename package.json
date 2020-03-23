@@ -11,7 +11,6 @@
   "license": "MIT",
   "workspaces": [
     "packages/gatsby-source-kontent",
-    "packages/gatsby-source-kontent-types",
     "site"
   ],
   "scripts": {

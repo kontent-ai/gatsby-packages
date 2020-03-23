@@ -7,10 +7,12 @@ const SYSTEM_IDENTIFIER = "system";
 const ELEMENT_IDENTIFIER = "element";
 const VALUE_IDENTIFIER = "value";
 const TAXONOMY_TERM_IDENTIFIER = "term";
+const ELEMENT_OPTION_IDENTIFIER = "option";
 const MULTI_ELEMENT_IDENTIFIER = `${ELEMENT_IDENTIFIER}s`;
 const LANGUAGE_LINK_EXTENSION_IDENTIFIER = 'language_link';
 const ITEM_IDENTIFIER = "item";
 const TAXONOMY_IDENTIFIER = "taxonomy";
+const TYPE_IDENTIFIER = "type";
 
 
 const defaultPluginNamingConfiguration: PluginNamingConfiguration = {
@@ -59,6 +61,18 @@ const getKontentTaxonomySystemElementTypeName = (config: PluginNamingConfigurati
 const getKontentTaxonomyTermTypeName = (config: PluginNamingConfiguration = defaultPluginNamingConfiguration): string =>
   `${config.prefix}${CONNECTOR}${TAXONOMY_IDENTIFIER}${CONNECTOR}${TAXONOMY_TERM_IDENTIFIER}`;
 
+const getKontentTypeNodeStringForCodeName = (codename: string, config: PluginNamingConfiguration = defaultPluginNamingConfiguration): string =>
+  `${config.prefix}${CONNECTOR}${TYPE_IDENTIFIER}${CONNECTOR}${codename}`;
+
+const getKontentTypeTypeName = (config: PluginNamingConfiguration = defaultPluginNamingConfiguration): string =>
+  `${config.prefix}${CONNECTOR}${TYPE_IDENTIFIER}`;
+const getKontentTypeSystemElementTypeName = (config: PluginNamingConfiguration = defaultPluginNamingConfiguration): string =>
+  `${config.prefix}${CONNECTOR}${TYPE_IDENTIFIER}${CONNECTOR}${SYSTEM_IDENTIFIER}`;
+const getKontentTypeElementTypeName = (config: PluginNamingConfiguration = defaultPluginNamingConfiguration): string =>
+  `${config.prefix}${CONNECTOR}${TYPE_IDENTIFIER}${CONNECTOR}${ELEMENT_IDENTIFIER}`;
+const getKontentTypeElementOptionTypeName = (config: PluginNamingConfiguration = defaultPluginNamingConfiguration): string =>
+  `${getKontentTypeElementTypeName(config)}${CONNECTOR}${ELEMENT_OPTION_IDENTIFIER}`;
+
 const getKontentItemsSchemaNamingConfiguration = (config: PluginNamingConfiguration = defaultPluginNamingConfiguration): string => {
   const template = fs.readFileSync(path.join(__dirname, "template.items.schema.gql"), "utf8");
   return template
@@ -93,6 +107,14 @@ const getKontentTaxonomiesSchemaNamingConfiguration = (config: PluginNamingConfi
     .replace(/__KONTENT_TAXONOMY_TERM_TYPE__/g, getKontentTaxonomyTermTypeName(config))
 }
 
+const getKontentTypesSchemaNamingConfiguration = (config: PluginNamingConfiguration = defaultPluginNamingConfiguration): string => {
+  const template = fs.readFileSync(path.join(__dirname, "template.types.schema.gql"), "utf8");
+  return template
+    .replace(/__KONTENT_TYPE_NAME__/g, getKontentTypeTypeName(config))
+    .replace(/__KONTENT_TYPE_SYSTEM_TYPE__/g, getKontentTypeSystemElementTypeName(config))
+    .replace(/__KONTENT_TYPE_ELEMENT_TYPE__/g, getKontentTypeElementTypeName(config))
+    .replace(/__KONTENT_TYPE_ELEMENT_OPTIONS_TYPE__/g, getKontentTypeElementOptionTypeName(config));
+}
 
 export {
   getKontentItemNodeStringForId,
@@ -101,9 +123,13 @@ export {
   getKontentItemInterfaceName,
   getKontentItemElementTypeNameByType,
   getKontentItemElementsSchemaTypeName,
-  getKontentItemsSchemaNamingConfiguration,
-  getKontentTaxonomiesSchemaNamingConfiguration,
   getKontentItemLanguageLinkExtensionName,
   getKontentTaxonomyNodeStringForCodeName,
   getKontentTaxonomyTypeName,
+  getKontentTypeNodeStringForCodeName,
+  getKontentTypeTypeName,
+  
+  getKontentItemsSchemaNamingConfiguration,
+  getKontentTaxonomiesSchemaNamingConfiguration,
+  getKontentTypesSchemaNamingConfiguration,
 }

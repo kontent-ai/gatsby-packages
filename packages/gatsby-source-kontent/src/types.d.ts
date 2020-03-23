@@ -55,22 +55,6 @@ interface KontentItem extends NodeInput {
   preferred_language: string;
 }
 
-interface KontentType {
-  system: {
-    id: string;
-    name: string;
-    codename: string;
-    last_modified: date;
-  };
-  elements:
-  {
-    [key: string]: {
-      name: string;
-      type: string;
-    };
-  };
-}
-
 interface KontentTaxonomy extends NodeInput {
   system: {
     id: string;
@@ -85,4 +69,33 @@ interface KontentTaxonomyTerm {
   name: string;
   codename: string;
   terms: KontentTaxonomyTerm[];
+}
+
+
+interface KontentTypeElementOption {
+  name: string;
+  codename: string;
+}
+
+
+interface KontentTypeElementsObject {
+  [key: string]: KontentTypeElementArrayItem;
+}
+
+interface KontentTypeElementArrayItem {
+  codename: string;
+  name: string;
+  type: string;
+  taxonomy_group: string;
+  options: KontentTypeElementOption[];
+}
+
+interface KontentType extends NodeInput {
+  system: {
+    id: string;
+    name: string;
+    codename: string;
+    last_modified: date;
+  };
+  elements: KontentTypeElementsObject | KontentTypeElementArrayItem[];
 }

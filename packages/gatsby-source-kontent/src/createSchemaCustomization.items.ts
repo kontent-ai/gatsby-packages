@@ -1,4 +1,4 @@
-import { CustomPluginOptions, CustomCreateSchemaCustomizationArgs, KontentItem, KontentType } from "./types";
+import { CustomPluginOptions, CustomCreateSchemaCustomizationArgs, KontentItem, KontentType, KontentTypeElementsObject } from "./types";
 import { loadAllKontentTypes } from "./client";
 
 import {
@@ -47,7 +47,7 @@ const getElementFieldsDefinitionForType = (type: KontentType): { [key: string]: 
 
   for (const elementKey in type.elements) {
     if (Object.prototype.hasOwnProperty.call(type.elements, elementKey)) {
-      const element = type.elements[elementKey];
+      const element = (type.elements as KontentTypeElementsObject)[elementKey];
       const elementType = getKontentItemElementTypeNameByType(element.type);
       if (elementType !== '') {
         elementFields[elementKey] = {

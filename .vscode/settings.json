@@ -1,10 +1,10 @@
 {
   "files.exclude": {
-    "**/src/**/*.js": true,
-    "**/src/**/*.js.map": true,
-    "**/gatsby-node.js": true,
-    "**/gatsby-node.js.map": true,
-    "**/index.js": true,
-    "**/index.js.map": true,
+    "packages/gatsby-source-kontent/**/src/**/*.js": true,
+    "packages/gatsby-source-kontent/**/src/**/*.js.map": true,
+    "packages/gatsby-source-kontent/**/gatsby-node.js": true,
+    "packages/gatsby-source-kontent/**/gatsby-node.js.map": true,
+    "packages/gatsby-source-kontent/**/index.js": true,
+    "packages/gatsby-source-kontent/**/index.js.map": true,
   }
 }

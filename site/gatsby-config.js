@@ -15,12 +15,6 @@ module.exports = {
           'Another_language'
         ],
       },
-    },
-    {
-      resolve: '@simply007org/gatsby-source-kontent-types',
-      options: {
-        projectId: '09fc0115-dd4d-00c7-5bd9-5f73836aee81', // Fill in your Project ID
-      },
-    },
+    }
   ]
 }

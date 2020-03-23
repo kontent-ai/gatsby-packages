@@ -1,0 +1,27 @@
+# All __UPPER_CASE__  wildcards will be replaced by the configuration
+
+type __KONTENT_TYPE_NAME__ implements Node {
+  id: ID!
+  system: __KONTENT_TYPE_SYSTEM_TYPE__!
+  elements: [__KONTENT_TYPE_ELEMENT_TYPE__]
+}
+
+type __KONTENT_TYPE_SYSTEM_TYPE__ {
+  codename: String!
+  id: String!
+  last_modified: Date! @dateformat
+  name: String!
+}
+
+type __KONTENT_TYPE_ELEMENT_TYPE__ {
+  codename: String
+  name: String
+  type: String
+  taxonomy_group: String
+  options: [__KONTENT_TYPE_ELEMENT_OPTIONS_TYPE__]
+}
+
+type __KONTENT_TYPE_ELEMENT_OPTIONS_TYPE__ {
+  name: String
+  codename: String
+}
