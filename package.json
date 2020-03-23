@@ -1,7 +1,7 @@
 {
   "name": "@simply007org/gatsby-kontent-packages",
   "version": "0.2.0",
-  "description": "Monorepo containing Kentico Kontent packages for Gatsbyjs.",
+  "description": "Monorepo containing Kentico Kontent packages for Gatsby.",
   "repository": "https://github.com/Simply007/gatsby-kontent-packages.git",
   "author": {
     "name": "Ondřej Chrastina",
@@ -10,27 +10,16 @@
   },
   "license": "MIT",
   "workspaces": [
-    "packages/gatsby-source-kontent-items",
-    "packages/gatsby-source-kontent-types",
-    "packages/gatsby-source-kontent-taxonomies",
+    "packages/gatsby-source-kontent",
     "site"
   ],
   "scripts": {
     "build:site": "yarn workspace @simply007org/gatsby-starter-kontent-hello-world build",
     "develop:site": "yarn workspace @simply007org/gatsby-starter-kontent-hello-world develop",
-    "watch:items": "yarn workspace @simply007org/gatsby-source-kontent-items watch",
-    "watch:types": "yarn workspace @simply007org/gatsby-source-kontent-types watch",
-    "watch:taxonomies": "yarn workspace @simply007org/gatsby-source-kontent-taxonomies watch",
-    "build:items": "yarn workspace @simply007org/gatsby-source-kontent-items build",
-    "build:types": "yarn workspace @simply007org/gatsby-source-kontent-types build",
-    "build:taxonomies": "yarn workspace @simply007org/gatsby-source-kontent-taxonomies build",
-    "watch:packages": "run-p watch:items watch:types watch:taxonomies",
-    "build:packages": "run-p build:items build:types build:taxonomies",
-    "prepare": "yarn build:packages",
+    "watch:source": "yarn workspace @simply007org/gatsby-source-kontent-simple watch",
+    "build:source": "yarn workspace @simply007org/gatsby-source-kontent-simple build",
+    "prepare": "yarn build:source",
     "test": "yarn workspaces run test"
   },
-  "private": true,
-  "devDependencies": {
-    "npm-run-all": "^4.1.5"
-  }
+  "private": true
 }

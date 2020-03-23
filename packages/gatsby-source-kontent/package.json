@@ -1,6 +1,6 @@
 {
-  "name": "@simply007org/gatsby-source-kontent-items",
-  "description": "Loads Kentico Kontent items data from REST Delivery API",
+  "name": "@simply007org/gatsby-source-kontent-simple",
+  "description": "Source plugin providing Kentico Kontent data from REST Delivery API",
   "version": "0.2.0",
   "author": {
     "name": "Ondřej Chrastina",
