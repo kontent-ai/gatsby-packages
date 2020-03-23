@@ -1,0 +1,11 @@
+{
+  "types": [
+    
+  ],
+  "pagination": {
+    "skip": 0,
+    "limit": 0,
+    "count": 0,
+    "next_page": ""
+  }
+}

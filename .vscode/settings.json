@@ -1,0 +1,10 @@
+{
+  "files.exclude": {
+    "packages/gatsby-source-kontent/**/src/**/*.js": true,
+    "packages/gatsby-source-kontent/**/src/**/*.js.map": true,
+    "packages/gatsby-source-kontent/**/gatsby-node.js": true,
+    "packages/gatsby-source-kontent/**/gatsby-node.js.map": true,
+    "packages/gatsby-source-kontent/**/index.js": true,
+    "packages/gatsby-source-kontent/**/index.js.map": true,
+  }
+}

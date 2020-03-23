@@ -1,0 +1,67 @@
+{
+  "name": "@simply007org/gatsby-source-kontent-simple",
+  "description": "Source plugin providing Kentico Kontent data from REST Delivery API",
+  "version": "0.2.0",
+  "author": {
+    "name": "Ondřej Chrastina",
+    "email": "chrastina.ondra@gmail.com",
+    "url": "https://ondrej.chrastina.tech"
+  },
+  "bugs": {
+    "url": "https://github.com/Simply007/gatsby-kontent-packages/issues"
+  },
+  "scripts": {
+    "build": "tsc",
+    "format": "prettier --write \"*.ts\" \"*.js\"",
+    "lint": "eslint src/**/*.ts",
+    "test": "jest",
+    "watch": "tsc -w",
+    "prepare": "cross-env NODE_ENV=production npm run build",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm run lint",
+    "version": "npm run format && git add -A src"
+  },
+  "dependencies": {
+    "@types/fs-extra": "^8.0.1",
+    "axios": "^0.19.2",
+    "fs-extra": "^8.1.0",
+    "gatsby-plugin-sharp": "^2.3.13",
+    "gatsby-source-filesystem": "^2.1.46",
+    "lodash": "^4.17.15",
+    "retry-axios": "^2.1.2"
+  },
+  "devDependencies": {
+    "@types/jest": "24.9.0",
+    "@types/node": "13.1.8",
+    "@typescript-eslint/eslint-plugin": "2.16.0",
+    "@typescript-eslint/parser": "2.16.0",
+    "cross-env": "6.0.3",
+    "eslint": "6.8.0",
+    "gatsby": "2.18.25",
+    "jest": "^24.9.0",
+    "jest-ts-auto-mock": "^1.0.11",
+    "prettier": "1.19.1",
+    "ts-auto-mock": "^1.5.7",
+    "ts-jest": "^24.3.0",
+    "ttypescript": "^1.5.10",
+    "typescript": "^3.7.5"
+  },
+  "homepage": "https://github.com/Simply007/gatsby-kontent-packages/tree/master/packages/gatsby-source-kontent-items#readme",
+  "keywords": [
+    "gatsby",
+    "gatsby-plugin",
+    "kontent"
+  ],
+  "license": "MIT",
+  "peerDependencies": {
+    "gatsby": "^2.19.28"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Simply007/gatsby-kontent-packages.git"
+  },
+  "main": "index.js",
+  "publishConfig": {
+    "access": "public"
+  }
+}
