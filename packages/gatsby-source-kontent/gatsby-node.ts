@@ -12,14 +12,22 @@ export { kontentItemsCreateSchemaCustomization as createSchemaCustomization, kon
 
 exports.createSchemaCustomization = async (api: CustomCreateSchemaCustomizationArgs, pluginConfig: CustomPluginOptions): Promise<void> => {
   await kontentItemsCreateSchemaCustomization(api, pluginConfig);
-  await kontentTaxonomiesCreateSchemaCustomization(api);
-  await kontentTypesCreateSchemaCustomization(api);
+  if (pluginConfig.includeTaxonomies) {
+    await kontentTaxonomiesCreateSchemaCustomization(api);
+  }
+  if (pluginConfig.includeTypes) {
+    await kontentTypesCreateSchemaCustomization(api);
+  }
 }
 
 exports.sourceNodes = async (api: SourceNodesArgs, pluginConfig: CustomPluginOptions): Promise<void> => {
   await kontentItemsSourceNodes(api, pluginConfig);
-  await kontentTaxonomiesSourceNodes(api, pluginConfig);
-  await kontentTypesSourceNodes(api, pluginConfig);
+  if (pluginConfig.includeTaxonomies) {
+    await kontentTaxonomiesSourceNodes(api, pluginConfig);
+  }
+  if (pluginConfig.includeTypes) {
+    await kontentTypesSourceNodes(api, pluginConfig);
+  }
 }
 
 

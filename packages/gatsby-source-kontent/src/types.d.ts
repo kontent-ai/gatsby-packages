@@ -6,6 +6,8 @@ import { PluginOptions, CreateSchemaCustomizationArgs, NodeInput } from "gatsby"
 interface CustomPluginOptions extends PluginOptions {
   projectId: string;
   languageCodenames: string[];
+  includeTypes: boolean = false;
+  includeTaxonomies: boolean = false;
 }
 
 interface CustomCreateSchemaCustomizationArgs extends CreateSchemaCustomizationArgs {
