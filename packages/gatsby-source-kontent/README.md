@@ -247,7 +247,7 @@ Result
 
 > This usually shows a code example showing how to include this plugin in a site's `config.js` file.
 
-```json
+```jsonc
 {
   "resolve": "@simply007org/gatsby-source-kontent-simple",
   "options": {
@@ -256,8 +256,8 @@ Result
       "default", // Or the languages in your project (Project settings -> Localization),
       "Another_language"
     ],
-    "includeTaxonomies": true,
-    "includeTypes": true
+    "includeTaxonomies": true, // opt-out by default
+    "includeTypes": true // opt-out by default
   }
 }
 ```
