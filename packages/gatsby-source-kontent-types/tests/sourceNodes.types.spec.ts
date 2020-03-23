@@ -1,6 +1,6 @@
 
 
-import { sourceNodes } from '../src/sourceNodes';
+import { kontentTypesSourceNodes } from '../src/sourceNodes.types';
 import { SourceNodesArgs, Actions } from 'gatsby';
 import { CustomPluginOptions, KontentType } from '../src/types';
 import { createMock } from "ts-auto-mock";
@@ -43,7 +43,7 @@ describe('sourceNodes', () => {
     });
 
     it('import all types correctly', async () => {
-      await sourceNodes(api, pluginConfiguration);
+      await kontentTypesSourceNodes(api, pluginConfiguration);
       const createNodesMock = mocked(api.actions.createNode, true);
       const createdNodes = _.flatMap(createNodesMock.mock.calls) as KontentType[];
 

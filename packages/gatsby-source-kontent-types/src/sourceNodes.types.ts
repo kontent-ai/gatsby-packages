@@ -43,5 +43,5 @@ const sourceNodes = async (api: SourceNodesArgs, options: CustomPluginOptions): 
 
 
 export {
-  sourceNodes
+  sourceNodes as kontentTypesSourceNodes
 };

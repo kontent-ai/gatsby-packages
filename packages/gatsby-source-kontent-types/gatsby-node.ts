@@ -1,4 +1,4 @@
-import { createSchemaCustomization } from './src/createSchemaCustomization';
-import { sourceNodes } from './src/sourceNodes';
+import { kontentTypesCreateSchemaCustomization } from './src/createSchemaCustomization.types';
+import { kontentTypesSourceNodes } from './src/sourceNodes.types';
 
-export { createSchemaCustomization, sourceNodes };
+export { kontentTypesCreateSchemaCustomization as createSchemaCustomization, kontentTypesSourceNodes as sourceNodes };
