@@ -1,10 +1,18 @@
 import * as rax from 'retry-axios';
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import { KontentItem, KontentType } from "./types";
 import * as _ from "lodash";
 
 const KontentDeliveryProductionDomain = "https://deliver.kontent.ai";
 const continuationHeaderName = 'x-continuation';
+
+rax.attach();
+
+const logRetryAttempt = (err: AxiosError): void => {
+  const cfg = rax.getConfig(err);
+  console.log(`Error axios request:(url: ${err.response?.config.url}) ${err.message}`)
+  console.log(`Retry attempt #${cfg?.currentRetryAttempt}`);
+}
 
 const loadAllKontentItems = async (projectId: string, language: string): Promise<KontentItem[]> => {
   let continuationToken = "";
@@ -14,15 +22,10 @@ const loadAllKontentItems = async (projectId: string, language: string): Promise
       [continuationHeaderName]: continuationToken
     };
     try {
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const interceptorId = rax.attach();
       const response = await axios.get(`${KontentDeliveryProductionDomain}/${projectId}/items-feed?language=${language}`, {
         headers,
         raxConfig: {
-          onRetryAttempt: err => {
-            const cfg = rax.getConfig(err);
-            console.log(`Retry attempt #${cfg?.currentRetryAttempt}`);
-          }
+          onRetryAttempt: logRetryAttempt
         }
       });
 
@@ -42,7 +45,11 @@ const loadAllKontentItems = async (projectId: string, language: string): Promise
 }
 
 const loadAllKontentTypes = async (projectId: string): Promise<KontentType[]> => {
-  const response = await axios.get(`${KontentDeliveryProductionDomain}/${projectId}/types`);
+  const response = await axios.get(`${KontentDeliveryProductionDomain}/${projectId}/types`, {
+    raxConfig: {
+      onRetryAttempt: logRetryAttempt
+    }
+  });
   return response.data.types;
 }
 
