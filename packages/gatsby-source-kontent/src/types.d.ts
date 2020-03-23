@@ -70,3 +70,19 @@ interface KontentType {
     };
   };
 }
+
+interface KontentTaxonomy extends NodeInput {
+  system: {
+    id: string;
+    name: string;
+    codename: string;
+    last_modified: date;
+  };
+  terms: KontentTaxonomyTerm[];
+}
+
+interface KontentTaxonomyTerm {
+  name: string;
+  codename: string;
+  terms: KontentTaxonomyTerm[];
+}

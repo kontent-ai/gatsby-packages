@@ -1,6 +1,6 @@
 import * as rax from 'retry-axios';
 import axios, { AxiosError } from "axios";
-import { KontentItem, KontentType } from "./types";
+import { KontentItem, KontentType, KontentTaxonomy } from "./types";
 import * as _ from "lodash";
 
 const KontentDeliveryProductionDomain = "https://deliver.kontent.ai";
@@ -53,7 +53,17 @@ const loadAllKontentTypes = async (projectId: string): Promise<KontentType[]> =>
   return response.data.types;
 }
 
+const loadAllKontentTaxonomies = async (projectId: string): Promise<KontentTaxonomy[]> => {
+  const response = await axios.get(`${KontentDeliveryProductionDomain}/${projectId}/taxonomies`, {
+    raxConfig: {
+      onRetryAttempt: logRetryAttempt
+    }
+  });
+  return response.data.taxonomies;
+}
+
 export {
   loadAllKontentItems,
   loadAllKontentTypes,
+  loadAllKontentTaxonomies
 }

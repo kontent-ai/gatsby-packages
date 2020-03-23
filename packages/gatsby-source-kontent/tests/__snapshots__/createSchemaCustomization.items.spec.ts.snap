@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`createSchemaCustomization create fixed type definition 1`] = `
+exports[`kontentItemsCreateSchemaCustomization create fixed type definition 1`] = `
 "# All __UPPER_CASE__  wildcards will be replaced by the configuration
 
 interface kontent_item @nodeInterface {

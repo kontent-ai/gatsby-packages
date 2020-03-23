@@ -8,8 +8,9 @@ jest.mock('axios');
 const mockedAxios = axios as jest.Mocked<typeof axios>;
 // TODO fix lint error https://github.com/microsoft/TypeScript/issues/25400
 import fakeEmptyItemsResponse from './fakeEmptyItemsResponse.json';
+import fakeEmptyTypesResponse from './fakeEmptyTypesResponse.json';
 
-describe("createSchemaCustomization", () =>{
+describe("kontentItemsCreateSchemaCustomization", () => {
   it("create fixed type definition", () => {
 
     const api = createMock<CustomCreateSchemaCustomizationArgs>({
@@ -26,17 +27,16 @@ describe("createSchemaCustomization", () =>{
     });
 
     mockedAxios.get.mockImplementation((url) => {
-      if (url.includes(pluginConfiguration.projectId) && url.includes(pluginConfiguration.languageCodenames[0])) {
+      if (url.endsWith("/types")) {
         return Promise.resolve({
-          data: fakeEmptyItemsResponse,
+          data: fakeEmptyTypesResponse,
           headers: []
         })
-      } else {
-        throw new Error('Language should be defined in the language parameter');
+      }
+      else {
+        throw new Error('Just `/types` endpoint should be called for schema definition.');
       }
     });
-
-
 
     kontentItemsCreateSchemaCustomization(api, pluginConfiguration);
     const createTypesMock = mocked(api.actions.createTypes, true);

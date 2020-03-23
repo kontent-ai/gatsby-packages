@@ -7,8 +7,8 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Test - Source Items",
-      "cwd": "${workspaceFolder}/packages/gatsby-source-kontent-items",
+      "name": "Test - Source plugin",
+      "cwd": "${workspaceFolder}/packages/gatsby-source-kontent",
       "program": "${workspaceFolder}/node_modules/.bin/jest",
       "args": [
         "--runInBand"
