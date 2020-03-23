@@ -1,6 +1,6 @@
 
 
-import { sourceNodes } from '../src/sourceNodes';
+import { kontentItemsSourceNodes } from '../src/sourceNodes.items';
 import { SourceNodesArgs, Actions } from 'gatsby';
 import { CustomPluginOptions, KontentItem } from '../src/types';
 import { createMock } from "ts-auto-mock";
@@ -15,7 +15,7 @@ import * as _ from 'lodash';
 jest.mock('axios');
 const mockedAxios = axios as jest.Mocked<typeof axios>;
 
-describe('sourceNodes', () => {
+describe('kontentItemsSourceNodes', () => {
 
   describe('complex multilingual data section', () => {
 
@@ -50,7 +50,7 @@ describe('sourceNodes', () => {
     });
 
     it('resolve all element types in two languages', async () => {
-      await sourceNodes(api, pluginConfiguration);
+      await kontentItemsSourceNodes(api, pluginConfiguration);
       const createNodesMock = mocked(api.actions.createNode, true);
       const createdNodes = _.flatMap(createNodesMock.mock.calls) as KontentItem[];
 

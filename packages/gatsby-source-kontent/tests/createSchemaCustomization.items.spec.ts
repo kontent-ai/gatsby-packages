@@ -1,5 +1,5 @@
 import { CustomCreateSchemaCustomizationArgs, CustomPluginOptions } from "../src/types";
-import { createSchemaCustomization } from "../src/createSchemaCustomization";
+import { kontentItemsCreateSchemaCustomization } from "../src/createSchemaCustomization.items";
 import { createMock } from "ts-auto-mock";
 import { Actions } from "gatsby";
 import { mocked } from "ts-jest/dist/util/testing";
@@ -38,7 +38,7 @@ describe("createSchemaCustomization", () =>{
 
 
 
-    createSchemaCustomization(api, pluginConfiguration);
+    kontentItemsCreateSchemaCustomization(api, pluginConfiguration);
     const createTypesMock = mocked(api.actions.createTypes, true);
     expect(createTypesMock).toBeCalled();
     // Fix schema

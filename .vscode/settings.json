@@ -1,0 +1,10 @@
+{
+  "files.exclude": {
+    "**/src/**/*.js": true,
+    "**/src/**/*.js.map": true,
+    "**/gatsby-node.js": true,
+    "**/gatsby-node.js.map": true,
+    "**/index.js": true,
+    "**/index.js.map": true,
+  }
+}

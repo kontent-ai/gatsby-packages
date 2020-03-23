@@ -98,6 +98,6 @@ const createSchemaCustomization = async (api: CustomCreateSchemaCustomizationArg
 };
 
 export {
-  createSchemaCustomization
+  createSchemaCustomization as kontentItemsCreateSchemaCustomization
 }
 

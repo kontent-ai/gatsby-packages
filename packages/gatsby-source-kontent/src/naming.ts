@@ -8,40 +8,41 @@ const ELEMENT_IDENTIFIER = "element";
 const VALUE_IDENTIFIER = "value";
 const MULTI_ELEMENT_IDENTIFIER = `${ELEMENT_IDENTIFIER}s`;
 const LANGUAGE_LINK_EXTENSION_IDENTIFIER = 'language_link';
+const ITEM_IDENTIFIER = "item";
 
 const defaultPluginNamingConfiguration: PluginNamingConfiguration = {
-  prefix: `kontent${CONNECTOR}item`,
+  prefix: `kontent`,
 };
 
 /**
- * Retrieve ID string Gatsby CreateNodeId method for specified Kontent item language variant.
+ * Retrieve ID string for Gatsby's CreateNodeId method for specified Kontent item language variant.
  * @param codename Codename because modular content is using them for linking items
  * @param preferredLanguage Preferred language of the language variant.
  * @param config Optional parameter with extra configuration.
  */
 const getKontentItemNodeStringForId = (codename: string, preferredLanguage: string, config: PluginNamingConfiguration = defaultPluginNamingConfiguration): string =>
-  `${config.prefix}${CONNECTOR}${preferredLanguage}${CONNECTOR}${codename}`;
+  `${config.prefix}${CONNECTOR}${ITEM_IDENTIFIER}${CONNECTOR}${preferredLanguage}${CONNECTOR}${codename}`;
 
 const getKontentItemNodeTypeName = (type: string, config: PluginNamingConfiguration = defaultPluginNamingConfiguration): string =>
-  `${config.prefix}${CONNECTOR}${type}`
+  `${config.prefix}${CONNECTOR}${ITEM_IDENTIFIER}${CONNECTOR}${type}`
 
 const getKontentItemInterfaceName = (config: PluginNamingConfiguration = defaultPluginNamingConfiguration): string =>
-  `${config.prefix}`;
+  `${config.prefix}${CONNECTOR}${ITEM_IDENTIFIER}`;
 
 const getKontentItemSystemElementTypeName = (config: PluginNamingConfiguration = defaultPluginNamingConfiguration): string =>
-  `${config.prefix}${CONNECTOR}${SYSTEM_IDENTIFIER}`;
+  `${config.prefix}${CONNECTOR}${ITEM_IDENTIFIER}${CONNECTOR}${SYSTEM_IDENTIFIER}`;
 
 const getKontentItemElementTypeNameByType = (type: string, config: PluginNamingConfiguration = defaultPluginNamingConfiguration): string =>
-  `${config.prefix}${CONNECTOR}${type}${CONNECTOR}${ELEMENT_IDENTIFIER}${CONNECTOR}${VALUE_IDENTIFIER}`;
+  `${config.prefix}${CONNECTOR}${ITEM_IDENTIFIER}${CONNECTOR}${type}${CONNECTOR}${ELEMENT_IDENTIFIER}${CONNECTOR}${VALUE_IDENTIFIER}`;
 
 const getKontentItemElementValueTypeNameByType = (type: string, config: PluginNamingConfiguration = defaultPluginNamingConfiguration): string =>
-  `${config.prefix}${CONNECTOR}${type}${CONNECTOR}${ELEMENT_IDENTIFIER}`;
+  `${config.prefix}${CONNECTOR}${ITEM_IDENTIFIER}${CONNECTOR}${type}${CONNECTOR}${ELEMENT_IDENTIFIER}`;
 
 const getKontentItemElementsSchemaTypeName = (type: string, config: PluginNamingConfiguration = defaultPluginNamingConfiguration): string =>
-  `${config.prefix}${CONNECTOR}${type}${CONNECTOR}${MULTI_ELEMENT_IDENTIFIER}`;
+  `${config.prefix}${CONNECTOR}${ITEM_IDENTIFIER}${CONNECTOR}${type}${CONNECTOR}${MULTI_ELEMENT_IDENTIFIER}`;
 
 const getKontentItemLanguageLinkExtensionName = (config: PluginNamingConfiguration = defaultPluginNamingConfiguration): string =>
-  `${config.prefix}${CONNECTOR}${LANGUAGE_LINK_EXTENSION_IDENTIFIER}`;
+  `${config.prefix}${CONNECTOR}${ITEM_IDENTIFIER}${CONNECTOR}${LANGUAGE_LINK_EXTENSION_IDENTIFIER}`;
 
 const getSchemaNamingConfiguration = (config: PluginNamingConfiguration = defaultPluginNamingConfiguration): string => {
   const template = fs.readFileSync(path.join(__dirname, "template.schema.gql"), "utf8");
