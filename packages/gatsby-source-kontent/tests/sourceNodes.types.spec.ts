@@ -4,7 +4,6 @@ import { CustomPluginOptions, KontentType } from '../src/types';
 import { createMock } from 'ts-auto-mock';
 
 // TODO fix lint error
-// TODO change data format fo items feed
 import * as complexTypesFakeResponse from './complexTypesFakeResponse.json';
 
 import { mocked } from 'ts-jest/dist/util/testing';

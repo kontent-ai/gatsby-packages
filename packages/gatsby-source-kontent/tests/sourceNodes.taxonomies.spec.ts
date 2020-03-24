@@ -4,7 +4,6 @@ import { CustomPluginOptions, KontentTaxonomy } from '../src/types';
 import { createMock } from 'ts-auto-mock';
 
 // TODO fix lint error
-// TODO change data format fo items feed
 import * as complexTaxonomiesFakeResponse from './complexTaxonomiesFakeResponse.json';
 
 import { mocked } from 'ts-jest/dist/util/testing';

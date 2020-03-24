@@ -1,3 +1,4 @@
 import React from "react"
+import { RichTextElement } from "@simply007org/gatsby-kontent-components"
 
-export default () => <div>Hello Kontent!</div>
+export default () => <RichTextElement value="<div>Hello Kontent!</div>" />
