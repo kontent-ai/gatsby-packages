@@ -15,7 +15,9 @@ module.exports = {
           'cs-CZ'
         ],
         includeTaxonomies: true,
-        includeTypes: true
+        includeTypes: true,
+        usePreviewUrl: true,
+        authorizationKey: "ew0KICAiYWxnIjogIkhTMjU2IiwNCiAgInR5cCI6ICJKV1QiDQp9.ew0KICAianRpIjogImRiN2I0NDg2OTgyZDQ5NTNhZTRjNjJhMDI2NTk4ZTMyIiwNCiAgImlhdCI6ICIxNTg0OTYwNzk1IiwNCiAgImV4cCI6ICIxOTMwNTYwNzk1IiwNCiAgInByb2plY3RfaWQiOiAiMDA2NzZhOGQzNThjMDA4NGYyZjIzM2VkNDY2YzQ4MGEiLA0KICAidmVyIjogIjEuMC4wIiwNCiAgImF1ZCI6ICJwcmV2aWV3LmRlbGl2ZXIua2VudGljb2Nsb3VkLmNvbSINCn0.NgIclgT6K-v_KN9XMtzdBnEevuMlucO9_OBAaQuvKXg"
       },
     }
   ]

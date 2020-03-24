@@ -1,12 +1,17 @@
 import * as rax from 'retry-axios';
 import axios, { AxiosError } from "axios";
-import { KontentItem, KontentType, KontentTaxonomy } from "./types";
+import { KontentItem, KontentType, KontentTaxonomy, CustomPluginOptions } from "./types";
 import * as _ from "lodash";
 
 const KontentDeliveryProductionDomain = "https://deliver.kontent.ai";
+const KontentDeliveryPreviewDomain = "https://preview-deliver.kontent.ai";
 const continuationHeaderName = 'x-continuation';
+const authorizationHeaderName = 'authorization';
 
 rax.attach();
+
+const getDomain = (options: CustomPluginOptions): string =>
+  options.usePreviewUrl ? KontentDeliveryPreviewDomain : KontentDeliveryProductionDomain
 
 const logRetryAttempt = (err: AxiosError): void => {
   const cfg = rax.getConfig(err);
@@ -14,15 +19,36 @@ const logRetryAttempt = (err: AxiosError): void => {
   console.log(`Retry attempt #${cfg?.currentRetryAttempt}`);
 }
 
-const loadAllKontentItems = async (projectId: string, language: string): Promise<KontentItem[]> => {
+interface KontentHttpHeaders {
+  [continuationHeaderName]?: string;
+  [authorizationHeaderName]?: string;
+}
+
+const ensureAuthorizationHeader = (config: CustomPluginOptions, headers?: KontentHttpHeaders | undefined): KontentHttpHeaders => {
+  if (!config.authorizationKey) {
+    return headers || {};
+  }
+
+  if (headers) {
+    headers.authorization = `Bearer ${config.authorizationKey}`
+    return headers;
+  } else {
+    return {
+      authorization: `Bearer ${config.authorizationKey}`
+    };
+  }
+}
+
+const loadAllKontentItems = async (config: CustomPluginOptions, language: string): Promise<KontentItem[]> => {
   let continuationToken = "";
   const items = [];
   do {
-    const headers = {
-      [continuationHeaderName]: continuationToken
-    };
+
+    const headers = ensureAuthorizationHeader(config);
+    headers[continuationHeaderName] = continuationToken;
+
     try {
-      const response = await axios.get(`${KontentDeliveryProductionDomain}/${projectId}/items-feed?language=${language}`, {
+      const response = await axios.get(`${getDomain(config)}/${config.projectId}/items-feed?language=${language}`, {
         headers,
         raxConfig: {
           onRetryAttempt: logRetryAttempt
@@ -36,16 +62,16 @@ const loadAllKontentItems = async (projectId: string, language: string): Promise
       items.push(...union);
       continuationToken = response.headers[continuationHeaderName];
     } catch (error) {
-      console.error(`Items load for project ${projectId} on language ${language} failed with error: ${JSON.stringify(error)}`);
+      console.error(`Items load for project ${config.projectId} on language ${language} failed with error: ${JSON.stringify(error)}`);
     }
-
-
   } while (continuationToken);
+
   return items;
 }
 
-const loadAllKontentTypes = async (projectId: string): Promise<KontentType[]> => {
-  const response = await axios.get(`${KontentDeliveryProductionDomain}/${projectId}/types`, {
+const loadAllKontentTypes = async (config: CustomPluginOptions): Promise<KontentType[]> => {
+  const response = await axios.get(`${getDomain(config)}/${config.projectId}/types`, {
+    headers: ensureAuthorizationHeader(config),
     raxConfig: {
       onRetryAttempt: logRetryAttempt
     }
@@ -53,8 +79,9 @@ const loadAllKontentTypes = async (projectId: string): Promise<KontentType[]> =>
   return response.data.types;
 }
 
-const loadAllKontentTaxonomies = async (projectId: string): Promise<KontentTaxonomy[]> => {
-  const response = await axios.get(`${KontentDeliveryProductionDomain}/${projectId}/taxonomies`, {
+const loadAllKontentTaxonomies = async (config: CustomPluginOptions): Promise<KontentTaxonomy[]> => {
+  const response = await axios.get(`${getDomain(config)}/${config.projectId}/taxonomies`, {
+    headers: ensureAuthorizationHeader(config),
     raxConfig: {
       onRetryAttempt: logRetryAttempt
     }
