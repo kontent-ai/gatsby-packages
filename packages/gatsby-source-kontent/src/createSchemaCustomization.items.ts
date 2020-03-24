@@ -24,26 +24,35 @@ const getLanguageLinkExtension = (
   name: getKontentItemLanguageLinkExtensionName(),
   extend: (): object => ({
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    resolve(source: any, _args: any, context: any): Promise<KontentItem[]> {
+    async resolve(source: any, _args: any, context: any): Promise<KontentItem[]> {
       const kontentItemNode = context.nodeModel.findRootNodeAncestor(source);
-      const nodesCodeNames = source.value as string[];
+      const nodesCodeNames = source.type === "modular_content" ? source.value as string[] : source.modular_content as string[];
       const nodesLanguage = kontentItemNode.preferred_language;
-      const nodeIds = nodesCodeNames.map(codename => {
-        // the method is the same as used on sourceNodes for getting id string input
-        const stringForId = getKontentItemNodeStringForId(
-          codename,
-          nodesLanguage,
-        );
-        // But this method automatically creates namespaced
-        // now it is fine - because we are still in the same source plugin
-        // but this approach could not be used outside (in the website/other plugin)
-        return api.createNodeId(stringForId);
-      });
-      const linkedItems = context.nodeModel.getNodesByIds({
-        ids: nodeIds,
-        type: getKontentItemInterfaceName(),
-      });
-      return linkedItems;
+
+
+
+      const promises = nodesCodeNames.map(codename =>
+        context.nodeModel
+          .runQuery({
+            query: {
+              filter: {
+                system: {
+                  codename: {
+                    eq: codename
+                  },
+                },
+                ["preferred_language"]: {
+                  eq: nodesLanguage
+                }
+              },
+            },
+            type: getKontentItemInterfaceName(),
+            firstOnly: true,
+          })
+      );
+
+      const nodes = await Promise.all(promises)
+      return nodes;
     },
   }),
 });
