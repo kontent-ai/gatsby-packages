@@ -1,7 +1,7 @@
 {
   "name": "@simply007org/gatsby-source-kontent-simple",
   "description": "Source plugin providing Kentico Kontent data from REST Delivery API",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "author": {
     "name": "Ondřej Chrastina",
     "email": "chrastina.ondra@gmail.com",
@@ -12,7 +12,7 @@
   },
   "scripts": {
     "build": "tsc",
-    "format": "prettier --write \"*.ts\" \"*.js\"",
+    "format": "prettier --write \"**/*.ts\" \"**/*.js\"",
     "lint": "eslint src/**/*.ts",
     "test": "jest",
     "watch": "tsc -w",

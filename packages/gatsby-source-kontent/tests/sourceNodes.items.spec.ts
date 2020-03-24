@@ -1,9 +1,7 @@
-
-
 import { kontentItemsSourceNodes } from '../src/sourceNodes.items';
 import { SourceNodesArgs, Actions } from 'gatsby';
 import { CustomPluginOptions, KontentItem } from '../src/types';
-import { createMock } from "ts-auto-mock";
+import { createMock } from 'ts-auto-mock';
 
 // TODO fix lint error https://github.com/microsoft/TypeScript/issues/25400
 import complexContentItemsFirstLanguageFakeReponse from './complexContentItemsFirstLanguageFakeReponse.json';
@@ -16,14 +14,12 @@ jest.mock('axios');
 const mockedAxios = axios as jest.Mocked<typeof axios>;
 
 describe('kontentItemsSourceNodes', () => {
-
   describe('complex multilingual data section', () => {
-
     const api = createMock<SourceNodesArgs>({
-      createNodeId: jest.fn((input) => `dummyId-${input}`),
+      createNodeId: jest.fn(input => `dummyId-${input}`),
       actions: createMock<Actions>({
-        createNode: jest.fn()
-      })
+        createNode: jest.fn(),
+      }),
     });
 
     const pluginConfiguration = createMock<CustomPluginOptions>({
@@ -31,35 +27,38 @@ describe('kontentItemsSourceNodes', () => {
       languageCodenames: ['default', 'Another_language'],
     });
 
-
-    mockedAxios.get.mockImplementation((url) => {
+    mockedAxios.get.mockImplementation(url => {
       if (url.includes('default')) {
         return Promise.resolve({
           data: complexContentItemsFirstLanguageFakeReponse,
-          headers: []
-        })
+          headers: [],
+        });
       } else if (url.includes('')) {
         return Promise.resolve({
           data: complexContentItemsSecondLanguageFakeReponse,
-          headers: []
-        })
+          headers: [],
+        });
       } else {
         throw new Error('Language should be defined in the language parameter');
       }
-
     });
 
     it('resolve all element types in two languages', async () => {
       await kontentItemsSourceNodes(api, pluginConfiguration);
       const createNodesMock = mocked(api.actions.createNode, true);
-      const createdNodes = _.flatMap(createNodesMock.mock.calls) as KontentItem[];
+      const createdNodes = _.flatMap(
+        createNodesMock.mock.calls,
+      ) as KontentItem[];
 
-      const defaultLanguageNodes = createdNodes
-        .filter(node => node.preferred_language === "default")
-      const anotherLanguageNodes = createdNodes
-        .filter(node => node.preferred_language === "Another_language")
-      const languageFallbackNodes = createdNodes
-        .filter(node => node.preferred_language !== node.system.language)
+      const defaultLanguageNodes = createdNodes.filter(
+        node => node.preferred_language === 'default',
+      );
+      const anotherLanguageNodes = createdNodes.filter(
+        node => node.preferred_language === 'Another_language',
+      );
+      const languageFallbackNodes = createdNodes.filter(
+        node => node.preferred_language !== node.system.language,
+      );
 
       const nodesByType: {
         person: KontentItem[];
@@ -69,14 +68,15 @@ describe('kontentItemsSourceNodes', () => {
         training: KontentItem[];
         website: KontentItem[];
       } = {
-        person: createdNodes.filter(node => node.system.type === "person"),
-        repository: createdNodes.filter(node => node.system.type === "repository"),
-        session: createdNodes.filter(node => node.system.type === "session"),
-        step: createdNodes.filter(node => node.system.type === "step"),
-        training: createdNodes.filter(node => node.system.type === "training"),
-        website: createdNodes.filter(node => node.system.type === "website")
+        person: createdNodes.filter(node => node.system.type === 'person'),
+        repository: createdNodes.filter(
+          node => node.system.type === 'repository',
+        ),
+        session: createdNodes.filter(node => node.system.type === 'session'),
+        step: createdNodes.filter(node => node.system.type === 'step'),
+        training: createdNodes.filter(node => node.system.type === 'training'),
+        website: createdNodes.filter(node => node.system.type === 'website'),
       };
-
 
       expect(createdNodes.length).toBe(35);
       expect(defaultLanguageNodes.length).toBe(17);

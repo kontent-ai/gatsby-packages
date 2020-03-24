@@ -1,11 +1,19 @@
-import { SourceNodesArgs } from "gatsby";
-import { CustomPluginOptions, KontentTaxonomy } from "./types";
-import { getKontentTaxonomyTypeName, getKontentTaxonomyNodeStringForCodeName } from "./naming";
-import { loadAllKontentTaxonomies } from "./client";
+import { SourceNodesArgs } from 'gatsby';
+import { CustomPluginOptions, KontentTaxonomy } from './types';
+import {
+  getKontentTaxonomyTypeName,
+  getKontentTaxonomyNodeStringForCodeName,
+} from './naming';
+import { loadAllKontentTaxonomies } from './client';
 
-const getKontentTypeArtifact = (api: SourceNodesArgs, kontentTaxonomy: KontentTaxonomy): KontentTaxonomy => {
-  const nodeIdString = getKontentTaxonomyNodeStringForCodeName(kontentTaxonomy.system.codename);
-  const nodeContent = JSON.stringify(kontentTaxonomy)
+const getKontentTypeArtifact = (
+  api: SourceNodesArgs,
+  kontentTaxonomy: KontentTaxonomy,
+): KontentTaxonomy => {
+  const nodeIdString = getKontentTaxonomyNodeStringForCodeName(
+    kontentTaxonomy.system.codename,
+  );
+  const nodeContent = JSON.stringify(kontentTaxonomy);
   const nodeData: KontentTaxonomy = {
     ...kontentTaxonomy,
     id: api.createNodeId(nodeIdString),
@@ -19,7 +27,10 @@ const getKontentTypeArtifact = (api: SourceNodesArgs, kontentTaxonomy: KontentTa
   return nodeData;
 };
 
-const sourceNodes = async (api: SourceNodesArgs, options: CustomPluginOptions): Promise<void> => {
+const sourceNodes = async (
+  api: SourceNodesArgs,
+  options: CustomPluginOptions,
+): Promise<void> => {
   const kontentTaxonomies = await loadAllKontentTaxonomies(options);
   for (const kontentTaxonomy of kontentTaxonomies) {
     const nodeData = getKontentTypeArtifact(api, kontentTaxonomy);
@@ -27,7 +38,4 @@ const sourceNodes = async (api: SourceNodesArgs, options: CustomPluginOptions): 
   }
 };
 
-
-export {
-  sourceNodes as kontentTaxonomiesSourceNodes
-};
+export { sourceNodes as kontentTaxonomiesSourceNodes };

@@ -1,9 +1,7 @@
-
-
 import { kontentTaxonomiesSourceNodes } from '../src/sourceNodes.taxonomies';
 import { SourceNodesArgs, Actions } from 'gatsby';
 import { CustomPluginOptions, KontentTaxonomy } from '../src/types';
-import { createMock } from "ts-auto-mock";
+import { createMock } from 'ts-auto-mock';
 
 // TODO fix lint error
 // TODO change data format fo items feed
@@ -16,27 +14,24 @@ jest.mock('axios');
 const mockedAxios = axios as jest.Mocked<typeof axios>;
 
 describe('sourceNodes', () => {
-
   describe('complex taxonomies', () => {
-
     const api = createMock<SourceNodesArgs>({
-      createNodeId: jest.fn((input) => `dummyId-${input}`),
+      createNodeId: jest.fn(input => `dummyId-${input}`),
       actions: createMock<Actions>({
-        createNode: jest.fn()
-      })
+        createNode: jest.fn(),
+      }),
     });
 
     const pluginConfiguration = createMock<CustomPluginOptions>({
       projectId: 'dummyProject',
     });
 
-
-    mockedAxios.get.mockImplementation((url) => {
+    mockedAxios.get.mockImplementation(url => {
       if (url.includes('taxonomies')) {
         return Promise.resolve({
           data: complexTaxonomiesFakeResponse,
-          headers: []
-        })
+          headers: [],
+        });
       } else {
         throw new Error('Language should be defined in the language parameter');
       }
@@ -45,7 +40,9 @@ describe('sourceNodes', () => {
     it('import all taxonomies correctly', async () => {
       await kontentTaxonomiesSourceNodes(api, pluginConfiguration);
       const createNodesMock = mocked(api.actions.createNode, true);
-      const createdNodes = _.flatMap(createNodesMock.mock.calls) as KontentTaxonomy[];
+      const createdNodes = _.flatMap(
+        createNodesMock.mock.calls,
+      ) as KontentTaxonomy[];
       expect(createdNodes.length).toBe(5);
     });
   });

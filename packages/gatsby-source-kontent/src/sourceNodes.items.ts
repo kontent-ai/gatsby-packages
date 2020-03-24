@@ -1,37 +1,60 @@
-import { SourceNodesArgs } from "gatsby";
-import { CustomPluginOptions, KontentItem, KontentItemElement, RichTextElementLink, RichTextElementImage } from "./types";
-import { loadAllKontentItems } from "./client";
-import { getKontentItemNodeStringForId, getKontentItemNodeTypeName } from "./naming";
+import { SourceNodesArgs } from 'gatsby';
+import {
+  CustomPluginOptions,
+  KontentItem,
+  KontentItemElement,
+  RichTextElementLink,
+  RichTextElementImage,
+} from './types';
+import { loadAllKontentItems } from './client';
+import {
+  getKontentItemNodeStringForId,
+  getKontentItemNodeTypeName,
+} from './naming';
 
-const addPreferredLanguageProperty = (items: Array<KontentItem>, language: string): Array<KontentItem> => {
+const addPreferredLanguageProperty = (
+  items: Array<KontentItem>,
+  language: string,
+): Array<KontentItem> => {
   for (const item of items) {
-    item["preferred_language"] = language;
+    item['preferred_language'] = language;
   }
   return items;
-}
+};
 
 const alterRichTextElements = (items: Array<KontentItem>): void => {
   const richTextElements = items
     .flatMap(i => Object.values(i.elements))
-    .filter((element: KontentItemElement) => element.type === "rich_text");
+    .filter((element: KontentItemElement) => element.type === 'rich_text');
 
   for (const element of richTextElements as KontentItemElement[]) {
-    (element.links as RichTextElementLink[]) = Object.keys(element.links).map((key: string) => {
-      (element.links as { [key: string]: RichTextElementLink })[key]["link_id"] = key;
-      return (element.links as { [key: string]: RichTextElementLink })[key];
-    });
+    (element.links as RichTextElementLink[]) = Object.keys(element.links).map(
+      (key: string) => {
+        (element.links as { [key: string]: RichTextElementLink })[key][
+          'link_id'
+        ] = key;
+        return (element.links as { [key: string]: RichTextElementLink })[key];
+      },
+    );
 
-    (element.images as RichTextElementImage[]) = Object.keys(element.images).map(key => {
+    (element.images as RichTextElementImage[]) = Object.keys(
+      element.images,
+    ).map(key => {
       // key is stored in image_id
       return (element.images as { [key: string]: RichTextElementImage })[key];
     });
   }
-}
+};
 
-
-const getKontentItemLanguageVariantArtifact = (api: SourceNodesArgs, kontentItem: KontentItem): KontentItem => {
-  const nodeIdString = getKontentItemNodeStringForId(kontentItem.system.codename, kontentItem.preferred_language);
-  const nodeContent = JSON.stringify(kontentItem)
+const getKontentItemLanguageVariantArtifact = (
+  api: SourceNodesArgs,
+  kontentItem: KontentItem,
+): KontentItem => {
+  const nodeIdString = getKontentItemNodeStringForId(
+    kontentItem.system.codename,
+    kontentItem.preferred_language,
+  );
+  const nodeContent = JSON.stringify(kontentItem);
   const nodeData: KontentItem = {
     ...kontentItem,
     id: api.createNodeId(nodeIdString),
@@ -45,8 +68,10 @@ const getKontentItemLanguageVariantArtifact = (api: SourceNodesArgs, kontentItem
   return nodeData;
 };
 
-
-const sourceNodes = async (api: SourceNodesArgs, options: CustomPluginOptions): Promise<void> => {
+const sourceNodes = async (
+  api: SourceNodesArgs,
+  options: CustomPluginOptions,
+): Promise<void> => {
   for (const language of options.languageCodenames) {
     const kontentItems = await loadAllKontentItems(options, language);
     addPreferredLanguageProperty(kontentItems, language);
@@ -58,7 +83,4 @@ const sourceNodes = async (api: SourceNodesArgs, options: CustomPluginOptions): 
   }
 };
 
-
-export {
-  sourceNodes as kontentItemsSourceNodes
-};
+export { sourceNodes as kontentItemsSourceNodes };

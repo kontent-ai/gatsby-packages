@@ -1,9 +1,7 @@
-
-
 import { kontentTypesSourceNodes } from '../src/sourceNodes.types';
 import { SourceNodesArgs, Actions } from 'gatsby';
 import { CustomPluginOptions, KontentType } from '../src/types';
-import { createMock } from "ts-auto-mock";
+import { createMock } from 'ts-auto-mock';
 
 // TODO fix lint error
 // TODO change data format fo items feed
@@ -16,27 +14,24 @@ jest.mock('axios');
 const mockedAxios = axios as jest.Mocked<typeof axios>;
 
 describe('sourceNodes', () => {
-
   describe('complex types', () => {
-
     const api = createMock<SourceNodesArgs>({
-      createNodeId: jest.fn((input) => `dummyId-${input}`),
+      createNodeId: jest.fn(input => `dummyId-${input}`),
       actions: createMock<Actions>({
-        createNode: jest.fn()
-      })
+        createNode: jest.fn(),
+      }),
     });
 
     const pluginConfiguration = createMock<CustomPluginOptions>({
       projectId: 'dummyProject',
     });
 
-
-    mockedAxios.get.mockImplementation((url) => {
+    mockedAxios.get.mockImplementation(url => {
       if (url.includes('types')) {
         return Promise.resolve({
           data: complexTypesFakeResponse,
-          headers: []
-        })
+          headers: [],
+        });
       } else {
         throw new Error('Language should be defined in the language parameter');
       }
@@ -45,7 +40,9 @@ describe('sourceNodes', () => {
     it('import all types correctly', async () => {
       await kontentTypesSourceNodes(api, pluginConfiguration);
       const createNodesMock = mocked(api.actions.createNode, true);
-      const createdNodes = _.flatMap(createNodesMock.mock.calls) as KontentType[];
+      const createdNodes = _.flatMap(
+        createNodesMock.mock.calls,
+      ) as KontentType[];
 
       expect(createdNodes.length).toBe(6);
     });

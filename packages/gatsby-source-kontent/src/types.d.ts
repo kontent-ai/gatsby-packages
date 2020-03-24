@@ -1,4 +1,8 @@
-import { PluginOptions, CreateSchemaCustomizationArgs, NodeInput } from "gatsby";
+import {
+  PluginOptions,
+  CreateSchemaCustomizationArgs,
+  NodeInput,
+} from 'gatsby';
 
 /**
  * The plugin options.
@@ -12,7 +16,8 @@ interface CustomPluginOptions extends PluginOptions {
   usePreviewUrl: boolean = false;
 }
 
-interface CustomCreateSchemaCustomizationArgs extends CreateSchemaCustomizationArgs {
+interface CustomCreateSchemaCustomizationArgs
+  extends CreateSchemaCustomizationArgs {
   schema: {
     buildObjectType: Function;
   };
@@ -75,12 +80,10 @@ interface KontentTaxonomyTerm {
   terms: KontentTaxonomyTerm[];
 }
 
-
 interface KontentTypeElementOption {
   name: string;
   codename: string;
 }
-
 
 interface KontentTypeElementsObject {
   [key: string]: KontentTypeElementArrayItem;

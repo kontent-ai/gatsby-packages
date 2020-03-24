@@ -1,5 +1,11 @@
-import { CustomPluginOptions, CustomCreateSchemaCustomizationArgs, KontentItem, KontentType, KontentTypeElementsObject } from "./types";
-import { loadAllKontentTypes } from "./client";
+import {
+  CustomPluginOptions,
+  CustomCreateSchemaCustomizationArgs,
+  KontentItem,
+  KontentType,
+  KontentTypeElementsObject,
+} from './types';
+import { loadAllKontentTypes } from './client';
 
 import {
   getKontentItemElementsSchemaTypeName,
@@ -9,11 +15,12 @@ import {
   getKontentItemInterfaceName,
   getKontentItemElementTypeNameByType,
   getKontentItemNodeStringForId,
-  getKontentItemLanguageLinkExtensionName
-} from "./naming";
+  getKontentItemLanguageLinkExtensionName,
+} from './naming';
 
-
-const getLanguageLinkExtension = (api: CustomCreateSchemaCustomizationArgs): object => ({
+const getLanguageLinkExtension = (
+  api: CustomCreateSchemaCustomizationArgs,
+): object => ({
   name: getKontentItemLanguageLinkExtensionName(),
   extend: (): object => ({
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -23,22 +30,27 @@ const getLanguageLinkExtension = (api: CustomCreateSchemaCustomizationArgs): obj
       const nodesLanguage = kontentItemNode.preferred_language;
       const nodeIds = nodesCodeNames.map(codename => {
         // the method is the same as used on sourceNodes for getting id string input
-        const stringForId = getKontentItemNodeStringForId(codename, nodesLanguage);
-        // But this method automatically creates namespaced 
+        const stringForId = getKontentItemNodeStringForId(
+          codename,
+          nodesLanguage,
+        );
+        // But this method automatically creates namespaced
         // now it is fine - because we are still in the same source plugin
         // but this approach could not be used outside (in the website/other plugin)
         return api.createNodeId(stringForId);
       });
       const linkedItems = context.nodeModel.getNodesByIds({
         ids: nodeIds,
-        type: getKontentItemInterfaceName()
+        type: getKontentItemInterfaceName(),
       });
       return linkedItems;
     },
-  })
+  }),
 });
 
-const getElementFieldsDefinitionForType = (type: KontentType): { [key: string]: { type: string } } => {
+const getElementFieldsDefinitionForType = (
+  type: KontentType,
+): { [key: string]: { type: string } } => {
   const elementFields: {
     [key: string]: {
       type: string;
@@ -51,32 +63,36 @@ const getElementFieldsDefinitionForType = (type: KontentType): { [key: string]: 
       const elementType = getKontentItemElementTypeNameByType(element.type);
       if (elementType !== '') {
         elementFields[elementKey] = {
-          type: elementType
+          type: elementType,
         };
       }
     }
   }
 
   return elementFields;
-}
+};
 
-
-const createSchemaCustomization = async (api: CustomCreateSchemaCustomizationArgs, pluginConfig: CustomPluginOptions): Promise<void> => {
-
+const createSchemaCustomization = async (
+  api: CustomCreateSchemaCustomizationArgs,
+  pluginConfig: CustomPluginOptions,
+): Promise<void> => {
   const languageExtension = getLanguageLinkExtension(api);
-  api.actions.createFieldExtension(languageExtension, { name: "TODO: will be done optional in next gatsby release" });
+  api.actions.createFieldExtension(languageExtension, {
+    name: 'TODO: will be done optional in next gatsby release',
+  });
 
   const baseSchemaTypes = getKontentItemsSchemaNamingConfiguration();
   api.actions.createTypes(baseSchemaTypes);
 
   const types = await loadAllKontentTypes(pluginConfig);
   for (const type of types) {
-
-    const kontentItemElementsTypeName = getKontentItemElementsSchemaTypeName(type.system.codename)
+    const kontentItemElementsTypeName = getKontentItemElementsSchemaTypeName(
+      type.system.codename,
+    );
     const elementsTypeDef = api.schema.buildObjectType({
       name: kontentItemElementsTypeName,
       fields: getElementFieldsDefinitionForType(type),
-      infer: false
+      infer: false,
     });
     api.actions.createTypes(elementsTypeDef);
 
@@ -88,7 +104,7 @@ const createSchemaCustomization = async (api: CustomCreateSchemaCustomizationArg
       fields: {
         system: `${systemElementsTypeName}!`,
         elements: kontentItemElementsTypeName,
-        ["preferred_language"]: 'String!',
+        ['preferred_language']: 'String!',
       },
       interfaces: ['Node', typeInterfaceName],
       infer: false,
@@ -97,7 +113,4 @@ const createSchemaCustomization = async (api: CustomCreateSchemaCustomizationArg
   }
 };
 
-export {
-  createSchemaCustomization as kontentItemsCreateSchemaCustomization
-}
-
+export { createSchemaCustomization as kontentItemsCreateSchemaCustomization };
