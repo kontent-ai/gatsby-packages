@@ -11,5 +11,5 @@ export {
   getKontentItemNodeStringForId,
   getKontentItemNodeTypeName,
   getKontentTypeTypeName,
-  getKontentItemElementTypeNameByType
-}
+  getKontentItemElementTypeNameByType,
+};
