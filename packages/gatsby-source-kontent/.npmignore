@@ -34,8 +34,9 @@ decls
 examples
 
 # Project specific
-# *.ts
-# *.js.map
+tests/**
+*.ts
+*.js.map
 .editorconfig
 .eslintignore
 .eslintrc.js
