@@ -8,6 +8,8 @@ interface CustomPluginOptions extends PluginOptions {
   languageCodenames: string[];
   includeTypes: boolean = false;
   includeTaxonomies: boolean = false;
+  authorizationKey: string = null;
+  usePreviewUrl: boolean = false;
 }
 
 interface CustomCreateSchemaCustomizationArgs extends CreateSchemaCustomizationArgs {

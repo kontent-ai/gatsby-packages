@@ -20,7 +20,7 @@ const getKontentTypeArtifact = (api: SourceNodesArgs, kontentTaxonomy: KontentTa
 };
 
 const sourceNodes = async (api: SourceNodesArgs, options: CustomPluginOptions): Promise<void> => {
-  const kontentTaxonomies = await loadAllKontentTaxonomies(options.projectId);
+  const kontentTaxonomies = await loadAllKontentTaxonomies(options);
   for (const kontentTaxonomy of kontentTaxonomies) {
     const nodeData = getKontentTypeArtifact(api, kontentTaxonomy);
     api.actions.createNode(nodeData);

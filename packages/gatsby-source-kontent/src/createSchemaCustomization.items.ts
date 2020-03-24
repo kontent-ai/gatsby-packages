@@ -69,7 +69,7 @@ const createSchemaCustomization = async (api: CustomCreateSchemaCustomizationArg
   const baseSchemaTypes = getKontentItemsSchemaNamingConfiguration();
   api.actions.createTypes(baseSchemaTypes);
 
-  const types = await loadAllKontentTypes(pluginConfig.projectId);
+  const types = await loadAllKontentTypes(pluginConfig);
   for (const type of types) {
 
     const kontentItemElementsTypeName = getKontentItemElementsSchemaTypeName(type.system.codename)

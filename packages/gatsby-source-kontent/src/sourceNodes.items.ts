@@ -48,7 +48,7 @@ const getKontentItemLanguageVariantArtifact = (api: SourceNodesArgs, kontentItem
 
 const sourceNodes = async (api: SourceNodesArgs, options: CustomPluginOptions): Promise<void> => {
   for (const language of options.languageCodenames) {
-    const kontentItems = await loadAllKontentItems(options.projectId, language);
+    const kontentItems = await loadAllKontentItems(options, language);
     addPreferredLanguageProperty(kontentItems, language);
     alterRichTextElements(kontentItems);
     for (const kontentItem of kontentItems) {

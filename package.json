@@ -16,6 +16,7 @@
   "scripts": {
     "build:site": "yarn workspace @simply007org/gatsby-starter-kontent-hello-world build",
     "develop:site": "yarn workspace @simply007org/gatsby-starter-kontent-hello-world develop",
+    "develop:site:playground": "cross-env  GATSBY_GRAPHQL_IDE=playground yarn develop:site",
     "watch:source": "yarn workspace @simply007org/gatsby-source-kontent-simple watch",
     "build:source": "yarn workspace @simply007org/gatsby-source-kontent-simple build",
     "prepare": "yarn build:source",

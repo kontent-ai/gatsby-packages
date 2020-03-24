@@ -257,7 +257,9 @@ Result
       "Another_language"
     ],
     "includeTaxonomies": true, // opt-out by default
-    "includeTypes": true // opt-out by default
+    "includeTypes": true, // opt-out by default
+    "usePreviewUrl": true, // false by default
+    "authorizationKey": "<API KEY>" // For preview/secured API key - depends on usePreviewUrl setting
   }
 }
 ```
