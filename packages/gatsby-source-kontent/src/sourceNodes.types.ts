@@ -33,7 +33,7 @@ const transformElementObjectToArray = (types: Array<KontentType>): void => {
 
 
 const sourceNodes = async (api: SourceNodesArgs, options: CustomPluginOptions): Promise<void> => {
-  const kontentTypes = await loadAllKontentTypes(options.projectId);
+  const kontentTypes = await loadAllKontentTypes(options);
   transformElementObjectToArray(kontentTypes) ;
   for (const kontentType of kontentTypes) {
     const nodeData = getKontentTypeArtifact(api, kontentType);
