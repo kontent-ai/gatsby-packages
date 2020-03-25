@@ -8,7 +8,7 @@
     "url": "https://ondrej.chrastina.tech"
   },
   "bugs": {
-    "url": "https://github.com/Simply007/gatsby-kontent-packages/issues"
+    "url": "https://github.com/Kentico/gatsby-source-kontent/issues"
   },
   "scripts": {
     "build": "tsc",
@@ -46,7 +46,7 @@
     "ttypescript": "^1.5.10",
     "typescript": "^3.7.5"
   },
-  "homepage": "https://github.com/Simply007/gatsby-kontent-packages/tree/master/packages/gatsby-source-kontent-items#readme",
+  "homepage": "https://github.com/Kentico/gatsby-source-kontent/tree/vNext/packages/gatsby-source-kontent#readme",
   "keywords": [
     "gatsby",
     "gatsby-plugin",
@@ -58,7 +58,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Simply007/gatsby-kontent-packages.git"
+    "url": "https://github.com/Kentico/gatsby-source-kontent.git"
   },
   "main": "index.js",
   "publishConfig": {
