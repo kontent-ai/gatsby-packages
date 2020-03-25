@@ -26,5 +26,8 @@
     "build:source": "yarn workspace @simply007org/gatsby-source-kontent-simple build",
     "test:source": "yarn workspace @simply007org/gatsby-source-kontent-simple test"
   },
-  "private": true
+  "private": true,
+  "devDependencies": {
+    "lerna": "^3.20.2"
+  }
 }
