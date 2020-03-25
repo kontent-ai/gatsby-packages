@@ -48,7 +48,6 @@ const replaceNode = (
   if (resolveLink && links) {
     if (isLink(domNode)) {
       const linkId = domNode.attribs?.['data-item-id'];
-      console.log(domNode.attribs);
       const link = links.find(links => links.link_id === linkId);
       return resolveLink(link, domNode);
     }

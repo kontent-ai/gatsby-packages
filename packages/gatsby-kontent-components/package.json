@@ -14,7 +14,7 @@
     "build": "tsc",
     "format": "prettier --write \"**/*.ts\" \"**/*.js\"",
     "lint": "eslint src/**/*.ts",
-    "test": "jest",
+    "test": "jest --passWithNoTests",
     "watch": "tsc -w",
     "prepare": "cross-env NODE_ENV=production npm run build",
     "prepublishOnly": "npm test && npm run lint",
