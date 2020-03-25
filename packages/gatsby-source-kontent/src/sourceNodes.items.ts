@@ -11,6 +11,7 @@ import {
   getKontentItemNodeStringForId,
   getKontentItemNodeTypeName,
 } from './naming';
+import _ from 'lodash';
 
 const addPreferredLanguageProperty = (
   items: Array<KontentItem>,
@@ -23,8 +24,7 @@ const addPreferredLanguageProperty = (
 };
 
 const alterRichTextElements = (items: Array<KontentItem>): void => {
-  const richTextElements = items
-    .flatMap(i => Object.values(i.elements))
+  const richTextElements = _.flatMap(items, (item => Object.values(item.elements)))
     .filter((element: KontentItemElement) => element.type === 'rich_text');
 
   for (const element of richTextElements as KontentItemElement[]) {

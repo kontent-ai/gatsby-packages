@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, graphql } from 'gatsby';
+import { Link } from 'gatsby';
 import { RichTextElement } from '@simply007org/gatsby-kontent-components';
 
 
@@ -101,7 +101,7 @@ const sampleDataFromQuery = {
 };
 
 // eslint-disable-next-line no-unused-vars
-const sampleQuery = graphql`
+const sampleQuery = `
 {
   kontentItemPerson(system: {codename: {eq: "john_doe"}}) {
     system {
