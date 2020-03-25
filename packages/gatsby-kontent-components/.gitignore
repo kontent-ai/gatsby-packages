@@ -9,3 +9,4 @@ yarn-error.log
 # Ignore compiled files
 src/**/*.js
 src/**/*.js.map
+dist

@@ -1,7 +1,5 @@
 {
   "files.exclude": {
-    "packages/gatsby-kontent-components/**/src/**/*.js": true,
-    "packages/gatsby-kontent-components/**/src/**/*.js.map": true,
     "packages/gatsby-source-kontent/**/src/**/*.js": true,
     "packages/gatsby-source-kontent/**/src/**/*.js.map": true,
     "packages/gatsby-source-kontent/**/gatsby-node.js": true,

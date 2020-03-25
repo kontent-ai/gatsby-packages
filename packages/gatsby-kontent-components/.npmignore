@@ -34,7 +34,7 @@ decls
 examples
 
 # Project specific
-tests/**
+src/**
 *.ts
 *.js.map
 .editorconfig

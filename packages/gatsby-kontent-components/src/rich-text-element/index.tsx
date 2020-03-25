@@ -5,7 +5,7 @@ import parseHTML, { DomElement } from 'html-react-parser';
 interface Props {
   value: string;
   linkedItems?: any[];
-  resolveContentItem?: Function;
+  resolveLinkedItem?: Function;
   images?: any[];
   resolveImage?: Function;
   links?: any[];
@@ -24,42 +24,42 @@ const isLink = (domNode: DomElement): boolean =>
 const replaceNode = (
   domNode: DomElement,
   linkedItems: any[] | undefined,
-  resolveContentItem: Function | undefined,
+  resolveLinkedItem: Function | undefined,
   images: any[] | undefined,
   resolveImage: Function | undefined,
   links: any[] | undefined,
   resolveLink: Function | undefined): void => {
-  if (resolveContentItem && linkedItems) {
+  if (resolveLinkedItem && linkedItems) {
     if (isLinkedItem(domNode)) {
       const codeName = domNode.attribs?.["data-codename"];
       const linkedItem = linkedItems.find(item => item.system.codename === codeName);
-      return resolveContentItem(linkedItem);
+      return resolveLinkedItem(linkedItem);
     }
   }
 
   if (resolveImage && images) {
     if (isImage(domNode)) {
       const imageId = domNode.attribs?.['data-image-id'];
-      const image = images.find(image => image.imageId === imageId);
+      const image = images.find(image => image.image_id === imageId);
       return resolveImage(image);
     }
   }
 
   if (resolveLink && links) {
     if (isLink(domNode)) {
-      const linkId = domNode.attribs?.['attribs.data-item-id'];
-      const link = links.find(links => links.linkId === linkId);
+      const linkId = domNode.attribs?.['data-item-id'];
+      console.log(domNode.attribs);
+      const link = links.find(links => links.link_id === linkId);
       return resolveLink(link, domNode);
     }
   }
 };
 
-
-const RichTextElement = ({ value, linkedItems, resolveContentItem, images, resolveImage, links, resolveLink }: Props): string
+const RichTextElement = ({ value, linkedItems, resolveLinkedItem, images, resolveImage, links, resolveLink }: Props): string
   | React.DetailedReactHTMLElement<{}, HTMLElement>
   | Array<React.DetailedReactHTMLElement<{}, HTMLElement>> => (
     parseHTML(value, {
-      replace: (domNode: DomElement) => replaceNode(domNode, linkedItems, resolveContentItem, images, resolveImage, links, resolveLink),
+      replace: (domNode: DomElement) => replaceNode(domNode, linkedItems, resolveLinkedItem, images, resolveImage, links, resolveLink),
     })
   );
 

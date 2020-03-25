@@ -57,7 +57,7 @@
     "type": "git",
     "url": "https://github.com/Simply007/gatsby-kontent-packages.git"
   },
-  "main": "src/index.js",
+  "main": "dist/index.js",
   "publishConfig": {
     "access": "public"
   }
