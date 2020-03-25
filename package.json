@@ -15,14 +15,15 @@
     "site"
   ],
   "scripts": {
+    "prepare": "yarn workspaces run build",
+    "test": "yarn workspaces run test",
+    "build": "yarn workspaces run build",
     "build:site": "yarn workspace @simply007org/gatsby-starter-kontent-hello-world build",
     "develop:site": "yarn workspace @simply007org/gatsby-starter-kontent-hello-world develop",
     "develop:site:playground": "cross-env  GATSBY_GRAPHQL_IDE=playground yarn develop:site",
     "watch:source": "yarn workspace @simply007org/gatsby-source-kontent-simple watch",
     "watch:components": "yarn workspace @simply007org/gatsby-kontent-components watch",
-    "build:source": "yarn workspace @simply007org/gatsby-source-kontent-simple build",
-    "prepare": "yarn build:source",
-    "test": "yarn workspaces run test"
+    "build:source": "yarn workspace @simply007org/gatsby-source-kontent-simple build"
   },
   "private": true
 }

@@ -20,7 +20,6 @@ const RichTextSample = () => {
       links={richTextElement.links}
       linkedItems={richTextElement.modular_content}
       resolveImage={(image) => {
-        console.log(image);
         return <img src={image.url} alt={image.description ? image.description : image.name} width="200" />;
       }}
       resolveLink={(link, domNode) => {
