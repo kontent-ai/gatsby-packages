@@ -24,34 +24,38 @@ const getLanguageLinkExtension = (
   name: getKontentItemLanguageLinkExtensionName(),
   extend: (): object => ({
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    async resolve(source: any, _args: any, context: any): Promise<KontentItem[]> {
+    async resolve(
+      source: any,
+      _args: any,
+      context: any,
+    ): Promise<KontentItem[]> {
       const kontentItemNode = context.nodeModel.findRootNodeAncestor(source);
-      const nodesCodeNames = source.type === "modular_content" ? source.value as string[] : source.modular_content as string[];
+      const nodesCodeNames =
+        source.type === 'modular_content'
+          ? (source.value as string[])
+          : (source.modular_content as string[]);
       const nodesLanguage = kontentItemNode.preferred_language;
 
-
-
       const promises = nodesCodeNames.map(codename =>
-        context.nodeModel
-          .runQuery({
-            query: {
-              filter: {
-                system: {
-                  codename: {
-                    eq: codename
-                  },
+        context.nodeModel.runQuery({
+          query: {
+            filter: {
+              system: {
+                codename: {
+                  eq: codename,
                 },
-                ["preferred_language"]: {
-                  eq: nodesLanguage
-                }
+              },
+              ['preferred_language']: {
+                eq: nodesLanguage,
               },
             },
-            type: getKontentItemInterfaceName(),
-            firstOnly: true,
-          })
+          },
+          type: getKontentItemInterfaceName(),
+          firstOnly: true,
+        }),
       );
 
-      const nodes = await Promise.all(promises)
+      const nodes = await Promise.all(promises);
       return nodes;
     },
   }),
