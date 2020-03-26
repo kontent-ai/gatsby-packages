@@ -1,6 +1,5 @@
 {
   "name": "@simply007org/gatsby-kontent-packages",
-  "version": "0.2.0",
   "description": "Monorepo containing Kentico Kontent packages for Gatsby.",
   "repository": "https://github.com/Kentico/gatsby-source-kontent.git",
   "author": {
