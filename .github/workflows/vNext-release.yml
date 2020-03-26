@@ -1,5 +1,5 @@
 
-name: Release
+name: vNext Release
 
 on:
   release:
