@@ -24,7 +24,8 @@
     "watch:source": "yarn workspace @simply007org/gatsby-source-kontent-simple watch",
     "watch:components": "yarn workspace @simply007org/gatsby-kontent-components watch",
     "build:source": "yarn workspace @simply007org/gatsby-source-kontent-simple build",
-    "test:source": "yarn workspace @simply007org/gatsby-source-kontent-simple test"
+    "test:source": "yarn workspace @simply007org/gatsby-source-kontent-simple test",
+    "publish:vnext": "lerna publish from-package -y --npm-tag=vnext --no-git-tag-version"
   },
   "private": true,
   "devDependencies": {
