@@ -21,7 +21,7 @@ jobs:
       with:
         node-version: 12.x
     - name: Install Dependencies
-    - run: yarn
+      run: yarn
     - run: yarn publish-vnext
         # env:
         # NODE_AUTH_TOKEN: ${{secrets.npm_token}}
