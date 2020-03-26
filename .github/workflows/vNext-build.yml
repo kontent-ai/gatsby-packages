@@ -16,14 +16,18 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+
     - name: Use Node.js 12.x
       uses: actions/setup-node@v1
       with:
         node-version: 12.x
+
     - name: Install Dependencies
       run: yarn
-    - run: yarn publish-vnext
+      env:
+        CI: true
+
+    - name: Publish vnext version
+      run: yarn publish:vnext
         # env:
         # NODE_AUTH_TOKEN: ${{secrets.npm_token}}
-    env:
-      CI: true
