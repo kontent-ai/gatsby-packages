@@ -1,7 +1,7 @@
 {
   "name": "@simply007org/gatsby-kontent-components",
   "description": "Source plugin providing Kentico Kontent data from REST Delivery API",
-  "version": "0.2.5",
+  "version": "0.3.0",
   "author": {
     "name": "Ondřej Chrastina",
     "email": "chrastina.ondra@gmail.com",
