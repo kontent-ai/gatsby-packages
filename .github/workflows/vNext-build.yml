@@ -25,5 +25,5 @@ jobs:
     - run: yarn publish-vnext
         # env:
         # NODE_AUTH_TOKEN: ${{secrets.npm_token}}
-      env:
-        CI: true
+    env:
+      CI: true
