@@ -29,5 +29,5 @@ jobs:
 
     - name: Publish vnext version
       run: yarn publish:vnext
-        # env:
-        # NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+        env:
+        NODE_AUTH_TOKEN: ${{secrets.npm_token}}
