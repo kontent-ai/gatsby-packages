@@ -14,19 +14,16 @@ import {
   getKontentItemSystemElementTypeName,
   getKontentItemInterfaceName,
   getKontentItemElementTypeNameByType,
-  getKontentItemNodeStringForId,
   getKontentItemLanguageLinkExtensionName,
 } from './naming';
 
-const getLanguageLinkExtension = (
-  api: CustomCreateSchemaCustomizationArgs,
-): object => ({
+const getLanguageLinkExtension = (): object => ({
   name: getKontentItemLanguageLinkExtensionName(),
   extend: (): object => ({
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     async resolve(
-      source: any,
-      _args: any,
+      source: { value?: string[]; modular_content?: string[]; type: string },
+      _args: unknown,
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       context: any,
     ): Promise<KontentItem[]> {
       const kontentItemNode = context.nodeModel.findRootNodeAncestor(source);
@@ -89,9 +86,9 @@ const createSchemaCustomization = async (
   api: CustomCreateSchemaCustomizationArgs,
   pluginConfig: CustomPluginOptions,
 ): Promise<void> => {
-  const languageExtension = getLanguageLinkExtension(api);
+  const languageExtension = getLanguageLinkExtension();
   api.actions.createFieldExtension(languageExtension, {
-    name: 'TODO: will be done optional in next gatsby release',
+    name: 'TODO: will be done optional in next gatsby release', // https://github.com/gatsbyjs/gatsby/pull/22546
   });
 
   const baseSchemaTypes = getKontentItemsSchemaNamingConfiguration();
