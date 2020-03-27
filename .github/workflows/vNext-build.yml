@@ -22,12 +22,10 @@ jobs:
       with:
         node-version: 12.x
         registry-url: https://registry.npmjs.org/
-    - name: Install Dependencies
+    - name: Install Dependencies and prepare packages
       run: yarn
       env:
         CI: true
 
-    - name: Publish vnext alpha version
-      run: yarn publish:vnext-alpha
-      env:
-        NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+    - name: Run tests
+      run: yarn test
