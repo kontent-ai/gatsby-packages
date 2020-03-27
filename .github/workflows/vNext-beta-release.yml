@@ -14,16 +14,24 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v2
-      - name: Run a one-line script
-        run: echo prerelease final!
+
       - name: Setup Node.js
         uses: actions/setup-node@v1
         with:
           node-version: 12
+          registry-url: https://registry.npmjs.org/
+
       - name: Install Dependencies
         run: yarn install
-        env:
-          CI: true
+
+      - name: Lint
+        run: yarn lint
+
+      - name: Build
+        run: yarn build
+
+      - name: Tests
+        run: yarn test
 
       - name: Publish vnext beta version
         run: yarn publish:vnext-beta
@@ -37,19 +45,24 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v2
-        
-      - name: Run a one-line script
-        run: echo prerelease final!
 
       - name: Setup Node.js
         uses: actions/setup-node@v1
         with:
           node-version: 12
+          registry-url: https://registry.npmjs.org/
 
       - name: Install Dependencies
         run: yarn install
-        env:
-          CI: true
+
+      - name: Lint
+        run: yarn lint
+
+      - name: Build
+        run: yarn build
+
+      - name: Tests
+        run: yarn test
 
       - name: Publish vNext version
         run: yarn publish:vnext
