@@ -28,7 +28,7 @@
     "set:version": "export LERNA_VERSION=\"$(node -e \"require('./lerna.json').version\")\"",
     "publish:vnext-beta": "lerna publish -y --no-git-tag-version --no-verify-access --force-publish --dist-tag=vnext-beta",
     "publish:vnext": "lerna publish -y --no-git-tag-version --no-verify-access --force-publish --dist-tag=vnext",
-    "publish:version": "lerna publish --tag-version-prefix='' --dist-tag=vnext-alpha"
+    "publish:version": "lerna publish --no-git-tag-version --dist-tag=vnext-alpha"
   },
   "private": true,
   "devDependencies": {
