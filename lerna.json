@@ -4,5 +4,5 @@
     "!packages/site",
     "packages/*"
   ],
-  "version": "4.0.0-vnext-alpha.2"
+  "version": "4.0.0-vnext-alpha.3"
 }

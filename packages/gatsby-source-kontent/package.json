@@ -12,7 +12,7 @@
   },
   "scripts": {
     "build": "tsc",
-    "format": "prettier --write \"**/*.ts\" \"**/*.js\"",
+    "format": "prettier --write \"**/*.ts\"",
     "lint": "eslint src/**/*.ts",
     "test": "jest",
     "watch": "tsc -w",
