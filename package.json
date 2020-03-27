@@ -24,7 +24,7 @@
     "watch:components": "yarn workspace @simply007org/gatsby-kontent-components watch",
     "build:source": "yarn workspace @simply007org/gatsby-source-kontent-simple build",
     "test:source": "yarn workspace @simply007org/gatsby-source-kontent-simple test",
-    "publish:vnext-alpha": "lerna publish from-package -y --canary --dist-tag=vnext-alpha --no-git-tag-version --no-verify-access",
+    "publish:vnext-alpha": "lerna publish from-package -y --canary --dist-tag=vnext-alpha --preid=vnext-alpha --no-git-tag-version --no-verify-access",
     "publish:vnext-beta": "lerna publish from-package -y --dist-tag=vnext-beta --no-git-tag-version --no-verify-access",
     "publish:vnext": "lerna publish from-package -y --canary --dist-tag=vnext --no-git-tag-version --no-verify-access"
   },
