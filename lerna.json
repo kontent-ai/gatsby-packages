@@ -4,5 +4,5 @@
     "!packages/site",
     "packages/*"
   ],
-  "version": "1.0.0-vnext.1"
+  "version": "1.0.1-vnext.0"
 }
