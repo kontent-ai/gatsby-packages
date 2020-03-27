@@ -7,3 +7,4 @@ Monorepo with gatsby kontent packages.
 
 Test change 1
 Test change 2
+Test change 3
