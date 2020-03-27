@@ -14,7 +14,7 @@
     "site"
   ],
   "scripts": {
-    "lint": "yarn workspaces lint",
+    "lint": "yarn workspaces run lint",
     "test": "yarn workspaces run test",
     "build": "yarn workspaces run build",
     "prepublishOnly": "yarn build",
