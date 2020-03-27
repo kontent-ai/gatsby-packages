@@ -1,7 +1,7 @@
 {
   "name": "@simply007org/gatsby-source-kontent-simple",
   "description": "Source plugin providing Kentico Kontent data from REST Delivery API",
-  "version": "4.0.0-vnext-beta.4",
+  "version": "4.0.0-vnext-beta.5",
   "author": {
     "name": "Ondřej Chrastina",
     "email": "chrastina.ondra@gmail.com",
