@@ -33,10 +33,10 @@ jobs:
       - name: Tests
         run: yarn test
 
-      - name: Publish vNext version
+      - name: Publish vNext beta version
         run: |
           export LERNA_VERSION=$(node -e "console.log(require('./lerna.json').version)")
-          yarn publish:vnext $LERNA_VERSION
+          yarn publish:vnext-beta $LERNA_VERSION
         shell: sh
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
