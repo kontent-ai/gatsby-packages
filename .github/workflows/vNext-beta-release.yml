@@ -1,12 +1,13 @@
 name: vNext Release
 
+# Keep file only in VNext version
 on:
   release:
     types: ["published"]
 
 jobs:
 
-  prerelease:
+  vnext-beta-release:
     if: "github.event.release.prerelease"
     name: "Pre-release created"
     runs-on: ubuntu-latest
@@ -29,7 +30,7 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
 
-  release:
+  vnext-release:
     if: "!github.event.release.prerelease"
     name: "Released"
     runs-on: ubuntu-latest
