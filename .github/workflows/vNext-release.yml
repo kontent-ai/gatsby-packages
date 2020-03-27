@@ -26,9 +26,9 @@ jobs:
           CI: true
 
       - name: Publish vnext beta version
-          run: yarn publish:vnext-beta
-          env:
-            NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+        run: yarn publish:vnext-beta
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
 
   release:
     if: "!github.event.release.prerelease"
@@ -37,19 +37,22 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v2
+        
       - name: Run a one-line script
         run: echo prerelease final!
+
       - name: Setup Node.js
         uses: actions/setup-node@v1
         with:
           node-version: 12
+
       - name: Install Dependencies
         run: yarn
         env:
           CI: true
 
       - name: Publish vnext version
-          run: yarn publish:vnext
-          env:
-            NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+        run: yarn publish:vnext
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
 
