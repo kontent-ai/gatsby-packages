@@ -34,12 +34,12 @@ jobs:
         run: yarn test
 
       - name: Publish vNext version
-      run: |
-        export LERNA_VERSION=$(node -e "console.log(require('./lerna.json').version)")
-        yarn publish:vnext $LERNA_VERSION
-      shell: sh
-      env:
-        NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+        run: |
+          export LERNA_VERSION=$(node -e "console.log(require('./lerna.json').version)")
+          yarn publish:vnext $LERNA_VERSION
+        shell: sh
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
 
   vnext-release:
     if: "!github.event.release.prerelease"
