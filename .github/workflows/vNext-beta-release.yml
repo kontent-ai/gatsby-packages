@@ -9,7 +9,7 @@ jobs:
 
   vnext-beta-release:
     if: "github.event.release.prerelease"
-    name: "Pre-release created"
+    name: "vNext beta release"
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
@@ -21,7 +21,7 @@ jobs:
         with:
           node-version: 12
       - name: Install Dependencies
-        run: yarn
+        run: yarn install
         env:
           CI: true
 
@@ -32,7 +32,7 @@ jobs:
 
   vnext-release:
     if: "!github.event.release.prerelease"
-    name: "Released"
+    name: "vNext beta pre-release"
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
@@ -47,11 +47,11 @@ jobs:
           node-version: 12
 
       - name: Install Dependencies
-        run: yarn
+        run: yarn install
         env:
           CI: true
 
-      - name: Publish vvext version
+      - name: Publish vNext version
         run: yarn publish:vnext
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}

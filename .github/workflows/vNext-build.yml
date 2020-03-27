@@ -27,5 +27,13 @@ jobs:
       env:
         CI: true
 
-    - name: Run tests
+    - name: Lint
+      run: yarn lint
+
+    - name: Build
+      run: yarn lint
+
+    - name: Tests
       run: yarn test
+
+

@@ -1,7 +1,7 @@
 {
   "name": "@simply007org/gatsby-source-kontent-simple",
   "description": "Source plugin providing Kentico Kontent data from REST Delivery API",
-  "version": "4.0.0-vnext-alpha.6",
+  "version": "4.0.0-vnext-beta.4",
   "author": {
     "name": "Ondřej Chrastina",
     "email": "chrastina.ondra@gmail.com",
@@ -13,13 +13,9 @@
   "scripts": {
     "build": "tsc",
     "format": "prettier --write \"**/*.ts\"",
-    "lint": "eslint src/**/*.ts",
+    "lint": "eslint **/*.ts",
     "test": "jest",
-    "watch": "tsc -w",
-    "prepare": "cross-env NODE_ENV=production npm run build",
-    "prepublishOnly": "npm test && npm run lint",
-    "preversion": "npm run lint",
-    "version": "npm run format && git add -A src"
+    "watch": "tsc -w"
   },
   "dependencies": {
     "@types/fs-extra": "^8.0.1",
@@ -62,5 +58,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "gitHead": "4d5f86d8f6c14a4981fb9e6dbcb016497aeafff0"
+  "gitHead": "75274114765ffbc82d212a9a3a7f4549be8970b8"
 }

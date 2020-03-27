@@ -14,9 +14,10 @@
     "site"
   ],
   "scripts": {
-    "prepare": "yarn workspaces run build",
+    "lint": "yarn workspaces lint",
     "test": "yarn workspaces run test",
     "build": "yarn workspaces run build",
+    "prepublishOnly": "yarn build",
     "build:site": "yarn workspace @simply007org/gatsby-starter-kontent-hello-world build",
     "develop:site": "yarn workspace @simply007org/gatsby-starter-kontent-hello-world develop",
     "develop:site:playground": "cross-env  GATSBY_GRAPHQL_IDE=playground yarn develop:site",
@@ -24,8 +25,8 @@
     "watch:components": "yarn workspace @simply007org/gatsby-kontent-components watch",
     "build:source": "yarn workspace @simply007org/gatsby-source-kontent-simple build",
     "test:source": "yarn workspace @simply007org/gatsby-source-kontent-simple test",
-    "publish:vnext-beta": "lerna publish prerelease -y --dist-tag=vnext-beta --preid=vnext-beta --no-git-tag-version --no-verify-access",
-    "publish:vnext": "lerna publish prerelease -y --dist-tag=vnext --preid=vnext --no-git-tag-version --no-verify-access",
+    "publish:vnext-beta": "lerna publish prerelease -y --dist-tag=vnext-beta --preid=vnext-beta --no-git-tag-version --no-verify-access --no-git-reset",
+    "publish:vnext": "lerna publish prerelease -y --dist-tag=vnext --preid=vnext --no-git-tag-version --no-verify-access --no-git-reset",
     "publish:version": "lerna publish from-package --tag-version-prefix=''"
   },
   "private": true,

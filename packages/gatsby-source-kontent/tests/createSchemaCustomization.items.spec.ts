@@ -10,7 +10,6 @@ import axios from 'axios';
 jest.mock('axios');
 const mockedAxios = axios as jest.Mocked<typeof axios>;
 // TODO fix lint error https://github.com/microsoft/TypeScript/issues/25400
-import fakeEmptyItemsResponse from './fakeEmptyItemsResponse.json';
 import fakeEmptyTypesResponse from './fakeEmptyTypesResponse.json';
 
 describe('kontentItemsCreateSchemaCustomization', () => {
