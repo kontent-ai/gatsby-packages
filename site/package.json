@@ -4,6 +4,13 @@
   "description": "A simplified bare-bones testing site for Gatsby",
   "version": "0.1.0",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Kentico/gatsby-source-kontent"
+  },
+  "bugs": {
+    "url": "https://github.com/Kentico/gatsby-source-kontent/issues"
+  },
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
@@ -24,12 +31,5 @@
     "eslint": "^6.8.0",
     "eslint-config-react-app": "^5.2.1",
     "prettier": "^1.19.1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Simply007/gatsby-kontent-packages"
-  },
-  "bugs": {
-    "url": "https://github.com/Simply007/gatsby-kontent-packages/issues"
   }
 }

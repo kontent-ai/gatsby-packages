@@ -2,6 +2,7 @@
   "name": "@simply007org/gatsby-kontent-packages",
   "description": "Monorepo containing Kentico Kontent packages for Gatsby.",
   "repository": "https://github.com/Kentico/gatsby-source-kontent.git",
+  "homepage": "https://github.com/Kentico/gatsby-source-kontent/tree/vNext#readme",
   "author": {
     "name": "Ondřej Chrastina",
     "email": "chrastina.ondra@gmail.com",
