@@ -27,7 +27,7 @@ jobs:
       env:
         CI: true
 
-    - name: Publish vnext version
-      run: yarn publish:vnext
+    - name: Publish vnext alpha version
+      run: yarn publish:vnext-alpha
       env:
         NODE_AUTH_TOKEN: ${{secrets.npm_token}}
