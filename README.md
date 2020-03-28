@@ -11,12 +11,12 @@ Repository contains the development site (`/site`) that could automatically load
 
 ### Packages
 
-- [Gatsby Source Kontent Plugin](/packages/gatsby-source-kontent/README.md) - plugin providing data from Kentico Kontent REST API to Gatsby GraphQL model
-- [Gatsby Kontent Components](/packages/gatsby-kontent-components/README.md) - package containing React components useful when processing Kontent data to site
+- [Gatsby Source Kontent Plugin](/packages/gatsby-source-kontent#readme) - plugin providing data from Kentico Kontent REST API to Gatsby GraphQL model
+- [Gatsby Kontent Components](/packages/gatsby-kontent-components#readme) - package containing React components useful when processing Kontent data to site
 
 ### Site
 
-- [Development Site](/site/README.md) - Site using for development purposes and and code examples showcasing packages possibilities
+- [Development Site](/site#readme) - Site using for development purposes and and code examples showcasing packages possibilities
 
 ## Development
 
