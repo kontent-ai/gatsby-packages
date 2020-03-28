@@ -87,9 +87,7 @@ const createSchemaCustomization = async (
   pluginConfig: CustomPluginOptions,
 ): Promise<void> => {
   const languageExtension = getLanguageLinkExtension();
-  api.actions.createFieldExtension(languageExtension, {
-    name: 'TODO: will be done optional in next gatsby release', // https://github.com/gatsbyjs/gatsby/pull/22546
-  });
+  api.actions.createFieldExtension(languageExtension);
 
   const baseSchemaTypes = getKontentItemsSchemaNamingConfiguration();
   api.actions.createTypes(baseSchemaTypes);
