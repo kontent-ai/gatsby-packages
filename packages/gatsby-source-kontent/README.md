@@ -4,12 +4,69 @@
 
 (vNext) Source plugin for Kentico Kontent REST Delivery API.
 
-Test change 7
-Test change 8
-Test change 9
+This repo contains a [Gatsby (v2) source plugin](https://www.gatsbyjs.org/docs/recipes/sourcing-data) that retrieves data from the [Kentico Kontent](https://kontent.ai) REST Delivery API.
 
-> Include a summary of what this plugin accomplishes. Is there a demo site that shows how this plugin operates? If so, include a link to the deployed demo site and/or its source code here.
-> Themes are considered plugins in the Gatsby ecosystem and should follow this README as well. Note that themes include multiple READMEs. One inside the theme directory with configuration instructions, one inside the example project directory, and one in the root of the repository which will follow this guide.
+## How to install
+
+> Please include installation instructions here.
+> Gatsby documentation uses `npm` for installation. This is the recommended approach for plugins as well.
+> If the plugin is a theme that needs to use `yarn`, please point to [the documentation for switching package managers](/docs/gatsby-cli/#how-to-change-your-default-package-manager-for-your-next-project) in addition to the `yarn`-based instructions.
+
+1. Install the [@kentico/gatsby-source-kontent](https://www.npmjs.com/package/@kentico/gatsby-source-kontent) NPM package.
+
+   ```sh
+   npm install --save @kentico/gatsby-source-kontent
+   ```
+
+1. Configure the plugin in `gatsby-config.js` file.
+
+   ```js
+   module.exports = {
+     plugins: [
+       {
+         resolve: '@simply007org/gatsby-source-kontent-simple',
+         options: {
+           projectId: '<ProjectID>', // Fill in your Project ID
+           languageCodenames: [
+             'default', // Languages in your project (Project settings -> Localization),
+           ],
+         },
+       },
+     ],
+   };
+   ```
+
+## Available options (if any)
+
+Repository is capable of loading Kontent Items as well as Types an Taxonomies.
+
+## When do I use this plugin
+
+> Include stories about when this plugin is helpful and/or necessary.
+
+## Examples of usage
+
+> This usually shows a code example showing how to include this plugin in a site's `config.js` file.
+
+```jsonc
+{
+  "resolve": "@simply007org/gatsby-source-kontent-simple",
+  "options": {
+    "projectId": "09fc0115-dd4d-00c7-5bd9-5f73836aee81", // Fill in your Project ID
+    "languageCodenames": [
+      "default", // Or the languages in your project (Project settings -> Localization),
+      "Another_language"
+    ],
+    "includeTaxonomies": true, // opt-out by default
+    "includeTypes": true, // opt-out by default
+    "usePreviewUrl": true, // false by default
+    "authorizationKey": "<API KEY>" // For preview/secured API key - depends on usePreviewUrl setting
+  }
+}
+```
+
+> See this [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#code) on how to format code examples.
+> This section could also include before-and-after examples of data when the plugin is enabled, if applicable.
 
 ### Dependencies (optional)
 
@@ -19,15 +76,15 @@ Test change 9
 
 > If there are other tutorials, docs, and learning resources that are necessary or helpful to someone using this plugin, please link to those here.
 
-### Delivery API alternations
+## Delivery API alternations
 
 Some of the data from Kontent Delivery API requires to be altered, or extended in order to be usable in Gatsby. There is a list of them with its description.
 
-#### Preferred language
+### Preferred language
 
 Besides of `system.language` every Kontent item node contains the property `preferred_language` to distinguish which language version it represents. Using this property, it is the easy to distinguish whether the language fallback is used. When `preferred_language` is not the same as `system.language`, Kontent item was not translated to `preferred_language` and the delivery API returned fallback language (`system.language`).
 
-#### Linked items as links
+### Linked items as links
 
 Each linked items element in **linked items element** as well as in **rich text element** is using [Gatsby GraphQL node references](https://www.gatsbyjs.org/docs/create-source-plugin/#creating-the-relationship) that can be used to traverse to the nodes linked through the use of the _Linked items_ element.
 
@@ -87,7 +144,7 @@ query PersonQuery {
 }
 ```
 
-#### Rich text images and links
+### Rich text images and links
 
 Kontent REST API return images and links for Rich Text element in form of object, not as array:
 
@@ -139,7 +196,7 @@ query PersonQuery {
             codename
             type
             url_slug
-            link_id # Newly generated property
+            link_id # Newly generated property from object keys
           }
         }
       }
@@ -148,7 +205,7 @@ query PersonQuery {
 }
 ```
 
-#### Types' `elements` property
+### Types' `elements` property
 
 Elements property is transformed from object to array.
 
@@ -235,42 +292,6 @@ Result
 }
 ```
 
-## How to install
-
-> Please include installation instructions here.
-> Gatsby documentation uses `npm` for installation. This is the recommended approach for plugins as well.
-> If the plugin is a theme that needs to use `yarn`, please point to [the documentation for switching package managers](/docs/gatsby-cli/#how-to-change-your-default-package-manager-for-your-next-project) in addition to the `yarn`-based instructions.
-
-## Available options (if any)
-
-## When do I use this plugin
-
-> Include stories about when this plugin is helpful and/or necessary.
-
-## Examples of usage
-
-> This usually shows a code example showing how to include this plugin in a site's `config.js` file.
-
-```jsonc
-{
-  "resolve": "@simply007org/gatsby-source-kontent-simple",
-  "options": {
-    "projectId": "09fc0115-dd4d-00c7-5bd9-5f73836aee81", // Fill in your Project ID
-    "languageCodenames": [
-      "default", // Or the languages in your project (Project settings -> Localization),
-      "Another_language"
-    ],
-    "includeTaxonomies": true, // opt-out by default
-    "includeTypes": true, // opt-out by default
-    "usePreviewUrl": true, // false by default
-    "authorizationKey": "<API KEY>" // For preview/secured API key - depends on usePreviewUrl setting
-  }
-}
-```
-
-> See this [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#code) on how to format code examples.
-> This section could also include before-and-after examples of data when the plugin is enabled, if applicable.
-
 ## How to query for data (source plugins only)
 
 > If this is a source plugin README, source plugins ought to allow people to query for data within their Gatsby site. Please include code examples to show how to query for data using your source plugin.
@@ -278,10 +299,26 @@ Result
 
 ## How to run tests
 
+Package is using [Jest](http://jest.org/) framework for testing.
+
+To run all tests, there is npm script prepared.
+
+```sh
+yarn test # run all tests in the repository
+```
+
 ## How to develop locally
+
+Use [development site](../../site/README.md) in development mode. And start watch mode for this repository.
+
+```sh
+yarn watch
+```
+
+> To run complete development environment, follow the [debug section the master readme](../../README.md#development)
 
 ## How to contribute
 
 > If you have unanswered questions, would like help with enhancing or debugging the plugin, it is nice to include instructions for people who want to contribute to your plugin.
 
-- _written according to [Gatsby plugin template](https://www.gatsbyjs.org/contributing/docs-templates/#plugin-readme-template)_
+- _Written according to [Gatsby plugin template](https://www.gatsbyjs.org/contributing/docs-templates/#plugin-readme-template)_

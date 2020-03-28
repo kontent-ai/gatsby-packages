@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "@kentico/gatsby-source-kontent": "^4.4.0",
-    "gatsby": "^2.19.49",
+    "gatsby": "^2.20.8",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
   },
