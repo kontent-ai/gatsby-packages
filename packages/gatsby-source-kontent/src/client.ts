@@ -61,33 +61,25 @@ const loadAllKontentItems = async (
     const headers = ensureAuthorizationHeader(config);
     headers[continuationHeaderName] = continuationToken;
 
-    try {
-      const response = await axios.get(
-        `${getDomain(config)}/${
-          config.projectId
-        }/items-feed?language=${language}`,
-        {
-          headers,
-          raxConfig: {
-            onRetryAttempt: logRetryAttempt,
-          },
+    const response = await axios.get(
+      `${getDomain(config)}/${
+      config.projectId
+      }/items-feed?language=${language}`,
+      {
+        headers,
+        raxConfig: {
+          onRetryAttempt: logRetryAttempt,
         },
-      );
+      },
+    );
 
-      const union = _.unionBy<KontentItem>(
-        response.data.items,
-        Object.values(response.data.modular_content),
-        'system.codename',
-      );
-      items.push(...union);
-      continuationToken = response.headers[continuationHeaderName];
-    } catch (error) {
-      console.error(
-        `Items load for project ${
-          config.projectId
-        } on language ${language} failed with error: ${JSON.stringify(error)}`,
-      );
-    }
+    const union = _.unionBy<KontentItem>(
+      response.data.items,
+      Object.values(response.data.modular_content),
+      'system.codename',
+    );
+    items.push(...union);
+    continuationToken = response.headers[continuationHeaderName];
   } while (continuationToken);
 
   return items;
