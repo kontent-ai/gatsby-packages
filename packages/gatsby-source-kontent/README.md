@@ -317,6 +317,11 @@ yarn watch
 
 > To run complete development environment, follow the [debug section the master readme](../../README.md#development)
 
+## Tracking usage
+
+The package is including tracking header to the requests to Kentico Kontent, that helps to identify the adoption of the source plugin and helps to analyze what happened in case of error.
+If you think that tracking should be feel free to raise the feature or pull request.
+
 ## How to contribute
 
 > If you have unanswered questions, would like help with enhancing or debugging the plugin, it is nice to include instructions for people who want to contribute to your plugin.
