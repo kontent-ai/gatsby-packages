@@ -16,8 +16,8 @@ module.exports = {
         ],
         includeTaxonomies: true,
         includeTypes: true,
-        usePreviewUrl: true,
-        authorizationKey: "XXX"
+        // usePreviewUrl: true,
+        // authorizationKey: ""
       },
     },
   ],
