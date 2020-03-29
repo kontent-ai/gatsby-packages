@@ -1,7 +1,7 @@
 {
-  "name": "@simply007org/gatsby-source-kontent-simple",
+  "name": "@kentico/gatsby-source-kontent",
   "description": "Source plugin providing Kentico Kontent data from REST Delivery API",
-  "version": "6.0.0-vnext.1",
+  "version": "6.0.0-vnext.0",
   "main": "index.js",
   "license": "MIT",
   "author": {
@@ -42,8 +42,8 @@
     "@typescript-eslint/eslint-plugin": "2.16.0",
     "@typescript-eslint/parser": "2.16.0",
     "cross-env": "^7.0.2",
-    "eslint": "6.8.0",
-    "gatsby": "2.20.8",
+    "eslint": "^6.8.0",
+    "gatsby": "^2.20.8",
     "jest": "^24.9.0",
     "jest-ts-auto-mock": "^1.0.11",
     "prettier": "1.19.1",

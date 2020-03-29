@@ -24,7 +24,7 @@ This repo contains a [Gatsby (v2) source plugin](https://www.gatsbyjs.org/docs/r
    module.exports = {
      plugins: [
        {
-         resolve: '@simply007org/gatsby-source-kontent-simple',
+         resolve: '@kentico/gatsby-source-kontent',
          options: {
            projectId: '<ProjectID>', // Fill in your Project ID
            languageCodenames: [
@@ -50,7 +50,7 @@ Since the plugin is using [Gatsby Reporter](https://www.gatsbyjs.org/docs/node-a
 
 ```jsonc
 {
-  "resolve": "@simply007org/gatsby-source-kontent-simple",
+  "resolve": "@kentico/gatsby-source-kontent",
   "options": {
     "projectId": "09fc0115-dd4d-00c7-5bd9-5f73836aee81", // Fill in your Project ID
     "languageCodenames": [

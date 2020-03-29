@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
-import { RichTextElement } from "@simply007org/gatsby-kontent-components"
+import { RichTextElement } from "@kentico/gatsby-kontent-components"
 
 const RichTextSample = () => {
   // normally loaded in `props.data`
