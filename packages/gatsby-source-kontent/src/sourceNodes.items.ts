@@ -50,22 +50,24 @@ const alterRichTextElements = (items: Array<KontentItem>): void => {
 const getKontentItemLanguageVariantArtifact = (
   api: SourceNodesArgs,
   kontentItem: KontentItem,
+  includeRawContent: boolean
 ): KontentItem => {
   const nodeIdString = getKontentItemNodeStringForId(
     kontentItem.system.codename,
     kontentItem.preferred_language,
   );
-  const nodeContent = JSON.stringify(kontentItem);
   const nodeData: KontentItem = {
     ...kontentItem,
     id: api.createNodeId(nodeIdString),
     children: [],
     internal: {
       type: getKontentItemNodeTypeName(kontentItem.system.type),
-      content: nodeContent,
       contentDigest: api.createContentDigest(kontentItem),
     },
   };
+  if (includeRawContent) {
+    nodeData.internal.content = JSON.stringify(kontentItem);
+  }
   return nodeData;
 };
 
@@ -78,7 +80,7 @@ const sourceNodes = async (
     addPreferredLanguageProperty(kontentItems, language);
     alterRichTextElements(kontentItems);
     for (const kontentItem of kontentItems) {
-      const nodeData = getKontentItemLanguageVariantArtifact(api, kontentItem);
+      const nodeData = getKontentItemLanguageVariantArtifact(api, kontentItem, options.includeRawContent);
       api.actions.createNode(nodeData);
     }
   }

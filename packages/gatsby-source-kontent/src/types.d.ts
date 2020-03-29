@@ -14,6 +14,7 @@ interface CustomPluginOptions extends PluginOptions {
   includeTaxonomies: boolean = false;
   authorizationKey: string = null;
   usePreviewUrl: boolean = false;
+  includeRawContent: boolean = false;
 }
 
 interface CustomCreateSchemaCustomizationArgs
