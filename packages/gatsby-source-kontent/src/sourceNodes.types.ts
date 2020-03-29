@@ -14,21 +14,23 @@ import { loadAllKontentTypes } from './client';
 const getKontentTypeArtifact = (
   api: SourceNodesArgs,
   kontentType: KontentType,
+  includeRawContent: boolean
 ): KontentType => {
   const nodeIdString = getKontentTypeNodeStringForCodeName(
     kontentType.system.codename,
   );
-  const nodeContent = JSON.stringify(kontentType);
   const nodeData: KontentType = {
     ...kontentType,
     id: api.createNodeId(nodeIdString),
     children: [],
     internal: {
       type: getKontentTypeTypeName(),
-      content: nodeContent,
       contentDigest: api.createContentDigest(kontentType),
     },
   };
+  if(includeRawContent) {
+    nodeData.internal.content = JSON.stringify(kontentType);
+  }
   return nodeData;
 };
 
@@ -50,7 +52,7 @@ const sourceNodes = async (
   const kontentTypes = await loadAllKontentTypes(options);
   transformElementObjectToArray(kontentTypes);
   for (const kontentType of kontentTypes) {
-    const nodeData = getKontentTypeArtifact(api, kontentType);
+    const nodeData = getKontentTypeArtifact(api, kontentType, options.includeRawContent);
     api.actions.createNode(nodeData);
   }
 };

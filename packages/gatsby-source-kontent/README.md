@@ -60,7 +60,8 @@ Since the plugin is using [Gatsby Reporter](https://www.gatsbyjs.org/docs/node-a
     "includeTaxonomies": true, // opt-out by default
     "includeTypes": true, // opt-out by default
     "usePreviewUrl": true, // false by default
-    "authorizationKey": "<API KEY>" // For preview/secured API key - depends on usePreviewUrl setting
+    "authorizationKey": "<API KEY>", // For preview/secured API key - depends on usePreviewUrl setting
+    "includeRawContent" : true // opt-out by default - include `internal.content` property in the gatsby nodes
   }
 }
 ```
