@@ -7,11 +7,16 @@ import {
   CustomPluginOptions,
 } from './types';
 import * as _ from 'lodash';
+import {
+  name as packageName,
+  version as packageVersion
+} from '../package.json';
 
 const KontentDeliveryProductionDomain = 'https://deliver.kontent.ai';
 const KontentDeliveryPreviewDomain = 'https://preview-deliver.kontent.ai';
 const continuationHeaderName = 'x-continuation';
 const authorizationHeaderName = 'authorization';
+const trackingHeaderName = 'x-kc-source';
 
 rax.attach();
 
@@ -31,6 +36,7 @@ const logRetryAttempt = (err: AxiosError): void => {
 interface KontentHttpHeaders {
   [continuationHeaderName]?: string;
   [authorizationHeaderName]?: string;
+  [trackingHeaderName]?: string;
 }
 
 const ensureAuthorizationHeader = (
@@ -42,11 +48,25 @@ const ensureAuthorizationHeader = (
   }
 
   if (headers) {
-    headers.authorization = `Bearer ${config.authorizationKey}`;
+    headers[authorizationHeaderName] = `Bearer ${config.authorizationKey}`;
     return headers;
   } else {
     return {
-      authorization: `Bearer ${config.authorizationKey}`,
+      [authorizationHeaderName]: `Bearer ${config.authorizationKey}`,
+    };
+  }
+};
+
+const ensureTrackingHeader = (
+  headers?: KontentHttpHeaders | undefined,
+): KontentHttpHeaders => {
+  const headerValue = `${packageName};${packageVersion}`;
+  if (headers) {
+    headers[trackingHeaderName] = headerValue;
+    return headers;
+  } else {
+    return {
+      [trackingHeaderName]: headerValue
     };
   }
 };
@@ -57,8 +77,9 @@ const loadAllKontentItems = async (
 ): Promise<KontentItem[]> => {
   let continuationToken = '';
   const items = [];
+  const headers = ensureAuthorizationHeader(config);
+  ensureTrackingHeader(headers);
   do {
-    const headers = ensureAuthorizationHeader(config);
     headers[continuationHeaderName] = continuationToken;
 
     const response = await axios.get(
@@ -88,10 +109,12 @@ const loadAllKontentItems = async (
 const loadAllKontentTypes = async (
   config: CustomPluginOptions,
 ): Promise<KontentType[]> => {
+  const headers = ensureAuthorizationHeader(config);
+  ensureTrackingHeader(headers);
   const response = await axios.get(
     `${getDomain(config)}/${config.projectId}/types`,
     {
-      headers: ensureAuthorizationHeader(config),
+      headers,
       raxConfig: {
         onRetryAttempt: logRetryAttempt,
       },
@@ -103,10 +126,12 @@ const loadAllKontentTypes = async (
 const loadAllKontentTaxonomies = async (
   config: CustomPluginOptions,
 ): Promise<KontentTaxonomy[]> => {
+  const headers = ensureAuthorizationHeader(config);
+  ensureTrackingHeader(headers);
   const response = await axios.get(
     `${getDomain(config)}/${config.projectId}/taxonomies`,
     {
-      headers: ensureAuthorizationHeader(config),
+      headers,
       raxConfig: {
         onRetryAttempt: logRetryAttempt,
       },
