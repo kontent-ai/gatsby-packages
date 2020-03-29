@@ -9,7 +9,7 @@ module.exports = {
     {
       resolve: "@simply007org/gatsby-source-kontent-simple",
       options: {
-        projectId: "6bf2c182-c337-010c-2383-ac4eddf0e261", // Fill in your Project ID
+        projectId: "00676a8d-358c-0084-f2f2-33ed466c480a", // Fill in your Project ID
         languageCodenames: [
           "default", // Or the languages in your project (Project settings -> Localization),
           "cs-CZ",
