@@ -36,9 +36,9 @@ This repo contains a [Gatsby (v2) source plugin](https://www.gatsbyjs.org/docs/r
    };
    ```
 
-## Available options (if any)
+## Available options
 
-Repository is capable of loading Kontent Items as well as Types an Taxonomies.
+Since the plugin is using [Gatsby Reporter](https://www.gatsbyjs.org/docs/node-api-helpers/#reporter) for error logging. You could [turn on `--verbose` option](https://github.com/gatsbyjs/gatsby/pull/19199/files) to see the whole error object. Be careful with this options, the output log could contains some sensitive data such as `authorizationKey`.
 
 ## When do I use this plugin
 
