@@ -2,6 +2,7 @@ import { kontentTaxonomiesSourceNodes } from '../src/sourceNodes.taxonomies';
 import { SourceNodesArgs, Actions } from 'gatsby';
 import { CustomPluginOptions, KontentTaxonomy } from '../src/types';
 import { createMock } from 'ts-auto-mock';
+import { createContentDigest } from 'gatsby-core-utils';
 
 // TODO fix lint error
 import * as complexTaxonomiesFakeResponse from './complexTaxonomiesFakeResponse.json';
@@ -19,6 +20,7 @@ describe('sourceNodes', () => {
       actions: createMock<Actions>({
         createNode: jest.fn(),
       }),
+      createContentDigest
     });
 
     const pluginConfiguration = createMock<CustomPluginOptions>({
@@ -43,6 +45,7 @@ describe('sourceNodes', () => {
         createNodesMock.mock.calls,
       ) as KontentTaxonomy[];
       expect(createdNodes.length).toBe(5);
+      expect(createdNodes).toMatchSnapshot();
     });
   });
 });
