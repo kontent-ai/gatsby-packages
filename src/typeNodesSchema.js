@@ -83,11 +83,11 @@ const createFieldDefinitionsForType = (schema, type) => {
 };
 
 const getGraphItemTypeName = (typeName) => {
-  return normalize.getArtifactName(typeName, 'Item');
+  return normalize.getArtifactName(typeName, 'item');
 };
 
 const getGraphTypeTypeName = (typeName) => {
-  return normalize.getArtifactName(typeName, 'Type');
+  return normalize.getArtifactName(typeName, 'type');
 };
 
 const KontentTextElementTypeName = 'KontentTextElement';
