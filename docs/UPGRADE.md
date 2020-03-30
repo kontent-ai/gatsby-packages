@@ -12,31 +12,31 @@ It is necessary to rename all Kontent taxonomy, type, and item names in all Grap
 
 | 4.x.x pattern                                | 5.x.x pattern                  |
 | -------------------------------------------- | ------------------------------ |
-| KontentTaxonomy{PascalCasedTaxonomyCodename} |  KontentTaxonomy_{raw_codename}|
+| KontentTaxonomy{PascalCasedTaxonomyCodename} | kontent_taxonomy_{raw_codename}|
 
 | 4.x.x example                                | 5.x.x example                  |
 | -------------------------------------------- | ------------------------------ |
-| KontentTaxonomyMyPersonas                    | KontentTaxonomy_my_personas    |
+| KontentTaxonomyMyPersonas                    | kontent_taxonomy_my_personas   |
 
 #### Type name
 
 | 4.x.x pattern                                | 5.x.x pattern                  |
 | -------------------------------------------- | ------------------------------ |
-| KontentType{PascalCasedTypeCodename}         |  KontentType_{raw_codename}    | 
+| KontentType{PascalCasedTypeCodename}         | kontent_type_{raw_codename}    |
 
 | 4.x.x example                                | 5.x.x example                  |
 | -------------------------------------------- | ------------------------------ |
-| KontentTypeMyPerson                          | KontentType_my_person          |
+| KontentTypeMyPerson                          | kontent_type_my_person         |
 
 #### Item name
 
 | 4.x.x pattern                                | 5.x.x pattern                  |
 | -------------------------------------------- | ------------------------------ |
-| KontentItem{PascalCasedItemCodename}         |  KontentItem_{raw_codename}    | 
+| KontentItem{PascalCasedItemCodename}         |  kontent_item_{raw_codename}   |
 
 | 4.x.x example                                | 5.x.x example                  |
 | -------------------------------------------- | ------------------------------ |
-| KontentItemMyArticle                         | KontentItem_my_article         |
+| KontentItemMyArticle                         | kontent_item_my_article        |
 
 ## From `3.x.x` to `4.x.x`
 
