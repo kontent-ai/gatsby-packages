@@ -2,6 +2,7 @@ import { kontentTypesSourceNodes } from '../src/sourceNodes.types';
 import { SourceNodesArgs, Actions } from 'gatsby';
 import { CustomPluginOptions, KontentType } from '../src/types';
 import { createMock } from 'ts-auto-mock';
+import { createContentDigest } from 'gatsby-core-utils';
 
 // TODO fix lint error
 import * as complexTypesFakeResponse from './complexTypesFakeResponse.json';
@@ -19,6 +20,7 @@ describe('sourceNodes', () => {
       actions: createMock<Actions>({
         createNode: jest.fn(),
       }),
+      createContentDigest
     });
 
     const pluginConfiguration = createMock<CustomPluginOptions>({
@@ -44,6 +46,7 @@ describe('sourceNodes', () => {
       ) as KontentType[];
 
       expect(createdNodes.length).toBe(6);
+      expect(createdNodes).toMatchSnapshot();
     });
   });
 });

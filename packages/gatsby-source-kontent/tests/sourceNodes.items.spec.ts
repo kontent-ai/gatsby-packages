@@ -2,6 +2,7 @@ import { kontentItemsSourceNodes } from '../src/sourceNodes.items';
 import { SourceNodesArgs, Actions } from 'gatsby';
 import { CustomPluginOptions, KontentItem } from '../src/types';
 import { createMock } from 'ts-auto-mock';
+import { createContentDigest } from 'gatsby-core-utils';
 
 // TODO fix lint error https://github.com/microsoft/TypeScript/issues/25400
 import complexContentItemsFirstLanguageFakeReponse from './complexContentItemsFirstLanguageFakeReponse.json';
@@ -10,6 +11,7 @@ import * as complexContentItemsSecondLanguageFakeReponse from './complexContentI
 import axios from 'axios';
 import { mocked } from 'ts-jest/dist/util/testing';
 import * as _ from 'lodash';
+
 jest.mock('axios');
 const mockedAxios = axios as jest.Mocked<typeof axios>;
 
@@ -20,6 +22,7 @@ describe('kontentItemsSourceNodes', () => {
       actions: createMock<Actions>({
         createNode: jest.fn(),
       }),
+      createContentDigest 
     });
 
     const pluginConfiguration = createMock<CustomPluginOptions>({
@@ -89,6 +92,8 @@ describe('kontentItemsSourceNodes', () => {
       expect(nodesByType.step.length).toBe(22);
       expect(nodesByType.training.length).toBe(2);
       expect(nodesByType.website.length).toBe(2);
+
+      expect(createdNodes).toMatchSnapshot();
     });
   });
 });
