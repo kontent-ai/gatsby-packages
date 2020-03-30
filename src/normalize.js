@@ -115,7 +115,7 @@ const addLinkedItemsLinks =
  * @return {String} Artifact name
  */
 const getArtifactName = (codeName, artifactKind) => {
-  return `Kontent${artifactKind}_${codeName}`;
+  return `kontent_${artifactKind}_${codeName}`;
 };
 
 module.exports = {

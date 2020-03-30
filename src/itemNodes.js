@@ -136,7 +136,7 @@ const createContentItemNode =
     return normalize.createKontentArtifactNode(
       nodeId,
       itemWithElements,
-      `Item`,
+      `item`,
       contentItem.system.type,
       additionalData,
       includeRawContent,

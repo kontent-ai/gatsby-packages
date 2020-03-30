@@ -56,7 +56,7 @@ const createContentTypeNode = (
   return normalize.createKontentArtifactNode(
     nodeId,
     contentType,
-    `Type`,
+    `type`,
     contentType.system.codename,
     additionalData,
     includeRawContent,

@@ -46,7 +46,7 @@ const createTaxonomyNode = (createNodeId, taxonomy, includeRawContent) => {
   return normalize.createKontentArtifactNode(
     nodeId,
     taxonomy,
-    `Taxonomy`,
+    `taxonomy`,
     taxonomy.system.codename,
     additionalData,
     includeRawContent,
