@@ -6,15 +6,15 @@
 
 [![Stack Overflow](https://img.shields.io/badge/Stack%20Overflow-ASK%20NOW-FE7A16.svg?logo=stackoverflow&logoColor=white)](https://stackoverflow.com/tags/kentico-kontent)
 
-Site using for development purposes and and code examples showcasing packages possibilities.
+A site using for development purposes and code examples showcasing packages possibilities.
 
 ## Get started
 
-:warning: Prior running any of the following scripts locally to ensure the site is using the latest commands
+:warning: Before running any of the following scripts locally ensure the site is using the latest commands
 
 ```sh
 yarn # install all required packages
-yarn build # build latest version of tha packages
+yarn build # build the latest version of the packages
 
 ```
 
@@ -38,7 +38,7 @@ yarn build # runs `gatsby build` command
 
 ## Examples
 
-Following examples is showcasing, how it is possible to use the Kontent packages. There are many possibilities that Gatsby offer to adjust the data you need before using them in the application.
+The following examples are showcasing, how it is possible to use the Kontent packages. There are many possibilities that Gatsby offers to adjust the data you need before using them in the application.
 
 All of the examples are in [examples.js](examples.js).
 
