@@ -2,7 +2,7 @@ const _ = require(`lodash`);
 
 const customTrackingHeader = {
   header: 'X-KC-SOURCE',
-  value: '@kentico/gatsby-source-kontent;5.0.0-beta2',
+  value: '@kentico/gatsby-source-kontent;5.0.0-beta3',
 };
 
 /**
