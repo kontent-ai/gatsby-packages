@@ -15,6 +15,7 @@ import {
   getKontentItemInterfaceName,
   getKontentItemElementTypeNameByType,
   getKontentItemLanguageLinkExtensionName,
+  PREFERRED_LANGUAGE_IDENTIFIER,
 } from './naming';
 
 const getLanguageLinkExtension = (): object => ({
@@ -31,7 +32,7 @@ const getLanguageLinkExtension = (): object => ({
         source.type === 'modular_content'
           ? (source.value as string[])
           : (source.modular_content as string[]);
-      const nodesLanguage = kontentItemNode.preferred_language;
+      const nodesLanguage = kontentItemNode[PREFERRED_LANGUAGE_IDENTIFIER];
 
       const promises = nodesCodeNames.map(codename =>
         context.nodeModel.runQuery({
@@ -42,7 +43,7 @@ const getLanguageLinkExtension = (): object => ({
                   eq: codename,
                 },
               },
-              ['preferred_language']: {
+              [PREFERRED_LANGUAGE_IDENTIFIER]: {
                 eq: nodesLanguage,
               },
             },
@@ -112,7 +113,7 @@ const createSchemaCustomization = async (
       fields: {
         system: `${systemElementsTypeName}!`,
         elements: kontentItemElementsTypeName,
-        ['preferred_language']: 'String!',
+        [PREFERRED_LANGUAGE_IDENTIFIER]: 'String!',
       },
       interfaces: ['Node', typeInterfaceName],
       infer: false,

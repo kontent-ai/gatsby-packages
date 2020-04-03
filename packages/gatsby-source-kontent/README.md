@@ -8,14 +8,13 @@ This repo contains a [Gatsby (v2) source plugin](https://www.gatsbyjs.org/docs/r
 
 ## How to install
 
-> Please include installation instructions here.
-> Gatsby documentation uses `npm` for installation. This is the recommended approach for plugins as well.
-> If the plugin is a theme that needs to use `yarn`, please point to [the documentation for switching package managers](/docs/gatsby-cli/#how-to-change-your-default-package-manager-for-your-next-project) in addition to the `yarn`-based instructions.
+Gatsby documentation uses `npm` for installation. This is the recommended approach for plugins as well.
+This plugin does not need to use `yarn`, if want to use it in you project, see [the documentation for switching package managers](/docs/gatsby-cli/#how-to-change-your-default-package-manager-for-your-next-project).
 
 1. Install the [@kentico/gatsby-source-kontent](https://www.npmjs.com/package/@kentico/gatsby-source-kontent) NPM package.
 
    ```sh
-   npm install --save @kentico/gatsby-source-kontent
+   npm install --save @simply007org/gatsby-source-kontent-simple
    ```
 
 1. Configure the plugin in `gatsby-config.js` file.
@@ -38,7 +37,7 @@ This repo contains a [Gatsby (v2) source plugin](https://www.gatsbyjs.org/docs/r
 
 ## Available options
 
-Since the plugin is using [Gatsby Reporter](https://www.gatsbyjs.org/docs/node-api-helpers/#reporter) for error logging. You could [turn on `--verbose` option](https://github.com/gatsbyjs/gatsby/pull/19199/files) to see the whole error object. Be careful with this options, the output log could contains some sensitive data such as `authorizationKey`.
+Since the plugin is using [Gatsby Reporter](https://www.gatsbyjs.org/docs/node-api-helpers/#reporter) for error logging. You could [turn on `--verbose` option](https://github.com/gatsbyjs/gatsby/pull/19199/files) to see the whole error object. Be careful with these options, the output log could contain some sensitive data such as `authorizationKey`.
 
 ## When do I use this plugin
 
@@ -46,32 +45,31 @@ Since the plugin is using [Gatsby Reporter](https://www.gatsbyjs.org/docs/node-a
 
 ## Examples of usage
 
-> This usually shows a code example showing how to include this plugin in a site's `config.js` file.
+An example showing how to include this plugin in a site's `gatsby-config.js` file.
 
-```jsonc
-{
-  "resolve": "@kentico/gatsby-source-kontent",
-  "options": {
-    "projectId": "09fc0115-dd4d-00c7-5bd9-5f73836aee81", // Fill in your Project ID
-    "languageCodenames": [
-      "default", // Or the languages in your project (Project settings -> Localization),
-      "Another_language"
-    ],
-    "includeTaxonomies": true, // opt-out by default
-    "includeTypes": true, // opt-out by default
-    "usePreviewUrl": true, // false by default
-    "authorizationKey": "<API KEY>", // For preview/secured API key - depends on usePreviewUrl setting
-    "includeRawContent" : true // opt-out by default - include `internal.content` property in the gatsby nodes
-  }
-}
+```js
+module.exports = {
+  plugins: [
+    /// ...
+    {
+      resolve: '@simply007org/gatsby-source-kontent-simple',
+      options: {
+        projectId: '09fc0115-dd4d-00c7-5bd9-5f73836aee81', // Fill in your Project ID
+        languageCodenames: [
+          'default', // Or the languages in your project (Project settings -> Localization),
+          'Another_language',
+        ],
+        includeTaxonomies: true, // opt-out by default
+        includeTypes: true, // opt-out by default
+        usePreviewUrl: true, // false by default
+        authorizationKey: '<API KEY>', // For preview/secured API key - depends on usePreviewUrl setting
+        includeRawContent: true, // opt-out by default - include `internal.content` property in the gatsby nodes
+      },
+    },
+    /// ...
+  ],
+};
 ```
-
-> See this [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#code) on how to format code examples.
-> This section could also include before-and-after examples of data when the plugin is enabled, if applicable.
-
-### Dependencies (optional)
-
-> Are there any plugins that must be installed in order to make this plugin work? If so, please include a list of those plugins and links to their pages here.
 
 ### Learning Resources (optional)
 
@@ -79,17 +77,17 @@ Since the plugin is using [Gatsby Reporter](https://www.gatsbyjs.org/docs/node-a
 
 ## Delivery API alternations
 
-Some of the data from Kontent Delivery API requires to be altered, or extended in order to be usable in Gatsby. There is a list of them with its description.
+Some of the data from Kontent Delivery API requires to be altered or extended to be usable in Gatsby. There is a list of them with its description.
 
 ### Preferred language
 
-Besides of `system.language` every Kontent item node contains the property `preferred_language` to distinguish which language version it represents. Using this property, it is the easy to distinguish whether the language fallback is used. When `preferred_language` is not the same as `system.language`, Kontent item was not translated to `preferred_language` and the delivery API returned fallback language (`system.language`).
+Besides of `system.language` every Kontent item node contains the property `preferred_language` to distinguish which language version it represents. Using this property, it is easy to distinguish whether the language fallback is used. When `preferred_language` is not the same as `system.language`, Kontent item was not translated to `preferred_language` and the delivery API returned fallback language (`system.language`).
 
 ### Linked items as links
 
-Each linked items element in **linked items element** as well as in **rich text element** is using [Gatsby GraphQL node references](https://www.gatsbyjs.org/docs/create-source-plugin/#creating-the-relationship) that can be used to traverse to the nodes linked through the use of the _Linked items_ element.
+Each _linked items_ element in **linked items element** as well as in **rich text element** is using [Gatsby GraphQL node references](https://www.gatsbyjs.org/docs/create-source-plugin/#creating-the-relationship) that can be used to traverse to the nodes linked through the use of the _Linked items_ element.
 
-The resolution is using the `createFieldExtension` called `languageLink` that is resolving the codenames. [Embedded `@link` extension](https://www.gatsbyjs.org/docs/schema-customization/#foreign-key-fields) is not used because the links has to be resolved by `preferred_language` as well as `system.codename` equality and embedded link resolution allow to use only one field to make the links out of the box.
+The resolution is using the `createFieldExtension` called `languageLink` that is resolving the codenames. [Embedded `@link` extension](https://www.gatsbyjs.org/docs/schema-customization/#foreign-key-fields) is not used because the links have to be resolved by `preferred_language` as well as `system.codename` equality and embedded link resolution allow using only one field to make the links out of the box.
 
 Linked Items element
 
@@ -147,7 +145,7 @@ query PersonQuery {
 
 ### Rich text images and links
 
-Kontent REST API return images and links for Rich Text element in form of object, not as array:
+Kontent REST API returns images and links for Rich Text element in the form of the object, not as an array:
 
 ```json
 {
@@ -176,7 +174,7 @@ Kontent REST API return images and links for Rich Text element in form of object
 }
 ```
 
-This wrapper transforms these objects to the the arrays. In case ofe image the ID of an image is already stored there, in case of link, the id of a link is moved to `linked_id` property. The query then looks like:
+This wrapper transforms these objects into the arrays. In case of an image the ID of the image is already stored there, in case of link, the id of a link is moved to `linked_id` property. The query then looks like:
 
 ```gql
 query PersonQuery {
@@ -237,7 +235,7 @@ This is the "Website" type sample. As you can see there is `element` property, w
 }
 ```
 
-And here is the example how does the source plugin transform the data.
+And here is the example how the source plugin transforms the data.
 
 Query
 
@@ -300,9 +298,9 @@ Result
 
 ## How to run tests
 
-Package is using [Jest](http://jest.org/) framework for testing.
+The package is using [Jest](http://jest.org/) framework for testing.
 
-To run all tests, there is npm script prepared.
+To run all tests, there is an npm script prepared.
 
 ```sh
 yarn test # run all tests in the repository
@@ -310,7 +308,7 @@ yarn test # run all tests in the repository
 
 ## How to develop locally
 
-Use [development site](../../site/README.md) in development mode. And start watch mode for this repository.
+Use a [development site](../../site/README.md) in development mode. And start watch mode for this repository.
 
 ```sh
 yarn watch
@@ -320,8 +318,8 @@ yarn watch
 
 ## Tracking usage
 
-The package is including tracking header to the requests to Kentico Kontent, that helps to identify the adoption of the source plugin and helps to analyze what happened in case of error.
-If you think that tracking should be feel free to raise the feature or pull request.
+The package is including tracking header to the requests to Kentico Kontent, which helps to identify the adoption of the source plugin and helps to analyze what happened in case of error.
+If you think that tracking should be optional feel free to raise the feature or pull request.
 
 ## How to contribute
 

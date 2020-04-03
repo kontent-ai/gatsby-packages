@@ -10,6 +10,7 @@ import { loadAllKontentItems } from './client';
 import {
   getKontentItemNodeStringForId,
   getKontentItemNodeTypeName,
+  PREFERRED_LANGUAGE_IDENTIFIER,
 } from './naming';
 import _ from 'lodash';
 
@@ -18,7 +19,7 @@ const addPreferredLanguageProperty = (
   language: string,
 ): Array<KontentItem> => {
   for (const item of items) {
-    item['preferred_language'] = language;
+    item[PREFERRED_LANGUAGE_IDENTIFIER] = language;
   }
   return items;
 };
@@ -50,11 +51,11 @@ const alterRichTextElements = (items: Array<KontentItem>): void => {
 const getKontentItemLanguageVariantArtifact = (
   api: SourceNodesArgs,
   kontentItem: KontentItem,
-  includeRawContent: boolean
+  includeRawContent: boolean,
 ): KontentItem => {
   const nodeIdString = getKontentItemNodeStringForId(
     kontentItem.system.codename,
-    kontentItem.preferred_language,
+    kontentItem[PREFERRED_LANGUAGE_IDENTIFIER],
   );
   const nodeData: KontentItem = {
     ...kontentItem,
@@ -80,7 +81,11 @@ const sourceNodes = async (
     addPreferredLanguageProperty(kontentItems, language);
     alterRichTextElements(kontentItems);
     for (const kontentItem of kontentItems) {
-      const nodeData = getKontentItemLanguageVariantArtifact(api, kontentItem, options.includeRawContent);
+      const nodeData = getKontentItemLanguageVariantArtifact(
+        api,
+        kontentItem,
+        options.includeRawContent,
+      );
       api.actions.createNode(nodeData);
     }
   }

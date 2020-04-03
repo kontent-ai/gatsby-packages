@@ -6,10 +6,11 @@ exports[`kontentItemsCreateSchemaCustomization create fixed type definition 1`] 
 interface kontent_item @nodeInterface {
   id: ID!
   system: kontent_item_system!
-  # elements: type is defined dynamically
-  #  - union type just require to use fragment when querying
-  #  - no benefits: type is not propagated to filter
-  #  - union types are not supported for querying in Gatsby
+  # elements: type is defined programmatically
+  #  - it would be possible to use union type, but there are
+  #    no benefits
+  #    - union type is not propagated to filter
+  #    - union types are not supported for querying in Gatsby
   preferred_language: String!
 }
 

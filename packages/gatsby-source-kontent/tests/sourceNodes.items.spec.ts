@@ -22,7 +22,7 @@ describe('kontentItemsSourceNodes', () => {
       actions: createMock<Actions>({
         createNode: jest.fn(),
       }),
-      createContentDigest 
+      createContentDigest,
     });
 
     const pluginConfiguration = createMock<CustomPluginOptions>({
