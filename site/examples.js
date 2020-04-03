@@ -11,11 +11,12 @@ const resolveUrls = api => {
     schema,
   } = api
 
-  const urlSlugExtended = schema.buildObjectType({
+  const urlSlugExtended = schema.buildObjectTyp e({
     name: getKontentItemElementTypeNameByType("url_slug"),
     fields: {
       resolved_url: {
         type: "String",
+        // https://www.gatsbyjs.org/docs/schema-customization/
         resolve: (source, args, context, info) => {
           const kontentItemNode = context.nodeModel.findRootNodeAncestor(source)
           // possible to use `kontentItemNode.elements.[<elementcodename>].value`
@@ -43,6 +44,7 @@ const addLanguageLinks = (api, typeCodename) => {
     fields: {
       other_languages: {
         type: `[${type}]`,
+        // https://www.gatsbyjs.org/docs/schema-customization/
         resolve: async (source, args, context, info) => {
           const pluginInfo = await context.nodeModel.runQuery({
             query: {
@@ -83,6 +85,7 @@ const addLanguageLinks = (api, typeCodename) => {
       },
       fallback_used: {
         type: "Boolean",
+        // https://www.gatsbyjs.org/docs/schema-customization/
         resolve: (source, args, context, info) => {
           return source.preferred_language !== source.system.language
         },
@@ -104,6 +107,7 @@ const addKontentTypeItemsLink = async api => {
     fields: {
       content_items: {
         type: `[${getKontentItemInterfaceName()}]`,
+        // https://www.gatsbyjs.org/docs/schema-customization/
         resolve: async (source, args, context, info) => {
           const linkedContentItems = await context.nodeModel.runQuery({
             query: {
@@ -155,6 +159,7 @@ const linkUsedByContentItems = (
     fields: {
       [backReferenceName]: {
         type: `[${parentGraphqlType}]`,
+        // https://www.gatsbyjs.org/docs/schema-customization/
         resolve: async (source, args, context, info) => {
           const linkedNodes = await context.nodeModel.runQuery({
             query: {
