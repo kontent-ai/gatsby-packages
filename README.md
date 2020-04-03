@@ -220,13 +220,14 @@ The `related_project_refereces.linked_items` will give you the full-fledged Gats
 </details>
 
 > :bulb: When you are modelling linked items, make sure you have no element with the same codename of different type. In case you had some, they would be omitted from the model and the following warning is logged during model generation.
+> 
 > Showcase
 > * first linked item in Related items element is Type1: `KontentItemArticle.elements.related_items.linked_items[0].elements.manufacturer.value`
 >    * `manufacturer` is Multiple choice element (`value` is array of objects)
 > * second linked item in Related items element is Type2: `KontentItemArticle.elements.related_items.linked_items[1].elements.manufacturer.string`
-    * `manufacturer` is Text element (value is just string)
+>    * `manufacturer` is Text element (value is just string)
+>
 > Error in console
-
 >    ```plain
 >    KontentItemArticle.elements.related_items.linked_items[].elements.manufacturer.value:
 >     - type: array<object>
