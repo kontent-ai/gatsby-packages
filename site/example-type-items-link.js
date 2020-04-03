@@ -1,7 +1,7 @@
 const {
   getKontentTypeTypeName,
   getKontentItemInterfaceName,
-} = require("@simply007org/gatsby-source-kontent-simple")
+} = require("@kentico/gatsby-source-kontent")
 
 const addKontentTypeItemsLink = async api => {
   const {
