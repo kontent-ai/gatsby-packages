@@ -15,7 +15,7 @@ import {
   getKontentItemInterfaceName,
   getKontentItemElementTypeNameByType,
   getKontentItemLanguageLinkExtensionName,
-  PREFERRED_LANGUAGE_IDENTIFIER
+  PREFERRED_LANGUAGE_IDENTIFIER,
 } from './naming';
 
 const getLanguageLinkExtension = (): object => ({

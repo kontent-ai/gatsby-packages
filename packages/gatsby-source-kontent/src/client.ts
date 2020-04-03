@@ -9,7 +9,7 @@ import {
 import * as _ from 'lodash';
 import {
   name as packageName,
-  version as packageVersion
+  version as packageVersion,
 } from '../package.json';
 
 const KontentDeliveryProductionDomain = 'https://deliver.kontent.ai';
@@ -66,7 +66,7 @@ const ensureTrackingHeader = (
     return headers;
   } else {
     return {
-      [trackingHeaderName]: headerValue
+      [trackingHeaderName]: headerValue,
     };
   }
 };
@@ -84,7 +84,7 @@ const loadAllKontentItems = async (
 
     const response = await axios.get(
       `${getDomain(config)}/${
-      config.projectId
+        config.projectId
       }/items-feed?language=${language}`,
       {
         headers,

@@ -10,7 +10,7 @@ import { loadAllKontentItems } from './client';
 import {
   getKontentItemNodeStringForId,
   getKontentItemNodeTypeName,
-  PREFERRED_LANGUAGE_IDENTIFIER
+  PREFERRED_LANGUAGE_IDENTIFIER,
 } from './naming';
 import _ from 'lodash';
 
@@ -51,7 +51,7 @@ const alterRichTextElements = (items: Array<KontentItem>): void => {
 const getKontentItemLanguageVariantArtifact = (
   api: SourceNodesArgs,
   kontentItem: KontentItem,
-  includeRawContent: boolean
+  includeRawContent: boolean,
 ): KontentItem => {
   const nodeIdString = getKontentItemNodeStringForId(
     kontentItem.system.codename,
@@ -81,7 +81,11 @@ const sourceNodes = async (
     addPreferredLanguageProperty(kontentItems, language);
     alterRichTextElements(kontentItems);
     for (const kontentItem of kontentItems) {
-      const nodeData = getKontentItemLanguageVariantArtifact(api, kontentItem, options.includeRawContent);
+      const nodeData = getKontentItemLanguageVariantArtifact(
+        api,
+        kontentItem,
+        options.includeRawContent,
+      );
       api.actions.createNode(nodeData);
     }
   }

@@ -3,9 +3,7 @@ import {
   CreateSchemaCustomizationArgs,
   NodeInput,
 } from 'gatsby';
-import {
-  PREFERRED_LANGUAGE_IDENTIFIER
-} from "./naming";
+import { PREFERRED_LANGUAGE_IDENTIFIER } from './naming';
 
 /**
  * The plugin options.

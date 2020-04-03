@@ -208,8 +208,9 @@ const getKontentItemsSchemaNamingConfiguration = (
         /__KONTENT_ITEM_LANGUAGE_EXTENSION__/g,
         getKontentItemLanguageLinkExtensionName(config),
       )
-      .replace(/__KONTENT_ITEM_PREFERRED_LANGUAGE_IDENTIFIER__/g,
-        PREFERRED_LANGUAGE_IDENTIFIER
+      .replace(
+        /__KONTENT_ITEM_PREFERRED_LANGUAGE_IDENTIFIER__/g,
+        PREFERRED_LANGUAGE_IDENTIFIER,
       )
   );
 };
@@ -271,5 +272,5 @@ export {
   getKontentItemsSchemaNamingConfiguration,
   getKontentTaxonomiesSchemaNamingConfiguration,
   getKontentTypesSchemaNamingConfiguration,
-  PREFERRED_LANGUAGE_IDENTIFIER
+  PREFERRED_LANGUAGE_IDENTIFIER,
 };
