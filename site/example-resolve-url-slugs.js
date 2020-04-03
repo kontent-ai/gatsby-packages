@@ -27,5 +27,5 @@ const resolveUrls = api => {
 }
 
 module.exports = {
-  resolveUrls
+  resolveUrls,
 }

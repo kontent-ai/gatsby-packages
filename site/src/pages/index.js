@@ -5,8 +5,8 @@ import { Link } from "gatsby"
 export default () => {
   return (
     <>
-    <RichTextElement value="<div>Hello Kontent!</div>" />
-    <Link to="rich-text">Rich text element resolution showcase</Link>
+      <RichTextElement value="<div>Hello Kontent!</div>" />
+      <Link to="rich-text">Rich text element resolution showcase</Link>
     </>
-  );
+  )
 }

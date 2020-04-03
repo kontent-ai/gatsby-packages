@@ -76,4 +76,5 @@ Reverse link resolution relationship could be ensured by schema definition as we
 Showcase is in [Linked from relationship](./example-used-by-content-item-link.js).
 
 ---
+
 Based on [official Gatsby Hello World starter](https://github.com/gatsbyjs/gatsby-starter-hello-world).

@@ -1,12 +1,6 @@
-const {
-  resolveUrls
-} = require('./example-resolve-url-slugs');
-const {
-  addLanguageLinks
-} = require('./example-languages-link');
-const {
-  addKontentTypeItemsLink
-} = require('./example-type-items-link')
+const { resolveUrls } = require("./example-resolve-url-slugs")
+const { addLanguageLinks } = require("./example-languages-link")
+const { addKontentTypeItemsLink } = require("./example-type-items-link")
 const {
   linkUsedByContentItems,
 } = require("./example-used-by-content-item-link")

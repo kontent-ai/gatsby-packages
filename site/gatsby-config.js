@@ -18,7 +18,7 @@ module.exports = {
         includeTypes: true,
         // usePreviewUrl: true,
         // authorizationKey: ""
-        includeRawContent: true
+        includeRawContent: true,
       },
     },
   ],
