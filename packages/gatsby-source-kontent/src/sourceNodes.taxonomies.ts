@@ -9,7 +9,7 @@ import { loadAllKontentTaxonomies } from './client';
 const getKontentTypeArtifact = (
   api: SourceNodesArgs,
   kontentTaxonomy: KontentTaxonomy,
-  includeRawContent: boolean
+  includeRawContent: boolean,
 ): KontentTaxonomy => {
   const nodeIdString = getKontentTaxonomyNodeStringForCodeName(
     kontentTaxonomy.system.codename,
@@ -23,7 +23,7 @@ const getKontentTypeArtifact = (
       contentDigest: api.createContentDigest(kontentTaxonomy),
     },
   };
-  if(includeRawContent) {
+  if (includeRawContent) {
     nodeData.internal.content = JSON.stringify(kontentTaxonomy);
   }
   return nodeData;
@@ -35,7 +35,11 @@ const sourceNodes = async (
 ): Promise<void> => {
   const kontentTaxonomies = await loadAllKontentTaxonomies(options);
   for (const kontentTaxonomy of kontentTaxonomies) {
-    const nodeData = getKontentTypeArtifact(api, kontentTaxonomy, options.includeRawContent);
+    const nodeData = getKontentTypeArtifact(
+      api,
+      kontentTaxonomy,
+      options.includeRawContent,
+    );
     api.actions.createNode(nodeData);
   }
 };

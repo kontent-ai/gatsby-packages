@@ -1,9 +1,9 @@
+const { resolveUrls } = require("./example-resolve-url-slugs")
+const { addLanguageLinks } = require("./example-languages-link")
+const { addKontentTypeItemsLink } = require("./example-type-items-link")
 const {
-  resolveUrls,
-  addLanguageLinks,
-  addKontentTypeItemsLink,
   linkUsedByContentItems,
-} = require("./examples")
+} = require("./example-used-by-content-item-link")
 
 exports.createSchemaCustomization = async api => {
   resolveUrls(api)

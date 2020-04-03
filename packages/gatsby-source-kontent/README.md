@@ -8,14 +8,13 @@ This repo contains a [Gatsby (v2) source plugin](https://www.gatsbyjs.org/docs/r
 
 ## How to install
 
-> Please include installation instructions here.
-> Gatsby documentation uses `npm` for installation. This is the recommended approach for plugins as well.
-> If the plugin is a theme that needs to use `yarn`, please point to [the documentation for switching package managers](/docs/gatsby-cli/#how-to-change-your-default-package-manager-for-your-next-project) in addition to the `yarn`-based instructions.
+Gatsby documentation uses `npm` for installation. This is the recommended approach for plugins as well.
+This plugin does not need to use `yarn`, if want to use it in you project, see [the documentation for switching package managers](/docs/gatsby-cli/#how-to-change-your-default-package-manager-for-your-next-project).
 
 1. Install the [@kentico/gatsby-source-kontent](https://www.npmjs.com/package/@kentico/gatsby-source-kontent) NPM package.
 
    ```sh
-   npm install --save @kentico/gatsby-source-kontent
+   npm install --save @simply007org/gatsby-source-kontent-simple
    ```
 
 1. Configure the plugin in `gatsby-config.js` file.
@@ -46,32 +45,31 @@ Since the plugin is using [Gatsby Reporter](https://www.gatsbyjs.org/docs/node-a
 
 ## Examples of usage
 
-> This usually shows a code example showing how to include this plugin in a site's `config.js` file.
+An example showing how to include this plugin in a site's `gatsby-config.js` file.
 
-```jsonc
-{
-  "resolve": "@simply007org/gatsby-source-kontent-simple",
-  "options": {
-    "projectId": "09fc0115-dd4d-00c7-5bd9-5f73836aee81", // Fill in your Project ID
-    "languageCodenames": [
-      "default", // Or the languages in your project (Project settings -> Localization),
-      "Another_language"
-    ],
-    "includeTaxonomies": true, // opt-out by default
-    "includeTypes": true, // opt-out by default
-    "usePreviewUrl": true, // false by default
-    "authorizationKey": "<API KEY>", // For preview/secured API key - depends on usePreviewUrl setting
-    "includeRawContent" : true // opt-out by default - include `internal.content` property in the gatsby nodes
-  }
-}
+```js
+module.exports = {
+  plugins: [
+    /// ...
+    {
+      resolve: '@simply007org/gatsby-source-kontent-simple',
+      options: {
+        projectId: '09fc0115-dd4d-00c7-5bd9-5f73836aee81', // Fill in your Project ID
+        languageCodenames: [
+          'default', // Or the languages in your project (Project settings -> Localization),
+          'Another_language',
+        ],
+        includeTaxonomies: true, // opt-out by default
+        includeTypes: true, // opt-out by default
+        usePreviewUrl: true, // false by default
+        authorizationKey: '<API KEY>', // For preview/secured API key - depends on usePreviewUrl setting
+        includeRawContent: true, // opt-out by default - include `internal.content` property in the gatsby nodes
+      },
+    },
+    /// ...
+  ],
+};
 ```
-
-> See this [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#code) on how to format code examples.
-> This section could also include before-and-after examples of data when the plugin is enabled, if applicable.
-
-### Dependencies (optional)
-
-> Are there any plugins that must be installed in order to make this plugin work? If so, please include a list of those plugins and links to their pages here.
 
 ### Learning Resources (optional)
 

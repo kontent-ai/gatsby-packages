@@ -2,6 +2,9 @@
 import React from 'react';
 import parseHTML, { DomElement } from 'html-react-parser';
 
+const IMAGE_ID_ATTRIBUTE_IDENTIFIER = 'data-image-id';
+const LINKED_ITEM_ID_ATTRIBUTE_IDENTIFIER = 'data-item-id';
+
 interface Props {
   value: string;
   linkedItems?: any[];
@@ -16,10 +19,10 @@ const isLinkedItem = (domNode: DomElement): boolean =>
   domNode.name === 'object' && domNode.attribs?.type === 'application/kenticocloud';
 
 const isImage = (domNode: DomElement): boolean =>
-  domNode.name === 'figure' && typeof domNode.attribs?.['data-image-id'] !== 'undefined'
+  domNode.name === 'figure' && typeof domNode.attribs?.[IMAGE_ID_ATTRIBUTE_IDENTIFIER] !== 'undefined'
 
 const isLink = (domNode: DomElement): boolean =>
-  domNode.name === 'a' && typeof domNode.attribs?.['data-item-id'] !== 'undefined'
+  domNode.name === 'a' && typeof domNode.attribs?.[LINKED_ITEM_ID_ATTRIBUTE_IDENTIFIER] !== 'undefined'
 
 const replaceNode = (
   domNode: DomElement,
@@ -39,7 +42,7 @@ const replaceNode = (
 
   if (resolveImage && images) {
     if (isImage(domNode)) {
-      const imageId = domNode.attribs?.['data-image-id'];
+      const imageId = domNode.attribs?.[IMAGE_ID_ATTRIBUTE_IDENTIFIER];
       const image = images.find(image => image.image_id === imageId);
       return resolveImage(image);
     }
@@ -47,7 +50,7 @@ const replaceNode = (
 
   if (resolveLink && links) {
     if (isLink(domNode)) {
-      const linkId = domNode.attribs?.['data-item-id'];
+      const linkId = domNode.attribs?.[LINKED_ITEM_ID_ATTRIBUTE_IDENTIFIER];
       const link = links.find(links => links.link_id === linkId);
       return resolveLink(link, domNode);
     }

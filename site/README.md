@@ -13,6 +13,7 @@ A site using for development purposes and code examples showcasing packages poss
 :warning: Before running any of the following scripts locally ensure the site is using the latest commands
 
 ```sh
+# In the root folder
 yarn # install all required packages
 yarn build # build the latest version of the packages
 
@@ -21,18 +22,26 @@ yarn build # build the latest version of the packages
 ### Develop site
 
 ```sh
+# open the /site folder
+cd site
 yarn develop # runs `gatsby develop` command
 ```
+
+Now you could browse the site on <http://localhost:8000> and see GraphiQL explorer on <http://localhost:8000/___graphql>.
 
 ### Lint code
 
 ```sh
+# open the /site folder
+cd site
 yarn lint
 ```
 
 ### Build site
 
 ```sh
+# open the /site folder
+cd site
 yarn build # runs `gatsby build` command
 ```
 
@@ -42,21 +51,30 @@ The following examples are showcasing, how it is possible to use the Kontent pac
 
 All of the examples are in [examples.js](examples.js).
 
-### URL resolution
+### URL slug resolution
 
-  resolveUrls(api)
+Url slug element could be resolved right in you project to extend all url slug element with resolved URL.
+
+Showcase is in [URL slug resolution](./example-resolve-url-slugs.js).
 
 ### Language variant relationships
 
-  addLanguageLinks(api, "article")
+The relationship capturing relationship about language variants could be ensured by extended schema definition.
+
+Showcase is in [Language variant relationships](./example-languages-link.js).
 
 ### Content type -> Content Item resolution
 
-  addKontentTypeItemsLink(api)
+The relationship capturing relationship about content type and its content items could be ensured by extended schema definition.
 
-### Link showcasing where is the item used `usedByContentItems`
+Showcase is in [Content type -> Content Item resolution](./example-type-items-link.js).
 
-  linkUsedByContentItems(api, "article", "tag", "tags", "used_by_articles")
+### Linked from relationship
+
+Reverse link resolution relationship could be ensured by schema definition as well.
+
+Showcase is in [Linked from relationship](./example-used-by-content-item-link.js).
 
 ---
+
 Based on [official Gatsby Hello World starter](https://github.com/gatsbyjs/gatsby-starter-hello-world).

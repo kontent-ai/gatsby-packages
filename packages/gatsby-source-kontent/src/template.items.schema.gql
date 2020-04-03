@@ -3,11 +3,12 @@
 interface __KONTENT_ITEM_INTERFACE__ @nodeInterface {
   id: ID!
   system: __KONTENT_ITEM_SYSTEM_TYPE__!
-  # elements: type is defined dynamically
-  #  - union type just require to use fragment when querying
-  #  - no benefits: type is not propagated to filter
-  #  - union types are not supported for querying in Gatsby
-  preferred_language: String!
+  # elements: type is defined programmatically
+  #  - it would be possible to use union type, but there are
+  #    no benefits
+  #    - union type is not propagated to filter
+  #    - union types are not supported for querying in Gatsby
+  __KONTENT_ITEM_PREFERRED_LANGUAGE_IDENTIFIER__: String!
 }
 
 type __KONTENT_ITEM_SYSTEM_TYPE__ {
