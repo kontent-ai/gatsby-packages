@@ -71,13 +71,6 @@ module.exports = {
 };
 ```
 
-> See this [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#code) on how to format code examples.
-> This section could also include before-and-after examples of data when the plugin is enabled, if applicable.
-
-### Dependencies (optional)
-
-> Are there any plugins that must be installed in order to make this plugin work? If so, please include a list of those plugins and links to their pages here.
-
 ### Learning Resources (optional)
 
 > If there are other tutorials, docs, and learning resources that are necessary or helpful to someone using this plugin, please link to those here.

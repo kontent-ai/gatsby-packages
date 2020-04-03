@@ -11,7 +11,7 @@ const resolveUrls = api => {
     schema,
   } = api
 
-  const urlSlugExtended = schema.buildObjectTyp e({
+  const urlSlugExtended = schema.buildObjectType({
     name: getKontentItemElementTypeNameByType("url_slug"),
     fields: {
       resolved_url: {

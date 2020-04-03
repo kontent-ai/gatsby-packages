@@ -61,7 +61,7 @@ All of the examples are in [examples.js](examples.js).
 
   addKontentTypeItemsLink(api)
 
-### Link showcasing where is the item used `usedByContentItems`
+### Linked from relationship
 
   linkUsedByContentItems(api, "article", "tag", "tags", "used_by_articles")
 
