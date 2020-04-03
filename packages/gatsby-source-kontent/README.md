@@ -14,7 +14,7 @@ This plugin does not need to use `yarn`, if want to use it in you project, see [
 1. Install the [@kentico/gatsby-source-kontent](https://www.npmjs.com/package/@kentico/gatsby-source-kontent) NPM package.
 
    ```sh
-   npm install --save @kentico/gatsby-source-kontent
+   npm install --save @simply007org/gatsby-source-kontent-simple
    ```
 
 1. Configure the plugin in `gatsby-config.js` file.
@@ -45,24 +45,30 @@ Since the plugin is using [Gatsby Reporter](https://www.gatsbyjs.org/docs/node-a
 
 ## Examples of usage
 
-> This usually shows a code example showing how to include this plugin in a site's `config.js` file.
+An example showing how to include this plugin in a site's `gatsby-config.js` file.
 
-```jsonc
-{
-  "resolve": "@simply007org/gatsby-source-kontent-simple",
-  "options": {
-    "projectId": "09fc0115-dd4d-00c7-5bd9-5f73836aee81", // Fill in your Project ID
-    "languageCodenames": [
-      "default", // Or the languages in your project (Project settings -> Localization),
-      "Another_language"
-    ],
-    "includeTaxonomies": true, // opt-out by default
-    "includeTypes": true, // opt-out by default
-    "usePreviewUrl": true, // false by default
-    "authorizationKey": "<API KEY>", // For preview/secured API key - depends on usePreviewUrl setting
-    "includeRawContent" : true // opt-out by default - include `internal.content` property in the gatsby nodes
-  }
-}
+```js
+module.exports = {
+  plugins: [
+    /// ...
+    {
+      resolve: '@simply007org/gatsby-source-kontent-simple',
+      options: {
+        projectId: '09fc0115-dd4d-00c7-5bd9-5f73836aee81', // Fill in your Project ID
+        languageCodenames: [
+          'default', // Or the languages in your project (Project settings -> Localization),
+          'Another_language',
+        ],
+        includeTaxonomies: true, // opt-out by default
+        includeTypes: true, // opt-out by default
+        usePreviewUrl: true, // false by default
+        authorizationKey: '<API KEY>', // For preview/secured API key - depends on usePreviewUrl setting
+        includeRawContent: true, // opt-out by default - include `internal.content` property in the gatsby nodes
+      },
+    },
+    /// ...
+  ],
+};
 ```
 
 > See this [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#code) on how to format code examples.
