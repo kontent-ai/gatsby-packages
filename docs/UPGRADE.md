@@ -38,7 +38,7 @@ All required data for resolution is already in the Gatsby GraphQL model. Resolut
 #### URL slug resolution
 
 Is is possible to use [Gatsby schema customization](https://www.gatsbyjs.org/docs/schema-customization/).
-Following [URL resolution example](../site/README.md#URL-resolution) could be used right in you project to extend all url slug element with resolved URL.
+Following [URL slug resolution example](../site/README.md#URL-slug-resolution) could be used right in you project to extend all url slug element with resolved URL.
 
 #### Rich text resolution
 

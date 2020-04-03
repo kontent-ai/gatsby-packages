@@ -27,6 +27,8 @@ cd site
 yarn develop # runs `gatsby develop` command
 ```
 
+Now you could browse the site on <http://localhost:8000> and see GraphiQL explorer on <http://localhost:8000/___graphql>.
+
 ### Lint code
 
 ```sh
@@ -49,21 +51,29 @@ Following examples is showcasing, how it is possible to use the Kontent packages
 
 All of the examples are in [examples.js](examples.js).
 
-### URL resolution
+### URL slug resolution
 
-  resolveUrls(api)
+Url slug element could be resolved right in you project to extend all url slug element with resolved URL.
+
+Showcase is in [URL slug resolution](./example-resolve-url-slugs.js).
 
 ### Language variant relationships
 
-  addLanguageLinks(api, "article")
+The relationship capturing relationship about language variants could be ensured by extended schema definition.
+
+Showcase is in [Language variant relationships](./example-languages-link.js).
 
 ### Content type -> Content Item resolution
 
-  addKontentTypeItemsLink(api)
+The relationship capturing relationship about content type and its content items could be ensured by extended schema definition.
+
+Showcase is in [Content type -> Content Item resolution](./example-type-items-link.js).
 
 ### Linked from relationship
 
-  linkUsedByContentItems(api, "article", "tag", "tags", "used_by_articles")
+Reverse link resolution relationship could be ensured by schema definition as well.
+
+Showcase is in [Linked from relationship](./example-used-by-content-item-link.js).
 
 ---
 Based on [official Gatsby Hello World starter](https://github.com/gatsbyjs/gatsby-starter-hello-world).
