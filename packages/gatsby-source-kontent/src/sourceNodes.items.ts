@@ -10,6 +10,7 @@ import { loadAllKontentItems } from './client';
 import {
   getKontentItemNodeStringForId,
   getKontentItemNodeTypeName,
+  PREFERRED_LANGUAGE_IDENTIFIER
 } from './naming';
 import _ from 'lodash';
 
@@ -18,7 +19,7 @@ const addPreferredLanguageProperty = (
   language: string,
 ): Array<KontentItem> => {
   for (const item of items) {
-    item['preferred_language'] = language;
+    item[PREFERRED_LANGUAGE_IDENTIFIER] = language;
   }
   return items;
 };
@@ -54,7 +55,7 @@ const getKontentItemLanguageVariantArtifact = (
 ): KontentItem => {
   const nodeIdString = getKontentItemNodeStringForId(
     kontentItem.system.codename,
-    kontentItem.preferred_language,
+    kontentItem[PREFERRED_LANGUAGE_IDENTIFIER],
   );
   const nodeData: KontentItem = {
     ...kontentItem,

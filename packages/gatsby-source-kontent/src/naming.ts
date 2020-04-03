@@ -14,6 +14,8 @@ const ITEM_IDENTIFIER = 'item';
 const TAXONOMY_IDENTIFIER = 'taxonomy';
 const TYPE_IDENTIFIER = 'type';
 
+const PREFERRED_LANGUAGE_IDENTIFIER = 'preferred_language';
+
 const defaultPluginNamingConfiguration: PluginNamingConfiguration = {
   prefix: `kontent`,
 };
@@ -206,6 +208,9 @@ const getKontentItemsSchemaNamingConfiguration = (
         /__KONTENT_ITEM_LANGUAGE_EXTENSION__/g,
         getKontentItemLanguageLinkExtensionName(config),
       )
+      .replace(/__KONTENT_ITEM_PREFERRED_LANGUAGE_IDENTIFIER__/g,
+        PREFERRED_LANGUAGE_IDENTIFIER
+      )
   );
 };
 
@@ -266,4 +271,5 @@ export {
   getKontentItemsSchemaNamingConfiguration,
   getKontentTaxonomiesSchemaNamingConfiguration,
   getKontentTypesSchemaNamingConfiguration,
+  PREFERRED_LANGUAGE_IDENTIFIER
 };

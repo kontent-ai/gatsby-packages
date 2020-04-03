@@ -3,6 +3,9 @@ import {
   CreateSchemaCustomizationArgs,
   NodeInput,
 } from 'gatsby';
+import {
+  PREFERRED_LANGUAGE_IDENTIFIER
+} from "./naming";
 
 /**
  * The plugin options.
@@ -62,7 +65,7 @@ interface KontentItem extends NodeInput {
     type: string;
   };
   elements: KontentItemElement[];
-  preferred_language: string;
+  [PREFERRED_LANGUAGE_IDENTIFIER]: string;
 }
 
 interface KontentTaxonomy extends NodeInput {
