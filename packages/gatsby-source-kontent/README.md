@@ -14,7 +14,7 @@ This plugin does not need to use `yarn`, if want to use it in you project, see [
 1. Install the [@kentico/gatsby-source-kontent](https://www.npmjs.com/package/@kentico/gatsby-source-kontent) NPM package.
 
    ```sh
-   npm install --save @simply007org/gatsby-source-kontent-simple
+   npm install --save @kentico/gatsby-source-kontent
    ```
 
 1. Configure the plugin in `gatsby-config.js` file.
@@ -23,7 +23,7 @@ This plugin does not need to use `yarn`, if want to use it in you project, see [
    module.exports = {
      plugins: [
        {
-         resolve: '@simply007org/gatsby-source-kontent-simple',
+         resolve: '@kentico/gatsby-source-kontent',
          options: {
            projectId: '<ProjectID>', // Fill in your Project ID
            languageCodenames: [
@@ -52,7 +52,7 @@ module.exports = {
   plugins: [
     /// ...
     {
-      resolve: '@simply007org/gatsby-source-kontent-simple',
+      resolve: '@kentico/gatsby-source-kontent',
       options: {
         projectId: '09fc0115-dd4d-00c7-5bd9-5f73836aee81', // Fill in your Project ID
         languageCodenames: [

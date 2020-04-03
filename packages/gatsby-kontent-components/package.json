@@ -1,7 +1,7 @@
 {
-  "name": "@simply007org/gatsby-kontent-components",
+  "name": "@kentico/gatsby-kontent-components",
   "description": "Source plugin providing Kentico Kontent data from REST Delivery API",
-  "version": "6.0.0-vnext.1",
+  "version": "6.0.0-vnext.0",
   "main": "dist/index.js",
   "license": "MIT",
   "author": {

@@ -8,7 +8,7 @@ Since the source plugin is trying to unify the data structure among [Kentico Kon
 This required to make some breaking changes in property elements.
 
 * rich-text
-  * `resolvedHTML` - removed - use [@simply007/gatsby-kontent-components](../packages/gatsby-kontent-components/README.md#rich-text-element-component) for rich text resolution
+  * `resolvedHTML` - removed - use [@kentico/gatsby-kontent-components](../packages/gatsby-kontent-components/README.md#rich-text-element-component) for rich text resolution
   * `images`
     * from `imageId` to `image_id`
   * `links`
@@ -16,7 +16,7 @@ This required to make some breaking changes in property elements.
     * from `urlSlug` to `url_slug`
   * from `linked_items` to `modular_content`
   * `linkedItemCodenames` - removed, could be replaced by `modular_content.system.codename`
-  * `resolvedData` - removed use @simply007/gatsby-kontent-components for rich text resolution
+  * `resolvedData` - removed use @kentico/gatsby-kontent-components for rich text resolution
 * taxonomy
   * from `taxonomyGroup` to `taxonomy_group`
 * modular content (linked items)
@@ -42,7 +42,7 @@ Following [URL slug resolution example](../site/README.md#URL-slug-resolution) c
 
 #### Rich text resolution
 
-To ensure the resolution is as easy as possible, you could use [@simply007/gatsby-kontent-components](../packages/gatsby-kontent-components/README.md#rich-text-element-component).
+To ensure the resolution is as easy as possible, you could use [@kentico/gatsby-kontent-components](../packages/gatsby-kontent-components/README.md#rich-text-element-component).
 For URL resolution, you could re-use the implementation from URL slug. According to the resolution of images, inline linked items and components - this resolution gives you ability to resolve these to React components, not just string-based HTML.
 
 ### Schema extension options

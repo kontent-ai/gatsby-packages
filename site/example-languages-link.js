@@ -1,6 +1,6 @@
 const {
   getKontentItemNodeTypeName,
-} = require("@simply007org/gatsby-source-kontent-simple")
+} = require("@kentico/gatsby-source-kontent")
 
 const addLanguageLinks = (api, typeCodename) => {
   const {
@@ -22,7 +22,7 @@ const addLanguageLinks = (api, typeCodename) => {
             query: {
               filter: {
                 name: {
-                  eq: "@simply007org/gatsby-source-kontent-simple",
+                  eq: "@kentico/gatsby-source-kontent",
                 },
               },
             },

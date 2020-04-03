@@ -1,5 +1,5 @@
 import React from "react"
-import { RichTextElement } from "@simply007org/gatsby-kontent-components"
+import { RichTextElement } from "@kentico/gatsby-kontent-components"
 import { Link } from "gatsby"
 
 export default () => {

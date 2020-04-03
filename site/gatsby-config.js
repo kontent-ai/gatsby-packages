@@ -7,7 +7,7 @@
 module.exports = {
   plugins: [
     {
-      resolve: "@simply007org/gatsby-source-kontent-simple",
+      resolve: "@kentico/gatsby-source-kontent",
       options: {
         projectId: "00676a8d-358c-0084-f2f2-33ed466c480a", // Fill in your Project ID
         languageCodenames: [
