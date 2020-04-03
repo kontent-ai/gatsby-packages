@@ -13,6 +13,7 @@ Site using for development purposes and and code examples showcasing packages po
 :warning: Prior running any of the following scripts locally to ensure the site is using the latest commands
 
 ```sh
+# In the root folder
 yarn # install all required packages
 yarn build # build latest version of tha packages
 
@@ -21,18 +22,24 @@ yarn build # build latest version of tha packages
 ### Develop site
 
 ```sh
+# open the /site folder
+cd site
 yarn develop # runs `gatsby develop` command
 ```
 
 ### Lint code
 
 ```sh
+# open the /site folder
+cd site
 yarn lint
 ```
 
 ### Build site
 
 ```sh
+# open the /site folder
+cd site
 yarn build # runs `gatsby build` command
 ```
 
