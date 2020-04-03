@@ -8,9 +8,8 @@ This repo contains a [Gatsby (v2) source plugin](https://www.gatsbyjs.org/docs/r
 
 ## How to install
 
-> Please include installation instructions here.
-> Gatsby documentation uses `npm` for installation. This is the recommended approach for plugins as well.
-> If the plugin is a theme that needs to use `yarn`, please point to [the documentation for switching package managers](/docs/gatsby-cli/#how-to-change-your-default-package-manager-for-your-next-project) in addition to the `yarn`-based instructions.
+Gatsby documentation uses `npm` for installation. This is the recommended approach for plugins as well.
+This plugin does not need to use `yarn`, if want to use it in you project, see [the documentation for switching package managers](/docs/gatsby-cli/#how-to-change-your-default-package-manager-for-your-next-project).
 
 1. Install the [@kentico/gatsby-source-kontent](https://www.npmjs.com/package/@kentico/gatsby-source-kontent) NPM package.
 
