@@ -37,6 +37,16 @@ This plugin does not need to use `yarn`, if want to use it in you project, see [
 
 ## Available options
 
+- `projectId`\* - \<`string`\> Project ID from Project settings -> API keys
+- `languageCodenames`\* - \<`string[]`\> array of language codenames that defines [what languages a configured for the project](https://docs.kontent.ai/tutorials/develop-apps/get-content/getting-localized-content?tech=javascript#section-project-languages) - the first one is considered as the **default one**. Initial "Getting started" project has configured just one language `default`.
+- `includeTaxonomies` - \<`boolean`\> include [taxonomies](#Querying-Kontent-Taxonomies) to GraphQL model. Turned off by default.
+- `includeTypes` - \<`boolean`\> include [types](#Querying-Kontent-Types) to GraphQL model. Turned off by default.
+- `authorizationKey` - \<`string`\> For preview/secured API key - depends on `usePreviewUrl` config.
+- `usePreviewUrl` - \<`boolean`\> when `true`, "`preview-deliver.kontent.ai`" used as [primary domain for data source](https://docs.kontent.ai/reference/delivery-api#section/Production-vs.-Preview). Turned off by default.
+- `includeRawContent` - \<`boolean`\> allows to include `internal.content` property as a part fo the GraphQL model. Turned off by default.
+
+  \* required property
+
 Since the plugin is using [Gatsby Reporter](https://www.gatsbyjs.org/docs/node-api-helpers/#reporter) for error logging. You could [turn on `--verbose` option](https://github.com/gatsbyjs/gatsby/pull/19199/files) to see the whole error object. Be careful with these options, the output log could contain some sensitive data such as `authorizationKey`.
 
 ## When do I use this plugin
@@ -293,8 +303,132 @@ Result
 
 ## How to query for data (source plugins only)
 
-> If this is a source plugin README, source plugins ought to allow people to query for data within their Gatsby site. Please include code examples to show how to query for data using your source plugin.
-> If this is a theme that requires data in a specific format in order to match an existing query, include those examples here.
+This section should help you with the first queries. For further exploring it is recommended to use [GraphiQL explorer](https://www.gatsbyjs.org/docs/running-queries-with-graphiql/) available in gatsby development environment]. If you are using developer environment for the source plugin development, you could experiment according to the [How to develop locally section](#How-to-develop-locally)
+
+### Querying Kontent Items
+
+Example is showcasing how to query type `article`.
+For rich text resolution resolution see [Rich text element component](../gatsby-kontent-components/README.md#Rich-text-element-component).
+For url slug resolution see [Rich text element component](../../site/README.md#URL-slug-resolution).
+
+```gql
+query ArticleQueries {
+  allKontentItemArticle(filter: { preferred_language: { eq: "en-US" } }) {
+    # filtering articles in 'en-US' preferred language (see section `Preferred language` for more information)
+    nodes {
+      elements {
+        title {
+          value # title of article (text element)
+        }
+        content {
+          # content element (rich text)
+          value # plain html
+          images {
+            image_id
+            url
+            description
+          }
+          links {
+            link_id
+            url_slug
+            codename
+            type
+          }
+          modular_content {
+            # inline linked items and components data
+            ... on kontent_item_author {
+              id
+              elements {
+                name {
+                  value
+                }
+                avatar_image {
+                  value {
+                    url
+                    description
+                    name
+                  }
+                }
+              }
+            }
+          }
+        }
+        tags {
+          # tags element (linked items)
+          value {
+            ... on kontent_item_tag {
+              elements {
+                title {
+                  value
+                }
+                slug {
+                  value
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+### Querying Kontent Types
+
+To query content types it is required to opt-in this in plugin configuration by using `includeTypes` option in the [configuration.](#Available-options).
+
+```gql
+query Types {
+  allKontentType {
+    nodes {
+      Type: system {
+        # system information about the type
+        name
+        codename
+      }
+      elements {
+        # type's elements information
+        name
+        codename
+        type
+        options {
+          # filled in case the element is multiple choice
+          codename
+          name
+        }
+        taxonomy_group # filled in case the element is taxonomy
+      }
+    }
+  }
+}
+```
+
+### Querying Kontent Taxonomies
+
+To query content types it is required to opt-in this in plugin configuration by using `includeTypes` option in the [configuration.](#Available-options).
+
+```gql
+query Taxonomies {
+  allKontentTaxonomy {
+    nodes {
+      system { # system information about the type
+        name
+        codename
+      }
+      terms { # taxonomy terms
+        codename
+        name
+        terms { # terms are nested according to the model
+          codename
+          name
+          # terms ...
+        }
+      }
+    }
+  }
+}
+```
 
 ## How to run tests
 
@@ -321,8 +455,39 @@ yarn watch
 The package is including tracking header to the requests to Kentico Kontent, which helps to identify the adoption of the source plugin and helps to analyze what happened in case of error.
 If you think that tracking should be optional feel free to raise the feature or pull request.
 
+## Further information
+
+To see upgrade instructions see [Upgrade section](./docs/UPGRADE.md).
+
+For more developer resources, visit the [Kentico Kontent Docs](https://docs.kontent.ai).
+
+### Running projects
+
+- [Kentico Developer Community Site](https://kentico.github.io) [[source code](https://github.com/Kentico/kentico.github.io/tree/source)]
+- [Kentico Advantage](https://advantage.kentico.com/) [[source code](https://github.com/Kentico/kentico-advantage/tree/source)]
+- [Richard Shackleton's Personal portfolio and blog website](https://rshackleton.co.uk/) [[source code](https://github.com/rshackleton/rshackleton.co.uk)]
+- [Aaron Collier's Czech Theather site](https://czechtheater.cz/) [[source code](https://github.com/CollierCZ/czechtheater)]
+- [Ilesh Mistry's personal blog site](https://www.ileshmistry.com/)
+- [Matt Nield's personal blog site](https://www.mattnield.co.uk) [[Source code](https://github.com/mattnield/mattnield-gatsby)]
+- [NetConstruct agency website](https://www.netconstruct.com/)
+
+### Guides and blog posts
+
+- [Sourcing from Kentico Kontent](https://www.gatsbyjs.org/docs/sourcing-from-kontent/)
+- [Kentico Cloud & Gatsby Take You Beyond Static Websites](https://www.gatsbyjs.org/blog/2018-12-19-kentico-cloud-and-gatsby-take-you-beyond-static-websites/)
+- [Using Gatsby with Kontent
+  ](https://www.gatsbyjs.com/guides/kentico-kontent/)
+- [Rendering Kentico Kontent linked content items with React components in Gatsby](https://rshackleton.co.uk/articles/rendering-kentico-cloud-linked-content-items-with-react-components-in-gatsby) by [@rshackleton](https://github.com/rshackleton)
+- [Automated builds with Netlify and Kentico Kontent webhooks](https://rshackleton.co.uk/articles/automated-builds-with-netlify-and-kentico-cloud-webhooks) by [@rshackleton](https://github.com/rshackleton)
+- [Learning about Gatsby schema customisation with Kontent.ai](https://rshackleton.co.uk/articles/learning-about-gatsby-schema-customisation-with-kontent-ai) by [@rshackleton](https://github.com/rshackleton)
+
+### Previous versions
+
+- For version 2 use [this branch](https://github.com/Kentico/gatsby-source-kentico-cloud/tree/v2).
+- For version 3 use [this branch](https://github.com/Kentico/gatsby-source-kentico-cloud/tree/v3).
+
 ## How to contribute
 
-> If you have unanswered questions, would like help with enhancing or debugging the plugin, it is nice to include instructions for people who want to contribute to your plugin.
+Check out the [contributing](/CONTRIBUTING.md) page to see the best places for file issues, to start discussions, and begin contributing.
 
 - _Written according to [Gatsby plugin template](https://www.gatsbyjs.org/contributing/docs-templates/#plugin-readme-template)_
