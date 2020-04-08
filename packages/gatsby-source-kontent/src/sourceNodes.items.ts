@@ -54,7 +54,7 @@ const getKontentItemLanguageVariantArtifact = (
   includeRawContent: boolean,
 ): KontentItem => {
   const nodeIdString = getKontentItemNodeStringForId(
-    kontentItem.system.codename,
+    kontentItem.system.id,
     kontentItem[PREFERRED_LANGUAGE_IDENTIFIER],
   );
   const nodeData: KontentItem = {

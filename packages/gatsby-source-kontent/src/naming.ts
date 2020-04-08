@@ -22,16 +22,16 @@ const defaultPluginNamingConfiguration: PluginNamingConfiguration = {
 
 /**
  * Retrieve ID string for Gatsby's CreateNodeId method for specified Kontent item language variant.
- * @param codename Codename because modular content is using them for linking items
+ * @param id Kontent item `system.id` because codename is changeable.
  * @param preferredLanguage Preferred language of the language variant.
  * @param config Optional parameter with extra configuration.
  */
 const getKontentItemNodeStringForId = (
-  codename: string,
+  id: string,
   preferredLanguage: string,
   config: PluginNamingConfiguration = defaultPluginNamingConfiguration,
 ): string =>
-  `${config.prefix}${CONNECTOR}${ITEM_IDENTIFIER}${CONNECTOR}${preferredLanguage}${CONNECTOR}${codename}`;
+  `${config.prefix}${CONNECTOR}${ITEM_IDENTIFIER}${CONNECTOR}${preferredLanguage}${CONNECTOR}${id}`;
 
 const getKontentItemNodeTypeName = (
   type: string,

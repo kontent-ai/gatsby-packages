@@ -16,7 +16,7 @@ Array [
 </ul>",
       },
     },
-    "id": "dummyId-kontent_item_default_concept",
+    "id": "dummyId-kontent_item_default_b5624158-93f1-44f9-971e-aac85610ab10",
     "internal": Object {
       "contentDigest": "7b51c436f5e19c07edaacf0c155b3ef8",
       "type": "kontent_item_step",
@@ -46,7 +46,7 @@ Array [
 </ul>",
       },
     },
-    "id": "dummyId-kontent_item_default_custom_element_devkit___react_component",
+    "id": "dummyId-kontent_item_default_2aebd051-0e24-414c-b4ff-734b6c9ab40f",
     "internal": Object {
       "contentDigest": "dada41e4ec4ab423f13ad4d984d739f7",
       "type": "kontent_item_step",
@@ -84,7 +84,7 @@ Array [
         "value": "https://kentico.github.io/",
       },
     },
-    "id": "dummyId-kontent_item_default_developer_community_site",
+    "id": "dummyId-kontent_item_default_59002186-1886-48f3-b8ba-6f053b5cf777",
     "internal": Object {
       "contentDigest": "038943301a91bd23cd10bc952c26e8ca",
       "type": "kontent_item_website",
@@ -119,7 +119,7 @@ Array [
 </ul>",
       },
     },
-    "id": "dummyId-kontent_item_default_developer_community_site_9e1cda0",
+    "id": "dummyId-kontent_item_default_9e1cda06-c88b-4665-8907-38d2f7486873",
     "internal": Object {
       "contentDigest": "a7af035b766ba37d75ffef574245b54a",
       "type": "kontent_item_step",
@@ -214,7 +214,7 @@ Array [
         "value": "<p>Github structure and description of the features used by Kentico (+ just a note about Stack Overflow).</p>",
       },
     },
-    "id": "dummyId-kontent_item_default_introduction_to_github_on_kentico_examples",
+    "id": "dummyId-kontent_item_default_30d24de4-34aa-4b38-933d-3a7f744f8fd4",
     "internal": Object {
       "contentDigest": "6f81a868187b7f3d084ac8a96dc55559",
       "type": "kontent_item_session",
@@ -315,7 +315,7 @@ Array [
         "value": "<p>Present how it is possible to develop a custom element.</p>",
       },
     },
-    "id": "dummyId-kontent_item_default_introduction_to_the_custom_elements_development",
+    "id": "dummyId-kontent_item_default_9cc4f323-e59c-45af-a961-f0c98a5f1262",
     "internal": Object {
       "contentDigest": "043c8c8c4d08bd99ffd73fc97c6a20af",
       "type": "kontent_item_session",
@@ -345,7 +345,7 @@ Array [
 </ul>",
       },
     },
-    "id": "dummyId-kontent_item_default_jquery_datapicker",
+    "id": "dummyId-kontent_item_default_3ace3379-c4cf-43bf-85de-98e707c4f202",
     "internal": Object {
       "contentDigest": "95f114adf826d388b837533b7d270b81",
       "type": "kontent_item_step",
@@ -377,7 +377,7 @@ Array [
 </ul>",
       },
     },
-    "id": "dummyId-kontent_item_default_kentico_github_organizations",
+    "id": "dummyId-kontent_item_default_cea256ba-063d-418d-8258-458b9ba9094d",
     "internal": Object {
       "contentDigest": "121555f436531965ab319a0b746b24d4",
       "type": "kontent_item_step",
@@ -535,7 +535,7 @@ Currently I am interested in Gatsby.js. I have released the third version of Gat
         "value": "ondrej-chrastina",
       },
     },
-    "id": "dummyId-kontent_item_default_ondrej_chrastina",
+    "id": "dummyId-kontent_item_default_d72eea98-774f-48fc-b52a-7ebc51271855",
     "internal": Object {
       "contentDigest": "9f9a6ec1a6f3e00561fde16e507506f6",
       "type": "kontent_item_person",
@@ -583,7 +583,7 @@ Currently I am interested in Gatsby.js. I have released the third version of Gat
         ],
       },
     },
-    "id": "dummyId-kontent_item_default_open_source_training_2019",
+    "id": "dummyId-kontent_item_default_aae6c1cf-1d20-4a0e-949b-65a5d1bb7c8f",
     "internal": Object {
       "contentDigest": "e7f44084b930eccd8070112e66ec74f7",
       "type": "kontent_item_training",
@@ -618,7 +618,7 @@ Currently I am interested in Gatsby.js. I have released the third version of Gat
 </ul>",
       },
     },
-    "id": "dummyId-kontent_item_default_projects",
+    "id": "dummyId-kontent_item_default_00b305ad-2f05-4899-9c14-17ea62d0032f",
     "internal": Object {
       "contentDigest": "a19b1481cd503a62be8e5c9f87a1562d",
       "type": "kontent_item_step",
@@ -664,7 +664,7 @@ Currently I am interested in Gatsby.js. I have released the third version of Gat
 </ul>",
       },
     },
-    "id": "dummyId-kontent_item_default_repositories",
+    "id": "dummyId-kontent_item_default_ea15d7bc-7d8f-4ded-9795-0e615b31316e",
     "internal": Object {
       "contentDigest": "aaea441183385ea6a440ed2ca714893e",
       "type": "kontent_item_step",
@@ -695,7 +695,7 @@ Currently I am interested in Gatsby.js. I have released the third version of Gat
 </ul>",
       },
     },
-    "id": "dummyId-kontent_item_default_stack_overflow",
+    "id": "dummyId-kontent_item_default_a89518c5-82b9-457e-8cbd-a8719f8a3bdb",
     "internal": Object {
       "contentDigest": "88e36cc3dfb94b47e085c022d8ab5d09",
       "type": "kontent_item_step",
@@ -735,7 +735,7 @@ Currently I am interested in Gatsby.js. I have released the third version of Gat
 </ul>",
       },
     },
-    "id": "dummyId-kontent_item_default_teams_and_people",
+    "id": "dummyId-kontent_item_default_4a0ed14b-fe95-41f7-938f-000b9a400539",
     "internal": Object {
       "contentDigest": "e55304bea9dd450e7007f8a996dddfb7",
       "type": "kontent_item_step",
@@ -768,7 +768,7 @@ Currently I am interested in Gatsby.js. I have released the third version of Gat
 </ul>",
       },
     },
-    "id": "dummyId-kontent_item_default_n2f6ef2f8_e924_01e2_f912_3770a189cbcc",
+    "id": "dummyId-kontent_item_default_2f6ef2f8-e924-01e2-f912-3770a189cbcc",
     "internal": Object {
       "contentDigest": "b38ae3fff9cd527619c7a561c12de780",
       "type": "kontent_item_step",
@@ -798,7 +798,7 @@ Currently I am interested in Gatsby.js. I have released the third version of Gat
 </ul>",
       },
     },
-    "id": "dummyId-kontent_item_default_n4204fa2a_75be_0109_07db_47de3f6e645e",
+    "id": "dummyId-kontent_item_default_4204fa2a-75be-0109-07db-47de3f6e645e",
     "internal": Object {
       "contentDigest": "683f869eca4098f1fb9d63ff39c9134b",
       "type": "kontent_item_step",
@@ -845,7 +845,7 @@ GraphQL nodes of content items contain the ordinary \`system\` and \`elements\` 
         "value": "https://github.com/Kentico/gatsby-source-kentico-cloud",
       },
     },
-    "id": "dummyId-kontent_item_default_n8bf1055d_7b61_0180_e1c6_3a09d88f0396",
+    "id": "dummyId-kontent_item_default_8bf1055d-7b61-0180-e1c6-3a09d88f0396",
     "internal": Object {
       "contentDigest": "a0285bd6c1b8258a39b281ad0e59ca05",
       "type": "kontent_item_repository",
@@ -875,7 +875,7 @@ GraphQL nodes of content items contain the ordinary \`system\` and \`elements\` 
 </ul>",
       },
     },
-    "id": "dummyId-kontent_item_Another_language_concept",
+    "id": "dummyId-kontent_item_Another_language_b5624158-93f1-44f9-971e-aac85610ab10",
     "internal": Object {
       "contentDigest": "7843d4710be40c7271d61694e70b399b",
       "type": "kontent_item_step",
@@ -905,7 +905,7 @@ GraphQL nodes of content items contain the ordinary \`system\` and \`elements\` 
 </ul>",
       },
     },
-    "id": "dummyId-kontent_item_Another_language_custom_element_devkit___react_component",
+    "id": "dummyId-kontent_item_Another_language_2aebd051-0e24-414c-b4ff-734b6c9ab40f",
     "internal": Object {
       "contentDigest": "4fa6f6b5f28f24543535ba413b3f0f94",
       "type": "kontent_item_step",
@@ -943,7 +943,7 @@ GraphQL nodes of content items contain the ordinary \`system\` and \`elements\` 
         "value": "https://kentico.github.io/",
       },
     },
-    "id": "dummyId-kontent_item_Another_language_developer_community_site",
+    "id": "dummyId-kontent_item_Another_language_59002186-1886-48f3-b8ba-6f053b5cf777",
     "internal": Object {
       "contentDigest": "63d38348bfce42e184d5ff14cb2a4003",
       "type": "kontent_item_website",
@@ -978,7 +978,7 @@ GraphQL nodes of content items contain the ordinary \`system\` and \`elements\` 
 </ul>",
       },
     },
-    "id": "dummyId-kontent_item_Another_language_developer_community_site_9e1cda0",
+    "id": "dummyId-kontent_item_Another_language_9e1cda06-c88b-4665-8907-38d2f7486873",
     "internal": Object {
       "contentDigest": "220bde1f9e996448473563321b67c8c2",
       "type": "kontent_item_step",
@@ -1073,7 +1073,7 @@ GraphQL nodes of content items contain the ordinary \`system\` and \`elements\` 
         "value": "<p>Github structure and description of the features used by Kentico (+ just a note about Stack Overflow).</p>",
       },
     },
-    "id": "dummyId-kontent_item_Another_language_introduction_to_github_on_kentico_examples",
+    "id": "dummyId-kontent_item_Another_language_30d24de4-34aa-4b38-933d-3a7f744f8fd4",
     "internal": Object {
       "contentDigest": "16178b3f82fb485caad5d50c62fecd37",
       "type": "kontent_item_session",
@@ -1170,7 +1170,7 @@ GraphQL nodes of content items contain the ordinary \`system\` and \`elements\` 
         "value": "<p>Present how it is possible to develop a custom element.</p>",
       },
     },
-    "id": "dummyId-kontent_item_Another_language_introduction_to_the_custom_elements_development",
+    "id": "dummyId-kontent_item_Another_language_9cc4f323-e59c-45af-a961-f0c98a5f1262",
     "internal": Object {
       "contentDigest": "de205a11dc47d6bddc729d518e576aff",
       "type": "kontent_item_session",
@@ -1200,7 +1200,7 @@ GraphQL nodes of content items contain the ordinary \`system\` and \`elements\` 
 </ul>",
       },
     },
-    "id": "dummyId-kontent_item_Another_language_jquery_datapicker",
+    "id": "dummyId-kontent_item_Another_language_3ace3379-c4cf-43bf-85de-98e707c4f202",
     "internal": Object {
       "contentDigest": "8db75249464dbbd1570b4438afd7f9b4",
       "type": "kontent_item_step",
@@ -1232,7 +1232,7 @@ GraphQL nodes of content items contain the ordinary \`system\` and \`elements\` 
 </ul>",
       },
     },
-    "id": "dummyId-kontent_item_Another_language_kentico_github_organizations",
+    "id": "dummyId-kontent_item_Another_language_cea256ba-063d-418d-8258-458b9ba9094d",
     "internal": Object {
       "contentDigest": "ab3054f967a4a97ac1809d758eba8186",
       "type": "kontent_item_step",
@@ -1330,7 +1330,7 @@ GraphQL nodes of content items contain the ordinary \`system\` and \`elements\` 
         "value": "non-default-language",
       },
     },
-    "id": "dummyId-kontent_item_Another_language_non_default_language",
+    "id": "dummyId-kontent_item_Another_language_fbac9baf-441c-446e-a300-e31f171c26de",
     "internal": Object {
       "contentDigest": "3f09258a316d1e073bd3ad284ee7349d",
       "type": "kontent_item_person",
@@ -1465,7 +1465,7 @@ Currently I am interested in Gatsby.js. I have released the third version of Gat
         "value": "ondrej-chrastina-another-language",
       },
     },
-    "id": "dummyId-kontent_item_Another_language_ondrej_chrastina",
+    "id": "dummyId-kontent_item_Another_language_d72eea98-774f-48fc-b52a-7ebc51271855",
     "internal": Object {
       "contentDigest": "a04ac8b760c3709e30745cd5f8dfd0cb",
       "type": "kontent_item_person",
@@ -1512,7 +1512,7 @@ Currently I am interested in Gatsby.js. I have released the third version of Gat
         ],
       },
     },
-    "id": "dummyId-kontent_item_Another_language_open_source_training_2019",
+    "id": "dummyId-kontent_item_Another_language_aae6c1cf-1d20-4a0e-949b-65a5d1bb7c8f",
     "internal": Object {
       "contentDigest": "4edc3f22f384a65689ddaf61a3a4faf1",
       "type": "kontent_item_training",
@@ -1547,7 +1547,7 @@ Currently I am interested in Gatsby.js. I have released the third version of Gat
 </ul>",
       },
     },
-    "id": "dummyId-kontent_item_Another_language_projects",
+    "id": "dummyId-kontent_item_Another_language_00b305ad-2f05-4899-9c14-17ea62d0032f",
     "internal": Object {
       "contentDigest": "280dc5469e5385e22ad325c17e38e7e4",
       "type": "kontent_item_step",
@@ -1593,7 +1593,7 @@ Currently I am interested in Gatsby.js. I have released the third version of Gat
 </ul>",
       },
     },
-    "id": "dummyId-kontent_item_Another_language_repositories",
+    "id": "dummyId-kontent_item_Another_language_ea15d7bc-7d8f-4ded-9795-0e615b31316e",
     "internal": Object {
       "contentDigest": "23bca5246795b6a8d2e678ab3fee18d2",
       "type": "kontent_item_step",
@@ -1624,7 +1624,7 @@ Currently I am interested in Gatsby.js. I have released the third version of Gat
 </ul>",
       },
     },
-    "id": "dummyId-kontent_item_Another_language_stack_overflow",
+    "id": "dummyId-kontent_item_Another_language_a89518c5-82b9-457e-8cbd-a8719f8a3bdb",
     "internal": Object {
       "contentDigest": "036a8d997c7749532c5ebf96dec536a4",
       "type": "kontent_item_step",
@@ -1664,7 +1664,7 @@ Currently I am interested in Gatsby.js. I have released the third version of Gat
 </ul>",
       },
     },
-    "id": "dummyId-kontent_item_Another_language_teams_and_people",
+    "id": "dummyId-kontent_item_Another_language_4a0ed14b-fe95-41f7-938f-000b9a400539",
     "internal": Object {
       "contentDigest": "c4636443daf067b956711bd31670b2d7",
       "type": "kontent_item_step",
@@ -1712,7 +1712,7 @@ GraphQL nodes of content items contain the ordinary \`system\` and \`elements\` 
         "value": "https://github.com/Kentico/gatsby-source-kentico-cloud",
       },
     },
-    "id": "dummyId-kontent_item_Another_language_e76716e9_bcf0_01ad_2031_4d08701b3a3f",
+    "id": "dummyId-kontent_item_Another_language_e76716e9-bcf0-01ad-2031-4d08701b3a3f",
     "internal": Object {
       "contentDigest": "d75a9bd4c4ed583906733b6f840d3f07",
       "type": "kontent_item_repository",
@@ -1746,7 +1746,7 @@ Choose an example I have showed you and extend it</p>
 </ul>",
       },
     },
-    "id": "dummyId-kontent_item_Another_language_f37dfa2e_0aa6_01ef_6f1e_f374c7fe3356",
+    "id": "dummyId-kontent_item_Another_language_f37dfa2e-0aa6-01ef-6f1e-f374c7fe3356",
     "internal": Object {
       "contentDigest": "273e36875c2438f8a66e81d18b2872a6",
       "type": "kontent_item_step",
@@ -1776,7 +1776,7 @@ Choose an example I have showed you and extend it</p>
 </ul>",
       },
     },
-    "id": "dummyId-kontent_item_Another_language_n32ee0075_0b25_0105_503d_b8fc0eb3cc6e",
+    "id": "dummyId-kontent_item_Another_language_32ee0075-0b25-0105-503d-b8fc0eb3cc6e",
     "internal": Object {
       "contentDigest": "a05cbdcc9be61a8ccc6c753033f0de8b",
       "type": "kontent_item_step",
