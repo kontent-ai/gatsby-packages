@@ -1,6 +1,6 @@
 {
   "name": "@kentico/gatsby-source-kontent",
-  "version": "5.0.0-beta3",
+  "version": "5.0.0",
   "description": "Gatsby source plugin for Kentico Kontent",
   "main": "./gatsby-node.js",
   "scripts": {
