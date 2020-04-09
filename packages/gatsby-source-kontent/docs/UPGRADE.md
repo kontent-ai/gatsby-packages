@@ -8,7 +8,7 @@ Since the source plugin is trying to unify the data structure among [Kentico Kon
 This required to make some breaking changes in property elements.
 
 * rich-text
-  * `resolvedHTML` - removed - use [@kentico/gatsby-kontent-components](../packages/gatsby-kontent-components/README.md#rich-text-element-component) for rich text resolution
+  * `resolvedHTML` - removed - use [@kentico/gatsby-kontent-components](../../gatsby-kontent-components/README.md#rich-text-element-component) for rich text resolution
   * `images`
     * from `imageId` to `image_id`
   * `links`
@@ -25,7 +25,7 @@ This required to make some breaking changes in property elements.
 * assets
   * `contract` - removed, properties under this element were just copies of `description`, `name`, `size`, `type`, `url`, `width`
 * URL slug
-  * `resolvedURL` - removed, use [URL resolution](../♠#/README.md#URL-resolution) to include it
+  * `resolvedURL` - removed, use [URL resolution](../../../site/README.md#url-slug-resolution) to include it
 
 ### JS SDK resolution removal
 
@@ -37,11 +37,11 @@ All required data for resolution is already in the Gatsby GraphQL model. Resolut
 #### URL slug resolution
 
 It is possible to use [Gatsby schema customization](https://www.gatsbyjs.org/docs/schema-customization/).
-Following [URL slug resolution example](../site/README.md#URL-slug-resolution) could be used right in your project to extend all URL slug elements with resolved URL.
+Following [URL slug resolution example](../../../site/README.md#url-slug-resolution) could be used right in your project to extend all URL slug elements with resolved URL.
 
 #### Rich text resolution
 
-To ensure the resolution is as easy as possible, you could use [@kentico/gatsby-kontent-components](../packages/gatsby-kontent-components/README.md#rich-text-element-component).
+To ensure the resolution is as easy as possible, you could use [@kentico/gatsby-kontent-components](../../gatsby-kontent-components/README.md#rich-text-element-componen).
 For URL resolution, you could re-use the implementation from URL slug. According to the resolution of images, inline linked items, and components - this resolution gives you the ability to resolve these to React components, not just string-based HTML.
 
 ### Schema extension options
@@ -52,17 +52,17 @@ Since the Kontent GraphQL schema is now fully defined and all data from Kentico 
 #### Language variant relationships
 
 This relationship was captured by the `otherLanguages` navigation property of all content item nodes in other languages, now the property is removed.
-If you want to use this property, feel free to do so by [Language variant relationships example](../site/README.md#Language-variant-relationships).
+If you want to use this property, feel free to do so by [Language variant relationships example](../../../site/README.md#Language-variant-relationships).
 
 #### Content item <-> content type relationships
 
 The relationship captured in the `contentItems` navigation property of all KontentType nodes was removed.
-If you want to extend the model with `contentItems` feel free to do so using [Content type -> Content Item resolution](../site/README.md#Content-type--Content-Item-resolution).
+If you want to extend the model with `contentItems` feel free to do so using [Content type -> Content Item resolution](../../../site/README.md#Content-type--Content-Item-resolution).
 
 #### Reverse link relationships
 
 All nodes had a `usedByContentItems` property that reflects the other nodes in which the given node is used as linked content in Linked items or Rich text elements.
-Now it is possible to substitute this property by using [Linked from relationship](../site/README.md#Linked-from-relationship), it is just required to specify an element to gather the links from.
+Now it is possible to substitute this property by using [Linked from relationship](../../../site/README.md#Linked-from-relationship), it is just required to specify an element to gather the links from.
 
 ## From `4.x.x` to `5.x.x`
 
