@@ -28,7 +28,8 @@
       "name": "Develop site",
       "program": "${workspaceFolder}/node_modules/gatsby/dist/bin/gatsby",
       "args": [
-        "develop"
+        "develop",
+        "--verbose"
       ],
       "stopOnEntry": false,
       "cwd": "${workspaceFolder}/site",
@@ -39,11 +40,15 @@
       ],
       "restart": true,
       "internalConsoleOptions": "neverOpen",
-      "env": { 
+      "env": {
         "NODE_ENV": "development",
+        "ENABLE_GATSBY_REFRESH_ENDPOINT": "true",
         // "DEBUG": "gatsby:*" 
       },
       "console": "integratedTerminal",
+      "skipFiles": [
+        "<node_internals>/**/*.js"
+      ]
     }
   ]
 }

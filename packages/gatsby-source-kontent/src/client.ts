@@ -12,8 +12,8 @@ import {
   version as packageVersion,
 } from '../package.json';
 
-const KontentDeliveryProductionDomain = 'https://deliver.kontent.ai';
-const KontentDeliveryPreviewDomain = 'https://preview-deliver.kontent.ai';
+const KontentDeliveryProductionDomain = 'https://qa-deliver.global.ssl.fastly.net'; // 'https://deliver.kontent.ai';
+const KontentDeliveryPreviewDomain = 'https://qa-preview-deliver.global.ssl.fastly.net'; // 'https://preview-deliver.kontent.ai';
 const continuationHeaderName = 'x-continuation';
 const authorizationHeaderName = 'authorization';
 const trackingHeaderName = 'x-kc-source';
@@ -84,7 +84,7 @@ const loadAllKontentItems = async (
 
     const response = await axios.get(
       `${getDomain(config)}/${
-        config.projectId
+      config.projectId
       }/items-feed?language=${language}`,
       {
         headers,
@@ -104,6 +104,30 @@ const loadAllKontentItems = async (
   } while (continuationToken);
 
   return items;
+};
+
+const loadKontentItem = async (
+  itemId: string,
+  language: string,
+  config: CustomPluginOptions,
+): Promise<KontentItem | undefined> => {
+
+  const headers = ensureAuthorizationHeader(config);
+  ensureTrackingHeader(headers);
+
+  const response = await axios.get(
+    `${getDomain(config)}/${
+    config.projectId
+    }/items?system.id=${itemId}&language=${language}`,
+    {
+      headers,
+      raxConfig: {
+        onRetryAttempt: logRetryAttempt,
+      },
+    },
+  );
+
+  return response.data.items.length > 0 ? response.data.items[0] : undefined;
 };
 
 const loadAllKontentTypes = async (
@@ -140,4 +164,4 @@ const loadAllKontentTaxonomies = async (
   return response.data.taxonomies;
 };
 
-export { loadAllKontentItems, loadAllKontentTypes, loadAllKontentTaxonomies };
+export { loadKontentItem, loadAllKontentItems, loadAllKontentTypes, loadAllKontentTaxonomies };

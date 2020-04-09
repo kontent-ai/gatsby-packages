@@ -1,0 +1,21 @@
+{
+  "data": {
+    "items": [
+      {
+        "id": "75652cbf-0cc4-4780-b89f-e7b50ab71da9",
+        "codename": "untitled_content_item_e1542c3",
+        "language": "en-US",
+        "type": "article"
+      }
+    ]
+  },
+  "message": {
+    "id": "8c668420-3b2a-4862-ab40-3d20a17b0515",
+    "project_id": "f08e590f-a595-007a-3c6f-7e179dc3c708",
+    "type": "content_item_variant",
+    "operation": "create",
+    "api_name": "delivery_preview",
+    "created_timestamp": "2020-04-08T07:50:57.5052068Z",
+    "webhook_url": "https://f90243d1.ngrok.io/__refresh"
+  }
+}
