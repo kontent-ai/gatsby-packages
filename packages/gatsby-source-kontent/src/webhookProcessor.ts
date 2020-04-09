@@ -61,7 +61,7 @@ const handleUpsertItem = async (
 
   const createdItemsIds = [];
   for (const lang of pluginConfig.languageCodenames) {
-    const kontentItem = await client.loadKontentItem(itemInfo.id, lang, pluginConfig);
+    const kontentItem = await client.loadKontentItem(itemInfo.id, lang, pluginConfig, true);
     if (kontentItem === undefined) {
       api.reporter.verbose(`Kontent item (${itemInfo.id}) language variant (${lang}) not found on the kontent delivery API for update`);
       continue;
@@ -103,7 +103,7 @@ const handleDeleteItem = async (
 
   const touchedItemsIds = [];
   for (const lang of pluginConfig.languageCodenames) {
-    const kontentItem = await client.loadKontentItem(itemInfo.id, lang, pluginConfig);
+    const kontentItem = await client.loadKontentItem(itemInfo.id, lang, pluginConfig, true);
     if (kontentItem === undefined) { // was deleted
       const idString = getKontentItemNodeStringForId(itemInfo.id, lang);
       const node = api.getNode(api.createNodeId(idString));

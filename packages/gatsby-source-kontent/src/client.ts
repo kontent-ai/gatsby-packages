@@ -17,6 +17,7 @@ const KontentDeliveryPreviewDomain = 'https://qa-preview-deliver.global.ssl.fast
 const continuationHeaderName = 'x-continuation';
 const authorizationHeaderName = 'authorization';
 const trackingHeaderName = 'x-kc-source';
+const waitForLoadingNewContentHeaderName = 'x-kc-wait-for-loading-new-content';
 
 rax.attach();
 
@@ -37,6 +38,7 @@ interface KontentHttpHeaders {
   [continuationHeaderName]?: string;
   [authorizationHeaderName]?: string;
   [trackingHeaderName]?: string;
+  [waitForLoadingNewContentHeaderName]?: string;
 }
 
 const ensureAuthorizationHeader = (
@@ -60,6 +62,20 @@ const ensureAuthorizationHeader = (
 const ensureTrackingHeader = (
   headers?: KontentHttpHeaders | undefined,
 ): KontentHttpHeaders => {
+  const headerValue = `true`;
+  if (headers) {
+    headers[waitForLoadingNewContentHeaderName] = headerValue;
+    return headers;
+  } else {
+    return {
+      [waitForLoadingNewContentHeaderName]: headerValue,
+    };
+  }
+};
+
+const ensureNewContentHeader = (
+  headers?: KontentHttpHeaders | undefined,
+): KontentHttpHeaders => {
   const headerValue = `${packageName};${packageVersion}`;
   if (headers) {
     headers[trackingHeaderName] = headerValue;
@@ -69,7 +85,7 @@ const ensureTrackingHeader = (
       [trackingHeaderName]: headerValue,
     };
   }
-};
+}
 
 const loadAllKontentItems = async (
   config: CustomPluginOptions,
@@ -110,10 +126,14 @@ const loadKontentItem = async (
   itemId: string,
   language: string,
   config: CustomPluginOptions,
+  waitForLoadingNewContent = false,
 ): Promise<KontentItem | undefined> => {
 
   const headers = ensureAuthorizationHeader(config);
   ensureTrackingHeader(headers);
+  if(waitForLoadingNewContent){
+    ensureNewContentHeader(headers)
+  }
 
   const response = await axios.get(
     `${getDomain(config)}/${
