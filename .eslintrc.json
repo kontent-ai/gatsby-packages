@@ -15,6 +15,7 @@
       2
     ],
     "object-curly-spacing": "off",
-    "require-jsdoc": "off"
+    "require-jsdoc": "off",
+    "max-len": [ 2, 100 ]
   }
 }

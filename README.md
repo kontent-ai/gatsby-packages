@@ -64,7 +64,7 @@ If you are new to the Gatsby ecosystem. The best way to start with using Gatsby 
   ```
 
 1. Run `gatsby develop` and data from Kentico Kontent are provided in Gatsby GraphQL model.
-All Kentico Kontent content element values reside inside of the `elements` property of `KontentItem` nodes.
+All Kentico Kontent content element values reside inside of the `elements` property of `kontent_item` nodes.
 
 ### C) Scaffold your project using the Gatsby Kentico Kontent starter site
 
@@ -76,7 +76,7 @@ Use the [gatsby-starter-kontent](https://github.com/Kentico/gatsby-starter-konte
 
 The plugin creates GraphQL nodes for all Kentico Kontent content types, content items, and its language variants.
 
-The node names are prefixed with `Kontent`. More specifically, content type nodes are prefixed by `KontentType` and content items and their language variants are prefixed with `KontentItem`.
+The queries start with `kontentType` or `kontentItem` prefix (respectively `allKontentType` or `allKontentItem`) and their type is `kontent_type_X` or `kontent_item_X` where `X` is a codename of the `type` or `item`.
 
 GraphQL nodes of content items contain the ordinary `system` and `elements` properties. However, the properties inside `elements` always have an internal structure that the aforementioned [Delivery SDK](https://github.com/Kentico/kontent-delivery-sdk-js/blob/master/lib/models/item/content-item.class.ts) produces with **modifications** described in following subsections.
 
@@ -123,7 +123,7 @@ This relationship is captured by the `otherLanguages` navigation property of all
 
 <details><summary>Example</summary>
 
-For instance, you can get the names of all content items of the *Speaking engagement* type (by querying `KontentItemSpeakingEngagement`) in their default language as well as other languages all at once:
+For instance, you can get the names of all content items of the *Speaking engagement* type (by querying `allKontentItemSpeakingEngagement`) in their default language as well as other languages all at once:
 
 ```gql
 {
@@ -195,14 +195,14 @@ The `related_project_refereces.linked_items` will give you the full-fledged Gats
           type
           itemCodenames
           linked_items {
-            ... on KontentItemBlogpostReference {
+            ... on kontent_item_blogpost_reference {
               elements {
                 title {
                   value
                 }
               }
             }
-            ... on KontentItemProjectReference {
+            ... on kontent_item_project_reference {
               elements {
                 project_name {
                   value
@@ -222,14 +222,14 @@ The `related_project_refereces.linked_items` will give you the full-fledged Gats
 > :bulb: When you are modelling linked items, make sure you have no element with the same codename of different type. In case you had some, they would be omitted from the model and the following warning is logged during model generation.
 > 
 > Showcase
-> * first linked item in Related items element is Type1: `KontentItemArticle.elements.related_items.linked_items[0].elements.manufacturer.value`
+> * first linked item in Related items element is Type1: `kontent_item_article.elements.related_items.linked_items[0].elements.manufacturer.value`
 >    * `manufacturer` is Multiple choice element (`value` is array of objects)
-> * second linked item in Related items element is Type2: `KontentItemArticle.elements.related_items.linked_items[1].elements.manufacturer.string`
+> * second linked item in Related items element is Type2: `kontent_item_article.elements.related_items.linked_items[1].elements.manufacturer.string`
 >    * `manufacturer` is Text element (value is just string)
 >
 > Error in console
 >    ```plain
->    KontentItemArticle.elements.related_items.linked_items[].elements.manufacturer.value:
+>    kontent_item_article.elements.related_items.linked_items[].elements.manufacturer.value:
 >     - type: array<object>
 >       value: [ { name: 'Aerobie', codename: 'aerobie' } ]
 >     - type: string
@@ -366,7 +366,7 @@ As with the previous example, all rich text element containing [inline content i
         summary {
           value
           linked_items {
-          ... on KontentItemBlogpostReference {
+          ... on kontent_item_blogpost_reference {
             elements {
               title {
                 value
@@ -556,6 +556,7 @@ For more developer resources, visit the [Kentico Kontent Docs](https://docs.kont
 
 * For version 2 use [this branch](https://github.com/Kentico/gatsby-source-kentico-cloud/tree/v2).
 * For version 3 use [this branch](https://github.com/Kentico/gatsby-source-kentico-cloud/tree/v3).
+* For version 4 use [this branch](https://github.com/Kentico/gatsby-source-kentico-cloud/tree/v4).
 
 ## Feedback & Contributing
 

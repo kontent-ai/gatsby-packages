@@ -1,5 +1,4 @@
 const normalize = require('./normalize');
-const changeCase = require('change-case');
 
 /**
  * Creates type nodes schema definition.
@@ -91,8 +90,43 @@ const getGraphTypeTypeName = (typeName) => {
   return normalize.getArtifactName(typeName, 'type');
 };
 
+const KontentTextElementTypeName = 'KontentTextElement';
+const KontentNumberElementTypeName = 'KontentNumberElement';
+const KontentMultipleChoiceElementTypeName = 'KontentMultipleChoiceElement';
+const KontentDateTimeElementTypeName = 'KontentDateTimeElement';
+const KontentRichTextElementTypeName = 'KontentRichTextElement';
+const KontentModularContentElementTypeName = 'KontentModularContentElement';
+const KontentAssetElementTypeName = 'KontentAssetElement';
+const KontentCustomElementTypeName = 'KontentCustomElement';
+const KontentTaxonomyElementTypeName = 'KontentTaxonomyElement';
+const KontentUrlSlugElementTypeName = 'KontentUrlSlugElement';
+
+
 const getElementValueType = (elementType) => {
-  return `Kontent${changeCase.pascalCase(elementType)}Element`;
+  switch (elementType) {
+  case 'text':
+    return KontentTextElementTypeName;
+  case 'number':
+    return KontentNumberElementTypeName;
+  case 'multiple_choice':
+    return KontentMultipleChoiceElementTypeName;
+  case 'date_time':
+    return KontentDateTimeElementTypeName;
+  case 'rich_text':
+    return KontentRichTextElementTypeName;
+  case 'asset':
+    return KontentAssetElementTypeName;
+  case 'custom':
+    return KontentCustomElementTypeName;
+  case 'modular_content':
+    return KontentModularContentElementTypeName;
+  case 'taxonomy':
+    return KontentTaxonomyElementTypeName;
+  case 'url_slug':
+    return KontentUrlSlugElementTypeName;
+  default:
+    throw Error(`Unsupported Kontent element type: ${elementType}`);
+  }
 };
 
 const getKontentBaseTypeDefinitions = () => {
@@ -171,33 +205,33 @@ const getKontentBaseTypeDefinitions = () => {
       type: String!
       urlSlug: String!
     }
-    type KontentAssetElement implements KontentElement @infer {
+    type ${KontentAssetElementTypeName} implements KontentElement @infer {
       name: String!
       type: String!
       value: [KontentAsset]
     }
-    type KontentDateTimeElement implements KontentElement @infer {
+    type ${KontentDateTimeElementTypeName} implements KontentElement @infer {
       name: String!
       type: String!
       value: Date @dateformat
     }
-    type KontentModularContentElement implements KontentElement @infer {
+    type ${KontentModularContentElementTypeName} implements KontentElement @infer {
       name: String!
       type: String!
       itemCodenames: [String]
       linked_items: [KontentItem] @link(by: "id", from: "linked_items___NODE")
     }
-    type KontentMultipleChoiceElement implements KontentElement @infer {
+    type ${KontentMultipleChoiceElementTypeName} implements KontentElement @infer {
       name: String!
       type: String!
       value: [KontentElementMultipleChoiceValue]
     }
-    type KontentNumberElement implements KontentElement @infer {
+    type ${KontentNumberElementTypeName} implements KontentElement @infer {
       name: String!
       type: String!
       value: Float
     }
-    type KontentRichTextElement implements KontentElement @infer {
+    type ${KontentRichTextElementTypeName} implements KontentElement @infer {
       name: String!
       type: String!
       value: String
@@ -208,7 +242,7 @@ const getKontentBaseTypeDefinitions = () => {
       resolvedData: KontentElementRichTextResolvedData
     }
 
-    type KontentTaxonomyElement implements KontentElement @infer {
+    type ${KontentTaxonomyElementTypeName} implements KontentElement @infer {
       name: String!
       type: String!
       taxonomyGroup: String!
@@ -218,17 +252,17 @@ const getKontentBaseTypeDefinitions = () => {
       name: String!
       codename: String!
     }
-    type KontentTextElement implements KontentElement @infer {
+    type ${KontentTextElementTypeName} implements KontentElement @infer {
       name: String!
       type: String!
       value: String
     }
-    type KontentUrlSlugElement implements KontentElement @infer {
+    type ${KontentUrlSlugElementTypeName} implements KontentElement @infer {
       name: String!
       type: String!
       value: String
     }
-    type KontentCustomElement implements KontentElement @infer {
+    type ${KontentCustomElementTypeName} implements KontentElement @infer {
       name: String!
       type: String!
       value: String

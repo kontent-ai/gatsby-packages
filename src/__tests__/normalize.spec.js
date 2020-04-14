@@ -30,7 +30,7 @@ describe('normalize.spec.js', () => {
       const artifact = normalize.createKontentArtifactNode(
         'dummyId',
         contentType,
-        'type',
+        'Type',
         contentType.system.codename,
         {
           contentItems___NODE: [],
@@ -49,7 +49,7 @@ describe('normalize.spec.js', () => {
       const artifact = normalize.createKontentArtifactNode(
         'dummyId',
         contentType,
-        'type',
+        'Type',
         contentType.system.codename,
         {
           contentItems___NODE: [],
@@ -67,7 +67,7 @@ describe('normalize.spec.js', () => {
       const artifact = normalize.createKontentArtifactNode(
         'dummyId',
         simpleContentItem,
-        'item',
+        'Item',
         simpleContentItem.system.codename,
         {
           otherLanguages___NODE: [],

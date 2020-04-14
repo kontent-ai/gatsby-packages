@@ -1,6 +1,5 @@
 const { parse, stringify } = require('flatted/cjs');
 const _ = require('lodash');
-const changeCase = require('change-case');
 
 const normalize = require('./normalize');
 const validation = require('./validation');
@@ -48,8 +47,7 @@ const createContentTypeNode = (
   }
   validation.checkTypesObjectStructure([contentType]);
 
-  const codenameParamCase = changeCase.paramCase(contentType.system.codename);
-  const nodeId = createNodeId(`kentico-kontent-type-${codenameParamCase}`);
+  const nodeId = createNodeId(`kentico-kontent-type-${contentType.system.codename}`);
 
   const additionalData = {
     contentItems___NODE: [],

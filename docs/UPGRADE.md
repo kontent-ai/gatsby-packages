@@ -1,5 +1,43 @@
 # Upgrade guide
 
+## From `4.x.x` to `5.x.x`
+
+This upgrade is necessary to fix [colliding identifiers](https://github.com/Kentico/gatsby-source-kontent/issues/110) issue.
+
+### Colliding identifiers
+
+It is necessary to rename all Kontent taxonomy, type, and item names in all GraphQL queries.
+
+#### Taxonomy name
+
+| 4.x.x pattern                                | 5.x.x pattern                  |
+| -------------------------------------------- | ------------------------------ |
+| KontentTaxonomy{PascalCasedTaxonomyCodename} | kontent_taxonomy_{raw_codename}|
+
+| 4.x.x example                                | 5.x.x example                  |
+| -------------------------------------------- | ------------------------------ |
+| KontentTaxonomyMyPersonas                    | kontent_taxonomy_my_personas   |
+
+#### Type name
+
+| 4.x.x pattern                                | 5.x.x pattern                  |
+| -------------------------------------------- | ------------------------------ |
+| KontentType{PascalCasedTypeCodename}         | kontent_type_{raw_codename}    |
+
+| 4.x.x example                                | 5.x.x example                  |
+| -------------------------------------------- | ------------------------------ |
+| KontentTypeMyPerson                          | kontent_type_my_person         |
+
+#### Item name
+
+| 4.x.x pattern                                | 5.x.x pattern                  |
+| -------------------------------------------- | ------------------------------ |
+| KontentItem{PascalCasedItemCodename}         |  kontent_item_{raw_codename}   |
+
+| 4.x.x example                                | 5.x.x example                  |
+| -------------------------------------------- | ------------------------------ |
+| KontentItemMyArticle                         | kontent_item_my_article        |
+
 ## From `3.x.x` to `4.x.x`
 
 This upgrade is mainly caused by upgrading [Kentico Kontent Javascript Delivery SDK](https://github.com/Kentico/kontent-delivery-sdk-js), adding new features, and performance tuning.
