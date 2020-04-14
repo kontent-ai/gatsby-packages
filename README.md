@@ -556,6 +556,7 @@ For more developer resources, visit the [Kentico Kontent Docs](https://docs.kont
 
 * For version 2 use [this branch](https://github.com/Kentico/gatsby-source-kentico-cloud/tree/v2).
 * For version 3 use [this branch](https://github.com/Kentico/gatsby-source-kentico-cloud/tree/v3).
+* For version 4 use [this branch](https://github.com/Kentico/gatsby-source-kentico-cloud/tree/v4).
 
 ## Feedback & Contributing
 
