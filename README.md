@@ -76,7 +76,7 @@ Use the [gatsby-starter-kontent](https://github.com/Kentico/gatsby-starter-konte
 
 The plugin creates GraphQL nodes for all Kentico Kontent content types, content items, and its language variants.
 
-The node names are prefixed with `Kontent`. More specifically, content type nodes are prefixed by `KontentType` and content items and their language variants are prefixed with `KontentItem`.
+The queries start with `kontentType` or `kontentItem` prefix (respectively `allKontentType` or `allKontentItem`) and their type is `kontent_type_X` or `kontent_item_X` where `X` is a codename of the `type` or `item`.
 
 GraphQL nodes of content items contain the ordinary `system` and `elements` properties. However, the properties inside `elements` always have an internal structure that the aforementioned [Delivery SDK](https://github.com/Kentico/kontent-delivery-sdk-js/blob/master/lib/models/item/content-item.class.ts) produces with **modifications** described in following subsections.
 
