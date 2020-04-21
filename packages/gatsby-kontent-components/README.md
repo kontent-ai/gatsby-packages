@@ -1,6 +1,14 @@
 # Gatsby Kontent Components
 
+[![npm version](https://badge.fury.io/js/%40kentico%2Fgatsby-kontent-components.svg)](https://badge.fury.io/js/%40kentico%2Fgatsby-kontent-components)
+
 The package containing React components useful when processing Kontent data to the site.
+
+## Install
+
+```sh
+npm install @kentico/gatsby-kontent-components@vnext
+```
 
 ## Rich text element component
 
@@ -11,6 +19,10 @@ This package should make the usage easier. Basically by loading the rich text da
 > Complete showcase could be found in [rich-text.js](../../site/src/pages/rich-text.js) in the development site.
 
 ```jsx
+import { RichTextElement } from "@kentico/gatsby-kontent-components"
+
+// ... 
+
 <RichTextElement
       value={richTextElement.value}
       images={richTextElement.images}
