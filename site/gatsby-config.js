@@ -19,6 +19,10 @@ module.exports = {
         usePreviewUrl: true,
         authorizationKey: "ew0KICAiYWxnIjogIkhTMjU2IiwNCiAgInR5cCI6ICJKV1QiDQp9.ew0KICAianRpIjogImI2NTRmM2E3MGU0ODQzNWY5YTY2NjQ3MDNlM2RkNzFkIiwNCiAgImlhdCI6ICIxNTg2MzI4Mzc2IiwNCiAgImV4cCI6ICIxOTMxOTI4Mzc2IiwNCiAgInByb2plY3RfaWQiOiAiZjA4ZTU5MGZhNTk1MDA3YTNjNmY3ZTE3OWRjM2M3MDgiLA0KICAidmVyIjogIjEuMC4wIiwNCiAgImF1ZCI6ICJwcmV2aWV3LmRlbGl2ZXIua2VudGljb2Nsb3VkLmNvbSINCn0.93F7hGWkxi5wSsxYoHXZbYxAZ6FRrWb1qabEJgP0A8U",
         // includeRawContent: true,
+        proxy: {
+          deliveryDomain: "qa-deliver.global.ssl.fastly.net",
+          previewDeliveryDomain: "qa-preview-deliver.global.ssl.fastly.net"
+        }
       },
     },
   ],

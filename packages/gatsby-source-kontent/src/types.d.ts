@@ -15,6 +15,10 @@ interface CustomPluginOptions extends PluginOptions {
   includeTaxonomies: boolean = false;
   authorizationKey: string = null;
   usePreviewUrl: boolean = false;
+  proxy: {
+    deliveryDomain: string;
+    previewDeliveryDomain: string;
+  };
   includeRawContent: boolean = false;
 }
 

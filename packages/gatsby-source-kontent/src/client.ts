@@ -12,8 +12,8 @@ import {
   version as packageVersion,
 } from '../package.json';
 
-const KontentDeliveryProductionDomain = 'https://qa-deliver.global.ssl.fastly.net'; // 'https://deliver.kontent.ai';
-const KontentDeliveryPreviewDomain = 'https://qa-preview-deliver.global.ssl.fastly.net'; // 'https://preview-deliver.kontent.ai';
+const DefaultKontentDeliveryProductionDomain = 'deliver.kontent.ai';
+const DefaultKontentDeliveryPreviewDomain = 'preview-deliver.kontent.ai';
 const continuationHeaderName = 'x-continuation';
 const authorizationHeaderName = 'authorization';
 const trackingHeaderName = 'x-kc-source';
@@ -21,10 +21,12 @@ const waitForLoadingNewContentHeaderName = 'x-kc-wait-for-loading-new-content';
 
 rax.attach();
 
-const getDomain = (options: CustomPluginOptions): string =>
-  options.usePreviewUrl
-    ? KontentDeliveryPreviewDomain
-    : KontentDeliveryProductionDomain;
+const getProtocolAndDomain = (options: CustomPluginOptions): string => {
+  const domain = options.usePreviewUrl
+    ? options?.proxy?.previewDeliveryDomain !== null ? options.proxy.previewDeliveryDomain : DefaultKontentDeliveryPreviewDomain
+    : options?.proxy?.deliveryDomain !== null ? options.proxy.deliveryDomain : DefaultKontentDeliveryProductionDomain;
+  return `https://${domain}`;
+};
 
 const logRetryAttempt = (err: AxiosError): void => {
   const cfg = rax.getConfig(err);
@@ -99,7 +101,7 @@ const loadAllKontentItems = async (
     headers[continuationHeaderName] = continuationToken;
 
     const response = await axios.get(
-      `${getDomain(config)}/${
+      `${getProtocolAndDomain(config)}/${
       config.projectId
       }/items-feed?language=${language}`,
       {
@@ -131,12 +133,12 @@ const loadKontentItem = async (
 
   const headers = ensureAuthorizationHeader(config);
   ensureTrackingHeader(headers);
-  if(waitForLoadingNewContent){
+  if (waitForLoadingNewContent) {
     ensureNewContentHeader(headers)
   }
 
   const response = await axios.get(
-    `${getDomain(config)}/${
+    `${getProtocolAndDomain(config)}/${
     config.projectId
     }/items?system.id=${itemId}&language=${language}`,
     {
@@ -156,7 +158,7 @@ const loadAllKontentTypes = async (
   const headers = ensureAuthorizationHeader(config);
   ensureTrackingHeader(headers);
   const response = await axios.get(
-    `${getDomain(config)}/${config.projectId}/types`,
+    `${getProtocolAndDomain(config)}/${config.projectId}/types`,
     {
       headers,
       raxConfig: {
@@ -173,7 +175,7 @@ const loadAllKontentTaxonomies = async (
   const headers = ensureAuthorizationHeader(config);
   ensureTrackingHeader(headers);
   const response = await axios.get(
-    `${getDomain(config)}/${config.projectId}/taxonomies`,
+    `${getProtocolAndDomain(config)}/${config.projectId}/taxonomies`,
     {
       headers,
       raxConfig: {

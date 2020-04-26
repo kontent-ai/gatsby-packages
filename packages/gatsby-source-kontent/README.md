@@ -43,6 +43,9 @@ This plugin does not need to use `yarn`, if want to use it in you project, see [
 - `includeTypes` - \<`boolean`\> include [types](#Querying-Kontent-Types) to GraphQL model. Turned off by default.
 - `authorizationKey` - \<`string`\> For preview/secured API key - depends on `usePreviewUrl` config.
 - `usePreviewUrl` - \<`boolean`\> when `true`, "`preview-deliver.kontent.ai`" used as [primary domain for data source](https://docs.kontent.ai/reference/delivery-api#section/Production-vs.-Preview). Turned off by default.
+- `proxy`:
+  - `deliveryDomain` - \<`string`\> Base url used for all requests. Defaults to `deliver.kontent.ai`.
+  - `previewDeliveryDomain` - \<`string`\> Base url used for preview requests. Defaults to `preview-deliver.kontent.ai`.
 - `includeRawContent` - \<`boolean`\> allows to include `internal.content` property as a part fo the GraphQL model. Turned off by default.
 
   \* required property
@@ -74,6 +77,10 @@ module.exports = {
         usePreviewUrl: true, // false by default
         authorizationKey: '<API KEY>', // For preview/secured API key - depends on usePreviewUrl setting
         includeRawContent: true, // opt-out by default - include `internal.content` property in the gatsby nodes
+        proxy: {
+          deliveryDomain: 'custom.delivery.kontent.my-proxy.com',
+          previewDeliveryDomain: "custom.preview.delivery.kontent.my-proxy.com"
+        }
       },
     },
     /// ...
