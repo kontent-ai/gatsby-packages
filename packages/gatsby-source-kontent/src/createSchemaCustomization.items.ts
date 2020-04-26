@@ -27,11 +27,16 @@ const getLanguageLinkExtension = (): object => ({
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       context: any,
     ): Promise<KontentItem[]> {
-      const kontentItemNode = context.nodeModel.findRootNodeAncestor(source);
       const nodesCodeNames =
         source.type === 'modular_content'
           ? (source.value as string[])
           : (source.modular_content as string[]);
+
+      if (nodesCodeNames.length === 0) {
+        return [];
+      }
+
+      const kontentItemNode = context.nodeModel.findRootNodeAncestor(source);
       const nodesLanguage = kontentItemNode[PREFERRED_LANGUAGE_IDENTIFIER];
 
       const promises = nodesCodeNames.map(codename =>

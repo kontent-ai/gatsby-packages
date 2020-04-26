@@ -24,40 +24,20 @@ interface WebhookData {
   }[];
 }
 
-const isCreateItemAction = ({ operation, type }: WebhookBodyMessage): boolean => (
-  ["create", "restore"].includes(operation)
-  && ["content_item", "content_item_variant"].includes(type)
-);
-
-const isUpdateItemAction = ({ operation, type }: WebhookBodyMessage): boolean => (
-  operation === 'update'
-  && ["content_item", "content_item_variant"].includes(type)
-);
-
-const isDeleteItemAction = ({ operation, type }: WebhookBodyMessage): boolean => (
-  operation === 'archive'
-  && ["content_item", "content_item_variant"].includes(type)
-);
-
 const handleUpsertItem = async (
   api: SourceNodesArgs,
   pluginConfig: CustomPluginOptions
 ): Promise<string[]> => {
   const itemInfo = (api.webhookBody as WebhookBody)?.data.items[0];
 
-  // TODO uncomment once the preview webhook is ready
-  // if (!pluginConfig.languageCodenames.includes(itemInfo.language)) {
-  //   api.reporter.verbose(`Cant find specified language ${itemInfo.language} in plugin configuration`);
-  //   return;
-  // }
+  if (!pluginConfig.languageCodenames.includes(itemInfo.language)) {
+    api.reporter.verbose(`Cant find specified language ${itemInfo.language} in plugin configuration`);
+    return [];
+  }
 
   // TODO could be optimized to by checking the fallback structure and save some requests
   // not recreate the ones that has different system.language
   // be careful on fallback language - verify cz->de->en fallbacks
-
-  // TODO remove that adjustment when preview is ready
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  itemInfo.id = (api.webhookBody as any).data.items[0].item.id;
 
   const createdItemsIds = [];
   for (const lang of pluginConfig.languageCodenames) {
@@ -87,19 +67,14 @@ const handleDeleteItem = async (
 
   const itemInfo = (api.webhookBody as WebhookBody)?.data.items[0];
 
-  // TODO uncomment once the preview webhook is ready
-  // if (!pluginConfig.languageCodenames.includes(itemInfo.language)) {
-  //   api.reporter.verbose(`Cant find specified language ${itemInfo.language} in plugin configuration`);
-  //   return;
-  // }
+  if (!pluginConfig.languageCodenames.includes(itemInfo.language)) {
+    api.reporter.verbose(`Cant find specified language ${itemInfo.language} in plugin configuration`);
+    return [];
+  }
 
   // TODO could be optimized to by checking the fallback structure and save some requests
   // not recreate the ones that has different system.language
   // be careful on fallback language - verify cz->de->en fallbacks
-
-  // TODO remove that adjustment when preview is ready
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  itemInfo.id = (api.webhookBody as any).data.items[0].item.id;
 
   const touchedItemsIds = [];
   for (const lang of pluginConfig.languageCodenames) {
@@ -136,21 +111,24 @@ const handleIncomingWebhook = async (
   const webhook = api.webhookBody as WebhookBody;
   const message = webhook.message;
 
-  // TODO uncomment once preview webhook is turned on
-  // if (message.api_name != 'delivery_preview') {
-  //   api.reporter.verbose('Webhook is not sent from delivery preview.');
-  //   return;
-  // }
+  if (message.api_name != 'delivery_preview') {
+    api.reporter.verbose(`Webhook is not sent from delivery preview.(api name: ${message.api_name})`);
+    return;
+  }
+
+  if(webhook.data.items.length > 1){
+    api.reporter.warn(`Webhook contains more than one item! - contains (${webhook.data.items.length})`)
+  }
 
   const processedItemIds: string[] = [];
-  // TODO maybe merge create + update
-  if (isCreateItemAction(message) || isUpdateItemAction(message)) {
+  
+  if (message.operation === "upsert") {
     // TODO question - could create contains more than one item?
     const processedIds = await handleUpsertItem(api, pluginConfig);
     processedItemIds.concat(processedIds);
   }
 
-  if (isDeleteItemAction(message)) {
+  if (message.operation === "archive") {
     const processedIds = await handleDeleteItem(api, pluginConfig);
     processedItemIds.concat(processedIds);
   }
