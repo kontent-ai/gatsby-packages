@@ -23,8 +23,8 @@ rax.attach();
 
 const getProtocolAndDomain = (options: CustomPluginOptions): string => {
   const domain = options.usePreviewUrl
-    ? options?.proxy?.previewDeliveryDomain !== null ? options.proxy.previewDeliveryDomain : DefaultKontentDeliveryPreviewDomain
-    : options?.proxy?.deliveryDomain !== null ? options.proxy.deliveryDomain : DefaultKontentDeliveryProductionDomain;
+    ? options?.proxy?.previewDeliveryDomain || DefaultKontentDeliveryPreviewDomain
+    : options?.proxy?.deliveryDomain || DefaultKontentDeliveryProductionDomain;
   return `https://${domain}`;
 };
 
