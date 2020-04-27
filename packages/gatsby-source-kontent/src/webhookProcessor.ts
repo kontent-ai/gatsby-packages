@@ -111,28 +111,39 @@ const handleIncomingWebhook = async (
   const webhook = api.webhookBody as WebhookBody;
   const message = webhook.message;
 
-  if (message.api_name != 'delivery_preview') {
-    api.reporter.verbose(`Webhook is not sent from delivery preview.(api name: ${message.api_name})`);
-    return;
-  }
-
+  api.reporter.verbose(`Handling ${message.operation} from ${message.api_name} API`);
   if(webhook.data.items.length > 1){
     api.reporter.warn(`Webhook contains more than one item! - contains (${webhook.data.items.length})`)
   }
 
   const processedItemIds: string[] = [];
+  if(message.api_name === 'delivery_preview') {
+    if (message.operation === "upsert") {
+      // TODO question - could create contains more than one item?
+      const processedIds = await handleUpsertItem(api, pluginConfig);
+      processedItemIds.concat(processedIds);
+    }
   
-  if (message.operation === "upsert") {
-    // TODO question - could create contains more than one item?
-    const processedIds = await handleUpsertItem(api, pluginConfig);
-    processedItemIds.concat(processedIds);
+    if (message.operation === "archive") {
+      const processedIds = await handleDeleteItem(api, pluginConfig);
+      processedItemIds.concat(processedIds);
+    }
+  } else if (message.api_name === 'delivery_production') {
+    if (message.operation === "publish") {
+      // TODO question - could create contains more than one item?
+      const processedIds = await handleUpsertItem(api, pluginConfig);
+      processedItemIds.concat(processedIds);
+    }
+  
+    if (message.operation === "unpublish") {
+      const processedIds = await handleDeleteItem(api, pluginConfig);
+      processedItemIds.concat(processedIds);
+    }
+  } else {
+    api.reporter.verbose(`Webhook is not supported yet!`);
+    api.reporter.verbose(JSON.stringify(webhook, null, 2));
+    return;
   }
-
-  if (message.operation === "archive") {
-    const processedIds = await handleDeleteItem(api, pluginConfig);
-    processedItemIds.concat(processedIds);
-  }
-
 
   for (const itemType of itemTypes) {
     const itemsToTouch: KontentItem[] = api.getNodesByType(itemType);
