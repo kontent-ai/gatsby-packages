@@ -29,8 +29,8 @@
     "build:source": "yarn workspace @kentico/gatsby-source-kontent build",
     "test:source": "yarn workspace @kentico/gatsby-source-kontent test",
     "set:version": "export LERNA_VERSION=\"$(node -e \"require('./lerna.json').version\")\"",
-    "publish:vnext-alpha": "lerna publish --force-publish --dist-tag=vnext-alpha",
-    "publish:vnext-beta": "lerna publish --force-publish --dist-tag=vnext-beta",
+    "publish:vnext-alpha": "lerna publish --force-publish --tag-version-prefix='' --dist-tag=vnext-alpha",
+    "publish:vnext-beta": "lerna publish --force-publish --tag-version-prefix='' --dist-tag=vnext-beta",
     "publish:vnext": "lerna publish --force-publish --tag-version-prefix='' --dist-tag=vnext"
   },
   "devDependencies": {
