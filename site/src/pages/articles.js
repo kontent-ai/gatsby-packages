@@ -38,7 +38,7 @@ const Articles = (props) => {
     );
   });
   return <div style={{ display: "flex", flexWrap: "wrap" }}>{articles}</div>
-} //<pre>{JSON.stringify(data, null, 4)}</pre>
+}
 
 export const query = graphql`
 {
