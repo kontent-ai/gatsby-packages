@@ -13,7 +13,7 @@ interface CustomPluginOptions extends PluginOptions {
   languageCodenames: string[];
   includeTypes: boolean = false;
   includeTaxonomies: boolean = false;
-  authorizationKey: string = null;
+  authorizationKey: string = null; // consider using https://www.npmjs.com/package/dotenv for storing the key
   usePreviewUrl: boolean = false;
   proxy: {
     deliveryDomain: string;
