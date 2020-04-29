@@ -1135,6 +1135,11 @@
     "@types/istanbul-reports" "^1.1.1"
     "@types/yargs" "^13.0.0"
 
+"@kentico/kontent-webhook-helper@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@kentico/kontent-webhook-helper/-/kontent-webhook-helper-1.0.0.tgz#e139e52189fcc361e4e80ad7fdfe14c984c4b97d"
+  integrity sha512-UlRy7KpRTnfOm+hhVYLUbLYCHIwdow4ZjOVS2FIgkFYWvFvQEVYgrptAZIdlHrZmyixIEkgKlidSIJs1O8NpwA==
+
 "@lerna/add@3.20.0":
   version "3.20.0"
   resolved "https://registry.yarnpkg.com/@lerna/add/-/add-3.20.0.tgz#bea7edf36fc93fb72ec34cb9ba854c48d4abf309"
