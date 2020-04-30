@@ -13,7 +13,7 @@ module.exports = {
       options: {
         projectId: process.env.KONTENT_PROJECT_ID,
         languageCodenames: process.env.KONTENT_LANGUAGE_CODENAMES.split(',').map(lang => lang.trim()),
-        usePreviewUrl: true,
+        usePreviewUrl: !!process.env.KONTENT_PREVIEW_ENABLED,
         authorizationKey: process.env.KONTENT_PREVIEW_ENABLED
           ? process.env.KONTENT_PREVIEW_KEY
           : undefined, // secured API is not expected
