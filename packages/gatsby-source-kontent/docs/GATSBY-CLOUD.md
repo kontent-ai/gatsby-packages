@@ -1,26 +1,36 @@
 # Getting started with Gatsby Cloud and Kontent
 
-Learn how to connect Gatsby Cloud with Kontent
+Learn how to connect Gatsby Cloud with Kontent based Gatsby site.
 
-## What are Gatsby Cloud and Kontent, and why use them together?
+In this tutorial you will discover, how to easily integrate site sourced by Kentico Kontent with Gatsby Cloud.
 
-[Kontent](https://kontent.ai) is a headless CMS that content editors can use to edit and publish content. Gatsby Cloud allows you to integrate your site with Kontent in order to run performant builds and preview content changes made in the CMS before publishing
+You will
+
+* Create a website using data from Kentico Kontent.
+* Store its source Code on GitHub.
+* Register this Github repository in Gatsby Cloud.
+* Configure Kentico Kontent webhooks to notify Gatsby Cloud about the content changes on preview environment as well as on production.
+* Configure preview URLs in Kentico Kontent to.
+
+## What are Gatsby Cloud and Kontent, and why use them together
+
+[Kontent](https://kontent.ai) is a headless CMS that content editors can use to edit and publish content. It is  Content-as-a-Service solution that gives enterprises control over their entire content lifecycle in a single unified environment. Gatsby Cloud allows you to integrate your site with Kontent in order to run performant builds and preview content changes made in the CMS before publishing.
 
 ## Setting up a Kontent and Gatsby site
 
-First, you’ll need a Gatsby site with a [gatsby-source-kontent](https://www.gatsbyjs.org/packages/@kontent/gatsby-source-kontent) source plugin pulling data from Kontent. If you haven’t set that up yet, you can quickly create a new project by using the [gatsby-starter-kontent-lumen](https://github.com/Kentico/gatsby-starter-kontent-lumen) and signing up for an account at app.kontent.ai.
+First, you’ll need a Gatsby site with a [gatsby-source-kontent](https://www.gatsbyjs.org/packages/@kontent/gatsby-source-kontent) source plugin pulling data from Kontent. If you haven’t set that up yet, you can quickly create a new project by using the [gatsby-starter-kontent-lumen](https://github.com/Kentico/gatsby-starter-kontent-lumen) repository. To achieve it, walk though the [Getting started](https://github.com/kentico/gatsby-starter-kontent-lumen#getting-started) section.
 
 ## Signing in to Gatsby Cloud
 
-Select `Sign in with GitHub`. You’ll be asked to authorize the Gatsby Cloud app with your GitHub account. If you need to request access to one or more repositories, you can click "request access" here or later, when creating an instance.
+[Access Gatsby Cloud](https://gatsbyjs.com/dashboard/sites/create) and select **Sign in with GitHub**  You’ll be asked to authorize the Gatsby Cloud app with your GitHub account. If you need to request access to one or more repositories, you can click "request access" here or later, when creating an instance.
 
-Once signed in, configuring Gatsby Cloud with Kontent requires several steps that are walked through below.
+*Once signed in, configuring Gatsby Cloud with Kontent requires several steps that are walked through below.*
 
-## Creating an instance
+### Creating an instance
 
-Once you’ve authenticated with Cloud and GitHub, you can create an instance from the ["Create a new Gatsby Cloud site"](https://gatsbyjs.com/dashboard/sites/create) page.
+Once you are registered, you could start with [registering you GitHub repository](https://gatsbyjs.com/dashboard/sites/create).
 
-Use the "I already have a Gatsby site" flow to manually integrate your site.
+Use the **I already have a Gatsby sit** flow to manually integrate your site.
 
 ![Add my own site](./assets/import-flow-start.png)
 
@@ -32,7 +42,7 @@ If you don’t see your site, it might be because it belongs to a GitHub organiz
 
 *Note: Repositories must contain one Gatsby project configured at their root to be enabled. Gatsby Cloud works best with Gatsby version 2.20.36 and higher.*
 
-## Select branch and publish directory
+### Select branch and publish directory
 
 You’ll need to select a branch and then indicate the publish directory where the gatsby-config.js lives. If you leave the field blank, it defaults to the root of the site.
 
@@ -40,36 +50,21 @@ You’ll need to select a branch and then indicate the publish directory where t
 
 Once the branch and base directory are correct, select "Next".
 
+### Create the instance
 
-## Create the instance
+First, click **Skip this step** to configure Kontent manually.
 
 ![Integration Step - automatic or manual](./assets/integration-step.png)
 
-## Manual Integration
+*Gatsby Cloud will automatically try and detect environment variables necessary in your `gatsby-config.js`. However — consider adding any additional variables that automatic detection may have missed. See ["Setting up Environment Variables"](#setting-up-environment-variables) for more info. Note that you will be able to add, delete, or update these later on in "Site Settings".*
 
-First, click "Skip this step" to configure Kontent manually.
+### Setting up Environment Variables
 
-Gatsby Cloud will automatically try and detect environment variables necessary in your `gatsby-config.js`. However — consider adding any additional variables that automatic detection may have missed. See ["Setting up Environment Variables"](https://www.gatsbyjs.com/docs/agility-cms/getting-started/#setting-up-environment-variables) for more info.
+*An environment variable references a value that can affect how running processes will behave on a computer, for example in staging and production environments. You must save environment variables in Gatsby Cloud to authorize your instance to pull source data from Kontent.*
 
-Note that you will be able to add, delete, or update these later on in "Site Settings".
+Open you your Kontent project, on the "Project settings" tab, click on "API Keys".
 
-Once you’ve added the necessary environment variables, you can press "Create site" which will create your instance in Gatsby Cloud!
-
-## Site is Created
-
-After following the "Automatic Integration" or "Manual Integration" flow you now have an instance of Gatsby Cloud configured with environment variables and a provided Gatsby Preview instance you can share with your team. Woo-hoo!
-
-## Setting up Environment Variables
-
-An environment variable references a value that can affect how running processes will behave on a computer, for example in staging and production environments. You must save environment variables in Gatsby Cloud to authorize your instance to pull source data from Kontent.
-
-**You will need to add into Gatsby Cloud any environment variable required for your app to run, such as deployment or test environment configuration settings.**
-
-**You will also need to add in the following Gatsby Cloud-specific environment variables:**
-
-In your Kontent project, on the "Project settings" tab, click on "API Keys".
-
-// TODO API section
+![Kontent API keys section](./assets/kontent-api-keys.png)
 
 You will need to grab the following values from this window:
 
@@ -78,9 +73,9 @@ You will need to grab the following values from this window:
 
 In your Kontent project, on the "Localization" tab get codenames of the localizations for your project.
 
-* Language codenames (i.e. `en-US, cs-CZ`)
+![Kontent Localization configuration section](./assets/kontent-localization.png)
 
-These values will map to the following environment variables in Gatsby Cloud (assuming you are using the [gatsby-starter-kontent-lumen](https://github.com/Kentico/gatsby-starter-kontent-lumen) or a similar configuration):
+* Language **codenames** ([`gatsby-starter-kontent-lumen`](https://github.com/Kentico/gatsby-starter-kontent-lumen) is using `en-US,cs-CZ`)
 
 Value | Environment Variable Name
 ------------ | -------------
@@ -94,38 +89,30 @@ You will want to set KONTENT_PREVIEW_ENABLED to `true` for Preview and `false` f
 
 **Click `Save` once you’ve entered you’re variables**
 
-Select `Create Site`
+Click **Create site**.
 
-Select `Create Site` and wait for the first preview instance to be created.
+Go to "Preview" tab and wait for the preview instance to be created.
 
-## Webhooks: Configuring your Gatsby site to work with Gatsby Cloud
+## Webhooks: Configuring your Gatsby site to be updated with content changes
 
-### Setting up a webhook in Kontent
+To make a connection between Kontent and Gatsby Cloud for your site, you’ll need to [configure a webhook](https://docs.kontent.ai/reference/webhooks-reference) in Kontent so that content changes can be pushed to Gatsby Cloud.
 
-To make a connection between Kontent and Gatsby Cloud for your site, you’ll need to configure a webhook in Kontent so that content changes can be pushed to Gatsby Cloud.
+You’ll set up two webhooks in Kontent:
 
-You can add and edit necessary webhook information in two places in Gatsby Cloud:
-
-* During the “Create a new Site” process
-* After setting up an instance, on that instance’s Settings page
-
-You’ll set up two webhooks in Kontent: one for Gatsby Preview, and one for Gatsby Builds!
-
-### Agility CMS documentation on webhooks
-
-For full documentation on setting up webhooks in Kontent, see their [webhook documentation](https://docs.kontent.ai/reference/webhooks-reference).
+* one for Gatsby Preview
+* one for Gatsby Builds
 
 ### Adding a Preview Webhook
 
-Navigate to your Gatsby Cloud instance, and press "Site Settings". Copy the Preview Webhook on this page.
+Navigate to your Gatsby Cloud instance, and press **Site Settings**. Copy the Preview Webhook on this page.
 
 ![Copying the Preview webhook URL](./assets/webhook-preview.png)
 
-**Open Kontent app, go to "Project settings" tab and select "Webhooks"**
+Open Kontent app, go to "Project settings" tab and select "Webhooks"
 
 ![Kontent webhooks menu](./assets/kontent-webhooks.png)
 
-Select "Create new Webhook".
+Select **Create new Webhook**.
 
 Name the webhook and paste the Preview webhook copied from the Gatsby Cloud Dashboard to URL address.
 
@@ -136,21 +123,21 @@ And select only triggers in section "DELIVERY PREVIEW API TRIGGERS"
 
 ![Kontent preview webhook configuration](./assets/preview-webhook-configuration.png)
 
-Click Save
+Click **Save**.
 
-Your Preview webhook is now ready! When you change your content in Kontent, your Gatsby Preview will update!
+*Your Preview webhook is now ready! When you change your content in Kontent, your Gatsby Preview will update!*
 
 ### Adding a Build Webhook
 
-Navigate to your Gatsby Cloud instance, and press "Site Settings". Copy the Build Webhook on this page.
+Navigate to your Gatsby Cloud instance, and press **Site Settings**. Copy the Build Webhook on this page.
 
 ![Copying the Build webhook URL](./assets/webhook-builds.png)
 
-**Open Kontent app, go to "Project settings" tab and select "Webhooks"**
+Open Kontent app, go to "Project settings" tab and select "Webhooks"
 
 ![Kontent webhooks menu with one webhook](./assets/kontent-webhooks-with-webhook.png)
 
-Select "Create new Webhook".
+Select **Create new Webhook**.
 
 Name the webhook and paste the Build webhook copied from the Gatsby Cloud Dashboard to URL address.
 
@@ -161,13 +148,29 @@ And select only triggers in section "DELIVERY API TRIGGERS"
 
 ![Kontent build webhook configuration](./assets/build-webhook-configuration.png)
 
-Click Save
+Click **Save**
 
-Your Build webhook is now ready! When you publish/unpublish content in Kontent, your Gatsby Build will update!
+*Your Build webhook is now ready! When you publish/unpublish content in Kontent, your Gatsby Build will update!*
 
 ## Setting the Gatsby Preview Domain for Kontent
 
-TODO
+To be able to open the Gatsby Cloud preview right from the Kentico Kontent, it is necessary to [configure preview URLs](https://docs.kontent.ai/tutorials/develop-apps/build-strong-foundation/set-up-preview#a-set-up-content-preview-in-your-project) for your content.
+
+*Assuming you are using [`gatsby-starter-kontent-lumen`](https://github.com/Kentico/gatsby-starter-kontent-lumen) project.*
+
+Navigate to your Gatsby Cloud instance, and press **Preview**. Copy the preview URL.
+
+![Gatsby cloud preview URL](./assets/gatsby-cloud-preview-url.png)
+
+Open Kontent app, go to "Project settings" tab and select "Preview URLs".
+
+Configure the URLs according to routes configuration.
+
+![Preview URLs configuration](./assets/preview-urls.png)
+
+Now you are able to open the preview right from Kentico Kontent user interface.
+
+![Preview button showcase in Kontent](./assets/preview-showcase.png)
 
 ## Wrapping Up
 
