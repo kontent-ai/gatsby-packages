@@ -4,17 +4,26 @@ import * as client from "./client";
 import { addPreferredLanguageProperty, alterRichTextElements, getKontentItemLanguageVariantArtifact } from "./sourceNodes.items";
 import { getKontentItemNodeStringForId, getKontentTaxonomyTypeName, getKontentTypeTypeName } from "./naming";
 import * as _ from "lodash";
-import { IWebhookDeliveryResponse } from '@kentico/kontent-webhook-helper';
+import { IWebhookDeliveryResponse, IWebhookMessage } from '@kentico/kontent-webhook-helper';
 
 
-const hasKontentWebhookStructure = (api: SourceNodesArgs, projectId: string): boolean => {
-  const webhookProjectId = _.get(api.webhookBody, 'message.project_id');
-  if (webhookProjectId !== projectId) {
+const parseKontentWebhookBody = (api: SourceNodesArgs): IWebhookDeliveryResponse =>
+  api.webhookBody as IWebhookDeliveryResponse
+
+interface SupportedWebhookMessage extends IWebhookMessage {
+  // TODO uncomment once pull request is merged and release: https://github.com/Kentico/kontent-webhook-helper-js/pull/1
+  // api_name: 'delivery_production' | 'delivery_preview';
+  type: 'content_item_variant';
+}
+
+const isKontentSupportedWebhook = (message: IWebhookMessage, projectId: string): boolean => {
+  const supportedMessage = message as SupportedWebhookMessage;
+
+  if (message?.project_id !== projectId) {
     return false;
   }
 
-  const response = api.webhookBody as IWebhookDeliveryResponse;
-  return !!response;
+  return !!supportedMessage;
 }
 
 const handleUpsertItem = async (
@@ -102,52 +111,56 @@ const handleIncomingWebhook = async (
   itemTypes: string[],
 ): Promise<void> => {
 
-  if (!hasKontentWebhookStructure(api, pluginConfig.projectId)) {
-    api.reporter.verbose('Webhook ignored - webhook  is not supported');
+  const webhook = parseKontentWebhookBody(api);
+
+  if (webhook === null) {
+    api.reporter.verbose('Webhook ignored - webhook does not come from Kontent');
     return;
   }
 
-  const webhook = api.webhookBody as IWebhookDeliveryResponse;
-  const message = webhook.message;
+  if (!isKontentSupportedWebhook(webhook.message, pluginConfig.projectId)) {
+    api.reporter.verbose('This Kontent webhook is not handled by the Gatsby source kontent source plugin');
+    return;
+  }
 
 
-  api.reporter.verbose(`Handling ${message.operation} from ${message.api_name} API`);
+  api.reporter.verbose(`Handling ${webhook.message.operation} from ${webhook.message.api_name} API`);
   if (webhook.data.items.length > 1) {
     api.reporter.warn(`Webhook contains more than one item! - contains (${webhook.data.items.length})`)
   }
 
   const processedItemIds: string[] = [];
   // TODO fix once pull request is merged and release: https://github.com/Kentico/kontent-webhook-helper-js/pull/1
-  if (message.api_name as string === 'delivery_preview') {
-    
+  if (webhook.message.api_name as string === 'delivery_preview') {
+
     // TODO: Webhook header signature (once headers are available)
     // use signatureHelper '@kentico/kontent-webhook-helper'
     // https://github.com/gatsbyjs/gatsby/issues/23593
 
-    if (message.operation === "upsert") {
+    if (webhook.message.operation === "upsert") {
       // TODO question - could upsert contains more than one item?
       const processedIds = await handleUpsertItem(api, pluginConfig);
       processedItemIds.concat(processedIds);
     }
 
-    if (message.operation === "archive") {
+    if (webhook.message.operation === "archive") {
       // TODO question - could upsert contains more than one item?
       const processedIds = await handleDeleteItem(api, pluginConfig);
       processedItemIds.concat(processedIds);
     }
-  } else if (message.api_name === 'delivery_production') {
+  } else if (webhook.message.api_name === 'delivery_production') {
 
     // TODO: Webhook header signature (once headers are available)
     // use signatureHelper '@kentico/kontent-webhook-helper'
     // https://github.com/gatsbyjs/gatsby/issues/23593
 
-    if (message.operation === "publish") {
+    if (webhook.message.operation === "publish") {
       // TODO question - could publish contains more than one item?
       const processedIds = await handleUpsertItem(api, pluginConfig);
       processedItemIds.concat(processedIds);
     }
 
-    if (message.operation === "unpublish") {
+    if (webhook.message.operation === "unpublish") {
       // TODO question - could unpublish contains more than one item?
       const processedIds = await handleDeleteItem(api, pluginConfig);
       processedItemIds.concat(processedIds);
