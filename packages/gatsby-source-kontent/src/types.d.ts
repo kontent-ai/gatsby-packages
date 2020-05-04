@@ -32,10 +32,30 @@ interface PluginNamingConfiguration {
 interface KontentItemElement {
   name: string;
   type: string;
-  value: string | number | string[];
+  value: string | number | string[] | AssetElementValue[] | MultipleChoiceOption[] | TaxonomyTerm[];
   images: { [key: string]: RichTextElementImage } | RichTextElementImage[];
   links: { [key: string]: RichTextElementLink } | RichTextElementLink[];
   modular_content: string[];
+}
+
+interface AssetElementValue {
+  name: string;
+  type: string;
+  size: number;
+  description: string;
+  url: string;
+  width?: number;
+  height?: number;
+}
+
+interface MultipleChoiceOption {
+  name: string;
+  codename: string;
+}
+
+interface TaxonomyTerm {
+  name: string;
+  codename: string;
 }
 
 interface RichTextElementImage {
