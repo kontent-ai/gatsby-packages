@@ -18,7 +18,9 @@ You will
 
 ## Setting up a Kontent and Gatsby site
 
-First, you’ll need a Gatsby site with a [gatsby-source-kontent](https://www.gatsbyjs.org/packages/@kontent/gatsby-source-kontent) source plugin pulling data from Kontent. If you haven’t set that up yet, you can quickly create a new project by using the [gatsby-starter-kontent-lumen](https://github.com/Kentico/gatsby-starter-kontent-lumen) repository. To achieve it, walk though the [Getting started](https://github.com/kentico/gatsby-starter-kontent-lumen#getting-started) section.
+First, you’ll need a Gatsby site with a [gatsby-source-kontent](https://www.gatsbyjs.org/packages/@kentico/gatsby-source-kontent) source plugin pulling data from Kontent. If you haven’t set that up yet, you can quickly create a new project by using the [gatsby-starter-kontent-lumen](https://github.com/Kentico/gatsby-starter-kontent-lumen) repository. ~~To achieve it, walk though the [Getting started](https://github.com/kentico/gatsby-starter-kontent-lumen#getting-started) section.~~
+
+> Note that source plugin version supporting Gatsby Cloud is in beta phase (internally called [`vNext`](https://github.com/Kentico/gatsby-source-kontent/tree/vNext/packages/gatsby-source-kontent#readme) version), so use the link to the development branch to [Getting started](https://github.com/Simply007/gatsby-starter-kontent-lumen/tree/vNext#getting-started) section. to be able to spin up project supporting Gatsby Cloud.
 
 ## Signing in to Gatsby Cloud
 
@@ -115,6 +117,8 @@ Open Kontent app, go to "Project settings" tab and select "Webhooks"
 Select **Create new Webhook**.
 
 Name the webhook and paste the Preview webhook copied from the Gatsby Cloud Dashboard to URL address.
+
+> Following webhook triggers are currently available via [API](https://docs.kontent.ai/reference/management-api-v2#operation/add-a-webhook) (use `preview_delivery_api_content_changes` as trigers section and `uspert` + `archive` as operations). The UI and documentation is about to be released in the next iteration. (The UI is currently available on QA environment)
 
 And select only triggers in section "DELIVERY PREVIEW API TRIGGERS"
 
