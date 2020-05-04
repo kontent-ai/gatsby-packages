@@ -61,7 +61,7 @@ const ensureAuthorizationHeader = (
   }
 };
 
-const ensureTrackingHeader = (
+const ensureNewContentHeader = (
   headers?: KontentHttpHeaders | undefined,
 ): KontentHttpHeaders => {
   const headerValue = `true`;
@@ -75,7 +75,7 @@ const ensureTrackingHeader = (
   }
 };
 
-const ensureNewContentHeader = (
+const ensureTrackingHeader = (
   headers?: KontentHttpHeaders | undefined,
 ): KontentHttpHeaders => {
   const headerValue = `${packageName};${packageVersion}`;
