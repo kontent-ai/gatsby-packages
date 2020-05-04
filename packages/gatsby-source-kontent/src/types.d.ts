@@ -82,7 +82,10 @@ interface KontentItem extends NodeInput {
     name: string;
     type: string;
   };
-  elements: KontentItemElement[];
+  elements: {
+    [key: string]:
+    KontentItemElement;
+  };
   [PREFERRED_LANGUAGE_IDENTIFIER]: string;
 }
 
