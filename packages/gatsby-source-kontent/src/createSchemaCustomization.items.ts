@@ -5,7 +5,7 @@ import {
   KontentType,
   KontentTypeElementsObject,
 } from './types';
-import { loadAllKontentTypes } from './client';
+import { loadAllKontentTypesCached } from './client';
 
 import {
   getKontentItemElementsSchemaTypeName,
@@ -100,7 +100,7 @@ const createSchemaCustomization = async (
   const baseSchemaTypes = getKontentItemsSchemaNamingConfiguration();
   api.actions.createTypes(baseSchemaTypes);
 
-  const types = await loadAllKontentTypes(pluginConfig);
+  const types = await loadAllKontentTypesCached(pluginConfig, api.cache);
   for (const type of types) {
     const kontentItemElementsTypeName = getKontentItemElementsSchemaTypeName(
       type.system.codename,

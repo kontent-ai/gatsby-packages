@@ -11,6 +11,8 @@ import {
   name as packageName,
   version as packageVersion,
 } from '../package.json';
+import { Cache } from 'gatsby';
+import { getKontentTypesCacheKey } from './naming';
 
 const DefaultKontentDeliveryProductionDomain = 'deliver.kontent.ai';
 const DefaultKontentDeliveryPreviewDomain = 'preview-deliver.kontent.ai';
@@ -169,6 +171,19 @@ const loadAllKontentTypes = async (
   return response.data.types;
 };
 
+const loadAllKontentTypesCached = async (
+  config: CustomPluginOptions,
+  cache: Cache["cache"],
+): Promise<KontentType[]> => {
+  let types = await cache.get(getKontentTypesCacheKey());
+  if (!types) {
+    types = await loadAllKontentTypes(config);
+    cache.set(getKontentTypesCacheKey(), types)
+  }
+
+  return types;
+}
+
 const loadAllKontentTaxonomies = async (
   config: CustomPluginOptions,
 ): Promise<KontentTaxonomy[]> => {
@@ -186,4 +201,4 @@ const loadAllKontentTaxonomies = async (
   return response.data.taxonomies;
 };
 
-export { loadKontentItem, loadAllKontentItems, loadAllKontentTypes, loadAllKontentTaxonomies };
+export { loadKontentItem, loadAllKontentItems, loadAllKontentTypes, loadAllKontentTypesCached, loadAllKontentTaxonomies };

@@ -13,6 +13,7 @@ const LANGUAGE_LINK_EXTENSION_IDENTIFIER = 'language_link';
 const ITEM_IDENTIFIER = 'item';
 const TAXONOMY_IDENTIFIER = 'taxonomy';
 const TYPE_IDENTIFIER = 'type';
+const CACHE_IDENTIFIER = 'cache';
 
 const PREFERRED_LANGUAGE_IDENTIFIER = 'preferred_language';
 
@@ -117,6 +118,11 @@ const getKontentTypeElementOptionTypeName = (
   `${getKontentTypeElementTypeName(
     config,
   )}${CONNECTOR}${ELEMENT_OPTION_IDENTIFIER}`;
+
+const getKontentTypesCacheKey = (
+  config: PluginNamingConfiguration = defaultPluginNamingConfiguration,
+): string =>
+  `${config.prefix}${CONNECTOR}${TYPE_IDENTIFIER}${CONNECTOR}${CACHE_IDENTIFIER}`;
 
 const getKontentItemsSchemaNamingConfiguration = (
   config: PluginNamingConfiguration = defaultPluginNamingConfiguration,
@@ -269,6 +275,7 @@ export {
   getKontentTaxonomyTypeName,
   getKontentTypeNodeStringForCodeName,
   getKontentTypeTypeName,
+  getKontentTypesCacheKey,
   getKontentItemsSchemaNamingConfiguration,
   getKontentTaxonomiesSchemaNamingConfiguration,
   getKontentTypesSchemaNamingConfiguration,

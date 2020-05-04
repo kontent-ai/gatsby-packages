@@ -9,7 +9,7 @@ import {
   getKontentTypeNodeStringForCodeName,
   getKontentTypeTypeName,
 } from './naming';
-import { loadAllKontentTypes } from './client';
+import { loadAllKontentTypesCached } from './client';
 
 const getKontentTypeArtifact = (
   api: SourceNodesArgs,
@@ -49,7 +49,7 @@ const sourceNodes = async (
   api: SourceNodesArgs,
   options: CustomPluginOptions,
 ): Promise<void> => {
-  const kontentTypes = await loadAllKontentTypes(options);
+  const kontentTypes = await loadAllKontentTypesCached(options, api.cache);
   transformElementObjectToArray(kontentTypes);
   for (const kontentType of kontentTypes) {
     const nodeData = getKontentTypeArtifact(
