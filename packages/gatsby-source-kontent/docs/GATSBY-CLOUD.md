@@ -36,19 +36,17 @@ Use the **I already have a Gatsby sit** flow to manually integrate your site.
 
 ![Add my own site](./assets/import-flow-start.png)
 
-Pick your Gatsby site from the list of GitHub repositories. You can use the search input to narrow down the list.
+### Select an organization & repository
 
-![Gatsby Cloud Add an instance page](./assets/select-repo.png)
+Pick your Gatsby site from the list of GitHub repositories.
 
 If you don’t see your site, it might be because it belongs to a GitHub organization rather than your personal account. You can connect a new GitHub Organization.
 
 *Note: Repositories must contain one Gatsby project configured at their root to be enabled. Gatsby Cloud works best with Gatsby version 2.20.36 and higher.*
 
-### Select branch and publish directory
-
 You’ll need to select a branch and then indicate the publish directory where the `gatsby-config.js` lives. If you leave the field blank, it defaults to the root of the site.
 
-![Select branch and directory](./assets/select-branch.png)
+![Gatsby Cloud Add an instance page](./assets/select-repo.png)
 
 Once the branch and publish directory are correct, select **Next**.
 
