@@ -6,25 +6,33 @@ import { getKontentItemNodeStringForId, getKontentTaxonomyTypeName, getKontentTy
 import * as _ from "lodash";
 import { IWebhookDeliveryResponse, IWebhookMessage } from '@kentico/kontent-webhook-helper';
 
+const parseKontentWebhookBody = (api: SourceNodesArgs): IWebhookDeliveryResponse | null => {
+  const parsedBody = api.webhookBody as IWebhookDeliveryResponse;
+  const isCorrectStructure = parsedBody?.data?.items?.every(item => item.language && item.id)
+    && parsedBody?.message?.api_name
+    && parsedBody?.message?.project_id
+    && parsedBody?.message?.operation !== null;
 
-const parseKontentWebhookBody = (api: SourceNodesArgs): IWebhookDeliveryResponse =>
-  api.webhookBody as IWebhookDeliveryResponse
+  if (isCorrectStructure) {
+    return parsedBody;
+  }
 
-interface SupportedWebhookMessage extends IWebhookMessage {
-  // TODO uncomment once pull request is merged and release: https://github.com/Kentico/kontent-webhook-helper-js/pull/1
-  // api_name: 'delivery_production' | 'delivery_preview';
-  type: 'content_item_variant';
+  return null;
 }
 
 const isKontentSupportedWebhook = (message: IWebhookMessage, projectId: string): boolean => {
-  const supportedMessage = message as SupportedWebhookMessage;
+  const isCorrectProject = message.project_id === projectId;
+  const isPreviewWebhook = 'delivery_preview' === message.api_name
+    && ['upsert', 'archive'].includes(message.operation);
+  const isBuildWebhook = 'delivery_production' === message.api_name
+    && ['publish', 'unpublish'].includes(message.operation);
+  const isCorrectMessageType = message.type == 'content_item_variant'
 
-  if (message?.project_id !== projectId) {
-    return false;
-  }
+  return isCorrectProject
+    && (isPreviewWebhook || isBuildWebhook)
+    && isCorrectMessageType
+};
 
-  return !!supportedMessage;
-}
 
 const handleUpsertItem = async (
   api: SourceNodesArgs,
@@ -81,7 +89,7 @@ const handleDeleteItem = async (
   const touchedItemsIds = [];
   for (const lang of pluginConfig.languageCodenames) {
     const kontentItem = await client.loadKontentItem(itemInfo.id, lang, pluginConfig, true);
-    if (kontentItem === undefined) { // was deleted
+    if (kontentItem === undefined) { //item  was deleted
       const idString = getKontentItemNodeStringForId(itemInfo.id, lang);
       const node = api.getNode(api.createNodeId(idString));
       if (node) {
@@ -89,7 +97,7 @@ const handleDeleteItem = async (
         api.actions.deleteNode({ node });
       }
       continue;
-    } else { // fallback/still here
+    } else { // fallback version still available
       addPreferredLanguageProperty([kontentItem], lang);
       alterRichTextElements([kontentItem]);
       const nodeData = getKontentItemLanguageVariantArtifact(
@@ -123,28 +131,24 @@ const handleIncomingWebhook = async (
     return;
   }
 
-
   api.reporter.verbose(`Handling ${webhook.message.operation} from ${webhook.message.api_name} API`);
   if (webhook.data.items.length > 1) {
     api.reporter.warn(`Webhook contains more than one item! - contains (${webhook.data.items.length})`)
   }
 
   const processedItemIds: string[] = [];
-  // TODO fix once pull request is merged and release: https://github.com/Kentico/kontent-webhook-helper-js/pull/1
-  if (webhook.message.api_name as string === 'delivery_preview') {
+  if (webhook.message.api_name === 'delivery_preview') {
 
     // TODO: Webhook header signature (once headers are available)
     // use signatureHelper '@kentico/kontent-webhook-helper'
     // https://github.com/gatsbyjs/gatsby/issues/23593
 
     if (webhook.message.operation === "upsert") {
-      // TODO question - could upsert contains more than one item?
       const processedIds = await handleUpsertItem(api, pluginConfig);
       processedItemIds.concat(processedIds);
     }
 
     if (webhook.message.operation === "archive") {
-      // TODO question - could upsert contains more than one item?
       const processedIds = await handleDeleteItem(api, pluginConfig);
       processedItemIds.concat(processedIds);
     }
@@ -155,13 +159,11 @@ const handleIncomingWebhook = async (
     // https://github.com/gatsbyjs/gatsby/issues/23593
 
     if (webhook.message.operation === "publish") {
-      // TODO question - could publish contains more than one item?
       const processedIds = await handleUpsertItem(api, pluginConfig);
       processedItemIds.concat(processedIds);
     }
 
     if (webhook.message.operation === "unpublish") {
-      // TODO question - could unpublish contains more than one item?
       const processedIds = await handleDeleteItem(api, pluginConfig);
       processedItemIds.concat(processedIds);
     }
