@@ -437,6 +437,10 @@ query Taxonomies {
 }
 ```
 
+## How to integrate with Gatsby Cloud
+
+If you choose to maintain you Gatsby site on [Gatsby Cloud](https://gatsbyjs.com), use will need to register two webhooks from Kentico Kontent Kontent to Gatsby Cloud. Follow [the tutorial](./docs/GATSBY-CLOUD.md) for more information.
+
 ## How to run tests
 
 The package is using [Jest](http://jest.org/) framework for testing.
