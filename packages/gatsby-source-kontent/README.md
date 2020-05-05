@@ -439,7 +439,7 @@ query Taxonomies {
 
 ## How to integrate with Gatsby Cloud
 
-If you choose to maintain you Gatsby site on [Gatsby Cloud](https://gatsbyjs.com), use will need to register two webhooks from Kentico Kontent Kontent to Gatsby Cloud. Follow [the tutorial](./docs/GATSBY-CLOUD.md) for more information.
+If you choose to maintain you Gatsby site on [Gatsby Cloud](https://gatsbyjs.com), use will need to register two webhooks from Kentico Kontent Kontent to Gatsby Cloud. Follow [the tutorial](./docs/GATSBY-CLOUD.md) for more information. All webhook notification that are not mentioned in the tutorial will be ignored by the plugin.
 
 ## How to run tests
 
