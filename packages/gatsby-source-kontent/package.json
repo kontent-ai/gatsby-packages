@@ -30,7 +30,7 @@
     "watch": "tsc -w"
   },
   "dependencies": {
-    "@kentico/kontent-webhook-helper": "^1.0.0",
+    "@kentico/kontent-webhook-helper": "^1.1.0",
     "@types/fs-extra": "^8.0.1",
     "axios": "^0.19.2",
     "fs-extra": "^8.1.0",

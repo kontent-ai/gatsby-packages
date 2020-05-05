@@ -23,7 +23,7 @@
     "prepublishOnly": "yarn build",
     "build:site": "yarn workspace @kentico/gatsby-starter-kontent-hello-world build",
     "develop:site": "yarn workspace @kentico/gatsby-starter-kontent-hello-world develop",
-    "develop:site:playground": "cross-env  GATSBY_GRAPHQL_IDE=playground yarn develop:site",
+    "develop:site:playground": "cross-env GATSBY_GRAPHQL_IDE=playground yarn develop:site",
     "watch:source": "yarn workspace @kentico/gatsby-source-kontent watch",
     "watch:components": "yarn workspace @kentico/gatsby-kontent-components watch",
     "build:source": "yarn workspace @kentico/gatsby-source-kontent build",
