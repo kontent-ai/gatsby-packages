@@ -3,7 +3,6 @@ import { CustomPluginOptions, KontentTaxonomy, KontentItem, KontentType } from "
 import * as client from "./client";
 import { addPreferredLanguageProperty, alterRichTextElements, getKontentItemLanguageVariantArtifact } from "./sourceNodes.items";
 import { getKontentItemNodeStringForId, getKontentTaxonomyTypeName, getKontentTypeTypeName } from "./naming";
-import * as _ from "lodash";
 import { IWebhookDeliveryResponse, IWebhookMessage } from '@kentico/kontent-webhook-helper';
 
 const parseKontentWebhookBody = (api: SourceNodesArgs): IWebhookDeliveryResponse | null => {
