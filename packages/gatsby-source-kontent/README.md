@@ -441,6 +441,8 @@ query Taxonomies {
 
 If you choose to maintain you Gatsby site on [Gatsby Cloud](https://gatsbyjs.com), use will need to register two webhooks from Kentico Kontent Kontent to Gatsby Cloud. Follow [the tutorial](./docs/GATSBY-CLOUD.md) for more information. All webhook notification that are not mentioned in the tutorial will be ignored by the plugin.
 
+Please note that change in taxonomies or content types require manual rebuild of the site, because these structural data affects GraphQL schema.
+
 ## How to run tests
 
 The package is using [Jest](http://jest.org/) framework for testing.
