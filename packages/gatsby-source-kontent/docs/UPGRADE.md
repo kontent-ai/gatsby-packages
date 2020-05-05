@@ -8,7 +8,7 @@ Since the source plugin is trying to unify the data structure among [Kentico Kon
 This required to make some breaking changes in property elements.
 
 * rich-text
-  * `resolvedHTML` - removed - use [@kentico/gatsby-kontent-components](../packages/gatsby-kontent-components/README.md#rich-text-element-component) for rich text resolution
+  * `resolvedHTML` - removed - use [@kentico/gatsby-kontent-components](../../gatsby-kontent-components/README.md#rich-text-element-component) for rich text resolution
   * `images`
     * from `imageId` to `image_id`
   * `links`
@@ -25,45 +25,44 @@ This required to make some breaking changes in property elements.
 * assets
   * `contract` - removed, properties under this element were just copies of `description`, `name`, `size`, `type`, `url`, `width`
 * URL slug
-  * `resolvedURL` - removed, use [URL resolution](../♠#/README.md#URL-resolution) to include it
+  * `resolvedURL` - removed, use [URL resolution](../../../site/README.md#url-slug-resolution) to include it
 
 ### JS SDK resolution removal
 
-JS SDK provided automatic URL resolution for URL slugs as well asi rich text element pl rich text resolution for content components.
-This resolution was removed, because this resolution was computed automatically for all items where configured regardless thh item was used or not.
-That started to cause some performance issues. New approach will do the resolution only for the items that are really used on.
+JS SDK provided automatic URL resolution for URL slugs as well as rich text element plus rich text resolution for content components and inline content items. This resolution was removed because this resolution was computed automatically for all items where configured regardless thh item was used or not.
+That started to cause some performance issues. The new approach will do the resolution only for the items that are really used on.
 
 All required data for resolution is already in the Gatsby GraphQL model. Resolution is just a data transformation to make the component data hydration easier.
 
 #### URL slug resolution
 
-Is is possible to use [Gatsby schema customization](https://www.gatsbyjs.org/docs/schema-customization/).
-Following [URL slug resolution example](../site/README.md#URL-slug-resolution) could be used right in you project to extend all url slug element with resolved URL.
+It is possible to use [Gatsby schema customization](https://www.gatsbyjs.org/docs/schema-customization/).
+Following [URL slug resolution example](../../../site/README.md#url-slug-resolution) could be used right in your project to extend all URL slug elements with resolved URL.
 
 #### Rich text resolution
 
-To ensure the resolution is as easy as possible, you could use [@kentico/gatsby-kontent-components](../packages/gatsby-kontent-components/README.md#rich-text-element-component).
-For URL resolution, you could re-use the implementation from URL slug. According to the resolution of images, inline linked items and components - this resolution gives you ability to resolve these to React components, not just string-based HTML.
+To ensure the resolution is as easy as possible, you could use [@kentico/gatsby-kontent-components](../../gatsby-kontent-components/README.md#rich-text-element-componen).
+For URL resolution, you could re-use the implementation from URL slug. According to the resolution of images, inline linked items, and components - this resolution gives you the ability to resolve these to React components, not just string-based HTML.
 
 ### Schema extension options
 
-After the research it was detected that many of features, that were provide by source plugin wan barely used, they have jus slowed down the build time of the site, because all fo the that were calculated regardless their actual usage.
-Since the Kontent GraphQL schema is now fully defined and all data from Kentico Kontent is already present in the data model, these features, which basically provided just a facade above the actual data are now removed to provide lightweight build. And we provide examples, how to include these facade transformation on form of [Gatsby schema custom customization](https://www.gatsbyjs.org/docs/schema-customization) back. The customization could be adjusted exactly for you project needs and boost your build times.
+After the research, it was detected that many of the features, that were provide by source plugin wan barely used, they have jus slowed down the build time of the site because all fo the that were calculated regardless of their actual usage.
+Since the Kontent GraphQL schema is now fully defined and all data from Kentico Kontent is already present in the data model, these features, which basically provided just a facade above the actual data are now removed to provide lightweight build. And we provide examples, how to include these facade transformations on the form of [Gatsby schema custom customization](https://www.gatsbyjs.org/docs/schema-customization) back. The customization could be adjusted exactly for your project needs and boost your build times.
 
 #### Language variant relationships
 
-This relationship was captured by the `otherLanguages` navigation property of all content item nodes in other language, now the property ir removed.
-If you want to use this property, feel free to do so by [Language variant relationships example](../site/README.md#Language-variant-relationships).
+This relationship was captured by the `otherLanguages` navigation property of all content item nodes in other languages, now the property is removed.
+If you want to use this property, feel free to do so by [Language variant relationships example](../../../site/README.md#Language-variant-relationships).
 
 #### Content item <-> content type relationships
 
 The relationship captured in the `contentItems` navigation property of all KontentType nodes was removed.
-If you want to extend the model with `contentItems` feel free to do so using [Content type -> Content Item resolution](../site/README.md#Content-type--Content-Item-resolution).
+If you want to extend the model with `contentItems` feel free to do so using [Content type -> Content Item resolution](../../../site/README.md#Content-type--Content-Item-resolution).
 
 #### Reverse link relationships
 
 All nodes had a `usedByContentItems` property that reflects the other nodes in which the given node is used as linked content in Linked items or Rich text elements.
-Now it is possible to substitute this property by using [Linked from relationship](../site/README.md#Linked-from-relationship), it is just required to specify element to gather the links from.
+Now it is possible to substitute this property by using [Linked from relationship](../../../site/README.md#Linked-from-relationship), it is just required to specify an element to gather the links from.
 
 ### Different Item Node IDs
 
@@ -74,7 +73,7 @@ If you are using hard-coded Node ID in your queries to get/filter specific Konte
 
 ## From `4.x.x` to `5.x.x`
 
-This upgrade is necessary to fix [colliding identifiers](https://github.com/Kentico/gatsby-source-kontent/issues/110) issue.
+This upgrade is necessary to fix the [colliding identifiers](https://github.com/Kentico/gatsby-source-kontent/issues/110) issue.
 
 ### Colliding identifiers
 

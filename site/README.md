@@ -53,7 +53,7 @@ All of the examples are in [examples.js](examples.js).
 
 ### URL slug resolution
 
-Url slug element could be resolved right in you project to extend all url slug element with resolved URL.
+Url slug element could be resolved right in your project to extend all url slug element with resolved URL.
 
 Showcase is in [URL slug resolution](./example-resolve-url-slugs.js).
 
@@ -71,7 +71,7 @@ Showcase is in [Content type -> Content Item resolution](./example-type-items-li
 
 ### Linked from relationship
 
-Reverse link resolution relationship could be ensured by schema definition as well.
+Reverse link resolution relationship could be ensured by the schema definition as well.
 
 Showcase is in [Linked from relationship](./example-used-by-content-item-link.js).
 
