@@ -64,6 +64,13 @@ If you want to extend the model with `contentItems` feel free to do so using [Co
 All nodes had a `usedByContentItems` property that reflects the other nodes in which the given node is used as linked content in Linked items or Rich text elements.
 Now it is possible to substitute this property by using [Linked from relationship](../../../site/README.md#Linked-from-relationship), it is just required to specify an element to gather the links from.
 
+### Different Item Node IDs
+
+In previous version there was a Node ID generated from item `system.codename`, `preferred_language`, and some prefix.
+Since the `system.codename` is changeable for content item, now as an input for node ID generation function `system.id` is used.
+
+If you are using hard-coded Node ID in your queries to get/filter specific Kontent item node(s), you need to make the adjustments - IDs will be different for version 6.
+
 ## From `4.x.x` to `5.x.x`
 
 This upgrade is necessary to fix the [colliding identifiers](https://github.com/Kentico/gatsby-source-kontent/issues/110) issue.

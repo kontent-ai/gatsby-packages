@@ -23,14 +23,14 @@
     "prepublishOnly": "yarn build",
     "build:site": "yarn workspace @kentico/gatsby-starter-kontent-hello-world build",
     "develop:site": "yarn workspace @kentico/gatsby-starter-kontent-hello-world develop",
-    "develop:site:playground": "cross-env  GATSBY_GRAPHQL_IDE=playground yarn develop:site",
+    "develop:site:playground": "cross-env GATSBY_GRAPHQL_IDE=playground yarn develop:site",
     "watch:source": "yarn workspace @kentico/gatsby-source-kontent watch",
     "watch:components": "yarn workspace @kentico/gatsby-kontent-components watch",
     "build:source": "yarn workspace @kentico/gatsby-source-kontent build",
     "test:source": "yarn workspace @kentico/gatsby-source-kontent test",
     "set:version": "export LERNA_VERSION=\"$(node -e \"require('./lerna.json').version\")\"",
-    "publish:vnext-alpha": "lerna publish --no-git-tag-version --force-publish --dist-tag=vnext-alpha",
-    "publish:vnext-beta": "lerna publish --no-git-tag-version --force-publish --dist-tag=vnext-beta",
+    "publish:vnext-alpha": "lerna publish --force-publish --tag-version-prefix='' --dist-tag=vnext-alpha",
+    "publish:vnext-beta": "lerna publish --force-publish --tag-version-prefix='' --dist-tag=vnext-beta",
     "publish:vnext": "lerna publish --force-publish --tag-version-prefix='' --dist-tag=vnext"
   },
   "devDependencies": {

@@ -41,8 +41,11 @@ This plugin does not need to use `yarn`, if want to use it in you project, see [
 - `languageCodenames`\* - \<`string[]`\> array of language codenames that defines [what languages a configured for the project](https://docs.kontent.ai/tutorials/develop-apps/get-content/getting-localized-content?tech=javascript#section-project-languages) - the first one is considered as the **default one**. Initial "Getting started" project has configured just one language `default`.
 - `includeTaxonomies` - \<`boolean`\> include [taxonomies](#Querying-Kontent-Taxonomies) to GraphQL model. Turned off by default.
 - `includeTypes` - \<`boolean`\> include [types](#Querying-Kontent-Types) to GraphQL model. Turned off by default.
-- `authorizationKey` - \<`string`\> For preview/secured API key - depends on `usePreviewUrl` config.
+- `authorizationKey` - \<`string`\> For preview/secured API key - depends on `usePreviewUrl` config. Consider using [dotenv](https://www.npmjs.com/package/dotenv) package for storing keys securely in environment variables.
 - `usePreviewUrl` - \<`boolean`\> when `true`, "`preview-deliver.kontent.ai`" used as [primary domain for data source](https://docs.kontent.ai/reference/delivery-api#section/Production-vs.-Preview). Turned off by default.
+- `proxy`:
+  - `deliveryDomain` - \<`string`\> Base url used for all requests. Defaults to `deliver.kontent.ai`.
+  - `previewDeliveryDomain` - \<`string`\> Base url used for preview requests. Defaults to `preview-deliver.kontent.ai`.
 - `includeRawContent` - \<`boolean`\> allows to include `internal.content` property as a part fo the GraphQL model. Turned off by default.
 
   \* required property
@@ -72,8 +75,12 @@ module.exports = {
         includeTaxonomies: true, // opt-out by default
         includeTypes: true, // opt-out by default
         usePreviewUrl: true, // false by default
-        authorizationKey: '<API KEY>', // For preview/secured API key - depends on usePreviewUrl setting
+        authorizationKey: '<API KEY>', // for preview/secured API key - depends on `usePreviewUrl` setting - consider using environment variables to store the key securely
         includeRawContent: true, // opt-out by default - include `internal.content` property in the gatsby nodes
+        proxy: {
+          deliveryDomain: 'custom.delivery.kontent.my-proxy.com',
+          previewDeliveryDomain: "custom.preview.delivery.kontent.my-proxy.com"
+        }
       },
     },
     /// ...
@@ -429,6 +436,12 @@ query Taxonomies {
   }
 }
 ```
+
+## How to integrate with Gatsby Cloud
+
+If you choose to maintain you Gatsby site on [Gatsby Cloud](https://gatsbyjs.com), use will need to register two webhooks from Kentico Kontent Kontent to Gatsby Cloud. Follow [the tutorial](./docs/GATSBY-CLOUD.md) for more information. All webhook notification that are not mentioned in the tutorial will be ignored by the plugin.
+
+Please note that change in taxonomies or content types require manual rebuild of the site, because these structural data affects GraphQL schema.
 
 ## How to run tests
 

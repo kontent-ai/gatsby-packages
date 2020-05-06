@@ -4,21 +4,26 @@
  * See: https://www.gatsbyjs.org/docs/gatsby-config/
  */
 
+require('dotenv').config({ path: '.env.development' })
+
 module.exports = {
   plugins: [
     {
       resolve: "@kentico/gatsby-source-kontent",
       options: {
-        projectId: "00676a8d-358c-0084-f2f2-33ed466c480a", // Fill in your Project ID
-        languageCodenames: [
-          "en-US", // Or the languages in your project (Project settings -> Localization),
-          "cs-CZ",
-        ],
+        projectId: process.env.KONTENT_PROJECT_ID,
+        languageCodenames: process.env.KONTENT_LANGUAGE_CODENAMES.split(',').map(lang => lang.trim()),
+        usePreviewUrl: !!process.env.KONTENT_PREVIEW_ENABLED,
+        authorizationKey: process.env.KONTENT_PREVIEW_ENABLED
+          ? process.env.KONTENT_PREVIEW_KEY
+          : undefined, // secured API is not expected
+        // includeRawContent: true,
         includeTaxonomies: true,
         includeTypes: true,
-        // usePreviewUrl: true,
-        // authorizationKey: ""
-        includeRawContent: true,
+        proxy: {
+          deliveryDomain: process.env.KONTENT_DELIVERY_DOMAIN || undefined,
+          previewDeliveryDomain: process.env.KONTENT_PREVIEW_DELIVERY_DOMAIN || undefined
+        }
       },
     },
   ],

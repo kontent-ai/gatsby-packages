@@ -14,6 +14,7 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
+    "develop:preview": "cross-env  ENABLE_GATSBY_REFRESH_ENDPOINT=true gatsby develop",
     "lint": "eslint --ignore-path .gitignore \"**/*.{js,jsx}\"",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "yarn develop",
@@ -27,6 +28,8 @@
     "react-dom": "^16.12.0"
   },
   "devDependencies": {
+    "cross-env": "^7.0.2",
+    "dotenv": "^8.2.0",
     "eslint": "^6.8.0",
     "eslint-config-react-app": "^5.2.1",
     "prettier": "^1.19.1"

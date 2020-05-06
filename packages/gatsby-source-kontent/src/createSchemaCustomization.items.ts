@@ -5,7 +5,7 @@ import {
   KontentType,
   KontentTypeElementsObject,
 } from './types';
-import { loadAllKontentTypes } from './client';
+import { loadAllKontentTypesCached } from './client';
 
 import {
   getKontentItemElementsSchemaTypeName,
@@ -27,11 +27,16 @@ const getLanguageLinkExtension = (): object => ({
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       context: any,
     ): Promise<KontentItem[]> {
-      const kontentItemNode = context.nodeModel.findRootNodeAncestor(source);
       const nodesCodeNames =
         source.type === 'modular_content'
           ? (source.value as string[])
           : (source.modular_content as string[]);
+
+      if (nodesCodeNames.length === 0) {
+        return [];
+      }
+
+      const kontentItemNode = context.nodeModel.findRootNodeAncestor(source);
       const nodesLanguage = kontentItemNode[PREFERRED_LANGUAGE_IDENTIFIER];
 
       const promises = nodesCodeNames.map(codename =>
@@ -87,13 +92,15 @@ const createSchemaCustomization = async (
   api: CustomCreateSchemaCustomizationArgs,
   pluginConfig: CustomPluginOptions,
 ): Promise<void> => {
+  // TODO check https://github.com/gatsbyjs/gatsby/pull/14610/files/5c50c435ab49884b6d854cd07f20efd95d1e5f52#diff-29de3acf9ce1010435f2b2f0043dba8cR252
+  // failing for update run
   const languageExtension = getLanguageLinkExtension();
   api.actions.createFieldExtension(languageExtension);
 
   const baseSchemaTypes = getKontentItemsSchemaNamingConfiguration();
   api.actions.createTypes(baseSchemaTypes);
 
-  const types = await loadAllKontentTypes(pluginConfig);
+  const types = await loadAllKontentTypesCached(pluginConfig, api.cache);
   for (const type of types) {
     const kontentItemElementsTypeName = getKontentItemElementsSchemaTypeName(
       type.system.codename,

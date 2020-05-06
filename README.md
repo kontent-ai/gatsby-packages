@@ -79,7 +79,7 @@ To lint all of the packages as well as a development site, you could use one com
 
 As a publishing framework, there is a [Lerna](https://github.com/lerna/lerna) framework set up. This package is using [Fixed/Locked mode](https://github.com/lerna/lerna#fixedlocked-mode-default). All minor and major changes should publish all packages, in case of patch version, it is up to developer decision.
 
-### How to publish new (vNext) version 
+### How to publish new (vNext) version
 
 If you have the rights to publish packages, just use [`lerna publish`](https://github.com/lerna/lerna/tree/master/commands/publish#readme) with appropriate tags and then specify the version when prompted. All the changes made by lerna are automatically committed.
 

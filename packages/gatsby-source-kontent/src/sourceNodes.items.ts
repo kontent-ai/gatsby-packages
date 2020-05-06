@@ -54,7 +54,7 @@ const getKontentItemLanguageVariantArtifact = (
   includeRawContent: boolean,
 ): KontentItem => {
   const nodeIdString = getKontentItemNodeStringForId(
-    kontentItem.system.codename,
+    kontentItem.system.id,
     kontentItem[PREFERRED_LANGUAGE_IDENTIFIER],
   );
   const nodeData: KontentItem = {
@@ -75,7 +75,8 @@ const getKontentItemLanguageVariantArtifact = (
 const sourceNodes = async (
   api: SourceNodesArgs,
   options: CustomPluginOptions,
-): Promise<void> => {
+): Promise<string[]> => {
+  const kontentItemTypes = new Set<string>();
   for (const language of options.languageCodenames) {
     const kontentItems = await loadAllKontentItems(options, language);
     addPreferredLanguageProperty(kontentItems, language);
@@ -86,9 +87,16 @@ const sourceNodes = async (
         kontentItem,
         options.includeRawContent,
       );
+      kontentItemTypes.add(nodeData.internal.type);
       api.actions.createNode(nodeData);
     }
   }
+  return Array.from(kontentItemTypes);
 };
 
-export { sourceNodes as kontentItemsSourceNodes };
+export {
+  sourceNodes as kontentItemsSourceNodes,
+  addPreferredLanguageProperty,
+  alterRichTextElements,
+  getKontentItemLanguageVariantArtifact
+};

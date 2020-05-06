@@ -3,6 +3,8 @@ import {
   CustomCreateSchemaCustomizationArgs,
 } from './src/types';
 import { SourceNodesArgs } from 'gatsby';
+import * as _ from "lodash"
+
 
 import { kontentItemsCreateSchemaCustomization } from './src/createSchemaCustomization.items';
 import { kontentItemsSourceNodes } from './src/sourceNodes.items';
@@ -10,11 +12,9 @@ import { kontentTaxonomiesCreateSchemaCustomization } from './src/createSchemaCu
 import { kontentTaxonomiesSourceNodes } from './src/sourceNodes.taxonomies';
 import { kontentTypesCreateSchemaCustomization } from './src/createSchemaCustomization.types';
 import { kontentTypesSourceNodes } from './src/sourceNodes.types';
+import { handleIncomingWebhook } from './src/webhookProcessor';
 
-export {
-  kontentItemsCreateSchemaCustomization as createSchemaCustomization,
-  kontentItemsSourceNodes as sourceNodes,
-};
+let itemTypes: string[];
 
 exports.createSchemaCustomization = async (
   api: CustomCreateSchemaCustomizationArgs,
@@ -43,10 +43,17 @@ exports.sourceNodes = async (
   pluginConfig: CustomPluginOptions,
 ): Promise<void> => {
   try {
-    await kontentItemsSourceNodes(api, pluginConfig);
+    if(!_.isEmpty(api.webhookBody)){ //preview run
+      await handleIncomingWebhook(api, pluginConfig, itemTypes);
+      return;
+    }
+    
+    itemTypes = await kontentItemsSourceNodes(api, pluginConfig);
+
     if (pluginConfig.includeTaxonomies) {
       await kontentTaxonomiesSourceNodes(api, pluginConfig);
     }
+
     if (pluginConfig.includeTypes) {
       await kontentTypesSourceNodes(api, pluginConfig);
     }

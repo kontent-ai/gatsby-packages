@@ -13,6 +13,7 @@ const LANGUAGE_LINK_EXTENSION_IDENTIFIER = 'language_link';
 const ITEM_IDENTIFIER = 'item';
 const TAXONOMY_IDENTIFIER = 'taxonomy';
 const TYPE_IDENTIFIER = 'type';
+const CACHE_IDENTIFIER = 'cache';
 
 const PREFERRED_LANGUAGE_IDENTIFIER = 'preferred_language';
 
@@ -22,16 +23,16 @@ const defaultPluginNamingConfiguration: PluginNamingConfiguration = {
 
 /**
  * Retrieve ID string for Gatsby's CreateNodeId method for specified Kontent item language variant.
- * @param codename Codename because modular content is using them for linking items
+ * @param id Kontent item `system.id` because codename is changeable.
  * @param preferredLanguage Preferred language of the language variant.
  * @param config Optional parameter with extra configuration.
  */
 const getKontentItemNodeStringForId = (
-  codename: string,
+  id: string,
   preferredLanguage: string,
   config: PluginNamingConfiguration = defaultPluginNamingConfiguration,
 ): string =>
-  `${config.prefix}${CONNECTOR}${ITEM_IDENTIFIER}${CONNECTOR}${preferredLanguage}${CONNECTOR}${codename}`;
+  `${config.prefix}${CONNECTOR}${ITEM_IDENTIFIER}${CONNECTOR}${preferredLanguage}${CONNECTOR}${id}`;
 
 const getKontentItemNodeTypeName = (
   type: string,
@@ -117,6 +118,11 @@ const getKontentTypeElementOptionTypeName = (
   `${getKontentTypeElementTypeName(
     config,
   )}${CONNECTOR}${ELEMENT_OPTION_IDENTIFIER}`;
+
+const getKontentTypesCacheKey = (
+  config: PluginNamingConfiguration = defaultPluginNamingConfiguration,
+): string =>
+  `${config.prefix}${CONNECTOR}${TYPE_IDENTIFIER}${CONNECTOR}${CACHE_IDENTIFIER}`;
 
 const getKontentItemsSchemaNamingConfiguration = (
   config: PluginNamingConfiguration = defaultPluginNamingConfiguration,
@@ -269,6 +275,7 @@ export {
   getKontentTaxonomyTypeName,
   getKontentTypeNodeStringForCodeName,
   getKontentTypeTypeName,
+  getKontentTypesCacheKey,
   getKontentItemsSchemaNamingConfiguration,
   getKontentTaxonomiesSchemaNamingConfiguration,
   getKontentTypesSchemaNamingConfiguration,
