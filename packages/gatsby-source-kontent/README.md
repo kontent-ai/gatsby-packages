@@ -92,7 +92,6 @@ The queries start with `kontentTaxonomy`, `kontentType`, or `kontentItem` prefix
 
 GraphQL nodes produced by the source plugin provide the same structure as [Kontent Delivery REST API](https://docs.kontent.ai/reference/delivery-api), but there are alternations for better usability, you could find more detailed description in [Delivery API alternations](#Delivery-API-alternations) section
 
-
 ### Learning Resources
 
 To see upgrade instructions see [Upgrade section](./docs/UPGRADE.md).
