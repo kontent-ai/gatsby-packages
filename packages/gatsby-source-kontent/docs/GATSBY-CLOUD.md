@@ -99,11 +99,11 @@ Navigate to your Gatsby Cloud instance and click **Site Settings**. Copy the *Pr
 
 ![Copying the Preview webhook URL](./assets/webhook-preview.png)
 
-In your Kentico Kontent project, go to **Project settings** > **Webhooks** and click **Create new webhook**.
+~~In your Kentico Kontent project, go to **Project settings** > **Webhooks** and click **Create new webhook**.~~
 
 ![Kontent webhooks menu](./assets/kontent-webhooks.png)
 
-Name the webhook and paste the *Preview webhook* into the URL address field.
+~~Name the webhook and paste the *Preview webhook* into the URL address field.~~
 
 > Following webhook triggers are currently available via [API](https://docs.kontent.ai/reference/management-api-v2#operation/add-a-webhook) (use `preview_delivery_api_content_changes` as trigers section and `uspert` + `archive` as operations). The UI and documentation is about to be released in the next iteration. (The UI is currently available on QA environment)
 
