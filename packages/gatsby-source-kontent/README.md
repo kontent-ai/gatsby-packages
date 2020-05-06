@@ -52,10 +52,6 @@ This plugin does not need to use `yarn`, if want to use it in you project, see [
 
 Since the plugin is using [Gatsby Reporter](https://www.gatsbyjs.org/docs/node-api-helpers/#reporter) for error logging. You could [turn on `--verbose` option](https://github.com/gatsbyjs/gatsby/pull/19199/files) to see the whole error object. Be careful with these options, the output log could contain some sensitive data such as `authorizationKey`.
 
-## When do I use this plugin
-
-> Include stories about when this plugin is helpful and/or necessary.
-
 ## Examples of usage
 
 An example showing how to include this plugin in a site's `gatsby-config.js` file.
@@ -88,9 +84,20 @@ module.exports = {
 };
 ```
 
-### Learning Resources (optional)
+The plugin creates GraphQL nodes for all Kentico Kontent taxonomies, content types, content items language variants.
 
-> If there are other tutorials, docs, and learning resources that are necessary or helpful to someone using this plugin, please link to those here.
+The queries start with `kontentTaxonomy`, `kontentType`, or `kontentItem` prefix (respectively `allKontentTaxonomy`, `allKontentType`, or `allKontentItem`) and their type is `kontent_taxonomy_X`, `kontent_type_X`, or `kontent_item_X` where `X` is a codename of the `taxonomy`, `type`, or `item`.
+
+> Look at the [How to query for data](#How-to-query-for-data) section for example queries.
+
+GraphQL nodes produced by the source plugin provide the same structure as [Kontent Delivery REST API](https://docs.kontent.ai/reference/delivery-api), but there are alternations for better usability, you could find more detailed description in [Delivery API alternations](#Delivery-API-alternations) section
+
+
+### Learning Resources
+
+To see upgrade instructions see [Upgrade section](./docs/UPGRADE.md).
+
+For more developer resources, visit the [Kentico Kontent Docs](https://docs.kontent.ai).
 
 ## Delivery API alternations
 
@@ -308,7 +315,7 @@ Result
 }
 ```
 
-## How to query for data (source plugins only)
+## How to query for data
 
 This section should help you with the first queries. For further exploring it is recommended to use [GraphiQL explorer](https://www.gatsbyjs.org/docs/running-queries-with-graphiql/) available in gatsby development environment]. If you are using developer environment for the source plugin development, you could experiment according to the [How to develop locally section](#How-to-develop-locally)
 
@@ -487,17 +494,21 @@ For more developer resources, visit the [Kentico Kontent Docs](https://docs.kont
 ### Guides and blog posts
 
 - [Sourcing from Kentico Kontent](https://www.gatsbyjs.org/docs/sourcing-from-kontent/)
-- [Kentico Cloud & Gatsby Take You Beyond Static Websites](https://www.gatsbyjs.org/blog/2018-12-19-kentico-cloud-and-gatsby-take-you-beyond-static-websites/)
+- [Kentico Cloud & Gatsby Take You Beyond Static Websites](https://www.gatsbyjs.org/blog/2018-12-19-kentico-cloud-and-gatsby-take-you-beyond-static-websites/) by [@ondrabus](https://github.com/ondrabus)
 - [Using Gatsby with Kontent
-  ](https://www.gatsbyjs.com/guides/kentico-kontent/)
+](https://www.gatsbyjs.com/guides/kentico-kontent/)
 - [Rendering Kentico Kontent linked content items with React components in Gatsby](https://rshackleton.co.uk/articles/rendering-kentico-cloud-linked-content-items-with-react-components-in-gatsby) by [@rshackleton](https://github.com/rshackleton)
+- [Adding and retrieving localized strings from Kentico Kontent to GatsbyJS and GraphQL](https://www.gatsbyjs.org/blog/2019-08-13-localised-strings-from-kentico-cloud-gatsbyjs-graphql/)
 - [Automated builds with Netlify and Kentico Kontent webhooks](https://rshackleton.co.uk/articles/automated-builds-with-netlify-and-kentico-cloud-webhooks) by [@rshackleton](https://github.com/rshackleton)
 - [Learning about Gatsby schema customisation with Kontent.ai](https://rshackleton.co.uk/articles/learning-about-gatsby-schema-customisation-with-kontent-ai) by [@rshackleton](https://github.com/rshackleton)
+- [Implementing search with Gatsby and Algolia](https://rshackleton.co.uk/articles/implementing-search-with-gatsby-and-algolia) by [@rshackleton](https://github.com/rshackleton)
+- [Using Gatsby Image with Kentico Kontent](https://rshackleton.co.uk/articles/using-gatsby-image-with-kentico-kontent) by [@rshackleton](https://github.com/rshackleton)
 
 ### Previous versions
 
 - For version 2 use [this branch](https://github.com/Kentico/gatsby-source-kentico-cloud/tree/v2).
 - For version 3 use [this branch](https://github.com/Kentico/gatsby-source-kentico-cloud/tree/v3).
+- For version 4 use [this branch](https://github.com/Kentico/gatsby-source-kentico-cloud/tree/v4).
 
 ## How to contribute
 

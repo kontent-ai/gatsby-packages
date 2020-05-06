@@ -86,12 +86,12 @@ If you have the rights to publish packages, just use [`lerna publish`](https://g
 A typical scenario is when everything is ready and you want to publish the version, just use command.
 
 ```sh
-yarn publish:vnext <YOUR VERSION>
+yarn publish:vnext
 ```
 
-That should summarize the publish information and prompt you to acknowledge the publish. Once everything is OK and you acknowledge the publish:
+That should summarize the publish information and prompt you to define the version number and acknowledge the publish. Once everything is OK and you acknowledge the publish:
 
 - the new version is published to npm
-- `<YOUR VERSION>` is set to [`lerna.json`'s `version`](lerna.json) 
+- `<YOUR VERSION>` is set to [`lerna.json`'s `version`](lerna.json)
 - commit with this change (and package.json files version changes) is pushed to the repository
-  - commit also contains tag `<YOUR VERSION>` that could be used for creating GitHub release
+  - commit also contains tag `<YOUR VERSION>` that could be used for creating GitHub release if you want
