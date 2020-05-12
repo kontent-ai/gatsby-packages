@@ -1,6 +1,6 @@
 # Gatsby Kontent Packages
 
-![vNext build](https://github.com/Kentico/gatsby-source-kontent/workflows/vNext%20build/badge.svg)
+![build](https://github.com/Kentico/gatsby-source-kontent/workflows/build/badge.svg)
 [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org/)
 
 Monorepo with Gatsby Kontent packages.
