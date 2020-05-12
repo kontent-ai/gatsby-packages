@@ -11,8 +11,10 @@ The repository contains the development site (`/site`) that could automatically 
 
 ### Packages
 
-- [Gatsby Source Kontent Plugin](/packages/gatsby-source-kontent#readme) - plugin providing data from Kentico Kontent REST API to Gatsby GraphQL model
-- [Gatsby Kontent Components](/packages/gatsby-kontent-components#readme) - a package containing React components useful when processing Kontent data to site
+|                                                                         | Info                                                                            |                                                                        Version                                                                         |
+| :---------------------------------------------------------------------: | :------------------------------------------------------------------------------ | :----------------------------------------------------------------------------------------------------------------------------------------------------: |
+| [Gatsby Source Kontent Plugin](/packages/gatsby-source-kontent#readme)  | plugin providing data from Kentico Kontent REST API to Gatsby GraphQL model     |     [![npm version](https://badge.fury.io/js/%40kentico%2Fgatsby-source-kontent.svg)](https://badge.fury.io/js/%40kentico%2Fgatsby-source-kontent)     |
+| [Gatsby Kontent Components](/packages/gatsby-kontent-components#readme) | package containing React components useful when processing Kontent data to site | [![npm version](https://badge.fury.io/js/%40kentico%2Fgatsby-kontent-components.svg)](https://badge.fury.io/js/%40kentico%2Fgatsby-kontent-components) |
 
 ### Site
 
@@ -29,21 +31,21 @@ The repository contains the development site (`/site`) that could automatically 
 
 1. Install packages
 
-    ```sh
-    yarn # install all npm dependencies in the repository
-    ```
+   ```sh
+   yarn # install all npm dependencies in the repository
+   ```
 
 2. Start watch mode packages
 
-    ```sh
-    yarn watch # run watch mode through all packages source code
-    ```
+   ```sh
+   yarn watch # run watch mode through all packages source code
+   ```
 
 3. Run development site
 
-    ```sh
-    yarn develop:site # run `gatsby develop` command in the development site
-    ```
+   ```sh
+   yarn develop:site # run `gatsby develop` command in the development site
+   ```
 
 Now you are good to go. You could start browsing <http://localhost:8000> for development site and <http://localhost:8000/___graphql> for [GraphiQL explorer](https://github.com/graphql/graphiql/blob/master/packages/graphiql/README.md).
 
@@ -61,17 +63,17 @@ yarn test # run test script in all packages as well as in the development site
 
 To build all of the packages as well as a development site, you could use one command.
 
-  ```sh
-  yarn build # run build script in all packages as well as in the development site
-  ```
+```sh
+yarn build # run build script in all packages as well as in the development site
+```
 
 ### Lint
 
 To lint all of the packages as well as a development site, you could use one command.
 
-  ```sh
-  yarn lint # run lint script in all packages as well as in the development site
-  ```
+```sh
+yarn lint # run lint script in all packages as well as in the development site
+```
 
 - Packages are using [ESLint](https://eslint.org/) with Typescript plugins for linting.
 

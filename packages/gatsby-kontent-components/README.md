@@ -1,6 +1,10 @@
 # Gatsby Kontent Components
 
+[![Gatsby plugin library](https://img.shields.io/badge/Gatsby%20plugin%20library-%23663399.svg)](https://www.gatsbyjs.org/packages/@kentico/gatsby-kontent-components)
+[![Stack Overflow](https://img.shields.io/badge/Stack%20Overflow-ASK%20NOW-FE7A16.svg?logo=stackoverflow&logoColor=white)](https://stackoverflow.com/tags/kentico-kontent)
+
 [![npm version](https://badge.fury.io/js/%40kentico%2Fgatsby-kontent-components.svg)](https://badge.fury.io/js/%40kentico%2Fgatsby-kontent-components)
+[![npm](https://img.shields.io/npm/dt/%40kentico%2Fgatsby-kontent-components.svg)](https://www.npmjs.com/package/@kentico/gatsby-kontent-components)
 
 The package containing React components useful when processing Kontent data to the site.
 

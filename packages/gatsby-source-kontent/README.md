@@ -1,6 +1,10 @@
 # Gatsby source plugin for Kentico Kontent
 
+[![Gatsby plugin library](https://img.shields.io/badge/Gatsby%20plugin%20library-%23663399.svg)](https://www.gatsbyjs.org/packages/@kentico/gatsby-source-kontent)
+[![Stack Overflow](https://img.shields.io/badge/Stack%20Overflow-ASK%20NOW-FE7A16.svg?logo=stackoverflow&logoColor=white)](https://stackoverflow.com/tags/kentico-kontent)
+
 [![npm version](https://badge.fury.io/js/%40kentico%2Fgatsby-source-kontent.svg)](https://badge.fury.io/js/%40kentico%2Fgatsby-source-kontent)
+[![npm](https://img.shields.io/npm/dt/%40kentico%2Fgatsby-source-kontent.svg)](https://www.npmjs.com/package/@kentico/gatsby-source-kontent)
 
 ## Description
 
@@ -510,6 +514,7 @@ For more developer resources, visit the [Kentico Kontent Docs](https://docs.kont
 - For version 2 use [this branch](https://github.com/Kentico/gatsby-source-kentico-cloud/tree/v2).
 - For version 3 use [this branch](https://github.com/Kentico/gatsby-source-kentico-cloud/tree/v3).
 - For version 4 use [this branch](https://github.com/Kentico/gatsby-source-kentico-cloud/tree/v4).
+- For version 5 use [this branch](https://github.com/Kentico/gatsby-source-kentico-cloud/tree/v5).
 
 ## How to contribute
 
