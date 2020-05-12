@@ -2,6 +2,7 @@
 
 ![build](https://github.com/Kentico/gatsby-source-kontent/workflows/build/badge.svg)
 [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org/)
+[![Stack Overflow](https://img.shields.io/badge/Stack%20Overflow-ASK%20NOW-FE7A16.svg?logo=stackoverflow&logoColor=white)](https://stackoverflow.com/tags/kentico-kontent)
 
 Monorepo with Gatsby Kontent packages.
 
