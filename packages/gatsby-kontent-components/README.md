@@ -7,7 +7,7 @@ The package containing React components useful when processing Kontent data to t
 ## Install
 
 ```sh
-npm install @kentico/gatsby-kontent-components@vnext
+npm install @kentico/gatsby-kontent-components
 ```
 
 ## Rich text element component

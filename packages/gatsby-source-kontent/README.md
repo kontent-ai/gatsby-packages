@@ -1,8 +1,10 @@
 # Gatsby source plugin for Kentico Kontent
 
+[![npm version](https://badge.fury.io/js/%40kentico%2Fgatsby-source-kontent.svg)](https://badge.fury.io/js/%40kentico%2Fgatsby-source-kontent)
+
 ## Description
 
-(vNext) Source plugin for Kentico Kontent REST Delivery API.
+Source plugin for Kentico Kontent REST Delivery API.
 
 This repo contains a [Gatsby (v2) source plugin](https://www.gatsbyjs.org/docs/recipes/sourcing-data) that retrieves data from the [Kentico Kontent](https://kontent.ai) REST Delivery API.
 
