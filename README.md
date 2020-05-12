@@ -79,14 +79,14 @@ To lint all of the packages as well as a development site, you could use one com
 
 As a publishing framework, there is a [Lerna](https://github.com/lerna/lerna) framework set up. This package is using [Fixed/Locked mode](https://github.com/lerna/lerna#fixedlocked-mode-default). All minor and major changes should publish all packages, in case of patch version, it is up to developer decision.
 
-### How to publish new (vNext) version
+### How to publish new version
 
-If you have the rights to publish packages, just use [`lerna publish`](https://github.com/lerna/lerna/tree/master/commands/publish#readme) with appropriate tags and then specify the version when prompted. All the changes made by lerna are automatically committed.
+If you have the rights to publish packages, just use [`lerna`](https://github.com/lerna/lerna/tree/master/commands/publish#readme) and specify the version when prompted. All the changes made by lerna are automatically committed.
 
 A typical scenario is when everything is ready and you want to publish the version, just use command.
 
 ```sh
-yarn publish:vnext
+npx lerna publish --tag-version-prefix=''
 ```
 
 That should summarize the publish information and prompt you to define the version number and acknowledge the publish. Once everything is OK and you acknowledge the publish:
@@ -95,3 +95,9 @@ That should summarize the publish information and prompt you to define the versi
 - `<YOUR VERSION>` is set to [`lerna.json`'s `version`](lerna.json)
 - commit with this change (and package.json files version changes) is pushed to the repository
   - commit also contains tag `<YOUR VERSION>` that could be used for creating GitHub release if you want
+
+:bulb: If you want to test out the beta version first (which is recommended) use following command and if everything is OK, release another patch version as the final version.
+
+```sh
+npx lerna publish --tag-version-prefix='' --dist-tag=beta
+```
