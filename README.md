@@ -11,7 +11,7 @@ The repository contains the development site (`/site`) that could automatically 
 
 ### Packages
 
-|                                                                         | Info                                                                            |                                                                        Version                                                                         |
+|                                 Package                                 | Summary                                                                         |                                                                        Version                                                                         |
 | :---------------------------------------------------------------------: | :------------------------------------------------------------------------------ | :----------------------------------------------------------------------------------------------------------------------------------------------------: |
 | [Gatsby Source Kontent Plugin](/packages/gatsby-source-kontent#readme)  | plugin providing data from Kentico Kontent REST API to Gatsby GraphQL model     |     [![npm version](https://badge.fury.io/js/%40kentico%2Fgatsby-source-kontent.svg)](https://badge.fury.io/js/%40kentico%2Fgatsby-source-kontent)     |
 | [Gatsby Kontent Components](/packages/gatsby-kontent-components#readme) | package containing React components useful when processing Kontent data to site | [![npm version](https://badge.fury.io/js/%40kentico%2Fgatsby-kontent-components.svg)](https://badge.fury.io/js/%40kentico%2Fgatsby-kontent-components) |
