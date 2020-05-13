@@ -521,3 +521,5 @@ For more developer resources, visit the [Kentico Kontent Docs](https://docs.kont
 Check out the [contributing](/CONTRIBUTING.md) page to see the best places for file issues, to start discussions, and begin contributing.
 
 - _Written according to [Gatsby plugin template](https://www.gatsbyjs.org/contributing/docs-templates/#plugin-readme-template)_
+
+![Analytics](https://kentico-ga-beacon.azurewebsites.net/api/UA-69014260-4/Kentico/kontent-gatsby-packages/packages/gatsby-source-kontent?pixel)

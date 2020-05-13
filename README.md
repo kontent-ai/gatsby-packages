@@ -104,3 +104,5 @@ That should summarize the publish information and prompt you to define the versi
 ```sh
 npx lerna publish --tag-version-prefix='' --dist-tag=beta
 ```
+
+![Analytics](https://kentico-ga-beacon.azurewebsites.net/api/UA-69014260-4/Kentico/kontent-gatsby-packages?pixel)

@@ -176,3 +176,5 @@ Now you can open the content preview right from Kentico Kontent UI!
 ## Wrapping Up
 
 At this point, you have a Kontent instance configured to best support Gatsby Cloud. Edit content, click the Preview button, and watch it appear live in Gatsby Cloud!
+
+![Analytics](https://kentico-ga-beacon.azurewebsites.net/api/UA-69014260-4/Kentico/kontent-gatsby-packages/packages/gatsby-source-kontent/docs/GATSBY-CLOUD.md?pixel)

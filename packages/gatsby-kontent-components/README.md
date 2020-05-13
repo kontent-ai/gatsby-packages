@@ -81,3 +81,5 @@ If you want to resolve images pass `linkedItems` and `resolveLinkedItem` propert
 
 * `linkedItems` **have to contain at least `system.codename` property**
 * `resolveLinkedItem` has one parameter `linkedItem` basically containing one record from `linkedItems` array
+
+![Analytics](https://kentico-ga-beacon.azurewebsites.net/api/UA-69014260-4/Kentico/kontent-gatsby-packages/packages/gatsby-kontent-components?pixel)
