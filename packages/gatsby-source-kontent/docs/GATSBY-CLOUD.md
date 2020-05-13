@@ -18,9 +18,7 @@ You will
 
 ## Setting up a Kontent and Gatsby site
 
-First, you’ll need a Gatsby site with a [gatsby-source-kontent](https://www.gatsbyjs.org/packages/@kentico/gatsby-source-kontent) source plugin to pull data from Kontent. If you haven’t set that up yet, you can quickly create a new project by using the [gatsby-starter-kontent-lumen](https://github.com/Kentico/gatsby-starter-kontent-lumen) repository. ~~To achieve it, see the [Getting started](https://github.com/kentico/gatsby-starter-kontent-lumen#getting-started) tutorial.~~
-
-> Note that source plugin version supporting Gatsby Cloud is in beta phase (internally called [`vNext`](https://github.com/Kentico/gatsby-source-kontent/tree/vNext/packages/gatsby-source-kontent#readme) version), so use the link to the development branch to [Getting started](https://github.com/Simply007/gatsby-starter-kontent-lumen/tree/vNext#getting-started) section. to be able to spin up project supporting Gatsby Cloud.
+First, you’ll need a Gatsby site with a [gatsby-source-kontent](https://www.gatsbyjs.org/packages/@kentico/gatsby-source-kontent) source plugin to pull data from Kontent. If you haven’t set that up yet, you can quickly create a new project by using the [gatsby-starter-kontent-lumen](https://github.com/Kentico/gatsby-starter-kontent-lumen) repository. To achieve it, see the [Getting started](https://github.com/kentico/gatsby-starter-kontent-lumen#getting-started) tutorial.
 
 ## Signing in to Gatsby Cloud
 
