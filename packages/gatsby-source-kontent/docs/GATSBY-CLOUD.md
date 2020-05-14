@@ -91,49 +91,25 @@ To connect Kontent with your Gatsby Cloud instance, you’ll need to [configure 
 
 You’ll add two webhooks in Kontent: one for Gatsby Preview and another for Gatsby Builds.
 
+> Following webhooks could be also added via [Management API](https://docs.kontent.ai/reference/management-api-v2#operation/add-a-webhook).
+
 ### Adding a Preview Webhook
 
 Navigate to your Gatsby Cloud instance and click **Site Settings**. Copy the _Preview Webhook_ on this page.
 
 ![Copying the Preview webhook URL](./assets/webhook-preview.png)
 
-~~In your Kentico Kontent project, go to **Project settings** > **Webhooks** and click **Create new webhook**.~~
+In your Kentico Kontent project, go to **Project settings** > **Webhooks** and click **Create new webhook**.
 
 ![Kontent webhooks menu](./assets/kontent-webhooks.png)
 
-~~Name the webhook and paste the _Preview webhook_ into the URL address field.~~
+Name the webhook and paste the _Preview webhook_ into the URL address field.
 
-~~In the webhook configuration, select the _Create or Update_ and _Delete_ triggers under DELIVERY PREVIEW API TRIGGERS.~~
+In the webhook configuration, select the _Create or Update_ and _Delete_ triggers under DELIVERY PREVIEW API TRIGGERS.
 
 ![Kontent preview webhook configuration](./assets/preview-webhook-configuration.png)
 
-~~Click **Save**.~~
-
-> Following webhook triggers are currently available via [API](https://docs.kontent.ai/reference/management-api-v2#operation/add-a-webhook) (use `preview_delivery_api_content_changes` as trigers section and `uspert` + `archive` as operations). **The UI and documentation is about to be released in the next iteration 05/13/2020**. (The UI is currently available on QA environment). The request would looks like that:
-
-```sh
-curl --request POST \
-  --url https://manage.kontent.ai/v2/projects/<YOUR_PROJECT_ID>/webhooks \
-  --header 'Authorization: Bearer <YOUR_API_KEY>' \
-  --header 'Content-type: application/json' \
-    --data '
-{
-  "name": "Example",
-  "url": "https://example.com",
-  "secret": "secret",
-  "triggers": {
-    "preview_delivery_api_content_changes": [
-      {
-        "type": "content_item_variant",
-        "operations": [
-          "archive",
-          "upsert"
-        ]
-      }
-    ]
-  }
-}'
-```
+Click **Save**.
 
 Your Preview webhook is now ready! When you change your content in Kontent, your Gatsby Preview will update!
 
