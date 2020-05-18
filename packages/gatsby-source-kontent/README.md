@@ -56,6 +56,8 @@ This plugin does not need to use `yarn`, if want to use it in you project, see [
 
   \* required property
 
+### Logging
+
 Since the plugin is using [Gatsby Reporter](https://www.gatsbyjs.org/docs/node-api-helpers/#reporter) for error logging. You could [turn on `--verbose` option](https://github.com/gatsbyjs/gatsby/pull/19199/files) to see the whole error object. Be careful with these options, the output log could contain some sensitive data such as `authorizationKey`.
 
 ## Examples of usage
