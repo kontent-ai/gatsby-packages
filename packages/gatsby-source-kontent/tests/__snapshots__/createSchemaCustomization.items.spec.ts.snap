@@ -34,8 +34,8 @@ type kontent_item_rich_text_element_value {
   type: String!
   value: String
   modular_content: [kontent_item] @kontent_item_language_link
-  images: [kontent_item_rich_text_element_link]
-  links: [kontent_item_rich_text_element_image]
+  images: [kontent_item_rich_text_element_image]
+  links: [kontent_item_rich_text_element_link]
 }
 
 type kontent_item_number_element_value {
@@ -107,7 +107,7 @@ type kontent_item_taxonomy_element {
   codename: String!
 }
 
-type kontent_item_rich_text_element_link {
+type kontent_item_rich_text_element_image {
   image_id: String!
   url: String!
   description: String
@@ -115,7 +115,7 @@ type kontent_item_rich_text_element_link {
   width: Int!
 }
 
-type kontent_item_rich_text_element_image {
+type kontent_item_rich_text_element_link {
   link_id: String!
   codename: String!
   type: String!

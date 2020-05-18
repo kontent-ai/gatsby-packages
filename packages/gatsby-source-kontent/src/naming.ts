@@ -200,14 +200,14 @@ const getKontentItemsSchemaNamingConfiguration = (
         `${getKontentItemElementValueTypeNameByType(
           'rich_text',
           config,
-        )}${CONNECTOR}link`,
+        )}${CONNECTOR}image`,
       )
       .replace(
         /__KONTENT_ELEMENT_RICH_TEXT_LINK_VALUE__/g,
         `${getKontentItemElementValueTypeNameByType(
           'rich_text',
           config,
-        )}${CONNECTOR}image`,
+        )}${CONNECTOR}link`,
       )
       // extensions
       .replace(
