@@ -105,7 +105,7 @@ In your Kentico Kontent project, go to **Project settings** > **Webhooks** and c
 
 Name the webhook and paste the _Preview webhook_ into the URL address field.
 
-In the webhook configuration, select the _Create or Update_ and _Delete_ triggers under DELIVERY PREVIEW API TRIGGERS.
+In the webhook configuration, select the _Create or Update_ and _Delete_ triggers under DELIVERY PREVIEW API TRIGGERS. Then remove _Publish_, _Unpublish_, _Delete_, _Restore_, and _Create or Update_ triggers from DELIVERY API TRIGGERS by using the cross next to them. You should end up with the following configuration.
 
 ![Kontent preview webhook configuration](./assets/preview-webhook-configuration.png)
 
