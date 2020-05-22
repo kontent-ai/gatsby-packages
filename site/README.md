@@ -6,7 +6,7 @@
 
 [![Stack Overflow](https://img.shields.io/badge/Stack%20Overflow-ASK%20NOW-FE7A16.svg?logo=stackoverflow&logoColor=white)](https://stackoverflow.com/tags/kentico-kontent)
 
-A site using for development purposes and code examples showcasing packages possibilities.
+A site used for development purposes and code examples showcasing packages possibilities.
 
 ## Get started
 
