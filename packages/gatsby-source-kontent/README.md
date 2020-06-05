@@ -453,9 +453,9 @@ query Taxonomies {
 
 ## How to integrate with Gatsby Cloud
 
-If you choose to maintain your Gatsby site on [Gatsby Cloud](https://gatsbyjs.com), use will need to register two webhooks from Kentico Kontent Kontent to Gatsby Cloud. Follow [the tutorial](./docs/GATSBY-CLOUD.md) for more information. All webhook notifications that are not mentioned in the tutorial will be ignored by the plugin.
+If you choose to maintain your Gatsby site on [Gatsby Cloud](https://gatsbyjs.com), you will need to register two webhooks from Kentico Kontent Kontent to Gatsby Cloud. Follow [the "Getting started" tutorial](https://www.gatsbyjs.com/docs/kontent/getting-started/) for more information. All webhook notifications that are not mentioned in the tutorial will be ignored by the plugin.
 
-Please note that change in taxonomies or content types require a manual rebuild of the site, because these structural data affects GraphQL schema.
+> Please note that change in taxonomies or content types require a complete rebuild of the site, because these structural data affects GraphQL schema.
 
 ## How to run tests
 
