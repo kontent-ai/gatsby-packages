@@ -1,6 +1,6 @@
 # Gatsby development site for Kentico Kontent packages
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/f1a1ebfd-e0c7-4f52-9705-974e605fb8d4/deploy-status)](https://app.netlify.com/sites/gatsby-starter-kontent-hello-world/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/38156dde-2114-4957-9004-7988b22979c3/deploy-status)](https://app.netlify.com/sites/gatsby-starter-kontent-hello-world/deploys)
 
 [![Live demo](https://img.shields.io/badge/-Live%20Demo-brightgreen.svg)](https://gatsby-starter-kontent-hello-world.netlify.com/)
 
