@@ -2,7 +2,7 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/6cd10788-de09-4275-b0c9-daad29733bc9/deploy-status)](https://app.netlify.com/sites/kontent-gatsby-packages/deploys)
 
-[![Live demo](https://img.shields.io/badge/-Live%20Demo-brightgreen.svg)](https://gatsby-starter-kontent-hello-world.netlify.com/)
+[![Live demo](https://img.shields.io/badge/-Live%20Demo-brightgreen.svg)](https://kontent-gatsby-packages.netlify.app)
 
 [![Stack Overflow](https://img.shields.io/badge/Stack%20Overflow-ASK%20NOW-FE7A16.svg?logo=stackoverflow&logoColor=white)](https://stackoverflow.com/tags/kentico-kontent)
 
@@ -74,6 +74,13 @@ Showcase is in [Content type -> Content Item resolution](./example-type-items-li
 Reverse link resolution relationship could be ensured by the schema definition as well.
 
 Showcase is in [Linked from relationship](./example-used-by-content-item-link.js).
+
+### Image transformation
+
+There are various ways to render an image in your site.
+The best solution is to use [Kontent Image transformation API](https://docs.kontent.ai/reference/image-transformation) API for simple scenarios and [@rshackleton/gatsby-transformer-kontent-image](https://www.gatsbyjs.org/packages/@rshackleton/gatsby-transformer-kontent-image/) for more complex ones, because it allows to use full power of [gatsby-image](https://www.gatsbyjs.org/packages/gatsby-image/) support.
+
+> See the ["author page"](./src/pages/author.js) as a showcase, how you could render the profile photo different way ([live preview](https://kontent-gatsby-packages.netlify.app/author)).
 
 ---
 
