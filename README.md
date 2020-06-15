@@ -28,6 +28,8 @@ The repository contains the development site (`/site`) that could automatically 
 - [Nodejs](https://nodejs.org/en/)
 - [Yarn](https://yarnpkg.com/) - **[npm](https://www.npmjs.com/) is not supported for development**, because of workspaces support lack.
 
+> It is completely OK to use npm as a package manager in your application, npm is not supported just the packages development.
+
 ### Install
 
 1. Install packages
