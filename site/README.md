@@ -77,7 +77,7 @@ Showcase is in [Linked from relationship](./example-used-by-content-item-link.js
 
 ### Image transformation
 
-There are various ways to render an image in your site.
+There are various ways to render an image on your site.
 The best solution is to use [Kontent Image transformation API](https://docs.kontent.ai/reference/image-transformation) API for simple scenarios and [@rshackleton/gatsby-transformer-kontent-image](https://www.gatsbyjs.org/packages/@rshackleton/gatsby-transformer-kontent-image/) for more complex ones, because it allows to use full power of [gatsby-image](https://www.gatsbyjs.org/packages/gatsby-image/) support.
 
 > See the ["author page"](./src/pages/author.js) as a showcase, how you could render the profile photo different way ([live preview](https://kontent-gatsby-packages.netlify.app/author)).
