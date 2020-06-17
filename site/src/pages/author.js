@@ -48,7 +48,7 @@ const Author = ({ data }) => {
             description={avatar.description || "Author avatar image"} />
 
           <p>Showcase using <a href="https://github.com/rshackleton/gatsby-packages/tree/master/packages/gatsby-transformer-kontent-image#readme">community-based image transformer plugin</a> by <a href="https://github.com/rshackleton">Richard Shackleton.</a> Showcase specifically showcasing <a href="https://www.gatsbyjs.org/packages/gatsby-image/#fluid-queries">fluid query</a> of <a href="https://www.gatsbyjs.org/packages/gatsby-image/">gatsby-image</a> package.</p>
-          <strong>See the <a href="https://medium.com/workshop-me/traced-svg-images-for-excellent-ux-d75a6bb4caed">Traced SVG effect</a>" when you are loading th site the site.</strong>
+          <strong>See the "blur up" effect when you are loading the site.</strong>
         </section>
       </article>
 
