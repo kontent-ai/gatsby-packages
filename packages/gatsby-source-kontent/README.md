@@ -493,14 +493,17 @@ For more developer resources, visit the [Kentico Kontent Docs](https://docs.kont
 - [Kentico Developer Community Site](https://kentico.github.io) [[source code](https://github.com/Kentico/kentico.github.io/tree/source)]
 - [Kentico Advantage](https://advantage.kentico.com/) [[source code](https://github.com/Kentico/kentico-advantage/tree/source)]
 - [Richard Shackleton's Personal portfolio and blog website](https://rshackleton.co.uk/) [[source code](https://github.com/rshackleton/rshackleton.co.uk)]
-- [Aaron Collier's Czech Theather site](https://czechtheater.cz/) [[source code](https://github.com/CollierCZ/czechtheater)]
-- [Ilesh Mistry's personal blog site](https://www.ileshmistry.com/)
-- [Matt Nield's personal blog site](https://www.mattnield.co.uk) [[Source code](https://github.com/mattnield/mattnield-gatsby)]
-- [NetConstruct agency website](https://www.netconstruct.com/)
+- [Untools by Adham Amran](https://untools.co) [[source code](https://github.com/amrancz/untools)]
+- [Ondřej Chrastina's personal site](http://ondrej.chrastina.tech) [[source code](https://github.com/Simply007/Simply007.github.io)]
+- [Aaron Collier's Czech Theather site](https://czechtheater.cz) [[source code](https://github.com/CollierCZ/czechtheater)]
+- [NetConstruct agency website](https://www.netconstruct.com)
+- [Matt Nield's personal blog site](https://www.mattnield.co.uk)
+- [Ilesh Mistry's personal blog site](https://www.ileshmistry.com)
 
 ### Guides and blog posts
 
 - [Sourcing from Kentico Kontent](https://www.gatsbyjs.org/docs/sourcing-from-kontent/)
+- [Getting started with Gatsby Cloud and Kontent](https://www.gatsbyjs.com/docs/kontent/getting-started/)
 - [Kentico Cloud & Gatsby Take You Beyond Static Websites](https://www.gatsbyjs.org/blog/2018-12-19-kentico-cloud-and-gatsby-take-you-beyond-static-websites/) by [@ondrabus](https://github.com/ondrabus)
 - [Using Gatsby with Kontent
 ](https://www.gatsbyjs.com/guides/kentico-kontent/)
@@ -510,6 +513,8 @@ For more developer resources, visit the [Kentico Kontent Docs](https://docs.kont
 - [Learning about Gatsby schema customisation with Kontent.ai](https://rshackleton.co.uk/articles/learning-about-gatsby-schema-customisation-with-kontent-ai) by [@rshackleton](https://github.com/rshackleton)
 - [Implementing search with Gatsby and Algolia](https://rshackleton.co.uk/articles/implementing-search-with-gatsby-and-algolia) by [@rshackleton](https://github.com/rshackleton)
 - [Using Gatsby Image with Kentico Kontent](https://rshackleton.co.uk/articles/using-gatsby-image-with-kentico-kontent) by [@rshackleton](https://github.com/rshackleton)
+
+> Check out the development site for some hints in the [example section](https://github.com/Kentico/kontent-gatsby-packages/tree/master/site#examples)
 
 ### Previous versions
 
