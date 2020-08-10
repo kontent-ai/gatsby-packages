@@ -13,7 +13,8 @@
   "workspaces": [
     "packages/gatsby-source-kontent",
     "packages/gatsby-kontent-components",
-    "site"
+    "site",
+    "examples/navigation"
   ],
   "scripts": {
     "lint": "yarn workspaces run lint",
