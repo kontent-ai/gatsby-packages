@@ -1,18 +1,13 @@
-const {
-  getKontentItemNodeTypeName,
-} = require("@kentico/gatsby-source-kontent")
-const path = require('path')
-
+const { getKontentItemNodeTypeName } = require("@kentico/gatsby-source-kontent")
+const path = require("path")
 
 exports.createSchemaCustomization = async api => {
-
   const {
     actions: { createTypes },
     schema,
-  } = api;
+  } = api
 
   const type = getKontentItemNodeTypeName("navigation_item")
-
 
   const extendedType = schema.buildObjectType({
     name: type,
@@ -26,35 +21,40 @@ exports.createSchemaCustomization = async api => {
             },
             type: type,
             firstOnly: false,
-          });
+          })
 
-          const urlFragments = [source.elements.slug.value]; // /about/small-gas/subsection/<-
-          let parent;
-          let currentContextItem = source;
+          const urlFragments = [source.elements.slug.value] // /about/small-gas/subsection/<-
+          let parent
+          let currentContextItem = source
 
           do {
-            parent = allNavigationItems.find(item =>
-              item.preferred_language === currentContextItem.preferred_language
-              && item.elements["subitems"].value.includes(currentContextItem.system.codename));
+            parent = allNavigationItems.find(
+              item =>
+                item.preferred_language ===
+                  currentContextItem.preferred_language &&
+                item.elements["subitems"].value.includes(
+                  currentContextItem.system.codename
+                )
+            )
 
             if (parent) {
               urlFragments.push(parent.elements.slug.value)
-              currentContextItem = parent;
+              currentContextItem = parent
             }
           } while (parent)
 
-          urlFragments.reverse();
-          return urlFragments[0] + urlFragments.slice(1).join("/");
-        }
-      }
-    }
-  });
+          urlFragments.reverse()
+          return urlFragments[0] + urlFragments.slice(1).join("/")
+        },
+      },
+    },
+  })
 
   createTypes(extendedType)
 }
 
 exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions;
+  const { createPage } = actions
 
   const { data } = await graphql(`
     query TopLevelPages {
@@ -76,7 +76,7 @@ exports.createPages = async ({ graphql, actions }) => {
         }
       }
     }
-    `);
+  `)
 
   data.allKontentItemNavigationItem.nodes.forEach(page => {
     const contentPage = page.elements.content_page.value[0]
@@ -85,8 +85,8 @@ exports.createPages = async ({ graphql, actions }) => {
       component: require.resolve(`./src/templates/content-page.js`),
       context: {
         language: contentPage.preferred_language,
-        codename: contentPage.system.codename
-      }
+        codename: contentPage.system.codename,
+      },
     })
-  });
+  })
 }

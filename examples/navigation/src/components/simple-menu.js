@@ -17,10 +17,13 @@ const Menu = () => {
     }
   `)
 
-  const items = data.allKontentItemNavigationItem.nodes.map(item =>
-    <li key={item.url}><a href={item.url}>{item.elements.title.value}</a></li>)
+  const items = data.allKontentItemNavigationItem.nodes.map(item => (
+    <li key={item.url}>
+      <a href={item.url}>{item.elements.title.value}</a>
+    </li>
+  ))
 
-  return <ul>{items}</ul>;
+  return <ul>{items}</ul>
 }
 
 export default Menu

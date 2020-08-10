@@ -6,6 +6,7 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
+    "lint": "eslint --ignore-path .gitignore \"**/*.{js,jsx}\"",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
@@ -18,6 +19,7 @@
     "react-dom": "^16.13.1"
   },
   "devDependencies": {
+    "eslint": "^7.6.0",
     "prettier": "2.0.5"
   },
   "repository": {

@@ -6,5 +6,5 @@ export default function Menu() {
     <Layout>
       <div>Hello world!</div>
     </Layout>
-  );
+  )
 }

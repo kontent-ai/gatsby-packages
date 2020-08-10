@@ -34,50 +34,50 @@ This section explains how the content is modeled. You could follow next section 
 
 First of of all it is required to create two content types:
 
-* `Navigation item` - which will represent an item in the menu of your website
-* `Content page` - this content type represent ty content you want to display on the website
+- `Navigation item` - which will represent an item in the menu of your website
+- `Content page` - this content type represent ty content you want to display on the website
 
 #### Navigation item content type
 
-This content type - `Navigation item` -  has following structure:
+This content type - `Navigation item` - has following structure:
 
-* Title - **Text** element
-* Slug - **URL slug** element - auto-generated from title
-* Subitems - **Linked items** element - content type limited to `Navigation item`
-* Content - **Linked items** - content type limited to contain at most one item to of type `Content page`
+- Title - **Text** element
+- Slug - **URL slug** element - auto-generated from title
+- Subitems - **Linked items** element - content type limited to `Navigation item`
+- Content - **Linked items** - content type limited to contain at most one item to of type `Content page`
 
 This content type represent and item in the menu in your website. You could have multiple menus on your site, in that case you could use multiple "root" navigation items to model this situation.
 
-In case you want to link external URL to different domain, it is possible to extend the content type by **Text** element called i.e. *External URL*.
+In case you want to link external URL to different domain, it is possible to extend the content type by **Text** element called i.e. _External URL_.
 
 #### Generic Content type
 
-This content type - `Content page` -  has following structure:
+This content type - `Content page` - has following structure:
 
-* Title - **Text** element
-* Content - **Rich text** element
+- Title - **Text** element
+- Content - **Rich text** element
 
- This content type is used as a content container, it could be reused across multiple channels.
+This content type is used as a content container, it could be reused across multiple channels.
 
- In this example, there is only one content model holding the content, but you could of course use multiple types for content modeling. All of them then could be allowed in *Content* element of the `Navigation item` content type.
+In this example, there is only one content model holding the content, but you could of course use multiple types for content modeling. All of them then could be allowed in _Content_ element of the `Navigation item` content type.
 
 ## Gatsby data consumption
 
 There are two main parts that need to be generated:
 
-* Menu - render the menu component with proper routes
-* Pages - register page components under the menu routes
+- Menu - render the menu component with proper routes
+- Pages - register page components under the menu routes
 
 ### Menu
 
 #### Add a route information (`url` field) to the `Navigation item`
 
-It is required to [extend the GraphQL schema](https://www.gatsbyjs.org/docs/schema-customization/) of the `Navigation item` content type and build up the routes from the *Slug* elements in `Navigation item` - the new field is named `url` in the showcase.
+It is required to [extend the GraphQL schema](https://www.gatsbyjs.org/docs/schema-customization/) of the `Navigation item` content type and build up the routes from the _Slug_ elements in `Navigation item` - the new field is named `url` in the showcase.
 
-The idea is to traverse **bottom-up** the navigation tree for every `Navigation item` to it's parent modeled by `Subitems` element and gather it *Slug* element i.e.:
+The idea is to traverse **bottom-up** the navigation tree for every `Navigation item` to it's parent modeled by `Subitems` element and gather it _Slug_ element i.e.:
 
-* from `gatsby-kontent` > `for-developers` > `why-kontent`
-* to `/why-kontent/for-developers/gatsby-kontent`
+- from `gatsby-kontent` > `for-developers` > `why-kontent`
+- to `/why-kontent/for-developers/gatsby-kontent`
 
 This extension is showcased in [gatsby-node.js's createSchemaCustomization](./gatsby-node.js#L7). This is a similar [approach that Wordpress is using](https://github.com/gatsbyjs/gatsby/issues/3954#issuecomment-599256320)
 
@@ -109,13 +109,13 @@ If you want to check the content in your own project, you could use following gu
 1. Go to "Project Settings", select API keys and copy `Project ID`
 1. Install [Kontent Backup Manager](https://github.com/Kentico/kontent-backup-manager-js) and import data to newly created project from [`kontent-backup.zip`](./kontent-backup.zip) file (place appropriate values for `apiKey` and `projectId` arguments):
 
-    ```sh
-    npm i -g @kentico/kontent-backup-manager
+   ```sh
+   npm i -g @kentico/kontent-backup-manager
 
-    kbm --action=restore --apiKey=<Management API key> --projectId=<Project ID> --zipFilename=kontent-backup
-    ```
+   kbm --action=restore --apiKey=<Management API key> --projectId=<Project ID> --zipFilename=kontent-backup
+   ```
 
-    > Alternatively, you can use the [Template Manager UI](https://kentico.github.io/kontent-template-manager/import-from-file) for importing the content.
+   > Alternatively, you can use the [Template Manager UI](https://kentico.github.io/kontent-template-manager/import-from-file) for importing the content.
 
 1. Go to your Kontent project and [publish all the imported items](https://docs.kontent.ai/tutorials/write-and-collaborate/publish-your-work/publish-content-items).
 
