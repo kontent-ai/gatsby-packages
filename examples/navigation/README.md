@@ -136,3 +136,5 @@ There are multiple content pages used as the content container. Namely `Home pag
 #### Listing content page
 
 One of the content container types is `Listing items`, this type allows to select content type(s) that is/are then used to determine what is about to be queried in the page. To model it in Kontent [Type selector custom element](https://github.com/Simply007/kontent-custom-element-type-selector) is used and then in the application. Then when the application is registering the page components ir loads detail items and [register them under their own route](https://github.com/Simply007/Simply007.github.io/blob/source/gatsby-node.js#L115) with [detail component template](https://github.com/Simply007/Simply007.github.io/blob/source/src/templates/journal-item.js).
+
+![Analytics](https://kentico-ga-beacon.azurewebsites.net/api/UA-69014260-4/Kentico/kontent-gatsby-packages/examples/navigation?pixel)
