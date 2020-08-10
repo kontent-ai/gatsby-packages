@@ -119,9 +119,9 @@ If you want to check the content in your own project, you could use following gu
 
 1. Go to your Kontent project and [publish all the imported items](https://docs.kontent.ai/tutorials/write-and-collaborate/publish-your-work/publish-content-items).
 
-## More complex example
+## [More complex example](https://github.com/Simply007/Simply007.github.io#setup)
 
-This showcase shows the basics for the menu modeling. If you want to take a look to more complex use setup you should continue to [ondrej.chrastina.tech](https://ondrej.chrastina.tech) [[`source`](https://github.com/Simply007/Simply007.github.io)]. This website is applying [more complex approaches](https://github.com/Simply007/Simply007.github.io#Setup).
+This showcase shows the basics for the menu modeling. If you want to take a look to [**more complex setup**](https://github.com/Simply007/Simply007.github.io#setup) you should continue to [ondrej.chrastina.tech](https://ondrej.chrastina.tech) [[`source`](https://github.com/Simply007/Simply007.github.io)]. This website is applying [more complex approaches](https://github.com/Simply007/Simply007.github.io#Setup).
 
 ![Complex modelled menu](./docs/complex-menu-showcase.png)
 
