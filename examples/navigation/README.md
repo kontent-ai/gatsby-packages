@@ -1,6 +1,4 @@
-// TODO
-
-[![Netlify Status](https://api.netlify.com/api/v1/badges/4d1d1c92-1225-4729-9ada-882a8421c2cd/deploy-status)](https://app.netlify.com/sites/kontent-gatsby-example-navigation/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/5129d2e5-dc9f-4519-b18a-ad617e6225d5/deploy-status)](https://app.netlify.com/sites/kontent-gatsby-example-navigation/deploys)
 
 # Gatsby Navigation Example
 
