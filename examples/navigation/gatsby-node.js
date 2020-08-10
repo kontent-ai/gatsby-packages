@@ -75,7 +75,7 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
-    }    
+    }
     `);
 
   data.allKontentItemNavigationItem.nodes.forEach(page => {
