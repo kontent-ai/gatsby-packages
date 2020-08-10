@@ -1,5 +1,4 @@
 const { getKontentItemNodeTypeName } = require("@kentico/gatsby-source-kontent")
-const path = require("path")
 
 exports.createSchemaCustomization = async api => {
   const {
@@ -25,16 +24,16 @@ exports.createSchemaCustomization = async api => {
 
           const urlFragments = [source.elements.slug.value] // /about/small-gas/subsection/<-
           let parent
-          let currentContextItem = source
+          let currentContextItem = source;
 
           do {
-            parent = allNavigationItems.find(
-              item =>
-                item.preferred_language ===
-                  currentContextItem.preferred_language &&
-                item.elements["subitems"].value.includes(
-                  currentContextItem.system.codename
-                )
+            // eslint-disable-next-line  no-loop-func
+            parent = allNavigationItems.find(item =>
+              item.preferred_language ===
+              currentContextItem.preferred_language &&
+              item.elements["subitems"].value.includes(
+                currentContextItem.system.codename
+              )
             )
 
             if (parent) {
