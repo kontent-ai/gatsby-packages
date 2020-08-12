@@ -71,6 +71,10 @@ Since the `system.codename` is changeable for content item, now as an input for 
 
 If you are using hard-coded Node ID in your queries to get/filter specific Kontent item node(s), you need to make the adjustments - IDs will be different for version 6.
 
+### Type endpoint unification
+
+When [turning the `includeTypes` option on](https://github.com/Kentico/kontent-gatsby-packages/tree/master/packages/gatsby-source-kontent#available-options), all content types are stored under one graphql type, so that you can use `kontentType` and `allKontentType` queries to load information about content types. Take a look at [the example](https://github.com/Kentico/kontent-gatsby-packages/tree/master/packages/gatsby-source-kontent#types-elements-property) how to i.e. load information about one of the content types.
+
 ## From `4.x.x` to `5.x.x`
 
 This upgrade is necessary to fix the [colliding identifiers](https://github.com/Kentico/gatsby-source-kontent/issues/110) issue.
