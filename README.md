@@ -21,6 +21,12 @@ The repository contains the development site (`/site`) that could automatically 
 
 - [Development Site](/site#readme) - Site using for development purposes and code examples showcasing packages possibilities
 
+### Examples
+
+#### Navigation showcase
+
+- [Navigation showcase](/examples/navigation#readme) - Showcase including the navigation best practices. Description, how to do the content modeling with all benefits of the modular content as well as have tree-based menu structure.
+
 ## Development
 
 ### Prerequisites

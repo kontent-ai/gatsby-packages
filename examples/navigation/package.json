@@ -1,0 +1,32 @@
+{
+  "name": "@kentico/kontent-gatsby-example-navigation",
+  "description": "Example guide for gatsby navigation modeled in Kontent.",
+  "version": "0.0.1",
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "lint": "eslint --ignore-path .gitignore \"**/*.{js,jsx}\"",
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "test": "echo \"Write tests - eventually! -> https://gatsby.dev/unit-testing\" && exit 0"
+  },
+  "dependencies": {
+    "gatsby": "^2.24.37",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "eslint": "^7.6.0",
+    "prettier": "2.0.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Kentico/gatsby-source-kontent"
+  },
+  "bugs": {
+    "url": "https://github.com/Kentico/gatsby-source-kontent/issues"
+  }
+}
