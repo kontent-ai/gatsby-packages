@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
-import parseHTML, { DomElement } from 'html-react-parser';
+import parseHTML, { DomElement, domToReact } from 'html-react-parser';
 
 const IMAGE_ID_ATTRIBUTE_IDENTIFIER = 'data-image-id';
 const LINKED_ITEM_ID_ATTRIBUTE_IDENTIFIER = 'data-item-id';
@@ -57,7 +57,7 @@ const replaceNode = (
   }
 };
 
-const RichTextElement = ({ value, linkedItems, resolveLinkedItem, images, resolveImage, links, resolveLink }: Props) => (
+const RichTextElement = ({ value, linkedItems, resolveLinkedItem, images, resolveImage, links, resolveLink }: Props): ReturnType<typeof domToReact> => (
     parseHTML(value, {
       replace: (domNode: DomElement) => replaceNode(domNode, linkedItems, resolveLinkedItem, images, resolveImage, links, resolveLink),
     })
