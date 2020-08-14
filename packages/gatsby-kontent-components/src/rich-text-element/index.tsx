@@ -57,9 +57,7 @@ const replaceNode = (
   }
 };
 
-const RichTextElement = ({ value, linkedItems, resolveLinkedItem, images, resolveImage, links, resolveLink }: Props): string
-  | React.DetailedReactHTMLElement<{}, HTMLElement>
-  | Array<React.DetailedReactHTMLElement<{}, HTMLElement>> => (
+const RichTextElement = ({ value, linkedItems, resolveLinkedItem, images, resolveImage, links, resolveLink }: Props) => (
     parseHTML(value, {
       replace: (domNode: DomElement) => replaceNode(domNode, linkedItems, resolveLinkedItem, images, resolveImage, links, resolveLink),
     })
