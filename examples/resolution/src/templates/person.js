@@ -2,6 +2,8 @@ import React from "react"
 import { graphql, Link } from "gatsby"
 import { RichTextElement } from "@kentico/gatsby-kontent-components"
 import { resolveUrl } from "../utils/resolvers"
+import Website from '../components/website'
+import Repository from '../components/repository'
 
 const Person = ({ data }) => {
 
@@ -9,7 +11,7 @@ const Person = ({ data }) => {
   const bio = person.elements.bio;
 
   return (
-    <>
+    <div style={{ display: 'flex', flexDirection: 'column', justifyContent: "center", maxWidth: "960px", margin: "auto" }}>
       <header>
         <h1>{person.elements.name.value}</h1>
       </header>
@@ -44,53 +46,11 @@ const Person = ({ data }) => {
             switch (linkedItem.__typename) {
               case 'kontent_item_website':
                 return (
-
-                  <div style={{
-                    border: 'silver 1px solid',
-                    display: 'inline-block',
-                    padding: '1em'
-                  }}>
-                    <h3>
-                      <Link to={resolveUrl(linkedItem.__typename, linkedItem.elements.slug.value)}
-                      >Website: {linkedItem.elements.name.value}
-                      </Link>
-                    </h3>
-                    <p>{linkedItem.elements.summary.value}</p>
-                    <a
-                      href={linkedItem.elements.url.value}
-                      style={{
-                        padding: '.5em',
-                        float: 'right',
-                        border: '1px solid silver'
-                      }}>
-                      Enter website
-                      </a>
-                  </div>
+                  <Website item={linkedItem} />
                 );
               case 'kontent_item_repository':
                 return (
-                  <div style={{
-                    border: 'silver 1px dashed',
-                    display: 'inline-block',
-                    padding: '1em',
-                    maxWidth: '400px'
-                  }}>
-                    <h3>
-                      <Link to={resolveUrl(linkedItem.__typename, linkedItem.elements.slug.value)}
-                      >Repository: {linkedItem.elements.name.value}
-                      </Link>
-                    </h3>
-                    <p>{linkedItem.elements.summary.value}</p>
-                    <a
-                      href={linkedItem.elements.url.value}
-                      style={{
-                        padding: '.5em',
-                        float: 'right',
-                        border: '1px solid silver'
-                      }}>
-                      Enter repo
-                      </a>
-                  </div>
+                  <Repository item={linkedItem} />
                 );
               default:
                 break;
@@ -98,7 +58,7 @@ const Person = ({ data }) => {
           }}
         />
       </section>
-    </>
+    </div>
   );
 }
 

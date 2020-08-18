@@ -5,7 +5,7 @@ const Repository = ({ data }) => {
   const { kontentItemRepository: repo } = data;
 
   return (
-    <>
+    <div style={{ display: 'flex', flexDirection: 'column', justifyContent: "center", maxWidth: "960px", margin: "auto" }}>
       <header>
         <h1>{repo.elements.name.value}</h1>
       </header>
@@ -21,7 +21,7 @@ const Repository = ({ data }) => {
           Enter repo
         </a>
       </section>
-    </>
+    </div>
   );
 }
 

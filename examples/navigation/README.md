@@ -1,8 +1,8 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/5129d2e5-dc9f-4519-b18a-ad617e6225d5/deploy-status)](https://app.netlify.com/sites/kontent-gatsby-example-navigation/deploys)
-
 # Gatsby Navigation Example
 
-Repository showcasing, how to model the menu in Kentico Kontent and the use this model in the Gatsby application to render a menu and its linked content.
+[![Netlify Status](https://api.netlify.com/api/v1/badges/5129d2e5-dc9f-4519-b18a-ad617e6225d5/deploy-status)](https://app.netlify.com/sites/kontent-gatsby-example-navigation/deploys)
+
+Site showcasing, how to model the menu in Kentico Kontent and the use this model in the Gatsby application to render a menu and its linked content.
 
 This showcase extends originates from [Explicitly modeled navigation](https://docs.kontent.ai/tutorials/write-and-collaborate/structure-your-content/manage-navigation-menus#a-c-explicitly-modeled-navigation) approach and adds some Gatsby specific steps.
 
@@ -20,7 +20,7 @@ yarn build # build the latest version of the local packages
 
 ```sh
 # open the /example/navigation folder
-cd example/example
+cd example/navigation
 yarn develop # runs `gatsby develop` command
 ```
 
