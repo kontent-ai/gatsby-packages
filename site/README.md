@@ -49,13 +49,13 @@ yarn build # runs `gatsby build` command
 
 The following examples are showcasing, how it is possible to use the Kontent packages. There are many possibilities that Gatsby offers to adjust the data you need before using them in the application.
 
-All of the examples are in [examples.js](examples.js).
+### Navigation example
 
-### URL slug resolution
+See [/examples/navigation](../examples/navigation#readme) for the example.
 
-Url slug element could be resolved right in your project to extend all url slug element with resolved URL.
+### Rich text and URL slug resolution
 
-Showcase is in [URL slug resolution](./example-resolve-url-slugs.js).
+See [/examples/resolution](../examples/resolution#readme) for the example.
 
 ### Language variant relationships
 
