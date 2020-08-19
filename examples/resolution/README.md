@@ -89,13 +89,13 @@ If you want to import content types with the sample content in your own empty pr
 
 1. Go to your Kontent project and [publish all the imported items](https://docs.kontent.ai/tutorials/write-and-collaborate/publish-your-work/publish-content-items).
 
-![Analytics](https://kentico-ga-beacon.azurewebsites.net/api/UA-69014260-4/Kentico/kontent-gatsby-packages/examples/navigation?pixel)
-
 ## Rich text resolution
 
 For all `Person` content items, there is [a new page created](./gatsby-node.js#L65) based on on the [`templates/person.js`](./src/templates/person.js) template. The template is using [Gatsby Kontent Components](../../packages/gatsby-kontent-components#readme) package, specifically it's `RichTextElement` to resolve the content component, inline linked items, and images.
 
 > The main example is on <http://localhost:8000/people/ondrej-chrastina/> that showcase [the content component, inline linked items, and images resolution of the Bio element](./src/templates/person.js).
+
+![Component resolution example](./docs/component-resolution.png)
 
 ### Reusing components
 
@@ -103,15 +103,21 @@ You could re-use the React components on multiple places.
 
 The `Bio` rich text resolution in [`templates/person.js`](./src/templates/person.js) is using the `src/components/repository.js` component as well as the same component is used on the [`templates/website.js`](./src/templates/website.js) for linked items resolution.
 
+![Reusing Repository component](./docs/reusing-components.png)
+
 ## URL resolution
 
 For all `Person` content items, there is [a new page created](./gatsby-node.js#L65) based on on the [`templates/person.js`](./src/templates/person.js) template. The template is using [utils/resolvers/](./src/utisl/resolvers.js#L1) to resolve links to other content items into the URLs in the `Bio` element.
 
 The main example is on <http://localhost:8000/people/ondrej-chrastina/> that showcase [URL resolution of the `Bio` element](./src/templates/person.js) - in this case the link to `John Doe`.
 
+![Rich text element content item link resolution](./docs/rich-text-content-item-link-resolution.png)
+
 The overall resolution of the urls for content items in on <http://localhost:8000/>. There is an overview of resolved URLs for all content items based on `Person`, `Repository`, and `Website` content type.
 
-### More complex scenario
+![URL resolution showcase](./docs/url-resolution-showcase.png)
+
+### More complex scenarios
 
 If you want to configure more complex and multi-level routing, take a look to the [Navigation example](../navigation#readme) and the you could use resolved URLs in combination with the unified URL resolution.
 
