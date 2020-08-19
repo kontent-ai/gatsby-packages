@@ -89,6 +89,13 @@ If you want to import content types with the sample content in your own empty pr
 
 1. Go to your Kontent project and [publish all the imported items](https://docs.kontent.ai/tutorials/write-and-collaborate/publish-your-work/publish-content-items).
 
+### Connect the site to custom project
+
+Open the `gatsby-config.js` file and set following properties for `@kentico/gatsby-source-kontent` plugin:
+
+- `projectId` from *Project settings > API keys > Delivery API > Project ID*
+- `languageCodenames` from *Project settings > Localization*
+
 ## Rich text resolution
 
 For all `Person` content items, there is [a new page created](./gatsby-node.js#L65) based on on the [`templates/person.js`](./src/templates/person.js) template. The template is using [Gatsby Kontent Components](../../packages/gatsby-kontent-components#readme) package, specifically it's `RichTextElement` to resolve the content component, inline linked items, and images.
