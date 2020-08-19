@@ -105,14 +105,14 @@ The `Bio` rich text resolution in [`templates/person.js`](./src/templates/person
 
 ## URL resolution
 
-For all `Person` content items, there is [a new page created](./gatsby-node.js#L65) based on on the [`templates/person.js`](./src/templates/person.js) template. The template is using [utils/resolvers/](./src/utisl/resolvers.js#L1) to resolve URLs in the `Bio` element to resolve the links to other content items.
+For all `Person` content items, there is [a new page created](./gatsby-node.js#L65) based on on the [`templates/person.js`](./src/templates/person.js) template. The template is using [utils/resolvers/](./src/utisl/resolvers.js#L1) to resolve links to other content items into the URLs in the `Bio` element.
 
-> The main example is on <http://localhost:8000/people/ondrej-chrastina/> that showcase [URL resolution of the `Bio` element](./src/templates/person.js) - in this case the link to `John Doe`.
+The main example is on <http://localhost:8000/people/ondrej-chrastina/> that showcase [URL resolution of the `Bio` element](./src/templates/person.js) - in this case the link to `John Doe`.
 
-> The overall resolution iof the urls for content items in on <http://localhost:8000/> - there is an overview of resolved URLs.
+The overall resolution of the urls for content items in on <http://localhost:8000/>. There is an overview of resolved URLs for all content items based on `Person`, `Repository`, and `Website` content type.
 
 ### More complex scenario
 
-If you want to configure more complex and multi-level routing, take a look to the [Navigation example](../navigation#readme).
+If you want to configure more complex and multi-level routing, take a look to the [Navigation example](../navigation#readme) and the you could use resolved URLs in combination with the unified URL resolution.
 
-![Analytics](https://kentico-ga-beacon.azurewebsites.net/api/UA-69014260-4/Kentico/kontent-gatsby-packages/examples/navigation?pixel)
+![Analytics](https://kentico-ga-beacon.azurewebsites.net/api/UA-69014260-4/Kentico/kontent-gatsby-packages/examples/resolution?pixel)
