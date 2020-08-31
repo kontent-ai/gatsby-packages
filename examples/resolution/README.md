@@ -26,7 +26,7 @@ Now you could browse the site on <http://localhost:8000> and see GraphiQL explor
 
 ## Content modeling
 
-This section explains how the content is modeled. You could follow next section of [Import the content to your on Kontent project](#Import-site-content-to-your-Kontent-project) and explore the models by your own as well as the sample data based on it.
+This section explains how the content is modeled. You could follow to next section ["Import the content to your on Kontent project"](#Import-site-content-to-your-Kontent-project) and explore the models by your own as well as the sample data based on it. Or you could create models manually to familiarize yourself with the Kontent user interface.
 
 Once you create the content models, you could create content items based on these and the site would be capable to handle the content and render it.
 
@@ -37,10 +37,8 @@ First of of all it is required to create two content types:
 - `Person` - which will represent a person on our website and mainly `Bio` rich text element used for resolution showcase
 - `Repository` - this content type represents a github repository information - used as an inline linked item from Person's `Bio` element
 - `Website` - this content type represents a website information - used as an inline linked item from Person `Bio` element
-
+s
 #### Person content modeling
-
-Following section describes ths content structure (content model). If you want, you could 
 
 This content type - `Person` - has following structure:
 
