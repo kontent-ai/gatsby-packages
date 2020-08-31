@@ -37,16 +37,14 @@ First of of all it is required to create two content types:
 - `Person` - which will represent a person on our website and mainly `Bio` rich text element used for resolution showcase
 - `Repository` - this content type represents a github repository information - used as an inline linked item from Person's `Bio` element
 - `Website` - this content type represents a website information - used as an inline linked item from Person `Bio` element
-s
+
 #### Person content modeling
 
-This content type - `Person` - has following structure:
+This content type - `Person` - represents people with their `Bio`. They could link any `Website` or `Repository` (see the next section) to their bio and these components needs to be resolved. It has following structure:
 
 - Name - **Text** element
 - Bio - **Rich text** element - configures to allow to link only `Repository` and `Website` content types
 - Slug - **URL slug** element - generated from name
-
-This content type represents people with their `Bio`. They could link any website, or repository to their bio and these components needs to be resolved.
 
 In case you want to link external URL to different domain, it is possible to extend the content type by **Text** element called i.e. _External URL_.
 
