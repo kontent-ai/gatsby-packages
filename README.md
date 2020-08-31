@@ -27,6 +27,10 @@ The repository contains the development site (`/site`) that could automatically 
 
 - [Navigation showcase](/examples/navigation#readme) - Showcase including the navigation best practices. Description, how to do the content modeling with all benefits of the modular content as well as have tree-based menu structure.
 
+#### Resolution showcase
+
+- [Resolution showcase](/examples/resolution#readme) - Demonstration how resolve Rich Text element and it's inline images, invline content items, and content components.
+
 ## Development
 
 ### Prerequisites
