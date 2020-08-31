@@ -35,7 +35,7 @@ Once you create the content models, you could create content items based on thes
 First of of all it is required to create two content types:
 
 - `Person` - which will represent a person on our website and mainly `Bio` rich text element used for resolution showcase
-- `Repository` - this content type represents a github repository information - used as an inline lik item from Person's `Bio` element
+- `Repository` - this content type represents a github repository information - used as an inline linked item from Person's `Bio` element
 - `Website` - this content type represents a website information - used as an inline lik item from Person `Bio` element
 
 #### Person content modeling
