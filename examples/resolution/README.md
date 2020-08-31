@@ -2,7 +2,7 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/2f5f005f-1c66-4022-8c78-382f0a06a2a7/deploy-status)](https://app.netlify.com/sites/kontent-gatsby-example-resolution/deploys)
 
-Site showcasing how to resolve Rich Text element and it's inline images, incline content items, and content components.
+Site showcasing how to resolve Rich Text element and it's inline images, inline content items, and content components.
 
 ## Get started
 
