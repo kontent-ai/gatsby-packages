@@ -141,14 +141,30 @@ One of the content container types is `Listing items`, this type allows to selec
 
 If you are using complex and nested menu navigation in combination with [Preview URLs](https://docs.kontent.ai/tutorials/develop-apps/build-strong-foundation/set-up-preview#a-set-up-content-preview-in-your-project) you might need to have a way to map "preview" URL to the one you have build using schema customization, because in the context of Preview URLs there is only `url slug`, `codename`, `language` and `item ID`, but not information of other elements, or their relationship.
 
-In a nutshell, you want register routes endpoint like `/preview/<LANGUAGE>/<CODENAME>` by hooking to [`createPages`](https://www.gatsbyjs.com/docs/node-apis/#createPages) Gatsby Node API method and following methods to map your preview URLs to the pre-generated URLs.
+> ⚠ Render "preview pages" only in development environment ([`NODE_ENV` is set to `development`](https://www.gatsbyjs.com/docs/environment-variables/#reserved-environment-variables)) and for the pages  that requires preview to prevent build time performance degradation.
+
+In a nutshell, you want register routes endpoint like i.e. `/preview/<LANGUAGE>/<CODENAME>` by hooking to [`createPages`](https://www.gatsbyjs.com/docs/node-apis/#createPages) Gatsby Node API method and use one of the following approaches to map your preview URLs to the publish URLs.
 
 - [`createPage`](https://www.gatsbyjs.com/docs/actions/#createPage)
-  - Ideally render "preview pages" only in development environment and for the pages it is necessary to prevent build time performance degradation.
-- Use some custom React based approach to handle redirection
+  - Just use the same construct, [that is already used for creating production pages](./gatsby-node.js#L82)
+  
+  ```js
+  if(process.env.NODE_ENV === 'development') {
+      createPage({
+        path: `/preview/page/${contentPage.preferred_language}/${contentPage.system.codename}`,
+        component: require.resolve(`./src/templates/content-page.js`),
+        context: {
+          language: contentPage.preferred_language,
+          codename: contentPage.system.codename,
+        },
+      })
+    }
+  ```
+
+- Use some React based approach to handle redirection
   - Choose one compatible with [Gatsby Routing mechanism](https://www.gatsbyjs.com/docs/routing/), like `client-only` routes using `@react/router`
-- [`createRedirect`](https://www.gatsbyjs.com/docs/actions/#createRedirect) you could experiment with this action.
-  - Mind the description of the method "Server redirects don’t work out of the box."
-  - Also trying to set redirects on client side (`redirectInBrowse`) as well lead to small blink on development server
+- [`createRedirect`](https://www.gatsbyjs.com/docs/actions/#createRedirect)
+  - Mind the description of the action "Server redirects don’t work out of the box".
+  - Also defining redirects on client side (option `redirectInBrowse`) lead to small delay/blink on development server from 404 to redirected page.
 
 ![Analytics](https://kentico-ga-beacon.azurewebsites.net/api/UA-69014260-4/Kentico/kontent-gatsby-packages/examples/navigation?pixel)
