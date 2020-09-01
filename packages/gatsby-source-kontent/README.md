@@ -459,6 +459,24 @@ Once you integrate your site with Gatsby Cloud, you will be able to lavarage the
 
 > Please note that change in taxonomies or content types require a complete rebuild of the site, because these structural data affects GraphQL schema.
 
+## How to use Web Spotlight with Gatsby
+
+[Web Spotlight](https:/webspotlight.kontent.ai) is an additional tool for [Kentico Kontent](https://kontent.ai/) focused on website management. Feel the power of a headless CMS while enabling your content creators to produce and update content in the context of your website.
+
+You can find more resources about this tool in the [official documentation](https://docs.kontent.ai/tutorials/set-up-kontent/set-up-your-project/web-spotlight), in the [recording of "Sneak Peek: An introduction to Web Spotlight" webinar](https://kontent.ai/webinars/on-demand/introduction-web-spotlight), or in the blog post ["Use Web Spotlight with your existing Kontent projects"](https://kontent.ai/blog/use-web-spotlight-with-your-existing-kontent-projects).
+
+To integrate your Gatsby site with Web Spotlight, it is required to do three steps:
+
+- Prepare the code for the Web Spotlight preview environment by decorating the HTML using [Kontent Smart Link SDK](https://github.com/Kentico/kontent-smart-link#gatsby).
+- [Turn on Web Spotlight on your Kontent project](https://docs.kontent.ai/tutorials/set-up-kontent/set-up-your-project/web-spotlight#a-boost-your-web-with-web-spotlight)
+- Use newly enabled features to [connect the Kontent project to the preview environment](https://kontent.ai/blog/use-web-spotlight-with-your-existing-kontent-projects).
+
+### Step by step guide
+
+**🚀 If you are seeking for some Starter pack with the Guide, you are lucky!**
+
+- [Implementing Web Spotlight on Kontent Starter Lumen Starter](https://github.com/Kentico/gatsby-starter-kontent-lumen/blob/master/docs/WEB-SPOTLIGHT.md#implementing-web-spotlight)
+
 ## How to run tests
 
 The package is using [Jest](http://jest.org/) framework for testing.
