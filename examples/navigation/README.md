@@ -139,7 +139,7 @@ One of the content container types is `Listing items`, this type allows to selec
 
 ## Set up Preview URLs
 
-If you are using complex and nested menu navigation in combination with [Preview URLs](https://docs.kontent.ai/tutorials/develop-apps/build-strong-foundation/set-up-preview#a-set-up-content-preview-in-your-project) you might need to have a way to map "preview" URL to the one you have build using schema customization, because in the context of Preview URLs there is only `url slug`, `codename`, `language` and `item ID`, but not information of other elements, or their relationship.
+If you are using complex and nested menu navigation in combination with [Preview URLs](https://docs.kontent.ai/tutorials/develop-apps/build-strong-foundation/set-up-preview#a-set-up-content-preview-in-your-project) you might need to have a way to map the "preview" URL to the one you have built using schema customization because in the context of Preview URLs there is only `url slug`, `codename`, `language` and `item ID`, but not the information of other elements, or their relationship.
 
 > ⚠ Render "preview pages" only in development environment ([`NODE_ENV` is set to `development`](https://www.gatsbyjs.com/docs/environment-variables/#reserved-environment-variables)) and for the pages  that requires preview to prevent build time performance degradation.
 
