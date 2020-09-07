@@ -6,7 +6,8 @@ export default () => {
   return (
     <>
       <RichTextElement value="<div>Hello Kontent!</div>" />
-      <Link to="rich-text">Rich text element resolution showcase</Link>
+      <Link to="author">Image resolution example</Link>
+      <Link to="articles">Article listing example</Link>
     </>
   )
 }
