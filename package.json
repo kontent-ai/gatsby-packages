@@ -15,7 +15,8 @@
     "packages/gatsby-kontent-components",
     "site",
     "examples/navigation",
-    "examples/resolution"
+    "examples/resolution",
+    "examples/relationships"
   ],
   "scripts": {
     "lint": "yarn workspaces run lint",
@@ -25,6 +26,7 @@
     "build:components": "yarn workspace @kentico/gatsby-kontent-components build",
     "build:navigation": "yarn build:source && yarn workspace @kentico/kontent-gatsby-example-navigation run build",
     "build:resolution": "yarn build:components && yarn build:source && yarn workspace @kentico/kontent-gatsby-example-resolution run build",
+    "build:relationships": "yarn build:source && yarn workspace @kentico/kontent-gatsby-example-relationships run build",
     "build:site": "yarn build:source && yarn build:components && yarn workspace @kentico/gatsby-starter-kontent-hello-world build",
     "watch": "run-p watch:**",
     "prepublishOnly": "yarn build",
