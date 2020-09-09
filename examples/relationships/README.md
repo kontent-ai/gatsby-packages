@@ -32,7 +32,7 @@ Once you create the content models, you could create content items based on thes
 
 ### Kontent content models
 
-Kontent project contains a simple article content base, that could be tagged, put into the categories. There are two content types `Article` and `Tag`. Categorization is modeled as a multiple choice element. Kontent project is using two languages `en-US` and `cs-CZ` to showcase [Language variant relationships](#Language-variant-relationships);
+Kontent project contains a simple article content base, that could be tagged. There are two content types `Article` and `Tag`. Kontent project is using two languages `en-US` and `cs-CZ` to showcase [Language variant relationships](#Language-variant-relationships);
 
 #### Article content type
 
@@ -42,10 +42,9 @@ This content type - `Article item` - has following structure:
 - Content - **Text** element
 - Date - **Date & Title** element
 - Slug - **URL slug** element - auto-generated from title
-- Category - **Multiple choice** element - with `Gatsby`, Typography `Design Inspiration`, `Empty category` radio button options
 - Tags - **Linked items** element - content type limited to `Tag`
 
-This content type represents an article, first four elements (`Title`, `Content`, and `Date`) are meant to be used for some sample content that should be displayed on site. The `Content` element is set to simple text because of simplicity. Rich text element type possibilities are described in [Resolution example](../resolution#readme). The `Slug` element is used to route registration. `Category` element is modeled by the Multiple choice element because of [Content type -> Content Item resolution](#Content-type-->-Content-Item-resolution) showcase. `Tags` element is modeled as Linked items element type because of [Linked from relationship](#Linked-from-relationship) example.
+This content type represents an article, first four elements (`Title`, `Content`, and `Date`) are meant to be used for some sample content that should be displayed on site. The `Content` element is set to simple text because of simplicity. Rich text element type possibilities are described in [Resolution example](../resolution#readme). The `Slug` element is used to route registration. `Tags` element is modeled as Linked items element type because of [Linked from relationship](#Linked-from-relationship) example.
 
 #### Tag content type
 
