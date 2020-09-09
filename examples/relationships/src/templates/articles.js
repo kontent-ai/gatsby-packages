@@ -1,5 +1,6 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
+import Layout from "../components/layout"
 
 const Articles = (props) => {
 
@@ -16,7 +17,7 @@ const Articles = (props) => {
   ))
 
   return (
-    <div>
+    <Layout>
       <div>
         Language switch:
       <ul>
@@ -27,7 +28,7 @@ const Articles = (props) => {
       <ul>
         {articles}
       </ul>
-    </div>
+    </Layout>
   );
 }
 

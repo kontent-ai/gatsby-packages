@@ -1,8 +1,9 @@
 import React from "react"
 import { Link } from "gatsby"
+import Layout from "../components/layout";
 
 const Index = () => (
-  <div style={{ display: 'flex', flexDirection: 'column', justifyContent: "center", maxWidth: "960px", margin: "auto" }}>
+  <Layout>
     <header>
       <h1>Examples</h1>
       <p>For the examples explanation, take a look at <a href="https://github.com/Kentico/kontent-gatsby-packages/tree/master/examples/relationships#readme">GitHub example README</a></p>
@@ -13,7 +14,7 @@ const Index = () => (
         <li><Link to="/tags">Used by relationship</Link></li>
       </ul>
     </section>
-  </div>
+  </Layout>
 );
 
 

@@ -1,5 +1,6 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
+import Layout from "../components/layout";
 
 const Tags = ({ data: { allKontentItemTag: { nodes: tagData } } }) => {
 
@@ -16,7 +17,7 @@ const Tags = ({ data: { allKontentItemTag: { nodes: tagData } } }) => {
   })
 
   return (
-    <div>
+    <Layout>
       <header>
         <h1>Tags</h1>
       </header>
@@ -25,7 +26,7 @@ const Tags = ({ data: { allKontentItemTag: { nodes: tagData } } }) => {
           {tags}
         </ul>
       }
-    </div>
+    </Layout>
   );
 }
 

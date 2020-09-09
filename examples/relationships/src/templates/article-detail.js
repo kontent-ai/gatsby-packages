@@ -1,5 +1,6 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
+import Layout from "../components/layout";
 
 const ArticleDetail = ({ data: { kontentItemArticle }, pageContext }) => {
 
@@ -14,9 +15,11 @@ const ArticleDetail = ({ data: { kontentItemArticle }, pageContext }) => {
 
 
   return (
-    <div>
-      <div style={{ padding: '0.5em',  margin: '0.5em', border: '1px solid black', display: 'inline-block' }}>
-        <Link to={`/${pageContext.language}/articles`}>&lt;&lt; Back to listing</Link>
+    <Layout>
+      <div>
+        <div style={{ padding: '0.5em', margin: '0.5em 0', display: 'inline-block' }}>
+          <Link to={`/${pageContext.language}/articles`}>&lt;&lt; Back to article listing</Link>
+        </div>
       </div>
       {
         languageSwitch.length > 0 &&
@@ -30,7 +33,7 @@ const ArticleDetail = ({ data: { kontentItemArticle }, pageContext }) => {
       <h1>{kontentItemArticle.elements.title.value}</h1>
       <div>{kontentItemArticle.elements.date.value}</div>
       <p>{kontentItemArticle.elements.content.value}</p>
-    </div >
+    </Layout>
   );
 }
 export const query = graphql`
