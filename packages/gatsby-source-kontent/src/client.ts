@@ -131,7 +131,10 @@ const loadKontentItem = async (
   language: string,
   config: CustomPluginOptions,
   waitForLoadingNewContent = false,
-): Promise<KontentItem | undefined> => {
+): Promise<{
+  item: KontentItem | undefined;
+  modularKontent: { [key: string]: KontentItem };
+}> => {
 
   const headers = ensureAuthorizationHeader(config);
   ensureTrackingHeader(headers);
@@ -151,7 +154,10 @@ const loadKontentItem = async (
     },
   );
 
-  return response.data.items.length > 0 ? response.data.items[0] : undefined;
+  return {
+    item: response.data.items.length > 0 ? response.data.items[0] : undefined,
+    modularKontent: response.data.modular_content
+  };
 };
 
 const loadAllKontentTypes = async (

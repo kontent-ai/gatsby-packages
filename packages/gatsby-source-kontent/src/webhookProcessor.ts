@@ -32,6 +32,17 @@ const isKontentSupportedWebhook = (message: IWebhookMessage, projectId: string):
     && isCorrectMessageType
 };
 
+const createNodeFromRawKontentItem = (api: SourceNodesArgs, rawKontentItem: KontentItem, includeRawContent: boolean, preferredLanguage: string): KontentItem => {
+  addPreferredLanguageProperty([rawKontentItem], preferredLanguage);
+  alterRichTextElements([rawKontentItem]);
+  const nodeData = getKontentItemLanguageVariantArtifact(
+    api,
+    rawKontentItem,
+    includeRawContent,
+  );
+  api.actions.createNode(nodeData);
+  return nodeData;
+}
 
 const handleUpsertItem = async (
   api: SourceNodesArgs,
@@ -50,20 +61,23 @@ const handleUpsertItem = async (
 
   const createdItemsIds = [];
   for (const lang of pluginConfig.languageCodenames) {
-    const kontentItem = await client.loadKontentItem(itemInfo.id, lang, pluginConfig, true);
+    const { item: kontentItem, modularKontent } = await client.loadKontentItem(itemInfo.id, lang, pluginConfig, true);
+    console.log(modularKontent);
     if (kontentItem === undefined) {
       api.reporter.verbose(`Kontent item (${itemInfo.id}) language variant (${lang}) not found on the kontent delivery API for update`);
       continue;
     }
-    addPreferredLanguageProperty([kontentItem], lang);
-    alterRichTextElements([kontentItem]);
-    const nodeData = getKontentItemLanguageVariantArtifact(
-      api,
-      kontentItem,
-      pluginConfig.includeRawContent,
-    );
+
+    const nodeData = createNodeFromRawKontentItem(api, kontentItem, pluginConfig.includeRawContent , lang);
     createdItemsIds.push(nodeData.id);
-    api.actions.createNode(nodeData);
+
+    for (const key in modularKontent) {
+      if (Object.prototype.hasOwnProperty.call(modularKontent, key)) {
+        const modularKontentItem = modularKontent[key];
+        const nodeData = createNodeFromRawKontentItem(api, modularKontentItem, pluginConfig.includeRawContent, lang);
+    createdItemsIds.push(nodeData.id);
+      }
+    }
   }
 
   return createdItemsIds;
@@ -87,7 +101,7 @@ const handleDeleteItem = async (
 
   const touchedItemsIds = [];
   for (const lang of pluginConfig.languageCodenames) {
-    const kontentItem = await client.loadKontentItem(itemInfo.id, lang, pluginConfig, true);
+    const { item: kontentItem } = await client.loadKontentItem(itemInfo.id, lang, pluginConfig, true);
     if (kontentItem === undefined) { //item  was deleted
       const idString = getKontentItemNodeStringForId(itemInfo.id, lang);
       const node = api.getNode(api.createNodeId(idString));
@@ -97,15 +111,8 @@ const handleDeleteItem = async (
       }
       continue;
     } else { // fallback version still available
-      addPreferredLanguageProperty([kontentItem], lang);
-      alterRichTextElements([kontentItem]);
-      const nodeData = getKontentItemLanguageVariantArtifact(
-        api,
-        kontentItem,
-        pluginConfig.includeRawContent,
-      );
+      const nodeData = createNodeFromRawKontentItem(api, kontentItem, pluginConfig.includeRawContent , lang);
       touchedItemsIds.push(nodeData.id);
-      api.actions.createNode(nodeData);
     }
   }
 
