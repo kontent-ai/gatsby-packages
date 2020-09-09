@@ -29,7 +29,11 @@ The repository contains the development site (`/site`) that could automatically 
 
 #### Resolution showcase
 
-- [Resolution showcase](/examples/resolution#readme) - Demonstration how resolve Rich Text element and it's inline images, invline content items, and content components.
+- [Resolution showcase](/examples/resolution#readme) - Demonstration how resolve Rich Text element and it's inline images, inline content items, and content components.
+
+#### Relationships showcase
+
+- [Relationships showcase](/examples/relationships#readme) - Schema customization examples demonstrating relationship possibilities among Kontent GraphQL nodes.
 
 ## Development
 
