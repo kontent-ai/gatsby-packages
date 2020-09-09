@@ -15,7 +15,6 @@ module.exports = {
           'en-US',
           'cs-CZ'
         ],
-        includeTypes: true
       },
     },
   ],
