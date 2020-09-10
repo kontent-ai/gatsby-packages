@@ -455,9 +455,15 @@ query Taxonomies {
 
 If you choose to maintain your Gatsby site on [Gatsby Cloud](https://www.gatsbyjs.com/cloud/), you will need to register two webhooks from Kentico Kontent Kontent to Gatsby Cloud. Follow [the "Getting started" tutorial](https://www.gatsbyjs.com/docs/kontent/getting-started/) for more information. All webhook notifications that are not mentioned in the tutorial will be ignored by the plugin.
 
-Once you integrate your site with Gatsby Cloud, you will be able to lavarage the new cool features as Intelligent caching, [true Incremental builds](https://www.gatsbyjs.com/cloud/docs/incremental-builds/), or [Real-time Gatsby preview](https://www.gatsbyjs.com/preview/). Your site will benefit from amazingly fast site (re-)builds! Check out the [willit.build benchmark](https://willit.build/details/type/blog/source/kentico/page-count/8192) for the performance comparion.
+Once you integrate your site with Gatsby Cloud, you will be able to lavarage the new cool features as Intelligent caching, [true Incremental builds](https://www.gatsbyjs.com/cloud/docs/incremental-builds/), or [Real-time Gatsby preview](https://www.gatsbyjs.com/preview/). Your site will benefit from amazingly fast site (re-)builds! Check out the [willit.build benchmark](https://willit.build/details/type/blog/source/kentico/page-count/8192) for the performance comparison.
 
 > Please note that change in taxonomies or content types require a complete rebuild of the site, because these structural data affects GraphQL schema.
+
+### Gatsby preview updates
+
+The source plugin is capable of handling [Kontent Preview webhooks triggered by Delivery Preview API triggers](https://docs.kontent.ai/reference/webhooks-reference#a-delivery-preview-api-triggers). That means by setting `ENABLE_GATSBY_REFRESH_ENDPOINT` environment variable to `true` opens a `/__refresh` endpoint which could be used as a target endpoint to webhook with these triggers.
+
+If you want to trigger whole website rebuilt, it could be done by sending a post request with an empty body. It could be useful i.e. if you want to rebuild whole site when you are developing locally (`curl -X POST http://localhost:8000/__refresh`).
 
 ## How to use Web Spotlight with Gatsby
 
