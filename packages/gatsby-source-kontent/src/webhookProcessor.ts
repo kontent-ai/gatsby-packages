@@ -62,7 +62,6 @@ const handleUpsertItem = async (
   const createdItemsIds = [];
   for (const lang of pluginConfig.languageCodenames) {
     const { item: kontentItem, modularKontent } = await client.loadKontentItem(itemInfo.id, lang, pluginConfig, true);
-    console.log(modularKontent);
     if (kontentItem === undefined) {
       api.reporter.verbose(`Kontent item (${itemInfo.id}) language variant (${lang}) not found on the kontent delivery API for update`);
       continue;
