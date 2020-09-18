@@ -463,7 +463,7 @@ Once you integrate your site with Gatsby Cloud, you will be able to lavarage the
 
 The source plugin is capable of handling [Kontent Preview webhooks triggered by Delivery Preview API triggers](https://docs.kontent.ai/reference/webhooks-reference#a-delivery-preview-api-triggers). That means setting `ENABLE_GATSBY_REFRESH_ENDPOINT` environment variable to `true` opens a `/__refresh` endpoint which could be used as a target endpoint to webhook with these triggers.
 
-If you want to trigger whole website rebuilt, it could be done by sending a post request with an empty body. It could be useful i.e. if you want to rebuild whole site when you are developing locally (`curl -X POST http://localhost:8000/__refresh`).
+If you want to trigger the whole website rebuilt, it could be done by sending a post request with an empty body. It could be useful i.e. if you want to rebuild the whole site when you are developing locally (`curl -X POST http://localhost:8000/__refresh`).
 
 ## How to use Web Spotlight with Gatsby
 
