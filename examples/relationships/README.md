@@ -32,7 +32,7 @@ Once you create the content models, you could create content items based on thes
 
 ### Kontent content models
 
-Kontent project contains a simple article content base, that could be tagged. There are two content types `Article` and `Tag`. Kontent project is using two languages `en-US` and `cs-CZ` to showcase [Language variant relationships](#Language-variant-relationships);
+Kontent project contains a simple article content base, that could be tagged. There are two content types `Article` and `Tag`. Kontent project is using two languages `en-US` and `cs-CZ` to showcase [Language variant relationships](#Language-variant-relationships).
 
 #### Article content type
 
