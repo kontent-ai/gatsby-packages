@@ -29,7 +29,7 @@ The repository contains the development site (`/site`) that could automatically 
 
 #### Resolution showcase
 
-- [Resolution showcase](/examples/resolution#readme) - Demonstration how resolve Rich Text element and it's inline images, inline content items, and content components.
+- [Resolution showcase](/examples/resolution#readme) - Demonstration how to resolve the Rich Text element and it's inline images, inline content items, and content components.
 
 #### Relationships showcase
 
