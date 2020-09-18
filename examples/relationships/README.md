@@ -199,7 +199,7 @@ If you want to import content types with the sample content in your own empty pr
 
 1. Go to your Kontent project and [publish all the imported items](https://docs.kontent.ai/tutorials/write-and-collaborate/publish-your-work/publish-content-items).
 
-### Connect the site to custom project
+### Connect the site to a custom project
 
 Open the `gatsby-config.js` file and set the following properties for `@kentico/gatsby-source-kontent` plugin:
 
