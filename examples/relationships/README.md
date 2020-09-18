@@ -2,7 +2,7 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/27d162a0-612b-4d8f-8382-40eee4f6b5d9/deploy-status)](https://app.netlify.com/sites/kontent-gatsby-example-relationships/deploys)
 
-Following example sites is showcasing the possibilities of [Gatsby Foreign keys Fields](https://www.gatsbyjs.com/docs/schema-customization/#foreign-key-fields) on some simple scenarios.
+The following example sites are showcasing the possibilities of [Gatsby Foreign keys Fields](https://www.gatsbyjs.com/docs/schema-customization/#foreign-key-fields) on some simple scenarios.
 
 ## Get started
 
