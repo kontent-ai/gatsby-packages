@@ -15,7 +15,7 @@ const Articles = (props) => {
 
         return (<div style={{ padding: ".5em", margin: ".5em", background: "silver" }}>
           <div>
-            <strong>({variant.preferred_language}{variant.fallback_used ? ` -> ${variant.system.language}` : null})</strong>
+            <strong>({variant.preferred_language}{variant.preferred_language !== variant.system.language ? ` -> ${variant.system.language}` : null})</strong>
               Title: {variant.elements.title.value}
           </div>
           <div>Description: {variant.elements.description.value}</div>
@@ -76,7 +76,6 @@ export const query = graphql`
             }
           }
         }
-        fallback_used
       }
     }
   }

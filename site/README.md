@@ -57,23 +57,9 @@ See [/examples/navigation](../examples/navigation#readme) for the example.
 
 See [/examples/resolution](../examples/resolution#readme) for the example.
 
-### Language variant relationships
+### Relationships among Kontent GraphQL Nodes
 
-The relationship capturing relationship about language variants could be ensured by extended schema definition.
-
-Showcase is in [Language variant relationships](./example-languages-link.js).
-
-### Content type -> Content Item resolution
-
-The relationship capturing relationship about content type and its content items could be ensured by extended schema definition.
-
-Showcase is in [Content type -> Content Item resolution](./example-type-items-link.js).
-
-### Linked from relationship
-
-Reverse link resolution relationship could be ensured by the schema definition as well.
-
-Showcase is in [Linked from relationship](./example-used-by-content-item-link.js).
+See [/examples/relationships](../examples/relationships#readme) to see how it is possible to make a relationship among the data provided by the [Kontent source plugin](../packages/gatsby-source-kontent#readme).
 
 ### Image transformation
 
