@@ -2,7 +2,7 @@ const {
   getKontentItemNodeTypeName,
 } = require("@kentico/gatsby-source-kontent")
 
-const addLanguageLinks = (api, typeCodename) => {
+const linkLanguageVariants = (api, typeCodename) => {
   const {
     actions: { createTypes },
     schema,
@@ -14,10 +14,17 @@ const addLanguageLinks = (api, typeCodename) => {
   const extendedType = schema.buildObjectType({
     name: type,
     fields: {
+      fallback_used: {
+        type: "Boolean",
+        // https://www.gatsbyjs.org/docs/schema-customization/
+        resolve: (source) => {
+          return source.preferred_language !== source.system.language
+        },
+      },
       other_languages: {
         type: `[${type}]`,
         // https://www.gatsbyjs.org/docs/schema-customization/
-        resolve: async (source, args, context, info) => {
+        resolve: async (source, _args, context, _info) => {
           const pluginInfo = await context.nodeModel.runQuery({
             query: {
               filter: {
@@ -29,37 +36,36 @@ const addLanguageLinks = (api, typeCodename) => {
             type: "SitePlugin",
             firstOnly: true,
           })
-          const languageCodenames = pluginInfo.pluginOptions.languageCodenames
-          const otherLanguageCodenames = languageCodenames.filter(
-            lang => lang !== source.preferred_language
+
+          const otherLanguageCodenames = pluginInfo.pluginOptions.languageCodenames.filter(
+            lang => lang !== source.system.language // filter out the actual language variants
           )
 
-          // Including language fallback
-          const otherLanguageNodes = await context.nodeModel.runQuery({
+          const promises = otherLanguageCodenames.map(otherLanguage => context.nodeModel.runQuery({
             query: {
               filter: {
                 system: {
                   codename: {
                     eq: source.system.codename,
                   },
+                  // It is possible to skip this filter, if you want to include the fallback nodes to the other_languages property
+                  language: {
+                    eq: otherLanguage
+                  }
                 },
                 preferred_language: {
-                  in: otherLanguageCodenames,
+                  eq: otherLanguage,
                 },
               },
             },
             type: type,
-            firstOnly: false,
-          })
+            firstOnly: true,
+          }))
 
+          const otherLanguageNodes = await Promise
+            .all(promises);
           return otherLanguageNodes
-        },
-      },
-      fallback_used: {
-        type: "Boolean",
-        // https://www.gatsbyjs.org/docs/schema-customization/
-        resolve: (source, args, context, info) => {
-          return source.preferred_language !== source.system.language
+            .filter(item => item != null);
         },
       },
     },
@@ -68,5 +74,5 @@ const addLanguageLinks = (api, typeCodename) => {
 }
 
 module.exports = {
-  addLanguageLinks,
+  linkLanguageVariants,
 }

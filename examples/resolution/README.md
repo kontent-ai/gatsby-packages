@@ -18,7 +18,7 @@ yarn build # build the latest version of the local packages
 
 ```sh
 # open the /example/navigation folder
-cd example/navigation
+cd examples/navigation
 yarn develop # runs `gatsby develop` command
 ```
 
@@ -110,7 +110,7 @@ The `Bio` rich text resolution in [`templates/person.js`](./src/templates/person
 
 ## URL resolution
 
-For all `Person` content items, there is [a new page created](./gatsby-node.js#L65) based on on the [`templates/person.js`](./src/templates/person.js) template. The template is using [utils/resolvers/](./src/utisl/resolvers.js#L1) to resolve links to other content items into the URLs in the `Bio` element.
+For all `Person` content items, there is [a new page created](./gatsby-node.js#L65) based on the [`templates/person.js`](./src/templates/person.js) template. The template is using [utils/resolvers/](./src/utils/resolvers.js#L1) to resolve links to other content items into the URLs in the `Bio` element.
 
 The main example is on <http://localhost:8000/people/ondrej-chrastina/> that showcase [URL resolution of the `Bio` element](./src/templates/person.js) - in this case the link to `John Doe`.
 
