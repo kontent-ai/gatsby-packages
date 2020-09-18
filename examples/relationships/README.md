@@ -61,7 +61,7 @@ Schema extension are being performed right in the web site source code (in [gats
 
 If you want to separate this logic, it is possible to create a [local Gatsby plugin](https://www.gatsbyjs.com/docs/creating-a-local-plugin/) and define these customization there, as it is showcased in the [Kontent Lumen starter](https://github.com/Kentico/gatsby-starter-kontent-lumen/tree/master/plugins/kontent-used-by-content-items), just use [`createResolvers`](https://www.gatsbyjs.com/docs/node-apis/#createResolvers) method for the customizations. If you want to re-use this code, you could [publish the plugin to the npm](https://www.gatsbyjs.com/contributing/submit-to-plugin-library/) and then re-use it.
 
-> In case you published your schema extension bound to Kontent GraphQL nodes feel free to raise an issue/pull request with plugin description and we are happy to mentions it here!
+> In case you published your schema extension bound to Kontent GraphQL nodes feel free to raise an issue/pull request with plugin description and we are happy to mention it here!
 
 ### Language variant relationships
 
