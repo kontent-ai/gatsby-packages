@@ -59,7 +59,7 @@ See [/examples/resolution](../examples/resolution#readme) for the example.
 
 ### Relationships among Kontent GraphQL Nodes
 
-See [/examples/relationships](../examples/relationships#readme) to see how it is possible to make a relationship amond the data provided by the [Kontent source plugin](../packages/gatsby-source-kontent#readme).
+See [/examples/relationships](../examples/relationships#readme) to see how it is possible to make a relationship among the data provided by the [Kontent source plugin](../packages/gatsby-source-kontent#readme).
 
 ### Image transformation
 
