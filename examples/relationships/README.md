@@ -201,7 +201,7 @@ If you want to import content types with the sample content in your own empty pr
 
 ### Connect the site to custom project
 
-Open the `gatsby-config.js` file and set following properties for `@kentico/gatsby-source-kontent` plugin:
+Open the `gatsby-config.js` file and set the following properties for `@kentico/gatsby-source-kontent` plugin:
 
 - `projectId` from *Project settings > API keys > Delivery API > Project ID*
 - `languageCodenames` from *Project settings > Localization*
