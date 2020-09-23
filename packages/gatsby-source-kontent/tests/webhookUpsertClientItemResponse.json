@@ -1,0 +1,45 @@
+{
+  "item": {
+    "system": {
+      "id": "eedf0209-989c-4adb-bc83-546e325ab781",
+      "name": "Author",
+      "codename": "author",
+      "language": "en-US",
+      "type": "author",
+      "sitemap_locations": [],
+      "last_modified": "2020-09-22T09:33:13.7465607Z"
+    },
+    "elements": {
+      "notes": {
+        "type": "rich_text",
+        "name": "Notes",
+        "images": {},
+        "links": {},
+        "modular_content": [
+          "n6951be2b_e502_01ed_79a4_80ad776ae16b"
+        ],
+        "value": "<p>This is a sample notes element with one note component</p>\n<object type=\"application/kenticocloud\" data-type=\"item\" data-rel=\"component\" data-codename=\"n6951be2b_e502_01ed_79a4_80ad776ae16b\"></object>"
+      }
+    }
+  },
+  "modularKontent": {
+    "n6951be2b_e502_01ed_79a4_80ad776ae16b": {
+      "system": {
+        "id": "6951be2b-e502-01ed-79a4-80ad776ae16b",
+        "name": "6951be2b-e502-01ed-79a4-80ad776ae16b",
+        "codename": "n6951be2b_e502_01ed_79a4_80ad776ae16b",
+        "language": "en-US",
+        "type": "note",
+        "sitemap_locations": [],
+        "last_modified": "2020-09-22T09:33:13.7465607Z"
+      },
+      "elements": {
+        "text": {
+          "type": "text",
+          "name": "Text",
+          "value": "Note 1"
+        }
+      }
+    }
+  }
+}
