@@ -20,7 +20,7 @@ yarn build # build the latest version of the local packages
 
 ```sh
 # open the /example/navigation folder
-cd example/navigation
+cd examples/navigation
 yarn develop # runs `gatsby develop` command
 ```
 
