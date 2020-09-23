@@ -15,6 +15,8 @@ const TAXONOMY_IDENTIFIER = 'taxonomy';
 const TYPE_IDENTIFIER = 'type';
 const CACHE_IDENTIFIER = 'cache';
 
+const RICH_TEXT_ELEMENT_TYPE_NAME = 'rich_text';
+
 const PREFERRED_LANGUAGE_IDENTIFIER = 'preferred_language';
 
 const defaultPluginNamingConfiguration: PluginNamingConfiguration = {
@@ -148,7 +150,7 @@ const getKontentItemsSchemaNamingConfiguration = (
       )
       .replace(
         /__KONTENT_ITEM_RICH_TEXT_ELEMENT__/g,
-        getKontentItemElementTypeNameByType('rich_text', config),
+        getKontentItemElementTypeNameByType(RICH_TEXT_ELEMENT_TYPE_NAME, config),
       )
       .replace(
         /__KONTENT_ITEM_NUMBER_ELEMENT__/g,
@@ -198,14 +200,14 @@ const getKontentItemsSchemaNamingConfiguration = (
       .replace(
         /__KONTENT_ELEMENT_RICH_TEXT_IMAGE_VALUE__/g,
         `${getKontentItemElementValueTypeNameByType(
-          'rich_text',
+          RICH_TEXT_ELEMENT_TYPE_NAME,
           config,
         )}${CONNECTOR}image`,
       )
       .replace(
         /__KONTENT_ELEMENT_RICH_TEXT_LINK_VALUE__/g,
         `${getKontentItemElementValueTypeNameByType(
-          'rich_text',
+          RICH_TEXT_ELEMENT_TYPE_NAME,
           config,
         )}${CONNECTOR}link`,
       )
@@ -280,4 +282,5 @@ export {
   getKontentTaxonomiesSchemaNamingConfiguration,
   getKontentTypesSchemaNamingConfiguration,
   PREFERRED_LANGUAGE_IDENTIFIER,
+  RICH_TEXT_ELEMENT_TYPE_NAME
 };
