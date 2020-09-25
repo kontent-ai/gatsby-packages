@@ -6,8 +6,10 @@ export default () => {
   return (
     <>
       <RichTextElement value="<div>Hello Kontent!</div>" />
-      <Link to="author">Image resolution example</Link>
-      <Link to="articles">Article listing example</Link>
+      <ul>
+        <li><Link to="author">Image resolution example</Link></li>
+        <li><Link to="articles">Article listing example</Link></li>
+      </ul>
     </>
   )
 }

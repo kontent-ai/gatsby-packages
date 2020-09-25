@@ -1,9 +1,10 @@
-import { SourceNodesArgs } from "gatsby"
+import { SourceNodesArgs, Node } from "gatsby"
 import { CustomPluginOptions, KontentTaxonomy, KontentItem, KontentType } from "./types"
 import * as client from "./client";
 import { addPreferredLanguageProperty, alterRichTextElements, getKontentItemLanguageVariantArtifact } from "./sourceNodes.items";
-import { getKontentItemNodeStringForId, getKontentTaxonomyTypeName, getKontentTypeTypeName } from "./naming";
+import { getKontentItemNodeStringForId, getKontentTaxonomyTypeName, getKontentTypeTypeName, RICH_TEXT_ELEMENT_TYPE_NAME, PREFERRED_LANGUAGE_IDENTIFIER, getKontentItemInterfaceName } from "./naming";
 import { IWebhookDeliveryResponse, IWebhookMessage } from '@kentico/kontent-webhook-helper';
+import _ from 'lodash';
 
 const parseKontentWebhookBody = (api: SourceNodesArgs): IWebhookDeliveryResponse | null => {
   const parsedBody = api.webhookBody as IWebhookDeliveryResponse;
@@ -22,7 +23,7 @@ const parseKontentWebhookBody = (api: SourceNodesArgs): IWebhookDeliveryResponse
 const isKontentSupportedWebhook = (message: IWebhookMessage, projectId: string): boolean => {
   const isCorrectProject = message.project_id === projectId;
   const isPreviewWebhook = 'delivery_preview' === message.api_name
-    && ['upsert', 'archive'].includes(message.operation);
+    && ['upsert', 'archive', 'restore'].includes(message.operation);
   const isBuildWebhook = 'delivery_production' === message.api_name
     && ['publish', 'unpublish'].includes(message.operation);
   const isCorrectMessageType = message.type == 'content_item_variant'
@@ -32,6 +33,24 @@ const isKontentSupportedWebhook = (message: IWebhookMessage, projectId: string):
     && isCorrectMessageType
 };
 
+const createNodeFromRawKontentItem = (api: SourceNodesArgs, rawKontentItem: KontentItem, includeRawContent: boolean, preferredLanguage: string): KontentItem => {
+  addPreferredLanguageProperty([rawKontentItem], preferredLanguage);
+  alterRichTextElements([rawKontentItem]);
+  const nodeData = getKontentItemLanguageVariantArtifact(
+    api,
+    rawKontentItem,
+    includeRawContent,
+  );
+  api.actions.createNode(nodeData);
+  return nodeData;
+}
+
+const isContentComponent = (data: KontentItem): boolean => {
+  // Components have substring 01 in its id starting at position 14.
+  // xxxxxxxx-xxxx-01xx-xxxx-xxxxxxxxxxxx
+  const id = data?.system?.id;
+  return id !== null && id.substring(14, 16) === "01";
+}
 
 const handleUpsertItem = async (
   api: SourceNodesArgs,
@@ -50,20 +69,22 @@ const handleUpsertItem = async (
 
   const createdItemsIds = [];
   for (const lang of pluginConfig.languageCodenames) {
-    const kontentItem = await client.loadKontentItem(itemInfo.id, lang, pluginConfig, true);
+    const { item: kontentItem, modularKontent } = await client.loadKontentItem(itemInfo.id, lang, pluginConfig, true);
     if (kontentItem === undefined) {
       api.reporter.verbose(`Kontent item (${itemInfo.id}) language variant (${lang}) not found on the kontent delivery API for update`);
       continue;
     }
-    addPreferredLanguageProperty([kontentItem], lang);
-    alterRichTextElements([kontentItem]);
-    const nodeData = getKontentItemLanguageVariantArtifact(
-      api,
-      kontentItem,
-      pluginConfig.includeRawContent,
-    );
+
+    const nodeData = createNodeFromRawKontentItem(api, kontentItem, pluginConfig.includeRawContent, lang);
     createdItemsIds.push(nodeData.id);
-    api.actions.createNode(nodeData);
+
+    for (const key in modularKontent) {
+      if (Object.prototype.hasOwnProperty.call(modularKontent, key)) {
+        const modularKontentItem = modularKontent[key];
+        const nodeData = createNodeFromRawKontentItem(api, modularKontentItem, pluginConfig.includeRawContent, lang);
+        createdItemsIds.push(nodeData.id);
+      }
+    }
   }
 
   return createdItemsIds;
@@ -87,25 +108,48 @@ const handleDeleteItem = async (
 
   const touchedItemsIds = [];
   for (const lang of pluginConfig.languageCodenames) {
-    const kontentItem = await client.loadKontentItem(itemInfo.id, lang, pluginConfig, true);
-    if (kontentItem === undefined) { //item  was deleted
+    const { item: kontentItem, modularKontent } = await client.loadKontentItem(itemInfo.id, lang, pluginConfig, true);
+    if (kontentItem === undefined) { //item  was deleted (with content components)
       const idString = getKontentItemNodeStringForId(itemInfo.id, lang);
       const node = api.getNode(api.createNodeId(idString));
+
+      // Remove content components
+      const kontentItemNodes = api.getNodes()
+        .filter((node: Node) => node.internal.type.startsWith(getKontentItemInterfaceName()));
+      const modularItemCodenames: string[] = _.flatMap(
+        Object.values((node as KontentItem).elements)
+          .filter(element => element.type === RICH_TEXT_ELEMENT_TYPE_NAME)
+          .map(richTextElement => richTextElement.modular_content)
+      );
+
+      modularItemCodenames.forEach(modularItemCodename => {
+        const candidate = kontentItemNodes.find((candidateNode: KontentItem) =>
+          candidateNode.system && candidateNode.system.codename === modularItemCodename
+          && candidateNode[PREFERRED_LANGUAGE_IDENTIFIER] === node[PREFERRED_LANGUAGE_IDENTIFIER])
+
+        if (candidate && isContentComponent(candidate)) {
+          touchedItemsIds.push(candidate.id);
+          api.actions.deleteNode({ node: candidate });
+        }
+      })
+
+
       if (node) {
         touchedItemsIds.push(node.id);
         api.actions.deleteNode({ node });
       }
       continue;
     } else { // fallback version still available
-      addPreferredLanguageProperty([kontentItem], lang);
-      alterRichTextElements([kontentItem]);
-      const nodeData = getKontentItemLanguageVariantArtifact(
-        api,
-        kontentItem,
-        pluginConfig.includeRawContent,
-      );
+      const nodeData = createNodeFromRawKontentItem(api, kontentItem, pluginConfig.includeRawContent, lang);
       touchedItemsIds.push(nodeData.id);
-      api.actions.createNode(nodeData);
+
+      for (const key in modularKontent) {
+        if (Object.prototype.hasOwnProperty.call(modularKontent, key)) {
+          const modularKontentItem = modularKontent[key];
+          const nodeData = createNodeFromRawKontentItem(api, modularKontentItem, pluginConfig.includeRawContent, lang);
+          touchedItemsIds.push(nodeData.id);
+        }
+      }
     }
   }
 
@@ -142,7 +186,7 @@ const handleIncomingWebhook = async (
     // use signatureHelper '@kentico/kontent-webhook-helper'
     // https://github.com/gatsbyjs/gatsby/issues/23593
 
-    if (webhook.message.operation === "upsert") {
+    if (webhook.message.operation === "upsert" || webhook.message.operation === "restore") {
       const processedIds = await handleUpsertItem(api, pluginConfig);
       processedItemIds.concat(processedIds);
     }
