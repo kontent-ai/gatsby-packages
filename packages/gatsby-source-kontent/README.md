@@ -530,6 +530,7 @@ For more developer resources, visit the [Kentico Kontent Docs](https://docs.kont
 
 - [Sourcing from Kentico Kontent](https://www.gatsbyjs.org/docs/sourcing-from-kontent/)
 - [Getting started with Gatsby Cloud and Kontent](https://www.gatsbyjs.com/docs/kontent/getting-started/)
+- [Kontent - The fastest headless CMS for Gatsby](https://kontent.ai/gatsby-cms)
 - [Kentico Cloud & Gatsby Take You Beyond Static Websites](https://www.gatsbyjs.org/blog/2018-12-19-kentico-cloud-and-gatsby-take-you-beyond-static-websites/) by [@ondrabus](https://github.com/ondrabus)
 - [Using Gatsby with Kontent
 ](https://www.gatsbyjs.com/guides/kentico-kontent/)
