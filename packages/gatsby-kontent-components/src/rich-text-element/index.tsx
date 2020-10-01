@@ -13,6 +13,7 @@ interface Props {
   resolveImage?: Function;
   links?: any[];
   resolveLink?: Function;
+  resolveDomNode?: Function;
 }
 
 const isLinkedItem = (domNode: DomElement): boolean =>
@@ -31,7 +32,8 @@ const replaceNode = (
   images: any[] | undefined,
   resolveImage: Function | undefined,
   links: any[] | undefined,
-  resolveLink: Function | undefined): void => {
+  resolveLink: Function | undefined,
+  resolveDomNode: Function | undefined): void => {
   if (resolveLinkedItem && linkedItems) {
     if (isLinkedItem(domNode)) {
       const codeName = domNode.attribs?.["data-codename"];
@@ -55,13 +57,17 @@ const replaceNode = (
       return resolveLink(link, domNode);
     }
   }
+
+  if (resolveDomNode) {
+    return resolveDomNode(domNode, domToReact);
+  }
 };
 
-const RichTextElement = ({ value, linkedItems, resolveLinkedItem, images, resolveImage, links, resolveLink }: Props): ReturnType<typeof domToReact> => (
-    parseHTML(value, {
-      replace: (domNode: DomElement) => replaceNode(domNode, linkedItems, resolveLinkedItem, images, resolveImage, links, resolveLink),
-    })
-  );
+const RichTextElement = ({ value, linkedItems, resolveLinkedItem, images, resolveImage, links, resolveLink, resolveDomNode }: Props): ReturnType<typeof domToReact> => (
+  parseHTML(value, {
+    replace: (domNode: DomElement) => replaceNode(domNode, linkedItems, resolveLinkedItem, images, resolveImage, links, resolveLink, resolveDomNode),
+  })
+);
 
 export { RichTextElement };
 
