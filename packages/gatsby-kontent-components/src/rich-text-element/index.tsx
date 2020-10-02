@@ -57,11 +57,17 @@ const replaceNode = (
   }
 };
 
-const RichTextElement = ({ value, linkedItems, resolveLinkedItem, images, resolveImage, links, resolveLink }: Props): ReturnType<typeof domToReact> => (
-    parseHTML(value, {
-      replace: (domNode: DomElement) => replaceNode(domNode, linkedItems, resolveLinkedItem, images, resolveImage, links, resolveLink),
-    })
-  );
+const RichTextElement = ({ value, linkedItems, resolveLinkedItem, images, resolveImage, links, resolveLink }: Props): JSX.Element => {
+  const result = parseHTML(value, {
+    replace: (domNode: DomElement) => replaceNode(domNode, linkedItems, resolveLinkedItem, images, resolveImage, links, resolveLink),
+  });
+
+  if (result as JSX.Element[]) {
+    return (<>{result}</>);
+  }
+
+  return result as JSX.Element;
+}
 
 export { RichTextElement };
 
