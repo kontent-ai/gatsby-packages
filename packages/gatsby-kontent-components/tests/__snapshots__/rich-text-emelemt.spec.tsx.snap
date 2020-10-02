@@ -212,7 +212,7 @@ On some projects, he was cooperating with
   "
 ",
   <div
-    className="table-responsive"
+    className="table-wrapper"
   >
     <table>
       <tbody>

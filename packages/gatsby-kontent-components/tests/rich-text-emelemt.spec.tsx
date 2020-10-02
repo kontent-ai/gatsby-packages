@@ -139,8 +139,8 @@ describe("<RichTextElement/>", () => {
         resolveDomNode={(domNode, domToReact): JSX.Element => {
           if (domNode.name === "table") {
             return (
-              <div className="table-responsive">
-                {domToReact([domNode], { trim: true })}
+              <div className="table-wrapper">
+                {domToReact([domNode])}
               </div>
             );
           }
