@@ -54,9 +54,10 @@ import { RichTextElement } from "@kentico/gatsby-kontent-components"
       }}
       resolveDomNode={(domNode, domToReact) => {
         if (domNode.name === "table") {
+          // For options - check https://www.npmjs.com/package/html-react-parser#options
           return (
             <div className="table-responsive">
-              {domToReact([domNode], { trim: true })}
+              {domToReact([domNode])}
             </div>
           );
         }
