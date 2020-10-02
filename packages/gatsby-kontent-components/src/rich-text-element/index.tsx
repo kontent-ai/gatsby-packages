@@ -63,9 +63,9 @@ const replaceNode = (
   }
 };
 
-const RichTextElement = ({ value, linkedItems, resolveLinkedItem, images, resolveImage, links, resolveLink }: Props): JSX.Element => {
+const RichTextElement = ({ value, linkedItems, resolveLinkedItem, images, resolveImage, links, resolveLink, resolveDomNode}: Props): JSX.Element => {
   const result = parseHTML(value, {
-    replace: (domNode: DomElement) => replaceNode(domNode, linkedItems, resolveLinkedItem, images, resolveImage, links, resolveLink),
+    replace: (domNode: DomElement) => replaceNode(domNode, linkedItems, resolveLinkedItem, images, resolveImage, links, resolveLink, resolveDomNode),
   });
 
   if (result as JSX.Element[]) {
