@@ -47,6 +47,7 @@
     "prettier": "1.19.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-test-renderer": "^16.13.1",
     "ts-auto-mock": "^1.5.7",
     "ts-jest": "^24.3.0",
     "ttypescript": "^1.5.10",
