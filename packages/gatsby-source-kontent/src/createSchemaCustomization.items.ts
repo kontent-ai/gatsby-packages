@@ -120,7 +120,7 @@ const createSchemaCustomization = async (
     const typeName = getKontentItemNodeTypeName(type.system.codename);
     const systemElementsTypeName = getKontentItemSystemElementTypeName();
     const typeInterfaceName = getKontentItemInterfaceName();
-    const objType = {
+    const typeItemObjectDefinition = {
       name: typeName,
       fields: {
         system: `${systemElementsTypeName}!`,
@@ -131,9 +131,9 @@ const createSchemaCustomization = async (
       infer: false,
     };
     if (!typeContainsElements) {
-      delete objType.fields.elements;
+      delete typeItemObjectDefinition.fields.elements;
     }
-    const typeItemDef = api.schema.buildObjectType(objType);
+    const typeItemDef = api.schema.buildObjectType(typeItemObjectDefinition);
     api.actions.createTypes(typeItemDef);
   }
 };
