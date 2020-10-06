@@ -1,12 +1,11 @@
-import { CustomCreateSchemaCustomizationArgs } from '../src/types';
 import { kontentTaxonomiesCreateSchemaCustomization } from '../src/createSchemaCustomization.taxonomies';
 import { createMock } from 'ts-auto-mock';
-import { Actions } from 'gatsby';
+import { Actions, CreateSchemaCustomizationArgs } from 'gatsby';
 import { mocked } from 'ts-jest/dist/util/testing';
 
 describe('createSchemaCustomization', () => {
   it('create fixed taxonomy definition', () => {
-    const api = createMock<CustomCreateSchemaCustomizationArgs>({
+    const api = createMock<CreateSchemaCustomizationArgs>({
       actions: createMock<Actions>({
         createTypes: jest.fn(),
       }),
