@@ -22,13 +22,6 @@ interface CustomPluginOptions extends PluginOptions {
   includeRawContent: boolean = false;
 }
 
-interface CustomCreateSchemaCustomizationArgs
-  extends CreateSchemaCustomizationArgs {
-  schema: {
-    buildObjectType: Function;
-  };
-}
-
 interface PluginNamingConfiguration {
   prefix: string;
 }

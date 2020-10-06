@@ -1,8 +1,8 @@
-import { CustomCreateSchemaCustomizationArgs } from './types';
+import { CreateSchemaCustomizationArgs } from 'gatsby';
 import { getKontentTypesSchemaNamingConfiguration } from './naming';
 
 const createSchemaCustomization = async (
-  api: CustomCreateSchemaCustomizationArgs,
+  api: CreateSchemaCustomizationArgs,
 ): Promise<void> => {
   const schema = getKontentTypesSchemaNamingConfiguration();
   api.actions.createTypes(schema);

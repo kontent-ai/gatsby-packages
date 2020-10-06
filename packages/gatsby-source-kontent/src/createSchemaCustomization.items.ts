@@ -1,6 +1,6 @@
+import { CreateSchemaCustomizationArgs } from 'gatsby';
 import {
   CustomPluginOptions,
-  CustomCreateSchemaCustomizationArgs,
   KontentItem,
   KontentType,
   KontentTypeElementsObject,
@@ -89,7 +89,7 @@ const getElementFieldsDefinitionForType = (
 };
 
 const createSchemaCustomization = async (
-  api: CustomCreateSchemaCustomizationArgs,
+  api: CreateSchemaCustomizationArgs,
   pluginConfig: CustomPluginOptions,
 ): Promise<void> => {
   // TODO check https://github.com/gatsbyjs/gatsby/pull/14610/files/5c50c435ab49884b6d854cd07f20efd95d1e5f52#diff-29de3acf9ce1010435f2b2f0043dba8cR252
@@ -112,7 +112,9 @@ const createSchemaCustomization = async (
       const elementsTypeDef = api.schema.buildObjectType({
         name: kontentItemElementsTypeName,
         fields: elementsFieldDefinition,
-        infer: false,
+        extensions: {
+          infer: false
+        }
       });
       api.actions.createTypes(elementsTypeDef);
     }
