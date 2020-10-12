@@ -25,7 +25,7 @@ This package should make the usage easier. Basically by loading the rich text da
 ```jsx
 import { RichTextElement } from "@kentico/gatsby-kontent-components"
 
-// ... 
+// ...
 
 <RichTextElement
       value={richTextElement.value}
@@ -52,6 +52,16 @@ import { RichTextElement } from "@kentico/gatsby-kontent-components"
       resolveLinkedItem={linkedItem => {
         return <pre>{JSON.stringify(linkedItem, undefined, 2)}</pre>
       }}
+      resolveDomNode={(domNode, domToReact) => {
+        if (domNode.name === "table") {
+          // For options - check https://www.npmjs.com/package/html-react-parser#options
+          return (
+            <div className="table-responsive">
+              {domToReact([domNode])}
+            </div>
+          );
+        }
+      }}
     />
 ```
 
@@ -63,8 +73,8 @@ If you don't need to resolve anything, you could just provide `value` property.
 
 If you want to resolve images pass `images` and `resolveImage` properties.
 
-* `images` **have to contain at least `image_id` property**
-* `resolveImage` has one parameter `image` basically containing one record from `images` array
+- `images` **have to contain at least `image_id` property**
+- `resolveImage` has one parameter `image` basically containing one record from `images` array
 
 #### Links to content items
 
@@ -72,14 +82,23 @@ If you want to resolve links to other content items pass `links` and `resolveLin
 
 > All other links (web URL, email, asset link) are not resolved. If you could use this functionality, please submit a feature request.
 
-* `links` **have to contain at least `link_id` property**
-* `resolveLink` has two parameter `link` basically containing one record from `links` array and `domNode` dome link element that could be used for i.e. getting the inner text of the current link `domNode.children[0].data`.
+- `links` **have to contain at least `link_id` property**
+- `resolveLink` has two parameter `link` basically containing one record from `links` array and `domNode` dome link element that could be used for i.e. getting the inner text of the current link `domNode.children[0].data`.
 
 #### Content components and Linked content items
 
 If you want to resolve images pass `linkedItems` and `resolveLinkedItem` properties.
 
-* `linkedItems` **have to contain at least `system.codename` property**
-* `resolveLinkedItem` has one parameter `linkedItem` basically containing one record from `linkedItems` array
+- `linkedItems` **have to contain at least `system.codename` property**
+- `resolveLinkedItem` has one parameter `linkedItem` basically containing one record from `linkedItems` array
+
+#### Custom resolution for any other dom node
+
+The general resolution method `resolveDomNode` is called for every DOM node, except for ones that are resolved specifically (described above). In the example above, all table elements will be wrapped with the `div` element. You could also return just a JSX if you want to replace the `domNode` completely.
+
+If you want to resolve elements via `resolveDomNode`, you get the following parameters:
+
+- `domNode` - DOM node from [`html-react-parser`](https://www.npmjs.com/package/html-react-parser)
+- `domToReact` - method from [`html-react-parser`](https://www.npmjs.com/package/html-react-parser) to be able to extend the actual `domNode` as on the example
 
 ![Analytics](https://kentico-ga-beacon.azurewebsites.net/api/UA-69014260-4/Kentico/kontent-gatsby-packages/packages/gatsby-kontent-components?pixel)

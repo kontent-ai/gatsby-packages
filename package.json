@@ -38,6 +38,7 @@
     "watch:source": "yarn workspace @kentico/gatsby-source-kontent watch",
     "watch:components": "yarn workspace @kentico/gatsby-kontent-components watch",
     "test:source": "yarn workspace @kentico/gatsby-source-kontent test",
+    "test:components": "yarn workspace @kentico/gatsby-kontent-components test",
     "set:version": "export LERNA_VERSION=\"$(node -e \"require('./lerna.json').version\")\""
   },
   "devDependencies": {

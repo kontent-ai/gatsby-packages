@@ -32,7 +32,7 @@
     "format": "prettier --write \"**/*.{ts,tsx}\""
   },
   "dependencies": {
-    "html-react-parser": "^0.10.2"
+    "html-react-parser": "^0.14.0"
   },
   "devDependencies": {
     "@types/jest": "24.9.0",

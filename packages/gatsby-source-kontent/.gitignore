@@ -13,3 +13,5 @@ src/**/*.js
 gatsby-*.js.map
 index*.js.map
 src/**/*.js.map
+
+coverage/*
