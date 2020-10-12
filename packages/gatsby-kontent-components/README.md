@@ -96,7 +96,7 @@ If you want to resolve images pass `linkedItems` and `resolveLinkedItem` propert
 
 The general resolution method `resolveDomNode` is called for every DOM node, except for ones that are resolved specifically (described above). In the example above, all table elements will be wrapped with the `div` element. You could also return just a JSX if you want to replace the `domNode` completely.
 
-If you want to resolve elements via `resolveDomNode`, you get following parameters:
+If you want to resolve elements via `resolveDomNode`, you get the following parameters:
 
 - `domNode` - DOM node from [`html-react-parser`](https://www.npmjs.com/package/html-react-parser)
 - `domToReact` - method from [`html-react-parser`](https://www.npmjs.com/package/html-react-parser) to be able to extend the actual `domNode` as on the example
