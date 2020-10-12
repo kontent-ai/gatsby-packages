@@ -94,7 +94,7 @@ If you want to resolve images pass `linkedItems` and `resolveLinkedItem` propert
 
 #### Custom resolution for any other dom node
 
-The general resolution method `resolveDomNode` is called for every DOM node, except of ones that are resolved specifically (described above). In the example above, all table elements will be wrapped with the `div` element. You could also return just a JSX if you want to replace the `domNode` completely.
+The general resolution method `resolveDomNode` is called for every DOM node, except for ones that are resolved specifically (described above). In the example above, all table elements will be wrapped with the `div` element. You could also return just a JSX if you want to replace the `domNode` completely.
 
 If you want to resolve elements via `resolveDomNode`, you get following parameters:
 
