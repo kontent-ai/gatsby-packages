@@ -1,6 +1,6 @@
+import { CreateSchemaCustomizationArgs } from 'gatsby';
 import {
   CustomPluginOptions,
-  CustomCreateSchemaCustomizationArgs,
   KontentItem,
   KontentType,
   KontentTypeElementsObject,
@@ -89,7 +89,7 @@ const getElementFieldsDefinitionForType = (
 };
 
 const createSchemaCustomization = async (
-  api: CustomCreateSchemaCustomizationArgs,
+  api: CreateSchemaCustomizationArgs,
   pluginConfig: CustomPluginOptions,
 ): Promise<void> => {
   // TODO check https://github.com/gatsbyjs/gatsby/pull/14610/files/5c50c435ab49884b6d854cd07f20efd95d1e5f52#diff-29de3acf9ce1010435f2b2f0043dba8cR252
@@ -105,17 +105,24 @@ const createSchemaCustomization = async (
     const kontentItemElementsTypeName = getKontentItemElementsSchemaTypeName(
       type.system.codename,
     );
-    const elementsTypeDef = api.schema.buildObjectType({
-      name: kontentItemElementsTypeName,
-      fields: getElementFieldsDefinitionForType(type),
-      infer: false,
-    });
-    api.actions.createTypes(elementsTypeDef);
+
+    const elementsFieldDefinition = getElementFieldsDefinitionForType(type)
+    const typeContainsElements = Object.keys(elementsFieldDefinition).length > 0;
+    if (typeContainsElements) {
+      const elementsTypeDef = api.schema.buildObjectType({
+        name: kontentItemElementsTypeName,
+        fields: elementsFieldDefinition,
+        extensions: {
+          infer: false
+        }
+      });
+      api.actions.createTypes(elementsTypeDef);
+    }
 
     const typeName = getKontentItemNodeTypeName(type.system.codename);
     const systemElementsTypeName = getKontentItemSystemElementTypeName();
     const typeInterfaceName = getKontentItemInterfaceName();
-    const typeItemDef = api.schema.buildObjectType({
+    const typeItemObjectDefinition = {
       name: typeName,
       fields: {
         system: `${systemElementsTypeName}!`,
@@ -124,7 +131,11 @@ const createSchemaCustomization = async (
       },
       interfaces: ['Node', typeInterfaceName],
       infer: false,
-    });
+    };
+    if (!typeContainsElements) {
+      delete typeItemObjectDefinition.fields.elements;
+    }
+    const typeItemDef = api.schema.buildObjectType(typeItemObjectDefinition);
     api.actions.createTypes(typeItemDef);
   }
 };

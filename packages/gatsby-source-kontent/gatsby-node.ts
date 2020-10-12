@@ -1,8 +1,7 @@
 import {
   CustomPluginOptions,
-  CustomCreateSchemaCustomizationArgs,
 } from './src/types';
-import { SourceNodesArgs } from 'gatsby';
+import { SourceNodesArgs, CreateSchemaCustomizationArgs } from 'gatsby';
 import * as _ from "lodash"
 
 
@@ -17,7 +16,7 @@ import { handleIncomingWebhook } from './src/webhookProcessor';
 let itemTypes: string[];
 
 exports.createSchemaCustomization = async (
-  api: CustomCreateSchemaCustomizationArgs,
+  api: CreateSchemaCustomizationArgs,
   pluginConfig: CustomPluginOptions,
 ): Promise<void> => {
   try {

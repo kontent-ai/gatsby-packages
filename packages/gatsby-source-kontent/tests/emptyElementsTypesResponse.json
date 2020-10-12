@@ -1,0 +1,21 @@
+{
+  "types": [
+    {
+      "system": {
+        "id": "4cd644fc-a18a-4b56-9415-9a95f5c46b04",
+        "name": "no elements",
+        "codename": "no_elements",
+        "last_modified": "2020-10-05T10:14:54.9051880Z"
+      },
+      "elements": {
+        
+      }
+    }
+  ],
+  "pagination": {
+    "skip": 0,
+    "limit": 0,
+    "count": 2,
+    "next_page": ""
+  }
+}
