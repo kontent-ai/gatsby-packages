@@ -1,5 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`kontentItemsCreateSchemaCustomization Empty element type does not fail 1`] = `
+Object {
+  "fields": Object {
+    "preferred_language": "String!",
+    "system": "kontent_item_system!",
+  },
+  "infer": false,
+  "interfaces": Array [
+    "Node",
+    "kontent_item",
+  ],
+  "name": "kontent_item_no_elements",
+}
+`;
+
 exports[`kontentItemsCreateSchemaCustomization create fixed type definition 1`] = `
 "# All __UPPER_CASE__  wildcards will be replaced by the configuration
 

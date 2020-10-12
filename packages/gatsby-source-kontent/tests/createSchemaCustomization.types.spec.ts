@@ -1,12 +1,11 @@
-import { CustomCreateSchemaCustomizationArgs } from '../src/types';
 import { kontentTypesCreateSchemaCustomization } from '../src/createSchemaCustomization.types';
 import { createMock } from 'ts-auto-mock';
-import { Actions } from 'gatsby';
+import { Actions, CreateSchemaCustomizationArgs } from 'gatsby';
 import { mocked } from 'ts-jest/dist/util/testing';
 
 describe('kontentTypesCreateSchemaCustomization', () => {
   it('create fixed type definition', () => {
-    const api = createMock<CustomCreateSchemaCustomizationArgs>({
+    const api = createMock<CreateSchemaCustomizationArgs>({
       actions: createMock<Actions>({
         createTypes: jest.fn(),
       }),
