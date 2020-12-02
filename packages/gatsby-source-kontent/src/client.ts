@@ -11,7 +11,7 @@ import {
   name as packageName,
   version as packageVersion,
 } from '../package.json';
-import { Cache } from 'gatsby';
+import { GatsbyCache } from 'gatsby';
 import { getKontentTypesCacheKey } from './naming';
 
 const DefaultKontentDeliveryProductionDomain = 'deliver.kontent.ai';
@@ -179,7 +179,7 @@ const loadAllKontentTypes = async (
 
 const loadAllKontentTypesCached = async (
   config: CustomPluginOptions,
-  cache: Cache["cache"],
+  cache: GatsbyCache
 ): Promise<KontentType[]> => {
   let types = await cache.get(getKontentTypesCacheKey());
   if (!types) {
