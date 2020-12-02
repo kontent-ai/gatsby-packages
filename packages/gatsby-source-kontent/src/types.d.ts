@@ -1,7 +1,7 @@
 import {
   PluginOptions,
-  CreateSchemaCustomizationArgs,
   NodeInput,
+  Node,
 } from 'gatsby';
 import { PREFERRED_LANGUAGE_IDENTIFIER } from './naming';
 
@@ -70,15 +70,26 @@ interface RichTextElementLink {
   urlSlug: string;
 }
 
-interface KontentItem extends NodeInput {
-  system: {
-    codename: string;
-    id: string;
-    language: string;
-    last_modified: Date;
-    name: string;
-    type: string;
+interface ItemSystemElements {
+  codename: string;
+  id: string;
+  language: string;
+  last_modified: Date;
+  name: string;
+  type: string;
+}
+
+interface KontentItemInput extends NodeInput {
+  system: ItemSystemElements;
+  elements: {
+    [key: string]:
+    KontentItemElement;
   };
+  [PREFERRED_LANGUAGE_IDENTIFIER]: string;
+}
+
+interface KontentItem extends Node {
+  system: ItemSystemElements;
   elements: {
     [key: string]:
     KontentItemElement;

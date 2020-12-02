@@ -1,5 +1,5 @@
 import { SourceNodesArgs, Node } from "gatsby"
-import { CustomPluginOptions, KontentTaxonomy, KontentItem, KontentType } from "./types"
+import { CustomPluginOptions, KontentTaxonomy, KontentItem, KontentItemInput, KontentType } from "./types"
 import * as client from "./client";
 import { addPreferredLanguageProperty, alterRichTextElements, getKontentItemLanguageVariantArtifact } from "./sourceNodes.items";
 import { getKontentItemNodeStringForId, getKontentTaxonomyTypeName, getKontentTypeTypeName, RICH_TEXT_ELEMENT_TYPE_NAME, PREFERRED_LANGUAGE_IDENTIFIER, getKontentItemInterfaceName } from "./naming";
@@ -33,7 +33,7 @@ const isKontentSupportedWebhook = (message: IWebhookMessage, projectId: string):
     && isCorrectMessageType
 };
 
-const createNodeFromRawKontentItem = (api: SourceNodesArgs, rawKontentItem: KontentItem, includeRawContent: boolean, preferredLanguage: string): KontentItem => {
+const createNodeFromRawKontentItem = (api: SourceNodesArgs, rawKontentItem: KontentItemInput, includeRawContent: boolean, preferredLanguage: string): string => {
   addPreferredLanguageProperty([rawKontentItem], preferredLanguage);
   alterRichTextElements([rawKontentItem]);
   const nodeData = getKontentItemLanguageVariantArtifact(
@@ -42,7 +42,7 @@ const createNodeFromRawKontentItem = (api: SourceNodesArgs, rawKontentItem: Kont
     includeRawContent,
   );
   api.actions.createNode(nodeData);
-  return nodeData;
+  return nodeData.id;
 }
 
 const isContentComponent = (data: KontentItem): boolean => {
@@ -75,14 +75,14 @@ const handleUpsertItem = async (
       continue;
     }
 
-    const nodeData = createNodeFromRawKontentItem(api, kontentItem, pluginConfig.includeRawContent, lang);
-    createdItemsIds.push(nodeData.id);
+    const nodeId = createNodeFromRawKontentItem(api, kontentItem, pluginConfig.includeRawContent, lang);
+    createdItemsIds.push(nodeId);
 
     for (const key in modularKontent) {
       if (Object.prototype.hasOwnProperty.call(modularKontent, key)) {
         const modularKontentItem = modularKontent[key];
-        const nodeData = createNodeFromRawKontentItem(api, modularKontentItem, pluginConfig.includeRawContent, lang);
-        createdItemsIds.push(nodeData.id);
+        const nodeId = createNodeFromRawKontentItem(api, modularKontentItem, pluginConfig.includeRawContent, lang);
+        createdItemsIds.push(nodeId);
       }
     }
   }
@@ -114,17 +114,19 @@ const handleDeleteItem = async (
       const node = api.getNode(api.createNodeId(idString));
 
       // Remove content components
-      const kontentItemNodes = api.getNodes()
-        .filter((node: Node) => node.internal.type.startsWith(getKontentItemInterfaceName()));
-      const modularItemCodenames: string[] = _.flatMap(
+      const kontentItemNodes: KontentItem[] = api.getNodes()
+        .filter((node: Node) => node.internal.type.startsWith(getKontentItemInterfaceName()))
+        .map(node => node as KontentItem);
+
+      const modularItemCodenames = _.flatMap(
         Object.values((node as KontentItem).elements)
           .filter(element => element.type === RICH_TEXT_ELEMENT_TYPE_NAME)
           .map(richTextElement => richTextElement.modular_content)
       );
 
       modularItemCodenames.forEach(modularItemCodename => {
-        const candidate = kontentItemNodes.find((candidateNode: KontentItem) =>
-          candidateNode.system && candidateNode.system.codename === modularItemCodename
+        const candidate = kontentItemNodes.find((candidateNode) =>
+          candidateNode?.system?.codename === modularItemCodename
           && candidateNode[PREFERRED_LANGUAGE_IDENTIFIER] === node[PREFERRED_LANGUAGE_IDENTIFIER])
 
         if (candidate && isContentComponent(candidate)) {
@@ -140,14 +142,14 @@ const handleDeleteItem = async (
       }
       continue;
     } else { // fallback version still available
-      const nodeData = createNodeFromRawKontentItem(api, kontentItem, pluginConfig.includeRawContent, lang);
-      touchedItemsIds.push(nodeData.id);
+      const nodeId = createNodeFromRawKontentItem(api, kontentItem, pluginConfig.includeRawContent, lang);
+      touchedItemsIds.push(nodeId);
 
       for (const key in modularKontent) {
         if (Object.prototype.hasOwnProperty.call(modularKontent, key)) {
           const modularKontentItem = modularKontent[key];
-          const nodeData = createNodeFromRawKontentItem(api, modularKontentItem, pluginConfig.includeRawContent, lang);
-          touchedItemsIds.push(nodeData.id);
+          const nodeId = createNodeFromRawKontentItem(api, modularKontentItem, pluginConfig.includeRawContent, lang);
+          touchedItemsIds.push(nodeId);
         }
       }
     }
@@ -217,21 +219,21 @@ const handleIncomingWebhook = async (
   }
 
   for (const itemType of itemTypes) {
-    const itemsToTouch: KontentItem[] = api.getNodesByType(itemType);
+    const itemsToTouch = api.getNodesByType(itemType);
     itemsToTouch
       .filter(item => processedItemIds.includes(item.id))
       .forEach(itemToTouch => api.actions.touchNode({ nodeId: itemToTouch.id }))
   }
 
   if (pluginConfig.includeTaxonomies) {
-    const taxonomies: KontentTaxonomy[] = api.getNodesByType(getKontentTaxonomyTypeName());
+    const taxonomies = api.getNodesByType(getKontentTaxonomyTypeName());
     for (const taxonomy of taxonomies) {
       api.actions.touchNode({ nodeId: taxonomy.id });
     }
   }
 
   if (pluginConfig.includeTypes) {
-    const types: KontentType[] = api.getNodesByType(getKontentTypeTypeName());
+    const types = api.getNodesByType(getKontentTypeTypeName());
     for (const type of types) {
       api.actions.touchNode({ nodeId: type.id });
     }

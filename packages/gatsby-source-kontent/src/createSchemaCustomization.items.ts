@@ -1,7 +1,7 @@
 import { CreateSchemaCustomizationArgs } from 'gatsby';
 import {
   CustomPluginOptions,
-  KontentItem,
+  KontentItemInput,
   KontentType,
   KontentTypeElementsObject,
 } from './types';
@@ -26,7 +26,7 @@ const getLanguageLinkExtension = (): object => ({
       _args: unknown,
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       context: any,
-    ): Promise<KontentItem[]> {
+    ): Promise<KontentItemInput[]> {
       const nodesCodeNames =
         source.type === 'modular_content'
           ? (source.value as string[])
