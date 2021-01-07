@@ -17,7 +17,7 @@ import { pluginOptionsSchema } from './src/pluginOptionsSchema';
 let itemTypes: string[];
 
 exports.pluginOptionsSchema = ({ Joi }: { Joi: any }) => {
-  return pluginOptionsSchema(Joi);
+  return pluginOptionsSchema({ Joi });
 }
 
 exports.createSchemaCustomization = async (
@@ -70,4 +70,3 @@ exports.sourceNodes = async (
     throw error;
   }
 };
-
