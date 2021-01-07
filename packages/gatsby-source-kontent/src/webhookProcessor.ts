@@ -1,5 +1,6 @@
 import { SourceNodesArgs, Node } from "gatsby"
-import { CustomPluginOptions, KontentTaxonomy, KontentItem, KontentItemInput, KontentType } from "./types"
+import { CustomPluginOptions, KontentItem, KontentItemInput } from "./types"
+
 import * as client from "./client";
 import { addPreferredLanguageProperty, alterRichTextElements, getKontentItemLanguageVariantArtifact } from "./sourceNodes.items";
 import { getKontentItemNodeStringForId, getKontentTaxonomyTypeName, getKontentTypeTypeName, RICH_TEXT_ELEMENT_TYPE_NAME, PREFERRED_LANGUAGE_IDENTIFIER, getKontentItemInterfaceName } from "./naming";
