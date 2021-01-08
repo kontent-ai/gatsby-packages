@@ -1,7 +1,7 @@
 import * as rax from 'retry-axios';
 import axios, { AxiosError } from 'axios';
 import {
-  KontentItem,
+  KontentItemInput,
   KontentType,
   KontentTaxonomy,
   CustomPluginOptions,
@@ -11,7 +11,7 @@ import {
   name as packageName,
   version as packageVersion,
 } from '../package.json';
-import { Cache } from 'gatsby';
+import { GatsbyCache } from 'gatsby';
 import { getKontentTypesCacheKey } from './naming';
 
 const DefaultKontentDeliveryProductionDomain = 'deliver.kontent.ai';
@@ -94,7 +94,7 @@ const ensureTrackingHeader = (
 const loadAllKontentItems = async (
   config: CustomPluginOptions,
   language: string,
-): Promise<KontentItem[]> => {
+): Promise<KontentItemInput[]> => {
   let continuationToken = '';
   const items = [];
   const headers = ensureAuthorizationHeader(config);
@@ -114,7 +114,7 @@ const loadAllKontentItems = async (
       },
     );
 
-    const union = _.unionBy<KontentItem>(
+    const union = _.unionBy<KontentItemInput>(
       response.data.items,
       Object.values(response.data.modular_content),
       'system.codename',
@@ -132,8 +132,8 @@ const loadKontentItem = async (
   config: CustomPluginOptions,
   waitForLoadingNewContent = false,
 ): Promise<{
-  item: KontentItem | undefined;
-  modularKontent: { [key: string]: KontentItem };
+  item: KontentItemInput | undefined;
+  modularKontent: { [key: string]: KontentItemInput };
 }> => {
 
   const headers = ensureAuthorizationHeader(config);
@@ -179,7 +179,7 @@ const loadAllKontentTypes = async (
 
 const loadAllKontentTypesCached = async (
   config: CustomPluginOptions,
-  cache: Cache["cache"],
+  cache: GatsbyCache
 ): Promise<KontentType[]> => {
   let types = await cache.get(getKontentTypesCacheKey());
   if (!types) {

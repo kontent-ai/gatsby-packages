@@ -1,7 +1,7 @@
 import { SourceNodesArgs } from 'gatsby';
 import {
   CustomPluginOptions,
-  KontentItem,
+  KontentItemInput,
   KontentItemElement,
   RichTextElementLink,
   RichTextElementImage,
@@ -15,16 +15,16 @@ import {
 import _ from 'lodash';
 
 const addPreferredLanguageProperty = (
-  items: Array<KontentItem>,
+  items: Array<KontentItemInput>,
   language: string,
-): Array<KontentItem> => {
+): Array<KontentItemInput> => {
   for (const item of items) {
     item[PREFERRED_LANGUAGE_IDENTIFIER] = language;
   }
   return items;
 };
 
-const alterRichTextElements = (items: Array<KontentItem>): void => {
+const alterRichTextElements = (items: Array<KontentItemInput>): void => {
   const richTextElements = _.flatMap(items, item =>
     Object.values(item.elements),
   ).filter((element: KontentItemElement) => element.type === 'rich_text');
@@ -50,14 +50,14 @@ const alterRichTextElements = (items: Array<KontentItem>): void => {
 
 const getKontentItemLanguageVariantArtifact = (
   api: SourceNodesArgs,
-  kontentItem: KontentItem,
+  kontentItem: KontentItemInput,
   includeRawContent: boolean,
-): KontentItem => {
+): KontentItemInput => {
   const nodeIdString = getKontentItemNodeStringForId(
     kontentItem.system.id,
     kontentItem[PREFERRED_LANGUAGE_IDENTIFIER],
   );
-  const nodeData: KontentItem = {
+  const nodeData: KontentItemInput = {
     ...kontentItem,
     id: api.createNodeId(nodeIdString),
     children: [],

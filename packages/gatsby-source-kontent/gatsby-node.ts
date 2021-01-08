@@ -12,8 +12,13 @@ import { kontentTaxonomiesSourceNodes } from './src/sourceNodes.taxonomies';
 import { kontentTypesCreateSchemaCustomization } from './src/createSchemaCustomization.types';
 import { kontentTypesSourceNodes } from './src/sourceNodes.types';
 import { handleIncomingWebhook } from './src/webhookProcessor';
+import { pluginOptionsSchema } from './src/pluginOptionsSchema';
 
 let itemTypes: string[];
+
+exports.pluginOptionsSchema = ({ Joi }: { Joi: any }) => {
+  return pluginOptionsSchema({ Joi });
+}
 
 exports.createSchemaCustomization = async (
   api: CreateSchemaCustomizationArgs,
@@ -42,11 +47,11 @@ exports.sourceNodes = async (
   pluginConfig: CustomPluginOptions,
 ): Promise<void> => {
   try {
-    if(!_.isEmpty(api.webhookBody)){ //preview run
+    if (!_.isEmpty(api.webhookBody)) { //preview run
       await handleIncomingWebhook(api, pluginConfig, itemTypes);
       return;
     }
-    
+
     itemTypes = await kontentItemsSourceNodes(api, pluginConfig);
 
     if (pluginConfig.includeTaxonomies) {
