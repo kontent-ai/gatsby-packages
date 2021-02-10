@@ -32,10 +32,10 @@
   "dependencies": {
     "@kentico/kontent-webhook-helper": "^1.1.0",
     "@types/fs-extra": "^8.0.1",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "fs-extra": "^8.1.0",
     "lodash": "^4.17.15",
-    "retry-axios": "^2.1.2"
+    "retry-axios": "^2.4.0"
   },
   "devDependencies": {
     "@types/jest": "24.9.0",
