@@ -48,7 +48,8 @@ type kontent_item_rich_text_element_value {
   name: String!
   type: String!
   value: String
-  modular_content: [kontent_item] @kontent_item_language_link
+  modular_content: [kontent_item]
+    @kontent_item_language_link
   images: [kontent_item_rich_text_element_image]
   links: [kontent_item_rich_text_element_link]
 }
@@ -128,6 +129,7 @@ type kontent_item_rich_text_element_image {
   description: String
   height: Int!
   width: Int!
+  type: String!
 }
 
 type kontent_item_rich_text_element_link {
