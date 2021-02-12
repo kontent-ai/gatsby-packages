@@ -11,8 +11,21 @@ The package containing React components useful when processing Kontent data to t
 ## Install
 
 ```sh
-npm install @kentico/gatsby-kontent-components
+npm install @kentico/gatsby-kontent-components gatsby-plugin-image
 ```
+
+## Image element component
+
+Images from Kentico Kontent can be displayed using the `ImageElement` component. This wraps the `GatsbyImage` component from [gatsby-plugin-image](https://www.gatsbyjs.com/docs/how-to/images-and-media/using-gatsby-plugin-image/), so ensure that you also install that plugin. This component will give the best experience for your users, as it includes responsive srcset, blur-up, lazy loading and many other performance optimizations. [Automatic format optimization](https://docs.kontent.ai/reference/image-transformation#a-automatic-format-selection) is always enabled. In many cases it can improve Lighthouse scores by 10-20 points.
+
+The component takes all [the `GatsbyImage` props](https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-plugin-image#gatsbyimage), as well as the following properties. All are optional except `image`:
+
+- `image`: the `image` object. This should include `src`, `width` and `height`.
+- `layout`: see [the `gatsby-plugin-image` docs](https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-plugin-image#layout)
+- `width`/`height`: see [the `gatsby-plugin-image` docs](https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-plugin-image#widthheight)
+- `aspectRatio`: see [the `gatsby-plugin-image` docs](https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-plugin-image#aspectratio)
+- `backgroundColor`: displayed as a placeholder while the image loads
+- `options`: an object containing options passed to [the Kontent Image Transformation API](https://docs.kontent.ai/reference/image-transformation). Supported options: `fit`, `quality`, `lossless`.
 
 ## Rich text element component
 
@@ -23,7 +36,7 @@ This package should make the usage easier. Basically by loading the rich text da
 > Complete showcase could be found in [rich-text.js](../../site/src/pages/rich-text.js) in the development site.
 
 ```jsx
-import { RichTextElement } from "@kentico/gatsby-kontent-components"
+import { RichTextElement, ImageElement } from "@kentico/gatsby-kontent-components"
 
 // ...
 
@@ -34,14 +47,14 @@ import { RichTextElement } from "@kentico/gatsby-kontent-components"
       linkedItems={richTextElement.modular_content}
       resolveImage={image => {
         return (
-          <img
-            src={image.url}
+          <ImageElement
+            image={image}
             alt={image.description ? image.description : image.name}
-            width="200"
+            width={200}
           />
         )
       }}
-      resolveLink={(link, domNode) => {
+      resolveLink={(link, domNode) =>
         const parentItemType = contextData.type // It is possible to use external data for resolution
         return (
           <Link to={`/${link.type}/partner/${parentItemType}/${link.url_slug}`}>

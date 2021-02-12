@@ -4,7 +4,7 @@
  * See: https://www.gatsbyjs.org/docs/gatsby-config/
  */
 
-require('dotenv').config({ path: '.env.development' })
+require("dotenv").config({ path: ".env.development" })
 
 module.exports = {
   plugins: [
@@ -12,7 +12,9 @@ module.exports = {
       resolve: "@kentico/gatsby-source-kontent",
       options: {
         projectId: process.env.KONTENT_PROJECT_ID,
-        languageCodenames: process.env.KONTENT_LANGUAGE_CODENAMES.split(',').map(lang => lang.trim()),
+        languageCodenames: process.env.KONTENT_LANGUAGE_CODENAMES.split(
+          ","
+        ).map(lang => lang.trim()),
         usePreviewUrl: !!process.env.KONTENT_PREVIEW_ENABLED,
         authorizationKey: process.env.KONTENT_PREVIEW_ENABLED
           ? process.env.KONTENT_PREVIEW_KEY
@@ -22,10 +24,12 @@ module.exports = {
         includeTypes: true,
         proxy: {
           deliveryDomain: process.env.KONTENT_DELIVERY_DOMAIN || undefined,
-          previewDeliveryDomain: process.env.KONTENT_PREVIEW_DELIVERY_DOMAIN || undefined
-        }
+          previewDeliveryDomain:
+            process.env.KONTENT_PREVIEW_DELIVERY_DOMAIN || undefined,
+        },
       },
     },
-    "@rshackleton/gatsby-transformer-kontent-image"
+    "@rshackleton/gatsby-transformer-kontent-image",
+    "gatsby-plugin-image",
   ],
 }
