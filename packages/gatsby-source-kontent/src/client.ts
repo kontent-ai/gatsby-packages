@@ -97,8 +97,8 @@ const loadAllKontentItems = async (
 ): Promise<KontentItemInput[]> => {
   let continuationToken = '';
   const items = [];
-  const headers = ensureAuthorizationHeader(config);
-  ensureTrackingHeader(headers);
+  let headers = ensureAuthorizationHeader(config);
+  headers = ensureTrackingHeader(headers);
   do {
     headers[continuationHeaderName] = continuationToken;
 
@@ -136,10 +136,10 @@ const loadKontentItem = async (
   modularKontent: { [key: string]: KontentItemInput };
 }> => {
 
-  const headers = ensureAuthorizationHeader(config);
-  ensureTrackingHeader(headers);
+  let  headers = ensureAuthorizationHeader(config);
+  headers = ensureTrackingHeader(headers);
   if (waitForLoadingNewContent) {
-    ensureNewContentHeader(headers)
+    headers = ensureNewContentHeader(headers)
   }
 
   const response = await axios.get(
@@ -163,8 +163,8 @@ const loadKontentItem = async (
 const loadAllKontentTypes = async (
   config: CustomPluginOptions,
 ): Promise<KontentType[]> => {
-  const headers = ensureAuthorizationHeader(config);
-  ensureTrackingHeader(headers);
+  let headers = ensureAuthorizationHeader(config);
+  headers = ensureTrackingHeader(headers);
   const response = await axios.get(
     `${getProtocolAndDomain(config)}/${config.projectId}/types`,
     {
@@ -193,8 +193,8 @@ const loadAllKontentTypesCached = async (
 const loadAllKontentTaxonomies = async (
   config: CustomPluginOptions,
 ): Promise<KontentTaxonomy[]> => {
-  const headers = ensureAuthorizationHeader(config);
-  ensureTrackingHeader(headers);
+  let headers = ensureAuthorizationHeader(config);
+  headers = ensureTrackingHeader(headers);
   const response = await axios.get(
     `${getProtocolAndDomain(config)}/${config.projectId}/taxonomies`,
     {
