@@ -45,7 +45,6 @@ describe(`pluginOptionsSchema`, () => {
       options
     )
 
-    console.log(errors);
     expect(isValid).toBe(true)
     expect(errors).toEqual([])
   })
