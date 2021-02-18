@@ -48,11 +48,13 @@ exports.sourceNodes = async (
 ): Promise<void> => {
   try {
     if (!_.isEmpty(api.webhookBody)) { //preview run
+      const itemTypes = (await api.cache.get('kontent-item-types')) || [];
       await handleIncomingWebhook(api, pluginConfig, itemTypes);
       return;
     }
-
-    itemTypes = await kontentItemsSourceNodes(api, pluginConfig);
+    
+    const itemTypes = await kontentItemsSourceNodes(api, pluginConfig);
+    await api.cache.set('kontent-item-types',  itemTypes);
 
     if (pluginConfig.includeTaxonomies) {
       await kontentTaxonomiesSourceNodes(api, pluginConfig);
