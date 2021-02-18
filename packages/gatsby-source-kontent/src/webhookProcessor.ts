@@ -191,12 +191,12 @@ const handleIncomingWebhook = async (
 
     if (webhook.message.operation === "upsert" || webhook.message.operation === "restore") {
       const processedIds = await handleUpsertItem(api, pluginConfig);
-      processedItemIds.concat(processedIds);
+      processedItemIds.push(...processedIds);
     }
 
     if (webhook.message.operation === "archive") {
       const processedIds = await handleDeleteItem(api, pluginConfig);
-      processedItemIds.concat(processedIds);
+      processedItemIds.push(...processedIds);
     }
   } else if (webhook.message.api_name === 'delivery_production') {
 
@@ -206,12 +206,12 @@ const handleIncomingWebhook = async (
 
     if (webhook.message.operation === "publish") {
       const processedIds = await handleUpsertItem(api, pluginConfig);
-      processedItemIds.concat(processedIds);
+      processedItemIds.push(...processedIds);
     }
 
     if (webhook.message.operation === "unpublish") {
       const processedIds = await handleDeleteItem(api, pluginConfig);
-      processedItemIds.concat(processedIds);
+      processedItemIds.push(...processedIds);
     }
   } else {
     api.reporter.verbose(`Webhook is not supported yet!`);
@@ -222,7 +222,7 @@ const handleIncomingWebhook = async (
   for (const itemType of itemTypes) {
     const itemsToTouch = api.getNodesByType(itemType);
     itemsToTouch
-      .filter(item => processedItemIds.includes(item.id))
+      .filter(item => !processedItemIds.includes(item.id))
       .forEach(itemToTouch => api.actions.touchNode(itemToTouch))
   }
 
