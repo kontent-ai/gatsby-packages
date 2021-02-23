@@ -205,5 +205,3 @@ Open the `gatsby-config.js` file and set the following properties for `@kentico/
 
 - `projectId` from *Project settings > API keys > Delivery API > Project ID*
 - `languageCodenames` from *Project settings > Localization*
-
-![Analytics](https://kentico-ga-beacon.azurewebsites.net/api/UA-69014260-4/Kentico/kontent-gatsby-packages/examples/relationships?pixel)
