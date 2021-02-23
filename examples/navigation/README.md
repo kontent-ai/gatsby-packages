@@ -166,5 +166,3 @@ In a nutshell, you want register routes endpoint like i.e. `/preview/<LANGUAGE>/
 - [`createRedirect`](https://www.gatsbyjs.com/docs/actions/#createRedirect)
   - Mind the description of the action "Server redirects don’t work out of the box".
   - Also defining redirects on client side (option `redirectInBrowse`) lead to small delay/blink on development server from 404 to redirected page.
-
-![Analytics](https://kentico-ga-beacon.azurewebsites.net/api/UA-69014260-4/Kentico/kontent-gatsby-packages/examples/navigation?pixel)
