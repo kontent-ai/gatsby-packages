@@ -113,5 +113,3 @@ If you want to resolve elements via `resolveDomNode`, you get the following para
 
 - `domNode` - DOM node from [`html-react-parser`](https://www.npmjs.com/package/html-react-parser)
 - `domToReact` - method from [`html-react-parser`](https://www.npmjs.com/package/html-react-parser) to be able to extend the actual `domNode` as on the example
-
-![Analytics](https://kentico-ga-beacon.azurewebsites.net/api/UA-69014260-4/Kentico/kontent-gatsby-packages/packages/gatsby-kontent-components?pixel)

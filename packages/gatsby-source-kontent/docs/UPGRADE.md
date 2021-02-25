@@ -410,6 +410,3 @@ query PersonasQuery {
   }
 }
 ```
-
-![Analytics](https://kentico-ga-beacon.azurewebsites.net/api/UA-69014260-4/Kentico/kontent-gatsby-packages/packages/gatsby-source-kontent/docs/UPGRADE.md?pixel)
-

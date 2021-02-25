@@ -123,5 +123,3 @@ The overall resolution of the urls for content items in on <http://localhost:800
 ### More complex scenarios
 
 If you want to configure more complex and multi-level routing, take a look to the [Navigation example](../navigation#readme) and the you could use resolved URLs in combination with the unified URL resolution.
-
-![Analytics](https://kentico-ga-beacon.azurewebsites.net/api/UA-69014260-4/Kentico/kontent-gatsby-packages/examples/resolution?pixel)
