@@ -1,24 +1,21 @@
-import {
-  CustomPluginOptions,
-} from './src/types';
-import { SourceNodesArgs, CreateSchemaCustomizationArgs } from 'gatsby';
-import * as _ from "lodash"
-
+import { CreateSchemaCustomizationArgs, SourceNodesArgs } from 'gatsby';
+import { debounce, isEmpty } from 'lodash';
 
 import { kontentItemsCreateSchemaCustomization } from './src/createSchemaCustomization.items';
-import { kontentItemsSourceNodes } from './src/sourceNodes.items';
 import { kontentTaxonomiesCreateSchemaCustomization } from './src/createSchemaCustomization.taxonomies';
-import { kontentTaxonomiesSourceNodes } from './src/sourceNodes.taxonomies';
 import { kontentTypesCreateSchemaCustomization } from './src/createSchemaCustomization.types';
-import { kontentTypesSourceNodes } from './src/sourceNodes.types';
-import { handleIncomingWebhook } from './src/webhookProcessor';
 import { pluginOptionsSchema } from './src/pluginOptionsSchema';
+import { kontentItemsSourceNodes } from './src/sourceNodes.items';
+import { kontentTaxonomiesSourceNodes } from './src/sourceNodes.taxonomies';
+import { kontentTypesSourceNodes } from './src/sourceNodes.types';
+import { CustomPluginOptions } from './src/types';
+import { handleIncomingWebhook } from './src/webhookProcessor';
 
 let itemTypes: string[];
 
 exports.pluginOptionsSchema = ({ Joi }: { Joi: any }) => {
   return pluginOptionsSchema({ Joi });
-}
+};
 
 exports.createSchemaCustomization = async (
   api: CreateSchemaCustomizationArgs,
@@ -42,13 +39,29 @@ exports.createSchemaCustomization = async (
   }
 };
 
+const debounceWait =
+  process.env.KONTENT_WEBHOOK_DEBOUNCE !== undefined
+    ? parseFloat(process.env.KONTENT_WEBHOOK_DEBOUNCE)
+    : undefined;
+
+const debounceWebhook = debounce(async (api, pluginConfig) => {
+  await handleIncomingWebhook(api, pluginConfig, itemTypes);
+}, debounceWait);
+
 exports.sourceNodes = async (
   api: SourceNodesArgs,
   pluginConfig: CustomPluginOptions,
 ): Promise<void> => {
   try {
-    if (!_.isEmpty(api.webhookBody)) { //preview run
-      await handleIncomingWebhook(api, pluginConfig, itemTypes);
+    if (!isEmpty(api.webhookBody)) {
+      //preview run
+
+      if (debounceWait !== undefined) {
+        debounceWebhook(api, pluginConfig);
+      } else {
+        await handleIncomingWebhook(api, pluginConfig, itemTypes);
+      }
+
       return;
     }
 
