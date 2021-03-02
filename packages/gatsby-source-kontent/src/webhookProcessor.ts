@@ -132,14 +132,14 @@ const handleDeleteItem = async (
 
         if (candidate && isContentComponent(candidate)) {
           touchedItemsIds.push(candidate.id);
-          api.actions.deleteNode({ node: candidate });
+          api.actions.deleteNode(candidate);
         }
       })
 
 
       if (node) {
         touchedItemsIds.push(node.id);
-        api.actions.deleteNode({ node });
+        api.actions.deleteNode(node);
       }
       continue;
     } else { // fallback version still available
@@ -223,20 +223,20 @@ const handleIncomingWebhook = async (
     const itemsToTouch = api.getNodesByType(itemType);
     itemsToTouch
       .filter(item => processedItemIds.includes(item.id))
-      .forEach(itemToTouch => api.actions.touchNode({ nodeId: itemToTouch.id }))
+      .forEach(itemToTouch => api.actions.touchNode(itemToTouch))
   }
 
   if (pluginConfig.includeTaxonomies) {
     const taxonomies = api.getNodesByType(getKontentTaxonomyTypeName());
     for (const taxonomy of taxonomies) {
-      api.actions.touchNode({ nodeId: taxonomy.id });
+      api.actions.touchNode(taxonomy);
     }
   }
 
   if (pluginConfig.includeTypes) {
     const types = api.getNodesByType(getKontentTypeTypeName());
     for (const type of types) {
-      api.actions.touchNode({ nodeId: type.id });
+      api.actions.touchNode(type);
     }
   }
 }
