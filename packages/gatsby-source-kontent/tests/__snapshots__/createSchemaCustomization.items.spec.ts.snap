@@ -18,7 +18,7 @@ Object {
 exports[`kontentItemsCreateSchemaCustomization create fixed type definition 1`] = `
 "# All __UPPER_CASE__  wildcards will be replaced by the configuration
 
-interface kontent_item @nodeInterface {
+interface kontent_item implements Node {
   id: ID!
   system: kontent_item_system!
   # elements: type is defined programmatically

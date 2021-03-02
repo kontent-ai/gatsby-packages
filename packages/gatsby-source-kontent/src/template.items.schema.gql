@@ -1,6 +1,6 @@
 # All __UPPER_CASE__  wildcards will be replaced by the configuration
 
-interface __KONTENT_ITEM_INTERFACE__ @nodeInterface {
+interface __KONTENT_ITEM_INTERFACE__ implements Node {
   id: ID!
   system: __KONTENT_ITEM_SYSTEM_TYPE__!
   # elements: type is defined programmatically
