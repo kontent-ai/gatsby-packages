@@ -14,7 +14,7 @@ The package containing React components useful when processing Kontent data to t
 npm install @kentico/gatsby-kontent-components gatsby-plugin-image
 ```
 
-Also, add `gatsby-plugin-image` to `module.exports` section in `gatsby-config.js`.
+Also, add `gatsby-plugin-image` to `plugins` array in `gatsby-config.js`.
 
 ## <a name="image-element-component">Image element component</a>
 
