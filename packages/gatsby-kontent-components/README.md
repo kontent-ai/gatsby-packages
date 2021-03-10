@@ -14,7 +14,9 @@ The package containing React components useful when processing Kontent data to t
 npm install @kentico/gatsby-kontent-components gatsby-plugin-image
 ```
 
-## Image element component
+Also, add `gatsby-plugin-image` to `module.exports` section in `gatsby-config.js`.
+
+## <a name="image-element-component">Image element component</a>
 
 Images from Kentico Kontent can be displayed using the `ImageElement` component. This wraps the `GatsbyImage` component from [gatsby-plugin-image](https://www.gatsbyjs.com/docs/how-to/images-and-media/using-gatsby-plugin-image/), so ensure that you also install that plugin. This component will give the best experience for your users, as it includes responsive srcset, blur-up, lazy loading and many other performance optimizations. [Automatic format optimization](https://docs.kontent.ai/reference/image-transformation#a-automatic-format-selection) is always enabled. In many cases it can improve Lighthouse scores by 10-20 points.
 
@@ -87,7 +89,8 @@ If you don't need to resolve anything, you could just provide `value` property.
 If you want to resolve images pass `images` and `resolveImage` properties.
 
 - `images` **have to contain at least `image_id` property**
-- `resolveImage` has one parameter `image` basically containing one record from `images` array
+- `resolveImage` has one parameter `image` usually containing one record from `images` array
+- when resolving images in Rich text element using [Image element component]((#image-element-component)), `image` object must follow data contract defined in [Image element component](#image-element-component) section. Moreover, for correct resolution, the additional `image_id` identifier of the image is mandatory, as well.
 
 #### Links to content items
 
