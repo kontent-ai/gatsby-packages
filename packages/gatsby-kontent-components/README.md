@@ -22,7 +22,7 @@ Images from Kentico Kontent can be displayed using the `ImageElement` component.
 
 The component takes all [the `GatsbyImage` props](https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-plugin-image#gatsbyimage), as well as the following properties. All are optional except `image`:
 
-- `image`: the `image` object. This should include `src`, `width` and `height`.
+- `image`: the `image` object. This should include `url`, `width` and `height`.
 - `layout`: see [the `gatsby-plugin-image` docs](https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-plugin-image#layout)
 - `width`/`height`: see [the `gatsby-plugin-image` docs](https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-plugin-image#widthheight)
 - `aspectRatio`: see [the `gatsby-plugin-image` docs](https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-plugin-image#aspectratio)
