@@ -3,7 +3,6 @@ import { graphql } from "gatsby"
 import { stringify } from "qs"
 import { ImageElement } from "@kentico/gatsby-kontent-components"
 import { ImageUrlBuilder } from "@kentico/kontent-delivery"
-import Img from "gatsby-image"
 
 const Author = ({ data }) => {
   if (!data.author.elements.avatar_image.value.length) {
@@ -44,7 +43,7 @@ const Author = ({ data }) => {
           alt={avatar.description}
         />
         <p>
-          This uses the <code>ImageElement</code> component to display a
+          This uses the <a href="https://github.com/Kentico/kontent-gatsby-packages/tree/master/packages/gatsby-kontent-components">ImageElement</a> component to display a
           responsive image.
         </p>
       </section>
@@ -64,37 +63,6 @@ const Author = ({ data }) => {
           </p>
         </section>
         <section style={{ padding: "1em", maxWidth: showcaseWidth }}>
-          <Img
-            fluid={avatar.fluid}
-            description={avatar.description || "Author avatar image"}
-          />
-
-          <p>
-            Showcase using{" "}
-            <a href="https://github.com/rshackleton/gatsby-packages/tree/master/packages/gatsby-transformer-kontent-image#readme">
-              community-based image transformer plugin
-            </a>{" "}
-            by <a href="https://github.com/rshackleton">Richard Shackleton.</a>{" "}
-            Showcase specifically showcasing{" "}
-            <a href="https://www.gatsbyjs.org/packages/gatsby-image/#fluid-queries">
-              fluid query
-            </a>{" "}
-            of{" "}
-            <a href="https://www.gatsbyjs.org/packages/gatsby-image/">
-              gatsby-image
-            </a>{" "}
-            package.
-          </p>
-          <strong>
-            See the "blur up" effect when you are loading the site.
-          </strong>
-        </section>
-      </article>
-
-      <article
-        style={{ display: "flex", flexWrap: "wrap", alignItems: "flex-end" }}
-      >
-        <section style={{ padding: "1em", maxWidth: showcaseWidth }}>
           <img
             src={`${avatar.url}?${stringify(imageQuery, { encode: false })}`}
             alt={avatar.description || "Author avatar image"}
@@ -108,7 +76,11 @@ const Author = ({ data }) => {
             for query string construction.
           </p>
         </section>
+      </article>
 
+      <article
+        style={{ display: "flex", flexWrap: "wrap", alignItems: "flex-end" }}
+      >
         <section style={{ padding: "1em", maxWidth: showcaseWidth }}>
           <img
             src={deliverySDKTransformedUrl.getUrl()}
@@ -145,9 +117,6 @@ export const query = graphql`
             height
             description
             type
-            fluid(maxWidth: 200) {
-              ...KontentAssetFluid
-            }
           }
         }
       }

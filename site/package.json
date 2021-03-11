@@ -24,9 +24,7 @@
   },
   "dependencies": {
     "@kentico/kontent-delivery": "^10.3.0",
-    "@rshackleton/gatsby-transformer-kontent-image": "^2.1.0",
     "gatsby": "^3.0.0",
-    "gatsby-image": "^3.0.0",
     "gatsby-plugin-image": "^1.0.0",
     "qs": "^6.9.4",
     "react": "^17.0.1",

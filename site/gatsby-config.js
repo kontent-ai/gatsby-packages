@@ -29,7 +29,6 @@ module.exports = {
         },
       },
     },
-    "@rshackleton/gatsby-transformer-kontent-image",
     "gatsby-plugin-image",
   ],
 }

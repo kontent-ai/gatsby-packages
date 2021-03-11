@@ -29,6 +29,10 @@ The component takes all [the `GatsbyImage` props](https://www.gatsbyjs.com/docs/
 - `backgroundColor`: displayed as a placeholder while the image loads
 - `options`: an object containing options passed to [the Kontent Image Transformation API](https://docs.kontent.ai/reference/image-transformation). Supported options: `fit`, `quality`, `lossless`.
 
+Properties of the image object (e.g. `width` and `height`) are reflected in Kontent's image API query.
+Props of the `ImageElement` component (e.g. `width` and `height`) are reflected in the rendered DOM.
+If the optional props of `ImageElement` are omitted, the properties of the image object are applied.
+
 ## Rich text element component
 
 Rich text elements from Kentico Kontent could be resolved to React components using "html-react-parser" as described in [this article](https://rshackleton.co.uk/articles/rendering-kentico-cloud-linked-content-items-with-react-components-in-gatsby).
