@@ -60,7 +60,7 @@ import { RichTextElement, ImageElement } from "@kentico/gatsby-kontent-component
           />
         )
       }}
-      resolveLink={(link, domNode) =>
+      resolveLink={(link, domNode) => {
         const parentItemType = contextData.type // It is possible to use external data for resolution
         return (
           <Link to={`/${link.type}/partner/${parentItemType}/${link.url_slug}`}>
