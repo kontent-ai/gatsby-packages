@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/camelcase */
 import React from "react";
 import { getGatsbyImageData } from "../src/image-element/get-gatsby-image-data";
 import TestRenderer from 'react-test-renderer';
