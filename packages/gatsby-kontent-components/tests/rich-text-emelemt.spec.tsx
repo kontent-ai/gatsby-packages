@@ -1,9 +1,7 @@
 /* eslint-disable @typescript-eslint/camelcase */
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
-import { ImageElement, RichTextElement } from '../src';
-import { getSrc } from 'gatsby-plugin-image';
-import { getGatsbyImageData } from '../src/image-element/get-gatsby-image-data';
+import { RichTextElement } from '../src';
 
 const sampleComplexValue =
   '<p>This is Ondřej Chrastina - Developer Advocate with <a href="https://kontent.ai" data-new-window="true" target="_blank" rel="noopener noreferrer">Kentico Kontent</a>.</p>\n<figure data-asset-id="d32b8ad5-0cf4-47a8-8b53-ed4a1e80dc88" data-image-id="d32b8ad5-0cf4-47a8-8b53-ed4a1e80dc88"><img src="https://assets-us-01.kc-usercontent.com:443/0fe3ab32-97a8-005d-6928-eda983ea70a5/44299668-b37b-4224-a115-1fd66f7d7b36/Yprofile.jpg" data-asset-id="d32b8ad5-0cf4-47a8-8b53-ed4a1e80dc88" data-image-id="d32b8ad5-0cf4-47a8-8b53-ed4a1e80dc88" alt=""></figure>\n<p>He likes to do web sites. This is his latest project:</p>\n<object type="application/kenticocloud" data-type="item" data-rel="link" data-codename="ondrej_chrastina_tech"></object>\n<p><br>\nHe also likes OSS. This is his latest repository:</p>\n<object type="application/kenticocloud" data-type="item" data-rel="link" data-codename="simply007_kontent_gatsby_benchmark"></object>\n<p><br>\nOn some projects, he was cooperating with <a data-item-id="2b805947-7ca5-4e6a-baa5-734a91f3cfa2" href="">John Doe</a>.</p>\n<p>You could take a look at their&nbsp;<a href="https://google.com" title="sample link">latest project</a>.</p>\n<table><tbody>\n  <tr><td>col1</td><td>col2</td></tr>\n  <tr><td>data1</td><td>data2</td></tr>\n  <tr><td>data3</td><td>data4</td></tr>\n</tbody></table>';
@@ -80,41 +78,6 @@ const linkedItems = [
     },
   },
 ];
-
-describe('<ImageElement />', () => {
-  it('generates the correct image src', () => {
-    const data = getGatsbyImageData({ image: images[0] });
-    expect(data.images.fallback.src).toEqual(
-      'https://assets-us-01.kc-usercontent.com:443/0fe3ab32-97a8-005d-6928-eda983ea70a5/44299668-b37b-4224-a115-1fd66f7d7b36/Yprofile.jpg?w=500&h=500&auto=format&fit=crop',
-    );
-  });
-  it('generates the srcset', () => {
-    const data = getGatsbyImageData({ image: images[0] });
-    expect(data.images.fallback.srcSet).toMatchInlineSnapshot(`
-      "https://assets-us-01.kc-usercontent.com:443/0fe3ab32-97a8-005d-6928-eda983ea70a5/44299668-b37b-4224-a115-1fd66f7d7b36/Yprofile.jpg?w=320&h=320&auto=format&fit=crop 320w,
-      https://assets-us-01.kc-usercontent.com:443/0fe3ab32-97a8-005d-6928-eda983ea70a5/44299668-b37b-4224-a115-1fd66f7d7b36/Yprofile.jpg?w=500&h=500&auto=format&fit=crop 500w"
-    `);
-  });
-
-  it('generates the correct dimensions', () => {
-    const data = getGatsbyImageData({
-      image: images[0],
-      width: 200,
-      aspectRatio: 2 / 1,
-    });
-    expect(data.width).toEqual(200);
-    expect(data.height).toEqual(100);
-  });
-
-  it('renders the correct image', () => {
-    const testRenderer = TestRenderer.create(
-      <ImageElement image={images[0]} />,
-    );
-    expect(
-      testRenderer.root.findByProps({ 'data-main-image': '' }).props.fallback,
-    ).toMatchSnapshot();
-  });
-});
 
 describe('<RichTextElement/>', () => {
   it('Empty rich-text value - render properly', () => {
