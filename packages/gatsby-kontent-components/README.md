@@ -33,6 +33,42 @@ Properties of the image object (e.g. `width` and `height`) are reflected in Kont
 Props of the `ImageElement` component (e.g. `width` and `height`) are reflected in the rendered DOM.
 If the optional props of `ImageElement` are omitted, the properties of the image object are applied.
 
+> You can find a showcase in the [author.js](../../site/src/pages/author.js) on the development site.
+
+```jsx
+import React from 'react'
+import { ImageElement } from "@kentico/gatsby-kontent-components"
+import { graphql } from "gatsby";
+
+export default Page = ({ data }) => {
+  const avatar = data.author.elements.avatar_image.value[0];
+
+  return (
+    <ImageElement
+      image={avatar}
+      width={800}
+      height={200}
+      backgroundColor="#bbbbbb"
+      alt={avatar.description}
+    />
+  );
+}
+export const query = graphql`
+  {
+    author: kontentItemAuthor {
+      elements {
+        avatar_image {
+          value {
+            url
+            description
+          }
+        }
+      }
+    }
+  }
+`
+```
+
 ## Rich text element component
 
 Rich text elements from Kentico Kontent could be resolved to React components using "html-react-parser" as described in [this article](https://rshackleton.co.uk/articles/rendering-kentico-cloud-linked-content-items-with-react-components-in-gatsby).
