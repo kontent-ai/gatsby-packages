@@ -108,8 +108,8 @@ type __KONTENT_ELEMENT_RICH_TEXT_IMAGE_VALUE__ {
   image_id: String!
   url: String!
   description: String
-  height: Int!
-  width: Int!
+  height: Int
+  width: Int
 }
 
 type __KONTENT_ELEMENT_RICH_TEXT_LINK_VALUE__ {
