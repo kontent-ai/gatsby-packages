@@ -126,8 +126,8 @@ type kontent_item_rich_text_element_image {
   image_id: String!
   url: String!
   description: String
-  height: Int!
-  width: Int!
+  height: Int
+  width: Int
 }
 
 type kontent_item_rich_text_element_link {
