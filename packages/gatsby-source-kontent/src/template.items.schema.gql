@@ -111,7 +111,6 @@ type __KONTENT_ELEMENT_RICH_TEXT_IMAGE_VALUE__ {
   description: String
   height: Int!
   width: Int!
-  type: String!
 }
 
 type __KONTENT_ELEMENT_RICH_TEXT_LINK_VALUE__ {
