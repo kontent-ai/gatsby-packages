@@ -10,7 +10,7 @@
 
 Source plugin for Kentico Kontent REST Delivery API.
 
-This repo contains a [Gatsby (v2) source plugin](https://www.gatsbyjs.org/docs/recipes/sourcing-data) that retrieves data from the [Kentico Kontent](https://kontent.ai) REST Delivery API.
+This repo contains a [Gatsby (v3) source plugin](https://www.gatsbyjs.org/docs/recipes/sourcing-data) that retrieves data from the [Kentico Kontent](https://kontent.ai) REST Delivery API.
 
 ## How to install
 
