@@ -8,6 +8,8 @@
 
 The package containing React components useful when processing Kontent data to the site.
 
+> To see the progress of the Gatsby v3 supported package - [check out this pull request](https://github.com/Kentico/kontent-gatsby-packages/pull/174).
+
 ## Install
 
 ```sh
