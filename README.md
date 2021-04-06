@@ -8,6 +8,8 @@ Monorepo with Gatsby Kontent packages.
 
 The repository contains the development site (`/site`) that could automatically load packages (`packages`) thanks to [yarn workspaces](https://classic.yarnpkg.com/en/docs/workspaces/).
 
+> To see the progress of the Gatsby v3 supported package - [check out this pull request](https://github.com/Kentico/kontent-gatsby-packages/pull/174).
+
 ## Content
 
 ### Packages
