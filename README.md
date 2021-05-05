@@ -2,13 +2,13 @@
 
 ![build](https://github.com/Kentico/gatsby-source-kontent/workflows/build/badge.svg)
 [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org/)
+
 [![Stack Overflow](https://img.shields.io/badge/Stack%20Overflow-ASK%20NOW-FE7A16.svg?logo=stackoverflow&logoColor=white)](https://stackoverflow.com/tags/kentico-kontent)
+[![Konten Discord](https://img.shields.io/discord/821885171984891914?color=%237289DA&label=Kontent%20Discord&logo=discord)](https://discord.gg/SKCxwPtevJ)
 
 Monorepo with Gatsby Kontent packages.
 
 The repository contains the development site (`/site`) that could automatically load packages (`packages`) thanks to [yarn workspaces](https://classic.yarnpkg.com/en/docs/workspaces/).
-
-> To see the progress of the Gatsby v3 supported package - [check out this pull request](https://github.com/Kentico/kontent-gatsby-packages/pull/174).
 
 ## Content
 
@@ -21,19 +21,27 @@ The repository contains the development site (`/site`) that could automatically 
 
 ### Site
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/6cd10788-de09-4275-b0c9-daad29733bc9/deploy-status)](https://app.netlify.com/sites/kontent-gatsby-packages/deploys)
+
 - [Development Site](/site#readme) - Site using for development purposes and code examples showcasing packages possibilities
 
 ### Examples
 
 #### Navigation showcase
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/5129d2e5-dc9f-4519-b18a-ad617e6225d5/deploy-status)](https://app.netlify.com/sites/kontent-gatsby-example-navigation/deploys)
+
 - [Navigation showcase](/examples/navigation#readme) - Showcase including the navigation best practices. Description, how to do the content modeling with all benefits of the modular content as well as have tree-based menu structure.
 
 #### Resolution showcase
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/2f5f005f-1c66-4022-8c78-382f0a06a2a7/deploy-status)](https://app.netlify.com/sites/kontent-gatsby-example-resolution/deploys)
+
 - [Resolution showcase](/examples/resolution#readme) - Demonstration how to resolve the Rich Text element and it's inline images, inline content items, and content components.
 
 #### Relationships showcase
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/27d162a0-612b-4d8f-8382-40eee4f6b5d9/deploy-status)](https://app.netlify.com/sites/kontent-gatsby-example-relationships/deploys)
 
 - [Relationships showcase](/examples/relationships#readme) - Schema customization examples demonstrating relationship possibilities among Kontent GraphQL nodes.
 
