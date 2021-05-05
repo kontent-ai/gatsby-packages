@@ -13,7 +13,62 @@ The package containing React components useful when processing Kontent data to t
 ## Install
 
 ```sh
-npm install @kentico/gatsby-kontent-components
+npm install @kentico/gatsby-kontent-components gatsby-plugin-image
+```
+
+Also, add `gatsby-plugin-image` to `plugins` array in `gatsby-config.js`.
+
+## <a name="image-element-component">Image element component</a>
+
+Images from Kentico Kontent can be displayed using the `ImageElement` component. This wraps the `GatsbyImage` component from [gatsby-plugin-image](https://www.gatsbyjs.com/docs/how-to/images-and-media/using-gatsby-plugin-image/), so ensure that you also install that plugin. This component will give the best experience for your users, as it includes responsive srcset, blur-up, lazy loading and many other performance optimizations. [Automatic format optimization](https://docs.kontent.ai/reference/image-transformation#a-automatic-format-selection) is always enabled. In many cases it can improve Lighthouse scores by 10-20 points.
+
+The component takes all [the `GatsbyImage` props](https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-plugin-image#gatsbyimage), as well as the following properties. All are optional except `image`:
+
+- `image`: the `image` object. This should include `url`, `width` and `height`.
+- `layout`: see [the `gatsby-plugin-image` docs](https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-plugin-image#layout)
+- `width`/`height`: see [the `gatsby-plugin-image` docs](https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-plugin-image#widthheight)
+- `aspectRatio`: see [the `gatsby-plugin-image` docs](https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-plugin-image#aspectratio)
+- `backgroundColor`: displayed as a placeholder while the image loads
+- `options`: an object containing options passed to [the Kontent Image Transformation API](https://docs.kontent.ai/reference/image-transformation). Supported options: `fit`, `quality`, `lossless`.
+
+Properties of the image object (e.g. `width` and `height`) are reflected in Kontent's image API query.
+Props of the `ImageElement` component (e.g. `width` and `height`) are reflected in the rendered DOM.
+If the optional props of `ImageElement` are omitted, the properties of the image object are applied.
+
+> You can find a showcase in the [author.js](../../site/src/pages/author.js) on the development site.
+
+```jsx
+import React from 'react'
+import { ImageElement } from "@kentico/gatsby-kontent-components"
+import { graphql } from "gatsby";
+
+export default Page = ({ data }) => {
+  const avatar = data.author.elements.avatar_image.value[0];
+
+  return (
+    <ImageElement
+      image={avatar}
+      width={800}
+      height={200}
+      backgroundColor="#bbbbbb"
+      alt={avatar.description}
+    />
+  );
+}
+export const query = graphql`
+  {
+    author: kontentItemAuthor {
+      elements {
+        avatar_image {
+          value {
+            url
+            description
+          }
+        }
+      }
+    }
+  }
+`
 ```
 
 ## Rich text element component
@@ -25,7 +80,7 @@ This package should make the usage easier. Basically by loading the rich text da
 > Complete showcase could be found in [rich-text.js](../../site/src/pages/rich-text.js) in the development site.
 
 ```jsx
-import { RichTextElement } from "@kentico/gatsby-kontent-components"
+import { RichTextElement, ImageElement } from "@kentico/gatsby-kontent-components"
 
 // ...
 
@@ -36,10 +91,10 @@ import { RichTextElement } from "@kentico/gatsby-kontent-components"
       linkedItems={richTextElement.modular_content}
       resolveImage={image => {
         return (
-          <img
-            src={image.url}
+          <ImageElement
+            image={image}
             alt={image.description ? image.description : image.name}
-            width="200"
+            width={200}
           />
         )
       }}
@@ -76,7 +131,8 @@ If you don't need to resolve anything, you could just provide `value` property.
 If you want to resolve images pass `images` and `resolveImage` properties.
 
 - `images` **have to contain at least `image_id` property**
-- `resolveImage` has one parameter `image` basically containing one record from `images` array
+- `resolveImage` has one parameter `image` usually containing one record from `images` array
+- when resolving images in Rich text element using [Image element component]((#image-element-component)), `image` object must follow data contract defined in [Image element component](#image-element-component) section. Moreover, for correct resolution, the additional `image_id` identifier of the image is mandatory, as well.
 
 #### Links to content items
 

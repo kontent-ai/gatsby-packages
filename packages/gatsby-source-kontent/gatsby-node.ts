@@ -14,8 +14,6 @@ import { kontentTypesSourceNodes } from './src/sourceNodes.types';
 import { handleIncomingWebhook } from './src/webhookProcessor';
 import { pluginOptionsSchema } from './src/pluginOptionsSchema';
 
-let itemTypes: string[];
-
 exports.pluginOptionsSchema = ({ Joi }: { Joi: any }) => {
   return pluginOptionsSchema({ Joi });
 }
@@ -48,11 +46,13 @@ exports.sourceNodes = async (
 ): Promise<void> => {
   try {
     if (!_.isEmpty(api.webhookBody)) { //preview run
+      const itemTypes = (await api.cache.get('kontent-item-types')) || [];
       await handleIncomingWebhook(api, pluginConfig, itemTypes);
       return;
     }
-
-    itemTypes = await kontentItemsSourceNodes(api, pluginConfig);
+    
+    const itemTypes = await kontentItemsSourceNodes(api, pluginConfig);
+    await api.cache.set('kontent-item-types',  itemTypes);
 
     if (pluginConfig.includeTaxonomies) {
       await kontentTaxonomiesSourceNodes(api, pluginConfig);

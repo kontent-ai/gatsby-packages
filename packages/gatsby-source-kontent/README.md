@@ -12,7 +12,7 @@
 
 Source plugin for Kentico Kontent REST Delivery API.
 
-This repo contains a [Gatsby (v2) source plugin](https://www.gatsbyjs.org/docs/recipes/sourcing-data) that retrieves data from the [Kentico Kontent](https://kontent.ai) REST Delivery API.
+This repo contains a [Gatsby (v3) source plugin](https://www.gatsbyjs.org/docs/recipes/sourcing-data) that retrieves data from the [Kentico Kontent](https://kontent.ai) REST Delivery API.
 
 ## How to install
 
@@ -541,7 +541,6 @@ For more developer resources, visit the [Kentico Kontent Docs](https://docs.kont
 - [Automated builds with Netlify and Kentico Kontent webhooks](https://rshackleton.co.uk/articles/automated-builds-with-netlify-and-kentico-cloud-webhooks) by [@rshackleton](https://github.com/rshackleton)
 - [Learning about Gatsby schema customisation with Kontent.ai](https://rshackleton.co.uk/articles/learning-about-gatsby-schema-customisation-with-kontent-ai) by [@rshackleton](https://github.com/rshackleton)
 - [Implementing search with Gatsby and Algolia](https://rshackleton.co.uk/articles/implementing-search-with-gatsby-and-algolia) by [@rshackleton](https://github.com/rshackleton)
-- [Using Gatsby Image with Kentico Kontent](https://rshackleton.co.uk/articles/using-gatsby-image-with-kentico-kontent) by [@rshackleton](https://github.com/rshackleton)
 
 > Check out the development site for some hints in the [example section](https://github.com/Kentico/kontent-gatsby-packages/tree/master/site#examples)
 

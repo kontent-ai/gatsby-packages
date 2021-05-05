@@ -1,3 +1,3 @@
-import { RichTextElement } from './rich-text-element';
+export { RichTextElement } from './rich-text-element';
 
-export { RichTextElement };
+export { ImageElement } from './image-element';

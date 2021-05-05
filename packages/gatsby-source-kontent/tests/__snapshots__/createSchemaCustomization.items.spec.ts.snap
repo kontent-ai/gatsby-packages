@@ -18,7 +18,7 @@ Object {
 exports[`kontentItemsCreateSchemaCustomization create fixed type definition 1`] = `
 "# All __UPPER_CASE__  wildcards will be replaced by the configuration
 
-interface kontent_item @nodeInterface {
+interface kontent_item implements Node {
   id: ID!
   system: kontent_item_system!
   # elements: type is defined programmatically
@@ -48,7 +48,8 @@ type kontent_item_rich_text_element_value {
   name: String!
   type: String!
   value: String
-  modular_content: [kontent_item] @kontent_item_language_link
+  modular_content: [kontent_item]
+    @kontent_item_language_link
   images: [kontent_item_rich_text_element_image]
   links: [kontent_item_rich_text_element_link]
 }

@@ -2,7 +2,7 @@ import React from "react"
 import { RichTextElement } from "@kentico/gatsby-kontent-components"
 import { Link } from "gatsby"
 
-export default () => {
+const Index = () => {
   return (
     <>
       <RichTextElement value="<div>Hello Kontent!</div>" />
@@ -13,3 +13,5 @@ export default () => {
     </>
   )
 }
+
+export default Index;

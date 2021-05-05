@@ -1,6 +1,6 @@
 # All __UPPER_CASE__  wildcards will be replaced by the configuration
 
-interface __KONTENT_ITEM_INTERFACE__ @nodeInterface {
+interface __KONTENT_ITEM_INTERFACE__ implements Node {
   id: ID!
   system: __KONTENT_ITEM_SYSTEM_TYPE__!
   # elements: type is defined programmatically
@@ -30,7 +30,8 @@ type __KONTENT_ITEM_RICH_TEXT_ELEMENT__ {
   name: String!
   type: String!
   value: String
-  modular_content: [__KONTENT_ITEM_INTERFACE__] @__KONTENT_ITEM_LANGUAGE_EXTENSION__
+  modular_content: [__KONTENT_ITEM_INTERFACE__]
+    @__KONTENT_ITEM_LANGUAGE_EXTENSION__
   images: [__KONTENT_ELEMENT_RICH_TEXT_IMAGE_VALUE__]
   links: [__KONTENT_ELEMENT_RICH_TEXT_LINK_VALUE__]
 }

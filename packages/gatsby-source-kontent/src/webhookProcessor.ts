@@ -132,14 +132,14 @@ const handleDeleteItem = async (
 
         if (candidate && isContentComponent(candidate)) {
           touchedItemsIds.push(candidate.id);
-          api.actions.deleteNode({ node: candidate });
+          api.actions.deleteNode(candidate);
         }
       })
 
 
       if (node) {
         touchedItemsIds.push(node.id);
-        api.actions.deleteNode({ node });
+        api.actions.deleteNode(node);
       }
       continue;
     } else { // fallback version still available
@@ -191,12 +191,12 @@ const handleIncomingWebhook = async (
 
     if (webhook.message.operation === "upsert" || webhook.message.operation === "restore") {
       const processedIds = await handleUpsertItem(api, pluginConfig);
-      processedItemIds.concat(processedIds);
+      processedItemIds.push(...processedIds);
     }
 
     if (webhook.message.operation === "archive") {
       const processedIds = await handleDeleteItem(api, pluginConfig);
-      processedItemIds.concat(processedIds);
+      processedItemIds.push(...processedIds);
     }
   } else if (webhook.message.api_name === 'delivery_production') {
 
@@ -206,12 +206,12 @@ const handleIncomingWebhook = async (
 
     if (webhook.message.operation === "publish") {
       const processedIds = await handleUpsertItem(api, pluginConfig);
-      processedItemIds.concat(processedIds);
+      processedItemIds.push(...processedIds);
     }
 
     if (webhook.message.operation === "unpublish") {
       const processedIds = await handleDeleteItem(api, pluginConfig);
-      processedItemIds.concat(processedIds);
+      processedItemIds.push(...processedIds);
     }
   } else {
     api.reporter.verbose(`Webhook is not supported yet!`);
@@ -222,21 +222,21 @@ const handleIncomingWebhook = async (
   for (const itemType of itemTypes) {
     const itemsToTouch = api.getNodesByType(itemType);
     itemsToTouch
-      .filter(item => processedItemIds.includes(item.id))
-      .forEach(itemToTouch => api.actions.touchNode({ nodeId: itemToTouch.id }))
+      .filter(item => !processedItemIds.includes(item.id))
+      .forEach(itemToTouch => api.actions.touchNode(itemToTouch))
   }
 
   if (pluginConfig.includeTaxonomies) {
     const taxonomies = api.getNodesByType(getKontentTaxonomyTypeName());
     for (const taxonomy of taxonomies) {
-      api.actions.touchNode({ nodeId: taxonomy.id });
+      api.actions.touchNode(taxonomy);
     }
   }
 
   if (pluginConfig.includeTypes) {
     const types = api.getNodesByType(getKontentTypeTypeName());
     for (const type of types) {
-      api.actions.touchNode({ nodeId: type.id });
+      api.actions.touchNode(type);
     }
   }
 }
