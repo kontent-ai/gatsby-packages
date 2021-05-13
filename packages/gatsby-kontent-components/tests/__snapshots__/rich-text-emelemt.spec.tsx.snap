@@ -655,3 +655,20 @@ On some projects, he was cooperating with
   </table>,
 ]
 `;
+
+exports[`<RichTextElement/> Resolve links 2`] = `
+Array [
+  <p>
+    This is the page text.
+  </p>,
+  <ul>
+    <li>
+      <a
+        href="/page/test-nico"
+      >
+        Test link
+      </a>
+    </li>
+  </ul>,
+]
+`;

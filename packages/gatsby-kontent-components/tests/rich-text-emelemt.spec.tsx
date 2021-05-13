@@ -112,7 +112,7 @@ describe('<RichTextElement/>', () => {
   });
 
   it('Resolve links', () => {
-    const testRenderer = TestRenderer.create(
+    const complexValueRenderer = TestRenderer.create(
       <RichTextElement
         value={sampleComplexValue}
         links={links}
@@ -126,7 +126,31 @@ describe('<RichTextElement/>', () => {
         }}
       />,
     );
-    expect(testRenderer.toJSON()).toMatchSnapshot();
+    expect(complexValueRenderer.toJSON()).toMatchSnapshot();
+
+
+    const simpleValueRenderer = TestRenderer.create(
+      <RichTextElement
+        value={'<p>This is the page text.</p><ul><li><a data-item-id="1abb6bf1-1e29-4deb-bb0c-b5928ffb0cc9" href="">Test link</a></li></ul>'}
+        links={[
+          {
+            "url_slug": "test-nico",
+            "type": "page",
+            "link_id": "1abb6bf1-1e29-4deb-bb0c-b5928ffb0cc9",
+            "codename": "test_page_nico"
+          }
+        ]}
+        resolveLink={(link, domNode): JSX.Element => {
+          return (
+            // normally a Link component from gatsby package would be used
+            <a href={`/${link.type}/${link.url_slug}`}>
+              {domNode.children[0].data}
+            </a>
+          );
+        }}
+      />,
+    );
+    expect(simpleValueRenderer.toJSON()).toMatchSnapshot();
   });
 
   it('Resolve linked items', () => {
