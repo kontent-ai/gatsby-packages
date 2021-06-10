@@ -29,7 +29,15 @@ The component takes all [the `GatsbyImage` props](https://www.gatsbyjs.com/docs/
 - `width`/`height`: see [the `gatsby-plugin-image` docs](https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-plugin-image#widthheight)
 - `aspectRatio`: see [the `gatsby-plugin-image` docs](https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-plugin-image#aspectratio)
 - `backgroundColor`: displayed as a placeholder while the image loads
-- `options`: an object containing options passed to [the Kontent Image Transformation API](https://docs.kontent.ai/reference/image-transformation). Supported options: `fit`, `quality`, `lossless`.
+- `options: ImageOptions`: an object containing options passed to [the Kontent Image Transformation API](https://docs.kontent.ai/reference/image-transformation). Supported options: `fit`, `quality`, `lossless`.
+
+   ```ts
+   interface ImageOptions {
+    fit?: 'crop' | 'clip' | 'scale';
+    quality?: number;
+    lossless?: boolean;
+  }
+   ```
 
 Properties of the image object (e.g. `width` and `height`) are reflected in Kontent's image API query.
 Props of the `ImageElement` component (e.g. `width` and `height`) are reflected in the rendered DOM.
