@@ -48,7 +48,7 @@ const isKontentSupportedWebhook = (message: IWebhookMessage, pluginConfig: Custo
   const isCorrectMessageType = message.type == 'content_item_variant';
 
   return isCorrectProject
-    && (isPreviewWebhook || isBuildWebhook || (isWorkflowWebhook && pluginConfig.experimental.managementApiTriggersUpdate))
+    && (isPreviewWebhook || isBuildWebhook || (isWorkflowWebhook && pluginConfig?.experimental?.managementApiTriggersUpdate))
     && isCorrectMessageType
 };
 
@@ -237,7 +237,7 @@ const handleIncomingWebhook = async (
       const processedIds = await handleDeleteItem(api, pluginConfig);
       processedItemIds.push(...processedIds);
     }
-  } else if (pluginConfig.experimental.managementApiTriggersUpdate && webhook.message.api_name === 'content_management') {
+  } else if (pluginConfig?.experimental?.managementApiTriggersUpdate && webhook.message.api_name === 'content_management') {
 
     const item = (webhook as IWebhookWorkflowResponse).data.items[0];
 
