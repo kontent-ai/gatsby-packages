@@ -20,6 +20,7 @@
   ],
   "scripts": {
     "lint": "yarn workspaces run lint",
+    "lint:fix": "yarn workspaces run lint --fix",
     "test": "yarn workspaces run test",
     "build": "yarn workspaces run build",
     "build:source": "yarn workspace @kentico/gatsby-source-kontent build",
