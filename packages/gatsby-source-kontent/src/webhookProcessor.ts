@@ -37,8 +37,8 @@ const parseKontentWebhookBody = (api: SourceNodesArgs): IWebhookDeliveryResponse
   return null;
 }
 
-const isKontentSupportedWebhook = (message: IWebhookMessage, projectId: string): boolean => {
-  const isCorrectProject = message.project_id === projectId;
+const isKontentSupportedWebhook = (message: IWebhookMessage, pluginConfig: CustomPluginOptions): boolean => {
+  const isCorrectProject = message.project_id === pluginConfig.projectId;
   const isPreviewWebhook = 'delivery_preview' === message.api_name
     && ['upsert', 'archive', 'restore'].includes(message.operation);
   const isBuildWebhook = 'delivery_production' === message.api_name
@@ -48,7 +48,7 @@ const isKontentSupportedWebhook = (message: IWebhookMessage, projectId: string):
   const isCorrectMessageType = message.type == 'content_item_variant';
 
   return isCorrectProject
-    && (isPreviewWebhook || isBuildWebhook || isWorkflowWebhook)
+    && (isPreviewWebhook || isBuildWebhook || (isWorkflowWebhook && pluginConfig.experimental.managementApiTriggersUpdate))
     && isCorrectMessageType
 };
 
@@ -69,10 +69,6 @@ const isContentComponent = (data: KontentItem): boolean => {
   // xxxxxxxx-xxxx-01xx-xxxx-xxxxxxxxxxxx
   const id = data?.system?.id;
   return id !== null && id.substring(14, 16) === "01";
-}
-
-const getItemInfoId = (itemInfo: IWebhookDeliveryItem | IWebhookWorkflowDataItem) => {
-  return (itemInfo as IWebhookDeliveryItem)?.id || (itemInfo as IWebhookWorkflowDataItem)?.item.id;
 }
 
 const handleUpsertItem = async (
@@ -196,7 +192,7 @@ const handleIncomingWebhook = async (
     return;
   }
 
-  if (!isKontentSupportedWebhook(webhook.message, pluginConfig.projectId)) {
+  if (!isKontentSupportedWebhook(webhook.message, pluginConfig)) {
     api.reporter.verbose('This Kontent webhook is not handled by the Gatsby source kontent source plugin');
     return;
   }
@@ -241,7 +237,7 @@ const handleIncomingWebhook = async (
       const processedIds = await handleDeleteItem(api, pluginConfig);
       processedItemIds.push(...processedIds);
     }
-  } else if (webhook.message.api_name === 'content_management') {
+  } else if (pluginConfig.experimental.managementApiTriggersUpdate && webhook.message.api_name === 'content_management') {
 
     const item = (webhook as IWebhookWorkflowResponse).data.items[0];
 
