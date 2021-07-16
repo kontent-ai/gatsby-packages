@@ -21,7 +21,7 @@ export interface ImageElementProps
   alt?: string;
 }
 
-export const ImageElement: React.FC<ImageElementProps> = function ImageElement({
+export const ImageElement: React.FC<ImageElementProps> = React.memo(function ImageElement({
   image,
   width,
   height,
@@ -45,4 +45,4 @@ export const ImageElement: React.FC<ImageElementProps> = function ImageElement({
   });
   alt = alt ?? image.description ?? '';
   return <GatsbyImage image={imageData} {...props} alt={alt} />;
-};
+});
