@@ -55,7 +55,8 @@ This plugin does not need to use `yarn`, if want to use it in you project, see [
   - `deliveryDomain` - \<`string`\> Base url used for all requests. Defaults to `deliver.kontent.ai`.
   - `previewDeliveryDomain` - \<`string`\> Base url used for preview requests. Defaults to `preview-deliver.kontent.ai`.
 - `includeRawContent` - \<`boolean`\> allows to include `internal.content` property as a part fo the GraphQL model. Turned off by default.
-
+- `experimental`:
+  - `managementApiTriggersUpdate` - \<`boolean`\> allows to handle [workflow step change Management API webhook trigger](https://docs.kontent.ai/reference/webhooks-reference#a-management-api-triggers). Turned off by default.
   \* required property
 
 ### Logging
@@ -86,6 +87,9 @@ module.exports = {
         proxy: {
           deliveryDomain: 'custom.delivery.kontent.my-proxy.com',
           previewDeliveryDomain: "custom.preview.delivery.kontent.my-proxy.com"
+        },
+        experimental: {
+          managementApiTriggersUpdate: true // opt-out by default
         }
       },
     },
@@ -460,6 +464,19 @@ If you choose to maintain your Gatsby site on [Gatsby Cloud](https://www.gatsbyj
 Once you integrate your site with Gatsby Cloud, you will be able to lavarage the new cool features as Intelligent caching, [true Incremental builds](https://www.gatsbyjs.com/cloud/docs/incremental-builds/), or [Real-time Gatsby preview](https://www.gatsbyjs.com/preview/). Your site will benefit from amazingly fast site (re-)builds! Check out the [willit.build benchmark](https://willit.build/details/type/blog/source/kentico/page-count/8192) for the performance comparison.
 
 > Please note that change in taxonomies or content types require a complete rebuild of the site, because these structural data affects GraphQL schema.
+
+### Experimental workflow change handling
+
+The source plugin is able to handle the workflow change of Kentico Kontent as an experimental feature. This allows your editor in Kentico Kontent decide when to make a preview rebuild rather than automatically trigger rebuild on every auto-save event which can effectively lower the number of rebuilds in the Gatsby Cloud queue. To trigger a gatsby preview incremental build editor needs to change workflow step to the one configured in gatsby preview webhook configuration.
+
+To allow the feature you need to:
+
+1. Allow `managementApiTriggersUpdate` option in the [configuration](#Available-options).
+2. Reconfigure your Gatsby preview webhook by registering new event to your for [Management API trigger for workflow step change](https://docs.kontent.ai/reference/webhooks-reference#a-management-api-triggers) to the step you want to react on (and remove the Preview API trigger for "Preview content item Events to watch" > "Create or Update").
+
+![Management API trigger for workflow step change](./docs/assets/management-wf-step-change-webhook-configuration.png)
+
+> Disclaimer - since the Management API triggers should be used in combination with Management API and the source plugin is using Delivery (incl. Preview) API, there is no guarantee that the data will be up-to-date on Delivery/Preview API when Management API trigger is fired - so it can happen that in time of update (handling Management API trigger), there will be old data on Delivery Preview API.
 
 ### Gatsby preview updates
 
