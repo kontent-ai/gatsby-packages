@@ -4,7 +4,7 @@ import { CustomPluginOptions, KontentItem, KontentItemInput } from "./types"
 import * as client from "./client";
 import { addPreferredLanguageProperty, alterRichTextElements, getKontentItemLanguageVariantArtifact } from "./sourceNodes.items";
 import { getKontentItemNodeStringForId, getKontentTaxonomyTypeName, getKontentTypeTypeName, RICH_TEXT_ELEMENT_TYPE_NAME, PREFERRED_LANGUAGE_IDENTIFIER, getKontentItemInterfaceName } from "./naming";
-import { IWebhookDeliveryItem, IWebhookDeliveryResponse, IWebhookMessage, IWebhookWorkflowDataItem, IWebhookWorkflowResponse } from '@kentico/kontent-webhook-helper';
+import { IWebhookDeliveryResponse, IWebhookMessage, IWebhookWorkflowResponse } from '@kentico/kontent-webhook-helper';
 import _ from 'lodash';
 
 const parseKontentWebhookBody = (api: SourceNodesArgs): IWebhookDeliveryResponse | IWebhookWorkflowResponse | null => {

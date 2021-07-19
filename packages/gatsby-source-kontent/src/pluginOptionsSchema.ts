@@ -1,5 +1,5 @@
 
-const pluginOptionsSchema = ({ Joi }: { Joi: any }) => {
+const pluginOptionsSchema = ({ Joi }: { Joi: any }): unknown => {
   return Joi.object({
     projectId: Joi.string()
       .required()

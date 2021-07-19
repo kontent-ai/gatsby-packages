@@ -14,7 +14,7 @@ import { kontentTypesSourceNodes } from './src/sourceNodes.types';
 import { handleIncomingWebhook } from './src/webhookProcessor';
 import { pluginOptionsSchema } from './src/pluginOptionsSchema';
 
-exports.pluginOptionsSchema = ({ Joi }: { Joi: any }) => {
+exports.pluginOptionsSchema = ({ Joi }: { Joi: unknown }): unknown => {
   return pluginOptionsSchema({ Joi });
 }
 

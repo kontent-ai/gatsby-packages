@@ -102,10 +102,10 @@ describe('webhookProcessor', () => {
               language: {
                 id: "00000000-0000-0000-0000-000000000000"
               },
-              transition_from: {
+              "transition_from": {
                 id: "88ac5e6e-1c5c-4638-96e1-0d61221ad5bf"
               },
-              transition_to: {
+              "transition_to": {
                 id: "10b99292-5bd1-4d4e-b6c1-a2fe2aedf3c5"
               }
             }
@@ -115,12 +115,12 @@ describe('webhookProcessor', () => {
         message:
         {
           id: "562a9727-61b5-4919-9083-105b0c64995b",
-          project_id: PROJECT_ID,
+          "project_id": PROJECT_ID,
           type: "content_item_variant",
           operation: "change_workflow_step",
-          api_name: "content_management",
-          created_timestamp: "2021-07-01T10:19:25.4983423Z",
-          webhook_url: "https://testing-endpoint.io/__refresh"
+          "api_name": "content_management",
+          "created_timestamp": "2021-07-01T10:19:25.4983423Z",
+          "webhook_url": "https://testing-endpoint.io/__refresh"
         }
       },
       createNodeId: jest.fn(input => `dummyId-${input}`),
