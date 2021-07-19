@@ -192,3 +192,64 @@ Array [
 `;
 
 exports[`webhookProcessor handleIncomingWebhook for upsert management API webhoook trigger (change workflow step) does not call createNode actions when turned off 1`] = `Array []`;
+
+exports[`webhookProcessor handleIncomingWebhook for upsert preview API trigger call createNode action for modular content as well 1`] = `
+Array [
+  Object {
+    "children": Array [],
+    "elements": Object {
+      "notes": Object {
+        "images": Array [],
+        "links": Array [],
+        "modular_content": Array [
+          "n6951be2b_e502_01ed_79a4_80ad776ae16b",
+        ],
+        "name": "Notes",
+        "type": "rich_text",
+        "value": "<p>This is a sample notes element with one note component</p>
+<object type=\\"application/kenticocloud\\" data-type=\\"item\\" data-rel=\\"component\\" data-codename=\\"n6951be2b_e502_01ed_79a4_80ad776ae16b\\"></object>",
+      },
+    },
+    "id": "dummyId-kontent_item_en-US_eedf0209-989c-4adb-bc83-546e325ab781",
+    "internal": Object {
+      "contentDigest": "4416e4041857112eddf4caeb6dca5195",
+      "type": "kontent_item_author",
+    },
+    "preferred_language": "en-US",
+    "system": Object {
+      "codename": "author",
+      "id": "eedf0209-989c-4adb-bc83-546e325ab781",
+      "language": "en-US",
+      "last_modified": "2020-09-22T09:33:13.7465607Z",
+      "name": "Author",
+      "sitemap_locations": Array [],
+      "type": "author",
+    },
+  },
+  Object {
+    "children": Array [],
+    "elements": Object {
+      "text": Object {
+        "name": "Text",
+        "type": "text",
+        "value": "Note 1",
+      },
+    },
+    "id": "dummyId-kontent_item_en-US_6951be2b-e502-01ed-79a4-80ad776ae16b",
+    "internal": Object {
+      "contentDigest": "5d088a503493a36e057d990043b1515e",
+      "type": "kontent_item_note",
+    },
+    "preferred_language": "en-US",
+    "system": Object {
+      "codename": "n6951be2b_e502_01ed_79a4_80ad776ae16b",
+      "id": "6951be2b-e502-01ed-79a4-80ad776ae16b",
+      "language": "en-US",
+      "last_modified": "2020-09-22T09:33:13.7465607Z",
+      "name": "6951be2b-e502-01ed-79a4-80ad776ae16b",
+      "sitemap_locations": Array [],
+      "type": "note",
+    },
+  },
+]
+`;
