@@ -40,12 +40,13 @@ jest.mock('../src/client', () => ({
   }
 }));
 describe('webhookProcessor', () => {
-  const pluginConfiguration = createMock<CustomPluginOptions>({
+  const pluginConfigurationBaseData = {
     projectId: PROJECT_ID,
     languageCodenames: [LANGUAGE]
-  });
+  };
+  const pluginConfiguration = createMock<CustomPluginOptions>(pluginConfigurationBaseData);
 
-  describe('handleIncomingWebhook for upsert', () => {
+  describe('handleIncomingWebhook for upsert preview API trigger', () => {
 
     const api = createMock<SourceNodesArgs>({
       webhookBody: {
@@ -87,6 +88,79 @@ describe('webhookProcessor', () => {
       expect(createNodesMock.mock.calls.length).toBe(2);
       expect(createdNodes).toMatchSnapshot();
     });
+  });
+
+  describe('handleIncomingWebhook for upsert management API webhoook trigger (change workflow step)', () => {
+    const api = createMock<SourceNodesArgs>({
+      webhookBody: {
+        data: {
+          items: [
+            {
+              item: {
+                id: UPSERT_ITEM_ID
+              },
+              language: {
+                id: "00000000-0000-0000-0000-000000000000"
+              },
+              transition_from: {
+                id: "88ac5e6e-1c5c-4638-96e1-0d61221ad5bf"
+              },
+              transition_to: {
+                id: "10b99292-5bd1-4d4e-b6c1-a2fe2aedf3c5"
+              }
+            }
+          ],
+          taxonomies: []
+        },
+        message:
+        {
+          id: "562a9727-61b5-4919-9083-105b0c64995b",
+          project_id: PROJECT_ID,
+          type: "content_item_variant",
+          operation: "change_workflow_step",
+          api_name: "content_management",
+          created_timestamp: "2021-07-01T10:19:25.4983423Z",
+          webhook_url: "https://testing-endpoint.io/__refresh"
+        }
+      },
+      createNodeId: jest.fn(input => `dummyId-${input}`),
+      actions: createMock<Actions>({
+        createNode: jest.fn(),
+      }),
+      createContentDigest,
+    });
+
+
+    it('does not call createNode actions when turned off', async () => {
+      await handleIncomingWebhook(api, pluginConfiguration, []);
+
+      const createNodesMock = mocked(api.actions.createNode, true);
+      const createdNodes = _.flatMap(
+        createNodesMock.mock.calls,
+      ) as KontentItem[];
+      expect(createNodesMock.mock.calls.length).toBe(0);
+      expect(createdNodes).toMatchSnapshot();
+    });
+
+    it('call createNode action for modular content as well when turned on', async () => {
+
+      const experimentalPluginConfiguration = createMock<CustomPluginOptions>({
+        ...pluginConfigurationBaseData,
+        experimental: {
+          managementApiTriggersUpdate: true
+        }
+      });
+
+      await handleIncomingWebhook(api, experimentalPluginConfiguration, []);
+
+      const createNodesMock = mocked(api.actions.createNode, true);
+      const createdNodes = _.flatMap(
+        createNodesMock.mock.calls,
+      ) as KontentItem[];
+      expect(createNodesMock.mock.calls.length).toBe(2);
+      expect(createdNodes).toMatchSnapshot();
+    });
+
   });
 
   describe('handleIncomingWebhook for delete', () => {
