@@ -75,7 +75,7 @@ const handleUpsertItem = async (
   api: SourceNodesArgs,
   pluginConfig: CustomPluginOptions,
   itemId: string,
-  itemLanguage?: string
+  itemLanguage?: string,
 ): Promise<string[]> => {
 
   // TODO - language codename is not provided for management call
@@ -176,6 +176,15 @@ const handleDeleteItem = async (
     }
   }
 
+  if ((api.webhookBody as IWebhookDeliveryResponse)?.data.items.length > 1) {
+    api.reporter.verbose(`Webhook contains more than one item for un-publish operation - upserting all (all but first in webhook) related items.`)
+    for (const relatedItem of (api.webhookBody as IWebhookDeliveryResponse)?.data.items.slice(1)) {
+      api.reporter.verbose(`Upserting item ${relatedItem.codename} (${relatedItem.codename}) - ${relatedItem.language}`)
+      const processedIds = await handleUpsertItem(api, pluginConfig, relatedItem.id, relatedItem.language);
+      touchedItemsIds.push(...processedIds);
+    }
+  }
+
   return touchedItemsIds;
 }
 
@@ -199,7 +208,11 @@ const handleIncomingWebhook = async (
 
   api.reporter.verbose(`Handling ${webhook.message.operation} from ${webhook.message.api_name} API`);
   if (webhook.data.items.length > 1) {
-    api.reporter.warn(`Webhook contains more than one item! - contains (${webhook.data.items.length})`)
+    if (webhook.message.operation != 'unpublish') {
+      api.reporter.warn(`Webhook contains more than one item! - contains (${webhook.data.items.length})`)
+    } else {
+      api.reporter.info(`Webhook contains more than one item (${webhook.data.items.length})`)
+    }
   }
 
   const processedItemIds: string[] = [];
