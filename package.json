@@ -35,6 +35,7 @@
     "develop:site:preview": "yarn workspace @kentico/gatsby-starter-kontent-hello-world develop:preview",
     "develop:navigation": "yarn workspace @kentico/kontent-gatsby-example-navigation develop",
     "develop:resolution": "yarn workspace @kentico/kontent-gatsby-example-resolution develop",
+    "develop:resolution:preview": "yarn workspace @kentico/kontent-gatsby-example-resolution develop:preview",
     "develop:relationships": "yarn workspace @kentico/kontent-gatsby-example-relationships develop",
     "develop:site:playground": "cross-env GATSBY_GRAPHQL_IDE=playground yarn develop:site",
     "watch:source": "yarn workspace @kentico/gatsby-source-kontent watch",

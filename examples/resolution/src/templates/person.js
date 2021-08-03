@@ -43,6 +43,11 @@ const Person = ({ data }) => {
             )
           }}
           resolveLinkedItem={linkedItem => {
+            // In case of linked item is not a part fo the response
+            if(!linkedItem) {
+              return <strong style={{color: "red"}}>⚠ Linked item is no longer in the response. ⚠</strong>
+            }
+
             switch (linkedItem.__typename) {
               case 'kontent_item_website':
                 return (

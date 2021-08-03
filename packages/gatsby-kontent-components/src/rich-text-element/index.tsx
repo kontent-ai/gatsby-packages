@@ -43,7 +43,7 @@ const replaceNode = (
     if (isLinkedItem(domNode)) {
       const codeName = domNode.attribs?.['data-codename'];
       const linkedItem = linkedItems.find(
-        item => item.system.codename === codeName,
+        item => item?.system?.codename === codeName,
       );
       return resolveLinkedItem(linkedItem);
     }
@@ -52,7 +52,7 @@ const replaceNode = (
   if (resolveImage && images) {
     if (isImage(domNode)) {
       const imageId = domNode.attribs?.[IMAGE_ID_ATTRIBUTE_IDENTIFIER];
-      const image = images.find(image => image.image_id === imageId);
+      const image = images.find(image => image?.image_id === imageId);
       return resolveImage(image);
     }
   }
@@ -60,7 +60,7 @@ const replaceNode = (
   if (resolveLink && links) {
     if (isLink(domNode)) {
       const linkId = domNode.attribs?.[LINKED_ITEM_ID_ATTRIBUTE_IDENTIFIER];
-      const link = links.find(links => links.link_id === linkId);
+      const link = links.find(links => links?.link_id === linkId);
       return resolveLink(link, domNode);
     }
   }
