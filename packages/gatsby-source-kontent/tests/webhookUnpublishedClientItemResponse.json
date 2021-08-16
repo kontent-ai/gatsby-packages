@@ -1,0 +1,28 @@
+{
+  "item": {
+    "system": {
+      "id": "92b8911b-4645-4987-85d6-fea6f52867ef",
+      "name": "Gatsby",
+      "codename": "gatsby",
+      "language": "en-US",
+      "type": "category",
+      "collection": "default",
+      "sitemap_locations": [],
+      "last_modified": "2020-03-04T14:25:56.7065876Z",
+      "workflow_step": "archived"
+    },
+    "elements": {
+      "title": {
+        "type": "text",
+        "name": "Title",
+        "value": "Gatsby"
+      },
+      "slug": {
+        "type": "url_slug",
+        "name": "Slug",
+        "value": "gatsby"
+      }
+    }
+  },
+  "modular_content": {}
+}

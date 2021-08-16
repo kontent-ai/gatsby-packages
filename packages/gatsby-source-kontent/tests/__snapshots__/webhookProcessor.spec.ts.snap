@@ -192,3 +192,117 @@ Array [
   },
 ]
 `;
+
+exports[`webhookProcessor unpublish delivery API triggers call deleteNode action for unpublished content item and upsert for related item 1`] = `
+Array [
+  Object {
+    "children": Array [],
+    "elements": Object {
+      "slug": Object {
+        "name": "Slug",
+        "type": "url_slug",
+        "value": "gatsby",
+      },
+      "title": Object {
+        "name": "Title",
+        "type": "text",
+        "value": "Gatsby",
+      },
+    },
+    "id": "dummyId-92b8911b-4645-4987-85d6-fea6f52867ef",
+    "internal": Object {
+      "contentDigest": "dummyContentDigest",
+      "counter": 666,
+      "owner": "@kentico/gatsby-source-kontent",
+      "type": "category",
+    },
+    "parent": null,
+    "preferred_language": "en-US",
+    "system": Object {
+      "codename": "gatsby",
+      "collection": "default",
+      "id": "92b8911b-4645-4987-85d6-fea6f52867ef",
+      "language": "en-US",
+      "last_modified": "2020-03-04T14:25:56.7065876Z",
+      "name": "Gatsby",
+      "sitemap_locations": Array [],
+      "type": "category",
+      "workflow_step": "archived",
+    },
+  },
+]
+`;
+
+exports[`webhookProcessor unpublish delivery API triggers call deleteNode action for unpublished content item and upsert for related item 2`] = `
+Array [
+  Object {
+    "children": Array [],
+    "elements": Object {
+      "category": Object {
+        "name": "Category",
+        "type": "modular_content",
+        "value": Array [],
+      },
+      "content": Object {
+        "images": Array [],
+        "links": Array [],
+        "modular_content": Array [],
+        "name": "Content",
+        "type": "rich_text",
+        "value": "<p>This is a Gatsby v3 compatible version of the <a href=\\"https://github.com/alxshelepenok/gatsby-starter-lumen\\" data-new-window=\\"true\\" target=\\"_blank\\" rel=\\"noopener noreferrer\\">lumen</a> starter, started by the folks at <a href=\\"https://www.gatsbycentral.com/\\" data-new-window=\\"true\\" target=\\"_blank\\" rel=\\"noopener noreferrer\\">Gatsby Centra</a>l.</p>
+<p>Here's a little recommended reading for Gatsby v3.</p>
+<ul>
+  <li>First, <a href=\\"https://www.gatsbyjs.com/docs/reference/release-notes/migrating-from-v2-to-v3\\">what's new in v3</a></li>
+  <li><a href=\\"https://www.gatsbyjs.com/blog/gatsby-v3/\\">The Gatsby v2 announcement blog post</a></li>
+</ul>
+<p>If you <strong>do decide to upgrade</strong>, these articles will help you do that.</p>
+<ul>
+  <li><a href=\\"https://www.gatsbyjs.com/docs/reference/release-notes/migrating-from-v2-to-v3#updating-your-dependencies\\">Updating Your Dependencies</a></li>
+  <li><a href=\\"https://www.gatsbyjs.com/docs/reference/release-notes/migrating-from-v2-to-v3#handling-breaking-changes\\">Handling Breaking Changes</a></li>
+  <li><a href=\\"https://www.gatsbyjs.com/docs/reference/release-notes/migrating-from-v2-to-v3#future-breaking-changes\\">Future Breaking Changes</a></li>
+  <li><a href=\\"https://www.gatsbyjs.com/docs/reference/release-notes/migrating-from-v2-to-v3#for-plugin-maintainers\\">For Plugin Maintainers</a></li>
+  <li><a href=\\"https://www.gatsbyjs.com/docs/reference/release-notes/migrating-from-v2-to-v3#known-issues\\">Known Issues</a></li>
+</ul>
+<p>Enjoy!</p>",
+      },
+      "date": Object {
+        "name": "Date",
+        "type": "date_time",
+        "value": "2020-07-31T00:00:00Z",
+      },
+      "description": Object {
+        "name": "Description",
+        "type": "text",
+        "value": "This starter has been forked and upgraded to Gatsby v3!",
+      },
+      "slug": Object {
+        "name": "Slug",
+        "type": "url_slug",
+        "value": "upgraded-to-gatsby-v3",
+      },
+      "title": Object {
+        "name": "Title",
+        "type": "text",
+        "value": "Upgraded to Gatsby v3",
+      },
+    },
+    "id": "dummyId-kontent_item_en-US_5927f3d3-4fcb-4e2c-8d12-a2954339a87d",
+    "internal": Object {
+      "contentDigest": "71f32c5c590359ba36456c011e34432b",
+      "type": "kontent_item_article",
+    },
+    "preferred_language": "en-US",
+    "system": Object {
+      "codename": "upgraded_to_gatsby_v3",
+      "collection": "default",
+      "id": "5927f3d3-4fcb-4e2c-8d12-a2954339a87d",
+      "language": "en-US",
+      "last_modified": "2021-08-16T17:34:24.4384786Z",
+      "name": "Upgraded to Gatsby v3",
+      "sitemap_locations": Array [],
+      "type": "article",
+      "workflow_step": "published",
+    },
+  },
+]
+`;

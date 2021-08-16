@@ -6,36 +6,55 @@ import { createMock } from 'ts-auto-mock';
 import { createContentDigest } from 'gatsby-core-utils';
 
 import * as UPSERT_ITEM from './webhookUpsertClientItemResponse.json';
+import * as UNPUBLISHED_ITEM from './webhookUnpublishedClientItemResponse.json';
+import * as USED_BY_UNPUBLISHED_ITEM from './webhookUsedByUnpublishedClientItemResponse.json';
 const UPSERT_ITEM_ID = UPSERT_ITEM.item.system.id;
+const UNPUBLISHED_ITEM_ID = UNPUBLISHED_ITEM.item.system.id;
+const USED_BY_UNPUBLISHED_ITEM_ID = USED_BY_UNPUBLISHED_ITEM.item.system.id;
 const PROJECT_ID = "00676a8d-358c-0084-f2f2-33ed466c480a";
 const LANGUAGE = "en-US";
 
 import { mocked } from 'ts-jest/dist/util/testing';
 
+const idGenerator = (input: string) => `dummyId-${input}`;
+
 jest.mock('../src/client', () => ({
   loadKontentItem: async (itemId: string): Promise<{
     item: KontentItem | undefined;
     modularKontent: { [key: string]: KontentItem };
-  }> => {
-    if (itemId.includes(UPSERT_ITEM_ID)) {
-      return Promise.resolve(
-        createMock<{
-          item: KontentItem | undefined;
-          modularKontent: { [key: string]: KontentItem };
-        }>({
-          ...UPSERT_ITEM
-        })
-      );
-    } else {
-      return Promise.resolve(
-        createMock<{
-          item: KontentItem | undefined;
-          modularKontent: { [key: string]: KontentItem };
-        }>({
-          item: undefined,
-          modularKontent: {}
-        })
-      );
+  } | undefined> => {
+
+    switch (itemId) {
+      case UPSERT_ITEM_ID:
+        return Promise.resolve(
+          createMock<{
+            item: KontentItem | undefined;
+            modularKontent: { [key: string]: KontentItem };
+          }>({
+            ...UPSERT_ITEM
+          })
+        );
+      case USED_BY_UNPUBLISHED_ITEM_ID:
+        return Promise.resolve(
+          createMock<{
+            item: KontentItem | undefined;
+            modularKontent: { [key: string]: KontentItem };
+          }>({
+            ...USED_BY_UNPUBLISHED_ITEM
+          })
+        );
+      // unpublished version is no returned by client
+      case UNPUBLISHED_ITEM_ID:
+      default:
+        return Promise.resolve(
+          createMock<{
+            item: KontentItem | undefined;
+            modularKontent: { [key: string]: KontentItem };
+          }>({
+            item: undefined,
+            modularKontent: {}
+          })
+        );
     }
   }
 }));
@@ -73,7 +92,7 @@ describe('webhookProcessor', () => {
             "webhook_url": "https://testing-endpoint.io/__refresh"
           }
         },
-        createNodeId: jest.fn(input => `dummyId-${input}`),
+        createNodeId: jest.fn(idGenerator),
         actions: createMock<Actions>({
           createNode: jest.fn(),
         }),
@@ -138,7 +157,7 @@ describe('webhookProcessor', () => {
           "system": {
             "id": "9616528a-d5f7-43ce-a313-1ff921adc078",
             "name": "test note linekd inline kontent item",
-            "codename": "test_note_linekd_inline_kontent_item",
+            "codename": inlineLinkedKontentItemCodename,
             "language": "en-US",
             "type": "note",
             "sitemap_locations": [],
@@ -215,7 +234,7 @@ describe('webhookProcessor', () => {
             "webhook_url": "https://testing-endpoint.io/__refresh"
           }
         },
-        createNodeId: jest.fn(input => `dummyId-${input}`),
+        createNodeId: jest.fn(idGenerator),
         getNodes: jest.fn(() => [mainItemGraphQlNode, ...modularItemsGraphQlNodes]),
         getNode: jest.fn(() => mainItemGraphQlNode),
         actions: createMock<Actions>({
@@ -237,7 +256,77 @@ describe('webhookProcessor', () => {
     });
   });
 
-  describe('publish delivery API triggers', () => {
+  describe('unpublish delivery API triggers', () => {
+
+    const unpublishedContentItemNode = {
+      ...UNPUBLISHED_ITEM.item,
+      "preferred_language": LANGUAGE,
+      "id": idGenerator(UNPUBLISHED_ITEM_ID),
+      "children": [],
+      "internal": {
+        "type": UNPUBLISHED_ITEM.item.system.type,
+        "contentDigest": "dummyContentDigest",
+        "counter": 666,
+        "owner": "@kentico/gatsby-source-kontent"
+      },
+      "parent": null
+    };
+
+    const api = createMock<SourceNodesArgs>({
+      webhookBody: {
+        data: {
+          items: [
+            {
+              id: UNPUBLISHED_ITEM_ID,
+              codename: UNPUBLISHED_ITEM.item.system.codename,
+              language: LANGUAGE,
+              type: UNPUBLISHED_ITEM.item.system.type
+            },
+            { // https://docs.kontent.ai/reference/webhooks-reference#a-item-objects
+              id: USED_BY_UNPUBLISHED_ITEM_ID,
+              codename: USED_BY_UNPUBLISHED_ITEM.item.system.codename,
+              language: LANGUAGE,
+              type: USED_BY_UNPUBLISHED_ITEM.item.system.type
+            }
+          ],
+          taxonomies: []
+        },
+        message: {
+          id: "3df93226-c358-4ffb-93b1-436ede5eb730",
+          "project_id": PROJECT_ID,
+          type: "content_item_variant",
+          operation: "unpublish",
+          "api_name": "delivery_production",
+          "created_timestamp": "2021-08-16T16:21:07.5247691Z",
+          "webhook_url": "https://testing-endpoint.io/__refresh"
+        }
+      },
+      createNodeId: jest.fn(idGenerator),
+      getNode: jest.fn(() => unpublishedContentItemNode),
+      actions: createMock<Actions>({
+        createNode: jest.fn(),
+        deleteNode: jest.fn(),
+      }),
+      createContentDigest,
+    });
+
+    it('call deleteNode action for unpublished content item and upsert for related item', async () => {
+      await handleIncomingWebhook(api, pluginConfiguration, []);
+
+      const deletedNodesMock = mocked(api.actions.deleteNode, true);
+      const deletedNodes = _.flatMap(
+        deletedNodesMock.mock.calls,
+      ) as KontentItem[];
+      const createNodesMock = mocked(api.actions.createNode, true);
+      const createdNodes = _.flatMap(
+        createNodesMock.mock.calls,
+      ) as KontentItem[];
+
+      expect(deletedNodesMock.mock.calls.length).toBe(1);
+      expect(deletedNodes).toMatchSnapshot();
+      expect(createNodesMock.mock.calls.length).toBe(1);
+      expect(createdNodes).toMatchSnapshot();
+    });
 
   });
   describe('management API triggers', () => {
@@ -274,7 +363,7 @@ describe('webhookProcessor', () => {
             "webhook_url": "https://testing-endpoint.io/__refresh"
           }
         },
-        createNodeId: jest.fn(input => `dummyId-${input}`),
+        createNodeId: jest.fn(idGenerator),
         actions: createMock<Actions>({
           createNode: jest.fn(),
         }),
@@ -314,8 +403,5 @@ describe('webhookProcessor', () => {
 
     });
   });
-
-
-
 
 });
