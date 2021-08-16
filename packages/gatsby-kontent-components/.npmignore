@@ -35,7 +35,11 @@ examples
 
 # Project specific
 src/**
+tests/**
+# ignore the .ts files
 *.ts
+# include the .d.ts files
+!*.d.ts
 *.js.map
 .editorconfig
 .eslintignore
