@@ -16,7 +16,7 @@ const LANGUAGE = "en-US";
 
 import { mocked } from 'ts-jest/dist/util/testing';
 
-const idGenerator = (input: string) => `dummyId-${input}`;
+const idGenerator = (input: string): string => `dummyId-${input}`;
 
 jest.mock('../src/client', () => ({
   loadKontentItem: async (itemId: string): Promise<{
