@@ -211,7 +211,7 @@ const handleIncomingWebhook = async (
     if (webhook.message.operation != 'unpublish') {
       api.reporter.warn(`Webhook contains more than one item! - contains (${webhook.data.items.length})`)
     } else {
-      api.reporter.info(`Webhook contains more than one item (${webhook.data.items.length})`)
+      api.reporter.verbose(`Unpublish webhook contains more than one item (${webhook.data.items.length})`)
     }
   }
 
