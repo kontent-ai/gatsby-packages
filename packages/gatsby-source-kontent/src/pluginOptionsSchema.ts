@@ -1,4 +1,5 @@
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const pluginOptionsSchema = ({ Joi }: { Joi: any }): any => {
   return Joi.object({
     projectId: Joi.string()
