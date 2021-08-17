@@ -330,6 +330,51 @@ describe('production delivery API triggers', () => {
     });
 
   });
+
+  describe('publish action via publish trigger', () => {
+
+    const api = createMock<SourceNodesArgs>({
+      webhookBody: {
+        data: {
+          items: [
+            {
+              id: UPSERT_ITEM_ID,
+              codename: UPSERT_ITEM.item.system.codename,
+              language: LANGUAGE,
+              type: UPSERT_ITEM.item.system.type
+            }
+          ],
+          taxonomies: []
+        },
+        message: {
+          id: "800fd014-2e34-4bce-ba13-1f223c113f9d",
+          "project_id": PROJECT_ID,
+          type: "content_item_variant",
+          operation: "publish",
+          "api_name": "delivery_production",
+          "created_timestamp": "2021-08-16T17:34:38.5727326Z",
+          "webhook_url": "https://testing-endpoint.io/__refresh"
+        }
+      },
+      createNodeId: jest.fn(idGenerator),
+      actions: createMock<Actions>({
+        createNode: jest.fn(),
+      }),
+      createContentDigest,
+    });
+
+    it('call createNode action for modular content as well', async () => {
+      await handleIncomingWebhook(api, pluginConfiguration, []);
+
+      const createNodesMock = mocked(api.actions.createNode, true);
+      const createdNodes = _.flatMap(
+        createNodesMock.mock.calls,
+      ) as KontentItem[];
+      expect(createNodesMock.mock.calls.length).toBe(2);
+      expect(createdNodes).toMatchSnapshot();
+    });
+
+  });
 });
 
 describe('management API triggers', () => {
