@@ -18,6 +18,10 @@ npm install @kentico/gatsby-kontent-components gatsby-plugin-image
 
 Also, add `gatsby-plugin-image` to `plugins` array in `gatsby-config.js`.
 
+### Typescript
+
+Components exports their typescript definitions so that you know what data format you need to provide via props and what data format expect from function prop callback arguments.
+
 ## <a name="image-element-component">Image element component</a>
 
 Images from Kentico Kontent can be displayed using the `ImageElement` component. This wraps the `GatsbyImage` component from [gatsby-plugin-image](https://www.gatsbyjs.com/docs/how-to/images-and-media/using-gatsby-plugin-image/), so ensure that you also install that plugin. This component will give the best experience for your users, as it includes responsive srcset, blur-up, lazy loading and many other performance optimizations. [Automatic format optimization](https://docs.kontent.ai/reference/image-transformation#a-automatic-format-selection) is always enabled. In many cases it can improve Lighthouse scores by 10-20 points.
