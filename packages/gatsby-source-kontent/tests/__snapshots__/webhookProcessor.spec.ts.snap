@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`webhookProcessor management API triggers upsert action via change workflow step trigger (experimental) call createNode action for modular content as well when turned on 1`] = `
+exports[`management API triggers upsert action via change workflow step trigger (experimental) call createNode action for modular content as well when turned on 1`] = `
 Array [
   Object {
     "children": Array [],
@@ -61,9 +61,9 @@ Array [
 ]
 `;
 
-exports[`webhookProcessor management API triggers upsert action via change workflow step trigger (experimental) does not call createNode actions when turned off 1`] = `Array []`;
+exports[`management API triggers upsert action via change workflow step trigger (experimental) does not call createNode actions when turned off 1`] = `Array []`;
 
-exports[`webhookProcessor preview delivery API triggers delete operation via archive trigger call deleteNode action for modular content as well 1`] = `
+exports[`preview delivery API triggers delete action via archive trigger call deleteNode action for modular content as well 1`] = `
 Array [
   Object {
     "children": Array [],
@@ -132,7 +132,7 @@ Array [
 ]
 `;
 
-exports[`webhookProcessor preview delivery API triggers upsert action via upsert trigger call createNode action for modular content as well 1`] = `
+exports[`preview delivery API triggers upsert action via upsert trigger call createNode action for modular content as well 1`] = `
 Array [
   Object {
     "children": Array [],
@@ -193,7 +193,7 @@ Array [
 ]
 `;
 
-exports[`webhookProcessor unpublish delivery API triggers call deleteNode action for unpublished content item and upsert for related item 1`] = `
+exports[`production delivery API triggers unpublish action via unpublish trigger call deleteNode action for unpublished content item and upsert for related item 1`] = `
 Array [
   Object {
     "children": Array [],
@@ -233,7 +233,7 @@ Array [
 ]
 `;
 
-exports[`webhookProcessor unpublish delivery API triggers call deleteNode action for unpublished content item and upsert for related item 2`] = `
+exports[`production delivery API triggers unpublish action via unpublish trigger call deleteNode action for unpublished content item and upsert for related item 2`] = `
 Array [
   Object {
     "children": Array [],
