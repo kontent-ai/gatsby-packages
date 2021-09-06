@@ -22,6 +22,7 @@ interface CustomPluginOptions extends PluginOptions {
   includeRawContent: boolean = false;
   experimental: {
     managementApiTriggersUpdate: boolean = false;
+    additionalItemFilterParams: string = "";
   };
 }
 
