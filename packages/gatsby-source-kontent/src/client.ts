@@ -104,8 +104,8 @@ const loadAllKontentItems = async (
 
     const response = await axios.get(
       `${getProtocolAndDomain(config)}/${
-      config.projectId
-      }/items-feed?language=${language}`,
+        config.projectId
+      }/items-feed?language=${language}${config?.experimental?.additionalItemFilterParams ? '&' + config.experimental.additionalItemFilterParams : ''}`,
       {
         headers,
         raxConfig: {
@@ -136,16 +136,15 @@ const loadKontentItem = async (
   modularKontent: { [key: string]: KontentItemInput };
 }> => {
 
-  let  headers = ensureAuthorizationHeader(config);
+  let headers = ensureAuthorizationHeader(config);
   headers = ensureTrackingHeader(headers);
   if (waitForLoadingNewContent) {
     headers = ensureNewContentHeader(headers)
   }
 
   const response = await axios.get(
-    `${getProtocolAndDomain(config)}/${
-    config.projectId
-    }/items?system.id=${itemId}&language=${language}`,
+    `${getProtocolAndDomain(config)}/${config.projectId
+    }/items?system.id=${itemId}&language=${language}${config?.experimental?.additionalItemFilterParams ? '&' + config.experimental.additionalItemFilterParams : ''}`,
     {
       headers,
       raxConfig: {

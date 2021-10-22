@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/camelcase */
-import React from "react";
-import { getGatsbyImageData } from "../src/image-element/get-gatsby-image-data";
+import React from 'react';
+import { getGatsbyImageData } from '../src/image-element/get-gatsby-image-data';
 import TestRenderer from 'react-test-renderer';
 import { ImageElement } from '../src';
 
@@ -25,9 +25,10 @@ describe('<ImageElement />', () => {
   it('generates the srcset', () => {
     const data = getGatsbyImageData({ image: images[0] });
     expect(data.images.fallback.srcSet).toMatchInlineSnapshot(`
-        "https://assets-us-01.kc-usercontent.com:443/0fe3ab32-97a8-005d-6928-eda983ea70a5/44299668-b37b-4224-a115-1fd66f7d7b36/Yprofile.jpg?w=320&h=320&auto=format&fit=crop 320w,
-        https://assets-us-01.kc-usercontent.com:443/0fe3ab32-97a8-005d-6928-eda983ea70a5/44299668-b37b-4224-a115-1fd66f7d7b36/Yprofile.jpg?w=500&h=500&auto=format&fit=crop 500w"
-      `);
+      "https://assets-us-01.kc-usercontent.com:443/0fe3ab32-97a8-005d-6928-eda983ea70a5/44299668-b37b-4224-a115-1fd66f7d7b36/Yprofile.jpg?w=125&h=125&auto=format&fit=crop 125w,
+      https://assets-us-01.kc-usercontent.com:443/0fe3ab32-97a8-005d-6928-eda983ea70a5/44299668-b37b-4224-a115-1fd66f7d7b36/Yprofile.jpg?w=250&h=250&auto=format&fit=crop 250w,
+      https://assets-us-01.kc-usercontent.com:443/0fe3ab32-97a8-005d-6928-eda983ea70a5/44299668-b37b-4224-a115-1fd66f7d7b36/Yprofile.jpg?w=500&h=500&auto=format&fit=crop 500w"
+    `);
   });
 
   it('generates the correct dimensions', () => {
@@ -57,7 +58,8 @@ describe('<ImageElement />', () => {
           fit: 'clip',
           quality: 77,
           lossless: false,
-        }} />,
+        }}
+      />,
     );
     expect(
       testRenderer.root.findByProps({ 'data-main-image': '' }).props.fallback,

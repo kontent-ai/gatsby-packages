@@ -37,6 +37,9 @@ const pluginOptionsSchema = ({ Joi }: { Joi: any }): any => {
       managementApiTriggersUpdate: Joi.boolean()
       .description("Turn on experimental handling of management API triggers for update.")
       .default(false),
+      additionalItemFilterParams : Joi.string()
+      .description("Additional item filter parameters to reduce the content in GraphQL model.")
+      .default("")
     })
   });
 }

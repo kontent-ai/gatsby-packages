@@ -57,6 +57,8 @@ This plugin does not need to use `yarn`, if want to use it in you project, see [
 - `includeRawContent` - \<`boolean`\> allows to include `internal.content` property as a part fo the GraphQL model. Turned off by default.
 - `experimental`:
   - `managementApiTriggersUpdate` - \<`boolean`\> allows to handle [workflow step change Management API webhook trigger](https://docs.kontent.ai/reference/webhooks-reference#a-management-api-triggers). Turned off by default.
+  - `additionalItemFilterParams` - \<`string`\> Additional item [filter parameters](https://docs.kontent.ai/reference/delivery-api#tag/Filtering-content) to reduce the content in GraphQL model. Example `system.collection=marketing&system.workflow_step[neq]=archived` Empty by default.
+
   \* required property
 
 ### Logging
