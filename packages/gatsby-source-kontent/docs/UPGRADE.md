@@ -4,7 +4,7 @@
 
 ### Elements property names change
 
-Since the source plugin is trying to unify the data structure among [Kentico Kontent Delivery API](https://docs.kontent.ai/reference/delivery-api) and Gatsby GraphQL model.
+Since the source plugin is trying to unify the data structure among [Kontent Delivery API](https://docs.kontent.ai/reference/delivery-api) and Gatsby GraphQL model.
 This required to make some breaking changes in property elements.
 
 * rich-text
@@ -47,7 +47,7 @@ For URL resolution, you could re-use the implementation from URL slug. According
 ### Schema extension options
 
 After the research, it was detected that many of the features, that were provide by source plugin wan barely used, they have jus slowed down the build time of the site because all fo the that were calculated regardless of their actual usage.
-Since the Kontent GraphQL schema is now fully defined and all data from Kentico Kontent is already present in the data model, these features, which basically provided just a facade above the actual data are now removed to provide lightweight build. And we provide examples, how to include these facade transformations on the form of [Gatsby schema custom customization](https://www.gatsbyjs.org/docs/schema-customization) back. The customization could be adjusted exactly for your project needs and boost your build times.
+Since the Kontent GraphQL schema is now fully defined and all data from Kontent is already present in the data model, these features, which basically provided just a facade above the actual data are now removed to provide lightweight build. And we provide examples, how to include these facade transformations on the form of [Gatsby schema custom customization](https://www.gatsbyjs.org/docs/schema-customization) back. The customization could be adjusted exactly for your project needs and boost your build times.
 
 #### Language variant relationships
 
@@ -115,7 +115,7 @@ It is necessary to rename all Kontent taxonomy, type, and item names in all Grap
 
 ## From `3.x.x` to `4.x.x`
 
-This upgrade is mainly caused by upgrading [Kentico Kontent Javascript Delivery SDK](https://github.com/Kentico/kontent-delivery-sdk-js), adding new features, and performance tuning.
+This upgrade is mainly caused by upgrading [Kontent Javascript Delivery SDK](https://github.com/Kentico/kontent-delivery-sdk-js), adding new features, and performance tuning.
 
 ### Language fallbacks
 
@@ -139,7 +139,7 @@ Query names prefixed has changed from `KenticoCloud*` to `Kontent*` - i.e. `Kent
 
 ### Delivery configuration
 
-When configuring the Kentico Kontent Source plugin one of the properties to set is `deliveryClientConfig`. It is respecting the [`IDeliveryClientConfig`](https://github.com/Kentico/kontent-delivery-sdk-js/blob/master/UPGRADE.md#ideliveryclientconfig) interface from Kentico Kontent Delivery SDK.
+When configuring the Kontent Source plugin, one of the properties to set is `deliveryClientConfig`. It is respecting the [`IDeliveryClientConfig`](https://github.com/Kentico/kontent-delivery-sdk-js/blob/master/UPGRADE.md#ideliveryclientconfig) interface from Kontent Delivery SDK.
 
 #### Example
 
@@ -309,7 +309,7 @@ Rich text elements internal structure was extended. The main difference is that 
 
 ### Schema definition API
 
-Thanks to [#80](https://github.com/Kentico/gatsby-source-kontent/pull/80), [#94](https://github.com/Kentico/gatsby-source-kontent/pull/94), and [#95](https://github.com/Kentico/gatsby-source-kontent/pull/95) it is possible remove the [fully filled dummy content items](https://github.com/Kentico/gatsby-source-kontent/issues/59#issuecomment-496412677) from Kentico Kontent to provide Gatsby inference engine information about content structure.
+Thanks to [#80](https://github.com/Kentico/gatsby-source-kontent/pull/80), [#94](https://github.com/Kentico/gatsby-source-kontent/pull/94), and [#95](https://github.com/Kentico/gatsby-source-kontent/pull/95) it is possible remove the [fully filled dummy content items](https://github.com/Kentico/gatsby-source-kontent/issues/59#issuecomment-496412677) from Kontent to provide Gatsby inference engine information about content structure.
 
 For linked items in linked items element nor for rich text element encapsulation into the `... on Node` [GraphQL inline fragment](https://graphql.org/learn/queries/#inline-fragments) is not required any more ([#82](https://github.com/Kentico/gatsby-source-kontent/pull/82)).
 
