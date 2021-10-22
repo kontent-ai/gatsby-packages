@@ -8,7 +8,7 @@
 
 The package containing React components useful when processing Kontent data to the site.
 
-> To see the progress of the Gatsby v3 supported packages - [check out this pull request](https://github.com/Kentico/kontent-gatsby-packages/pull/174).
+> To see the progress of the Gatsby v4 supported packages - [check out this pull request](https://github.com/Kentico/kontent-gatsby-packages/pull/195).
 
 ## Install
 
