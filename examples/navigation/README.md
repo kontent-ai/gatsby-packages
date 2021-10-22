@@ -2,7 +2,7 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/5129d2e5-dc9f-4519-b18a-ad617e6225d5/deploy-status)](https://app.netlify.com/sites/kontent-gatsby-example-navigation/deploys)
 
-Site showcasing, how to model the menu in Kentico Kontent and the use this model in the Gatsby application to render a menu and its linked content.
+Site showcasing, how to model the menu in Kontent by Kentico and the use this model in the Gatsby application to render a menu and its linked content.
 
 This showcase extends originates from [Explicitly modeled navigation](https://docs.kontent.ai/tutorials/write-and-collaborate/structure-your-content/manage-navigation-menus#a-c-explicitly-modeled-navigation) approach and adds some Gatsby specific steps.
 
