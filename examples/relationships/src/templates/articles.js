@@ -20,7 +20,7 @@ const Articles = (props) => {
     <Layout>
       <div>
         Language switch:
-      <ul>
+        <ul>
           {languageSwitch}
         </ul>
       </div>
@@ -35,9 +35,7 @@ const Articles = (props) => {
 export const query = graphql`
 query ArticlesQuery($language: String!) {
   sitePlugin(name: {eq: "@kentico/gatsby-source-kontent"}) {
-    pluginOptions {
-      languageCodenames
-    }
+    pluginOptions 
   }
   allKontentItemArticle(filter: {fallback_used: {eq: false}, preferred_language: {eq: $language}}) {
     nodes {

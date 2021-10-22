@@ -134,6 +134,11 @@ const handleDeleteItem = async (
       const idString = getKontentItemNodeStringForId(itemInfo.id, lang);
       const node = api.getNode(api.createNodeId(idString));
 
+      if (!node) {  
+        api.reporter.warn(`Node with ${idString} not found - skipping`);
+        continue;
+      }
+
       // Remove content components
       const kontentItemNodes: KontentItem[] = api.getNodes()
         .filter((node: Node) => node.internal.type.startsWith(getKontentItemInterfaceName()))
