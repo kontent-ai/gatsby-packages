@@ -1,4 +1,4 @@
-# Gatsby development site for Kentico Kontent packages
+# Gatsby development site for Kontent packages
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/6cd10788-de09-4275-b0c9-daad29733bc9/deploy-status)](https://app.netlify.com/sites/kontent-gatsby-packages/deploys)
 
