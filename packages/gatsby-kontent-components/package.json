@@ -32,7 +32,7 @@
     "format": "prettier --write \"**/*.{ts,tsx}\""
   },
   "engines": {
-    "node": ">=14.0.0"
+    "node": ">=14.15.0"
   },
   "dependencies": {
     "html-react-parser": "^0.14.0"
