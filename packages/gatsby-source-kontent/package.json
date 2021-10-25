@@ -29,6 +29,9 @@
     "test": "jest",
     "watch": "tsc -w"
   },
+  "engines": {
+    "node": ">=14.0.0"
+  },
   "dependencies": {
     "@kentico/kontent-webhook-helper": "^1.1.0",
     "@types/fs-extra": "^8.0.1",
