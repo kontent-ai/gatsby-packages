@@ -40,7 +40,7 @@ const getLanguageLinkExtension = (): object => ({
       const nodesLanguage = kontentItemNode[PREFERRED_LANGUAGE_IDENTIFIER];
 
       const promises = nodesCodeNames.map(codename =>
-        context.nodeModel.runQuery({
+        context.nodeModel.findOne({
           query: {
             filter: {
               system: {
@@ -54,7 +54,6 @@ const getLanguageLinkExtension = (): object => ({
             },
           },
           type: getKontentItemInterfaceName(),
-          firstOnly: true,
         }),
       );
 
