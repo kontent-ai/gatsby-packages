@@ -1,5 +1,3 @@
-import * as fs from 'fs';
-import * as path from 'path';
 import { PluginNamingConfiguration } from './types';
 import { ItemsSchemaTemplate, TaxonomiesSchemaTemplate, TypesSchemaTemplate } from "./schemaTemplates";
 

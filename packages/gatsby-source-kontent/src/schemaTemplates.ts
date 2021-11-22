@@ -1,4 +1,4 @@
-const ItemsSchemaTemplate : string = 
+const ItemsSchemaTemplate = 
 `# All __UPPER_CASE__  wildcards will be replaced by the configuration
 
 interface __KONTENT_ITEM_INTERFACE__ implements Node {
@@ -122,7 +122,7 @@ type __KONTENT_ELEMENT_RICH_TEXT_LINK_VALUE__ {
 }
 `;
 
-const TaxonomiesSchemaTemplate : string = 
+const TaxonomiesSchemaTemplate = 
 `# All __UPPER_CASE__  wildcards will be replaced by the configuration
 
 type __KONTENT_TAXONOMY_NAME__ implements Node {
@@ -145,7 +145,7 @@ type __KONTENT_TAXONOMY_TERM_TYPE__ {
 }
 `;
 
-const TypesSchemaTemplate : string =
+const TypesSchemaTemplate =
 `# All __UPPER_CASE__  wildcards will be replaced by the configuration
 
 type __KONTENT_TYPE_NAME__ implements Node {
