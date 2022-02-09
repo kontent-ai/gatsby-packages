@@ -52,52 +52,97 @@ Following features are described on simple real-life use cases.
 
 There are two listing-detail examples on the site that are able to display content based on the content type `Article`. The first listing is using the [Static Site Generation](https://v4.gatsbyjs.com/docs/how-to/rendering-options/using-deferred-static-generation/) feature and the second listing-detail showcase is using the [Server side Rendering](https://v4.gatsbyjs.com/docs/how-to/rendering-options/using-server-side-rendering/) feature.
 
+If you run `yarn run build:dsg-ssr` command  in the root of this monorepo (after `yarn install` for installing all required dependencies) you will get this as a part of the output:
+
+```plain
+Pages
+
+┌ src/pages/index.js
+│ └   /
+├ src/pages/dsg-listing/index.js
+│ └   /dsg-listing/
+├ src/pages/ssr-listing/index.js
+│ └   /ssr-listing/
+├ src/pages/dsg-listing/{kontentItemArticle.elements__slug__value}.js
+│ ├ D /dsg-listing/a-brief-history-of-typography/
+│ └ D ...4 more pages available
+└ src/pages/ssr-listing/{kontentItemArticle.elements__slug__value}.js
+  ├ ∞ /ssr-listing/a-brief-history-of-typography/
+  └ ∞ ...4 more pages available
+
+  ╭────────────────────────────────────────────────────────────────╮
+  │                                                                │
+  │   (SSG) Generated at build time                                │
+  │ D (DSG) Deferred static generation - page generated at runtime │
+  │ ∞ (SSR) Server-side renders at runtime (uses getServerData)    │
+  │ λ (Function) Gatsby function                                   │
+  │                                                                │
+  ╰────────────────────────────────────────────────────────────────╯
+```
+
+This overview summarized in what mode were the pages set up to be rendered.
+
 ### Static site generation
 
-### Server side rendering
+Static site regeneration is using collection routes from [Gatsby file system routing](https://www.gatsbyjs.com/docs/reference/routing/file-system-route-api/) to fetch the articles from example Kontent project. The DSG article detail component module exports config objects defining the page HTML should be generated after the request (data are still fetched at build time).
 
-#### Implementation details
-
-// TODO
-
-As mentioned, to [`createSchemaCustomization`](https://www.gatsbyjs.com/docs/node-apis/#createSchemaCustomization) method is used to create a relationships. In this case the method used to link language variants is named `linkLanguageVariants` and [this is its source code](./example-languages-variants.js). This method basically using `buildObjectType` method to extend the type specified by the method argument. The GraphQL type name is generated from content type codename using `getKontentItemNodeTypeName` method from source plugin.
-
-Method responsible for filling the fields with data is a called `resolve`. For `fallback_used` it is pretty straightforward, but for `other_languages` it [is more complicated](./example-languages-variants.js#L27). Take a look to the code comments for possible modifications that changes what data is being retrieved to the field.
-
-Once you extend the schema, it is possible to query the data using GraphQL like that:
-
-```gql
-{
-  allKontentItemArticle {
-    nodes {
-      fallback_used
-      preferred_language
-      system {
-        language
-        codename
-      }
-      elements {
-        title {
-          value
-        }
-      }
-      other_languages {
-        fallback_used
-        preferred_language
-        system {
-          language
-          codename
-        }
-        elements {
-          title {
-            value
-          }
-        }
-      }
+```js
+export async function config() {
+  return () => {
+    return {
+      defer: true,
     }
   }
 }
 ```
+
+> See [DSG Article detail page component](./src/pages/dsg-listing/{kontentItemArticle.elements__slug__value}.js) for the implementation.
+
+### Server side rendering
+
+Server side rendering is completely isolated from Gatsby GraphQL model when generating the page. The data is fetched at the request time. In this example, Kontent Graphql API is used as a source of article content. ANd it is being fetch by standard [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API).
+
+```js
+export async function getServerData(context) {
+  try {
+    const response = await fetch(`https://graphql.kontent.ai/${projectId}`, {
+      method: 'POST',
+
+      headers: {
+        "Content-Type": "application/json"
+      },
+
+      body: JSON.stringify({
+        query: `
+        query ssrArticleQuery($slug: String!, $language: String!) {
+          article_All(where: {slug: {eq: $slug}}, limit: 1, languageFilter: {languageCodename: $language}) {
+            items {
+              title
+              date
+              content
+            }
+          }
+        }`,
+        variables: { slug: context.params.elements__slug__value, language: language }
+      })
+    })
+      .then(res => res.json())
+
+
+    return {
+      props: response.data.article_All.items[0],
+    }
+  } catch (error) {
+    return {
+      status: 500,
+      headers: {},
+      props: {}
+    }
+  }
+}
+```
+
+> See [SSR Article detail page component](./src/pages/ssr-listing/{kontentItemArticle.elements__slug__value}.js) for the implementation.
 
 ## Import site content to your Kontent project
 
