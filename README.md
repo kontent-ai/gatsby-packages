@@ -47,7 +47,8 @@ The repository contains the development site (`/site`) that could automatically 
 
 #### DSG and SSR showcase
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/b71c750d-4c9f-4a8f-9484-bafa7c2ce019/deploy-status)](https://app.netlify.com/sites/kontent-gatsby-example-dsg-ssr/deploys)
+<!-- See https://github.com/Kentico/kontent-gatsby-packages/issues/202 -->
+<!-- [![Netlify Status](https://api.netlify.com/api/v1/badges/b71c750d-4c9f-4a8f-9484-bafa7c2ce019/deploy-status)](https://app.netlify.com/sites/kontent-gatsby-example-dsg-ssr/deploys) -->
 
 - [DSG and SSR showcase](/examples/dsg-ssr#readme) - Example showcasing Deferred Static Generation and Server side Rendering features with Kontent by Kentico.
 
