@@ -14,5 +14,6 @@ module.exports = {
         languageCodenames: ["en-US"],
       },
     },
+    'gatsby-plugin-netlify'
   ],
 }
