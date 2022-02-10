@@ -1,7 +1,7 @@
 {
   "name": "@kentico/gatsby-kontent-components",
   "description": "Source plugin providing Kontent data from REST Delivery API",
-  "version": "7.2.0",
+  "version": "8.0.0-beta.2",
   "main": "dist/index.js",
   "license": "MIT",
   "author": {
@@ -31,6 +31,9 @@
     "watch": "tsc -w",
     "format": "prettier --write \"**/*.{ts,tsx}\""
   },
+  "engines": {
+    "node": ">=14.15.0"
+  },
   "dependencies": {
     "html-react-parser": "^0.14.0"
   },
@@ -42,7 +45,8 @@
     "@typescript-eslint/eslint-plugin": "2.16.0",
     "@typescript-eslint/parser": "2.16.0",
     "eslint": "6.8.0",
-    "gatsby-plugin-image": "^1.0.0-next.3",
+    "eslint-plugin-react": "^7.27.1",
+    "gatsby-plugin-image": "^2.0.0",
     "jest": "^24.9.0",
     "jest-ts-auto-mock": "^1.0.11",
     "prettier": "1.19.1",
@@ -55,7 +59,7 @@
     "typescript": "^3.7.5"
   },
   "peerDependencies": {
-    "gatsby-plugin-image": "^1.0.0",
+    "gatsby-plugin-image": "^2.0.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
   },

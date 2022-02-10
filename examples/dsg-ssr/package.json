@@ -1,0 +1,42 @@
+{
+  "name": "@kentico/kontent-gatsby-example-dsg-ssr",
+  "version": "0.1.0",
+  "description": "Example guide ro Kontent site with Gatsby DSG and SSR.",
+  "main": "index.js",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "test": "echo \"Write tests - eventually! -> https://gatsby.dev/unit-testing\" && exit 0",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "lint": "eslint --ignore-path .gitignore \"**/*.{js,jsx}\"",
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kentico/kontent-gatsby-packages.git"
+  },
+  "keywords": [
+    "Kontent",
+    "Headless",
+    "Gatsby",
+    "Example"
+  ],
+  "author": "Ondřej Chrastina",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Kentico/kontent-gatsby-packages/issues"
+  },
+  "homepage": "https://github.com/Kentico/kontent-gatsby-packages/tree/master/examples/dsg-ssr#readme",
+  "dependencies": {
+    "gatsby": "^4.6.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.8.0",
+    "gatsby-plugin-netlify": "^4.1.0",
+    "prettier": "^2.5.1"
+  }
+}

@@ -14,14 +14,14 @@ exports.createSchemaCustomization = async api => {
       url: {
         type: `String`,
         resolve: async (source, args, context, info) => {
-          const allNavigationItems = await context.nodeModel.runQuery({
+          const { entries } = await context.nodeModel.findAll({
             query: {
               filter: {},
             },
             type: type,
-            firstOnly: false,
-          })
+          });
 
+          const allNavigationItems = Array.from(entries);
           const urlFragments = [source.elements.slug.value] // /about/small-gas/subsection/<-
           let parent
           let currentContextItem = source;

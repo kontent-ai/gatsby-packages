@@ -12,7 +12,7 @@
 
 Source plugin for Kontent REST Delivery API.
 
-This repo contains a [Gatsby (v3) source plugin](https://www.gatsbyjs.org/docs/recipes/sourcing-data) that retrieves data from the [Kontent](https://kontent.ai) REST Delivery API.
+This repo contains a [Gatsby (v4) source plugin](https://www.gatsbyjs.org/docs/recipes/sourcing-data) that retrieves data from the [Kontent](https://kontent.ai) REST Delivery API.
 
 ## How to install
 
@@ -565,10 +565,12 @@ For more developer resources, visit the [Kontent Docs](https://docs.kontent.ai).
 
 ### Previous versions
 
-- For version 2 use [this branch](https://github.com/Kentico/gatsby-source-kentico-cloud/tree/v2).
-- For version 3 use [this branch](https://github.com/Kentico/gatsby-source-kentico-cloud/tree/v3).
-- For version 4 use [this branch](https://github.com/Kentico/gatsby-source-kentico-cloud/tree/v4).
-- For version 5 use [this branch](https://github.com/Kentico/gatsby-source-kentico-cloud/tree/v5).
+- For version 2 see [this branch](https://github.com/Kentico/gatsby-source-kentico-cloud/tree/v2).
+- For version 3 see [this branch](https://github.com/Kentico/gatsby-source-kentico-cloud/tree/v3).
+- For version 4 see [this branch](https://github.com/Kentico/gatsby-source-kentico-cloud/tree/v4).
+- For version 5 see [this branch](https://github.com/Kentico/gatsby-source-kentico-cloud/tree/v5).
+- For version 6 see [this branch](https://github.com/Kentico/gatsby-source-kentico-cloud/tree/v6).
+- For version 7 see [this branch](https://github.com/Kentico/gatsby-source-kentico-cloud/tree/v7).
 
 ## How to contribute
 

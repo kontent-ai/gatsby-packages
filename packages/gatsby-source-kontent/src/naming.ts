@@ -1,6 +1,5 @@
-import * as fs from 'fs';
-import * as path from 'path';
 import { PluginNamingConfiguration } from './types';
+import { ItemsSchemaTemplate, TaxonomiesSchemaTemplate, TypesSchemaTemplate } from "./schemaTemplates";
 
 const CONNECTOR = '_';
 const SYSTEM_IDENTIFIER = 'system';
@@ -129,12 +128,8 @@ const getKontentTypesCacheKey = (
 const getKontentItemsSchemaNamingConfiguration = (
   config: PluginNamingConfiguration = defaultPluginNamingConfiguration,
 ): string => {
-  const template = fs.readFileSync(
-    path.join(__dirname, 'template.items.schema.gql'),
-    'utf8',
-  );
   return (
-    template
+    ItemsSchemaTemplate
       .replace(
         /__KONTENT_ITEM_INTERFACE__/g,
         getKontentItemInterfaceName(config),
@@ -226,11 +221,7 @@ const getKontentItemsSchemaNamingConfiguration = (
 const getKontentTaxonomiesSchemaNamingConfiguration = (
   config: PluginNamingConfiguration = defaultPluginNamingConfiguration,
 ): string => {
-  const template = fs.readFileSync(
-    path.join(__dirname, 'template.taxonomies.schema.gql'),
-    'utf8',
-  );
-  return template
+  return TaxonomiesSchemaTemplate
     .replace(/__KONTENT_TAXONOMY_NAME__/g, getKontentTaxonomyTypeName(config))
     .replace(
       /__KONTENT_TAXONOMY_SYSTEM_TYPE__/g,
@@ -245,11 +236,7 @@ const getKontentTaxonomiesSchemaNamingConfiguration = (
 const getKontentTypesSchemaNamingConfiguration = (
   config: PluginNamingConfiguration = defaultPluginNamingConfiguration,
 ): string => {
-  const template = fs.readFileSync(
-    path.join(__dirname, 'template.types.schema.gql'),
-    'utf8',
-  );
-  return template
+  return TypesSchemaTemplate
     .replace(/__KONTENT_TYPE_NAME__/g, getKontentTypeTypeName(config))
     .replace(
       /__KONTENT_TYPE_SYSTEM_TYPE__/g,

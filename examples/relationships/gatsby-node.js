@@ -12,16 +12,15 @@ exports.createSchemaCustomization = async api => {
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage, createRedirect } = actions
 
-  const { data: { sitePlugin: { pluginOptions: { languageCodenames } } } } = await graphql(`
+  const { data: { sitePlugin: { pluginOptions } } } = await graphql(`
     query SiteLanguages {
       sitePlugin(name: {eq: "@kentico/gatsby-source-kontent"}) {
-        pluginOptions {
-          languageCodenames
-        }
+        pluginOptions
       }
     }
   `)
 
+  const { languageCodenames } = pluginOptions;
   languageCodenames.forEach(language => {
     createPage({
       path: `${language}/articles`,
