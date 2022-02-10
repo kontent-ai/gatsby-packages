@@ -1,7 +1,6 @@
 # Gatsby DSG and SSR Example
 
-// TODO
-[![Netlify Status](https://api.netlify.com/api/v1/badges/27d162a0-612b-4d8f-8382-40eee4f6b5d9/deploy-status)](https://app.netlify.com/sites/kontent-gatsby-example-relationships/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/b71c750d-4c9f-4a8f-9484-bafa7c2ce019/deploy-status)](https://app.netlify.com/sites/kontent-gatsby-example-dsg-ssr/deploys)
 
 The following example sites are showcasing the possibilities of [Static Site Generation](https://v4.gatsbyjs.com/docs/how-to/rendering-options/using-deferred-static-generation/) and [Server side Rendering](https://v4.gatsbyjs.com/docs/how-to/rendering-options/using-server-side-rendering/).
 
