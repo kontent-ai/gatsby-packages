@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
-import Layout from "../../components/layout";
+import Layout from "../../components/layout"
 
 export default function Component({ data: { kontentItemArticle } }) {
   return (
@@ -9,7 +9,7 @@ export default function Component({ data: { kontentItemArticle } }) {
       <div>Published: {kontentItemArticle.elements.date.value}</div>
       <p>{kontentItemArticle.elements.content.value}</p>
     </Layout>
-  );
+  )
 }
 
 // This is the page query that connects the data to the actual component. Here you can query for any and all fields
@@ -18,17 +18,17 @@ export default function Component({ data: { kontentItemArticle } }) {
 export const query = graphql`
   query dsgArticleQuery($id: String) {
     kontentItemArticle(id: { eq: $id }) {
-        elements {
-            title {
-                value
-            }
-            date {
-                value
-            }
-            content {
-                value
-            }
+      elements {
+        title {
+          value
         }
+        date {
+          value
+        }
+        content {
+          value
+        }
+      }
     }
   }
 `

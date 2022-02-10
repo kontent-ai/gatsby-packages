@@ -1,8 +1,6 @@
 import React from "react"
-import { graphql } from "gatsby"
-import Layout from "../../components/layout";
-import { plugins } from "../../../gatsby-config";
-import { createDeliveryClient } from "@kentico/kontent-delivery"
+import Layout from "../../components/layout"
+import { plugins } from "../../../gatsby-config"
 
 export default function Component({ serverData }) {
   return (
@@ -11,20 +9,22 @@ export default function Component({ serverData }) {
       <div>Published: {serverData.date}</div>
       <p>{serverData.content}</p>
     </Layout>
-  );
+  )
 }
 
-const kontentSourcePluginConfig = plugins.find(plugin => plugin.resolve === "@kentico/gatsby-source-kontent");
-const projectId = kontentSourcePluginConfig.options.projectId;
-const language = kontentSourcePluginConfig.options.languageCodenames[0];
+const kontentSourcePluginConfig = plugins.find(
+  plugin => plugin.resolve === "@kentico/gatsby-source-kontent"
+)
+const projectId = kontentSourcePluginConfig.options.projectId
+const language = kontentSourcePluginConfig.options.languageCodenames[0]
 
 export async function getServerData(context) {
   try {
     const response = await fetch(`https://graphql.kontent.ai/${projectId}`, {
-      method: 'POST',
+      method: "POST",
 
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
 
       body: JSON.stringify({
@@ -38,11 +38,12 @@ export async function getServerData(context) {
             }
           }
         }`,
-        variables: { slug: context.params.elements__slug__value, language: language }
-      })
-    })
-      .then(res => res.json())
-
+        variables: {
+          slug: context.params.elements__slug__value,
+          language: language,
+        },
+      }),
+    }).then(res => res.json())
 
     return {
       props: response.data.article_All.items[0],
@@ -51,7 +52,7 @@ export async function getServerData(context) {
     return {
       status: 500,
       headers: {},
-      props: {}
+      props: {},
     }
   }
 }

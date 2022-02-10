@@ -52,7 +52,7 @@ Following features are described on simple real-life use cases.
 
 There are two listing-detail examples on the site that are able to display content based on the content type `Article`. The first listing is using the [Static Site Generation](https://v4.gatsbyjs.com/docs/how-to/rendering-options/using-deferred-static-generation/) feature and the second listing-detail showcase is using the [Server side Rendering](https://v4.gatsbyjs.com/docs/how-to/rendering-options/using-server-side-rendering/) feature.
 
-If you run `yarn run build:dsg-ssr` command  in the root of this monorepo (after `yarn install` for installing all required dependencies) you will get this as a part of the output:
+If you run `yarn run build:dsg-ssr` command in the root of this monorepo (after `yarn install` for installing all required dependencies) you will get this as a part of the output:
 
 ```plain
 Pages
@@ -106,10 +106,10 @@ Server side rendering is completely isolated from Gatsby GraphQL model when gene
 export async function getServerData(context) {
   try {
     const response = await fetch(`https://graphql.kontent.ai/${projectId}`, {
-      method: 'POST',
+      method: "POST",
 
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
 
       body: JSON.stringify({
@@ -123,11 +123,12 @@ export async function getServerData(context) {
             }
           }
         }`,
-        variables: { slug: context.params.elements__slug__value, language: language }
-      })
-    })
-      .then(res => res.json())
-
+        variables: {
+          slug: context.params.elements__slug__value,
+          language: language,
+        },
+      }),
+    }).then(res => res.json())
 
     return {
       props: response.data.article_All.items[0],
@@ -136,7 +137,7 @@ export async function getServerData(context) {
     return {
       status: 500,
       headers: {},
-      props: {}
+      props: {},
     }
   }
 }
@@ -164,5 +165,5 @@ If you want to import content types with the sample content in your own empty pr
 
 Open the `gatsby-config.js` file and set the following properties for `@kentico/gatsby-source-kontent` plugin:
 
-- `projectId` from *Project settings > API keys > Delivery API > Project ID*
-- `languageCodenames` from *Project settings > Localization*
+- `projectId` from _Project settings > API keys > Delivery API > Project ID_
+- `languageCodenames` from _Project settings > Localization_
