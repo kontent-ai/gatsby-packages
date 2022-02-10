@@ -45,6 +45,10 @@ The repository contains the development site (`/site`) that could automatically 
 
 - [Relationships showcase](/examples/relationships#readme) - Schema customization examples demonstrating relationship possibilities among Kontent GraphQL nodes.
 
+#### DSG and SSR showcase
+
+- [DSG and SSR showcase](/examples/dsg-ssr#readme) - Example showcasing Deferred Static Generation and Server side Rendering features with Kontent by Kentico.
+
 ## Development
 
 ### Prerequisites
