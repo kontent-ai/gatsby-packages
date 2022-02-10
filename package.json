@@ -16,7 +16,8 @@
     "site",
     "examples/navigation",
     "examples/resolution",
-    "examples/relationships"
+    "examples/relationships",
+    "examples/dsg-ssr"
   ],
   "scripts": {
     "lint": "yarn workspaces run lint",
@@ -28,6 +29,7 @@
     "build:navigation": "yarn build:source && yarn workspace @kentico/kontent-gatsby-example-navigation run build",
     "build:resolution": "yarn build:components && yarn build:source && yarn workspace @kentico/kontent-gatsby-example-resolution run build",
     "build:relationships": "yarn build:source && yarn workspace @kentico/kontent-gatsby-example-relationships run build",
+    "build:dsg-ssr": "yarn build:source && yarn workspace @kentico/kontent-gatsby-example-dsg-ssr run build",
     "build:site": "yarn build:source && yarn build:components && yarn workspace @kentico/gatsby-starter-kontent-hello-world build",
     "watch": "run-p watch:**",
     "prepublishOnly": "yarn build",
@@ -37,6 +39,7 @@
     "develop:resolution": "yarn workspace @kentico/kontent-gatsby-example-resolution develop",
     "develop:resolution:preview": "yarn workspace @kentico/kontent-gatsby-example-resolution develop:preview",
     "develop:relationships": "yarn workspace @kentico/kontent-gatsby-example-relationships develop",
+    "develop:dsg-ssr": "yarn workspace @kentico/kontent-gatsby-example-dsg-ssr develop",
     "develop:site:playground": "cross-env GATSBY_GRAPHQL_IDE=playground yarn develop:site",
     "watch:source": "yarn workspace @kentico/gatsby-source-kontent watch",
     "watch:components": "yarn workspace @kentico/gatsby-kontent-components watch",
