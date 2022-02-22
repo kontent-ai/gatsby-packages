@@ -31,7 +31,7 @@ const linkedItems = [
     },
     elements: {
       name: {
-        value: 'ondrej.chrastina.tech',
+        value: 'ondrej.chrastina.dev',
       },
       slug: {
         value: 'ondrej-chrastina-tech',
@@ -40,7 +40,7 @@ const linkedItems = [
         value: "Ondřej Chrastina's personal site",
       },
       url: {
-        value: 'https://ondrej.chrastina.tech',
+        value: 'https://ondrej.chrastina.dev',
       },
       source_repository: {
         value: [

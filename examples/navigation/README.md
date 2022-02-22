@@ -119,7 +119,7 @@ If you want to check the content in your own project, you could use following gu
 
 ## [More complex example](https://github.com/Simply007/Simply007.github.io#setup)
 
-This showcase shows the basics for the menu modeling. If you want to take a look to [**more complex setup**](https://github.com/Simply007/Simply007.github.io#setup) you should continue to [ondrej.chrastina.tech](https://ondrej.chrastina.tech) [[`source`](https://github.com/Simply007/Simply007.github.io)]. This website is applying [more complex approaches](https://github.com/Simply007/Simply007.github.io#Setup).
+This showcase shows the basics for the menu modeling. If you want to take a look to [**more complex setup**](https://github.com/Simply007/Simply007.github.io#setup) you should continue to [ondrej.chrastina.dev](https://ondrej.chrastina.dev) [[`source`](https://github.com/Simply007/Simply007.github.io)]. This website is applying [more complex approaches](https://github.com/Simply007/Simply007.github.io#Setup).
 
 ![Complex modelled menu](./docs/complex-menu-showcase.png)
 
