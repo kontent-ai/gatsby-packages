@@ -541,7 +541,7 @@ For more developer resources, visit the [Kontent Docs](https://docs.kontent.ai).
 - [Kentico Advantage](https://advantage.kentico.com/) [[source code](https://github.com/Kentico/kentico-advantage/tree/source)]
 - [Richard Shackleton's Personal portfolio and blog website](https://rshackleton.co.uk/) [[source code](https://github.com/rshackleton/rshackleton.co.uk)]
 - [Untools by Adham Amran](https://untools.co) [[source code](https://github.com/amrancz/untools)]
-- [Ondřej Chrastina's personal site](http://ondrej.chrastina.tech) [[source code](https://github.com/Simply007/Simply007.github.io)]
+- [Ondřej Chrastina's personal site](http://ondrej.chrastina.dev) [[source code](https://github.com/Simply007/Simply007.github.io)]
 - [Aaron Collier's Czech Theather site](https://czechtheater.cz) [[source code](https://github.com/CollierCZ/czechtheater)]
 - [NetConstruct agency website](https://www.netconstruct.com)
 - [Matt Nield's personal blog site](https://www.mattnield.co.uk)
