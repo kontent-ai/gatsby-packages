@@ -181,7 +181,7 @@ describe('<RichTextElement/>', () => {
         linkedItems={linkedItems}
         resolveLinkedItem={(linkedItem, domNode): JSX.Element => {
           return <pre>{JSON.stringify(linkedItem, undefined, 2)}</pre>;
-           domNode
+            domNode
         }}
       />,
     );
