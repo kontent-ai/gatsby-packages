@@ -4,6 +4,7 @@
  * See: https://www.gatsbyjs.org/docs/gatsby-config/
  */
 
+// see https://github.com/netlify/netlify-plugin-gatsby/issues/217
 require("dotenv").config({ path: ".env.development" })
 
 module.exports = {
