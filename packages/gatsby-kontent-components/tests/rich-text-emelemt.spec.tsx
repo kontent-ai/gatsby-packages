@@ -4,7 +4,7 @@ import TestRenderer from 'react-test-renderer';
 import { RichTextElement } from '../src';
 
 const sampleComplexValue =
-  '<p>This is Ondřej Chrastina - Developer Advocate with <a href=\"https://kontent.ai\" data-new-window=\"true\" target=\"_blank\" rel=\"noopener noreferrer\">Kentico Kontent</a>.</p>\n<figure data-asset-id=\"d32b8ad5-0cf4-47a8-8b53-ed4a1e80dc88\" data-image-id=\"d32b8ad5-0cf4-47a8-8b53-ed4a1e80dc88\"><img src=\"https://assets-us-01.kc-usercontent.com:443/0f6785d7-8214-000f-62b3-d9580d692b59/44299668-b37b-4224-a115-1fd66f7d7b36/Yprofile.jpg\" data-asset-id=\"d32b8ad5-0cf4-47a8-8b53-ed4a1e80dc88\" data-image-id=\"d32b8ad5-0cf4-47a8-8b53-ed4a1e80dc88\" alt=\"\"></figure>\n<p>He likes to do web sites. This is his latest project:</p>\n<object type=\"application/kenticocloud\" data-type=\"item\" data-rel=\"link\" data-codename=\"ondrej_chrastina_tech\"></object>\n<p><br>\nHe also likes OSS. This is his latest repository:</p>\n<object type=\"application/kenticocloud\" data-type=\"item\" data-rel=\"link\" data-codename=\"simply007_kontent_gatsby_benchmark\"></object>\n<p><br>\nOn some projects, he was cooperating with <a data-item-id=\"2b805947-7ca5-4e6a-baa5-734a91f3cfa2\" href=\"\">John Doe</a>.</p>\n<p>You could take a look at their&nbsp;<a href=\"https://google.com\" title=\"sample link\">latest project</a>.</p>\n<p>Check out also this interesting repository</p>\n<object type=\"application/kenticocloud\" data-type=\"item\" data-rel=\"component\" data-codename=\"n5b76e971_4709_01f2_e8ea_36a9716d7b42\"></object>';
+  '<p>This is Ondřej Chrastina - Developer Advocate with <a href="https://kontent.ai" data-new-window="true" target="_blank" rel="noopener noreferrer">Kentico Kontent</a>.</p>\n<figure data-asset-id="d32b8ad5-0cf4-47a8-8b53-ed4a1e80dc88" data-image-id="d32b8ad5-0cf4-47a8-8b53-ed4a1e80dc88"><img src="https://assets-us-01.kc-usercontent.com:443/0f6785d7-8214-000f-62b3-d9580d692b59/44299668-b37b-4224-a115-1fd66f7d7b36/Yprofile.jpg" data-asset-id="d32b8ad5-0cf4-47a8-8b53-ed4a1e80dc88" data-image-id="d32b8ad5-0cf4-47a8-8b53-ed4a1e80dc88" alt=""></figure>\n<p>He likes to do web sites. This is his latest project:</p>\n<object type="application/kenticocloud" data-type="item" data-rel="link" data-codename="ondrej_chrastina_tech"></object>\n<p><br>\nHe also likes OSS. This is his latest repository:</p>\n<object type="application/kenticocloud" data-type="item" data-rel="link" data-codename="simply007_kontent_gatsby_benchmark"></object>\n<p><br>\nOn some projects, he was cooperating with <a data-item-id="2b805947-7ca5-4e6a-baa5-734a91f3cfa2" href="">John Doe</a>.</p>\n<p>You could take a look at their&nbsp;<a href="https://google.com" title="sample link">latest project</a>.</p>\n<p>Check out also this interesting repository</p>\n<object type="application/kenticocloud" data-type="item" data-rel="component" data-codename="n5b76e971_4709_01f2_e8ea_36a9716d7b42"></object>';
 const links = [
   {
     url_slug: 'john-doe',
@@ -79,25 +79,26 @@ const linkedItems = [
   },
 
   {
-    __typename: "kontent_item_repository",
+    __typename: 'kontent_item_repository',
     system: {
-      codename: "n5b76e971_4709_01f2_e8ea_36a9716d7b42"
+      codename: 'n5b76e971_4709_01f2_e8ea_36a9716d7b42',
     },
     elements: {
-      "name": {
-        "name": "Name"
+      name: {
+        name: 'Name',
       },
       slug: {
-        "value": ""
+        value: '',
       },
       summary: {
-        "value": "Gatsby packages repository containing the source plugin, components package, and a bunch of Gatsby examples."
+        value:
+          'Gatsby packages repository containing the source plugin, components package, and a bunch of Gatsby examples.',
       },
       url: {
-        value: "https://github.com/Kentico/kontent-gatsby-packages"
-      }
-    }
-  }
+        value: 'https://github.com/Kentico/kontent-gatsby-packages',
+      },
+    },
+  },
 ];
 
 describe('<RichTextElement/>', () => {
@@ -149,17 +150,18 @@ describe('<RichTextElement/>', () => {
     );
     expect(complexValueRenderer.toJSON()).toMatchSnapshot();
 
-
     const simpleValueRenderer = TestRenderer.create(
       <RichTextElement
-        value={'<p>This is the page text.</p><ul><li><a data-item-id="1abb6bf1-1e29-4deb-bb0c-b5928ffb0cc9" href="">Test link</a></li></ul>'}
+        value={
+          '<p>This is the page text.</p><ul><li><a data-item-id="1abb6bf1-1e29-4deb-bb0c-b5928ffb0cc9" href="">Test link</a></li></ul>'
+        }
         links={[
           {
-            "url_slug": "test-nico",
-            "type": "page",
-            "link_id": "1abb6bf1-1e29-4deb-bb0c-b5928ffb0cc9",
-            "codename": "test_page_nico"
-          }
+            url_slug: 'test-nico',
+            type: 'page',
+            link_id: '1abb6bf1-1e29-4deb-bb0c-b5928ffb0cc9',
+            codename: 'test_page_nico',
+          },
         ]}
         resolveLink={(link, domNode): JSX.Element => {
           return (
@@ -177,11 +179,11 @@ describe('<RichTextElement/>', () => {
   it('Resolve linked items', () => {
     const testRenderer = TestRenderer.create(
       <RichTextElement
-        value={ sampleComplexValue}
+        value={sampleComplexValue}
         linkedItems={linkedItems}
         resolveLinkedItem={(linkedItem, domNode): JSX.Element => {
           return <pre>{JSON.stringify(linkedItem, undefined, 2)}</pre>;
-             domNode
+          domNode;
         }}
       />,
     );
