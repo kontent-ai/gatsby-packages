@@ -177,11 +177,11 @@ describe('<RichTextElement/>', () => {
   it('Resolve linked items', () => {
     const testRenderer = TestRenderer.create(
       <RichTextElement
-        value={sampleComplexValue}
+        value={ sampleComplexValue}
         linkedItems={linkedItems}
         resolveLinkedItem={(linkedItem, domNode): JSX.Element => {
           return <pre>{JSON.stringify(linkedItem, undefined, 2)}</pre>;
-            domNode
+             domNode
         }}
       />,
     );
