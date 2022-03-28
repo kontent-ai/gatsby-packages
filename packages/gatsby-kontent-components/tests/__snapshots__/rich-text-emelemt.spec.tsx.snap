@@ -10,7 +10,7 @@ Array [
       rel="noopener noreferrer"
       target="_blank"
     >
-      Kentico Kontent
+      Kontent by Kentico
     </a>
     .
   </p>,
@@ -24,7 +24,7 @@ Array [
       alt=""
       data-asset-id="d32b8ad5-0cf4-47a8-8b53-ed4a1e80dc88"
       data-image-id="d32b8ad5-0cf4-47a8-8b53-ed4a1e80dc88"
-      src="https://assets-us-01.kc-usercontent.com:443/0f6785d7-8214-000f-62b3-d9580d692b59/44299668-b37b-4224-a115-1fd66f7d7b36/Yprofile.jpg"
+      src="https://assets-us-01.kc-usercontent.com:443/0fe3ab32-97a8-005d-6928-eda983ea70a5/44299668-b37b-4224-a115-1fd66f7d7b36/Yprofile.jpg"
     />
   </figure>,
   "
@@ -83,17 +83,43 @@ On some projects, he was cooperating with
   </p>,
   "
 ",
-  <p>
-    Check out also this interesting repository
-  </p>,
-  "
-",
-  <object
-    data-codename="n5b76e971_4709_01f2_e8ea_36a9716d7b42"
-    data-rel="component"
-    data-type="item"
-    type="application/kenticocloud"
-  />,
+  <table>
+    <tbody>
+      
+ 
+      <tr>
+        <td>
+          col1
+        </td>
+        <td>
+          col2
+        </td>
+      </tr>
+      
+ 
+      <tr>
+        <td>
+          data1
+        </td>
+        <td>
+          data2
+        </td>
+      </tr>
+      
+ 
+      <tr>
+        <td>
+          data3
+        </td>
+        <td>
+          data4
+        </td>
+      </tr>
+      
+
+    </tbody>
+  </table>,
+  ";",
 ]
 `;
 
@@ -113,7 +139,7 @@ Array [
       rel="noopener noreferrer"
       target="_blank"
     >
-      Kentico Kontent
+      Kontent by Kentico
     </a>
     .
   </p>,
@@ -127,7 +153,7 @@ Array [
       alt=""
       data-asset-id="d32b8ad5-0cf4-47a8-8b53-ed4a1e80dc88"
       data-image-id="d32b8ad5-0cf4-47a8-8b53-ed4a1e80dc88"
-      src="https://assets-us-01.kc-usercontent.com:443/0f6785d7-8214-000f-62b3-d9580d692b59/44299668-b37b-4224-a115-1fd66f7d7b36/Yprofile.jpg"
+      src="https://assets-us-01.kc-usercontent.com:443/0fe3ab32-97a8-005d-6928-eda983ea70a5/44299668-b37b-4224-a115-1fd66f7d7b36/Yprofile.jpg"
     />
   </figure>,
   "
@@ -186,17 +212,47 @@ On some projects, he was cooperating with
   </p>,
   "
 ",
-  <p>
-    Check out also this interesting repository
-  </p>,
-  "
-",
-  <object
-    data-codename="n5b76e971_4709_01f2_e8ea_36a9716d7b42"
-    data-rel="component"
-    data-type="item"
-    type="application/kenticocloud"
-  />,
+  <div
+    className="table-wrapper"
+  >
+    <table>
+      <tbody>
+        
+ 
+        <tr>
+          <td>
+            col1
+          </td>
+          <td>
+            col2
+          </td>
+        </tr>
+        
+ 
+        <tr>
+          <td>
+            data1
+          </td>
+          <td>
+            data2
+          </td>
+        </tr>
+        
+ 
+        <tr>
+          <td>
+            data3
+          </td>
+          <td>
+            data4
+          </td>
+        </tr>
+        
+
+      </tbody>
+    </table>
+  </div>,
+  ";",
 ]
 `;
 
@@ -210,7 +266,7 @@ Array [
       rel="noopener noreferrer"
       target="_blank"
     >
-      Kentico Kontent
+      Kontent by Kentico
     </a>
     .
   </p>,
@@ -276,17 +332,43 @@ On some projects, he was cooperating with
   </p>,
   "
 ",
-  <p>
-    Check out also this interesting repository
-  </p>,
-  "
-",
-  <object
-    data-codename="n5b76e971_4709_01f2_e8ea_36a9716d7b42"
-    data-rel="component"
-    data-type="item"
-    type="application/kenticocloud"
-  />,
+  <table>
+    <tbody>
+      
+ 
+      <tr>
+        <td>
+          col1
+        </td>
+        <td>
+          col2
+        </td>
+      </tr>
+      
+ 
+      <tr>
+        <td>
+          data1
+        </td>
+        <td>
+          data2
+        </td>
+      </tr>
+      
+ 
+      <tr>
+        <td>
+          data3
+        </td>
+        <td>
+          data4
+        </td>
+      </tr>
+      
+
+    </tbody>
+  </table>,
+  ";",
 ]
 `;
 
@@ -300,7 +382,7 @@ Array [
       rel="noopener noreferrer"
       target="_blank"
     >
-      Kentico Kontent
+      Kontent by Kentico
     </a>
     .
   </p>,
@@ -314,7 +396,7 @@ Array [
       alt=""
       data-asset-id="d32b8ad5-0cf4-47a8-8b53-ed4a1e80dc88"
       data-image-id="d32b8ad5-0cf4-47a8-8b53-ed4a1e80dc88"
-      src="https://assets-us-01.kc-usercontent.com:443/0f6785d7-8214-000f-62b3-d9580d692b59/44299668-b37b-4224-a115-1fd66f7d7b36/Yprofile.jpg"
+      src="https://assets-us-01.kc-usercontent.com:443/0fe3ab32-97a8-005d-6928-eda983ea70a5/44299668-b37b-4224-a115-1fd66f7d7b36/Yprofile.jpg"
     />
   </figure>,
   "
@@ -417,33 +499,43 @@ On some projects, he was cooperating with
   </p>,
   "
 ",
-  <p>
-    Check out also this interesting repository
-  </p>,
-  "
-",
-  <pre>
-    {
-  "__typename": "kontent_item_repository",
-  "system": {
-    "codename": "n5b76e971_4709_01f2_e8ea_36a9716d7b42"
-  },
-  "elements": {
-    "name": {
-      "name": "Name"
-    },
-    "slug": {
-      "value": ""
-    },
-    "summary": {
-      "value": "Gatsby packages repository containing the source plugin, components package, and a bunch of Gatsby examples."
-    },
-    "url": {
-      "value": "https://github.com/Kentico/kontent-gatsby-packages"
-    }
-  }
-}
-  </pre>,
+  <table>
+    <tbody>
+      
+ 
+      <tr>
+        <td>
+          col1
+        </td>
+        <td>
+          col2
+        </td>
+      </tr>
+      
+ 
+      <tr>
+        <td>
+          data1
+        </td>
+        <td>
+          data2
+        </td>
+      </tr>
+      
+ 
+      <tr>
+        <td>
+          data3
+        </td>
+        <td>
+          data4
+        </td>
+      </tr>
+      
+
+    </tbody>
+  </table>,
+  ";",
 ]
 `;
 
@@ -457,7 +549,7 @@ Array [
       rel="noopener noreferrer"
       target="_blank"
     >
-      Kentico Kontent
+      Kontent by Kentico
     </a>
     .
   </p>,
@@ -471,7 +563,7 @@ Array [
       alt=""
       data-asset-id="d32b8ad5-0cf4-47a8-8b53-ed4a1e80dc88"
       data-image-id="d32b8ad5-0cf4-47a8-8b53-ed4a1e80dc88"
-      src="https://assets-us-01.kc-usercontent.com:443/0f6785d7-8214-000f-62b3-d9580d692b59/44299668-b37b-4224-a115-1fd66f7d7b36/Yprofile.jpg"
+      src="https://assets-us-01.kc-usercontent.com:443/0fe3ab32-97a8-005d-6928-eda983ea70a5/44299668-b37b-4224-a115-1fd66f7d7b36/Yprofile.jpg"
     />
   </figure>,
   "
@@ -529,17 +621,43 @@ On some projects, he was cooperating with
   </p>,
   "
 ",
-  <p>
-    Check out also this interesting repository
-  </p>,
-  "
-",
-  <object
-    data-codename="n5b76e971_4709_01f2_e8ea_36a9716d7b42"
-    data-rel="component"
-    data-type="item"
-    type="application/kenticocloud"
-  />,
+  <table>
+    <tbody>
+      
+ 
+      <tr>
+        <td>
+          col1
+        </td>
+        <td>
+          col2
+        </td>
+      </tr>
+      
+ 
+      <tr>
+        <td>
+          data1
+        </td>
+        <td>
+          data2
+        </td>
+      </tr>
+      
+ 
+      <tr>
+        <td>
+          data3
+        </td>
+        <td>
+          data4
+        </td>
+      </tr>
+      
+
+    </tbody>
+  </table>,
+  ";",
 ]
 `;
 
