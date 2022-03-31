@@ -454,6 +454,9 @@ Array [
   </p>,
   "
 ",
+  <h1>
+    Linked item
+  </h1>,
   <pre>
     {
   "__typename": "kontent_item_website",
@@ -497,6 +500,9 @@ He also likes OSS. This is his latest repository:
   </p>,
   "
 ",
+  <h1>
+    Linked item
+  </h1>,
   <pre>
     {
   "__typename": "kontent_item_repository",
@@ -594,6 +600,9 @@ On some projects, he was cooperating with
   </p>,
   "
 ",
+  <h1>
+    Component
+  </h1>,
   <pre>
     {
   "__typename": "kontent_item_repository",

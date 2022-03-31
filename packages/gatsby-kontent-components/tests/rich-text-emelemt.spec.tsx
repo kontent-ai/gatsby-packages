@@ -198,9 +198,20 @@ describe('<RichTextElement/>', () => {
         value={sampleComplexValue}
         linkedItems={linkedItems}
         resolveLinkedItem={(linkedItem, domNode): JSX.Element => {
-          expect(domNode).not.toBeNull();
+          expect(domNode).toBeDefined();
+          expect(domNode.attribs).toBeDefined();
+          expect(domNode.attribs["data-rel"]).toBeDefined();
           expect(domNode.name).toBe('object');
-          return <pre>{JSON.stringify(linkedItem, undefined, 2)}</pre>;
+
+          const isComponent = domNode.attribs["data-rel"] === "component";
+          const isLinkedItem = domNode.attribs["data-rel"] === "link";
+          return (
+            <>
+              {isComponent && (<h1>Component</h1>)}
+              {isLinkedItem && (<h1>Linked item</h1>)}
+              <pre>{JSON.stringify(linkedItem, undefined, 2)}</pre>
+            </>
+          );
         }}
       />,
     );
