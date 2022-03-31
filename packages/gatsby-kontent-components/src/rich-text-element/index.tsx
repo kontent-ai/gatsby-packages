@@ -45,7 +45,7 @@ const replaceNode = (
       const linkedItem = linkedItems.find(
         item => item?.system?.codename === codeName,
       );
-      return resolveLinkedItem(linkedItem);
+      return resolveLinkedItem(linkedItem, domNode);
     }
   }
 

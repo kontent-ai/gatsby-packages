@@ -84,9 +84,11 @@ On some projects, he was cooperating with
   "
 ",
   <table>
+    
+
     <tbody>
       
-  
+ 
       <tr>
         <td>
           col1
@@ -96,7 +98,7 @@ On some projects, he was cooperating with
         </td>
       </tr>
       
-  
+ 
       <tr>
         <td>
           data1
@@ -106,7 +108,7 @@ On some projects, he was cooperating with
         </td>
       </tr>
       
-  
+ 
       <tr>
         <td>
           data3
@@ -118,7 +120,22 @@ On some projects, he was cooperating with
       
 
     </tbody>
+    
+
   </table>,
+  "
+",
+  <p>
+    Check out also this interesting repository:
+  </p>,
+  "
+",
+  <object
+    data-codename="n5b76e971_4709_01f2_e8ea_36a9716d7b42"
+    data-rel="component"
+    data-type="item"
+    type="application/kenticocloud"
+  />,
 ]
 `;
 
@@ -215,9 +232,11 @@ On some projects, he was cooperating with
     className="table-wrapper"
   >
     <table>
+      
+
       <tbody>
         
-  
+ 
         <tr>
           <td>
             col1
@@ -227,7 +246,7 @@ On some projects, he was cooperating with
           </td>
         </tr>
         
-  
+ 
         <tr>
           <td>
             data1
@@ -237,7 +256,7 @@ On some projects, he was cooperating with
           </td>
         </tr>
         
-  
+ 
         <tr>
           <td>
             data3
@@ -249,8 +268,23 @@ On some projects, he was cooperating with
         
 
       </tbody>
+      
+
     </table>
   </div>,
+  "
+",
+  <p>
+    Check out also this interesting repository:
+  </p>,
+  "
+",
+  <object
+    data-codename="n5b76e971_4709_01f2_e8ea_36a9716d7b42"
+    data-rel="component"
+    data-type="item"
+    type="application/kenticocloud"
+  />,
 ]
 `;
 
@@ -331,9 +365,11 @@ On some projects, he was cooperating with
   "
 ",
   <table>
+    
+
     <tbody>
       
-  
+ 
       <tr>
         <td>
           col1
@@ -343,7 +379,7 @@ On some projects, he was cooperating with
         </td>
       </tr>
       
-  
+ 
       <tr>
         <td>
           data1
@@ -353,7 +389,7 @@ On some projects, he was cooperating with
         </td>
       </tr>
       
-  
+ 
       <tr>
         <td>
           data3
@@ -365,7 +401,22 @@ On some projects, he was cooperating with
       
 
     </tbody>
+    
+
   </table>,
+  "
+",
+  <p>
+    Check out also this interesting repository:
+  </p>,
+  "
+",
+  <object
+    data-codename="n5b76e971_4709_01f2_e8ea_36a9716d7b42"
+    data-rel="component"
+    data-type="item"
+    type="application/kenticocloud"
+  />,
 ]
 `;
 
@@ -403,6 +454,9 @@ Array [
   </p>,
   "
 ",
+  <h1>
+    Linked item
+  </h1>,
   <pre>
     {
   "__typename": "kontent_item_website",
@@ -446,6 +500,9 @@ He also likes OSS. This is his latest repository:
   </p>,
   "
 ",
+  <h1>
+    Linked item
+  </h1>,
   <pre>
     {
   "__typename": "kontent_item_repository",
@@ -497,9 +554,11 @@ On some projects, he was cooperating with
   "
 ",
   <table>
+    
+
     <tbody>
       
-  
+ 
       <tr>
         <td>
           col1
@@ -509,7 +568,7 @@ On some projects, he was cooperating with
         </td>
       </tr>
       
-  
+ 
       <tr>
         <td>
           data1
@@ -519,7 +578,7 @@ On some projects, he was cooperating with
         </td>
       </tr>
       
-  
+ 
       <tr>
         <td>
           data3
@@ -531,7 +590,41 @@ On some projects, he was cooperating with
       
 
     </tbody>
+    
+
   </table>,
+  "
+",
+  <p>
+    Check out also this interesting repository:
+  </p>,
+  "
+",
+  <h1>
+    Component
+  </h1>,
+  <pre>
+    {
+  "__typename": "kontent_item_repository",
+  "system": {
+    "codename": "n5b76e971_4709_01f2_e8ea_36a9716d7b42"
+  },
+  "elements": {
+    "name": {
+      "name": "Name"
+    },
+    "slug": {
+      "value": ""
+    },
+    "summary": {
+      "value": "Gatsby packages repository containing the source plugin, components package, and a bunch of Gatsby examples."
+    },
+    "url": {
+      "value": "https://github.com/Kentico/kontent-gatsby-packages"
+    }
+  }
+}
+  </pre>,
 ]
 `;
 
@@ -618,9 +711,11 @@ On some projects, he was cooperating with
   "
 ",
   <table>
+    
+
     <tbody>
       
-  
+ 
       <tr>
         <td>
           col1
@@ -630,7 +725,7 @@ On some projects, he was cooperating with
         </td>
       </tr>
       
-  
+ 
       <tr>
         <td>
           data1
@@ -640,7 +735,7 @@ On some projects, he was cooperating with
         </td>
       </tr>
       
-  
+ 
       <tr>
         <td>
           data3
@@ -652,7 +747,22 @@ On some projects, he was cooperating with
       
 
     </tbody>
+    
+
   </table>,
+  "
+",
+  <p>
+    Check out also this interesting repository:
+  </p>,
+  "
+",
+  <object
+    data-codename="n5b76e971_4709_01f2_e8ea_36a9716d7b42"
+    data-rel="component"
+    data-type="item"
+    type="application/kenticocloud"
+  />,
 ]
 `;
 

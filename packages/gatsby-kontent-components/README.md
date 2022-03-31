@@ -35,13 +35,13 @@ The component takes all [the `GatsbyImage` props](https://www.gatsbyjs.com/docs/
 - `backgroundColor`: displayed as a placeholder while the image loads
 - `options: ImageOptions`: an object containing options passed to [the Kontent Image Transformation API](https://docs.kontent.ai/reference/image-transformation). Supported options: `fit`, `quality`, `lossless`.
 
-   ```ts
-   interface ImageOptions {
+  ```ts
+  interface ImageOptions {
     fit?: 'crop' | 'clip' | 'scale';
     quality?: number;
     lossless?: boolean;
   }
-   ```
+  ```
 
 Properties of the image object (e.g. `width` and `height`) are reflected in Kontent's image API query.
 Props of the `ImageElement` component (e.g. `width` and `height`) are reflected in the rendered DOM.
@@ -50,9 +50,9 @@ If the optional props of `ImageElement` are omitted, the properties of the image
 > You can find a showcase in the [author.js](../../site/src/pages/author.js) on the development site.
 
 ```jsx
-import React from 'react'
-import { ImageElement } from "@kentico/gatsby-kontent-components"
-import { graphql } from "gatsby";
+import React from 'react';
+import { ImageElement } from '@kentico/gatsby-kontent-components';
+import { graphql } from 'gatsby';
 
 export default Page = ({ data }) => {
   const avatar = data.author.elements.avatar_image.value[0];
@@ -66,7 +66,7 @@ export default Page = ({ data }) => {
       alt={avatar.description}
     />
   );
-}
+};
 export const query = graphql`
   {
     author: kontentItemAuthor {
@@ -80,7 +80,7 @@ export const query = graphql`
       }
     }
   }
-`
+`;
 ```
 
 ## Rich text element component
@@ -92,46 +92,53 @@ This package should make the usage easier. Basically by loading the rich text da
 > Complete showcase could be found in [rich-text.js](../../site/src/pages/rich-text.js) in the development site.
 
 ```jsx
-import { RichTextElement, ImageElement } from "@kentico/gatsby-kontent-components"
+import {
+  RichTextElement,
+  ImageElement,
+} from '@kentico/gatsby-kontent-components';
 
 // ...
 
 <RichTextElement
-      value={richTextElement.value}
-      images={richTextElement.images}
-      links={richTextElement.links}
-      linkedItems={richTextElement.modular_content}
-      resolveImage={image => {
-        return (
-          <ImageElement
-            image={image}
-            alt={image.description ? image.description : image.name}
-            width={200}
-          />
-        )
-      }}
-      resolveLink={(link, domNode) => {
-        const parentItemType = contextData.type // It is possible to use external data for resolution
-        return (
-          <Link to={`/${link.type}/partner/${parentItemType}/${link.url_slug}`}>
-            {domNode.children[0].data}
-          </Link>
-        )
-      }}
-      resolveLinkedItem={linkedItem => {
-        return <pre>{JSON.stringify(linkedItem, undefined, 2)}</pre>
-      }}
-      resolveDomNode={(domNode, domToReact) => {
-        if (domNode.name === "table") {
-          // For options - check https://www.npmjs.com/package/html-react-parser#options
-          return (
-            <div className="table-responsive">
-              {domToReact([domNode])}
-            </div>
-          );
-        }
-      }}
-    />
+  value={richTextElement.value}
+  images={richTextElement.images}
+  links={richTextElement.links}
+  linkedItems={richTextElement.modular_content}
+  resolveImage={image => {
+    return (
+      <ImageElement
+        image={image}
+        alt={image.description ? image.description : image.name}
+        width={200}
+      />
+    );
+  }}
+  resolveLink={(link, domNode) => {
+    const parentItemType = contextData.type; // It is possible to use external data for resolution
+    return (
+      <Link to={`/${link.type}/partner/${parentItemType}/${link.url_slug}`}>
+        {domNode.children[0].data}
+      </Link>
+    );
+  }}
+  resolveLinkedItem={(linkedItem, domNode) => {
+    const isComponent = domNode.attribs['data-rel'] === 'component';
+    const isLinkedItem = domNode.attribs['data-rel'] === 'link';
+    return (
+      <>
+        {isComponent && <h1>Component</h1>}
+        {isLinkedItem && <h1>Linked item</h1>}
+        <pre>{JSON.stringify(linkedItem, undefined, 2)}</pre>
+      </>
+    );
+  }}
+  resolveDomNode={(domNode, domToReact) => {
+    if (domNode.name === 'table') {
+      // For options - check https://www.npmjs.com/package/html-react-parser#options
+      return <div className="table-responsive">{domToReact([domNode])}</div>;
+    }
+  }}
+/>;
 ```
 
 ### Resolution scope
@@ -144,7 +151,7 @@ If you want to resolve images pass `images` and `resolveImage` properties.
 
 - `images` **have to contain at least `image_id` property**
 - `resolveImage` has one parameter `image` usually containing one record from `images` array
-- when resolving images in Rich text element using [Image element component]((#image-element-component)), `image` object must follow data contract defined in [Image element component](#image-element-component) section. Moreover, for correct resolution, the additional `image_id` identifier of the image is mandatory, as well.
+- when resolving images in Rich text element using [Image element component](#image-element-component), `image` object must follow data contract defined in [Image element component](#image-element-component) section. Moreover, for correct resolution, the additional `image_id` identifier of the image is mandatory, as well.
 
 #### Links to content items
 
