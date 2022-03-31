@@ -151,7 +151,7 @@ If you want to resolve images pass `images` and `resolveImage` properties.
 
 - `images` **have to contain at least `image_id` property**
 - `resolveImage` has one parameter `image` usually containing one record from `images` array
-- when resolving images in Rich text element using [Image element component](<(#image-element-component)>), `image` object must follow data contract defined in [Image element component](#image-element-component) section. Moreover, for correct resolution, the additional `image_id` identifier of the image is mandatory, as well.
+- when resolving images in Rich text element using [Image element component](#image-element-component), `image` object must follow data contract defined in [Image element component](#image-element-component) section. Moreover, for correct resolution, the additional `image_id` identifier of the image is mandatory, as well.
 
 #### Links to content items
 
