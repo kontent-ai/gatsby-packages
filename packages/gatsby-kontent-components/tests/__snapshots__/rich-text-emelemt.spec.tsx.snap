@@ -84,6 +84,8 @@ On some projects, he was cooperating with
   "
 ",
   <table>
+    
+
     <tbody>
       
  
@@ -118,8 +120,22 @@ On some projects, he was cooperating with
       
 
     </tbody>
+    
+
   </table>,
-  ";",
+  "
+",
+  <p>
+    Check out also this interesting repository:
+  </p>,
+  "
+",
+  <object
+    data-codename="n5b76e971_4709_01f2_e8ea_36a9716d7b42"
+    data-rel="component"
+    data-type="item"
+    type="application/kenticocloud"
+  />,
 ]
 `;
 
@@ -216,6 +232,8 @@ On some projects, he was cooperating with
     className="table-wrapper"
   >
     <table>
+      
+
       <tbody>
         
  
@@ -250,9 +268,23 @@ On some projects, he was cooperating with
         
 
       </tbody>
+      
+
     </table>
   </div>,
-  ";",
+  "
+",
+  <p>
+    Check out also this interesting repository:
+  </p>,
+  "
+",
+  <object
+    data-codename="n5b76e971_4709_01f2_e8ea_36a9716d7b42"
+    data-rel="component"
+    data-type="item"
+    type="application/kenticocloud"
+  />,
 ]
 `;
 
@@ -333,6 +365,8 @@ On some projects, he was cooperating with
   "
 ",
   <table>
+    
+
     <tbody>
       
  
@@ -367,8 +401,22 @@ On some projects, he was cooperating with
       
 
     </tbody>
+    
+
   </table>,
-  ";",
+  "
+",
+  <p>
+    Check out also this interesting repository:
+  </p>,
+  "
+",
+  <object
+    data-codename="n5b76e971_4709_01f2_e8ea_36a9716d7b42"
+    data-rel="component"
+    data-type="item"
+    type="application/kenticocloud"
+  />,
 ]
 `;
 
@@ -500,6 +548,8 @@ On some projects, he was cooperating with
   "
 ",
   <table>
+    
+
     <tbody>
       
  
@@ -534,8 +584,38 @@ On some projects, he was cooperating with
       
 
     </tbody>
+    
+
   </table>,
-  ";",
+  "
+",
+  <p>
+    Check out also this interesting repository:
+  </p>,
+  "
+",
+  <pre>
+    {
+  "__typename": "kontent_item_repository",
+  "system": {
+    "codename": "n5b76e971_4709_01f2_e8ea_36a9716d7b42"
+  },
+  "elements": {
+    "name": {
+      "name": "Name"
+    },
+    "slug": {
+      "value": ""
+    },
+    "summary": {
+      "value": "Gatsby packages repository containing the source plugin, components package, and a bunch of Gatsby examples."
+    },
+    "url": {
+      "value": "https://github.com/Kentico/kontent-gatsby-packages"
+    }
+  }
+}
+  </pre>,
 ]
 `;
 
@@ -622,6 +702,8 @@ On some projects, he was cooperating with
   "
 ",
   <table>
+    
+
     <tbody>
       
  
@@ -656,8 +738,22 @@ On some projects, he was cooperating with
       
 
     </tbody>
+    
+
   </table>,
-  ";",
+  "
+",
+  <p>
+    Check out also this interesting repository:
+  </p>,
+  "
+",
+  <object
+    data-codename="n5b76e971_4709_01f2_e8ea_36a9716d7b42"
+    data-rel="component"
+    data-type="item"
+    type="application/kenticocloud"
+  />,
 ]
 `;
 

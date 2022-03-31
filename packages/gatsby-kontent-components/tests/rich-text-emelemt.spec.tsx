@@ -3,8 +3,25 @@ import React from 'react';
 import TestRenderer from 'react-test-renderer';
 import { RichTextElement } from '../src';
 
-const sampleComplexValue =
-  '<p>This is Ondřej Chrastina - Developer Advocate with <a href="https://kontent.ai" data-new-window="true" target="_blank" rel="noopener noreferrer">Kontent by Kentico</a>.</p>\n<figure data-asset-id="d32b8ad5-0cf4-47a8-8b53-ed4a1e80dc88" data-image-id="d32b8ad5-0cf4-47a8-8b53-ed4a1e80dc88"><img src="https://assets-us-01.kc-usercontent.com:443/0fe3ab32-97a8-005d-6928-eda983ea70a5/44299668-b37b-4224-a115-1fd66f7d7b36/Yprofile.jpg" data-asset-id="d32b8ad5-0cf4-47a8-8b53-ed4a1e80dc88" data-image-id="d32b8ad5-0cf4-47a8-8b53-ed4a1e80dc88" alt=""></figure>\n<p>He likes to do web sites. This is his latest project:</p>\n<object type="application/kenticocloud" data-type="item" data-rel="link" data-codename="ondrej_chrastina_tech"></object>\n<p><br>\nHe also likes OSS. This is his latest repository:</p>\n<object type="application/kenticocloud" data-type="item" data-rel="link" data-codename="simply007_kontent_gatsby_benchmark"></object>\n<p><br>\nOn some projects, he was cooperating with <a data-item-id="2b805947-7ca5-4e6a-baa5-734a91f3cfa2" href="">John Doe</a>.</p>\n<p>You could take a look at their&nbsp;<a href="https://google.com" title="sample link">latest project</a>.</p>\n<table><tbody>\n <tr><td>col1</td><td>col2</td></tr>\n <tr><td>data1</td><td>data2</td></tr>\n <tr><td>data3</td><td>data4</td></tr>\n</tbody></table>;'
+const sampleComplexValue = `<p>This is Ondřej Chrastina - Developer Advocate with <a href="https://kontent.ai" data-new-window="true" target="_blank" rel="noopener noreferrer">Kontent by Kentico</a>.</p>
+<figure data-asset-id="d32b8ad5-0cf4-47a8-8b53-ed4a1e80dc88" data-image-id="d32b8ad5-0cf4-47a8-8b53-ed4a1e80dc88"><img src="https://assets-us-01.kc-usercontent.com:443/0fe3ab32-97a8-005d-6928-eda983ea70a5/44299668-b37b-4224-a115-1fd66f7d7b36/Yprofile.jpg" data-asset-id="d32b8ad5-0cf4-47a8-8b53-ed4a1e80dc88" data-image-id="d32b8ad5-0cf4-47a8-8b53-ed4a1e80dc88" alt=""></figure>
+<p>He likes to do web sites. This is his latest project:</p>
+<object type="application/kenticocloud" data-type="item" data-rel="link" data-codename="ondrej_chrastina_tech"></object>
+<p><br>
+He also likes OSS. This is his latest repository:</p>
+<object type="application/kenticocloud" data-type="item" data-rel="link" data-codename="simply007_kontent_gatsby_benchmark"></object>
+<p><br>
+On some projects, he was cooperating with <a data-item-id="2b805947-7ca5-4e6a-baa5-734a91f3cfa2" href="">John Doe</a>.</p>
+<p>You could take a look at their&nbsp;<a href="https://google.com" title="sample link">latest project</a>.</p>
+<table>
+<tbody>
+ <tr><td>col1</td><td>col2</td></tr>
+ <tr><td>data1</td><td>data2</td></tr>
+ <tr><td>data3</td><td>data4</td></tr>
+</tbody>
+</table>
+<p>Check out also this interesting repository:</p>
+<object type="application/kenticocloud" data-type="item" data-rel="component" data-codename="n5b76e971_4709_01f2_e8ea_36a9716d7b42"></object>`;
 const links = [
   {
     url_slug: 'john-doe',
@@ -181,8 +198,9 @@ describe('<RichTextElement/>', () => {
         value={sampleComplexValue}
         linkedItems={linkedItems}
         resolveLinkedItem={(linkedItem, domNode): JSX.Element => {
+          expect(domNode).not.toBeNull();
+          expect(domNode.name).toBe('object');
           return <pre>{JSON.stringify(linkedItem, undefined, 2)}</pre>;
-          domNode;
         }}
       />,
     );
