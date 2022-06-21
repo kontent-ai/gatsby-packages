@@ -1,3 +1,3 @@
 export { RichTextElement } from './rich-text-element';
 
-export { ImageElement } from './image-element';
+export { ImageElement, getGatsbyImageData } from './image-element';

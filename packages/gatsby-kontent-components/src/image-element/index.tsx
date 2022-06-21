@@ -46,3 +46,5 @@ export const ImageElement: React.FC<ImageElementProps> = React.memo(function Ima
   alt = alt ?? image.description ?? '';
   return <GatsbyImage image={imageData} {...props} alt={alt} />;
 });
+
+export { getGatsbyImageData }

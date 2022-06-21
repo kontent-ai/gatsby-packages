@@ -36,6 +36,7 @@ export function getGatsbyImageData({
     height,
     options: { quality, fit = 'crop', lossless },
   }): string => {
+    console.log(options)
     const props = [
       ['w', width],
       ['h', height],
@@ -52,6 +53,8 @@ export function getGatsbyImageData({
 
     return `${baseUrl}?${query}`;
   };
+
+  urlBuilder({baseUrl:"www", width:200, height: 500, format: "", options})
 
   return getImageData({
     baseUrl: image.url,
