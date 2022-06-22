@@ -36,7 +36,6 @@ export function getGatsbyImageData({
     height,
     options: { quality, fit = 'crop', lossless },
   }): string => {
-    console.log(options)
     const props = [
       ['w', width],
       ['h', height],
