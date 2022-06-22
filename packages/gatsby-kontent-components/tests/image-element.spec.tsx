@@ -34,7 +34,8 @@ describe('getGatsbyImageData', () => {
       image: images[0],
       backgroundColor: "000000",
     });
-    
+
+  expect(data.images.fallback?.src).toEqual('https://assets-us-01.kc-usercontent.com:443/0fe3ab32-97a8-005d-6928-eda983ea70a5/44299668-b37b-4224-a115-1fd66f7d7b36/Yprofile.jpg?w=500&h=500&auto=format&bg=000000&fit=crop');  
     expect(data.images.fallback?.srcSet).toMatchInlineSnapshot(`
     "https://assets-us-01.kc-usercontent.com:443/0fe3ab32-97a8-005d-6928-eda983ea70a5/44299668-b37b-4224-a115-1fd66f7d7b36/Yprofile.jpg?w=125&h=125&auto=format&bg=000000&fit=crop 125w,
     https://assets-us-01.kc-usercontent.com:443/0fe3ab32-97a8-005d-6928-eda983ea70a5/44299668-b37b-4224-a115-1fd66f7d7b36/Yprofile.jpg?w=250&h=250&auto=format&bg=000000&fit=crop 250w,
@@ -48,7 +49,8 @@ describe('getGatsbyImageData', () => {
       image: images[0],
       options: {fit: "clip"},
     });
-    
+
+    expect(data.images.fallback?.src).toEqual('https://assets-us-01.kc-usercontent.com:443/0fe3ab32-97a8-005d-6928-eda983ea70a5/44299668-b37b-4224-a115-1fd66f7d7b36/Yprofile.jpg?w=500&h=500&auto=format&fit=clip');
     expect(data.images.fallback?.srcSet).toMatchInlineSnapshot(`
     "https://assets-us-01.kc-usercontent.com:443/0fe3ab32-97a8-005d-6928-eda983ea70a5/44299668-b37b-4224-a115-1fd66f7d7b36/Yprofile.jpg?w=125&h=125&auto=format&fit=clip 125w,
     https://assets-us-01.kc-usercontent.com:443/0fe3ab32-97a8-005d-6928-eda983ea70a5/44299668-b37b-4224-a115-1fd66f7d7b36/Yprofile.jpg?w=250&h=250&auto=format&fit=clip 250w,
@@ -59,11 +61,10 @@ describe('getGatsbyImageData', () => {
   it('generates without specified width and height', () => {
     const data = getGatsbyImageData({
       image: images[0],
-      width: 200,
       aspectRatio: 2 / 1,
     });
-    expect(data.width).toEqual(200);
-    expect(data.height).toEqual(100);
+    expect(data.width).toEqual(500);
+    expect(data.height).toEqual(250);
   });
 
   it('generates the correct dimensions', () => {
