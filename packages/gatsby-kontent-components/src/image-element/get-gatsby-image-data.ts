@@ -53,8 +53,6 @@ export function getGatsbyImageData({
     return `${baseUrl}?${query}`;
   };
 
-  urlBuilder({baseUrl:"www", width:200, height: 500, format: "", options})
-
   return getImageData({
     baseUrl: image.url,
     sourceWidth: image.width,
