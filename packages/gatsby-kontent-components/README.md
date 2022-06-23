@@ -83,6 +83,20 @@ export const query = graphql`
 `;
 ```
 
+### getGatsbyImageData
+
+In case you need image data for GatsbyImage component, you can use an exported function `getGatsbyImageData`.
+> Showcase can be found in [article.js](../../site/src/pages/article.js) in the development site.
+
+```ts
+  const imageData = getGatsbyImageData({
+      image: avatar, 
+      width: 800,
+      height: 200,
+      backgroundColor:"#bbbbbb"
+  })
+```
+
 ## Rich text element component
 
 Rich text elements from Kontent could be resolved to React components using "html-react-parser" as described in [this article](https://rshackleton.co.uk/articles/rendering-kentico-cloud-linked-content-items-with-react-components-in-gatsby).
