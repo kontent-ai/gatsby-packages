@@ -103,8 +103,6 @@ Rich text elements from Kontent could be resolved to React components using "htm
 
 This package should make the usage easier. Basically by loading the rich text data and use these components to provide this data and resolution functions.
 
-> Complete showcase could be found in [rich-text.js](../../site/src/pages/rich-text.js) in the development site.
-
 ```jsx
 import {
   RichTextElement,
