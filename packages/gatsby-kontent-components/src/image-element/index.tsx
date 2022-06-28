@@ -6,9 +6,9 @@ import {
 } from './get-gatsby-image-data';
 
 export interface ImageItem {
-  image_id: string;
+  image_id?: string;
   url: string;
-  description?: string;
+  description?: string | null;
   name?: string;
   height: number;
   width: number;
@@ -46,3 +46,5 @@ export const ImageElement: React.FC<ImageElementProps> = React.memo(function Ima
   alt = alt ?? image.description ?? '';
   return <GatsbyImage image={imageData} {...props} alt={alt} />;
 });
+
+export { getGatsbyImageData }

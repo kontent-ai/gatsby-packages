@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import { stringify } from "qs"
-import { ImageElement } from "@kentico/gatsby-kontent-components"
+import { ImageElement, getGatsbyImageData } from "@kentico/gatsby-kontent-components"
 import { ImageUrlBuilder } from "@kentico/kontent-delivery"
 
 const Author = ({ data }) => {
@@ -29,6 +29,15 @@ const Author = ({ data }) => {
     .withRectangleCrop(...rectSelection)
     .withWidth(imageQuery.w)
 
+  const imageData = {
+    image: avatar,
+    width: 800,
+    height: 200,
+    backgroundColor: "#bbbbbb"
+  }
+
+  const imageGatsbyData = getGatsbyImageData(imageData)
+
   return (
     <>
       <header>
@@ -36,16 +45,24 @@ const Author = ({ data }) => {
       </header>
       <section>
         <ImageElement
-          image={avatar}
-          width={800}
-          height={200}
-          backgroundColor="#bbbbbb"
           alt={avatar.description}
+          {...imageData}
         />
         <p>
           This uses the <a href="https://github.com/Kentico/kontent-gatsby-packages/tree/master/packages/gatsby-kontent-components">ImageElement</a> component to display a
           responsive image.
         </p>
+
+        <div style={{ "max-width": "800px", "overflow": "auto" }}>
+          <p>
+            There is also exported function called getGatsbyImageData to obtain data used for GatsbyImage specifically. The following example shows the data for the image above.
+          </p>
+          <pre>{`const imageData = getGatsbyImageData({ image: avatar, width: 800, height: 200, backgroundColor:"#bbbbbb"})`}
+          </pre>
+          <pre>
+            {JSON.stringify(imageGatsbyData, undefined, 2).replace(/\\n/g, "\n")}
+          </pre>
+        </div>
       </section>
 
       <article
