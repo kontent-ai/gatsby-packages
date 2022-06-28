@@ -86,6 +86,7 @@ export const query = graphql`
 ### getGatsbyImageData
 
 In case you need image data for GatsbyImage component, you can use an exported function `getGatsbyImageData`.
+ 
 > Showcase can be found in [article.js](../../site/src/pages/article.js) in the development site.
 
 ```ts

@@ -6,7 +6,7 @@ import {
 } from './get-gatsby-image-data';
 
 export interface ImageItem {
-  image_id: string;
+  image_id?: string;
   url: string;
   description?: string | null;
   name?: string;
