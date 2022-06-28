@@ -6,7 +6,7 @@ import { ImageElement } from '../src';
 
 const images = [
   {
-    description: undefined,
+    description: null,
     height: 500,
     image_id: 'd32b8ad5-0cf4-47a8-8b53-ed4a1e80dc88',
     url:

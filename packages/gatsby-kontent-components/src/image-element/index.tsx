@@ -8,7 +8,7 @@ import {
 export interface ImageItem {
   image_id: string;
   url: string;
-  description?: string;
+  description?: string | null;
   name?: string;
   height: number;
   width: number;
