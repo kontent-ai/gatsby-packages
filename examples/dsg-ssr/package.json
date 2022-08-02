@@ -1,5 +1,5 @@
 {
-  "name": "@kontent-ai/kontent-gatsby-example-dsg-ssr",
+  "name": "@kontent-ai/gatsby-example-dsg-ssr",
   "version": "0.1.0",
   "description": "Example guide ro Kontent.ai site with Gatsby DSG and SSR.",
   "main": "index.js",
