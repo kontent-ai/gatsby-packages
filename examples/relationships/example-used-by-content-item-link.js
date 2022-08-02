@@ -1,6 +1,6 @@
 const {
   getKontentItemNodeTypeName,
-} = require("@kentico/gatsby-source-kontent")
+} = require("@kontent-ai/gatsby-source-kontent")
 
 // child --(linkedElementCodename)--> parent
 // Example

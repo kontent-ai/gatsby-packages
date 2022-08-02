@@ -1,8 +1,8 @@
 {
-  "name": "@kentico/kontent-gatsby-packages",
-  "description": "Monorepo containing Kontent packages for Gatsby.",
-  "repository": "https://github.com/Kentico/kontent-gatsby-packages.git",
-  "homepage": "https://github.com/Kentico/kontent-gatsby-packages#readme",
+  "name": "@kontent-ai/kontent-gatsby-packages",
+  "description": "Monorepo containing Kontent.ai packages for Gatsby.",
+  "repository": "https://github.com/kontent-ai/gatsby-packages.git",
+  "homepage": "https://github.com/kontent-ai/gatsby-packages#readme",
   "author": {
     "name": "Ondřej Chrastina",
     "email": "chrastina.ondra@gmail.com",

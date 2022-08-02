@@ -4,11 +4,11 @@
 
 ### Elements property names change
 
-Since the source plugin is trying to unify the data structure among [Kontent Delivery API](https://docs.kontent.ai/reference/delivery-api) and Gatsby GraphQL model.
+Since the source plugin is trying to unify the data structure among [Kontent.ai Delivery API](https://docs.kontent.ai/reference/delivery-api) and Gatsby GraphQL model.
 This required to make some breaking changes in property elements.
 
 * rich-text
-  * `resolvedHTML` - removed - use [@kentico/gatsby-kontent-components](../../gatsby-kontent-components/README.md#rich-text-element-component) for rich text resolution
+  * `resolvedHTML` - removed - use [@kontent-ai/gatsby-kontent-components](../../gatsby-kontent-components/README.md#rich-text-element-component) for rich text resolution
   * `images`
     * from `imageId` to `image_id`
   * `links`
@@ -16,7 +16,7 @@ This required to make some breaking changes in property elements.
     * from `urlSlug` to `url_slug`
   * from `linked_items` to `modular_content`
   * `linkedItemCodenames` - removed, could be replaced by `modular_content.system.codename`
-  * `resolvedData` - removed use @kentico/gatsby-kontent-components for rich text resolution
+  * `resolvedData` - removed use @kontent-ai/gatsby-kontent-components for rich text resolution
 * taxonomy
   * from `taxonomyGroup` to `taxonomy_group`
 * modular content (linked items)
@@ -41,13 +41,13 @@ Following [URL slug resolution example](../../../site/README.md#url-slug-resolut
 
 #### Rich text resolution
 
-To ensure the resolution is as easy as possible, you could use [@kentico/gatsby-kontent-components](../../gatsby-kontent-components/README.md#rich-text-element-componen).
+To ensure the resolution is as easy as possible, you could use [@kontent-ai/gatsby-kontent-components](../../gatsby-kontent-components/README.md#rich-text-element-componen).
 For URL resolution, you could re-use the implementation from URL slug. According to the resolution of images, inline linked items, and components - this resolution gives you the ability to resolve these to React components, not just string-based HTML.
 
 ### Schema extension options
 
 After the research, it was detected that many of the features, that were provide by source plugin wan barely used, they have jus slowed down the build time of the site because all fo the that were calculated regardless of their actual usage.
-Since the Kontent GraphQL schema is now fully defined and all data from Kontent is already present in the data model, these features, which basically provided just a facade above the actual data are now removed to provide lightweight build. And we provide examples, how to include these facade transformations on the form of [Gatsby schema custom customization](https://www.gatsbyjs.org/docs/schema-customization) back. The customization could be adjusted exactly for your project needs and boost your build times.
+Since the Kontent.ai GraphQL schema is now fully defined and all data from Kontent.ai is already present in the data model, these features, which basically provided just a facade above the actual data are now removed to provide lightweight build. And we provide examples, how to include these facade transformations on the form of [Gatsby schema custom customization](https://www.gatsbyjs.org/docs/schema-customization) back. The customization could be adjusted exactly for your project needs and boost your build times.
 
 #### Language variant relationships
 
@@ -73,15 +73,15 @@ If you are using hard-coded Node ID in your queries to get/filter specific Konte
 
 ### Type endpoint unification
 
-When [turning the `includeTypes` option on](https://github.com/Kentico/kontent-gatsby-packages/tree/master/packages/gatsby-source-kontent#available-options), all content types are stored under one graphql type, so that you can use `kontentType` and `allKontentType` queries to load information about content types. Take a look at [the example](https://github.com/Kentico/kontent-gatsby-packages/tree/master/packages/gatsby-source-kontent#types-elements-property) how to i.e. load information about one of the content types.
+When [turning the `includeTypes` option on](https://github.com/kontent-ai/gatsby-packages/tree/master/packages/gatsby-source-kontent#available-options), all content types are stored under one graphql type, so that you can use `kontentType` and `allKontentType` queries to load information about content types. Take a look at [the example](https://github.com/kontent-ai/gatsby-packages/tree/master/packages/gatsby-source-kontent#types-elements-property) how to i.e. load information about one of the content types.
 
 ## From `4.x.x` to `5.x.x`
 
-This upgrade is necessary to fix the [colliding identifiers](https://github.com/Kentico/gatsby-source-kontent/issues/110) issue.
+This upgrade is necessary to fix the [colliding identifiers](https://github.com/kontent-ai/gatsby-packages/issues/110) issue.
 
 ### Colliding identifiers
 
-It is necessary to rename all Kontent taxonomy, type, and item names in all GraphQL queries.
+It is necessary to rename all Kontent.ai taxonomy, type, and item names in all GraphQL queries.
 
 #### Taxonomy name
 
@@ -115,7 +115,7 @@ It is necessary to rename all Kontent taxonomy, type, and item names in all Grap
 
 ## From `3.x.x` to `4.x.x`
 
-This upgrade is mainly caused by upgrading [Kontent Javascript Delivery SDK](https://github.com/Kentico/kontent-delivery-sdk-js), adding new features, and performance tuning.
+This upgrade is mainly caused by upgrading [Kontent.ai Javascript Delivery SDK](https://github.com/kontent-ai/delivery-sdk-js), adding new features, and performance tuning.
 
 ### Language fallbacks
 
@@ -131,7 +131,7 @@ There is a new plugin configuration property `includeRawContent` which allows to
 
 ### Custom element support
 
-Custom element is now supported including [custom element models definition](https://github.com/Kentico/kontent-delivery-sdk-js/blob/v8.0.0/DOCS.md#using-custom-models-for-custom-elements). SO besides of the raw value property `value` it is possible to parse it and include it in the GraphQL model.
+Custom element is now supported including [custom element models definition](https://github.com/kontent-ai/delivery-sdk-js/blob/v8.0.0/DOCS.md#using-custom-models-for-custom-elements). SO besides of the raw value property `value` it is possible to parse it and include it in the GraphQL model.
 
 ### Query names prefix changed
 
@@ -139,7 +139,7 @@ Query names prefixed has changed from `KenticoCloud*` to `Kontent*` - i.e. `Kent
 
 ### Delivery configuration
 
-When configuring the Kontent Source plugin, one of the properties to set is `deliveryClientConfig`. It is respecting the [`IDeliveryClientConfig`](https://github.com/Kentico/kontent-delivery-sdk-js/blob/master/UPGRADE.md#ideliveryclientconfig) interface from Kontent Delivery SDK.
+When configuring the Kontent.ai Source plugin, one of the properties to set is `deliveryClientConfig`. It is respecting the [`IDeliveryClientConfig`](https://github.com/Kentico/kontent-delivery-sdk-js/blob/master/UPGRADE.md#ideliveryclientconfig) interface from Kontent.ai Delivery SDK.
 
 #### Example
 
@@ -149,7 +149,7 @@ module.exports = {
   plugins: [
     ...
     {
-      resolve: `@kentico/gatsby-source-kontent`,
+      resolve: `@kontent-ai/gatsby-source-kontent`,
       options: {
         deliveryClientConfig: { // Configuration object
           projectId: `XXX`,
@@ -309,9 +309,9 @@ Rich text elements internal structure was extended. The main difference is that 
 
 ### Schema definition API
 
-Thanks to [#80](https://github.com/Kentico/gatsby-source-kontent/pull/80), [#94](https://github.com/Kentico/gatsby-source-kontent/pull/94), and [#95](https://github.com/Kentico/gatsby-source-kontent/pull/95) it is possible remove the [fully filled dummy content items](https://github.com/Kentico/gatsby-source-kontent/issues/59#issuecomment-496412677) from Kontent to provide Gatsby inference engine information about content structure.
+Thanks to [#80](https://github.com/kontent-ai/gatsby-packages/pull/80), [#94](https://github.com/kontent-ai/gatsby-packages/pull/94), and [#95](https://github.com/kontent-ai/gatsby-packages/pull/95) it is possible remove the [fully filled dummy content items](https://github.com/kontent-ai/gatsby-packages/issues/59#issuecomment-496412677) from Kontent.ai to provide Gatsby inference engine information about content structure.
 
-For linked items in linked items element nor for rich text element encapsulation into the `... on Node` [GraphQL inline fragment](https://graphql.org/learn/queries/#inline-fragments) is not required any more ([#82](https://github.com/Kentico/gatsby-source-kontent/pull/82)).
+For linked items in linked items element nor for rich text element encapsulation into the `... on Node` [GraphQL inline fragment](https://graphql.org/learn/queries/#inline-fragments) is not required any more ([#82](https://github.com/kontent-ai/gatsby-packages/pull/82)).
 
 ```gql
 {
@@ -392,7 +392,7 @@ query {
 
 ### Taxonomy support
 
-Thanks to the [#79](https://github.com/Kentico/gatsby-source-kontent/pull/79) it is possible to [query taxonomies](/README.md#Taxonomy-support) i.e. in case of loading all the taxonomy option to your ♠#.
+Thanks to the [#79](https://github.com/kontent-ai/gatsby-packages/pull/79) it is possible to [query taxonomies](/README.md#Taxonomy-support) i.e. in case of loading all the taxonomy option to your ♠#.
 
 ```gql
 query PersonasQuery {

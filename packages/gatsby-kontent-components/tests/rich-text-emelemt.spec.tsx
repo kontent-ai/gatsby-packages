@@ -3,7 +3,7 @@ import React from 'react';
 import TestRenderer from 'react-test-renderer';
 import { RichTextElement } from '../src';
 
-const sampleComplexValue = `<p>This is Ondřej Chrastina - Developer Advocate with <a href="https://kontent.ai" data-new-window="true" target="_blank" rel="noopener noreferrer">Kontent by Kentico</a>.</p>
+const sampleComplexValue = `<p>This is Ondřej Chrastina - Developer Advocate with <a href="https://kontent.ai" data-new-window="true" target="_blank" rel="noopener noreferrer">Kontent.ai</a>.</p>
 <figure data-asset-id="d32b8ad5-0cf4-47a8-8b53-ed4a1e80dc88" data-image-id="d32b8ad5-0cf4-47a8-8b53-ed4a1e80dc88"><img src="https://assets-us-01.kc-usercontent.com:443/0fe3ab32-97a8-005d-6928-eda983ea70a5/44299668-b37b-4224-a115-1fd66f7d7b36/Yprofile.jpg" data-asset-id="d32b8ad5-0cf4-47a8-8b53-ed4a1e80dc88" data-image-id="d32b8ad5-0cf4-47a8-8b53-ed4a1e80dc88" alt=""></figure>
 <p>He likes to do web sites. This is his latest project:</p>
 <object type="application/kenticocloud" data-type="item" data-rel="link" data-codename="ondrej_chrastina_tech"></object>
@@ -87,7 +87,7 @@ const linkedItems = [
       },
       summary: {
         value:
-          'Example site for Kontent as a source for "Will It Build". Should/Will be generalized into e.g. a theme.',
+          'Example site for Kontent.ai as a source for "Will It Build". Should/Will be generalized into e.g. a theme.',
       },
       url: {
         value: 'https://github.com/Simply007/kontent-gatsby-benchmark',

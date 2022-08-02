@@ -26,13 +26,13 @@ Now you could browse the site on <http://localhost:8000> and see GraphiQL explor
 
 ## Content modeling
 
-This section explains how the content is modeled. You could follow to the next section ["Import the content to your on Kontent project"](#Import-site-content-to-your-Kontent-project) and explore the models on your own as well as the sample data based on it. Or you could create models manually to familiarize yourself with the Kontent user interface.
+This section explains how the content is modeled. You could follow to the next section ["Import the content to your on Kontent.ai project"](#Import-site-content-to-your-Kontent-project) and explore the models on your own as well as the sample data based on it. Or you could create models manually to familiarize yourself with the Kontent.ai user interface.
 
 Once you create the content models, you could create content items based on these and the site would be capable to handle the content and render it.
 
-### Kontent content models
+### Kontent.ai content models
 
-Kontent project contains a simple article content base. There is just one content type `Article`. Kontent project is using two languages `en-US` and `cs-CZ` for possible extendability in the future.
+Kontent.ai project contains a simple article content base. There is just one content type `Article`. Kontent.ai project is using two languages `en-US` and `cs-CZ` for possible extendability in the future.
 
 #### Article content type
 
@@ -83,7 +83,7 @@ This overview summarized in what mode were the pages set up to be rendered.
 
 ### Static site generation
 
-Static site regeneration is using collection routes from [Gatsby file system routing](https://www.gatsbyjs.com/docs/reference/routing/file-system-route-api/) to fetch the articles from example Kontent project. The DSG article detail component module exports config objects defining the page HTML should be generated after the request (data are still fetched at build time).
+Static site regeneration is using collection routes from [Gatsby file system routing](https://www.gatsbyjs.com/docs/reference/routing/file-system-route-api/) to fetch the articles from example Kontent.ai project. The DSG article detail component module exports config objects defining the page HTML should be generated after the request (data are still fetched at build time).
 
 ```js
 export async function config() {
@@ -99,7 +99,7 @@ export async function config() {
 
 ### Server side rendering
 
-Server side rendering is completely isolated from Gatsby GraphQL model when generating the page. The data is fetched at the request time. In this example, Kontent Graphql API is used as a source of article content. ANd it is being fetch by standard [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API).
+Server side rendering is completely isolated from Gatsby GraphQL model when generating the page. The data is fetched at the request time. In this example, Kontent.ai Graphql API is used as a source of article content. ANd it is being fetch by standard [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API).
 
 ```js
 export async function getServerData(context) {
@@ -144,25 +144,25 @@ export async function getServerData(context) {
 
 > See [SSR Article detail page component](./src/pages/ssr-listing/{kontentItemArticle.elements__slug__value}.js) for the implementation.
 
-## Import site content to your Kontent project
+## Import site content to your Kontent.ai project
 
 If you want to import content types with the sample content in your own empty project, you could use following guide:
 
 1. Go to [app.kontent.ai](https://app.kontent.ai) and [create an empty project](https://docs.kontent.ai/tutorials/set-up-kontent/projects/manage-projects#a-creating-projects)
 1. Go to "Project Settings", select API keys and copy `Project ID`
-1. Install [Kontent Backup Manager](https://github.com/Kentico/kontent-backup-manager-js) and import data to newly created project from [`kontent-backup.zip`](./kontent-backup.zip) file (place appropriate values for `apiKey` and `projectId` arguments):
+1. Install [Kontent.ai Backup Manager](https://github.com/kontent-ai/backup-manager-js) and import data to newly created project from [`kontent-backup.zip`](./kontent-backup.zip) file (place appropriate values for `apiKey` and `projectId` arguments):
 
    ```sh
-   npm i -g @kentico/kontent-backup-manager@3.2.1
+   npm i -g @kontent-ai/backup-manager
 
    kbm --action=restore --apiKey=<Management API key> --projectId=<Project ID> --zipFilename=kontent-backup
    ```
 
-1. Go to your Kontent project and [publish all the imported items](https://docs.kontent.ai/tutorials/write-and-collaborate/publish-your-work/publish-content-items).
+1. Go to your Kontent.ai project and [publish all the imported items](https://docs.kontent.ai/tutorials/write-and-collaborate/publish-your-work/publish-content-items).
 
 ### Connect the site to a custom project
 
-Open the `gatsby-config.js` file and set the following properties for `@kentico/gatsby-source-kontent` plugin:
+Open the `gatsby-config.js` file and set the following properties for `@kontent-ai/gatsby-source-kontent` plugin:
 
 - `projectId` from _Project settings > API keys > Delivery API > Project ID_
 - `languageCodenames` from _Project settings > Localization_

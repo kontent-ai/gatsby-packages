@@ -26,11 +26,11 @@ Now you could browse the site on <http://localhost:8000> and see GraphiQL explor
 
 ## Content modeling
 
-This section explains how the content is modeled. You could follow to next section ["Import the content to your on Kontent project"](#Import-site-content-to-your-Kontent-project) and explore the models by your own as well as the sample data based on it. Or you could create models manually to familiarize yourself with the Kontent user interface.
+This section explains how the content is modeled. You could follow to next section ["Import the content to your on Kontent.ai project"](#Import-site-content-to-your-Kontent-project) and explore the models by your own as well as the sample data based on it. Or you could create models manually to familiarize yourself with the Kontent.ai user interface.
 
 Once you create the content models, you could create content items based on these and the site would be capable to handle the content and render it.
 
-### Kontent content models
+### Kontent.ai content models
 
 First of of all it is required to create two content types:
 
@@ -67,32 +67,32 @@ In case you want to link external URL to different domain, it is possible to ext
 - Slug - **URL slug** element - generated from name
 - Source repository - **Linked items** element - configures to allow only `Repository` content type
 
-## Import site content to your Kontent project
+## Import site content to your Kontent.ai project
 
 If you want to import content types with the sample content in your own empty project, you could use following guide:
 
 1. Go to [app.kontent.ai](https://app.kontent.ai) and [create empty project](https://docs.kontent.ai/tutorials/set-up-kontent/projects/manage-projects#a-creating-projects)
 1. Go to "Project Settings", select API keys and copy `Project ID`
-1. Install [Kontent Backup Manager](https://github.com/Kentico/kontent-backup-manager-js) and import data to newly created project from [`kontent-backup.zip`](./kontent-backup.zip) file (place appropriate values for `apiKey` and `projectId` arguments):
+1. Install [Kontent.ai Backup Manager](https://github.com/kontent-ai/backup-manager-js) and import data to newly created project from [`kontent-backup.zip`](./kontent-backup.zip) file (place appropriate values for `apiKey` and `projectId` arguments):
 
    ```sh
-   npm i -g @kentico/kontent-backup-manager@1.5.0
+   npm i -g @kontent-ai/backup-manager-js
 
    kbm --action=restore --apiKey=<Management API key> --projectId=<Project ID> --zipFilename=kontent-backup
    ```
 
-1. Go to your Kontent project and [publish all the imported items](https://docs.kontent.ai/tutorials/write-and-collaborate/publish-your-work/publish-content-items).
+1. Go to your Kontent.ai project and [publish all the imported items](https://docs.kontent.ai/tutorials/write-and-collaborate/publish-your-work/publish-content-items).
 
 ### Connect the site to custom project
 
-Open the `gatsby-config.js` file and set following properties for `@kentico/gatsby-source-kontent` plugin:
+Open the `gatsby-config.js` file and set following properties for `@kontent-ai/gatsby-source-kontent` plugin:
 
 - `projectId` from *Project settings > API keys > Delivery API > Project ID*
 - `languageCodenames` from *Project settings > Localization*
 
 ## Rich text resolution
 
-For all `Person` content items, there is [a new page created](./gatsby-node.js#L65) based on on the [`templates/person.js`](./src/templates/person.js) template. The template is using [Gatsby Kontent Components](../../packages/gatsby-kontent-components#readme) package, specifically it's `RichTextElement` to resolve the content component, inline linked items, and images.
+For all `Person` content items, there is [a new page created](./gatsby-node.js#L65) based on on the [`templates/person.js`](./src/templates/person.js) template. The template is using [Gatsby Kontent.ai Components](../../packages/gatsby-kontent-components#readme) package, specifically it's `RichTextElement` to resolve the content component, inline linked items, and images.
 
 > The main example is on <http://localhost:8000/people/ondrej-chrastina/> that showcase [the content component, inline linked items, and images resolution of the Bio element](./src/templates/person.js).
 

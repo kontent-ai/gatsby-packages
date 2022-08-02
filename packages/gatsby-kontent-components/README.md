@@ -1,19 +1,19 @@
-# Gatsby Kontent Components
+# Gatsby Kontent.ai Components
 
 [![Gatsby plugin library](https://img.shields.io/badge/Gatsby%20plugin%20library-%23663399.svg)](https://www.gatsbyjs.org/packages/@kentico/gatsby-kontent-components)
-[![Stack Overflow](https://img.shields.io/badge/Stack%20Overflow-ASK%20NOW-FE7A16.svg?logo=stackoverflow&logoColor=white)](https://stackoverflow.com/tags/kentico-kontent)
+[![Stack Overflow](https://img.shields.io/badge/Stack%20Overflow-ASK%20NOW-FE7A16.svg?logo=stackoverflow&logoColor=white)](https://stackoverflow.com/tags/kontent-ai)
 
 [![npm version](https://badge.fury.io/js/%40kentico%2Fgatsby-kontent-components.svg)](https://badge.fury.io/js/%40kentico%2Fgatsby-kontent-components)
-[![npm](https://img.shields.io/npm/dt/%40kentico%2Fgatsby-kontent-components.svg)](https://www.npmjs.com/package/@kentico/gatsby-kontent-components)
+[![npm](https://img.shields.io/npm/dt/%40kentico%2Fgatsby-kontent-components.svg)](https://www.npmjs.com/package/@kontent-ai/gatsby-kontent-components)
 
-The package containing React components useful when processing Kontent data to the site.
+The package containing React components useful when processing Kontent.ai data to the site.
 
-> To see the progress of the Gatsby v4 supported packages - [check out this pull request](https://github.com/Kentico/kontent-gatsby-packages/pull/195).
+> To see the progress of the Gatsby v4 supported packages - [check out this pull request](https://github.com/kontent-ai/gatsby-packages/pull/195).
 
 ## Install
 
 ```sh
-npm install @kentico/gatsby-kontent-components gatsby-plugin-image
+npm install @kontent-ai/gatsby-kontent-components gatsby-plugin-image
 ```
 
 Also, add `gatsby-plugin-image` to `plugins` array in `gatsby-config.js`.
@@ -24,7 +24,7 @@ Components exports their typescript definitions so that you know what data forma
 
 ## <a name="image-element-component">Image element component</a>
 
-Images from Kontent can be displayed using the `ImageElement` component. This wraps the `GatsbyImage` component from [gatsby-plugin-image](https://www.gatsbyjs.com/docs/how-to/images-and-media/using-gatsby-plugin-image/), so ensure that you also install that plugin. This component will give the best experience for your users, as it includes responsive srcset, blur-up, lazy loading and many other performance optimizations. [Automatic format optimization](https://docs.kontent.ai/reference/image-transformation#a-automatic-format-selection) is always enabled. In many cases it can improve Lighthouse scores by 10-20 points.
+Images from Kontent.ai can be displayed using the `ImageElement` component. This wraps the `GatsbyImage` component from [gatsby-plugin-image](https://www.gatsbyjs.com/docs/how-to/images-and-media/using-gatsby-plugin-image/), so ensure that you also install that plugin. This component will give the best experience for your users, as it includes responsive srcset, blur-up, lazy loading and many other performance optimizations. [Automatic format optimization](https://docs.kontent.ai/reference/image-transformation#a-automatic-format-selection) is always enabled. In many cases it can improve Lighthouse scores by 10-20 points.
 
 The component takes all [the `GatsbyImage` props](https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-plugin-image#gatsbyimage), as well as the following properties. All are optional except `image`:
 
@@ -33,7 +33,7 @@ The component takes all [the `GatsbyImage` props](https://www.gatsbyjs.com/docs/
 - `width`/`height`: see [the `gatsby-plugin-image` docs](https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-plugin-image#widthheight)
 - `aspectRatio`: see [the `gatsby-plugin-image` docs](https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-plugin-image#aspectratio)
 - `backgroundColor`: displayed as a placeholder while the image loads
-- `options: ImageOptions`: an object containing options passed to [the Kontent Image Transformation API](https://docs.kontent.ai/reference/image-transformation). Supported options: `fit`, `quality`, `lossless`.
+- `options: ImageOptions`: an object containing options passed to [the Kontent.ai Image Transformation API](https://docs.kontent.ai/reference/image-transformation). Supported options: `fit`, `quality`, `lossless`.
 
   ```ts
   interface ImageOptions {
@@ -51,7 +51,7 @@ If the optional props of `ImageElement` are omitted, the properties of the image
 
 ```jsx
 import React from 'react';
-import { ImageElement } from '@kentico/gatsby-kontent-components';
+import { ImageElement } from '@kontent-ai/gatsby-kontent-components';
 import { graphql } from 'gatsby';
 
 export default Page = ({ data }) => {
@@ -100,7 +100,7 @@ In case you need image data for GatsbyImage component, you can use an exported f
 
 ## Rich text element component
 
-Rich text elements from Kontent could be resolved to React components using "html-react-parser" as described in [this article](https://rshackleton.co.uk/articles/rendering-kentico-cloud-linked-content-items-with-react-components-in-gatsby).
+Rich text elements from Kontent.ai could be resolved to React components using "html-react-parser" as described in [this article](https://rshackleton.co.uk/articles/rendering-kentico-cloud-linked-content-items-with-react-components-in-gatsby).
 
 This package should make the usage easier. Basically by loading the rich text data and use these components to provide this data and resolution functions.
 
@@ -108,7 +108,7 @@ This package should make the usage easier. Basically by loading the rich text da
 import {
   RichTextElement,
   ImageElement,
-} from '@kentico/gatsby-kontent-components';
+} from '@kontent-ai/gatsby-kontent-components';
 
 // ...
 

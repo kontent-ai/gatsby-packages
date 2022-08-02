@@ -8,7 +8,7 @@ module.exports = {
   /* Your site config here */
   plugins: [
     {
-      resolve: "@kentico/gatsby-source-kontent",
+      resolve: "@kontent-ai/gatsby-source-kontent",
       options: {
         projectId: '0fe3ab32-97a8-005d-6928-eda983ea70a5',
         languageCodenames: [

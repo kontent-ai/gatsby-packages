@@ -32,7 +32,7 @@ exports.createSchemaCustomization = async (
     }
   } catch (error) {
     api.reporter.error(
-      'Gatsby kontent source plugin resulted to error in `createSchemaCustomization` method',
+      'Gatsby Kontent.ai source plugin resulted to error in `createSchemaCustomization` method',
       error,
     );
     api.reporter.verbose(`Complete error: ${JSON.stringify(error, null, 2)}`);
@@ -63,7 +63,7 @@ exports.sourceNodes = async (
     }
   } catch (error) {
     api.reporter.error(
-      'Gatsby kontent source plugin resulted to error in `sourceNodes` method',
+      'Gatsby Kontent.ai source plugin resulted to error in `sourceNodes` method',
       error,
     );
     api.reporter.verbose(`Complete error: ${JSON.stringify(error, null, 2)}`);

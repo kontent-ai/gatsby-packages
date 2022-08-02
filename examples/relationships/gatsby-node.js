@@ -14,7 +14,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const { data: { sitePlugin: { pluginOptions } } } = await graphql(`
     query SiteLanguages {
-      sitePlugin(name: {eq: "@kentico/gatsby-source-kontent"}) {
+      sitePlugin(name: {eq: "@kontent-ai/gatsby-source-kontent"}) {
         pluginOptions
       }
     }

@@ -4,7 +4,7 @@ import { CustomPluginOptions, KontentItem, KontentItemInput } from "./types"
 import * as client from "./client";
 import { addPreferredLanguageProperty, alterRichTextElements, getKontentItemLanguageVariantArtifact } from "./sourceNodes.items";
 import { getKontentItemNodeStringForId, getKontentTaxonomyTypeName, getKontentTypeTypeName, RICH_TEXT_ELEMENT_TYPE_NAME, PREFERRED_LANGUAGE_IDENTIFIER, getKontentItemInterfaceName } from "./naming";
-import { IWebhookDeliveryResponse, IWebhookMessage, IWebhookWorkflowResponse } from '@kentico/kontent-webhook-helper';
+import { IWebhookDeliveryResponse, IWebhookMessage, IWebhookWorkflowResponse } from '@kontent-ai/kontent-webhook-helper';
 import _ from 'lodash';
 
 const parseKontentWebhookBody = (api: SourceNodesArgs): IWebhookDeliveryResponse | IWebhookWorkflowResponse | null => {
@@ -92,7 +92,7 @@ const handleUpsertItem = async (
   for (const lang of pluginConfig.languageCodenames) {
     const { item: kontentItem, modularKontent } = await client.loadKontentItem(itemId, lang, pluginConfig, true);
     if (kontentItem === undefined) {
-      api.reporter.verbose(`Kontent item (${itemId}) language variant (${lang}) not found on the kontent delivery API for update`);
+      api.reporter.verbose(`Kontent item (${itemId}) language variant (${lang}) not found on the kontent.ai delivery API for update`);
       continue;
     }
 
@@ -207,7 +207,7 @@ const handleIncomingWebhook = async (
   }
 
   if (!isKontentSupportedWebhook(webhook.message, pluginConfig)) {
-    api.reporter.verbose('This Kontent webhook is not handled by the Gatsby source kontent source plugin');
+    api.reporter.verbose('This Kontent.ai webhook is not handled by the Gatsby source kontent source plugin');
     return;
   }
 
@@ -226,7 +226,7 @@ const handleIncomingWebhook = async (
     const item = (webhook as IWebhookDeliveryResponse).data.items[0];
 
     // TODO: Webhook header signature (once headers are available)
-    // use signatureHelper '@kentico/kontent-webhook-helper'
+    // use signatureHelper '@kontent-ai/kontent-webhook-helper'
     // https://github.com/gatsbyjs/gatsby/issues/23593
 
     if (webhook.message.operation === "upsert" || webhook.message.operation === "restore") {
@@ -243,7 +243,7 @@ const handleIncomingWebhook = async (
     const item = (webhook as IWebhookDeliveryResponse).data.items[0];
 
     // TODO: Webhook header signature (once headers are available)
-    // use signatureHelper '@kentico/kontent-webhook-helper'
+    // use signatureHelper '@kontent-ai/kontent-webhook-helper'
     // https://github.com/gatsbyjs/gatsby/issues/23593
 
     if (webhook.message.operation === "publish") {
@@ -260,7 +260,7 @@ const handleIncomingWebhook = async (
     const item = (webhook as IWebhookWorkflowResponse).data.items[0];
 
     // TODO: Webhook header signature (once headers are available)
-    // use signatureHelper '@kentico/kontent-webhook-helper'
+    // use signatureHelper '@kontent-ai/kontent-webhook-helper'
     // https://github.com/gatsbyjs/gatsby/issues/23593
 
     if (webhook.message.operation === "change_workflow_step") {

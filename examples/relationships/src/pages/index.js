@@ -6,7 +6,7 @@ const Index = () => (
   <Layout>
     <header>
       <h1>Examples</h1>
-      <p>For the examples explanation, take a look at <a href="https://github.com/Kentico/kontent-gatsby-packages/tree/master/examples/relationships#readme">GitHub example README</a></p>
+      <p>For the examples explanation, take a look at <a href="https://github.com/kontent-ai/kontent-gatsby-packages/tree/master/examples/relationships#readme">GitHub example README</a></p>
     </header>
     <section>
       <ul>

@@ -1,6 +1,6 @@
 {
-  "name": "@kentico/gatsby-kontent-components",
-  "description": "Source plugin providing Kontent data from REST Delivery API",
+  "name": "@kontent-ai/gatsby-kontent-components",
+  "description": "Source plugin providing Kontent.ai data from REST Delivery API",
   "version": "8.1.0",
   "main": "dist/index.js",
   "license": "MIT",
@@ -9,7 +9,7 @@
     "email": "chrastina.ondra@gmail.com",
     "url": "https://ondrej.chrastina.dev"
   },
-  "homepage": "https://github.com/Kentico/kontent-gatsby-packages/tree/master/packages/gatsby-kontent-components#readme",
+  "homepage": "https://github.com/kontent-ai/kontent-gatsby-packages/tree/master/packages/gatsby-kontent-components#readme",
   "keywords": [
     "kontent",
     "react",
@@ -18,11 +18,11 @@
     "gatsby-component"
   ],
   "bugs": {
-    "url": "https://github.com/Kentico/kontent-gatsby-packages/issues"
+    "url": "https://github.com/kontent-ai/gatsby-packages/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Kentico/kontent-gatsby-packages.git"
+    "url": "https://github.com/kontent-ai/gatsby-packages.git"
   },
   "scripts": {
     "build": "tsc",

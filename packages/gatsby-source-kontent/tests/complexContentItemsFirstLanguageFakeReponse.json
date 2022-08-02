@@ -17,7 +17,7 @@
           "images": {},
           "links": {},
           "modular_content": [],
-          "value": "<ul>\n  <li>Theoretical&nbsp;<a href=\"https://developer.kenticocloud.com/docs/integrating-content-editing-features\">concept of custom elements</a>&nbsp;and&nbsp;<a href=\"https://developer.kenticocloud.com/v1/reference#custom-elements-api\">API reference</a>&nbsp;walkthrough.</li>\n</ul>"
+          "value": "<ul>\n  <li>Theoretical&nbsp;<a href=\"https://kontent.ai/learn/tutorials/develop-apps/integrate/content-editing-extensions/\">concept of custom elements</a>&nbsp;and&nbsp;<a href=\"https://kontent.ai/learn/reference/kontent-apis-overview/#custom-elements-api%5C\">API reference</a>&nbsp;walkthrough.</li>\n</ul>"
         }
       }
     },
@@ -64,12 +64,12 @@
           "images": {},
           "links": {},
           "modular_content": [],
-          "value": "<p>A gateway to the world of open-source at Kentico.</p>"
+          "value": "<p>A gateway to the world of open-source at Kontent.ai.</p>"
         },
         "url": {
           "type": "text",
           "name": "URL",
-          "value": "https://kentico.github.io/"
+          "value": "https://kontent-ai.github.io/"
         }
       }
     },
@@ -90,15 +90,15 @@
           "images": {},
           "links": {},
           "modular_content": [],
-          "value": "<p><a href=\"http://kentico.github.io/\">Developer Community Site</a></p>\n<ul>\n  <li>Main purpose - Overall guidepost for information\n    <ul>\n      <li>Describe URLs</li>\n    </ul>\n  </li>\n</ul>"
+          "value": "<p><a href=\"https://kontent-ai.github.io/\">Developer Community Site</a></p>\n<ul>\n  <li>Main purpose - Overall guidepost for information\n    <ul>\n      <li>Describe URLs</li>\n    </ul>\n  </li>\n</ul>"
         }
       }
     },
     {
       "system": {
         "id": "30d24de4-34aa-4b38-933d-3a7f744f8fd4",
-        "name": "Introduction to Github on Kentico examples",
-        "codename": "introduction_to_github_on_kentico_examples",
+        "name": "Introduction to Github on Kontent.ai examples",
+        "codename": "introduction_to_github_on_kontent_examples",
         "language": "default",
         "type": "session",
         "sitemap_locations": [],
@@ -108,7 +108,7 @@
         "name": {
           "type": "text",
           "name": "Name",
-          "value": "Introduction to Github on Kentico examples"
+          "value": "Introduction to Github on Kontent.ai examples"
         },
         "summary": {
           "type": "rich_text",
@@ -116,13 +116,13 @@
           "images": {},
           "links": {},
           "modular_content": [],
-          "value": "<p>Github structure and description of the features used by Kentico (+ just a note about Stack Overflow).</p>"
+          "value": "<p>Github structure and description of the features used by Kontent.ai (+ just a note about Stack Overflow).</p>"
         },
         "agenda": {
           "type": "modular_content",
           "name": "Agenda",
           "value": [
-            "kentico_github_organizations",
+            "kontent_github_organizations",
             "teams_and_people",
             "repositories",
             "projects",

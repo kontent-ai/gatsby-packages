@@ -146,7 +146,7 @@ describe('preview delivery API triggers', () => {
         "type": "kontent_item_author",
         "contentDigest": "f6d6bb19f908369cf2209a6de314000e",
         "counter": 144,
-        "owner": "@kentico/gatsby-source-kontent"
+        "owner": "@kontent-ai/gatsby-source-kontent"
       },
       "parent": null
     };
@@ -176,7 +176,7 @@ describe('preview delivery API triggers', () => {
           "type": "kontent_item_note",
           "contentDigest": "a0b030791ddaee2291e024db0644e799",
           "counter": 268,
-          "owner": "@kentico/gatsby-source-kontent"
+          "owner": "@kontent-ai/gatsby-source-kontent"
         },
         "parent": null
       },
@@ -204,7 +204,7 @@ describe('preview delivery API triggers', () => {
           "type": "kontent_item_note",
           "contentDigest": "aae62fcb99f01c62256c16f301df2eca",
           "counter": 145,
-          "owner": "@kentico/gatsby-source-kontent"
+          "owner": "@kontent-ai/gatsby-source-kontent"
         },
         "parent": null
       }
@@ -268,7 +268,7 @@ describe('production delivery API triggers', () => {
         "type": UNPUBLISHED_ITEM.item.system.type,
         "contentDigest": "dummyContentDigest",
         "counter": 666,
-        "owner": "@kentico/gatsby-source-kontent"
+        "owner": "@kontent-ai/gatsby-source-kontent"
       },
       "parent": null
     };

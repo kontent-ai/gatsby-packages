@@ -1,4 +1,4 @@
-const { getKontentItemNodeTypeName } = require("@kentico/gatsby-source-kontent")
+const { getKontentItemNodeTypeName } = require("@kontent-ai/gatsby-source-kontent")
 
 exports.createSchemaCustomization = async api => {
   const {

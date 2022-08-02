@@ -1,7 +1,7 @@
 {
-  "name": "@kentico/kontent-gatsby-example-dsg-ssr",
+  "name": "@kontent-ai/kontent-gatsby-example-dsg-ssr",
   "version": "0.1.0",
-  "description": "Example guide ro Kontent site with Gatsby DSG and SSR.",
+  "description": "Example guide ro Kontent.ai site with Gatsby DSG and SSR.",
   "main": "index.js",
   "scripts": {
     "build": "gatsby build",
@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Kentico/kontent-gatsby-packages.git"
+    "url": "git+https://github.com/kontent-ai/gatsby-packages.git"
   },
   "keywords": [
     "Kontent",
@@ -26,9 +26,9 @@
   "author": "Ondřej Chrastina",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Kentico/kontent-gatsby-packages/issues"
+    "url": "https://github.com/kontent-ai/gatsby-packages/issuess"
   },
-  "homepage": "https://github.com/Kentico/kontent-gatsby-packages/tree/master/examples/dsg-ssr#readme",
+  "homepage": "https://github.com/kontent-ai/gatsby-packages/tree/master/examples/dsg-ssr#readme",
   "dependencies": {
     "gatsby": "^4.6.2",
     "react": "^17.0.2",

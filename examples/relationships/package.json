@@ -1,6 +1,6 @@
 {
-  "name": "@kentico/kontent-gatsby-example-relationships",
-  "description": "Example guide for Kontent site with relationships extensions.",
+  "name": "@kontent-ai/kontent-gatsby-example-relationships",
+  "description": "Example guide for Kontent.ai site with relationships extensions.",
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {

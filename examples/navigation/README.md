@@ -2,7 +2,7 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/5129d2e5-dc9f-4519-b18a-ad617e6225d5/deploy-status)](https://app.netlify.com/sites/kontent-gatsby-example-navigation/deploys)
 
-Site showcasing, how to model the menu in Kontent by Kentico and the use this model in the Gatsby application to render a menu and its linked content.
+Site showcasing, how to model the menu in Kontent.ai and the use this model in the Gatsby application to render a menu and its linked content.
 
 This showcase extends originates from [Explicitly modeled navigation](https://docs.kontent.ai/tutorials/write-and-collaborate/structure-your-content/manage-navigation-menus#a-c-explicitly-modeled-navigation) approach and adds some Gatsby specific steps.
 
@@ -28,9 +28,9 @@ Now you could browse the site on <http://localhost:8000> and see GraphiQL explor
 
 ## Content modeling
 
-This section explains how the content is modeled. You could follow next section of [Import the content to your on Kontent project](#Import-site-content-to-your-Kontent-project) and explore the models by your own.
+This section explains how the content is modeled. You could follow next section of [Import the content to your on Kontent.ai project](#Import-site-content-to-your-Kontent-project) and explore the models by your own.
 
-### Kontent content
+### Kontent.ai content
 
 First of of all it is required to create two content types:
 
@@ -101,21 +101,21 @@ The last step is to use contextual data to query content you want to render unde
 
 ![Parametrized query for content pages - Home page example](./docs/content-page-template-query.png)
 
-## Import site content to your Kontent project
+## Import site content to your Kontent.ai project
 
 If you want to check the content in your own project, you could use following guide:
 
 1. Go to [app.kontent.ai](https://app.kontent.ai) and [create empty project](https://docs.kontent.ai/tutorials/set-up-kontent/projects/manage-projects#a-creating-projects)
 1. Go to "Project Settings", select API keys and copy `Project ID`
-1. Install [Kontent Backup Manager](https://github.com/Kentico/kontent-backup-manager-js) and import data to newly created project from [`kontent-backup.zip`](./kontent-backup.zip) file (place appropriate values for `apiKey` and `projectId` arguments):
+1. Install [Kontent.ai Backup Manager](https://github.com/kontent-ai/backup-manager-js) and import data to newly created project from [`kontent-backup.zip`](./kontent-backup.zip) file (place appropriate values for `apiKey` and `projectId` arguments):
 
    ```sh
-   npm i -g @kentico/kontent-backup-manager@1.5.0
+   npm i -g @kontent-ai/backup-manager-js
 
    kbm --action=restore --apiKey=<Management API key> --projectId=<Project ID> --zipFilename=kontent-backup
    ```
 
-1. Go to your Kontent project and [publish all the imported items](https://docs.kontent.ai/tutorials/write-and-collaborate/publish-your-work/publish-content-items).
+1. Go to your Kontent.ai project and [publish all the imported items](https://docs.kontent.ai/tutorials/write-and-collaborate/publish-your-work/publish-content-items).
 
 ## [More complex example](https://github.com/Simply007/Simply007.github.io#setup)
 
@@ -133,7 +133,7 @@ There are multiple content pages used as the content container. Namely `Home pag
 
 #### Listing content page
 
-One of the content container types is `Listing items`, this type allows to select content type(s) that is/are then used to determine what is about to be queried in the page. To model it in Kontent [Type selector custom element](https://github.com/Simply007/kontent-custom-element-type-selector) is used and then in the application. Then when the application is registering the page components ir loads detail items and [register them under their own route](https://github.com/Simply007/Simply007.github.io/blob/source/gatsby-node.js#L115) with [detail component template](https://github.com/Simply007/Simply007.github.io/blob/source/src/templates/journal-item.js).
+One of the content container types is `Listing items`, this type allows to select content type(s) that is/are then used to determine what is about to be queried in the page. To model it in Kontent.ai [Type selector custom element](https://github.com/Simply007/kontent-custom-element-type-selector) is used and then in the application. Then when the application is registering the page components ir loads detail items and [register them under their own route](https://github.com/Simply007/Simply007.github.io/blob/source/gatsby-node.js#L115) with [detail component template](https://github.com/Simply007/Simply007.github.io/blob/source/src/templates/journal-item.js).
 
 ## Set up Preview URLs
 
