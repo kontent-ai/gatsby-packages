@@ -1,5 +1,5 @@
 {
-  "name": "@kontent-ai/kontent-gatsby-packages",
+  "name": "@kontent-ai/gatsby-packages",
   "description": "Monorepo containing Kontent.ai packages for Gatsby.",
   "repository": "https://github.com/kontent-ai/gatsby-packages.git",
   "homepage": "https://github.com/kontent-ai/gatsby-packages#readme",
@@ -26,7 +26,7 @@
     "build": "yarn workspaces run build",
     "build:source": "yarn workspace @kontent-ai/gatsby-source-kontent build",
     "build:components": "yarn workspace @kontent-ai/gatsby-kontent-components build",
-    "build:navigation": "yarn build:source && yarn workspace @kontent-ai/kontent-gatsby-example-navigation run build",
+    "build:navigation": "yarn build:source && yarn workspace @kontent-ai/gatsby-example-navigation run build",
     "build:resolution": "yarn build:components && yarn build:source && yarn workspace @kontent-ai/gatsby-example-resolution run build",
     "build:relationships": "yarn build:source && yarn workspace @kontent-ai/gatsby-example-relationships run build",
     "build:dsg-ssr": "yarn build:source && yarn workspace @kontent-ai/gatsby-example-dsg-ssr run build",
