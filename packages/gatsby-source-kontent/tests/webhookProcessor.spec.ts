@@ -155,7 +155,7 @@ describe('preview delivery API triggers', () => {
       {
         "system": {
           "id": "9616528a-d5f7-43ce-a313-1ff921adc078",
-          "name": "test note linekd inline kontent item",
+          "name": "test note linked inline kontent item",
           "codename": inlineLinkedKontentItemCodename,
           "language": "en-US",
           "type": "note",
@@ -166,7 +166,7 @@ describe('preview delivery API triggers', () => {
           "text": {
             "type": "text",
             "name": "Text",
-            "value": "test note linekd inline kontent item"
+            "value": "test note linked inline kontent item"
           }
         },
         "preferred_language": "en-US",

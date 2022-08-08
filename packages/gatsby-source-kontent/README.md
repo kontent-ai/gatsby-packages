@@ -550,7 +550,7 @@ For more developer resources, visit the [Kontent.ai Docs](https://docs.kontent.a
 ### Guides and blog posts
 
 - [Sourcing from Kontent.ai](https://www.gatsbyjs.org/docs/sourcing-from-kontent/)
-- [Getting started with Gatsby Cloud and Kontent](https://www.gatsbyjs.com/docs/kontent/getting-started/)
+- [Getting started with Gatsby Cloud and Kontent.ai](https://www.gatsbyjs.com/docs/kontent/getting-started/)
 - [Kontent.ai - The fastest headless CMS for Gatsby](https://kontent.ai/gatsby-cms)
 - [Using Gatsby with Kontent.ai](https://www.gatsbyjs.com/guides/kentico-kontent/)
 - [Rendering Kontent.ai linked content items with React components in Gatsby](https://rshackleton.co.uk/articles/rendering-kentico-cloud-linked-content-items-with-react-components-in-gatsby) by [@rshackleton](https://github.com/rshackleton)

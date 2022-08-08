@@ -139,7 +139,7 @@ Query names prefixed has changed from `KenticoCloud*` to `Kontent*` - i.e. `Kent
 
 ### Delivery configuration
 
-When configuring the Kontent.ai Source plugin, one of the properties to set is `deliveryClientConfig`. It is respecting the [`IDeliveryClientConfig`](https://github.com/Kentico/kontent-delivery-sdk-js/blob/master/UPGRADE.md#ideliveryclientconfig) interface from Kontent.ai Delivery SDK.
+When configuring the Kontent.ai Source plugin, one of the properties to set is `deliveryClientConfig`. It is respecting the [`IDeliveryClientConfig`](https://github.com/kontent-ai/delivery-sdk-js#client-configuration) interface from Kontent.ai Delivery SDK.
 
 #### Example
 
@@ -177,7 +177,7 @@ module.exports = {
 
 ### Elements structure unification
 
-Basic Kontent Item Node elements types (text, name, date & time, multiple choice) [has element property called `value`](https://github.com/Kentico/kontent-delivery-sdk-js/blob/v8.0.0/UPGRADE.md#removal-of-type-specific-element-properties) not an element specific property.
+Basic Kontent Item Node elements types (text, name, date & time, multiple choice) [has element property called `value`](https://github.com/kontent-ai/delivery-sdk-js/blob/v8.0.0/UPGRADE.md#removal-of-type-specific-element-properties) not an element specific property.
 
 Image assets now contains [information about its resolution](https://docs.kontent.ai/reference/api-changelog#a-image-resolution-in-delivery-api).
 

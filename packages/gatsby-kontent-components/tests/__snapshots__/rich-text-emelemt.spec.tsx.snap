@@ -620,7 +620,7 @@ On some projects, he was cooperating with
       "value": "Gatsby packages repository containing the source plugin, components package, and a bunch of Gatsby examples."
     },
     "url": {
-      "value": "https://github.com/kontent-ai/gatsby-packages"
+      "value": "https://github.com/Kentico/kontent-gatsby-packages"
     }
   }
 }
@@ -638,7 +638,7 @@ Array [
       rel="noopener noreferrer"
       target="_blank"
     >
-      Kontent.ai 
+      Kontent.ai
     </a>
     .
   </p>,

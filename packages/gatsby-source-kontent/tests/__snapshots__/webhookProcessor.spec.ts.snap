@@ -78,7 +78,7 @@ Array [
     "internal": Object {
       "contentDigest": "aae62fcb99f01c62256c16f301df2eca",
       "counter": 145,
-      "owner": "@kentico/gatsby-source-kontent",
+      "owner": "@kontent-ai/gatsby-source-kontent",
       "type": "kontent_item_note",
     },
     "parent": null,
@@ -114,7 +114,7 @@ Array [
     "internal": Object {
       "contentDigest": "f6d6bb19f908369cf2209a6de314000e",
       "counter": 144,
-      "owner": "@kentico/gatsby-source-kontent",
+      "owner": "@kontent-ai/gatsby-source-kontent",
       "type": "kontent_item_author",
     },
     "parent": null,
@@ -274,7 +274,7 @@ Array [
     "internal": Object {
       "contentDigest": "dummyContentDigest",
       "counter": 666,
-      "owner": "@kentico/gatsby-source-kontent",
+      "owner": "@kontent-ai/gatsby-source-kontent",
       "type": "category",
     },
     "parent": null,
