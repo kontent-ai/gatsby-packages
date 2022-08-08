@@ -2,7 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import { stringify } from "qs"
 import { ImageElement, getGatsbyImageData } from "@kontent-ai/gatsby-kontent-components"
-import { ImageUrlBuilder } from "@kontent-ai/delivery-sdk"
+import { ImageUrlTransformationBuilder } from "@kontent-ai/delivery-sdk"
 
 const Author = ({ data }) => {
   if (!data.author.elements.avatar_image.value.length) {
@@ -25,7 +25,7 @@ const Author = ({ data }) => {
   }
 
   // https://github.com/kontent-ai/delivery-sdk-js#image-transformation
-  const deliverySDKTransformedUrl = new ImageUrlBuilder(avatar.url)
+  const deliverySDKTransformedUrl = new ImageUrlTransformationBuilder(avatar.url)
     .withRectangleCrop(...rectSelection)
     .withWidth(imageQuery.w)
 
