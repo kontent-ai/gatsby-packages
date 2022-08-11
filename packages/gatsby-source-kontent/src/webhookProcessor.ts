@@ -93,7 +93,7 @@ const handleUpsertItem = async (
   for (const lang of pluginConfig.languageCodenames) {
     const { item: kontentItem, modularKontent } = await client.loadKontentItem(itemId, lang, pluginConfig, true);
     if (kontentItem === undefined) {
-      api.reporter.verbose(`Kontent item (${itemId}) language variant (${lang}) not found on the kontent.ai delivery API for update`);
+      api.reporter.verbose(`Item (${itemId}) language variant (${lang}) not found on the kontent.ai delivery API for update`);
       continue;
     }
 
@@ -203,7 +203,7 @@ const handleIncomingWebhook = async (
   const webhook = parseKontentWebhookBody(api);
 
   if (webhook === null) {
-    api.reporter.verbose('Webhook ignored - webhook does not come from Kontent');
+    api.reporter.verbose('Webhook ignored - webhook does not come from Kontent.ai');
     return;
   }
 

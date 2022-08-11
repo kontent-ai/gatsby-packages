@@ -23,8 +23,8 @@ const defaultPluginNamingConfiguration: PluginNamingConfiguration = {
 };
 
 /**
- * Retrieve ID string for Gatsby's CreateNodeId method for specified Kontent item language variant.
- * @param id Kontent item `system.id` because codename is changeable.
+ * Retrieve ID string for Gatsby's CreateNodeId method for specified item language variant.
+ * @param id  Item `system.id` because codename is changeable.
  * @param preferredLanguage Preferred language of the language variant.
  * @param config Optional parameter with extra configuration.
  */

@@ -1,6 +1,6 @@
 # Gatsby Kontent.ai Packages
 
-![build](https://github.com/kontent-ai/gatsby-source-kontent/workflows/build/badge.svg)
+![build](https://github.com/kontent-ai/gatsby-packages/actions/workflows/build.yml/badge.svg)
 [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org/)
 
 [![Stack Overflow](https://img.shields.io/badge/Stack%20Overflow-ASK%20NOW-FE7A16.svg?logo=stackoverflow&logoColor=white)](https://stackoverflow.com/tags/kontent-ai)

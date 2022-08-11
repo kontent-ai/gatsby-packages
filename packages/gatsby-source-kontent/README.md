@@ -120,7 +120,7 @@ Some of the data from Kontent.ai Delivery API requires to be altered or extended
 
 ### Preferred language
 
-Besides of `system.language` every Kontent item node contains the property `preferred_language` to distinguish which language version it represents. Using this property, it is easy to distinguish whether the language fallback is used. When `preferred_language` is not the same as `system.language`, Kontent item was not translated to `preferred_language` and the delivery API returned fallback language (`system.language`).
+Besides of `system.language` every item node contains the property `preferred_language` to distinguish which language version it represents. Using this property, it is easy to distinguish whether the language fallback is used. When `preferred_language` is not the same as `system.language`, item was not translated to `preferred_language` and the delivery API returned fallback language (`system.language`).
 
 ### Linked items as links
 
@@ -334,7 +334,7 @@ Result
 
 This section should help you with the first queries. For further exploring it is recommended to use [GraphiQL explorer](https://www.gatsbyjs.org/docs/running-queries-with-graphiql/) available in gatsby development environment]. If you are using developer environment for the source plugin development, you could experiment according to the [How to develop locally section](#How-to-develop-locally)
 
-### Querying Kontent Items
+### Querying Items
 
 Example is showcasing how to query type `article`.
 For rich text resolution resolution see [Rich text element component](../gatsby-kontent-components/README.md#Rich-text-element-component).
@@ -403,7 +403,7 @@ query ArticleQueries {
 }
 ```
 
-### Querying Kontent Types
+### Querying Types
 
 To query content types it is required to opt-in this in plugin configuration by using `includeTypes` option in the [configuration.](#Available-options).
 
@@ -433,7 +433,7 @@ query Types {
 }
 ```
 
-### Querying Kontent Taxonomies
+### Querying Taxonomies
 
 To query content types it is required to opt-in this in plugin configuration by using `includeTypes` option in the [configuration.](#Available-options).
 
