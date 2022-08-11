@@ -14,15 +14,14 @@ Sorry to hear that. Just log a new [GitHub issue](../../issues) and someone will
 ### I need help with using the projects and/or coding
 <img align="right" width="100" height="100" src="https://cdn.sstatic.net/Sites/stackoverflow/company/img/logos/so/so-icon.svg">
 
-To get help with coding and structuring your projects, use [StackOverflow](https://stackoverflow.com/) to ask questions with one of the following tags:
-- [`kontent-ai`](https://stackoverflow.com/questions/tagged/kontent-ai)
+To get help with coding and structuring your projects, use [StackOverflow](https://stackoverflow.com/) and tag your questions with [`kontent-ai`](https://stackoverflow.com/questions/tagged/kontent-ai) tag.
 
 Our team members and the community monitor these channels on a regular basis.
 
 ### I want to report a security bug
 <img align="right" width="100" height="100" src="https://i.imgur.com/z82nnJB.png">
 
-Security issues and bugs should be reported privately, via email, to the Kontent.ai Developer Relations Team devrel@kontent.ai. You should receive a response within 24 hours. If for some reason you do not, please follow up via email to ensure we received your original message.
+Security issues and bugs should be reported privately, via email, to Kontent.ai Developer Relations Team devrel@kontent.ai. You should receive a response within 24 hours. If for some reason you do not, send us a follow up email to ensure we received your original message.
 
 
 ### I have an idea for a new feature (or feedback on existing functionality)
@@ -35,7 +34,7 @@ Everybody loves new features! You can submit a new [feature request](../../issue
 <img align="right" width="100" height="100" src="https://i.imgur.com/aSeiliy.png">
 
 Unless you're fixing a typo, it's usually a good idea to discuss the feature before you submit a pull request with code changes, so let's start with submitting a new [GitHub issue](../../issues) and discussing the whether it fits the vision of a given project.
-You might also read these two blogs posts on contributing code: [Open Source Contribution Etiquette](http://tirania.org/blog/archive/2010/Dec-31.html) by Miguel de Icaza and [Don't "Push" Your Pull Requests](https://www.igvita.com/2011/12/19/dont-push-your-pull-requests/) by Ilya Grigorik. Note that all code submissions will be rigorously reviewed and tested by the Kontent.ai Maintainers teams, and only those that meet an high bar for both quality and design/roadmap appropriateness will be merged into the source.
+You might also read these two blogs posts on contributing code: [Open Source Contribution Etiquette](http://tirania.org/blog/archive/2010/Dec-31.html) by Miguel de Icaza and [Don't "Push" Your Pull Requests](https://www.igvita.com/2011/12/19/dont-push-your-pull-requests/) by Ilya Grigorik. Note that all code submissions will be rigorously reviewed and tested by Kontent.ai maintainer teams, and only those that meet an high bar for both quality and design/roadmap appropriateness will be merged into the source.
 
 
 ### Example - process of contribution
@@ -60,7 +59,7 @@ To start with coding, fork the repository you want to contribute to, create a ne
 ### Feedback
 <img align="right" width="100" height="100" src="https://i.imgur.com/ZQfNzJJ.png">
 
-Your pull request will now go through extensive checks by the subject matter experts on our team. Please be patient. Update your pull request according to feedback until it is approved by one of the Kontent.ai maintainers. After that, one of our team members may adjust the branch you merge into based on the expected release schedule.
+Your pull request will now go through extensive checks by the subject matter experts on our team. Please be patient. Update your pull request according to feedback until it is approved by one of Kontent.ai maintainers. After that, one of our team members may adjust the branch you merge into based on the expected release schedule.
 
 
 ## Code of Conduct
