@@ -4,7 +4,7 @@
 [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org/)
 
 [![Stack Overflow](https://img.shields.io/badge/Stack%20Overflow-ASK%20NOW-FE7A16.svg?logo=stackoverflow&logoColor=white)](https://stackoverflow.com/tags/kontent-ai)
-[![Konten Discord](https://img.shields.io/discord/821885171984891914?color=%237289DA&label=Kontent%20Discord&logo=discord)](https://discord.gg/SKCxwPtevJ)
+[![Kontent.ai Discord](https://img.shields.io/discord/821885171984891914?color=%237289DA&label=Kontent%20Discord&logo=discord)](https://discord.gg/SKCxwPtevJ)
 
 Monorepo with Gatsby Kontent.ai packages.
 
@@ -16,8 +16,8 @@ The repository contains the development site (`/site`) that could automatically 
 
 |                                 Package                                 | Summary                                                                         |                                                                        Version                                                                         |
 | :---------------------------------------------------------------------: | :------------------------------------------------------------------------------ | :----------------------------------------------------------------------------------------------------------------------------------------------------: |
-| [Gatsby Source Kontent.ai Plugin](/packages/gatsby-source-kontent#readme)  | plugin providing data from Kontent.ai REST API to Gatsby GraphQL model     |     [![npm version](https://badge.fury.io/js/%40kentico%2Fgatsby-source-kontent.svg)](https://badge.fury.io/js/%40kentico%2Fgatsby-source-kontent)     |
-| [Gatsby Kontent.ai Components](/packages/gatsby-kontent-components#readme) | package containing React components useful when processing Kontent.ai data to site | [![npm version](https://badge.fury.io/js/%40kentico%2Fgatsby-kontent-components.svg)](https://badge.fury.io/js/%40kentico%2Fgatsby-kontent-components) |
+| [Gatsby Source Kontent.ai Plugin](/packages/gatsby-source-kontent#readme)  | plugin providing data from Kontent.ai REST API to Gatsby GraphQL model     |     [![npm version](https://badge.fury.io/js/@kontent-ai%2Fgatsby-source-kontent.svg)](https://badge.fury.io/js/@kontent-ai%2Fgatsby-source-kontent)     |
+| [Gatsby Kontent.ai Components](/packages/gatsby-kontent-components#readme) | package containing React components useful when processing Kontent.ai data to site | [![npm version](https://badge.fury.io/js/@kontent-ai%2Fgatsby-kontent-components.svg)](https://badge.fury.io/js/@kontent-ai%2Fgatsby-kontent-components) |
 
 ### Site
 

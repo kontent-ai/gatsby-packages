@@ -1,10 +1,10 @@
 # Gatsby source plugin for Kontent.ai
 
-[![Gatsby plugin library](https://img.shields.io/badge/Gatsby%20plugin%20library-%23663399.svg)](https://www.gatsbyjs.org/packages/@kentico/gatsby-source-kontent)
+[![Gatsby plugin library](https://img.shields.io/badge/Gatsby%20plugin%20library-%23663399.svg)](https://www.gatsbyjs.org/packages/@kontent-ai/gatsby-source-kontent)
 [![Stack Overflow](https://img.shields.io/badge/Stack%20Overflow-ASK%20NOW-FE7A16.svg?logo=stackoverflow&logoColor=white)](https://stackoverflow.com/tags/kontent-ai)
 
-[![npm version](https://badge.fury.io/js/%40kentico%2Fgatsby-source-kontent.svg)](https://badge.fury.io/js/%40kentico%2Fgatsby-source-kontent)
-[![npm](https://img.shields.io/npm/dt/%40kentico%2Fgatsby-source-kontent.svg)](https://www.npmjs.com/package/@kontent-ai/gatsby-source-kontent)
+[![npm version](https://badge.fury.io/js/@kontent-ai%2Fgatsby-source-kontent.svg)](https://badge.fury.io/js/@kontent-ai%2Fgatsby-source-kontent)
+[![npm](https://img.shields.io/npm/dt/@kontent-ai%2Fgatsby-source-kontent.svg)](https://www.npmjs.com/package/@kontent-ai/gatsby-source-kontent)
 
 > To see the progress of the Gatsby v4 supported packages - [check out this pull request](https://github.com/kontent-ai/gatsby-packages/pull/195).
 
@@ -563,12 +563,12 @@ For more developer resources, visit the [Kontent.ai Docs](https://docs.kontent.a
 
 ### Previous versions
 
-- For version 2 see [this branch](https://github.com/Kentico/gatsby-source-kentico-cloud/tree/v2).
-- For version 3 see [this branch](https://github.com/Kentico/gatsby-source-kentico-cloud/tree/v3).
-- For version 4 see [this branch](https://github.com/Kentico/gatsby-source-kentico-cloud/tree/v4).
-- For version 5 see [this branch](https://github.com/Kentico/gatsby-source-kentico-cloud/tree/v5).
-- For version 6 see [this branch](https://github.com/Kentico/gatsby-source-kentico-cloud/tree/v6).
-- For version 7 see [this branch](https://github.com/Kentico/gatsby-source-kentico-cloud/tree/v7).
+- For version 2 see [this branch](https://github.com/kontent-ai/gatsby-packages/tree/v2).
+- For version 3 see [this branch](https://github.com/kontent-ai/gatsby-packages/tree/v3).
+- For version 4 see [this branch](https://github.com/kontent-ai/gatsby-packages/tree/v4).
+- For version 5 see [this branch](https://github.com/kontent-ai/gatsby-packages/tree/v5).
+- For version 6 see [this branch](https://github.com/kontent-ai/gatsby-packages/tree/v6).
+- For version 7 see [this branch](https://github.com/kontent-ai/gatsby-packages/tree/v7).
 
 ## How to contribute
 
