@@ -656,7 +656,7 @@
         "description": {
           "type": "custom",
           "name": "Description",
-          "value": "*Other language: *\n# Gatsby source plugin for Kontent.ai\n[![Gatsby plugin library](https://img.shields.io/badge/Gatsby%20plugin%20library-%23663399.svg)](https://www.gatsbyjs.org/packages/gatsby-source-kentico-cloud)\n[![Stack Overflow](https://img.shields.io/badge/Stack%20Overflow-ASK%20NOW-FE7A16.svg?logo=stackoverflow&logoColor=white)](https://stackoverflow.com/tags/kentico-cloud)\n\nThis repo contains a [Gatsby (v2) source plugin](https://www.gatsbyjs.org/docs/recipes/#sourcing-data) that retrieves data from the [Kontent.ai](https://kontent.ai) Delivery API.\n\n## Features\n\nThe plugin creates GraphQL nodes for all Kontent.ai content types, content items, and its language variants.\n\nThe node names are prefixed with `kontent`. More specifically, content type nodes are prefixed by `kontentType` and content items and their language variants are prefixed with `kontentItem`.\n\nGraphQL nodes of content items contain the ordinary `system` and `elements` properties. However, the properties inside `elements` always have an internal structure that the aforementioned Delivery SDK produces with **modifications** described in following section."
+          "value": "*Other language: *\n# Gatsby source plugin for Kontent.ai\n[![Gatsby plugin library](https://img.shields.io/badge/Gatsby%20plugin%20library-%23663399.svg)](https://www.gatsbyjs.org/packages/gatsby-source-kentico-cloud)\n[![Stack Overflow](https://img.shields.io/badge/Stack%20Overflow-ASK%20NOW-FE7A16.svg?logo=stackoverflow&logoColor=white)](https://stackoverflow.com/tags/kontent-ai)\n\nThis repo contains a [Gatsby (v2) source plugin](https://www.gatsbyjs.org/docs/recipes/#sourcing-data) that retrieves data from the [Kontent.ai](https://kontent.ai) Delivery API.\n\n## Features\n\nThe plugin creates GraphQL nodes for all Kontent.ai content types, content items, and its language variants.\n\nThe node names are prefixed with `kontent`. More specifically, content type nodes are prefixed by `kontentType` and content items and their language variants are prefixed with `kontentItem`.\n\nGraphQL nodes of content items contain the ordinary `system` and `elements` properties. However, the properties inside `elements` always have an internal structure that the aforementioned Delivery SDK produces with **modifications** described in following section."
         },
         "name": {
           "type": "text",
@@ -666,7 +666,7 @@
         "url": {
           "type": "text",
           "name": "URL",
-          "value": "https://github.com/Kentico/gatsby-source-kentico-cloud"
+          "value": "https://github.com/kontent-ai/gatsby-packages/tree/master/packages/gatsby-source"
         }
       }
     },

@@ -1688,7 +1688,7 @@ Currently I am interested in Gatsby.js. I have released the third version of Gat
         "value": "*Other language: *
 # Gatsby source plugin for Kontent.ai
 [![Gatsby plugin library](https://img.shields.io/badge/Gatsby%20plugin%20library-%23663399.svg)](https://www.gatsbyjs.org/packages/gatsby-source-kentico-cloud)
-[![Stack Overflow](https://img.shields.io/badge/Stack%20Overflow-ASK%20NOW-FE7A16.svg?logo=stackoverflow&logoColor=white)](https://stackoverflow.com/tags/kentico-cloud)
+[![Stack Overflow](https://img.shields.io/badge/Stack%20Overflow-ASK%20NOW-FE7A16.svg?logo=stackoverflow&logoColor=white)](https://stackoverflow.com/tags/kontent-ai)
 
 This repo contains a [Gatsby (v2) source plugin](https://www.gatsbyjs.org/docs/recipes/#sourcing-data) that retrieves data from the [Kontent.ai](https://kontent.ai) Delivery API.
 
@@ -1708,12 +1708,12 @@ GraphQL nodes of content items contain the ordinary \`system\` and \`elements\` 
       "url": Object {
         "name": "URL",
         "type": "text",
-        "value": "https://github.com/Kentico/gatsby-source-kentico-cloud",
+        "value": "https://github.com/kontent-ai/gatsby-packages/tree/master/packages/gatsby-source",
       },
     },
     "id": "dummyId-kontent_item_Another_language_e76716e9-bcf0-01ad-2031-4d08701b3a3f",
     "internal": Object {
-      "contentDigest": "c997cfe52434a332c3ccba798567035f",
+      "contentDigest": "4e758bcd3921a930297496c54d7af6a1",
       "type": "kontent_item_repository",
     },
     "preferred_language": "Another_language",
