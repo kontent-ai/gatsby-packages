@@ -1,4 +1,4 @@
-const { getKontentItemNodeTypeName } = require("@kontent-ai/gatsby-source-kontent")
+const { getKontentItemNodeTypeName } = require("@kontent-ai/gatsby-source")
 
 exports.createSchemaCustomization = async api => {
   const {

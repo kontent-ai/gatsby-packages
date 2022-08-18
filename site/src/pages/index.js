@@ -1,5 +1,5 @@
 import React from "react"
-import { RichTextElement } from "@kontent-ai/gatsby-kontent-components"
+import { RichTextElement } from "@kontent-ai/gatsby-components"
 import { Link } from "gatsby"
 
 const Index = () => {

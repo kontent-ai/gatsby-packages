@@ -1,0 +1,141 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`kontentItemsCreateSchemaCustomization Empty element type does not fail 1`] = `
+Object {
+  "fields": Object {
+    "preferred_language": "String!",
+    "system": "kontent_item_system!",
+  },
+  "infer": false,
+  "interfaces": Array [
+    "Node",
+    "kontent_item",
+  ],
+  "name": "kontent_item_no_elements",
+}
+`;
+
+exports[`kontentItemsCreateSchemaCustomization create fixed type definition 1`] = `
+"# All __UPPER_CASE__  wildcards will be replaced by the configuration
+
+interface kontent_item implements Node {
+  id: ID!
+  system: kontent_item_system!
+  # elements: type is defined programmatically
+  #  - it would be possible to use union type, but there are
+  #    no benefits
+  #    - union type is not propagated to filter
+  #    - union types are not supported for querying in Gatsby
+  preferred_language: String!
+}
+
+type kontent_item_system {
+  codename: String!
+  id: String!
+  language: String!
+  last_modified: Date! @dateformat
+  name: String!
+  type: String!
+}
+
+type kontent_item_text_element_value {
+  name: String!
+  type: String!
+  value: String
+}
+
+type kontent_item_rich_text_element_value {
+  name: String!
+  type: String!
+  value: String
+  modular_content: [kontent_item]
+    @kontent_item_language_link
+  images: [kontent_item_rich_text_element_image]
+  links: [kontent_item_rich_text_element_link]
+}
+
+type kontent_item_number_element_value {
+  name: String!
+  type: String!
+  value: Float
+}
+
+type kontent_item_multiple_choice_element_value {
+  name: String!
+  type: String!
+  value: [kontent_item_multiple_choice_element]
+}
+
+type kontent_item_date_time_element_value {
+  name: String!
+  type: String!
+  value: Date @dateformat
+}
+
+type kontent_item_asset_element_value {
+  name: String!
+  type: String!
+  value: [kontent_item_asset_element]
+}
+
+type kontent_item_modular_content_element_value {
+  name: String!
+  type: String!
+  value: [kontent_item] @kontent_item_language_link
+}
+
+type kontent_item_custom_element_value {
+  name: String!
+  type: String!
+  value: String
+}
+
+type kontent_item_taxonomy_element_value {
+  name: String!
+  type: String!
+  taxonomy_group: String!
+  value: [kontent_item_taxonomy_element]
+}
+
+type kontent_item_url_slug_element_value {
+  name: String!
+  type: String!
+  value: String
+}
+
+type kontent_item_multiple_choice_element {
+  codename: String!
+  name: String!
+}
+
+type kontent_item_asset_element {
+  name: String!
+  description: String
+  type: String!
+  size: Int!
+  url: String!
+  width: Int
+  height: Int
+}
+
+type kontent_item_taxonomy_element {
+  name: String!
+  codename: String!
+}
+
+type kontent_item_rich_text_element_image {
+  image_id: String!
+  url: String!
+  description: String
+  height: Int
+  width: Int
+}
+
+type kontent_item_rich_text_element_link {
+  link_id: String!
+  codename: String!
+  type: String!
+  url_slug: String!
+}
+"
+`;

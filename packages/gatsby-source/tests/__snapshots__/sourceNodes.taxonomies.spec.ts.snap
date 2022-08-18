@@ -1,0 +1,230 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`sourceNodes complex taxonomies import all taxonomies correctly 1`] = `
+Array [
+  Object {
+    "children": Array [],
+    "id": "dummyId-kontent_taxonomy_manufacturer",
+    "internal": Object {
+      "contentDigest": "33cb7b1e3bb8cdd23714f73cc2a9582f",
+      "type": "kontent_taxonomy",
+    },
+    "system": Object {
+      "codename": "manufacturer",
+      "id": "4ce421e9-c403-eee8-fdc2-74f09392a749",
+      "last_modified": "2017-09-07T08:15:22.7210000Z",
+      "name": "Manufacturer",
+    },
+    "terms": Array [
+      Object {
+        "codename": "aerobie",
+        "name": "Aerobie",
+        "terms": Array [],
+      },
+      Object {
+        "codename": "chemex",
+        "name": "Chemex",
+        "terms": Array [],
+      },
+      Object {
+        "codename": "espro",
+        "name": "Espro",
+        "terms": Array [],
+      },
+      Object {
+        "codename": "hario",
+        "name": "Hario",
+        "terms": Array [],
+      },
+    ],
+  },
+  Object {
+    "children": Array [],
+    "id": "dummyId-kontent_taxonomy_personas",
+    "internal": Object {
+      "contentDigest": "f7d8572e273960df2d6c25b68ea69fe9",
+      "type": "kontent_taxonomy",
+    },
+    "system": Object {
+      "codename": "personas",
+      "id": "f30c7f72-e9ab-8832-2a57-62944a038809",
+      "last_modified": "2016-10-20T13:24:00.3200000Z",
+      "name": "Personas",
+    },
+    "terms": Array [
+      Object {
+        "codename": "coffee_expert",
+        "name": "Coffee expert",
+        "terms": Array [
+          Object {
+            "codename": "barista",
+            "name": "Barista",
+            "terms": Array [],
+          },
+          Object {
+            "codename": "cafe_owner",
+            "name": "Cafe owner",
+            "terms": Array [],
+          },
+        ],
+      },
+      Object {
+        "codename": "coffee_enthusiast",
+        "name": "Coffee enthusiast",
+        "terms": Array [
+          Object {
+            "codename": "coffee_lover",
+            "name": "Coffee lover",
+            "terms": Array [],
+          },
+          Object {
+            "codename": "coffee_blogger",
+            "name": "Coffee blogger",
+            "terms": Array [],
+          },
+        ],
+      },
+    ],
+  },
+  Object {
+    "children": Array [],
+    "id": "dummyId-kontent_taxonomy_processing",
+    "internal": Object {
+      "contentDigest": "268a49e33cd58cacd9aabec5591e01e1",
+      "type": "kontent_taxonomy",
+    },
+    "system": Object {
+      "codename": "processing",
+      "id": "d351400e-0290-87b2-1413-6c411d8ae5a4",
+      "last_modified": "2017-09-07T08:15:33.7560000Z",
+      "name": "Processing",
+    },
+    "terms": Array [
+      Object {
+        "codename": "wet__washed_",
+        "name": "Wet (Washed)",
+        "terms": Array [],
+      },
+      Object {
+        "codename": "dry__natural_",
+        "name": "Dry (Natural)",
+        "terms": Array [],
+      },
+      Object {
+        "codename": "semi_dry",
+        "name": "Semi-dry",
+        "terms": Array [],
+      },
+    ],
+  },
+  Object {
+    "children": Array [],
+    "id": "dummyId-kontent_taxonomy_product_status",
+    "internal": Object {
+      "contentDigest": "39ecca99c024ae9e49de57a95d394192",
+      "type": "kontent_taxonomy",
+    },
+    "system": Object {
+      "codename": "product_status",
+      "id": "79b1c5b6-30bc-d076-a236-d9ec9f1ff01b",
+      "last_modified": "2016-09-15T10:53:25.2230000Z",
+      "name": "Product status",
+    },
+    "terms": Array [
+      Object {
+        "codename": "on_sale",
+        "name": "On sale",
+        "terms": Array [],
+      },
+      Object {
+        "codename": "bestseller",
+        "name": "Bestseller",
+        "terms": Array [],
+      },
+    ],
+  },
+  Object {
+    "children": Array [],
+    "id": "dummyId-kontent_taxonomy_sitemap_538125f",
+    "internal": Object {
+      "contentDigest": "9c468c54eb8d79265cef978b3cbc818b",
+      "type": "kontent_taxonomy",
+    },
+    "system": Object {
+      "codename": "sitemap_538125f",
+      "id": "538125ff-c59c-4193-88ce-71a7016830ed",
+      "last_modified": "2019-03-27T13:02:50.1430000Z",
+      "name": "Sitemap",
+    },
+    "terms": Array [
+      Object {
+        "codename": "home",
+        "name": "Home",
+        "terms": Array [],
+      },
+      Object {
+        "codename": "products",
+        "name": "Products",
+        "terms": Array [
+          Object {
+            "codename": "coffee",
+            "name": "Coffee",
+            "terms": Array [],
+          },
+          Object {
+            "codename": "brewers",
+            "name": "Brewers",
+            "terms": Array [],
+          },
+          Object {
+            "codename": "accessories",
+            "name": "Accessories",
+            "terms": Array [],
+          },
+          Object {
+            "codename": "grinders",
+            "name": "Grinders",
+            "terms": Array [],
+          },
+        ],
+      },
+      Object {
+        "codename": "cafes",
+        "name": "Cafes",
+        "terms": Array [
+          Object {
+            "codename": "north_america",
+            "name": "North America",
+            "terms": Array [],
+          },
+          Object {
+            "codename": "europe",
+            "name": "Europe",
+            "terms": Array [],
+          },
+          Object {
+            "codename": "australia",
+            "name": "Australia",
+            "terms": Array [],
+          },
+        ],
+      },
+      Object {
+        "codename": "articles",
+        "name": "Articles",
+        "terms": Array [],
+      },
+      Object {
+        "codename": "offices",
+        "name": "Offices",
+        "terms": Array [],
+      },
+      Object {
+        "codename": "about_us",
+        "name": "About us",
+        "terms": Array [],
+      },
+    ],
+  },
+]
+`;

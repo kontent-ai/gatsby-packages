@@ -85,14 +85,14 @@ If you want to import content types with the sample content in your own empty pr
 
 ### Connect the site to custom project
 
-Open the `gatsby-config.js` file and set following properties for `@kontent-ai/gatsby-source-kontent` plugin:
+Open the `gatsby-config.js` file and set following properties for `@kontent-ai/gatsby-source` plugin:
 
 - `projectId` from *Project settings > API keys > Delivery API > Project ID*
 - `languageCodenames` from *Project settings > Localization*
 
 ## Rich text resolution
 
-For all `Person` content items, there is [a new page created](./gatsby-node.js#L65) based on on the [`templates/person.js`](./src/templates/person.js) template. The template is using [Gatsby Kontent.ai Components](../../packages/gatsby-kontent-components#readme) package, specifically it's `RichTextElement` to resolve the content component, inline linked items, and images.
+For all `Person` content items, there is [a new page created](./gatsby-node.js#L65) based on on the [`templates/person.js`](./src/templates/person.js) template. The template is using [Gatsby Kontent.ai Components](../../packages/gatsby-components#readme) package, specifically it's `RichTextElement` to resolve the content component, inline linked items, and images.
 
 > The main example is on <http://localhost:8000/people/ondrej-chrastina/> that showcase [the content component, inline linked items, and images resolution of the Bio element](./src/templates/person.js).
 

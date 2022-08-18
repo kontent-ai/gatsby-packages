@@ -59,12 +59,12 @@ See [/examples/resolution](../examples/resolution#readme) for the example.
 
 ### Relationships among Kontent.ai GraphQL Nodes
 
-See [/examples/relationships](../examples/relationships#readme) to see how it is possible to make a relationship among the data provided by the [Kontent.ai source plugin](../packages/gatsby-source-kontent#readme).
+See [/examples/relationships](../examples/relationships#readme) to see how it is possible to make a relationship among the data provided by the [Kontent.ai source plugin](../packages/gatsby-source#readme).
 
 ### Image transformation
 
 There are various ways to render an image on your site.
-The best solution is to use [Kontent.ai Image transformation API](https://docs.kontent.ai/reference/image-transformation) API for simple scenarios and [ImageElement](../packages/gatsby-kontent-components#readme) for more complex ones, because it allows to use full power of [gatsby-plugin-image](https://www.gatsbyjs.com/plugins/gatsby-plugin-image/) support.
+The best solution is to use [Kontent.ai Image transformation API](https://docs.kontent.ai/reference/image-transformation) API for simple scenarios and [ImageElement](../packages/gatsby-components#readme) for more complex ones, because it allows to use full power of [gatsby-plugin-image](https://www.gatsbyjs.com/plugins/gatsby-plugin-image/) support.
 
 > See the ["author page"](./src/pages/author.js) as a showcase, how you could render the profile photo different way ([live preview](https://kontent-gatsby-packages.netlify.app/author)).
 

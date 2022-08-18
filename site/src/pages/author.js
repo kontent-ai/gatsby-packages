@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import { stringify } from "qs"
-import { ImageElement, getGatsbyImageData } from "@kontent-ai/gatsby-kontent-components"
+import { ImageElement, getGatsbyImageData } from "@kontent-ai/gatsby-components"
 import { ImageUrlTransformationBuilder } from "@kontent-ai/delivery-sdk"
 
 const Author = ({ data }) => {
@@ -49,7 +49,7 @@ const Author = ({ data }) => {
           {...imageData}
         />
         <p>
-          This uses the <a href="https://github.com/kontent-ai/gatsby-packages/tree/master/packages/gatsby-kontent-components">ImageElement</a> component to display a
+          This uses the <a href="https://github.com/kontent-ai/gatsby-packages/tree/master/packages/gatsby-components">ImageElement</a> component to display a
           responsive image.
         </p>
 
@@ -109,7 +109,7 @@ const Author = ({ data }) => {
               Kontent.ai Image transformation API
             </a>{" "}
             and{" "}
-            <a href="https://github.com/kontent-ai/gatsby-packages/tree/master/packages/gatsby-kontent-components">
+            <a href="https://github.com/kontent-ai/gatsby-packages/tree/master/packages/gatsby-components">
               Delivery SDK
             </a>{" "}
             for query string construction.

@@ -1,6 +1,6 @@
 const {
   getKontentItemNodeTypeName,
-} = require("@kontent-ai/gatsby-source-kontent")
+} = require("@kontent-ai/gatsby-source")
 
 const linkLanguageVariants = (api, typeCodename) => {
   const {
@@ -29,7 +29,7 @@ const linkLanguageVariants = (api, typeCodename) => {
             query: {
               filter: {
                 name: {
-                  eq: "@kontent-ai/gatsby-source-kontent",
+                  eq: "@kontent-ai/gatsby-source",
                 },
               },
             },

@@ -16,8 +16,8 @@ The repository contains the development site (`/site`) that could automatically 
 
 |                                 Package                                 | Summary                                                                         |                                                                        Version                                                                         |
 | :---------------------------------------------------------------------: | :------------------------------------------------------------------------------ | :----------------------------------------------------------------------------------------------------------------------------------------------------: |
-| [Gatsby Source Kontent.ai Plugin](/packages/gatsby-source-kontent#readme)  | plugin providing data from Kontent.ai REST API to Gatsby GraphQL model     |     [![npm version](https://badge.fury.io/js/@kontent-ai%2Fgatsby-source-kontent.svg)](https://badge.fury.io/js/@kontent-ai%2Fgatsby-source-kontent)     |
-| [Gatsby Kontent.ai Components](/packages/gatsby-kontent-components#readme) | package containing React components useful when processing Kontent.ai data to site | [![npm version](https://badge.fury.io/js/@kontent-ai%2Fgatsby-kontent-components.svg)](https://badge.fury.io/js/@kontent-ai%2Fgatsby-kontent-components) |
+| [Gatsby Source Kontent.ai Plugin](/packages/gatsby-source#readme)  | plugin providing data from Kontent.ai REST API to Gatsby GraphQL model     |     [![npm version](https://badge.fury.io/js/@kontent-ai%2Fgatsby-source.svg)](https://badge.fury.io/js/@kontent-ai%2Fgatsby-source)     |
+| [Gatsby Kontent.ai Components](/packages/gatsby-components#readme) | package containing React components useful when processing Kontent.ai data to site | [![npm version](https://badge.fury.io/js/@kontent-ai%2Fgatsby-components.svg)](https://badge.fury.io/js/@kontent-ai%2Fgatsby-components) |
 
 ### Site
 

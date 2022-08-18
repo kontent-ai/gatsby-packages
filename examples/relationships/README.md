@@ -198,7 +198,7 @@ If you want to import content types with the sample content in your own empty pr
 
 ### Connect the site to a custom project
 
-Open the `gatsby-config.js` file and set the following properties for `@kontent-ai/gatsby-source-kontent` plugin:
+Open the `gatsby-config.js` file and set the following properties for `@kontent-ai/gatsby-source` plugin:
 
 - `projectId` from *Project settings > API keys > Delivery API > Project ID*
 - `languageCodenames` from *Project settings > Localization*

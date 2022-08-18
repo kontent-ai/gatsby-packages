@@ -13,7 +13,7 @@ export default function Component({ serverData }) {
 }
 
 const kontentSourcePluginConfig = plugins.find(
-  plugin => plugin.resolve === "@kontent-ai/gatsby-source-kontent"
+  plugin => plugin.resolve === "@kontent-ai/gatsby-source"
 )
 const projectId = kontentSourcePluginConfig.options.projectId
 const language = kontentSourcePluginConfig.options.languageCodenames[0]

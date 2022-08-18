@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`kontentTypesCreateSchemaCustomization create fixed type definition 1`] = `
+"# All __UPPER_CASE__  wildcards will be replaced by the configuration
+
+type kontent_type implements Node {
+  id: ID!
+  system: kontent_type_system!
+  elements: [kontent_type_element]
+}
+
+type kontent_type_system {
+  codename: String!
+  id: String!
+  last_modified: Date! @dateformat
+  name: String!
+}
+
+type kontent_type_element {
+  codename: String
+  name: String
+  type: String
+  taxonomy_group: String
+  options: [kontent_type_element_option]
+}
+
+type kontent_type_element_option {
+  name: String
+  codename: String
+}
+"
+`;
