@@ -1,4 +1,3 @@
-<<<<<<< HEAD:packages/gatsby-source/README.md
 # Gatsby source plugin for Kontent.ai
 
 [![Gatsby plugin library](https://img.shields.io/badge/Gatsby%20plugin%20library-%23663399.svg)](https://www.gatsbyjs.org/packages/@kontent-ai/gatsby-source)
