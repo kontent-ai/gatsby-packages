@@ -1,6 +1,6 @@
 {
-  "name": "@kentico/kontent-gatsby-example-resolution",
-  "description": "Example guide for Kontent rich text components and url resolution in Gatsby.",
+  "name": "@kontent-ai/gatsby-example-resolution",
+  "description": "Example guide for Kontent.ai rich text components and url resolution in Gatsby.",
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {

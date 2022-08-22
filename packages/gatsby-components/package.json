@@ -1,0 +1,70 @@
+{
+  "name": "@kontent-ai/gatsby-components",
+  "description": "Source plugin providing Kontent.ai data from REST Delivery API",
+  "version": "8.1.0",
+  "main": "dist/index.js",
+  "license": "MIT",
+  "author": {
+    "name": "Ondřej Chrastina",
+    "email": "chrastina.ondra@gmail.com",
+    "url": "https://ondrej.chrastina.dev"
+  },
+  "homepage": "https://github.com/kontent-ai/gatsby-packages/tree/master/packages/gatsby-components#readme",
+  "keywords": [
+    "kontent",
+    "react",
+    "gatsby",
+    "react-component",
+    "gatsby-component"
+  ],
+  "bugs": {
+    "url": "https://github.com/kontent-ai/gatsby-packages/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kontent-ai/gatsby-packages.git"
+  },
+  "scripts": {
+    "build": "tsc",
+    "lint": "eslint **/*.{ts,tsx}",
+    "test": "jest --passWithNoTests",
+    "watch": "tsc -w",
+    "format": "prettier --write \"**/*.{ts,tsx}\""
+  },
+  "engines": {
+    "node": ">=14.15.0"
+  },
+  "dependencies": {
+    "html-react-parser": "^0.14.0"
+  },
+  "devDependencies": {
+    "@types/jest": "24.9.0",
+    "@types/node": "13.1.8",
+    "@types/react": "^17.0.2",
+    "@types/react-dom": "^17.0.1",
+    "@typescript-eslint/eslint-plugin": "2.16.0",
+    "@typescript-eslint/parser": "2.16.0",
+    "eslint": "6.8.0",
+    "eslint-plugin-react": "^7.27.1",
+    "gatsby-plugin-image": "^2.0.0",
+    "jest": "^24.9.0",
+    "jest-ts-auto-mock": "^1.0.11",
+    "prettier": "1.19.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-test-renderer": "^17.0.1",
+    "ts-auto-mock": "^1.5.7",
+    "ts-jest": "^24.3.0",
+    "ttypescript": "^1.5.12",
+    "typescript": "^3.7.5"
+  },
+  "peerDependencies": {
+    "gatsby-plugin-image": "^2.0.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "gitHead": "97d85fa854863be5ab7a144264712ef916080c45"
+}

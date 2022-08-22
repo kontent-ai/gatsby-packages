@@ -1,6 +1,6 @@
 {
-  "name": "@kentico/kontent-gatsby-example-navigation",
-  "description": "Example guide for gatsby navigation modeled in Kontent.",
+  "name": "@kontent-ai/gatsby-example-navigation",
+  "description": "Example guide for gatsby navigation modeled in Kontent.ai",
   "version": "0.0.1",
   "license": "MIT",
   "scripts": {
@@ -24,9 +24,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Kentico/gatsby-source-kontent"
+    "url": "https://github.com/kontent-ai/gatsby-packages"
   },
   "bugs": {
-    "url": "https://github.com/Kentico/gatsby-source-kontent/issues"
+    "url": "https://github.com/kontent-ai/gatsby-packages/issues"
   }
 }

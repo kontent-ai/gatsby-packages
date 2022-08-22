@@ -1,8 +1,8 @@
 import React from "react"
 import { graphql } from "gatsby"
 import { stringify } from "qs"
-import { ImageElement, getGatsbyImageData } from "@kentico/gatsby-kontent-components"
-import { ImageUrlBuilder } from "@kentico/kontent-delivery"
+import { ImageElement, getGatsbyImageData } from "@kontent-ai/gatsby-components"
+import { ImageUrlTransformationBuilder } from "@kontent-ai/delivery-sdk"
 
 const Author = ({ data }) => {
   if (!data.author.elements.avatar_image.value.length) {
@@ -24,8 +24,8 @@ const Author = ({ data }) => {
     w: 230, // https://docs.kontent.ai/reference/image-transformation#a-image-width
   }
 
-  // https://github.com/Kentico/kontent-delivery-sdk-js/blob/master/DOCS.md#image-transformations
-  const deliverySDKTransformedUrl = new ImageUrlBuilder(avatar.url)
+  // https://github.com/kontent-ai/delivery-sdk-js#image-transformation
+  const deliverySDKTransformedUrl = new ImageUrlTransformationBuilder(avatar.url)
     .withRectangleCrop(...rectSelection)
     .withWidth(imageQuery.w)
 
@@ -49,7 +49,7 @@ const Author = ({ data }) => {
           {...imageData}
         />
         <p>
-          This uses the <a href="https://github.com/Kentico/kontent-gatsby-packages/tree/master/packages/gatsby-kontent-components">ImageElement</a> component to display a
+          This uses the <a href="https://github.com/kontent-ai/gatsby-packages/tree/master/packages/gatsby-components">ImageElement</a> component to display a
           responsive image.
         </p>
 
@@ -87,7 +87,7 @@ const Author = ({ data }) => {
           <p>
             Showcase using{" "}
             <a href="https://docs.kontent.ai/reference/image-transformation">
-              Kontent Image transformation API
+              Kontent.ai Image transformation API
             </a>{" "}
             and <a href="https://www.npmjs.com/package/qs">qs npm package.</a>{" "}
             for query string construction.
@@ -106,10 +106,10 @@ const Author = ({ data }) => {
           <p>
             Showcase using{" "}
             <a href="https://docs.kontent.ai/reference/image-transformation">
-              Kontent Image transformation API
+              Kontent.ai Image transformation API
             </a>{" "}
             and{" "}
-            <a href="https://github.com/Kentico/kontent-delivery-sdk-js/blob/master/DOCS.md#image-transformations">
+            <a href="https://github.com/kontent-ai/gatsby-packages/tree/master/packages/gatsby-components">
               Delivery SDK
             </a>{" "}
             for query string construction.

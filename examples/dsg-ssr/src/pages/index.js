@@ -8,7 +8,7 @@ const Index = () => (
       <h1>Examples</h1>
       <p>
         For the examples explanation, take a look at{" "}
-        <a href="https://github.com/Kentico/kontent-gatsby-packages/tree/master/examples/dsg-ssr#readme">
+        <a href="https://github.com/kontent-ai/gatsby-packages/tree/master/examples/dsg-ssr#readme">
           GitHub example README
         </a>
       </p>

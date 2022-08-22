@@ -10,7 +10,7 @@ require("dotenv").config({ path: ".env.development" })
 module.exports = {
   plugins: [
     {
-      resolve: "@kentico/gatsby-source-kontent",
+      resolve: "@kontent-ai/gatsby-source",
       options: {
         projectId: process.env.KONTENT_PROJECT_ID,
         languageCodenames: process.env.KONTENT_LANGUAGE_CODENAMES.split(

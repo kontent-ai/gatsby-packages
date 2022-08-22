@@ -1,6 +1,6 @@
 const {
   getKontentItemElementTypeNameByType,
-} = require("@kentico/gatsby-source-kontent")
+} = require("@kontent-ai/gatsby-source")
 
 const resolveUrls = api => {
   const {

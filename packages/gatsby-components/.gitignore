@@ -1,0 +1,14 @@
+# Ignore dependencies
+node_modules
+package-lock.json
+yarn-error.log
+
+# Ignore secrets
+*.env
+
+# Ignore compiled files
+src/**/*.js
+src/**/*.js.map
+dist
+
+coverage/*

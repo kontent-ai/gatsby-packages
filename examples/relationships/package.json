@@ -1,6 +1,6 @@
 {
-  "name": "@kentico/kontent-gatsby-example-relationships",
-  "description": "Example guide for Kontent site with relationships extensions.",
+  "name": "@kontent-ai/gatsby-example-relationships",
+  "description": "Example guide for Kontent.ai site with relationships extensions.",
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {
@@ -14,12 +14,13 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 0"
   },
   "dependencies": {
-    "gatsby": "^4.2.0",
+    "gatsby": "^4.20.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
   },
   "devDependencies": {
     "eslint": "^7.6.0",
+    "gatsby-plugin-netlify": "^5.0.1",
     "prettier": "2.0.5"
   },
   "repository": {

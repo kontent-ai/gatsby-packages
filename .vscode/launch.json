@@ -8,7 +8,7 @@
       "type": "node",
       "request": "launch",
       "name": "Test - Source plugin",
-      "cwd": "${workspaceFolder}/packages/gatsby-source-kontent",
+      "cwd": "${workspaceFolder}/packages/gatsby-source",
       "program": "${workspaceFolder}/node_modules/.bin/jest",
       "args": [
         "--runInBand"
@@ -25,7 +25,7 @@
       "type": "node",
       "request": "launch",
       "name": "Test source package current file",
-      "cwd": "${workspaceFolder}/packages/gatsby-source-kontent",
+      "cwd": "${workspaceFolder}/packages/gatsby-source",
       "program": "${workspaceFolder}/node_modules/.bin/jest",
       "args": [
         "${fileBasename}"

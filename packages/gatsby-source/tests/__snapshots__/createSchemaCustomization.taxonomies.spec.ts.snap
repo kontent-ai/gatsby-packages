@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`createSchemaCustomization create fixed taxonomy definition 1`] = `
+"# All __UPPER_CASE__  wildcards will be replaced by the configuration
+
+type kontent_taxonomy implements Node {
+  id: ID!
+  system: kontent_taxonomy_system!
+  terms: [kontent_taxonomy_term]
+}
+
+type kontent_taxonomy_system {
+  codename: String!
+  id: String!
+  last_modified: Date! @dateformat
+  name: String!
+}
+
+type kontent_taxonomy_term {
+  codename: String
+  name: String
+  terms: [kontent_taxonomy_term]
+}
+"
+`;

@@ -1,12 +1,12 @@
-# Gatsby Kontent Packages
+# Gatsby Kontent.ai Packages
 
-![build](https://github.com/Kentico/gatsby-source-kontent/workflows/build/badge.svg)
+![build](https://github.com/kontent-ai/gatsby-packages/actions/workflows/build.yml/badge.svg)
 [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org/)
 
-[![Stack Overflow](https://img.shields.io/badge/Stack%20Overflow-ASK%20NOW-FE7A16.svg?logo=stackoverflow&logoColor=white)](https://stackoverflow.com/tags/kentico-kontent)
-[![Konten Discord](https://img.shields.io/discord/821885171984891914?color=%237289DA&label=Kontent%20Discord&logo=discord)](https://discord.gg/SKCxwPtevJ)
+[![Stack Overflow](https://img.shields.io/badge/Stack%20Overflow-ASK%20NOW-FE7A16.svg?logo=stackoverflow&logoColor=white)](https://stackoverflow.com/tags/kontent-ai)
+[![Kontent.ai Discord](https://img.shields.io/discord/821885171984891914?color=%237289DA&label=Kontent%20Discord&logo=discord)](https://discord.gg/SKCxwPtevJ)
 
-Monorepo with Gatsby Kontent packages.
+Monorepo with Gatsby Kontent.ai packages.
 
 The repository contains the development site (`/site`) that could automatically load packages (`packages`) thanks to [yarn workspaces](https://classic.yarnpkg.com/en/docs/workspaces/).
 
@@ -16,8 +16,8 @@ The repository contains the development site (`/site`) that could automatically 
 
 |                                 Package                                 | Summary                                                                         |                                                                        Version                                                                         |
 | :---------------------------------------------------------------------: | :------------------------------------------------------------------------------ | :----------------------------------------------------------------------------------------------------------------------------------------------------: |
-| [Gatsby Source Kontent Plugin](/packages/gatsby-source-kontent#readme)  | plugin providing data from Kontent REST API to Gatsby GraphQL model     |     [![npm version](https://badge.fury.io/js/%40kentico%2Fgatsby-source-kontent.svg)](https://badge.fury.io/js/%40kentico%2Fgatsby-source-kontent)     |
-| [Gatsby Kontent Components](/packages/gatsby-kontent-components#readme) | package containing React components useful when processing Kontent data to site | [![npm version](https://badge.fury.io/js/%40kentico%2Fgatsby-kontent-components.svg)](https://badge.fury.io/js/%40kentico%2Fgatsby-kontent-components) |
+| [Gatsby Source Kontent.ai Plugin](/packages/gatsby-source#readme)  | plugin providing data from Kontent.ai REST API to Gatsby GraphQL model     |     [![npm version](https://badge.fury.io/js/@kontent-ai%2Fgatsby-source.svg)](https://badge.fury.io/js/@kontent-ai%2Fgatsby-source)     |
+| [Gatsby Kontent.ai Components](/packages/gatsby-components#readme) | package containing React components useful when processing Kontent.ai data to site | [![npm version](https://badge.fury.io/js/@kontent-ai%2Fgatsby-components.svg)](https://badge.fury.io/js/@kontent-ai%2Fgatsby-components) |
 
 ### Site
 
@@ -43,13 +43,13 @@ The repository contains the development site (`/site`) that could automatically 
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/27d162a0-612b-4d8f-8382-40eee4f6b5d9/deploy-status)](https://app.netlify.com/sites/kontent-gatsby-example-relationships/deploys)
 
-- [Relationships showcase](/examples/relationships#readme) - Schema customization examples demonstrating relationship possibilities among Kontent GraphQL nodes.
+- [Relationships showcase](/examples/relationships#readme) - Schema customization examples demonstrating relationship possibilities among Kontent.ai GraphQL nodes.
 
 #### DSG and SSR showcase
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/b71c750d-4c9f-4a8f-9484-bafa7c2ce019/deploy-status)](https://app.netlify.com/sites/kontent-gatsby-example-dsg-ssr/deploys)
 
-- [DSG and SSR showcase](/examples/dsg-ssr#readme) - Example showcasing Deferred Static Generation and Server side Rendering features with Kontent by Kentico.
+- [DSG and SSR showcase](/examples/dsg-ssr#readme) - Example showcasing Deferred Static Generation and Server side Rendering features with Kontent.ai.
 
 ## Development
 

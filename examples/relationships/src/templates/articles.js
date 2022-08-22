@@ -34,7 +34,7 @@ const Articles = (props) => {
 
 export const query = graphql`
 query ArticlesQuery($language: String!) {
-  sitePlugin(name: {eq: "@kentico/gatsby-source-kontent"}) {
+  sitePlugin(name: {eq: "@kontent-ai/gatsby-source"}) {
     pluginOptions 
   }
   allKontentItemArticle(filter: {fallback_used: {eq: false}, preferred_language: {eq: $language}}) {

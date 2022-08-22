@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
-import { RichTextElement } from "@kentico/gatsby-kontent-components"
+import { RichTextElement } from "@kontent-ai/gatsby-components"
 import { resolveUrl } from "../utils/resolvers"
 import Website from '../components/website'
 import Repository from '../components/repository'

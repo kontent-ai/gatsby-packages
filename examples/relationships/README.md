@@ -26,13 +26,13 @@ Now you could browse the site on <http://localhost:8000> and see GraphiQL explor
 
 ## Content modeling
 
-This section explains how the content is modeled. You could follow to the next section ["Import the content to your on Kontent project"](#Import-site-content-to-your-Kontent-project) and explore the models on your own as well as the sample data based on it. Or you could create models manually to familiarize yourself with the Kontent user interface.
+This section explains how the content is modeled. You could follow to the next section ["Import the content to your on Kontent.ai project"](#Import-site-content-to-your-Kontent-project) and explore the models on your own as well as the sample data based on it. Or you could create models manually to familiarize yourself with the Kontent.ai user interface.
 
 Once you create the content models, you could create content items based on these and the site would be capable to handle the content and render it.
 
-### Kontent content models
+### Kontent.ai content models
 
-Kontent project contains a simple article content base, that could be tagged. There are two content types `Article` and `Tag`. Kontent project is using two languages `en-US` and `cs-CZ` to showcase [Language variant relationships](#Language-variant-relationships).
+Kontent.ai project contains a simple article content base, that could be tagged. There are two content types `Article` and `Tag`. Kontent.ai project is using two languages `en-US` and `cs-CZ` to showcase [Language variant relationships](#Language-variant-relationships).
 
 #### Article content type
 
@@ -59,9 +59,9 @@ Following features are described on simple real-life use cases. All of them is u
 
 Schema extension are being performed right in the web site source code (in [gatsby-node.js](./gatsby-node.js) file) using [`createSchemaCustomization`](https://www.gatsbyjs.com/docs/node-apis/#createSchemaCustomization) method.
 
-If you want to separate this logic, it is possible to create a [local Gatsby plugin](https://www.gatsbyjs.com/docs/creating-a-local-plugin/) and define these customization there, as it is showcased in the [Kontent Lumen starter](https://github.com/Kentico/gatsby-starter-kontent-lumen/tree/master/plugins/kontent-used-by-content-items), just use [`createResolvers`](https://www.gatsbyjs.com/docs/node-apis/#createResolvers) method for the customizations. If you want to re-use this code, you could [publish the plugin to the npm](https://www.gatsbyjs.com/contributing/submit-to-plugin-library/) and then re-use it.
+If you want to separate this logic, it is possible to create a [local Gatsby plugin](https://www.gatsbyjs.com/docs/creating-a-local-plugin/) and define these customization there, as it is showcased in the [Kontent.ai Lumen starter](https://github.com/kontent-ai/gatsby-starter-kontent-lumen/tree/master/plugins/kontent-used-by-content-items), just use [`createResolvers`](https://www.gatsbyjs.com/docs/node-apis/#createResolvers) method for the customizations. If you want to re-use this code, you could [publish the plugin to the npm](https://www.gatsbyjs.com/contributing/submit-to-plugin-library/) and then re-use it.
 
-> In case you published your schema extension bound to Kontent GraphQL nodes feel free to raise an issue/pull request with plugin description and we are happy to mention it here!
+> In case you published your schema extension bound to Kontent.ai GraphQL nodes feel free to raise an issue/pull request with plugin description and we are happy to mention it here!
 
 ### Language variant relationships
 
@@ -72,7 +72,7 @@ The example is describing possibility of creating relationships among language v
 Actual use case is to extend `Article` by two fields: `fallback_used` and `other_languages`.
 
 - `fallback_used` is a `Boolean` field saying it the specified language variant [used language fallback](https://docs.kontent.ai/tutorials/manage-kontent/projects/set-up-languages#a-language-fallbacks) or not.
-- `other_languages` is a `[kontent_item_article]` type, which means it is an array of other GraphQL nodes with type `kontent_item_article`, which is the type representing `Article` (you could find type name in `internal.type` field or you could use `getKontentItemNodeTypeName` method from Kontent Gatsby source plugin if you know content type codename).
+- `other_languages` is a `[kontent_item_article]` type, which means it is an array of other GraphQL nodes with type `kontent_item_article`, which is the type representing `Article` (you could find type name in `internal.type` field or you could use `getKontentItemNodeTypeName` method from Kontent.ai Gatsby source plugin if you know content type codename).
 
 #### Language fallback extension showcase
 
@@ -177,29 +177,28 @@ And then it is easy to load information about tags and articles linked to them [
 
 ![Tags with articles listing](./docs/tags-listing.png)
 
-> This approach is also used in [Gatsby Starter Lumen for Kontent](https://github.com/Kentico/gatsby-starter-kontent-lumen/tree/master/plugins/kontent-used-by-content-items) if a form of local plugin and then [it is used for tags listing to determine number of linked articles](https://gatsby-starter-kontent-lumen.netlify.app/tags/).
+> This approach is also used in [Gatsby Starter Lumen for Kontent.ai](https://github.com/kontent-ai/gatsby-starter-kontent-lumen/tree/master/plugins/kontent-used-by-content-items) if a form of local plugin and then [it is used for tags listing to determine number of linked articles](https://gatsby-starter-kontent-lumen.netlify.app/tags/).
 
 ![Lumen tags listing](./docs/lumen-tags-listing.png)
 
-## Import site content to your Kontent project
+## Import site content to your Kontent.ai project
 
 If you want to import content types with the sample content in your own empty project, you could use following guide:
 
 1. Go to [app.kontent.ai](https://app.kontent.ai) and [create an empty project](https://docs.kontent.ai/tutorials/set-up-kontent/projects/manage-projects#a-creating-projects)
 1. Go to "Project Settings", select API keys and copy `Project ID`
-1. Install [Kontent Backup Manager](https://github.com/Kentico/kontent-backup-manager-js) and import data to newly created project from [`kontent-backup.zip`](./kontent-backup.zip) file (place appropriate values for `apiKey` and `projectId` arguments):
+1. Install [Kontent.ai Backup Manager](https://github.com/kontent-ai/backup-manager-js) and import data to newly created project from [`kontent-backup.zip`](./kontent-backup.zip) file (place appropriate values for `apiKey` and `projectId` arguments):
 
    ```sh
-   npm i -g @kentico/kontent-backup-manager@1.8.0
-
+   npm i -g @kontent-ai/kontent-backup-manager
    kbm --action=restore --apiKey=<Management API key> --projectId=<Project ID> --zipFilename=kontent-backup
    ```
 
-1. Go to your Kontent project and [publish all the imported items](https://docs.kontent.ai/tutorials/write-and-collaborate/publish-your-work/publish-content-items).
+1. Go to your Kontent.ai project and [publish all the imported items](https://docs.kontent.ai/tutorials/write-and-collaborate/publish-your-work/publish-content-items).
 
 ### Connect the site to a custom project
 
-Open the `gatsby-config.js` file and set the following properties for `@kentico/gatsby-source-kontent` plugin:
+Open the `gatsby-config.js` file and set the following properties for `@kontent-ai/gatsby-source` plugin:
 
 - `projectId` from *Project settings > API keys > Delivery API > Project ID*
 - `languageCodenames` from *Project settings > Localization*
