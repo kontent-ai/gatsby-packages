@@ -8,8 +8,6 @@
 
 The package containing React components useful when processing Kontent.ai data to the site.
 
-> To see the progress of the Gatsby v4 supported packages - [check out this pull request](https://github.com/kontent-ai/gatsby-packages/pull/195).
-
 ## Install
 
 ```sh
