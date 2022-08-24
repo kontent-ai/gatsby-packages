@@ -498,12 +498,6 @@ To integrate your Gatsby site with Web Spotlight, it is required to do three ste
 - [Turn on Web Spotlight on your Kontent.ai project](https://docs.kontent.ai/tutorials/set-up-kontent/set-up-your-project/web-spotlight#a-boost-your-web-with-web-spotlight)
 - Use newly enabled features to [connect the Kontent.ai project to the preview environment](https://kontent.ai/blog/use-web-spotlight-with-your-existing-kontent-projects).
 
-### Step by step guide
-
-**🚀 If you are seeking for some Starter pack with the Guide, you are lucky!**
-
-- [Implementing Web Spotlight on Kontent.ai Starter Lumen Starter](https://github.com/kontent-ai/gatsby-starter-kontent-lumen/blob/master/docs/WEB-SPOTLIGHT.md#implementing-web-spotlight)
-
 ## How to run tests
 
 The package is using [Jest](http://jest.org/) framework for testing.
