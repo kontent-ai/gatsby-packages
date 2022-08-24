@@ -32,6 +32,7 @@ const getProtocolAndDomain = (options: CustomPluginOptions): string => {
 
 const logRetryAttempt = (err: AxiosError): void => {
   const cfg = rax.getConfig(err);
+  
   console.log(
     `Error axios request:(url: ${err.response?.config.url}) ${err.message}`,
   );
