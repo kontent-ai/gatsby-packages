@@ -1,7 +1,7 @@
 {
   "name": "@kontent-ai/gatsby-components",
   "description": "Source plugin providing Kontent.ai data from REST Delivery API",
-  "version": "9.0.1",
+  "version": "9.0.2-beta.0",
   "main": "dist/index.js",
   "license": "MIT",
   "author": {
@@ -61,7 +61,7 @@
   "peerDependencies": {
     "gatsby-plugin-image": "^2.0.0",
     "react": "^17.0.1 || ^18.0.0",
-    "react-dom": "^17.0.1 || ^18.0.0" 
+    "react-dom": "^17.0.1 || ^18.0.0"
   },
   "publishConfig": {
     "access": "public"
