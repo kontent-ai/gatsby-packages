@@ -569,3 +569,4 @@ For more developer resources, visit the [Kontent.ai Docs](https://docs.kontent.a
 Check out the [contributing](/CONTRIBUTING.md) page to see the best places for file issues, to start discussions, and begin contributing.
 
 - _Written according to [Gatsby plugin template](https://www.gatsbyjs.org/contributing/docs-templates/#plugin-readme-template)_
+
