@@ -1,7 +1,7 @@
 {
   "name": "@kontent-ai/gatsby-components",
   "description": "Source plugin providing Kontent.ai data from REST Delivery API",
-  "version": "9.0.2-beta.0",
+  "version": "9.0.2-beta.1",
   "main": "dist/index.js",
   "license": "MIT",
   "author": {
