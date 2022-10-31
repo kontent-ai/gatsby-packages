@@ -1,4 +1,4 @@
-const ItemsSchemaTemplate = 
+const ItemsSchemaTemplate =
 `# All __UPPER_CASE__  wildcards will be replaced by the configuration
 
 interface __KONTENT_ITEM_INTERFACE__ implements Node {
@@ -91,7 +91,7 @@ type __KONTENT_ELEMENT_MULTIPLE_CHOICE_VALUE__ {
   name: String!
 }
 
-type __KONTENT_ELEMENT_ASSET_VALUE__ {
+type __KONTENT_ELEMENT_ASSET_VALUE__ @infer {
   name: String!
   description: String
   type: String!
@@ -99,6 +99,7 @@ type __KONTENT_ELEMENT_ASSET_VALUE__ {
   url: String!
   width: Int
   height: Int
+  # renditions are being inferred automatically
 }
 
 type __KONTENT_ELEMENT_TAXONOMY_VALUE__ {
@@ -122,7 +123,7 @@ type __KONTENT_ELEMENT_RICH_TEXT_LINK_VALUE__ {
 }
 `;
 
-const TaxonomiesSchemaTemplate = 
+const TaxonomiesSchemaTemplate =
 `# All __UPPER_CASE__  wildcards will be replaced by the configuration
 
 type __KONTENT_TAXONOMY_NAME__ implements Node {
