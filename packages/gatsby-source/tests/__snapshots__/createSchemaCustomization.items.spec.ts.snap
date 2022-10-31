@@ -108,7 +108,7 @@ type kontent_item_multiple_choice_element {
   name: String!
 }
 
-type kontent_item_asset_element {
+type kontent_item_asset_element @infer {
   name: String!
   description: String
   type: String!
@@ -116,6 +116,7 @@ type kontent_item_asset_element {
   url: String!
   width: Int
   height: Int
+  # renditions are being inferred automatically
 }
 
 type kontent_item_taxonomy_element {
