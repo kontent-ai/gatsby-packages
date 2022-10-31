@@ -522,6 +522,15 @@ Currently I am interested in Gatsby.js. I have released the third version of Gat
             "description": null,
             "height": 960,
             "name": "profile.jpg",
+            "renditions": Object {
+              "default": Object {
+                "height": 250,
+                "preset_id": "a6d98cd5-8b2c-4e50-99c9-15192bce2490",
+                "query": "w=800&h=250&fit=clip&rect=106,350,800,250",
+                "rendition_id": "f873dfa2-3485-45f1-a2a9-6f9c625cc613",
+                "width": 800,
+              },
+            },
             "size": 140283,
             "type": "image/jpeg",
             "url": "https://assets-us-01.kc-usercontent.com:443/09fc0115-dd4d-00c7-5bd9-5f73836aee81/e83534a8-cf6b-41fe-9b05-74599c21deb8/profile.jpg",
@@ -537,7 +546,7 @@ Currently I am interested in Gatsby.js. I have released the third version of Gat
     },
     "id": "dummyId-kontent_item_default_d72eea98-774f-48fc-b52a-7ebc51271855",
     "internal": Object {
-      "contentDigest": "635b31a6fc867d5f6808229f44939b0c",
+      "contentDigest": "9185dc537778af5d21f6a315b278bc13",
       "type": "kontent_item_person",
     },
     "preferred_language": "default",
