@@ -33,7 +33,7 @@ exports.createSchemaCustomization = async (
   } catch (error) {
     api.reporter.error(
       'Gatsby Kontent.ai source plugin resulted to error in `createSchemaCustomization` method',
-      error,
+      error as Error,
     );
     api.reporter.verbose(`Complete error: ${JSON.stringify(error, null, 2)}`);
     throw error;
@@ -50,7 +50,7 @@ exports.sourceNodes = async (
       await handleIncomingWebhook(api, pluginConfig, itemTypes);
       return;
     }
-    
+
     const itemTypes = await kontentItemsSourceNodes(api, pluginConfig);
     await api.cache.set('kontent-item-types',  itemTypes);
 
@@ -64,7 +64,7 @@ exports.sourceNodes = async (
   } catch (error) {
     api.reporter.error(
       'Gatsby Kontent.ai source plugin resulted to error in `sourceNodes` method',
-      error,
+      error as Error,
     );
     api.reporter.verbose(`Complete error: ${JSON.stringify(error, null, 2)}`);
     throw error;

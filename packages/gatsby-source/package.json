@@ -55,7 +55,7 @@
     "ts-auto-mock": "^1.5.7",
     "ts-jest": "^24.3.0",
     "ttypescript": "^1.5.10",
-    "typescript": "^3.7.5"
+    "typescript": "^4.8.4"
   },
   "peerDependencies": {
     "gatsby": "^4.24.7"

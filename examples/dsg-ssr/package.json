@@ -30,7 +30,7 @@
   },
   "homepage": "https://github.com/kontent-ai/gatsby-packages/tree/master/examples/dsg-ssr#readme",
   "dependencies": {
-    "gatsby": "^4.20.0",
+    "gatsby": "^4.24.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
