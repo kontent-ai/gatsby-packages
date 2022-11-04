@@ -16,9 +16,7 @@ import fakeEmptyElementsTypesResponse from './emptyElementsTypesResponse.json';
 describe('kontentItemsCreateSchemaCustomization', () => {
   it('create fixed type definition', async () => {
     const api = createMock<CreateSchemaCustomizationArgs>({
-      actions: createMock<Actions>({
-        createTypes: jest.fn(),
-      }),
+      actions: createMock<Actions>(),
     });
 
     const pluginConfiguration = createMock<CustomPluginOptions>({

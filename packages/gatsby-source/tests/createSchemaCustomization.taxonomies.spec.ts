@@ -6,9 +6,7 @@ import { mocked } from 'ts-jest/dist/util/testing';
 describe('createSchemaCustomization', () => {
   it('create fixed taxonomy definition', () => {
     const api = createMock<CreateSchemaCustomizationArgs>({
-      actions: createMock<Actions>({
-        createTypes: jest.fn(),
-      }),
+      actions: createMock<Actions>(),
     });
 
     kontentTaxonomiesCreateSchemaCustomization(api);

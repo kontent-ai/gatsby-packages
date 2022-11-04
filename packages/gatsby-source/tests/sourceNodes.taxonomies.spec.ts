@@ -17,9 +17,7 @@ describe('sourceNodes', () => {
   describe('complex taxonomies', () => {
     const api = createMock<SourceNodesArgs>({
       createNodeId: jest.fn(input => `dummyId-${input}`),
-      actions: createMock<Actions>({
-        createNode: jest.fn(),
-      }),
+      actions: createMock<Actions>(),
       createContentDigest,
     });
 
