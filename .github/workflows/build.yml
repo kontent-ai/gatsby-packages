@@ -22,17 +22,17 @@ jobs:
         node-version-file: .nvmrc
         registry-url: https://registry.npmjs.org/
     - name: Install Dependencies and prepare packages
-      run: yarn
+      run: npm ci
       env:
         CI: true
 
     - name: Lint
-      run: yarn lint
+      run: npm run lint
 
     - name: Build
-      run: yarn build
+      run: npm run build
 
     - name: Tests
-      run: yarn test --coverage
+      run: npm run test -- --coverage
 
 
