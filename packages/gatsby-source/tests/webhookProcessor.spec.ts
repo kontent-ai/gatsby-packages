@@ -91,6 +91,7 @@ describe('preview delivery API triggers', () => {
           "created_timestamp": "2020-09-22T08:43:06.9629422Z",
           "webhook_url": "https://testing-endpoint.io/__refresh"
         }
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
       } as any,
       createNodeId: jest.fn(idGenerator),
       actions: createMock<Actions>({
@@ -227,13 +228,14 @@ describe('preview delivery API triggers', () => {
         },
         message: {
           id: "d9e52de0-e289-4275-bdd6-11ee00d0c799",
-          project_id: PROJECT_ID,
+          "project_id": PROJECT_ID,
           type: "content_item_variant",
           operation: "archive",
-          api_name: "delivery_preview",
-          created_timestamp: "2020-09-22T11:44:31.7718735Z",
-          webhook_url: "https://testing-endpoint.io/__refresh"
+          "api_name": "delivery_preview",
+          "created_timestamp": "2020-09-22T11:44:31.7718735Z",
+          "webhook_url": "https://testing-endpoint.io/__refresh"
         }
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
       } as any,
       createNodeId: jest.fn(idGenerator),
       getNodes: jest.fn(() => [mainItemGraphQlNode, ...modularItemsGraphQlNodes]),
@@ -305,6 +307,7 @@ describe('production delivery API triggers', () => {
           "created_timestamp": "2021-08-16T16:21:07.5247691Z",
           "webhook_url": "https://testing-endpoint.io/__refresh"
         }
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
       } as any,
       createNodeId: jest.fn(idGenerator),
       getNode: jest.fn(() => unpublishedContentItemNode),
@@ -359,6 +362,7 @@ describe('production delivery API triggers', () => {
           "created_timestamp": "2021-08-16T17:34:38.5727326Z",
           "webhook_url": "https://testing-endpoint.io/__refresh"
         }
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
       } as any,
       createNodeId: jest.fn(idGenerator),
       actions: createMock<Actions>({
@@ -413,6 +417,7 @@ describe('management API triggers', () => {
           "created_timestamp": "2021-07-01T10:19:25.4983423Z",
           "webhook_url": "https://testing-endpoint.io/__refresh"
         }
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
       } as any,
       createNodeId: jest.fn(idGenerator),
       actions: createMock<Actions>({
