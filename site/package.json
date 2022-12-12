@@ -17,7 +17,7 @@
     "develop:preview": "cross-env  ENABLE_GATSBY_REFRESH_ENDPOINT=true gatsby develop",
     "lint": "eslint --ignore-path .gitignore \"**/*.{js,jsx}\"",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
-    "start": "yarn develop",
+    "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"No tests written! -> https://gatsby.dev/unit-testing\" && exit 0"

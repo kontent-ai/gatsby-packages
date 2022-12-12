@@ -8,7 +8,7 @@
 
 Monorepo with Gatsby Kontent.ai packages.
 
-The repository contains the development site (`/site`) that could automatically load packages (`packages`) thanks to [yarn workspaces](https://classic.yarnpkg.com/en/docs/workspaces/).
+The repository contains the development site (`/site`) that could automatically load packages (`packages`) thanks to [npm workspaces](https://docs.npmjs.com/cli/using-npm/workspaces).
 
 ## Content
 
@@ -56,28 +56,25 @@ The repository contains the development site (`/site`) that could automatically 
 ### Prerequisites
 
 - [Nodejs](https://nodejs.org/en/)
-- [Yarn](https://yarnpkg.com/) - **[npm](https://www.npmjs.com/) is not supported for development**, because of workspaces support lack.
-
-> It is completely OK to use npm as a package manager in your application, npm is not supported just the packages development.
 
 ### Install
 
 1. Install packages
 
    ```sh
-   yarn # install all npm dependencies in the repository
+   npm install # install all npm dependencies in the repository
    ```
 
 2. Start watch mode packages
 
    ```sh
-   yarn watch # run watch mode through all packages source code
+   npm run watch # run watch mode through all packages source code
    ```
 
 3. Run development site
 
    ```sh
-   yarn develop:site # run `gatsby develop` command in the development site
+   npm run develop:site # run `gatsby develop` command in the development site
    ```
 
 Now you are good to go. You could start browsing <http://localhost:8000> for development site and <http://localhost:8000/___graphql> for [GraphiQL explorer](https://github.com/graphql/graphiql/blob/master/packages/graphiql/README.md).
@@ -87,7 +84,7 @@ Now you are good to go. You could start browsing <http://localhost:8000> for dev
 To run all tests, there is npm script prepared.
 
 ```sh
-yarn test # run test script in all packages as well as in the development site
+npm run test # run test script in all packages as well as in the development site
 ```
 
 - Packages are using [Jest](http://jest.org/) framework for testing.
@@ -97,7 +94,7 @@ yarn test # run test script in all packages as well as in the development site
 To build all of the packages as well as a development site, you could use one command.
 
 ```sh
-yarn build # run build script in all packages as well as in the development site
+npm run build # run build script in all packages as well as in the development site
 ```
 
 ### Lint
@@ -105,7 +102,7 @@ yarn build # run build script in all packages as well as in the development site
 To lint all of the packages as well as a development site, you could use one command.
 
 ```sh
-yarn lint # run lint script in all packages as well as in the development site
+npm run lint # run lint script in all packages as well as in the development site
 ```
 
 - Packages are using [ESLint](https://eslint.org/) with Typescript plugins for linting.
