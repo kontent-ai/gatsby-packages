@@ -2,6 +2,7 @@
   "item": {
     "system": {
       "id": "eedf0209-989c-4adb-bc83-546e325ab781",
+      "collection": "default",
       "name": "Author",
       "codename": "author",
       "language": "en-US",
@@ -26,6 +27,7 @@
     "n6951be2b_e502_01ed_79a4_80ad776ae16b": {
       "system": {
         "id": "6951be2b-e502-01ed-79a4-80ad776ae16b",
+        "collection": "default",
         "name": "6951be2b-e502-01ed-79a4-80ad776ae16b",
         "codename": "n6951be2b_e502_01ed_79a4_80ad776ae16b",
         "language": "en-US",

@@ -19,12 +19,13 @@ Array [
     },
     "id": "dummyId-kontent_item_en-US_eedf0209-989c-4adb-bc83-546e325ab781",
     "internal": Object {
-      "contentDigest": "4416e4041857112eddf4caeb6dca5195",
+      "contentDigest": "078e059a74504013ff969012958f422e",
       "type": "kontent_item_author",
     },
     "preferred_language": "en-US",
     "system": Object {
       "codename": "author",
+      "collection": "default",
       "id": "eedf0209-989c-4adb-bc83-546e325ab781",
       "language": "en-US",
       "last_modified": "2020-09-22T09:33:13.7465607Z",
@@ -44,12 +45,13 @@ Array [
     },
     "id": "dummyId-kontent_item_en-US_6951be2b-e502-01ed-79a4-80ad776ae16b",
     "internal": Object {
-      "contentDigest": "5d088a503493a36e057d990043b1515e",
+      "contentDigest": "5897d2b46709c8ea1eaacb0f09314208",
       "type": "kontent_item_note",
     },
     "preferred_language": "en-US",
     "system": Object {
       "codename": "n6951be2b_e502_01ed_79a4_80ad776ae16b",
+      "collection": "default",
       "id": "6951be2b-e502-01ed-79a4-80ad776ae16b",
       "language": "en-US",
       "last_modified": "2020-09-22T09:33:13.7465607Z",
@@ -151,12 +153,13 @@ Array [
     },
     "id": "dummyId-kontent_item_en-US_eedf0209-989c-4adb-bc83-546e325ab781",
     "internal": Object {
-      "contentDigest": "4416e4041857112eddf4caeb6dca5195",
+      "contentDigest": "078e059a74504013ff969012958f422e",
       "type": "kontent_item_author",
     },
     "preferred_language": "en-US",
     "system": Object {
       "codename": "author",
+      "collection": "default",
       "id": "eedf0209-989c-4adb-bc83-546e325ab781",
       "language": "en-US",
       "last_modified": "2020-09-22T09:33:13.7465607Z",
@@ -176,12 +179,13 @@ Array [
     },
     "id": "dummyId-kontent_item_en-US_6951be2b-e502-01ed-79a4-80ad776ae16b",
     "internal": Object {
-      "contentDigest": "5d088a503493a36e057d990043b1515e",
+      "contentDigest": "5897d2b46709c8ea1eaacb0f09314208",
       "type": "kontent_item_note",
     },
     "preferred_language": "en-US",
     "system": Object {
       "codename": "n6951be2b_e502_01ed_79a4_80ad776ae16b",
+      "collection": "default",
       "id": "6951be2b-e502-01ed-79a4-80ad776ae16b",
       "language": "en-US",
       "last_modified": "2020-09-22T09:33:13.7465607Z",
@@ -212,12 +216,13 @@ Array [
     },
     "id": "dummyId-kontent_item_en-US_eedf0209-989c-4adb-bc83-546e325ab781",
     "internal": Object {
-      "contentDigest": "4416e4041857112eddf4caeb6dca5195",
+      "contentDigest": "078e059a74504013ff969012958f422e",
       "type": "kontent_item_author",
     },
     "preferred_language": "en-US",
     "system": Object {
       "codename": "author",
+      "collection": "default",
       "id": "eedf0209-989c-4adb-bc83-546e325ab781",
       "language": "en-US",
       "last_modified": "2020-09-22T09:33:13.7465607Z",
@@ -237,12 +242,13 @@ Array [
     },
     "id": "dummyId-kontent_item_en-US_6951be2b-e502-01ed-79a4-80ad776ae16b",
     "internal": Object {
-      "contentDigest": "5d088a503493a36e057d990043b1515e",
+      "contentDigest": "5897d2b46709c8ea1eaacb0f09314208",
       "type": "kontent_item_note",
     },
     "preferred_language": "en-US",
     "system": Object {
       "codename": "n6951be2b_e502_01ed_79a4_80ad776ae16b",
+      "collection": "default",
       "id": "6951be2b-e502-01ed-79a4-80ad776ae16b",
       "language": "en-US",
       "last_modified": "2020-09-22T09:33:13.7465607Z",

@@ -4,6 +4,7 @@ import {
   KontentItemInput,
   KontentType,
   KontentTypeElementsObject,
+  KontentTypeItemObjectDefinition,
 } from './types';
 import { loadAllKontentTypesCached } from './client';
 
@@ -121,7 +122,7 @@ const createSchemaCustomization = async (
     const typeName = getKontentItemNodeTypeName(type.system.codename);
     const systemElementsTypeName = getKontentItemSystemElementTypeName();
     const typeInterfaceName = getKontentItemInterfaceName();
-    const typeItemObjectDefinition = {
+    const typeItemObjectDefinition: KontentTypeItemObjectDefinition = {
       name: typeName,
       fields: {
         system: `${systemElementsTypeName}!`,
