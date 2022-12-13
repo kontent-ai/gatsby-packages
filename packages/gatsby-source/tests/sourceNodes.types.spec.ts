@@ -27,6 +27,7 @@ describe('sourceNodes', () => {
       projectId: 'dummyProject',
     });
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     mockedAxios.get.mockImplementation((url): Promise<any> => {
       if (url.includes('types')) {
         return Promise.resolve({
