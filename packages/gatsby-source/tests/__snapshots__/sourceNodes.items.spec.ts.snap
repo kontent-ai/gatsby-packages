@@ -1,115 +1,115 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`kontentItemsSourceNodes complex multilingual data section resolve all element types in two languages 1`] = `
-Array [
-  Object {
-    "children": Array [],
-    "elements": Object {
-      "text": Object {
-        "images": Array [],
-        "links": Array [],
-        "modular_content": Array [],
+[
+  {
+    "children": [],
+    "elements": {
+      "text": {
+        "images": [],
+        "links": [],
+        "modular_content": [],
         "name": "Text",
         "type": "rich_text",
         "value": "<ul>
-  <li>Theoretical&nbsp;<a href=\\"https://kontent.ai/learn/tutorials/develop-apps/integrate/content-editing-extensions/\\">concept of custom elements</a>&nbsp;and&nbsp;<a href=\\"https://kontent.ai/learn/reference/kontent-apis-overview/#custom-elements-api%5C\\">API reference</a>&nbsp;walkthrough.</li>
+  <li>Theoretical&nbsp;<a href="https://kontent.ai/learn/tutorials/develop-apps/integrate/content-editing-extensions/">concept of custom elements</a>&nbsp;and&nbsp;<a href="https://kontent.ai/learn/reference/kontent-apis-overview/#custom-elements-api%5C">API reference</a>&nbsp;walkthrough.</li>
 </ul>",
       },
     },
     "id": "dummyId-kontent_item_default_b5624158-93f1-44f9-971e-aac85610ab10",
-    "internal": Object {
+    "internal": {
       "contentDigest": "06f4d090fb4abd3dd2786c69f6d4ec29",
       "type": "kontent_item_step",
     },
     "preferred_language": "default",
-    "system": Object {
+    "system": {
       "codename": "concept",
       "id": "b5624158-93f1-44f9-971e-aac85610ab10",
       "language": "default",
       "last_modified": "2019-04-01T18:55:51.8341002Z",
       "name": "Concept",
-      "sitemap_locations": Array [],
+      "sitemap_locations": [],
       "type": "step",
     },
   },
-  Object {
-    "children": Array [],
-    "elements": Object {
-      "text": Object {
-        "images": Array [],
-        "links": Array [],
-        "modular_content": Array [],
+  {
+    "children": [],
+    "elements": {
+      "text": {
+        "images": [],
+        "links": [],
+        "modular_content": [],
         "name": "Text",
         "type": "rich_text",
         "value": "<ul>
-  <li>How to develop custom element using&nbsp;<a href=\\"https://github.com/Kentico/custom-element-devkit\\">Custom element devkit</a>&nbsp;using&nbsp;<a href=\\"https://www.npmjs.com/package/react-datepicker\\">React Datepicker</a></li>
+  <li>How to develop custom element using&nbsp;<a href="https://github.com/Kentico/custom-element-devkit">Custom element devkit</a>&nbsp;using&nbsp;<a href="https://www.npmjs.com/package/react-datepicker">React Datepicker</a></li>
 </ul>",
       },
     },
     "id": "dummyId-kontent_item_default_2aebd051-0e24-414c-b4ff-734b6c9ab40f",
-    "internal": Object {
+    "internal": {
       "contentDigest": "dada41e4ec4ab423f13ad4d984d739f7",
       "type": "kontent_item_step",
     },
     "preferred_language": "default",
-    "system": Object {
+    "system": {
       "codename": "custom_element_devkit___react_component",
       "id": "2aebd051-0e24-414c-b4ff-734b6c9ab40f",
       "language": "default",
       "last_modified": "2019-04-01T18:56:31.4761506Z",
       "name": "Custom element devkit + React component",
-      "sitemap_locations": Array [],
+      "sitemap_locations": [],
       "type": "step",
     },
   },
-  Object {
-    "children": Array [],
-    "elements": Object {
-      "description": Object {
-        "images": Array [],
-        "links": Array [],
-        "modular_content": Array [],
+  {
+    "children": [],
+    "elements": {
+      "description": {
+        "images": [],
+        "links": [],
+        "modular_content": [],
         "name": "Description",
         "type": "rich_text",
         "value": "<p>A gateway to the world of open-source at Kontent.ai.</p>",
       },
-      "name": Object {
+      "name": {
         "name": "Name",
         "type": "text",
         "value": "Developer Community site",
       },
-      "url": Object {
+      "url": {
         "name": "URL",
         "type": "text",
         "value": "https://kontent-ai.github.io/",
       },
     },
     "id": "dummyId-kontent_item_default_59002186-1886-48f3-b8ba-6f053b5cf777",
-    "internal": Object {
+    "internal": {
       "contentDigest": "9cb6eff51eee16612aabf3c366f1c444",
       "type": "kontent_item_website",
     },
     "preferred_language": "default",
-    "system": Object {
+    "system": {
       "codename": "developer_community_site",
       "id": "59002186-1886-48f3-b8ba-6f053b5cf777",
       "language": "default",
       "last_modified": "2019-04-01T18:35:02.0138459Z",
       "name": "Developer Community Site",
-      "sitemap_locations": Array [],
+      "sitemap_locations": [],
       "type": "website",
     },
   },
-  Object {
-    "children": Array [],
-    "elements": Object {
-      "text": Object {
-        "images": Array [],
-        "links": Array [],
-        "modular_content": Array [],
+  {
+    "children": [],
+    "elements": {
+      "text": {
+        "images": [],
+        "links": [],
+        "modular_content": [],
         "name": "Text",
         "type": "rich_text",
-        "value": "<p><a href=\\"https://kontent-ai.github.io/\\">Developer Community Site</a></p>
+        "value": "<p><a href="https://kontent-ai.github.io/">Developer Community Site</a></p>
 <ul>
   <li>Main purpose - Overall guidepost for information
     <ul>
@@ -120,28 +120,28 @@ Array [
       },
     },
     "id": "dummyId-kontent_item_default_9e1cda06-c88b-4665-8907-38d2f7486873",
-    "internal": Object {
+    "internal": {
       "contentDigest": "814014360626b36aa217e5a382b241bb",
       "type": "kontent_item_step",
     },
     "preferred_language": "default",
-    "system": Object {
+    "system": {
       "codename": "developer_community_site_9e1cda0",
       "id": "9e1cda06-c88b-4665-8907-38d2f7486873",
       "language": "default",
       "last_modified": "2019-04-01T18:53:37.4860924Z",
       "name": "Developer Community Site",
-      "sitemap_locations": Array [],
+      "sitemap_locations": [],
       "type": "step",
     },
   },
-  Object {
-    "children": Array [],
-    "elements": Object {
-      "agenda": Object {
+  {
+    "children": [],
+    "elements": {
+      "agenda": {
         "name": "Agenda",
         "type": "modular_content",
-        "value": Array [
+        "value": [
           "kontent_github_organizations",
           "teams_and_people",
           "repositories",
@@ -150,11 +150,11 @@ Array [
           "stack_overflow",
         ],
       },
-      "assets": Object {
+      "assets": {
         "name": "Assets",
         "type": "asset",
-        "value": Array [
-          Object {
+        "value": [
+          {
             "description": null,
             "name": "Kontent-AiGitHubOrganization.pptx",
             "size": 3202558,
@@ -163,90 +163,90 @@ Array [
           },
         ],
       },
-      "checklist": Object {
+      "checklist": {
         "name": "Checklist",
         "type": "multiple_choice",
-        "value": Array [
-          Object {
+        "value": [
+          {
             "codename": "training_sessions_scheduled",
             "name": "Training sessions scheduled",
           },
-          Object {
+          {
             "codename": "training_rooms_reserved",
             "name": "Training rooms reserved",
           },
-          Object {
+          {
             "codename": "presentations_and_files_proofread",
             "name": "Presentations and files proofread",
           },
-          Object {
+          {
             "codename": "introduction_and_supporting_files_uploaded",
             "name": "Introduction and supporting files uploaded",
           },
         ],
       },
-      "excercise": Object {
-        "images": Array [],
-        "links": Array [],
-        "modular_content": Array [],
+      "excercise": {
+        "images": [],
+        "links": [],
+        "modular_content": [],
         "name": "Excercise",
         "type": "rich_text",
         "value": "<p>Quiz!</p>",
       },
-      "name": Object {
+      "name": {
         "name": "Name",
         "type": "text",
         "value": "Introduction to Github on Kontent.ai examples",
       },
-      "presenter": Object {
+      "presenter": {
         "name": "Presenter",
         "type": "modular_content",
-        "value": Array [
+        "value": [
           "ondrej_chrastina",
         ],
       },
-      "summary": Object {
-        "images": Array [],
-        "links": Array [],
-        "modular_content": Array [],
+      "summary": {
+        "images": [],
+        "links": [],
+        "modular_content": [],
         "name": "Summary",
         "type": "rich_text",
         "value": "<p>Github structure and description of the features used by Kontent.ai (+ just a note about Stack Overflow).</p>",
       },
     },
     "id": "dummyId-kontent_item_default_30d24de4-34aa-4b38-933d-3a7f744f8fd4",
-    "internal": Object {
+    "internal": {
       "contentDigest": "c24b8aba09f2c84cfb9ad0d7d687d86c",
       "type": "kontent_item_session",
     },
     "preferred_language": "default",
-    "system": Object {
+    "system": {
       "codename": "introduction_to_github_on_kontent_examples",
       "id": "30d24de4-34aa-4b38-933d-3a7f744f8fd4",
       "language": "default",
       "last_modified": "2019-04-01T18:55:05.7218382Z",
       "name": "Introduction to Github on Kontent.ai examples",
-      "sitemap_locations": Array [],
+      "sitemap_locations": [],
       "type": "session",
     },
   },
-  Object {
-    "children": Array [],
-    "elements": Object {
-      "agenda": Object {
+  {
+    "children": [],
+    "elements": {
+      "agenda": {
         "name": "Agenda",
         "type": "modular_content",
-        "value": Array [
+        "value": [
           "concept",
           "jquery_datapicker",
           "custom_element_devkit___react_component",
         ],
       },
-      "assets": Object {
+      "assets": {
         "name": "Assets",
         "type": "asset",
-        "value": Array [
-          Object {
+        "value": [
+          {
             "description": null,
             "name": "Kontent-AiGitHubOrganization.pptx",
             "size": 2479201,
@@ -255,164 +255,164 @@ Array [
           },
         ],
       },
-      "checklist": Object {
+      "checklist": {
         "name": "Checklist",
         "type": "multiple_choice",
-        "value": Array [
-          Object {
+        "value": [
+          {
             "codename": "training_sessions_scheduled",
             "name": "Training sessions scheduled",
           },
-          Object {
+          {
             "codename": "training_rooms_reserved",
             "name": "Training rooms reserved",
           },
-          Object {
+          {
             "codename": "presentations_and_files_proofread",
             "name": "Presentations and files proofread",
           },
-          Object {
+          {
             "codename": "introduction_and_supporting_files_uploaded",
             "name": "Introduction and supporting files uploaded",
           },
-          Object {
+          {
             "codename": "training_session_tagged_in_confluence",
             "name": "Training session tagged in Confluence",
           },
         ],
       },
-      "excercise": Object {
-        "images": Array [],
-        "links": Array [],
-        "modular_content": Array [
+      "excercise": {
+        "images": [],
+        "links": [],
+        "modular_content": [
           "n2f6ef2f8_e924_01e2_f912_3770a189cbcc",
           "n4204fa2a_75be_0109_07db_47de3f6e645e",
         ],
         "name": "Excercise",
         "type": "rich_text",
-        "value": "<object type=\\"application/kenticocloud\\" data-type=\\"item\\" data-rel=\\"component\\" data-codename=\\"n2f6ef2f8_e924_01e2_f912_3770a189cbcc\\"></object>
-<object type=\\"application/kenticocloud\\" data-type=\\"item\\" data-rel=\\"component\\" data-codename=\\"n4204fa2a_75be_0109_07db_47de3f6e645e\\"></object>
+        "value": "<object type="application/kenticocloud" data-type="item" data-rel="component" data-codename="n2f6ef2f8_e924_01e2_f912_3770a189cbcc"></object>
+<object type="application/kenticocloud" data-type="item" data-rel="component" data-codename="n4204fa2a_75be_0109_07db_47de3f6e645e"></object>
 <p><br></p>",
       },
-      "name": Object {
+      "name": {
         "name": "Name",
         "type": "text",
         "value": "Introduction to the Custom elements development",
       },
-      "presenter": Object {
+      "presenter": {
         "name": "Presenter",
         "type": "modular_content",
-        "value": Array [
+        "value": [
           "ondrej_chrastina",
         ],
       },
-      "summary": Object {
-        "images": Array [],
-        "links": Array [],
-        "modular_content": Array [],
+      "summary": {
+        "images": [],
+        "links": [],
+        "modular_content": [],
         "name": "Summary",
         "type": "rich_text",
         "value": "<p>Present how it is possible to develop a custom element.</p>",
       },
     },
     "id": "dummyId-kontent_item_default_9cc4f323-e59c-45af-a961-f0c98a5f1262",
-    "internal": Object {
+    "internal": {
       "contentDigest": "b23dbf717d29376182f73f8717a7c634",
       "type": "kontent_item_session",
     },
     "preferred_language": "default",
-    "system": Object {
+    "system": {
       "codename": "introduction_to_the_custom_elements_development",
       "id": "9cc4f323-e59c-45af-a961-f0c98a5f1262",
       "language": "default",
       "last_modified": "2019-04-01T18:58:16.6082161Z",
       "name": "Introduction to the Custom elements development",
-      "sitemap_locations": Array [],
+      "sitemap_locations": [],
       "type": "session",
     },
   },
-  Object {
-    "children": Array [],
-    "elements": Object {
-      "text": Object {
-        "images": Array [],
-        "links": Array [],
-        "modular_content": Array [],
+  {
+    "children": [],
+    "elements": {
+      "text": {
+        "images": [],
+        "links": [],
+        "modular_content": [],
         "name": "Text",
         "type": "rich_text",
         "value": "<ul>
-  <li>Implementing the&nbsp;<a href=\\"https://jqueryui.com/datepicker/\\">jQuery Datepicker</a>&nbsp;using&nbsp;<a href=\\"http://vanilla-js.com/\\">vanilla javascript</a>&nbsp;+ Htm + css.</li>
+  <li>Implementing the&nbsp;<a href="https://jqueryui.com/datepicker/">jQuery Datepicker</a>&nbsp;using&nbsp;<a href="http://vanilla-js.com/">vanilla javascript</a>&nbsp;+ Htm + css.</li>
 </ul>",
       },
     },
     "id": "dummyId-kontent_item_default_3ace3379-c4cf-43bf-85de-98e707c4f202",
-    "internal": Object {
+    "internal": {
       "contentDigest": "95f114adf826d388b837533b7d270b81",
       "type": "kontent_item_step",
     },
     "preferred_language": "default",
-    "system": Object {
+    "system": {
       "codename": "jquery_datapicker",
       "id": "3ace3379-c4cf-43bf-85de-98e707c4f202",
       "language": "default",
       "last_modified": "2019-04-01T18:56:11.2796384Z",
       "name": "jQuery Datapicker",
-      "sitemap_locations": Array [],
+      "sitemap_locations": [],
       "type": "step",
     },
   },
-  Object {
-    "children": Array [],
-    "elements": Object {
-      "text": Object {
-        "images": Array [],
-        "links": Array [],
-        "modular_content": Array [],
+  {
+    "children": [],
+    "elements": {
+      "text": {
+        "images": [],
+        "links": [],
+        "modular_content": [],
         "name": "Text",
         "type": "rich_text",
-        "value": "<p>Kontent.ai Github&nbsp;<a href=\\"https://help.github.com/en/articles/about-organizations\\">organizations</a></p>
+        "value": "<p>Kontent.ai Github&nbsp;<a href="https://help.github.com/en/articles/about-organizations">organizations</a></p>
 <ul>
   <li>KontentAiInternal - beneficial legacy billing plan (gold) paid by the number of private members (250 is the limit)</li>
-  <li>Kontent.ai - on the billing plan&nbsp;<a href=\\"https://help.github.com/en/articles/githubs-products#github-team-for-open-source\\">Github Team for opensource</a>&nbsp;with no mmebers limitation, just all repositories have to be OS</li>
+  <li>Kontent.ai - on the billing plan&nbsp;<a href="https://help.github.com/en/articles/githubs-products#github-team-for-open-source">Github Team for opensource</a>&nbsp;with no mmebers limitation, just all repositories have to be OS</li>
 </ul>",
       },
     },
     "id": "dummyId-kontent_item_default_cea256ba-063d-418d-8258-458b9ba9094d",
-    "internal": Object {
+    "internal": {
       "contentDigest": "6a5e554121d26e0fc76d4a6563ee72aa",
       "type": "kontent_item_step",
     },
     "preferred_language": "default",
-    "system": Object {
+    "system": {
       "codename": "kontent_ai_github_organizations",
       "id": "cea256ba-063d-418d-8258-458b9ba9094d",
       "language": "default",
       "last_modified": "2019-04-01T18:49:49.3402097Z",
       "name": "Kontent.ai Github organizations",
-      "sitemap_locations": Array [],
+      "sitemap_locations": [],
       "type": "step",
     },
   },
-  Object {
-    "children": Array [],
-    "elements": Object {
-      "bio": Object {
-        "images": Array [
-          Object {
+  {
+    "children": [],
+    "elements": {
+      "bio": {
+        "images": [
+          {
             "description": null,
             "height": 1065,
             "image_id": "fcf07d43-46d4-46ef-a58d-c7bf7a4aecb1",
             "url": "https://assets-us-01.kc-usercontent.com:443/09fc0115-dd4d-00c7-5bd9-5f73836aee81/0faa87b4-9e1e-41b8-8b38-c107cbb35147/2.jpg",
             "width": 1600,
           },
-          Object {
+          {
             "description": null,
             "height": 920,
             "image_id": "8d1adb2e-ee09-4c94-8758-f23be1e4969a",
             "url": "https://assets-us-01.kc-usercontent.com:443/09fc0115-dd4d-00c7-5bd9-5f73836aee81/c6f94bd6-71ab-4499-98dd-d9ec39bc1a1f/1.jpg",
             "width": 610,
           },
-          Object {
+          {
             "description": null,
             "height": 810,
             "image_id": "e268e8be-3d5e-4ba8-887c-49b357784d94",
@@ -420,15 +420,15 @@ Array [
             "width": 1080,
           },
         ],
-        "links": Array [
-          Object {
+        "links": [
+          {
             "codename": "developer_community_site",
             "link_id": "59002186-1886-48f3-b8ba-6f053b5cf777",
             "type": "website",
             "url_slug": "",
           },
         ],
-        "modular_content": Array [
+        "modular_content": [
           "developer_community_site",
           "n8bf1055d_7b61_0180_e1c6_3a09d88f0396",
         ],
@@ -438,87 +438,87 @@ Array [
 <br>
 Currently I am interested in Gatsby.js. I have released the third version of Gatsby source plugin.<br>
 </p>
-<object type=\\"application/kenticocloud\\" data-type=\\"item\\" data-rel=\\"component\\" data-codename=\\"n8bf1055d_7b61_0180_e1c6_3a09d88f0396\\"></object>
+<object type="application/kenticocloud" data-type="item" data-rel="component" data-codename="n8bf1055d_7b61_0180_e1c6_3a09d88f0396"></object>
 <p><br></p>
 <p>Interesting in exploring how storytelling and targeted messaging create business-changing content.</p>
-<p>As an Developer Advocate, I am responsible for running <a href=\\"https://github.com/kontent-ai\\">Kontent.ai Github organization</a>, implementing inbound marketing strategies like <a data-item-id=\\"59002186-1886-48f3-b8ba-6f053b5cf777\\" href=\\"\\">Developer Community site&nbsp;</a> that help increase brand awareness of Kontent.ai as an opensource friendly company and acquire new developers.</p>
-<object type=\\"application/kenticocloud\\" data-type=\\"item\\" data-rel=\\"link\\" data-codename=\\"developer_community_site\\"></object>
-<p>When I am not working, you’ll find me doing some sports, <a data-asset-id=\\"8d1adb2e-ee09-4c94-8758-f23be1e4969a\\" href=\\"https://assets-us-01.kc-usercontent.com:443/09fc0115-dd4d-00c7-5bd9-5f73836aee81/c6f94bd6-71ab-4499-98dd-d9ec39bc1a1f/1.jpg\\">travelling</a>, or in a pub.<br>
+<p>As an Developer Advocate, I am responsible for running <a href="https://github.com/kontent-ai">Kontent.ai Github organization</a>, implementing inbound marketing strategies like <a data-item-id="59002186-1886-48f3-b8ba-6f053b5cf777" href="">Developer Community site&nbsp;</a> that help increase brand awareness of Kontent.ai as an opensource friendly company and acquire new developers.</p>
+<object type="application/kenticocloud" data-type="item" data-rel="link" data-codename="developer_community_site"></object>
+<p>When I am not working, you’ll find me doing some sports, <a data-asset-id="8d1adb2e-ee09-4c94-8758-f23be1e4969a" href="https://assets-us-01.kc-usercontent.com:443/09fc0115-dd4d-00c7-5bd9-5f73836aee81/c6f94bd6-71ab-4499-98dd-d9ec39bc1a1f/1.jpg">travelling</a>, or in a pub.<br>
 </p>
-<figure data-asset-id=\\"fcf07d43-46d4-46ef-a58d-c7bf7a4aecb1\\" data-image-id=\\"fcf07d43-46d4-46ef-a58d-c7bf7a4aecb1\\"><img src=\\"https://assets-us-01.kc-usercontent.com:443/09fc0115-dd4d-00c7-5bd9-5f73836aee81/0faa87b4-9e1e-41b8-8b38-c107cbb35147/2.jpg\\" data-asset-id=\\"fcf07d43-46d4-46ef-a58d-c7bf7a4aecb1\\" data-image-id=\\"fcf07d43-46d4-46ef-a58d-c7bf7a4aecb1\\" alt=\\"\\"></figure>
-<figure data-asset-id=\\"8d1adb2e-ee09-4c94-8758-f23be1e4969a\\" data-image-id=\\"8d1adb2e-ee09-4c94-8758-f23be1e4969a\\"><img src=\\"https://assets-us-01.kc-usercontent.com:443/09fc0115-dd4d-00c7-5bd9-5f73836aee81/c6f94bd6-71ab-4499-98dd-d9ec39bc1a1f/1.jpg\\" data-asset-id=\\"8d1adb2e-ee09-4c94-8758-f23be1e4969a\\" data-image-id=\\"8d1adb2e-ee09-4c94-8758-f23be1e4969a\\" alt=\\"\\"></figure>
-<figure data-asset-id=\\"e268e8be-3d5e-4ba8-887c-49b357784d94\\" data-image-id=\\"e268e8be-3d5e-4ba8-887c-49b357784d94\\"><img src=\\"https://assets-us-01.kc-usercontent.com:443/09fc0115-dd4d-00c7-5bd9-5f73836aee81/78a90563-27b0-4f7c-9213-dc3b4cf840a0/3.jpg\\" data-asset-id=\\"e268e8be-3d5e-4ba8-887c-49b357784d94\\" data-image-id=\\"e268e8be-3d5e-4ba8-887c-49b357784d94\\" alt=\\"\\"></figure>
+<figure data-asset-id="fcf07d43-46d4-46ef-a58d-c7bf7a4aecb1" data-image-id="fcf07d43-46d4-46ef-a58d-c7bf7a4aecb1"><img src="https://assets-us-01.kc-usercontent.com:443/09fc0115-dd4d-00c7-5bd9-5f73836aee81/0faa87b4-9e1e-41b8-8b38-c107cbb35147/2.jpg" data-asset-id="fcf07d43-46d4-46ef-a58d-c7bf7a4aecb1" data-image-id="fcf07d43-46d4-46ef-a58d-c7bf7a4aecb1" alt=""></figure>
+<figure data-asset-id="8d1adb2e-ee09-4c94-8758-f23be1e4969a" data-image-id="8d1adb2e-ee09-4c94-8758-f23be1e4969a"><img src="https://assets-us-01.kc-usercontent.com:443/09fc0115-dd4d-00c7-5bd9-5f73836aee81/c6f94bd6-71ab-4499-98dd-d9ec39bc1a1f/1.jpg" data-asset-id="8d1adb2e-ee09-4c94-8758-f23be1e4969a" data-image-id="8d1adb2e-ee09-4c94-8758-f23be1e4969a" alt=""></figure>
+<figure data-asset-id="e268e8be-3d5e-4ba8-887c-49b357784d94" data-image-id="e268e8be-3d5e-4ba8-887c-49b357784d94"><img src="https://assets-us-01.kc-usercontent.com:443/09fc0115-dd4d-00c7-5bd9-5f73836aee81/78a90563-27b0-4f7c-9213-dc3b4cf840a0/3.jpg" data-asset-id="e268e8be-3d5e-4ba8-887c-49b357784d94" data-image-id="e268e8be-3d5e-4ba8-887c-49b357784d94" alt=""></figure>
 <p><br></p>",
       },
-      "category": Object {
+      "category": {
         "name": "Category",
         "taxonomy_group": "category",
         "type": "taxonomy",
-        "value": Array [
-          Object {
+        "value": [
+          {
             "codename": "sub_first",
             "name": "Sub-first",
           },
-          Object {
+          {
             "codename": "first",
             "name": "First",
           },
-          Object {
+          {
             "codename": "sub_sub_first",
             "name": "Sub-sub-first",
           },
-          Object {
+          {
             "codename": "second",
             "name": "Second",
           },
-          Object {
+          {
             "codename": "sub_second",
             "name": "Sub-second",
           },
         ],
       },
-      "custom_element": Object {
+      "custom_element": {
         "name": "custom element",
         "type": "custom",
         "value": null,
       },
-      "date_of_birth": Object {
+      "date_of_birth": {
         "name": "Date of Birth",
         "type": "date_time",
         "value": "1991-07-24T00:00:00Z",
       },
-      "favorite_number": Object {
+      "favorite_number": {
         "name": "Favorite Number",
         "type": "number",
         "value": 3,
       },
-      "friends": Object {
+      "friends": {
         "name": "Friends",
         "type": "modular_content",
-        "value": Array [
+        "value": [
           "jquery_datapicker",
         ],
       },
-      "gender": Object {
+      "gender": {
         "name": "Gender",
         "type": "multiple_choice",
-        "value": Array [
-          Object {
+        "value": [
+          {
             "codename": "man",
             "name": "Man",
           },
         ],
       },
-      "name_and_surname": Object {
+      "name_and_surname": {
         "name": "Name and Surname",
         "type": "text",
         "value": "Ondřej Chrastina",
       },
-      "profile_photo": Object {
+      "profile_photo": {
         "name": "Profile Photo",
         "type": "asset",
-        "value": Array [
-          Object {
+        "value": [
+          {
             "description": null,
             "height": 960,
             "name": "profile.jpg",
@@ -529,86 +529,86 @@ Currently I am interested in Gatsby.js. I have released the third version of Gat
           },
         ],
       },
-      "url_slug": Object {
+      "url_slug": {
         "name": "URL slug",
         "type": "url_slug",
         "value": "ondrej-chrastina",
       },
     },
     "id": "dummyId-kontent_item_default_d72eea98-774f-48fc-b52a-7ebc51271855",
-    "internal": Object {
+    "internal": {
       "contentDigest": "635b31a6fc867d5f6808229f44939b0c",
       "type": "kontent_item_person",
     },
     "preferred_language": "default",
-    "system": Object {
+    "system": {
       "codename": "ondrej_chrastina",
       "id": "d72eea98-774f-48fc-b52a-7ebc51271855",
       "language": "default",
       "last_modified": "2020-03-04T20:27:53.8982618Z",
       "name": "Ondřej Chrastina",
-      "sitemap_locations": Array [],
+      "sitemap_locations": [],
       "type": "person",
     },
   },
-  Object {
-    "children": Array [],
-    "elements": Object {
-      "author": Object {
+  {
+    "children": [],
+    "elements": {
+      "author": {
         "name": "Author",
         "type": "modular_content",
-        "value": Array [
+        "value": [
           "ondrej_chrastina",
         ],
       },
-      "description": Object {
-        "images": Array [],
-        "links": Array [],
-        "modular_content": Array [],
+      "description": {
+        "images": [],
+        "links": [],
+        "modular_content": [],
         "name": "Description",
         "type": "rich_text",
         "value": "<p>The training should make the clear picture about the Konten.ai opensource activities.</p>",
       },
-      "name": Object {
+      "name": {
         "name": "Name",
         "type": "text",
         "value": "Open-source training 2019",
       },
-      "sessions": Object {
+      "sessions": {
         "name": "Sessions",
         "type": "modular_content",
-        "value": Array [
+        "value": [
           "introduction_to_github_on_kontent_ai_examples",
           "introduction_to_the_custom_elements_development",
         ],
       },
     },
     "id": "dummyId-kontent_item_default_aae6c1cf-1d20-4a0e-949b-65a5d1bb7c8f",
-    "internal": Object {
+    "internal": {
       "contentDigest": "42453fc096d687df0fb3d27e86a32230",
       "type": "kontent_item_training",
     },
     "preferred_language": "default",
-    "system": Object {
+    "system": {
       "codename": "open_source_training_2019",
       "id": "aae6c1cf-1d20-4a0e-949b-65a5d1bb7c8f",
       "language": "default",
       "last_modified": "2019-04-01T18:55:13.8878004Z",
       "name": "Open-source training 2019",
-      "sitemap_locations": Array [],
+      "sitemap_locations": [],
       "type": "training",
     },
   },
-  Object {
-    "children": Array [],
-    "elements": Object {
-      "text": Object {
-        "images": Array [],
-        "links": Array [],
-        "modular_content": Array [],
+  {
+    "children": [],
+    "elements": {
+      "text": {
+        "images": [],
+        "links": [],
+        "modular_content": [],
         "name": "Text",
         "type": "rich_text",
-        "value": "<p><a href=\\"https://github.com/orgs/kontent-ai/projects\\">Projects</a></p>
+        "value": "<p><a href="https://github.com/orgs/kontent-ai/projects">Projects</a></p>
 <ul>
   <li>Purpose - organize issue cross repositories in specified stack
     <ul>
@@ -619,31 +619,31 @@ Currently I am interested in Gatsby.js. I have released the third version of Gat
       },
     },
     "id": "dummyId-kontent_item_default_00b305ad-2f05-4899-9c14-17ea62d0032f",
-    "internal": Object {
+    "internal": {
       "contentDigest": "ee30910f67cf8bcc47e18ce846506633",
       "type": "kontent_item_step",
     },
     "preferred_language": "default",
-    "system": Object {
+    "system": {
       "codename": "projects",
       "id": "00b305ad-2f05-4899-9c14-17ea62d0032f",
       "language": "default",
       "last_modified": "2019-04-01T18:52:39.348748Z",
       "name": "Projects",
-      "sitemap_locations": Array [],
+      "sitemap_locations": [],
       "type": "step",
     },
   },
-  Object {
-    "children": Array [],
-    "elements": Object {
-      "text": Object {
-        "images": Array [],
-        "links": Array [],
-        "modular_content": Array [],
+  {
+    "children": [],
+    "elements": {
+      "text": {
+        "images": [],
+        "links": [],
+        "modular_content": [],
         "name": "Text",
         "type": "rich_text",
-        "value": "<p><a href=\\"https://github.com/kontent-ai\\">Repositories</a></p>
+        "value": "<p><a href="https://github.com/kontent-ai">Repositories</a></p>
 <ul>
   <li>Groups&nbsp;
     <ul>
@@ -657,76 +657,76 @@ Currently I am interested in Gatsby.js. I have released the third version of Gat
   <li>Naming conventions for repository name</li>
   <li>Kontent.ai Home repository (special one)
     <ul>
-      <li>Go through the wiki articles:&nbsp;<a href=\\"https://github.com/kontent-ai/.github/wiki\\">https://github.com/kontent-ai/.github/wiki</a></li>
-      <li>Describe&nbsp;<a href=\\"https://github.com/kontent-ai/repo-template/blob/main/CODE_OF_CONDUCT.md\\">Code of conduct</a>&nbsp;and&nbsp;<a href=\\"https://github.com/kontent-ai/repo-template/blob/main/CODE_OF_CONDUCT.md\\">Contributing</a></li>
+      <li>Go through the wiki articles:&nbsp;<a href="https://github.com/kontent-ai/.github/wiki">https://github.com/kontent-ai/.github/wiki</a></li>
+      <li>Describe&nbsp;<a href="https://github.com/kontent-ai/repo-template/blob/main/CODE_OF_CONDUCT.md">Code of conduct</a>&nbsp;and&nbsp;<a href="https://github.com/kontent-ai/repo-template/blob/main/CODE_OF_CONDUCT.md">Contributing</a></li>
     </ul>
   </li>
 </ul>",
       },
     },
     "id": "dummyId-kontent_item_default_ea15d7bc-7d8f-4ded-9795-0e615b31316e",
-    "internal": Object {
+    "internal": {
       "contentDigest": "fe0f1df4ccd000810cf0b9d9dc7ee82e",
       "type": "kontent_item_step",
     },
     "preferred_language": "default",
-    "system": Object {
+    "system": {
       "codename": "repositories",
       "id": "ea15d7bc-7d8f-4ded-9795-0e615b31316e",
       "language": "default",
       "last_modified": "2019-04-01T18:52:12.4177018Z",
       "name": "Repositories",
-      "sitemap_locations": Array [],
+      "sitemap_locations": [],
       "type": "step",
     },
   },
-  Object {
-    "children": Array [],
-    "elements": Object {
-      "text": Object {
-        "images": Array [],
-        "links": Array [],
-        "modular_content": Array [],
+  {
+    "children": [],
+    "elements": {
+      "text": {
+        "images": [],
+        "links": [],
+        "modular_content": [],
         "name": "Text",
         "type": "rich_text",
-        "value": "<p><a href=\\"https://stackoverflow.com/tags/kontent-ai\\">Stack overflow</a></p>
+        "value": "<p><a href="https://stackoverflow.com/tags/kontent-ai">Stack overflow</a></p>
 <ul>
   <li>Purpose - ask anything, better for complex questions than submitting question issue, which should be focused on the repository only</li>
 </ul>",
       },
     },
     "id": "dummyId-kontent_item_default_a89518c5-82b9-457e-8cbd-a8719f8a3bdb",
-    "internal": Object {
+    "internal": {
       "contentDigest": "92d46c0d8a3bfc3de7a432e924e29e4a",
       "type": "kontent_item_step",
     },
     "preferred_language": "default",
-    "system": Object {
+    "system": {
       "codename": "stack_overflow",
       "id": "a89518c5-82b9-457e-8cbd-a8719f8a3bdb",
       "language": "default",
       "last_modified": "2019-04-01T18:53:50.3351338Z",
       "name": "Stack overflow",
-      "sitemap_locations": Array [],
+      "sitemap_locations": [],
       "type": "step",
     },
   },
-  Object {
-    "children": Array [],
-    "elements": Object {
-      "text": Object {
-        "images": Array [],
-        "links": Array [],
-        "modular_content": Array [],
+  {
+    "children": [],
+    "elements": {
+      "text": {
+        "images": [],
+        "links": [],
+        "modular_content": [],
         "name": "Text",
         "type": "rich_text",
         "value": "<ul>
   <li>Teams are for organizing people to groups, they are used for permissions setup, interest grouping etc...
     <ul>
-      <li>Description of the teams are described&nbsp;<a href=\\"https://github.com/kontent-ai/.github/wiki/Guidelines-for-GitHub-permissions-in-Kontent-ai-organization\\">publicly</a></li>
+      <li>Description of the teams are described&nbsp;<a href="https://github.com/kontent-ai/.github/wiki/Guidelines-for-GitHub-permissions-in-Kontent-ai-organization">publicly</a></li>
     </ul>
   </li>
-  <li><a href=\\"https://github.com/orgs/kontent-ai/people\\">People</a>
+  <li><a href="https://github.com/orgs/kontent-ai/people">People</a>
     <ul>
       <li>Github user has to be invited by the organization admin</li>
       <li>No out of the box way to request invitation right now</li>
@@ -736,28 +736,28 @@ Currently I am interested in Gatsby.js. I have released the third version of Gat
       },
     },
     "id": "dummyId-kontent_item_default_4a0ed14b-fe95-41f7-938f-000b9a400539",
-    "internal": Object {
+    "internal": {
       "contentDigest": "d14d6413d532e1ec37c40bdf53426bf5",
       "type": "kontent_item_step",
     },
     "preferred_language": "default",
-    "system": Object {
+    "system": {
       "codename": "teams_and_people",
       "id": "4a0ed14b-fe95-41f7-938f-000b9a400539",
       "language": "default",
       "last_modified": "2019-04-01T18:51:04.1737989Z",
       "name": "Teams and people",
-      "sitemap_locations": Array [],
+      "sitemap_locations": [],
       "type": "step",
     },
   },
-  Object {
-    "children": Array [],
-    "elements": Object {
-      "text": Object {
-        "images": Array [],
-        "links": Array [],
-        "modular_content": Array [],
+  {
+    "children": [],
+    "elements": {
+      "text": {
+        "images": [],
+        "links": [],
+        "modular_content": [],
         "name": "Text",
         "type": "rich_text",
         "value": "<p>Choose an example I have showed you and extend it</p>
@@ -769,28 +769,28 @@ Currently I am interested in Gatsby.js. I have released the third version of Gat
       },
     },
     "id": "dummyId-kontent_item_default_2f6ef2f8-e924-01e2-f912-3770a189cbcc",
-    "internal": Object {
+    "internal": {
       "contentDigest": "b38ae3fff9cd527619c7a561c12de780",
       "type": "kontent_item_step",
     },
     "preferred_language": "default",
-    "system": Object {
+    "system": {
       "codename": "n2f6ef2f8_e924_01e2_f912_3770a189cbcc",
       "id": "2f6ef2f8-e924-01e2-f912-3770a189cbcc",
       "language": "default",
       "last_modified": "2019-04-01T18:58:16.6082161Z",
       "name": "2f6ef2f8-e924-01e2-f912-3770a189cbcc",
-      "sitemap_locations": Array [],
+      "sitemap_locations": [],
       "type": "step",
     },
   },
-  Object {
-    "children": Array [],
-    "elements": Object {
-      "text": Object {
-        "images": Array [],
-        "links": Array [],
-        "modular_content": Array [],
+  {
+    "children": [],
+    "elements": {
+      "text": {
+        "images": [],
+        "links": [],
+        "modular_content": [],
         "name": "Text",
         "type": "rich_text",
         "value": "<ul>
@@ -799,25 +799,25 @@ Currently I am interested in Gatsby.js. I have released the third version of Gat
       },
     },
     "id": "dummyId-kontent_item_default_4204fa2a-75be-0109-07db-47de3f6e645e",
-    "internal": Object {
+    "internal": {
       "contentDigest": "683f869eca4098f1fb9d63ff39c9134b",
       "type": "kontent_item_step",
     },
     "preferred_language": "default",
-    "system": Object {
+    "system": {
       "codename": "n4204fa2a_75be_0109_07db_47de3f6e645e",
       "id": "4204fa2a-75be-0109-07db-47de3f6e645e",
       "language": "default",
       "last_modified": "2019-04-01T18:58:16.6082161Z",
       "name": "4204fa2a-75be-0109-07db-47de3f6e645e",
-      "sitemap_locations": Array [],
+      "sitemap_locations": [],
       "type": "step",
     },
   },
-  Object {
-    "children": Array [],
-    "elements": Object {
-      "description": Object {
+  {
+    "children": [],
+    "elements": {
+      "description": {
         "name": "Description",
         "type": "custom",
         "value": "# Gatsby source plugin for Kontent.ai
@@ -834,70 +834,70 @@ The node names are prefixed with \`kontent\`. More specifically, content type no
 
 GraphQL nodes of content items contain the ordinary \`system\` and \`elements\` properties. However, the properties inside \`elements\` always have an internal structure that the aforementioned Delivery SDK produces with **modifications** described in following section.",
       },
-      "name": Object {
+      "name": {
         "name": "Name",
         "type": "text",
         "value": "Gatsby source plugin for Kontent.ai",
       },
-      "url": Object {
+      "url": {
         "name": "URL",
         "type": "text",
         "value": "https://github.com/Kentico/gatsby-source-kentico-cloud",
       },
     },
     "id": "dummyId-kontent_item_default_8bf1055d-7b61-0180-e1c6-3a09d88f0396",
-    "internal": Object {
+    "internal": {
       "contentDigest": "ebda89cc47b11dc62182cf8cfdd6b48d",
       "type": "kontent_item_repository",
     },
     "preferred_language": "default",
-    "system": Object {
+    "system": {
       "codename": "n8bf1055d_7b61_0180_e1c6_3a09d88f0396",
       "id": "8bf1055d-7b61-0180-e1c6-3a09d88f0396",
       "language": "default",
       "last_modified": "2020-03-04T20:27:53.8982618Z",
       "name": "8bf1055d-7b61-0180-e1c6-3a09d88f0396",
-      "sitemap_locations": Array [],
+      "sitemap_locations": [],
       "type": "repository",
     },
   },
-  Object {
-    "children": Array [],
-    "elements": Object {
-      "text": Object {
-        "images": Array [],
-        "links": Array [],
-        "modular_content": Array [],
+  {
+    "children": [],
+    "elements": {
+      "text": {
+        "images": [],
+        "links": [],
+        "modular_content": [],
         "name": "Text",
         "type": "rich_text",
         "value": "<ul>
-  <li>Theoretical&nbsp;<a href=\\"https://kontent.ai/learn/tutorials/develop-apps/integrate/content-editing-extensions/\\">concept of custom elements</a>&nbsp;and&nbsp;<a href=\\"https://kontent.ai/learn/reference/kontent-apis-overview/#custom-elements-api\\">API reference</a>&nbsp;walkthrough. (other language)</li>
+  <li>Theoretical&nbsp;<a href="https://kontent.ai/learn/tutorials/develop-apps/integrate/content-editing-extensions/">concept of custom elements</a>&nbsp;and&nbsp;<a href="https://kontent.ai/learn/reference/kontent-apis-overview/#custom-elements-api">API reference</a>&nbsp;walkthrough. (other language)</li>
 </ul>",
       },
     },
     "id": "dummyId-kontent_item_Another_language_b5624158-93f1-44f9-971e-aac85610ab10",
-    "internal": Object {
+    "internal": {
       "contentDigest": "f0f24b7575c3d229588fa55940863647",
       "type": "kontent_item_step",
     },
     "preferred_language": "Another_language",
-    "system": Object {
+    "system": {
       "codename": "concept",
       "id": "b5624158-93f1-44f9-971e-aac85610ab10",
       "language": "Another_language",
       "last_modified": "2019-04-29T14:45:22.1150343Z",
       "name": "Concept",
-      "sitemap_locations": Array [],
+      "sitemap_locations": [],
       "type": "step",
     },
   },
-  Object {
-    "children": Array [],
-    "elements": Object {
-      "text": Object {
-        "images": Array [],
-        "links": Array [],
-        "modular_content": Array [],
+  {
+    "children": [],
+    "elements": {
+      "text": {
+        "images": [],
+        "links": [],
+        "modular_content": [],
         "name": "Text",
         "type": "rich_text",
         "value": "<ul>
@@ -906,69 +906,69 @@ GraphQL nodes of content items contain the ordinary \`system\` and \`elements\` 
       },
     },
     "id": "dummyId-kontent_item_Another_language_2aebd051-0e24-414c-b4ff-734b6c9ab40f",
-    "internal": Object {
+    "internal": {
       "contentDigest": "4fa6f6b5f28f24543535ba413b3f0f94",
       "type": "kontent_item_step",
     },
     "preferred_language": "Another_language",
-    "system": Object {
+    "system": {
       "codename": "custom_element_devkit___react_component",
       "id": "2aebd051-0e24-414c-b4ff-734b6c9ab40f",
       "language": "Another_language",
       "last_modified": "2019-04-29T14:45:53.4392891Z",
       "name": "Custom element devkit + React component",
-      "sitemap_locations": Array [],
+      "sitemap_locations": [],
       "type": "step",
     },
   },
-  Object {
-    "children": Array [],
-    "elements": Object {
-      "description": Object {
-        "images": Array [],
-        "links": Array [],
-        "modular_content": Array [],
+  {
+    "children": [],
+    "elements": {
+      "description": {
+        "images": [],
+        "links": [],
+        "modular_content": [],
         "name": "Description",
         "type": "rich_text",
         "value": "<p>Other language: A gateway to the world of open-source at Kontent.ai.</p>",
       },
-      "name": Object {
+      "name": {
         "name": "Name",
         "type": "text",
         "value": "Developer Community site",
       },
-      "url": Object {
+      "url": {
         "name": "URL",
         "type": "text",
         "value": "https://github.com/kontent-ai/",
       },
     },
     "id": "dummyId-kontent_item_Another_language_59002186-1886-48f3-b8ba-6f053b5cf777",
-    "internal": Object {
+    "internal": {
       "contentDigest": "a0f0674df29fd378ddf487231e75c3cf",
       "type": "kontent_item_website",
     },
     "preferred_language": "Another_language",
-    "system": Object {
+    "system": {
       "codename": "developer_community_site",
       "id": "59002186-1886-48f3-b8ba-6f053b5cf777",
       "language": "Another_language",
       "last_modified": "2019-04-29T14:44:04.4377286Z",
       "name": "Developer Community Site",
-      "sitemap_locations": Array [],
+      "sitemap_locations": [],
       "type": "website",
     },
   },
-  Object {
-    "children": Array [],
-    "elements": Object {
-      "text": Object {
-        "images": Array [],
-        "links": Array [],
-        "modular_content": Array [],
+  {
+    "children": [],
+    "elements": {
+      "text": {
+        "images": [],
+        "links": [],
+        "modular_content": [],
         "name": "Text",
         "type": "rich_text",
-        "value": "<p><a href=\\"https://github.com/kontent-ai//\\">Developer Community Site</a></p>
+        "value": "<p><a href="https://github.com/kontent-ai//">Developer Community Site</a></p>
 <ul>
   <li>Main purpose - Overall guidepost for information
     <ul>
@@ -979,28 +979,28 @@ GraphQL nodes of content items contain the ordinary \`system\` and \`elements\` 
       },
     },
     "id": "dummyId-kontent_item_Another_language_9e1cda06-c88b-4665-8907-38d2f7486873",
-    "internal": Object {
+    "internal": {
       "contentDigest": "81e1721c04aa7786482fe0e9a0f22edc",
       "type": "kontent_item_step",
     },
     "preferred_language": "Another_language",
-    "system": Object {
+    "system": {
       "codename": "developer_community_site_9e1cda0",
       "id": "9e1cda06-c88b-4665-8907-38d2f7486873",
       "language": "default",
       "last_modified": "2019-04-01T18:53:37.4860924Z",
       "name": "Developer Community Site",
-      "sitemap_locations": Array [],
+      "sitemap_locations": [],
       "type": "step",
     },
   },
-  Object {
-    "children": Array [],
-    "elements": Object {
-      "agenda": Object {
+  {
+    "children": [],
+    "elements": {
+      "agenda": {
         "name": "Agenda",
         "type": "modular_content",
-        "value": Array [
+        "value": [
           "kontent_ai_github_organizations",
           "teams_and_people",
           "repositories",
@@ -1009,11 +1009,11 @@ GraphQL nodes of content items contain the ordinary \`system\` and \`elements\` 
           "stack_overflow",
         ],
       },
-      "assets": Object {
+      "assets": {
         "name": "Assets",
         "type": "asset",
-        "value": Array [
-          Object {
+        "value": [
+          {
             "description": null,
             "name": "Kontent-aiGitHubOrganization.pptx",
             "size": 3202558,
@@ -1022,90 +1022,90 @@ GraphQL nodes of content items contain the ordinary \`system\` and \`elements\` 
           },
         ],
       },
-      "checklist": Object {
+      "checklist": {
         "name": "Checklist",
         "type": "multiple_choice",
-        "value": Array [
-          Object {
+        "value": [
+          {
             "codename": "training_sessions_scheduled",
             "name": "Training sessions scheduled",
           },
-          Object {
+          {
             "codename": "training_rooms_reserved",
             "name": "Training rooms reserved",
           },
-          Object {
+          {
             "codename": "presentations_and_files_proofread",
             "name": "Presentations and files proofread",
           },
-          Object {
+          {
             "codename": "introduction_and_supporting_files_uploaded",
             "name": "Introduction and supporting files uploaded",
           },
         ],
       },
-      "excercise": Object {
-        "images": Array [],
-        "links": Array [],
-        "modular_content": Array [],
+      "excercise": {
+        "images": [],
+        "links": [],
+        "modular_content": [],
         "name": "Excercise",
         "type": "rich_text",
         "value": "<p>Quiz!</p>",
       },
-      "name": Object {
+      "name": {
         "name": "Name",
         "type": "text",
         "value": "Introduction to Github on Kontent.ai examples",
       },
-      "presenter": Object {
+      "presenter": {
         "name": "Presenter",
         "type": "modular_content",
-        "value": Array [
+        "value": [
           "ondrej_chrastina",
         ],
       },
-      "summary": Object {
-        "images": Array [],
-        "links": Array [],
-        "modular_content": Array [],
+      "summary": {
+        "images": [],
+        "links": [],
+        "modular_content": [],
         "name": "Summary",
         "type": "rich_text",
         "value": "<p>Github structure and description of the features used by Kontent.ai (+ just a note about Stack Overflow).</p>",
       },
     },
     "id": "dummyId-kontent_item_Another_language_30d24de4-34aa-4b38-933d-3a7f744f8fd4",
-    "internal": Object {
+    "internal": {
       "contentDigest": "3a370bae750f1806805d639b1c4102de",
       "type": "kontent_item_session",
     },
     "preferred_language": "Another_language",
-    "system": Object {
+    "system": {
       "codename": "introduction_to_github_on_kontent_ai_examples",
       "id": "30d24de4-34aa-4b38-933d-3a7f744f8fd4",
       "language": "default",
       "last_modified": "2019-04-01T18:55:05.7218382Z",
       "name": "Introduction to Github on Kontent.ai examples",
-      "sitemap_locations": Array [],
+      "sitemap_locations": [],
       "type": "session",
     },
   },
-  Object {
-    "children": Array [],
-    "elements": Object {
-      "agenda": Object {
+  {
+    "children": [],
+    "elements": {
+      "agenda": {
         "name": "Agenda",
         "type": "modular_content",
-        "value": Array [
+        "value": [
           "concept",
           "jquery_datapicker",
           "custom_element_devkit___react_component",
         ],
       },
-      "assets": Object {
+      "assets": {
         "name": "Assets",
         "type": "asset",
-        "value": Array [
-          Object {
+        "value": [
+          {
             "description": null,
             "name": "Kontent-AiGitHubOrganization.pptx",
             "size": 2479201,
@@ -1114,206 +1114,206 @@ GraphQL nodes of content items contain the ordinary \`system\` and \`elements\` 
           },
         ],
       },
-      "checklist": Object {
+      "checklist": {
         "name": "Checklist",
         "type": "multiple_choice",
-        "value": Array [
-          Object {
+        "value": [
+          {
             "codename": "presentations_and_files_proofread",
             "name": "Presentations and files proofread",
           },
-          Object {
+          {
             "codename": "introduction_and_supporting_files_uploaded",
             "name": "Introduction and supporting files uploaded",
           },
-          Object {
+          {
             "codename": "start_code_files_and_final_code_files_uploaded",
             "name": "START code files and FINAL code files uploaded",
           },
-          Object {
+          {
             "codename": "training_session_tagged_in_confluence",
             "name": "Training session tagged in Confluence",
           },
         ],
       },
-      "excercise": Object {
-        "images": Array [],
-        "links": Array [],
-        "modular_content": Array [
+      "excercise": {
+        "images": [],
+        "links": [],
+        "modular_content": [
           "f37dfa2e_0aa6_01ef_6f1e_f374c7fe3356",
           "n32ee0075_0b25_0105_503d_b8fc0eb3cc6e",
         ],
         "name": "Excercise",
         "type": "rich_text",
-        "value": "<object type=\\"application/kenticocloud\\" data-type=\\"item\\" data-rel=\\"component\\" data-codename=\\"f37dfa2e_0aa6_01ef_6f1e_f374c7fe3356\\"></object>
-<object type=\\"application/kenticocloud\\" data-type=\\"item\\" data-rel=\\"component\\" data-codename=\\"n32ee0075_0b25_0105_503d_b8fc0eb3cc6e\\"></object>
+        "value": "<object type="application/kenticocloud" data-type="item" data-rel="component" data-codename="f37dfa2e_0aa6_01ef_6f1e_f374c7fe3356"></object>
+<object type="application/kenticocloud" data-type="item" data-rel="component" data-codename="n32ee0075_0b25_0105_503d_b8fc0eb3cc6e"></object>
 <p><br></p>",
       },
-      "name": Object {
+      "name": {
         "name": "Name",
         "type": "text",
         "value": "Introduction to the Custom elements development",
       },
-      "presenter": Object {
+      "presenter": {
         "name": "Presenter",
         "type": "modular_content",
-        "value": Array [
+        "value": [
           "ondrej_chrastina",
         ],
       },
-      "summary": Object {
-        "images": Array [],
-        "links": Array [],
-        "modular_content": Array [],
+      "summary": {
+        "images": [],
+        "links": [],
+        "modular_content": [],
         "name": "Summary",
         "type": "rich_text",
         "value": "<p>Present how it is possible to develop a custom element.</p>",
       },
     },
     "id": "dummyId-kontent_item_Another_language_9cc4f323-e59c-45af-a961-f0c98a5f1262",
-    "internal": Object {
+    "internal": {
       "contentDigest": "5169b7d50d5ac1b8ee08dc29084ff093",
       "type": "kontent_item_session",
     },
     "preferred_language": "Another_language",
-    "system": Object {
+    "system": {
       "codename": "introduction_to_the_custom_elements_development",
       "id": "9cc4f323-e59c-45af-a961-f0c98a5f1262",
       "language": "Another_language",
       "last_modified": "2019-04-29T14:46:40.6273686Z",
       "name": "Introduction to the Custom elements development",
-      "sitemap_locations": Array [],
+      "sitemap_locations": [],
       "type": "session",
     },
   },
-  Object {
-    "children": Array [],
-    "elements": Object {
-      "text": Object {
-        "images": Array [],
-        "links": Array [],
-        "modular_content": Array [],
+  {
+    "children": [],
+    "elements": {
+      "text": {
+        "images": [],
+        "links": [],
+        "modular_content": [],
         "name": "Text",
         "type": "rich_text",
         "value": "<ul>
-  <li>Implementing the&nbsp;<a href=\\"https://jqueryui.com/datepicker/\\">jQuery Datepicker</a>&nbsp;using&nbsp;<a href=\\"http://vanilla-js.com/\\">vanilla javascript</a>&nbsp;+ Htm + css. (other language)</li>
+  <li>Implementing the&nbsp;<a href="https://jqueryui.com/datepicker/">jQuery Datepicker</a>&nbsp;using&nbsp;<a href="http://vanilla-js.com/">vanilla javascript</a>&nbsp;+ Htm + css. (other language)</li>
 </ul>",
       },
     },
     "id": "dummyId-kontent_item_Another_language_3ace3379-c4cf-43bf-85de-98e707c4f202",
-    "internal": Object {
+    "internal": {
       "contentDigest": "8db75249464dbbd1570b4438afd7f9b4",
       "type": "kontent_item_step",
     },
     "preferred_language": "Another_language",
-    "system": Object {
+    "system": {
       "codename": "jquery_datapicker",
       "id": "3ace3379-c4cf-43bf-85de-98e707c4f202",
       "language": "Another_language",
       "last_modified": "2019-04-29T14:45:45.102267Z",
       "name": "jQuery Datapicker",
-      "sitemap_locations": Array [],
+      "sitemap_locations": [],
       "type": "step",
     },
   },
-  Object {
-    "children": Array [],
-    "elements": Object {
-      "text": Object {
-        "images": Array [],
-        "links": Array [],
-        "modular_content": Array [],
+  {
+    "children": [],
+    "elements": {
+      "text": {
+        "images": [],
+        "links": [],
+        "modular_content": [],
         "name": "Text",
         "type": "rich_text",
-        "value": "<p>Kontent.ai Github&nbsp;<a href=\\"https://help.github.com/en/articles/about-organizations\\">organizations</a></p>
+        "value": "<p>Kontent.ai Github&nbsp;<a href="https://help.github.com/en/articles/about-organizations">organizations</a></p>
 <ul>
   <li>KontentAiInternal - beneficial legacy billing plan (gold) paid by the number of private members (250 is the limit)</li>
-  <li>Kontent.ai - on the billing plan&nbsp;<a href=\\"https://help.github.com/en/articles/githubs-products#github-team-for-open-source\\">Github Team for opensource</a>&nbsp;with no mmebers limitation, just all repositories have to be OS</li>
+  <li>Kontent.ai - on the billing plan&nbsp;<a href="https://help.github.com/en/articles/githubs-products#github-team-for-open-source">Github Team for opensource</a>&nbsp;with no mmebers limitation, just all repositories have to be OS</li>
 </ul>",
       },
     },
     "id": "dummyId-kontent_item_Another_language_cea256ba-063d-418d-8258-458b9ba9094d",
-    "internal": Object {
+    "internal": {
       "contentDigest": "d3a28de73f94839cbf397c57bb83c9c0",
       "type": "kontent_item_step",
     },
     "preferred_language": "Another_language",
-    "system": Object {
+    "system": {
       "codename": "kontent_ai_github_organizations",
       "id": "cea256ba-063d-418d-8258-458b9ba9094d",
       "language": "default",
       "last_modified": "2019-04-01T18:49:49.3402097Z",
       "name": "Kontent.ai Github organizations",
-      "sitemap_locations": Array [],
+      "sitemap_locations": [],
       "type": "step",
     },
   },
-  Object {
-    "children": Array [],
-    "elements": Object {
-      "bio": Object {
-        "images": Array [],
-        "links": Array [],
-        "modular_content": Array [],
+  {
+    "children": [],
+    "elements": {
+      "bio": {
+        "images": [],
+        "links": [],
+        "modular_content": [],
         "name": "Bio",
         "type": "rich_text",
         "value": "<p>Some <strong>Bio</strong></p>",
       },
-      "category": Object {
+      "category": {
         "name": "Category",
         "taxonomy_group": "category",
         "type": "taxonomy",
-        "value": Array [
-          Object {
+        "value": [
+          {
             "codename": "sub_first",
             "name": "Sub-first",
           },
-          Object {
+          {
             "codename": "sub_second",
             "name": "Sub-second",
           },
         ],
       },
-      "custom_element": Object {
+      "custom_element": {
         "name": "custom element",
         "type": "custom",
         "value": "#1b058b",
       },
-      "date_of_birth": Object {
+      "date_of_birth": {
         "name": "Date of Birth",
         "type": "date_time",
         "value": "2020-03-19T00:00:00Z",
       },
-      "favorite_number": Object {
+      "favorite_number": {
         "name": "Favorite Number",
         "type": "number",
         "value": 0.1,
       },
-      "friends": Object {
+      "friends": {
         "name": "Friends",
         "type": "modular_content",
-        "value": Array [],
+        "value": [],
       },
-      "gender": Object {
+      "gender": {
         "name": "Gender",
         "type": "multiple_choice",
-        "value": Array [
-          Object {
+        "value": [
+          {
             "codename": "man",
             "name": "Man",
           },
         ],
       },
-      "name_and_surname": Object {
+      "name_and_surname": {
         "name": "Name and Surname",
         "type": "text",
         "value": "Non-default-language",
       },
-      "profile_photo": Object {
+      "profile_photo": {
         "name": "Profile Photo",
         "type": "asset",
-        "value": Array [
-          Object {
+        "value": [
+          {
             "description": null,
             "height": 888,
             "name": "me.jpg",
@@ -1324,48 +1324,48 @@ GraphQL nodes of content items contain the ordinary \`system\` and \`elements\` 
           },
         ],
       },
-      "url_slug": Object {
+      "url_slug": {
         "name": "URL slug",
         "type": "url_slug",
         "value": "non-default-language",
       },
     },
     "id": "dummyId-kontent_item_Another_language_fbac9baf-441c-446e-a300-e31f171c26de",
-    "internal": Object {
+    "internal": {
       "contentDigest": "3f09258a316d1e073bd3ad284ee7349d",
       "type": "kontent_item_person",
     },
     "preferred_language": "Another_language",
-    "system": Object {
+    "system": {
       "codename": "non_default_language",
       "id": "fbac9baf-441c-446e-a300-e31f171c26de",
       "language": "Another_language",
       "last_modified": "2020-03-17T10:59:33.006682Z",
       "name": "Non-default-language",
-      "sitemap_locations": Array [],
+      "sitemap_locations": [],
       "type": "person",
     },
   },
-  Object {
-    "children": Array [],
-    "elements": Object {
-      "bio": Object {
-        "images": Array [
-          Object {
+  {
+    "children": [],
+    "elements": {
+      "bio": {
+        "images": [
+          {
             "description": null,
             "height": 1065,
             "image_id": "fcf07d43-46d4-46ef-a58d-c7bf7a4aecb1",
             "url": "https://assets-us-01.kc-usercontent.com:443/09fc0115-dd4d-00c7-5bd9-5f73836aee81/0faa87b4-9e1e-41b8-8b38-c107cbb35147/2.jpg",
             "width": 1600,
           },
-          Object {
+          {
             "description": null,
             "height": 920,
             "image_id": "8d1adb2e-ee09-4c94-8758-f23be1e4969a",
             "url": "https://assets-us-01.kc-usercontent.com:443/09fc0115-dd4d-00c7-5bd9-5f73836aee81/c6f94bd6-71ab-4499-98dd-d9ec39bc1a1f/1.jpg",
             "width": 610,
           },
-          Object {
+          {
             "description": null,
             "height": 810,
             "image_id": "e268e8be-3d5e-4ba8-887c-49b357784d94",
@@ -1373,15 +1373,15 @@ GraphQL nodes of content items contain the ordinary \`system\` and \`elements\` 
             "width": 1080,
           },
         ],
-        "links": Array [
-          Object {
+        "links": [
+          {
             "codename": "developer_community_site",
             "link_id": "59002186-1886-48f3-b8ba-6f053b5cf777",
             "type": "website",
             "url_slug": "",
           },
         ],
-        "modular_content": Array [
+        "modular_content": [
           "developer_community_site",
           "e76716e9_bcf0_01ad_2031_4d08701b3a3f",
         ],
@@ -1391,64 +1391,64 @@ GraphQL nodes of content items contain the ordinary \`system\` and \`elements\` 
 Other language content: <br>
 Currently I am interested in Gatsby.js. I have released the third version of Gatsby source plugin.<br>
 </p>
-<object type=\\"application/kenticocloud\\" data-type=\\"item\\" data-rel=\\"component\\" data-codename=\\"e76716e9_bcf0_01ad_2031_4d08701b3a3f\\"></object>
+<object type="application/kenticocloud" data-type="item" data-rel="component" data-codename="e76716e9_bcf0_01ad_2031_4d08701b3a3f"></object>
 <p><br></p>
 <p>Interesting in exploring how storytelling and targeted messaging create business-changing content.</p>
-<p>As an Developer Advocate, I am responsible for running <a href=\\"https://github.com/kontent-ai\\">Kontent.ai Github organization</a>, implementing inbound marketing strategies like <a data-item-id=\\"59002186-1886-48f3-b8ba-6f053b5cf777\\" href=\\"\\">Developer Community site&nbsp;</a> that help increase brand awareness of Kontent.ai as an opensource friendly company and acquire new developers.</p>
-<object type=\\"application/kenticocloud\\" data-type=\\"item\\" data-rel=\\"link\\" data-codename=\\"developer_community_site\\"></object>
-<p>When I am not working, you’ll find me doing some sports, travelling, or in a <a data-asset-id=\\"e268e8be-3d5e-4ba8-887c-49b357784d94\\" href=\\"https://assets-us-01.kc-usercontent.com:443/09fc0115-dd4d-00c7-5bd9-5f73836aee81/78a90563-27b0-4f7c-9213-dc3b4cf840a0/3.jpg\\">pub</a>.<br>
+<p>As an Developer Advocate, I am responsible for running <a href="https://github.com/kontent-ai">Kontent.ai Github organization</a>, implementing inbound marketing strategies like <a data-item-id="59002186-1886-48f3-b8ba-6f053b5cf777" href="">Developer Community site&nbsp;</a> that help increase brand awareness of Kontent.ai as an opensource friendly company and acquire new developers.</p>
+<object type="application/kenticocloud" data-type="item" data-rel="link" data-codename="developer_community_site"></object>
+<p>When I am not working, you’ll find me doing some sports, travelling, or in a <a data-asset-id="e268e8be-3d5e-4ba8-887c-49b357784d94" href="https://assets-us-01.kc-usercontent.com:443/09fc0115-dd4d-00c7-5bd9-5f73836aee81/78a90563-27b0-4f7c-9213-dc3b4cf840a0/3.jpg">pub</a>.<br>
 </p>
-<figure data-asset-id=\\"fcf07d43-46d4-46ef-a58d-c7bf7a4aecb1\\" data-image-id=\\"fcf07d43-46d4-46ef-a58d-c7bf7a4aecb1\\"><img src=\\"https://assets-us-01.kc-usercontent.com:443/09fc0115-dd4d-00c7-5bd9-5f73836aee81/0faa87b4-9e1e-41b8-8b38-c107cbb35147/2.jpg\\" data-asset-id=\\"fcf07d43-46d4-46ef-a58d-c7bf7a4aecb1\\" data-image-id=\\"fcf07d43-46d4-46ef-a58d-c7bf7a4aecb1\\" alt=\\"\\"></figure>
-<figure data-asset-id=\\"8d1adb2e-ee09-4c94-8758-f23be1e4969a\\" data-image-id=\\"8d1adb2e-ee09-4c94-8758-f23be1e4969a\\"><img src=\\"https://assets-us-01.kc-usercontent.com:443/09fc0115-dd4d-00c7-5bd9-5f73836aee81/c6f94bd6-71ab-4499-98dd-d9ec39bc1a1f/1.jpg\\" data-asset-id=\\"8d1adb2e-ee09-4c94-8758-f23be1e4969a\\" data-image-id=\\"8d1adb2e-ee09-4c94-8758-f23be1e4969a\\" alt=\\"\\"></figure>
-<figure data-asset-id=\\"e268e8be-3d5e-4ba8-887c-49b357784d94\\" data-image-id=\\"e268e8be-3d5e-4ba8-887c-49b357784d94\\"><img src=\\"https://assets-us-01.kc-usercontent.com:443/09fc0115-dd4d-00c7-5bd9-5f73836aee81/78a90563-27b0-4f7c-9213-dc3b4cf840a0/3.jpg\\" data-asset-id=\\"e268e8be-3d5e-4ba8-887c-49b357784d94\\" data-image-id=\\"e268e8be-3d5e-4ba8-887c-49b357784d94\\" alt=\\"\\"></figure>
+<figure data-asset-id="fcf07d43-46d4-46ef-a58d-c7bf7a4aecb1" data-image-id="fcf07d43-46d4-46ef-a58d-c7bf7a4aecb1"><img src="https://assets-us-01.kc-usercontent.com:443/09fc0115-dd4d-00c7-5bd9-5f73836aee81/0faa87b4-9e1e-41b8-8b38-c107cbb35147/2.jpg" data-asset-id="fcf07d43-46d4-46ef-a58d-c7bf7a4aecb1" data-image-id="fcf07d43-46d4-46ef-a58d-c7bf7a4aecb1" alt=""></figure>
+<figure data-asset-id="8d1adb2e-ee09-4c94-8758-f23be1e4969a" data-image-id="8d1adb2e-ee09-4c94-8758-f23be1e4969a"><img src="https://assets-us-01.kc-usercontent.com:443/09fc0115-dd4d-00c7-5bd9-5f73836aee81/c6f94bd6-71ab-4499-98dd-d9ec39bc1a1f/1.jpg" data-asset-id="8d1adb2e-ee09-4c94-8758-f23be1e4969a" data-image-id="8d1adb2e-ee09-4c94-8758-f23be1e4969a" alt=""></figure>
+<figure data-asset-id="e268e8be-3d5e-4ba8-887c-49b357784d94" data-image-id="e268e8be-3d5e-4ba8-887c-49b357784d94"><img src="https://assets-us-01.kc-usercontent.com:443/09fc0115-dd4d-00c7-5bd9-5f73836aee81/78a90563-27b0-4f7c-9213-dc3b4cf840a0/3.jpg" data-asset-id="e268e8be-3d5e-4ba8-887c-49b357784d94" data-image-id="e268e8be-3d5e-4ba8-887c-49b357784d94" alt=""></figure>
 <p><br></p>",
       },
-      "category": Object {
+      "category": {
         "name": "Category",
         "taxonomy_group": "category",
         "type": "taxonomy",
-        "value": Array [],
+        "value": [],
       },
-      "custom_element": Object {
+      "custom_element": {
         "name": "custom element",
         "type": "custom",
         "value": null,
       },
-      "date_of_birth": Object {
+      "date_of_birth": {
         "name": "Date of Birth",
         "type": "date_time",
         "value": "1991-07-24T00:00:00Z",
       },
-      "favorite_number": Object {
+      "favorite_number": {
         "name": "Favorite Number",
         "type": "number",
         "value": 33,
       },
-      "friends": Object {
+      "friends": {
         "name": "Friends",
         "type": "modular_content",
-        "value": Array [],
+        "value": [],
       },
-      "gender": Object {
+      "gender": {
         "name": "Gender",
         "type": "multiple_choice",
-        "value": Array [
-          Object {
+        "value": [
+          {
             "codename": "man",
             "name": "Man",
           },
         ],
       },
-      "name_and_surname": Object {
+      "name_and_surname": {
         "name": "Name and Surname",
         "type": "text",
         "value": "Ondřej Chrastina (another language)",
       },
-      "profile_photo": Object {
+      "profile_photo": {
         "name": "Profile Photo",
         "type": "asset",
-        "value": Array [
-          Object {
+        "value": [
+          {
             "description": null,
             "height": 218,
             "name": "profil.png",
@@ -1459,85 +1459,85 @@ Currently I am interested in Gatsby.js. I have released the third version of Gat
           },
         ],
       },
-      "url_slug": Object {
+      "url_slug": {
         "name": "URL slug",
         "type": "url_slug",
         "value": "ondrej-chrastina-another-language",
       },
     },
     "id": "dummyId-kontent_item_Another_language_d72eea98-774f-48fc-b52a-7ebc51271855",
-    "internal": Object {
+    "internal": {
       "contentDigest": "08de6110ee37e59a0f57cef3417eb7ad",
       "type": "kontent_item_person",
     },
     "preferred_language": "Another_language",
-    "system": Object {
+    "system": {
       "codename": "ondrej_chrastina",
       "id": "d72eea98-774f-48fc-b52a-7ebc51271855",
       "language": "Another_language",
       "last_modified": "2019-04-29T15:43:09.3595318Z",
       "name": "Ondřej Chrastina",
-      "sitemap_locations": Array [],
+      "sitemap_locations": [],
       "type": "person",
     },
   },
-  Object {
-    "children": Array [],
-    "elements": Object {
-      "author": Object {
+  {
+    "children": [],
+    "elements": {
+      "author": {
         "name": "Author",
         "type": "modular_content",
-        "value": Array [
+        "value": [
           "ondrej_chrastina",
         ],
       },
-      "description": Object {
-        "images": Array [],
-        "links": Array [],
-        "modular_content": Array [],
+      "description": {
+        "images": [],
+        "links": [],
+        "modular_content": [],
         "name": "Description",
         "type": "rich_text",
         "value": "<p>The training should make the clear picture about the Konten.ai opensource activities. (other language)</p>",
       },
-      "name": Object {
+      "name": {
         "name": "Name",
         "type": "text",
         "value": "Open-source training 2019",
       },
-      "sessions": Object {
+      "sessions": {
         "name": "Sessions",
         "type": "modular_content",
-        "value": Array [
+        "value": [
           "introduction_to_the_custom_elements_development",
         ],
       },
     },
     "id": "dummyId-kontent_item_Another_language_aae6c1cf-1d20-4a0e-949b-65a5d1bb7c8f",
-    "internal": Object {
+    "internal": {
       "contentDigest": "aab6a4855775aea5325663f86a454971",
       "type": "kontent_item_training",
     },
     "preferred_language": "Another_language",
-    "system": Object {
+    "system": {
       "codename": "open_source_training_2019",
       "id": "aae6c1cf-1d20-4a0e-949b-65a5d1bb7c8f",
       "language": "Another_language",
       "last_modified": "2019-04-29T14:47:05.7940332Z",
       "name": "Open-source training 2019",
-      "sitemap_locations": Array [],
+      "sitemap_locations": [],
       "type": "training",
     },
   },
-  Object {
-    "children": Array [],
-    "elements": Object {
-      "text": Object {
-        "images": Array [],
-        "links": Array [],
-        "modular_content": Array [],
+  {
+    "children": [],
+    "elements": {
+      "text": {
+        "images": [],
+        "links": [],
+        "modular_content": [],
         "name": "Text",
         "type": "rich_text",
-        "value": "<p><a href=\\"https://github.com/orgs/kontent-ai/projects\\">Projects</a></p>
+        "value": "<p><a href="https://github.com/orgs/kontent-ai/projects">Projects</a></p>
 <ul>
   <li>Purpose - organize issue cross repositories in specified stack
     <ul>
@@ -1547,31 +1547,31 @@ Currently I am interested in Gatsby.js. I have released the third version of Gat
       },
     },
     "id": "dummyId-kontent_item_Another_language_00b305ad-2f05-4899-9c14-17ea62d0032f",
-    "internal": Object {
+    "internal": {
       "contentDigest": "02319d296f1a77c69850a16dd24b9cf9",
       "type": "kontent_item_step",
     },
     "preferred_language": "Another_language",
-    "system": Object {
+    "system": {
       "codename": "projects",
       "id": "00b305ad-2f05-4899-9c14-17ea62d0032f",
       "language": "default",
       "last_modified": "2019-04-01T18:52:39.348748Z",
       "name": "Projects",
-      "sitemap_locations": Array [],
+      "sitemap_locations": [],
       "type": "step",
     },
   },
-  Object {
-    "children": Array [],
-    "elements": Object {
-      "text": Object {
-        "images": Array [],
-        "links": Array [],
-        "modular_content": Array [],
+  {
+    "children": [],
+    "elements": {
+      "text": {
+        "images": [],
+        "links": [],
+        "modular_content": [],
         "name": "Text",
         "type": "rich_text",
-        "value": "<p><a href=\\"https://github.com/kontent-ai\\">Repositories</a></p>
+        "value": "<p><a href="https://github.com/kontent-ai">Repositories</a></p>
 <ul>
   <li>Groups&nbsp;
     <ul>
@@ -1585,76 +1585,76 @@ Currently I am interested in Gatsby.js. I have released the third version of Gat
   <li>Naming conventions for repository name</li>
   <li>Kontent.ai github repository (special one)
     <ul>
-      <li>Go through the wiki articles:&nbsp;<a href=\\"https://github.com/kontent-ai/.github/wiki\\">https://github.com/kontent-ai/.github/wiki</a></li>
-      <li>Describe&nbsp;<a href=\\"https://github.com/kontent-ai/repo-template\\">Code of conduct</a>&nbsp;and&nbsp;<a href=\\"https://github.com/kontent-ai/repo-template\\">Contributing</a></li>
+      <li>Go through the wiki articles:&nbsp;<a href="https://github.com/kontent-ai/.github/wiki">https://github.com/kontent-ai/.github/wiki</a></li>
+      <li>Describe&nbsp;<a href="https://github.com/kontent-ai/repo-template">Code of conduct</a>&nbsp;and&nbsp;<a href="https://github.com/kontent-ai/repo-template">Contributing</a></li>
     </ul>
   </li>
 </ul>",
       },
     },
     "id": "dummyId-kontent_item_Another_language_ea15d7bc-7d8f-4ded-9795-0e615b31316e",
-    "internal": Object {
+    "internal": {
       "contentDigest": "33ffdb75bde69ba9531e4e1dc9991f00",
       "type": "kontent_item_step",
     },
     "preferred_language": "Another_language",
-    "system": Object {
+    "system": {
       "codename": "repositories",
       "id": "ea15d7bc-7d8f-4ded-9795-0e615b31316e",
       "language": "default",
       "last_modified": "2019-04-01T18:52:12.4177018Z",
       "name": "Repositories",
-      "sitemap_locations": Array [],
+      "sitemap_locations": [],
       "type": "step",
     },
   },
-  Object {
-    "children": Array [],
-    "elements": Object {
-      "text": Object {
-        "images": Array [],
-        "links": Array [],
-        "modular_content": Array [],
+  {
+    "children": [],
+    "elements": {
+      "text": {
+        "images": [],
+        "links": [],
+        "modular_content": [],
         "name": "Text",
         "type": "rich_text",
-        "value": "<p><a href=\\"https://stackoverflow.com/tags/kentico-cloud\\">Stack overflow</a></p>
+        "value": "<p><a href="https://stackoverflow.com/tags/kentico-cloud">Stack overflow</a></p>
 <ul>
   <li>Purpose - ask anything, better for complex questions than submitting question issue, which should be focused on the repository only</li>
 </ul>",
       },
     },
     "id": "dummyId-kontent_item_Another_language_a89518c5-82b9-457e-8cbd-a8719f8a3bdb",
-    "internal": Object {
+    "internal": {
       "contentDigest": "036a8d997c7749532c5ebf96dec536a4",
       "type": "kontent_item_step",
     },
     "preferred_language": "Another_language",
-    "system": Object {
+    "system": {
       "codename": "stack_overflow",
       "id": "a89518c5-82b9-457e-8cbd-a8719f8a3bdb",
       "language": "default",
       "last_modified": "2019-04-01T18:53:50.3351338Z",
       "name": "Stack overflow",
-      "sitemap_locations": Array [],
+      "sitemap_locations": [],
       "type": "step",
     },
   },
-  Object {
-    "children": Array [],
-    "elements": Object {
-      "text": Object {
-        "images": Array [],
-        "links": Array [],
-        "modular_content": Array [],
+  {
+    "children": [],
+    "elements": {
+      "text": {
+        "images": [],
+        "links": [],
+        "modular_content": [],
         "name": "Text",
         "type": "rich_text",
         "value": "<ul>
   <li>Teams are for organizing people to groups, they are used for permissions setup, interest grouping etc...
     <ul>
-      <li>Description of the teams are described&nbsp;<a href=\\"https://github.com/kontent-ai/.github/wiki/Guidelines-for-GitHub-permissions-in-Kontent-ai-organization\\">publicly</a></li>
+      <li>Description of the teams are described&nbsp;<a href="https://github.com/kontent-ai/.github/wiki/Guidelines-for-GitHub-permissions-in-Kontent-ai-organization">publicly</a></li>
     </ul>
   </li>
-  <li><a href=\\"https://github.com/orgs/kontent-ai/people\\">People</a>
+  <li><a href="https://github.com/orgs/kontent-ai/people">People</a>
     <ul>
       <li>Github user has to be invited by the organization admin</li>
       <li>No out of the box way to request invitation right now</li>
@@ -1664,25 +1664,25 @@ Currently I am interested in Gatsby.js. I have released the third version of Gat
       },
     },
     "id": "dummyId-kontent_item_Another_language_4a0ed14b-fe95-41f7-938f-000b9a400539",
-    "internal": Object {
+    "internal": {
       "contentDigest": "f4e4eb8c263cc91606ffff9b0362c3ba",
       "type": "kontent_item_step",
     },
     "preferred_language": "Another_language",
-    "system": Object {
+    "system": {
       "codename": "teams_and_people",
       "id": "4a0ed14b-fe95-41f7-938f-000b9a400539",
       "language": "default",
       "last_modified": "2019-04-01T18:51:04.1737989Z",
       "name": "Teams and people",
-      "sitemap_locations": Array [],
+      "sitemap_locations": [],
       "type": "step",
     },
   },
-  Object {
-    "children": Array [],
-    "elements": Object {
-      "description": Object {
+  {
+    "children": [],
+    "elements": {
+      "description": {
         "name": "Description",
         "type": "custom",
         "value": "*Other language: *
@@ -1700,40 +1700,40 @@ The node names are prefixed with \`kontent\`. More specifically, content type no
 
 GraphQL nodes of content items contain the ordinary \`system\` and \`elements\` properties. However, the properties inside \`elements\` always have an internal structure that the aforementioned Delivery SDK produces with **modifications** described in following section.",
       },
-      "name": Object {
+      "name": {
         "name": "Name",
         "type": "text",
         "value": "Other language: Gatsby source plugin for Kontent.ai",
       },
-      "url": Object {
+      "url": {
         "name": "URL",
         "type": "text",
         "value": "https://github.com/kontent-ai/gatsby-packages/tree/master/packages/gatsby-source",
       },
     },
     "id": "dummyId-kontent_item_Another_language_e76716e9-bcf0-01ad-2031-4d08701b3a3f",
-    "internal": Object {
+    "internal": {
       "contentDigest": "4e758bcd3921a930297496c54d7af6a1",
       "type": "kontent_item_repository",
     },
     "preferred_language": "Another_language",
-    "system": Object {
+    "system": {
       "codename": "e76716e9_bcf0_01ad_2031_4d08701b3a3f",
       "id": "e76716e9-bcf0-01ad-2031-4d08701b3a3f",
       "language": "Another_language",
       "last_modified": "2019-04-29T15:43:09.3595318Z",
       "name": "e76716e9-bcf0-01ad-2031-4d08701b3a3f",
-      "sitemap_locations": Array [],
+      "sitemap_locations": [],
       "type": "repository",
     },
   },
-  Object {
-    "children": Array [],
-    "elements": Object {
-      "text": Object {
-        "images": Array [],
-        "links": Array [],
-        "modular_content": Array [],
+  {
+    "children": [],
+    "elements": {
+      "text": {
+        "images": [],
+        "links": [],
+        "modular_content": [],
         "name": "Text",
         "type": "rich_text",
         "value": "<p>(other language)<br>
@@ -1746,28 +1746,28 @@ Choose an example I have showed you and extend it</p>
       },
     },
     "id": "dummyId-kontent_item_Another_language_f37dfa2e-0aa6-01ef-6f1e-f374c7fe3356",
-    "internal": Object {
+    "internal": {
       "contentDigest": "273e36875c2438f8a66e81d18b2872a6",
       "type": "kontent_item_step",
     },
     "preferred_language": "Another_language",
-    "system": Object {
+    "system": {
       "codename": "f37dfa2e_0aa6_01ef_6f1e_f374c7fe3356",
       "id": "f37dfa2e-0aa6-01ef-6f1e-f374c7fe3356",
       "language": "Another_language",
       "last_modified": "2019-04-29T14:46:40.6273686Z",
       "name": "f37dfa2e-0aa6-01ef-6f1e-f374c7fe3356",
-      "sitemap_locations": Array [],
+      "sitemap_locations": [],
       "type": "step",
     },
   },
-  Object {
-    "children": Array [],
-    "elements": Object {
-      "text": Object {
-        "images": Array [],
-        "links": Array [],
-        "modular_content": Array [],
+  {
+    "children": [],
+    "elements": {
+      "text": {
+        "images": [],
+        "links": [],
+        "modular_content": [],
         "name": "Text",
         "type": "rich_text",
         "value": "<ul>
@@ -1776,18 +1776,18 @@ Choose an example I have showed you and extend it</p>
       },
     },
     "id": "dummyId-kontent_item_Another_language_32ee0075-0b25-0105-503d-b8fc0eb3cc6e",
-    "internal": Object {
+    "internal": {
       "contentDigest": "a05cbdcc9be61a8ccc6c753033f0de8b",
       "type": "kontent_item_step",
     },
     "preferred_language": "Another_language",
-    "system": Object {
+    "system": {
       "codename": "n32ee0075_0b25_0105_503d_b8fc0eb3cc6e",
       "id": "32ee0075-0b25-0105-503d-b8fc0eb3cc6e",
       "language": "Another_language",
       "last_modified": "2019-04-29T14:46:40.6273686Z",
       "name": "32ee0075-0b25-0105-503d-b8fc0eb3cc6e",
-      "sitemap_locations": Array [],
+      "sitemap_locations": [],
       "type": "step",
     },
   },

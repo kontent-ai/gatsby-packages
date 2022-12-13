@@ -7,7 +7,7 @@ import { createContentDigest } from 'gatsby-core-utils';
 // TODO fix lint error
 import * as complexTaxonomiesFakeResponse from './complexTaxonomiesFakeResponse.json';
 
-import { mocked } from 'ts-jest/dist/util/testing';
+import { jest } from '@jest/globals';
 import * as _ from 'lodash';
 import axios from 'axios';
 jest.mock('axios');
@@ -18,7 +18,7 @@ describe('sourceNodes', () => {
     const api = createMock<SourceNodesArgs>({
       createNodeId: jest.fn(input => `dummyId-${input}`),
       actions: createMock<Actions>({
-        createNode: jest.fn(),
+        createNode: jest.fn(() => Promise.resolve()),
       }),
       createContentDigest,
     });
@@ -27,7 +27,7 @@ describe('sourceNodes', () => {
       projectId: 'dummyProject',
     });
 
-    mockedAxios.get.mockImplementation(url => {
+    mockedAxios.get.mockImplementation((url): Promise<any> => {
       if (url.includes('taxonomies')) {
         return Promise.resolve({
           data: complexTaxonomiesFakeResponse,
@@ -40,7 +40,7 @@ describe('sourceNodes', () => {
 
     it('import all taxonomies correctly', async () => {
       await kontentTaxonomiesSourceNodes(api, pluginConfiguration);
-      const createNodesMock = mocked(api.actions.createNode, true);
+      const createNodesMock = jest.mocked(api.actions.createNode);
       const createdNodes = _.flatMap(
         createNodesMock.mock.calls,
       ) as KontentTaxonomy[];

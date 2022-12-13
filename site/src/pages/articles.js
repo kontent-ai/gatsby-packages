@@ -16,7 +16,7 @@ const Articles = (props) => {
         return (<div style={{ padding: ".5em", margin: ".5em", background: "silver" }}>
           <div>
             <strong>({variant.preferred_language}{variant.preferred_language !== variant.system.language ? ` -> ${variant.system.language}` : null})</strong>
-              Title: {variant.elements.title.value}
+            Title: {variant.elements.title.value}
           </div>
           <div>Description: {variant.elements.description.value}</div>
           <div style={{ padding: "0.5em", display: "flex", flexWrap: "wrap" }}>{tags}</div>
@@ -42,9 +42,9 @@ const Articles = (props) => {
 
 export const query = graphql`
 {
-  allKontentItemArticle(sort: {order: DESC, fields: system___last_modified}) {
+  allKontentItemArticle(sort: {system: {last_modified: DESC}}) {
     totalCount
-    group(field: system___id) {
+    group(field: {system: {id: SELECT}}) {
       nodes {
         id
         preferred_language

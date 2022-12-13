@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<ImageElement /> renders the correct image 1`] = `
-Object {
+{
   "sizes": "(min-width: 500px) 500px, 100vw",
   "src": "https://assets-us-01.kc-usercontent.com:443/0fe3ab32-97a8-005d-6928-eda983ea70a5/44299668-b37b-4224-a115-1fd66f7d7b36/Yprofile.jpg?w=500&h=500&auto=format&fit=crop",
   "srcSet": "https://assets-us-01.kc-usercontent.com:443/0fe3ab32-97a8-005d-6928-eda983ea70a5/44299668-b37b-4224-a115-1fd66f7d7b36/Yprofile.jpg?w=125&h=125&auto=format&fit=crop 125w,https://assets-us-01.kc-usercontent.com:443/0fe3ab32-97a8-005d-6928-eda983ea70a5/44299668-b37b-4224-a115-1fd66f7d7b36/Yprofile.jpg?w=250&h=250&auto=format&fit=crop 250w,https://assets-us-01.kc-usercontent.com:443/0fe3ab32-97a8-005d-6928-eda983ea70a5/44299668-b37b-4224-a115-1fd66f7d7b36/Yprofile.jpg?w=500&h=500&auto=format&fit=crop 500w",
@@ -9,7 +9,7 @@ Object {
 `;
 
 exports[`<ImageElement /> renders the correct image with correct options 1`] = `
-Object {
+{
   "sizes": "(min-width: 500px) 500px, 100vw",
   "src": "https://assets-us-01.kc-usercontent.com:443/0fe3ab32-97a8-005d-6928-eda983ea70a5/44299668-b37b-4224-a115-1fd66f7d7b36/Yprofile.jpg?w=500&h=500&auto=format&q=77&lossless=false&fit=clip",
   "srcSet": "https://assets-us-01.kc-usercontent.com:443/0fe3ab32-97a8-005d-6928-eda983ea70a5/44299668-b37b-4224-a115-1fd66f7d7b36/Yprofile.jpg?w=125&h=125&auto=format&q=77&lossless=false&fit=clip 125w,https://assets-us-01.kc-usercontent.com:443/0fe3ab32-97a8-005d-6928-eda983ea70a5/44299668-b37b-4224-a115-1fd66f7d7b36/Yprofile.jpg?w=250&h=250&auto=format&q=77&lossless=false&fit=clip 250w,https://assets-us-01.kc-usercontent.com:443/0fe3ab32-97a8-005d-6928-eda983ea70a5/44299668-b37b-4224-a115-1fd66f7d7b36/Yprofile.jpg?w=500&h=500&auto=format&q=77&lossless=false&fit=clip 500w",

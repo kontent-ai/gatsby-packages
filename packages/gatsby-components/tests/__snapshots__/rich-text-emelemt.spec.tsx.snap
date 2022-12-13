@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<RichTextElement/> Complex rich-text value - render properly no resolution 1`] = `
-Array [
+[
   <p>
     This is Ondřej Chrastina - Developer Advocate with 
     <a
@@ -134,7 +134,7 @@ exports[`<RichTextElement/> Empty rich-text value - render properly 1`] = `
 `;
 
 exports[`<RichTextElement/> Resolve geneal node - wrap table element 1`] = `
-Array [
+[
   <p>
     This is Ondřej Chrastina - Developer Advocate with 
     <a
@@ -265,7 +265,7 @@ On some projects, he was cooperating with
 `;
 
 exports[`<RichTextElement/> Resolve images 1`] = `
-Array [
+[
   <p>
     This is Ondřej Chrastina - Developer Advocate with 
     <a
@@ -385,7 +385,7 @@ On some projects, he was cooperating with
 `;
 
 exports[`<RichTextElement/> Resolve linked items 1`] = `
-Array [
+[
   <p>
     This is Ondřej Chrastina - Developer Advocate with 
     <a
@@ -581,7 +581,7 @@ On some projects, he was cooperating with
 `;
 
 exports[`<RichTextElement/> Resolve links 1`] = `
-Array [
+[
   <p>
     This is Ondřej Chrastina - Developer Advocate with 
     <a
@@ -707,7 +707,7 @@ On some projects, he was cooperating with
 `;
 
 exports[`<RichTextElement/> Resolve links 2`] = `
-Array [
+[
   <p>
     This is the page text.
   </p>,
