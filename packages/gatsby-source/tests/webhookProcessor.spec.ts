@@ -14,7 +14,7 @@ const USED_BY_UNPUBLISHED_ITEM_ID = USED_BY_UNPUBLISHED_ITEM.item.system.id;
 const PROJECT_ID = "00676a8d-358c-0084-f2f2-33ed466c480a";
 const LANGUAGE = "en-US";
 
-import { mocked } from 'ts-jest/dist/util/testing';
+import { jest } from '@jest/globals';
 
 const idGenerator = (input: string): string => `dummyId-${input}`;
 
@@ -95,7 +95,7 @@ describe('preview delivery API triggers', () => {
       } as any,
       createNodeId: jest.fn(idGenerator),
       actions: createMock<Actions>({
-        createNode: jest.fn(),
+        createNode: jest.fn(() => Promise.resolve()),
       }),
       createContentDigest,
     });
@@ -103,7 +103,7 @@ describe('preview delivery API triggers', () => {
     it('call createNode action for modular content as well', async () => {
       await handleIncomingWebhook(api, pluginConfiguration, []);
 
-      const createNodesMock = mocked(api.actions.createNode, true);
+      const createNodesMock = jest.mocked(api.actions.createNode);
       const createdNodes = _.flatMap(
         createNodesMock.mock.calls,
       ) as KontentItem[];
@@ -249,7 +249,7 @@ describe('preview delivery API triggers', () => {
     it('call deleteNode action for modular content as well', async () => {
       await handleIncomingWebhook(api, pluginConfiguration, []);
 
-      const deletedNodesMock = mocked(api.actions.deleteNode, true);
+      const deletedNodesMock = jest.mocked(api.actions.deleteNode);
       const deletedNodes = _.flatMap(
         deletedNodesMock.mock.calls,
       ) as KontentItem[];
@@ -312,7 +312,7 @@ describe('production delivery API triggers', () => {
       createNodeId: jest.fn(idGenerator),
       getNode: jest.fn(() => unpublishedContentItemNode),
       actions: createMock<Actions>({
-        createNode: jest.fn(),
+        createNode: jest.fn(() => Promise.resolve()),
         deleteNode: jest.fn(),
       }),
       createContentDigest,
@@ -321,11 +321,11 @@ describe('production delivery API triggers', () => {
     it('call deleteNode action for unpublished content item and upsert for related item', async () => {
       await handleIncomingWebhook(api, pluginConfiguration, []);
 
-      const deletedNodesMock = mocked(api.actions.deleteNode, true);
+      const deletedNodesMock = jest.mocked(api.actions.deleteNode);
       const deletedNodes = _.flatMap(
         deletedNodesMock.mock.calls,
       ) as KontentItem[];
-      const createNodesMock = mocked(api.actions.createNode, true);
+      const createNodesMock = jest.mocked(api.actions.createNode);
       const createdNodes = _.flatMap(
         createNodesMock.mock.calls,
       ) as KontentItem[];
@@ -366,7 +366,7 @@ describe('production delivery API triggers', () => {
       } as any,
       createNodeId: jest.fn(idGenerator),
       actions: createMock<Actions>({
-        createNode: jest.fn(),
+        createNode: jest.fn(() => Promise.resolve()),
       }),
       createContentDigest,
     });
@@ -374,7 +374,7 @@ describe('production delivery API triggers', () => {
     it('call createNode action for modular content as well', async () => {
       await handleIncomingWebhook(api, pluginConfiguration, []);
 
-      const createNodesMock = mocked(api.actions.createNode, true);
+      const createNodesMock = jest.mocked(api.actions.createNode);
       const createdNodes = _.flatMap(
         createNodesMock.mock.calls,
       ) as KontentItem[];
@@ -421,7 +421,7 @@ describe('management API triggers', () => {
       } as any,
       createNodeId: jest.fn(idGenerator),
       actions: createMock<Actions>({
-        createNode: jest.fn(),
+        createNode: jest.fn(() => Promise.resolve())
       }),
       createContentDigest,
     });
@@ -430,7 +430,7 @@ describe('management API triggers', () => {
     it('does not call createNode actions when turned off', async () => {
       await handleIncomingWebhook(api, pluginConfiguration, []);
 
-      const createNodesMock = mocked(api.actions.createNode, true);
+      const createNodesMock = jest.mocked(api.actions.createNode);
       const createdNodes = _.flatMap(
         createNodesMock.mock.calls,
       ) as KontentItem[];
@@ -449,7 +449,7 @@ describe('management API triggers', () => {
 
       await handleIncomingWebhook(api, experimentalPluginConfiguration, []);
 
-      const createNodesMock = mocked(api.actions.createNode, true);
+      const createNodesMock = jest.mocked(api.actions.createNode);
       const createdNodes = _.flatMap(
         createNodesMock.mock.calls,
       ) as KontentItem[];

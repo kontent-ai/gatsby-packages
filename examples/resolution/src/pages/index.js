@@ -53,7 +53,7 @@ const Index = ({ data }) => (
 
 export const query = graphql`
 query AllUrlQuery {
-  allKontentItemPerson(sort: {order: ASC, fields: elements___name___value}) {
+  allKontentItemPerson(sort: {elements: {name: {value: ASC}}}) {
     nodes {
       __typename
       elements {
@@ -66,7 +66,7 @@ query AllUrlQuery {
       }
     }
   }
-  allKontentItemWebsite(sort: {order: ASC, fields: elements___name___value}) {
+  allKontentItemWebsite(sort: {elements: {name: {value: ASC}}}) {
     nodes {
       __typename
       elements {
@@ -79,7 +79,7 @@ query AllUrlQuery {
       }
     }
   }
-  allKontentItemRepository(sort: {fields: elements___name___value, order: ASC}) {
+  allKontentItemRepository(sort: {elements: {name: {value: ASC}}}) {
     nodes {
       __typename
       elements {

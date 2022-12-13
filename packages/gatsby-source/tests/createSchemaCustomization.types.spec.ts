@@ -1,7 +1,8 @@
 import { kontentTypesCreateSchemaCustomization } from '../src/createSchemaCustomization.types';
 import { createMock } from 'ts-auto-mock';
 import { Actions, CreateSchemaCustomizationArgs } from 'gatsby';
-import { mocked } from 'ts-jest/dist/util/testing';
+import { jest } from '@jest/globals';
+
 
 describe('kontentTypesCreateSchemaCustomization', () => {
   it('create fixed type definition', () => {
@@ -12,7 +13,7 @@ describe('kontentTypesCreateSchemaCustomization', () => {
     });
 
     kontentTypesCreateSchemaCustomization(api);
-    const createTypesMock = mocked(api.actions.createTypes, true);
+    const createTypesMock = jest.mocked(api.actions.createTypes);
     expect(createTypesMock).toBeCalledTimes(1);
     // Fix schema
     expect(createTypesMock.mock.calls[0][0]).toMatchSnapshot();

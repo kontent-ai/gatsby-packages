@@ -21,7 +21,7 @@
   ],
   "scripts": {
     "lint": "npm run lint --workspaces",
-    "lint:fix": "run lint --workspaces -- --fix",
+    "lint:fix": "npm run lint --workspaces -- --fix",
     "test": "npm run test --workspaces",
     "clean:site": "npm run clean --workspace=@kontent-ai/gatsby-starter-kontent-hello-world",
     "build": "npm run build --workspaces",

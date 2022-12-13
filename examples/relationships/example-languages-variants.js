@@ -25,7 +25,7 @@ const linkLanguageVariants = (api, typeCodename) => {
         type: `[${type}]`,
         // https://www.gatsbyjs.org/docs/schema-customization/
         resolve: async (source, _args, context, _info) => {
-          const pluginInfo = await context.nodeModel.runQuery({
+          const pluginInfo = await context.nodeModel.findOne({
             query: {
               filter: {
                 name: {
@@ -34,14 +34,13 @@ const linkLanguageVariants = (api, typeCodename) => {
               },
             },
             type: "SitePlugin",
-            firstOnly: true,
           })
 
           const otherLanguageCodenames = pluginInfo.pluginOptions.languageCodenames.filter(
             lang => lang !== source.system.language // filter out the actual language variants
           )
 
-          const promises = otherLanguageCodenames.map(otherLanguage => context.nodeModel.runQuery({
+          const promises = otherLanguageCodenames.map(otherLanguage => context.nodeModel.findOne({
             query: {
               filter: {
                 system: {
@@ -58,8 +57,7 @@ const linkLanguageVariants = (api, typeCodename) => {
                 },
               },
             },
-            type: type,
-            firstOnly: true,
+            type: type
           }))
 
           const otherLanguageNodes = await Promise
