@@ -30,6 +30,7 @@ describe('kontentItemsSourceNodes', () => {
       languageCodenames: ['default', 'Another_language'],
     });
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     mockedAxios.get.mockImplementation((url): Promise<any> => {
       if (url.includes('default')) {
         return Promise.resolve({

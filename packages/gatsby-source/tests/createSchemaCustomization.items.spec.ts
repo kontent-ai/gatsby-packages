@@ -26,6 +26,7 @@ describe('kontentItemsCreateSchemaCustomization', () => {
       languageCodenames: ['dummyLanguage'],
     });
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     mockedAxios.get.mockImplementation((url): Promise<any> => {
       if (url.endsWith('/types')) {
         return Promise.resolve({
@@ -63,6 +64,7 @@ describe('kontentItemsCreateSchemaCustomization', () => {
       languageCodenames: ['dummyLanguage'],
     });
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     mockedAxios.get.mockImplementation((url): Promise<any> => {
       if (url.endsWith('/types')) {
         return Promise.resolve({
