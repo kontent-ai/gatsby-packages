@@ -84,12 +84,12 @@ export const query = graphql`
 ### getGatsbyImageData
 
 In case you need image data for GatsbyImage component, you can use an exported function `getGatsbyImageData`.
- 
+
 > Showcase can be found in [article.js](../../site/src/pages/article.js) in the development site.
 
 ```ts
   const imageData = getGatsbyImageData({
-      image: avatar, 
+      image: avatar,
       width: 800,
       height: 200,
       backgroundColor:"#bbbbbb"
@@ -188,4 +188,3 @@ If you want to resolve elements via `resolveDomNode`, you get the following para
 
 - `domNode` - DOM node from [`html-react-parser`](https://www.npmjs.com/package/html-react-parser)
 - `domToReact` - method from [`html-react-parser`](https://www.npmjs.com/package/html-react-parser) to be able to extend the actual `domNode` as on the example
-
