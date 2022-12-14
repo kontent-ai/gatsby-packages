@@ -22,7 +22,7 @@ jobs:
         node-version-file: .nvmrc
         registry-url: https://registry.npmjs.org/
     - name: Install Dependencies and prepare packages
-      run: npm ci
+      run: npm ci --legacy-peer-deps
       env:
         CI: true
 
