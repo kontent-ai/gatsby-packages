@@ -143,3 +143,14 @@ interface KontentType extends NodeInput {
   };
   elements: KontentTypeElementsObject | KontentTypeElementArrayItem[];
 }
+
+interface KontentTypeItemObjectDefinition {
+  name: string;
+  fields: {
+    system: string;
+    elements?: string;
+    preferred_language: string;
+  };
+  interfaces: string[];
+  infer: boolean;
+}

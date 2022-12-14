@@ -505,7 +505,7 @@ The package is using [Jest](http://jest.org/) framework for testing.
 To run all tests, there is an npm script prepared.
 
 ```sh
-yarn test # run all tests in the repository
+npm run test # run all tests in the repository
 ```
 
 ## How to develop locally
@@ -513,7 +513,7 @@ yarn test # run all tests in the repository
 Use a [development site](../../site/README.md) in development mode. And start watch mode for this repository.
 
 ```sh
-yarn watch
+npm run watch
 ```
 
 > To run complete development environment, follow the [debug section the master readme](../../README.md#development)

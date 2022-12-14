@@ -14,8 +14,8 @@ A site used for development purposes and code examples showcasing packages possi
 
 ```sh
 # In the root folder
-yarn # install all required packages
-yarn build # build the latest version of the packages
+npm install # install all required packages
+npm run build # build the latest version of the packages
 
 ```
 
@@ -24,7 +24,7 @@ yarn build # build the latest version of the packages
 ```sh
 # open the /site folder
 cd site
-yarn develop # runs `gatsby develop` command
+npm run develop # runs `gatsby develop` command
 ```
 
 Now you could browse the site on <http://localhost:8000> and see GraphQL explorer on <http://localhost:8000/___graphql>.
@@ -34,7 +34,7 @@ Now you could browse the site on <http://localhost:8000> and see GraphQL explore
 ```sh
 # open the /site folder
 cd site
-yarn lint
+npm run lint
 ```
 
 ### Build site
@@ -42,7 +42,7 @@ yarn lint
 ```sh
 # open the /site folder
 cd site
-yarn build # runs `gatsby build` command
+npm run build # runs `gatsby build` command
 ```
 
 ## Examples

@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
-import parseHTML, { DomElement, domToReact } from 'html-react-parser';
+import parseHTML, { Element, domToReact } from 'html-react-parser';
 import { ImageItem } from '../image-element';
 
 const IMAGE_ID_ATTRIBUTE_IDENTIFIER = 'data-image-id';
@@ -17,20 +17,20 @@ interface Props {
   resolveDomNode?: Function;
 }
 
-const isLinkedItem = (domNode: DomElement): boolean =>
+const isLinkedItem = (domNode: Element): boolean =>
   domNode.name === 'object' &&
   domNode.attribs?.type === 'application/kenticocloud';
 
-const isImage = (domNode: DomElement): boolean =>
+const isImage = (domNode: Element): boolean =>
   domNode.name === 'figure' &&
   typeof domNode.attribs?.[IMAGE_ID_ATTRIBUTE_IDENTIFIER] !== 'undefined';
 
-const isLink = (domNode: DomElement): boolean =>
+const isLink = (domNode: Element): boolean =>
   domNode.name === 'a' &&
   typeof domNode.attribs?.[LINKED_ITEM_ID_ATTRIBUTE_IDENTIFIER] !== 'undefined';
 
 const replaceNode = (
-  domNode: DomElement,
+  domNode: Element,
   linkedItems: any[] | undefined,
   resolveLinkedItem: Function | undefined,
   images: any[] | undefined,
@@ -45,7 +45,7 @@ const replaceNode = (
       const linkedItem = linkedItems.find(
         item => item?.system?.codename === codeName,
       );
-      
+
       return resolveLinkedItem(linkedItem, domNode);
     }
   }
@@ -82,7 +82,7 @@ const RichTextElement = ({
   resolveDomNode,
 }: Props): JSX.Element => {
   const result = parseHTML(value, {
-    replace: (domNode: DomElement) =>
+    replace: (domNode: Element) =>
       replaceNode(
         domNode,
         linkedItems,

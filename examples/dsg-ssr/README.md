@@ -10,8 +10,8 @@ The following example sites are showcasing the possibilities of [Static Site Gen
 
 ```sh
 # In the root folder of this repo
-yarn # install all required packages
-yarn build # build the latest version of the local packages
+npm install # install all required packages
+npm run build # build the latest version of the local packages
 ```
 
 ### Develop site
@@ -19,7 +19,7 @@ yarn build # build the latest version of the local packages
 ```sh
 # open the /example/dsg-ssr folder
 cd examples/dsg-ssr
-yarn develop # runs `gatsby develop` command
+npm run develop # runs `gatsby develop` command
 ```
 
 Now you could browse the site on <http://localhost:8000> and see GraphiQL explorer on <http://localhost:8000/___graphql>.
@@ -51,7 +51,7 @@ Following features are described on simple real-life use cases.
 
 There are two listing-detail examples on the site that are able to display content based on the content type `Article`. The first listing is using the [Static Site Generation](https://v4.gatsbyjs.com/docs/how-to/rendering-options/using-deferred-static-generation/) feature and the second listing-detail showcase is using the [Server side Rendering](https://v4.gatsbyjs.com/docs/how-to/rendering-options/using-server-side-rendering/) feature.
 
-If you run `yarn run build:dsg-ssr` command in the root of this monorepo (after `yarn install` for installing all required dependencies) you will get this as a part of the output:
+If you run `npm run build:dsg-ssr` command in the root of this monorepo (after `npm install` for installing all required dependencies) you will get this as a part of the output:
 
 ```plain
 Pages
@@ -153,7 +153,7 @@ If you want to import content types with the sample content in your own empty pr
 1. Install [Kontent.ai Backup Manager](https://github.com/kontent-ai/backup-manager-js) and import data to newly created project from [`kontent-backup.zip`](./kontent-backup.zip) file (place appropriate values for `apiKey` and `projectId` arguments):
 
    ```sh
-   npm i -g @kontent-ai/backup-manager
+   npm install -g @kontent-ai/backup-manager
 
    kbm --action=restore --apiKey=<Management API key> --projectId=<Project ID> --zipFilename=kontent-backup
    ```
