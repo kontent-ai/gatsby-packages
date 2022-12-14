@@ -168,7 +168,7 @@ If you want to resolve images pass `images` and `resolveImage` properties.
 
 If you want to resolve links to other content items pass `links` and `resolveLink` properties.
 
-> All other links (web URL, email, asset link) are not resolved. If you could use this functionality, please submit a feature request.
+- All other links (web URL, email, asset link) are not resolved. If you could use this functionality, please submit a feature request.
 
 - `links` **have to contain at least `link_id` property**
 - `resolveLink` has two parameter `link` basically containing one record from `links` array and `domNode` dome link element that could be used for i.e. getting the inner text of the current link `domNode.children[0].data`.

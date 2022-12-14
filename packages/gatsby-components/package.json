@@ -46,6 +46,7 @@
     "@typescript-eslint/parser": "2.16.0",
     "eslint": "6.8.0",
     "eslint-plugin-react": "^7.27.1",
+    "gatsby-cli": "^4.25.0",
     "gatsby-plugin-image": "^2.0.0",
     "jest": "^24.9.0",
     "jest-ts-auto-mock": "^1.0.11",
@@ -64,5 +65,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "gitHead": "97d85fa854863be5ab7a144264712ef916080c45"
+  "gitHead": "ca49a3a8320372f3f434a4bda5df60e1884df081"
 }
