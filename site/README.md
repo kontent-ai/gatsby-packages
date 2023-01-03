@@ -64,7 +64,8 @@ See [/examples/relationships](../examples/relationships#readme) to see how it is
 ### Image transformation
 
 There are various ways to render an image on your site.
-The best solution is to use [Kontent.ai Image transformation API](https://docs.kontent.ai/reference/image-transformation) API for simple scenarios and [ImageElement](../packages/gatsby-components#readme) for more complex ones, because it allows to use full power of [gatsby-plugin-image](https://www.gatsbyjs.com/plugins/gatsby-plugin-image/) support.
+
+The best solution is to use [Kontent.ai Image transformation API](https://docs.kontent.ai/reference/image-transformation) (optionally with [Asset Renditions](https://kontent.ai/learn/tutorials/develop-apps/get-content/customized-images)) for simple scenarios and [ImageElement](../packages/gatsby-components#readme) for more complex ones, because it allows to use full power of [gatsby-plugin-image](https://www.gatsbyjs.com/plugins/gatsby-plugin-image/) support.
 
 > See the ["author page"](./src/pages/author.js) as a showcase, how you could render the profile photo different way ([live preview](https://kontent-gatsby-packages.netlify.app/author)).
 

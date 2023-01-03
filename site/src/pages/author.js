@@ -109,12 +109,37 @@ const Author = ({ data }) => {
               Kontent.ai Image transformation API
             </a>{" "}
             and{" "}
-            <a href="https://github.com/kontent-ai/gatsby-packages/tree/master/packages/gatsby-components">
+            <a href="https://www.npmjs.com/package/@kontent-ai/delivery-sdk">
               Delivery SDK
             </a>{" "}
             for query string construction.
           </p>
         </section>
+
+
+
+        {avatar.renditions &&
+
+          <section style={{ padding: "1em", maxWidth: showcaseWidth }}>
+            <img
+              src={avatar.url + '?' + avatar.renditions.default.query}
+              alt={avatar.description || "Author avatar image"}
+              width={avatar.renditions.default.width}
+            />
+            <p>
+              Showcase using{" "}
+              <a href="https://docs.kontent.ai/reference/image-transformation">
+                Kontent.ai Image transformation API
+              </a>{" "}
+              and{" "}
+              <a href="https://kontent.ai/learn/tutorials/develop-apps/get-content/customized-images/">
+                Asset Renditions
+              </a>{" "}
+              for query string construction.
+            </p>
+          </section>
+        }
+
       </article>
     </>
   )
@@ -134,6 +159,11 @@ export const query = graphql`
             height
             description
             type
+            renditions {
+              default {
+                query
+              }
+            }
           }
         }
       }
