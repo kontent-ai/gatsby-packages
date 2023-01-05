@@ -403,6 +403,8 @@ query ArticleQueries {
 }
 ```
 
+> To see an example, how you can query an asset element (mainly image assets), check out the [Development site example](../../site/README.md).
+
 ### Querying Types
 
 To query content types it is required to opt-in this in plugin configuration by using `includeTypes` option in the [configuration.](#Available-options).
