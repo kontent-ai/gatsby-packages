@@ -333,6 +333,7 @@ Array [
 <p>Enjoy!</p>",
       },
       "date": Object {
+        "display_timezone": "Europe/Warsaw",
         "name": "Date",
         "type": "date_time",
         "value": "2020-07-31T00:00:00Z",
@@ -355,7 +356,7 @@ Array [
     },
     "id": "dummyId-kontent_item_en-US_5927f3d3-4fcb-4e2c-8d12-a2954339a87d",
     "internal": Object {
-      "contentDigest": "71f32c5c590359ba36456c011e34432b",
+      "contentDigest": "74f57c1c19b4949467e8c06606f52bfd",
       "type": "kontent_item_article",
     },
     "preferred_language": "en-US",

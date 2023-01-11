@@ -53,6 +53,7 @@ type __KONTENT_ITEM_DATE_TIME_ELEMENT__ {
   name: String!
   type: String!
   value: Date @dateformat
+  display_timezone: String
 }
 
 type __KONTENT_ITEM_ASSET_ELEMENT__ {

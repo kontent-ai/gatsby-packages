@@ -483,6 +483,7 @@ Currently I am interested in Gatsby.js. I have released the third version of Gat
         "value": null,
       },
       "date_of_birth": Object {
+        "display_timezone": "Europe/Warsaw",
         "name": "Date of Birth",
         "type": "date_time",
         "value": "1991-07-24T00:00:00Z",
@@ -546,7 +547,7 @@ Currently I am interested in Gatsby.js. I have released the third version of Gat
     },
     "id": "dummyId-kontent_item_default_d72eea98-774f-48fc-b52a-7ebc51271855",
     "internal": Object {
-      "contentDigest": "9185dc537778af5d21f6a315b278bc13",
+      "contentDigest": "c5db71ff30695d3cebd3d30df7483648",
       "type": "kontent_item_person",
     },
     "preferred_language": "default",
@@ -1289,6 +1290,7 @@ GraphQL nodes of content items contain the ordinary \`system\` and \`elements\` 
         "value": "#1b058b",
       },
       "date_of_birth": Object {
+        "display_timezone": "Europe/Warsaw",
         "name": "Date of Birth",
         "type": "date_time",
         "value": "2020-03-19T00:00:00Z",
@@ -1341,7 +1343,7 @@ GraphQL nodes of content items contain the ordinary \`system\` and \`elements\` 
     },
     "id": "dummyId-kontent_item_Another_language_fbac9baf-441c-446e-a300-e31f171c26de",
     "internal": Object {
-      "contentDigest": "3f09258a316d1e073bd3ad284ee7349d",
+      "contentDigest": "2cc0f19864b1d3c08d190855f3dd3488",
       "type": "kontent_item_person",
     },
     "preferred_language": "Another_language",
@@ -1424,6 +1426,7 @@ Currently I am interested in Gatsby.js. I have released the third version of Gat
         "value": null,
       },
       "date_of_birth": Object {
+        "display_timezone": "Europe/Warsaw",
         "name": "Date of Birth",
         "type": "date_time",
         "value": "1991-07-24T00:00:00Z",
@@ -1476,7 +1479,7 @@ Currently I am interested in Gatsby.js. I have released the third version of Gat
     },
     "id": "dummyId-kontent_item_Another_language_d72eea98-774f-48fc-b52a-7ebc51271855",
     "internal": Object {
-      "contentDigest": "08de6110ee37e59a0f57cef3417eb7ad",
+      "contentDigest": "8075b6d655556337324e91604a1b036f",
       "type": "kontent_item_person",
     },
     "preferred_language": "Another_language",

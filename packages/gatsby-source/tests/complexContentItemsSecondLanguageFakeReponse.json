@@ -331,7 +331,8 @@
         "date_of_birth": {
           "type": "date_time",
           "name": "Date of Birth",
-          "value": "2020-03-19T00:00:00Z"
+          "value": "2020-03-19T00:00:00Z",
+          "display_timezone": "Europe/Warsaw"
         },
         "profile_photo": {
           "type": "asset",
@@ -422,7 +423,8 @@
         "date_of_birth": {
           "type": "date_time",
           "name": "Date of Birth",
-          "value": "1991-07-24T00:00:00Z"
+          "value": "1991-07-24T00:00:00Z",
+          "display_timezone": "Europe/Warsaw"
         },
         "profile_photo": {
           "type": "asset",
