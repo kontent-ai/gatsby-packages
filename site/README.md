@@ -69,6 +69,10 @@ The best solution is to use [Kontent.ai Image transformation API](https://docs.k
 
 > See the ["author page"](./src/pages/author.js) as a showcase, how you could render the profile photo different way ([live preview](https://kontent-gatsby-packages.netlify.app/author)).
 
+## Timezone
+
+If you want to see how to fetch the timezone information, see the See the ["articles page"](./src/pages/articles.js).
+
 ---
 
 Based on [official Gatsby Hello World starter](https://github.com/gatsbyjs/gatsby-starter-hello-world).
