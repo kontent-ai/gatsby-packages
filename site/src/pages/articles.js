@@ -14,11 +14,12 @@ const Articles = (props) => {
         ));
 
         return (<div style={{ padding: ".5em", margin: ".5em", background: "silver" }}>
+          <div><strong>({variant.preferred_language}{variant.preferred_language !== variant.system.language ? ` -> ${variant.system.language}` : null})</strong></div>
+          <div><i>Date:</i> {variant.elements.date.value}{variant.elements.date.display_timezone && ` (${variant.elements.date.display_timezone})`}</div>
           <div>
-            <strong>({variant.preferred_language}{variant.preferred_language !== variant.system.language ? ` -> ${variant.system.language}` : null})</strong>
-              Title: {variant.elements.title.value}
+            <i>Title:</i> {variant.elements.title.value}
           </div>
-          <div>Description: {variant.elements.description.value}</div>
+          <div><i>Description:</i> {variant.elements.description.value}</div>
           <div style={{ padding: "0.5em", display: "flex", flexWrap: "wrap" }}>{tags}</div>
         </div>
         )
@@ -59,6 +60,10 @@ export const query = graphql`
         elements {
           title {
             value
+          }
+          date {
+            value
+            display_timezone
           }
           description {
             value
