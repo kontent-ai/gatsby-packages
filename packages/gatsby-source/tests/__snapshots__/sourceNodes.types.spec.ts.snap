@@ -67,13 +67,14 @@ Array [
       },
       Object {
         "codename": "date_of_birth",
+        "display_timezone": "Europe/Warsaw",
         "name": "Date of Birth",
         "type": "date_time",
       },
     ],
     "id": "dummyId-kontent_type_person",
     "internal": Object {
-      "contentDigest": "358dfd89e48ae7c223d32a3943f343af",
+      "contentDigest": "a0653eafc4c6dc5fb5c0b8d5e54e079c",
       "type": "kontent_type",
     },
     "system": Object {

@@ -70,6 +70,7 @@ type kontent_item_date_time_element_value {
   name: String!
   type: String!
   value: Date @dateformat
+  display_timezone: String
 }
 
 type kontent_item_asset_element_value {

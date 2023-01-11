@@ -37,6 +37,7 @@ interface KontentItemElement {
   images: { [key: string]: RichTextElementImage } | RichTextElementImage[];
   links: { [key: string]: RichTextElementLink } | RichTextElementLink[];
   modular_content: string[];
+  display_timezone?: string;
 }
 
 interface AssetElementValue {
