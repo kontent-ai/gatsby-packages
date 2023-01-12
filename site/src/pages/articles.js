@@ -43,9 +43,9 @@ const Articles = (props) => {
 
 export const query = graphql`
 {
-  allKontentItemArticle(sort: {order: DESC, fields: system___last_modified}) {
+  allKontentItemArticle(sort: {system: {last_modified: DESC}}) {
     totalCount
-    group(field: system___id) {
+    group(field: {system: {id: SELECT}}) {
       nodes {
         id
         preferred_language
