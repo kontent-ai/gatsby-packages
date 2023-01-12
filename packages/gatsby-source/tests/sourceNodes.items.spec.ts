@@ -9,7 +9,7 @@ import complexContentItemsFirstLanguageFakeReponse from './complexContentItemsFi
 import * as complexContentItemsSecondLanguageFakeReponse from './complexContentItemsSecondLanguageFakeReponse.json';
 
 import axios from 'axios';
-import { mocked } from 'ts-jest/dist/util/testing';
+import { jest } from '@jest/globals';
 import * as _ from 'lodash';
 
 jest.mock('axios');
@@ -20,7 +20,7 @@ describe('kontentItemsSourceNodes', () => {
     const api = createMock<SourceNodesArgs>({
       createNodeId: jest.fn(input => `dummyId-${input}`),
       actions: createMock<Actions>({
-        createNode: jest.fn(),
+        createNode: jest.fn(() => Promise.resolve()),
       }),
       createContentDigest,
     });
@@ -30,7 +30,8 @@ describe('kontentItemsSourceNodes', () => {
       languageCodenames: ['default', 'Another_language'],
     });
 
-    mockedAxios.get.mockImplementation(url => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    mockedAxios.get.mockImplementation((url): Promise<any> => {
       if (url.includes('default')) {
         return Promise.resolve({
           data: complexContentItemsFirstLanguageFakeReponse,
@@ -48,7 +49,7 @@ describe('kontentItemsSourceNodes', () => {
 
     it('resolve all element types in two languages', async () => {
       await kontentItemsSourceNodes(api, pluginConfiguration);
-      const createNodesMock = mocked(api.actions.createNode, true);
+      const createNodesMock = jest.mocked(api.actions.createNode);
       const createdNodes = _.flatMap(
         createNodesMock.mock.calls,
       ) as KontentItem[];

@@ -10,10 +10,11 @@ const Articles = (props) => {
       .map(variant => {
 
         const tags = variant.elements.tags.value.map(tag => (
-          <div style={{ padding: ".2em", margin: ".3em", background: "cyan" }}>{tag.elements.title.value}</div>
+          <div key={tag.id} style={{ padding: ".2em", margin: ".3em", background: "cyan" }}>{tag.elements.title.value}</div>
         ));
 
-        return (<div style={{ padding: ".5em", margin: ".5em", background: "silver" }}>
+
+        return (<div key={variant.id} style={{ padding: ".5em", margin: ".5em", background: "silver" }}>
           <div><strong>({variant.preferred_language}{variant.preferred_language !== variant.system.language ? ` -> ${variant.system.language}` : null})</strong></div>
           <div><i>Date:</i> {variant.elements.date.value}{variant.elements.date.display_timezone && ` (${variant.elements.date.display_timezone})`}</div>
           <div>
@@ -25,7 +26,7 @@ const Articles = (props) => {
         )
       });
     return (
-      <article style={{ width: "350px", padding: "1em", margin: "0.3em", border: "solid 1px" }}>
+      <article key={articleItem.nodes[0].id} style={{ width: "350px", padding: "1em", margin: "0.3em", border: "solid 1px" }}>
         Article:
         <ul>
           <li>Node ID: {articleItem.nodes[0].id}</li>
@@ -43,9 +44,9 @@ const Articles = (props) => {
 
 export const query = graphql`
 {
-  allKontentItemArticle(sort: {order: DESC, fields: system___last_modified}) {
+  allKontentItemArticle(sort: {system: {last_modified: DESC}}) {
     totalCount
-    group(field: system___id) {
+    group(field: {system: {id: SELECT}}) {
       nodes {
         id
         preferred_language

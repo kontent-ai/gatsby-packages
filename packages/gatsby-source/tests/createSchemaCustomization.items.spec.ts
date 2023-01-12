@@ -5,7 +5,7 @@ import {
 import { kontentItemsCreateSchemaCustomization } from '../src/createSchemaCustomization.items';
 import { createMock } from 'ts-auto-mock';
 import { Actions } from 'gatsby';
-import { mocked } from 'ts-jest/dist/util/testing';
+import { jest } from '@jest/globals';
 import axios from 'axios';
 jest.mock('axios');
 const mockedAxios = axios as jest.Mocked<typeof axios>;
@@ -26,7 +26,8 @@ describe('kontentItemsCreateSchemaCustomization', () => {
       languageCodenames: ['dummyLanguage'],
     });
 
-    mockedAxios.get.mockImplementation(url => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    mockedAxios.get.mockImplementation((url): Promise<any> => {
       if (url.endsWith('/types')) {
         return Promise.resolve({
           data: fakeEmptyTypesResponse,
@@ -39,8 +40,9 @@ describe('kontentItemsCreateSchemaCustomization', () => {
       }
     });
 
+
     await kontentItemsCreateSchemaCustomization(api, pluginConfiguration);
-    const createTypesMock: jest.Mock = mocked(api.actions.createTypes, true);
+    const createTypesMock = jest.mocked(api.actions.createTypes);
     expect(createTypesMock).toBeCalled();
     // Fix schema
     expect(createTypesMock.mock.calls[0][0]).toMatchSnapshot();
@@ -62,7 +64,8 @@ describe('kontentItemsCreateSchemaCustomization', () => {
       languageCodenames: ['dummyLanguage'],
     });
 
-    mockedAxios.get.mockImplementation(url => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    mockedAxios.get.mockImplementation((url): Promise<any> => {
       if (url.endsWith('/types')) {
         return Promise.resolve({
           data: fakeEmptyElementsTypesResponse,
@@ -77,8 +80,8 @@ describe('kontentItemsCreateSchemaCustomization', () => {
 
 
     await kontentItemsCreateSchemaCustomization(api, pluginConfiguration);
-    const createTypesMock = mocked(api.actions.createTypes, true);
-    const buildObjectTypeMock = mocked(api.schema.buildObjectType, true);
+    const createTypesMock = jest.mocked(api.actions.createTypes);
+    const buildObjectTypeMock = jest.mocked(api.schema.buildObjectType);
     expect(createTypesMock).toBeCalledTimes(2);
     expect(buildObjectTypeMock).toBeCalledTimes(1);
     expect((buildObjectTypeMock.mock.calls[0][0].fields as Record<string, unknown>).system).toBeTruthy();

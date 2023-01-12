@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`kontentItemsCreateSchemaCustomization Empty element type does not fail 1`] = `
-Object {
-  "fields": Object {
+{
+  "fields": {
     "preferred_language": "String!",
     "system": "kontent_item_system!",
   },
   "infer": false,
-  "interfaces": Array [
+  "interfaces": [
     "Node",
     "kontent_item",
   ],
