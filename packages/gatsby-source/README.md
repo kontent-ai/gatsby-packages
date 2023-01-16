@@ -6,8 +6,6 @@
 [![npm version](https://badge.fury.io/js/@kontent-ai%2Fgatsby-source.svg)](https://badge.fury.io/js/@kontent-ai%2Fgatsby-source)
 [![npm](https://img.shields.io/npm/dt/@kontent-ai%2Fgatsby-source.svg)](https://www.npmjs.com/package/@kontent-ai/gatsby-source)
 
-> To see the progress of the Gatsby v5 supported packages - [check out this pull request](https://github.com/kontent-ai/gatsby-packages/pull/222).
-
 ## Description
 
 Source plugin for Kontent.ai REST Delivery API.
