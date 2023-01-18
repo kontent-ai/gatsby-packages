@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Slice } from "gatsby"
 
 const Articles = (props) => {
   const { data } = props;
@@ -39,7 +39,14 @@ const Articles = (props) => {
       </article>
     );
   });
-  return <div style={{ display: "flex", flexWrap: "wrap" }}>{articles}</div>
+  return (
+    <>
+    <div style={{ display: "flex", flexWrap: "wrap" }}>
+      {articles}
+    </div>
+    <Slice alias="footer"></Slice>
+    </>
+  )
 }
 
 export const query = graphql`

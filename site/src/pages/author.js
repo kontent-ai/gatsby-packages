@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Slice } from "gatsby"
 import { stringify } from "qs"
 import { ImageElement, getGatsbyImageData } from "@kontent-ai/gatsby-components"
 import { ImageUrlTransformationBuilder } from "@kontent-ai/delivery-sdk"
@@ -141,6 +141,7 @@ const Author = ({ data }) => {
         }
 
       </article>
+      <Slice alias="footer"></Slice>
     </>
   )
 }
