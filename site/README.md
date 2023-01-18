@@ -73,6 +73,10 @@ The best solution is to use [Kontent.ai Image transformation API](https://docs.k
 
 If you want to see how to fetch the timezone information, see the See the ["articles page"](./src/pages/articles.js).
 
+## Slice API
+
+This site is showcasing the feature Slice API. To gain more information about this feature, follow [this link](https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-slice/). If you want to see the implementation used on this site look at the slice definition in [gatsby-node.js](./gatsby-node.js) and the component [footer.js](./src/components/footer.js) .
+
 ---
 
 Based on [official Gatsby Hello World starter](https://github.com/gatsbyjs/gatsby-starter-hello-world).
