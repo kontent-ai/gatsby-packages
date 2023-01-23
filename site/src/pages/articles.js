@@ -1,5 +1,6 @@
 import React from "react"
-import { graphql, Slice } from "gatsby"
+import { graphql } from "gatsby"
+import { Layout } from "../components/layout";
 
 const Articles = (props) => {
   const { data } = props;
@@ -40,12 +41,11 @@ const Articles = (props) => {
     );
   });
   return (
-    <>
-    <div style={{ display: "flex", flexWrap: "wrap" }}>
-      {articles}
-    </div>
-    <Slice alias="footer"></Slice>
-    </>
+    <Layout>
+      <div style={{ display: "flex", flexWrap: "wrap" }}>
+        {articles}
+      </div>
+    </Layout>
   )
 }
 

@@ -1,8 +1,9 @@
 import React from "react"
-import { graphql, Slice } from "gatsby"
+import { graphql } from "gatsby"
 import { stringify } from "qs"
 import { ImageElement, getGatsbyImageData } from "@kontent-ai/gatsby-components"
 import { ImageUrlTransformationBuilder } from "@kontent-ai/delivery-sdk"
+import { Layout } from "../components/layout"
 
 const Author = ({ data }) => {
   if (!data.author.elements.avatar_image.value.length) {
@@ -39,7 +40,7 @@ const Author = ({ data }) => {
   const imageGatsbyData = getGatsbyImageData(imageData)
 
   return (
-    <>
+    <Layout>
       <header>
         <h1>{data.author.elements.name.value}</h1>
       </header>
@@ -141,8 +142,7 @@ const Author = ({ data }) => {
         }
 
       </article>
-      <Slice alias="footer"></Slice>
-    </>
+    </Layout>
   )
 }
 

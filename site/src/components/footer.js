@@ -1,14 +1,16 @@
 import React from "react";
 import { graphql } from 'gatsby';
 
-const Footer = ({data}) => {
-    return (
-    <footer style={{"padding-top": "16px"}}>
-        <p>This footer is created using Slice API</p> 
-        <p>Author: {data.author.elements.name.value}</p>
+const Footer = ({ data }) => {
+  return (
+    <footer style={{ paddingTop: "16px" }}>
+      <p>This footer is created using Slice API</p>
+      <p>Author: {data.author.elements.name.value}</p>
     </footer>
-    )
+  )
 }
+
+export default Footer
 
 export const query = graphql`
 {
@@ -21,7 +23,3 @@ export const query = graphql`
     }
 }
 `
-
-
-
-export default Footer
