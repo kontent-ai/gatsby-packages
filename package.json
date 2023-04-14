@@ -24,6 +24,7 @@
     "lint:fix": "npm run lint --workspaces -- --fix",
     "test": "npm run test --workspaces",
     "clean:site": "npm run clean --workspace=@kontent-ai/gatsby-starter-kontent-hello-world",
+    "clean:resolution": "npm run clean --workspace=@kontent-ai/gatsby-example-resolution",
     "build": "npm run build --workspaces",
     "build:source": "npm run build --workspace=@kontent-ai/gatsby-source",
     "build:components": "npm run build --workspace=@kontent-ai/gatsby-components ",

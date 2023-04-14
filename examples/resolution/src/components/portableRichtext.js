@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from "gatsby"
 import { toPlainText, PortableText } from '@portabletext/react';
-import { browserParse, resolveTable, transformToPortableText } from '@pokornyd/kontent-ai-rich-text-parser';
+import { nodeParse, resolveTable, transformToPortableText } from '@pokornyd/kontent-ai-rich-text-parser';
 import { resolveUrl } from "../utils/resolvers"
 import Website from '../components/website'
 import Repository from '../components/repository'
@@ -71,7 +71,8 @@ const PortableRichText = ({ value, images, links, linkedItems }) => {
     }
   }
 
-  const parsedTree = browserParse(value);
+  // TODO add automatic distinguish
+  const parsedTree = nodeParse(value);
   const portableText = transformToPortableText(parsedTree);
 
 
