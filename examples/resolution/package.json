@@ -15,6 +15,8 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 0"
   },
   "dependencies": {
+    "@pokornyd/kontent-ai-rich-text-parser": "^0.1.8",
+    "@portabletext/react": "^2.0.2",
     "gatsby": "^5.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
@@ -22,8 +24,8 @@
   "devDependencies": {
     "cross-env": "^7.0.3",
     "eslint": "^8.29.0",
-    "prettier": "2.0.5",
-    "eslint-config-react-app": "^7.0.1"
+    "eslint-config-react-app": "^7.0.1",
+    "prettier": "2.0.5"
   },
   "repository": {
     "type": "git",

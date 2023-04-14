@@ -1,9 +1,10 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
-import { RichTextElement } from "@kontent-ai/gatsby-components"
+// import { RichTextElement } from "@kontent-ai/gatsby-components"
 import { resolveUrl } from "../utils/resolvers"
 import Website from '../components/website'
 import Repository from '../components/repository'
+import PortableRichText from "../components/portableRichtext"
 
 const Person = ({ data }) => {
 
@@ -17,7 +18,13 @@ const Person = ({ data }) => {
       </header>
       <section>
         <h2>{person.elements.bio.name}</h2>
-        <RichTextElement
+        <PortableRichText
+          value={bio.value}
+          images={bio.images}
+          links={bio.links}
+          linkedItems={bio.modular_content}
+          />
+        {/* <RichTextElement
           value={bio.value}
           images={bio.images}
           links={bio.links}
@@ -61,7 +68,7 @@ const Person = ({ data }) => {
                 break;
             }
           }}
-        />
+        /> */}
       </section>
     </div>
   );
