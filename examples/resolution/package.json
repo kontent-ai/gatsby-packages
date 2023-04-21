@@ -15,7 +15,7 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 0"
   },
   "dependencies": {
-    "@pokornyd/kontent-ai-rich-text-parser": "^0.1.8",
+    "@kontent-ai/rich-text-resolver": "^0.0.2",
     "@portabletext/react": "^2.0.2",
     "gatsby": "^5.2.0",
     "react": "^18.2.0",

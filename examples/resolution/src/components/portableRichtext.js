@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from "gatsby"
 import { toPlainText, PortableText } from '@portabletext/react';
-import { nodeParse, resolveTable, transformToPortableText } from '@pokornyd/kontent-ai-rich-text-parser';
+import { nodeParse, resolveTable, transformToPortableText } from '@kontent-ai/rich-text-resolver';
 import { resolveUrl } from "../utils/resolvers"
 import Website from '../components/website'
 import Repository from '../components/repository'
