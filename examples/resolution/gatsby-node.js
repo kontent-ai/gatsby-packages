@@ -95,19 +95,3 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   });
 }
-
-// https://www.gatsbyjs.com/docs/debugging-html-builds/#fixing-third-party-modules
-exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
-  if (stage === "build-html" || stage === "develop-html") {
-    actions.setWebpackConfig({
-      module: {
-        rules: [
-          {
-            test: /rich-text-browser-parser/,
-            use: loaders.null(),
-          },
-        ],
-      },
-    })
-  }
-}
