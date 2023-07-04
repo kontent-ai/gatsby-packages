@@ -10,7 +10,7 @@
 
 Source plugin for Kontent.ai REST Delivery API.
 
-This repo contains a [Gatsby (v4) source plugin](https://www.gatsbyjs.org/docs/recipes/sourcing-data) that retrieves data from the [Kontent.ai](https://kontent.ai) REST Delivery API.
+This repo contains a [Gatsby source plugin](https://www.gatsbyjs.org/docs/recipes/sourcing-data) that retrieves data from the [Kontent.ai](https://kontent.ai) REST Delivery API.
 
 ## How to install
 
