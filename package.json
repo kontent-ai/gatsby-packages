@@ -51,9 +51,5 @@
   "devDependencies": {
     "lerna": "^7.1.1",
     "npm-run-all": "^4.1.2"
-  },
-  "dependencies": {
-    "eslint": "8.44.0",
-    "eslint-plugin-react": "7.25.3"
   }
 }
