@@ -49,7 +49,11 @@
     "set:version": "export LERNA_VERSION=\"$(node -e \"require('./lerna.json').version\")\""
   },
   "devDependencies": {
-    "lerna": "^6.4.0",
-    "npm-run-all": "^4.1.5"
+    "lerna": "^7.1.1",
+    "npm-run-all": "^4.1.2"
+  },
+  "dependencies": {
+    "eslint": "8.44.0",
+    "eslint-plugin-react": "7.25.3"
   }
 }
