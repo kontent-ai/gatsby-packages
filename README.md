@@ -1,5 +1,10 @@
 # Gatsby Kontent.ai Packages
 
+>[!WARNING]
+>This repository is archived and no longer maintained.
+>
+>The packages and examples in this repository are deprecated and will not receive further updates, bug fixes, or security patches. Existing users may continue using them at their own risk, but we recommend against using them for new projects.
+
 ![build](https://github.com/kontent-ai/gatsby-packages/actions/workflows/build.yml/badge.svg)
 [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org/)
 
