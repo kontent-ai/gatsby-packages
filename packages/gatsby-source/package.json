@@ -35,7 +35,7 @@
   "dependencies": {
     "@kontent-ai/webhook-helper": "^2.0.1",
     "@types/fs-extra": "^8.0.1",
-    "axios": "^0.21.1",
+    "axios": "^1.6.0",
     "fs-extra": "^8.1.0",
     "lodash": "^4.17.15",
     "retry-axios": "^2.4.0"
